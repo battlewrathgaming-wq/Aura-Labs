@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aura Lab</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="frame-chrome">
+      <div class="frame-drag-region">
+        <span>Aura Lab</span>
+      </div>
+      <nav class="frame-controls" aria-label="Window controls">
+        <button class="frame-button" type="button" id="pin-window" title="Toggle always on top" aria-label="Toggle always on top">Pin</button>
+        <button class="frame-button" type="button" id="minimize-window" title="Minimize" aria-label="Minimize">_</button>
+        <button class="frame-button danger" type="button" id="close-window" title="Close" aria-label="Close">X</button>
+      </nav>
+    </header>
+    <main class="shell">
+      <section class="briefing" aria-labelledby="briefing-title">
+        <div class="briefing-head">
+          <div>
+            <p class="eyebrow">Aura Lab briefing</p>
+            <div class="action-posture" id="action-posture">
+              <span id="action-posture-label">Reading project state</span>
+              <small id="action-posture-detail">Checking current packet posture.</small>
+            </div>
+            <h1 id="briefing-title">Reading project state</h1>
+            <p class="summary" id="briefing-summary">Reading project state through the local service bridge.</p>
+          </div>
+          <div class="bridge-state" data-status="loading">
+            <span id="view-status">Loading</span>
+            <small id="freshness">Last read pending</small>
+          </div>
+        </div>
+        <div class="trust-strip">
+          <div>
+            <span class="label">Certainty</span>
+            <strong id="certainty">Reported by bridge</strong>
+          </div>
+          <div>
+            <span class="label">Sources</span>
+            <strong id="sources">Pending</strong>
+          </div>
+        </div>
+        <section class="attention-panel" aria-labelledby="attention-title">
+          <div class="attention-head">
+            <h2 id="attention-title">Needs Attention</h2>
+            <span id="attention-count">Reading</span>
+          </div>
+          <ul id="attention-list" class="attention-list">
+            <li>Reading project attention items.</li>
+          </ul>
+        </section>
+        <dl class="briefing-grid" id="briefing-grid">
+          <div>
+            <dt>Project</dt>
+            <dd data-field="project_name">Reading</dd>
+          </div>
+          <div>
+            <dt>Active milestone</dt>
+            <dd data-field="active_milestone">Reading</dd>
+          </div>
+          <div>
+            <dt>Current packet</dt>
+            <dd data-field="current_packet_path">Reading</dd>
+          </div>
+          <div>
+            <dt>Executor</dt>
+            <dd data-field="current_executor">Reading</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd data-field="current_focus">Reading</dd>
+          </div>
+          <div>
+            <dt>Expected output</dt>
+            <dd data-field="expected_output">Reading</dd>
+          </div>
+          <div>
+            <dt>Previous handshake</dt>
+            <dd data-field="previous_accepted_handshake">Reading</dd>
+          </div>
+          <div>
+            <dt>Sequence</dt>
+            <dd data-field="sequence">Reading</dd>
+          </div>
+        </dl>
+        <div class="test-mode-bar" aria-label="Bridge test mode controls">
+          <label for="briefing-mode">Bridge test mode</label>
+          <select id="briefing-mode" name="briefing-mode">
+            <option value="normal">Normal</option>
+          </select>
+          <span id="briefing-mode-note">Development-only UI state preview</span>
+        </div>
+      </section>
+      <section class="panel compact diagnostics" aria-label="Secondary bridge diagnostics">
+        <h2>Bridge Diagnostics</h2>
+        <dl class="status-grid">
+          <div>
+            <dt>Runtime</dt>
+            <dd id="health">Checking</dd>
+          </div>
+          <div>
+            <dt>Commands</dt>
+            <dd id="commands">0</dd>
+          </div>
+        </dl>
+      </section>
+      <section class="panel compact service-diagnostics">
+        <h2>Registered Services</h2>
+        <ul id="service-list" class="service-list"></ul>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
