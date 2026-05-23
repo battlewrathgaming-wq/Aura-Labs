@@ -60,6 +60,7 @@ Latest accepted handshake: workspace/complete/milestone-M02/OverseerHS20-m02-clo
 Active advisory handshakes:
 
 - `workspace/UIUXHS16-open-source-presentation-models.md`
+- `workspace/UIUXHS21-visual-concept-milestone-recommendation.md`
 
 Completed milestone handshakes:
 
