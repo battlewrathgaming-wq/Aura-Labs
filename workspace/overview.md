@@ -7,7 +7,7 @@ Last reviewed: 2026-05-24
 
 Aura Lab is a light Aura workspace for shaping portable post-bridge display mapping and presentation tooling.
 
-It should use the inherited Aura Core scaffold lightly while proving whether bridge-shaped data can be rendered into the desired desktop style across real/fixture data, empty/loading states, stale or failed bridge states, partial certainty, long text, narrow layouts, and clear trust/certainty language.
+It should use the inherited Aura Core scaffold lightly while proving whether bridge-shaped data can be rendered into the desired desktop style across real/fixture data, empty/loading states, stale or failed bridge states, partial readout basis, long text, narrow layouts, and clear source/freshness/basis language.
 
 Aura Lab does not primarily own what each Aura product presents. It owns the Lab proving bench for everything past the bridge: display mapping, state grammar, typography, containment, shell verification, and visual smoke evidence.
 
@@ -42,12 +42,12 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 
 ## Current Direction
 
-Active milestone: M15 - Post-M14 Presentation Quality And Naming Review
-Last completed milestone: M14 - Readout Basis And Smoke Honesty Corrections
-Roadmap source: Parked naming decisions after M14 acceptance
+Active milestone: M16 - Readout Naming Polish
+Last completed milestone: M15 - Post-M14 Presentation Quality And Naming Review
+Roadmap source: Accepted `workspace/UIUXHS56-post-m14-presentation-quality-and-naming-review.md`
 Current packet: `workspace/current.md`
-Current sequence: HS56
-Latest accepted handshake: workspace/OverseerHS56-m15-uiux-runway.md
+Current sequence: HS57
+Latest accepted handshake: workspace/OverseerHS57-m15-acceptance-m16-runway.md
 
 ## Durable Record Index
 
@@ -91,7 +91,8 @@ Latest accepted handshake: workspace/OverseerHS56-m15-uiux-runway.md
 
 Active milestone handshakes:
 
-- `workspace/OverseerHS56-m15-uiux-runway.md`
+- `workspace/UIUXHS56-post-m14-presentation-quality-and-naming-review.md`
+- `workspace/OverseerHS57-m15-acceptance-m16-runway.md`
 
 Accepted authority records:
 

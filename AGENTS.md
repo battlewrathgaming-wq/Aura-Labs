@@ -20,7 +20,7 @@ Prioritize:
 
 - visible HTML/CSS/JS presentation features
 - calm information display
-- meaningful source, freshness, certainty, and state treatment
+- meaningful source, freshness, readout-basis, and state treatment
 - responsive presentation behavior where it improves clarity
 - portable module patterns that can later be reviewed by target projects
 
@@ -62,7 +62,7 @@ Prompt requests:
 If the human asks for "a prompt," treat it as chat-only by default. Do not create or save a prompt artifact unless the human explicitly asks for a file or `workspace/current.md` requires one.
 
 Critical terms and assets:
-When work touches terminology, bridge-fed presentation, source/freshness/certainty language, interface labels, payload interpretation, or critical UI modules, read `workspace/critical/README.md`, `workspace/critical/critical-terms.md`, and `workspace/critical/critical-assets.md`.
+When work touches terminology, bridge-fed presentation, source/freshness/basis language, interface labels, payload interpretation, or critical UI modules, read `workspace/critical/README.md`, `workspace/critical/critical-terms.md`, and `workspace/critical/critical-assets.md`.
 
 Lab owns Bridge -> Interface presentation language for humans. Lab should use its own product-agnostic vocabulary for Lab-owned default copy. Lab must preserve source-project meaning unless Human override resolves a conflict. Atlas and Sense own what they emit and what it means. Shared spelling does not imply shared meaning.
 
