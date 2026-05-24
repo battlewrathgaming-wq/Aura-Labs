@@ -6,6 +6,32 @@ This project uses the Aura agent workflow.
 
 Aura Lab uses the Aura Core scaffold as inherited local rigging. Preserve this file as the project-root bootloader for agents.
 
+## Aura Lab Product Direction
+
+Aura Lab develops high-quality, portable HTML presentation modules for bridge-fed information.
+
+Its purpose is to make information display feel beautiful, clear, calm, meaningful, and reusable across Aura projects when those projects choose to adopt the patterns through their own authority.
+
+Aura Lab is not primarily a screenshot diagnostics project, fixture taxonomy project, visual-smoke tooling project, backend-contract project, or target-project adapter.
+
+Verification, fixtures, Electron shell behavior, screenshots, and visual smoke exist only to support and prove the presentation modules. They must not become the product direction.
+
+Prioritize:
+
+- visible HTML/CSS/JS presentation features
+- calm information display
+- meaningful source, freshness, certainty, and state treatment
+- responsive presentation behavior where it improves clarity
+- portable module patterns that can later be reviewed by target projects
+
+De-prioritize:
+
+- screenshot diagnostic systems
+- broad visual-smoke matrices
+- elaborate fixture taxonomies
+- durable bridge/data contracts
+- Atlas, Sense, or Aura Core adoption claims
+
 Start here:
 
 - `workspace/README.md`
@@ -44,11 +70,13 @@ When the user sends only:
 
 Use the meaning for your current role.
 
+For every role, `.` means progress the current project context: continue the current packet when safe, complete the expected artifact when appropriate, or ask the next necessary question if safe progress is blocked. If you pause, explain the concrete reason.
+
 Dev:
 Run the current packet. Clear the runway unless blocked. Update Evidence / Dev Handoff and create the expected DevHS file.
 
 Overseer:
-Review completed work and handoff. Accept, redirect, or write the next bounded runway in `workspace/current.md`.
+Review completed work and handoff. Accept, redirect, or write the next suitable runway in `workspace/current.md`.
 
 If your role is unclear, stop and ask.
 
@@ -71,6 +99,14 @@ Useful files:
 - `roles\[your-role]\prompt.md`
 - `workspace-structure-authority.md`
 - `relay\command-protocols.md`
+
+Memory refresh expectation:
+
+- Re-read this `AGENTS.md`.
+- Re-read `workspace/overview.md`, `workspace/00-dot-protocol.md`, and `workspace/current.md`.
+- Re-read the role prompt for your current role.
+- Treat compacted chat summaries as orientation only; prefer repo/workspace facts for current truth.
+- If your role is unclear after refresh, stop and ask the human before acting.
 
 ## Boundaries
 
