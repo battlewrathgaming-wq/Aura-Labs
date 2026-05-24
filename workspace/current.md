@@ -43,6 +43,11 @@ Accepted / active references:
 - `docs/current-state/m11-presentation-state-readout-current-state.md`
 - `docs/statements/post-bridge-presentation-boundary.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\terminology\TerminologyAuthorityRuleset-2026-05-24.md`
+- `F:\Projects\Docs\Aura-Project-Orchestration\scripts\verify-terminology.js`
+
+Advisory note:
+
+- The shared terminology verifier is evidence, not authority. Use it as a smoke signal after the local M16 changes, but do not expand this packet beyond the two accepted visible labels.
 
 ## Accepted Scope
 
@@ -69,8 +74,9 @@ Expected implementation files if the UI/UX inventory remains accurate:
 2. Change only visible copy for `Source Detail` and `Neutral Seed`.
 3. Preserve internal ids, payload fields, CSS/data compatibility names, screenshot names, service command names, and completed docs.
 4. Update directly affected verification expectations.
-5. Run required verification.
-6. Create the Dev handoff.
+5. Run required local verification.
+6. Run the shared terminology verifier and record remaining warnings.
+7. Create the Dev handoff.
 
 ## Guardrails
 
@@ -107,6 +113,15 @@ Run the vocabulary check directly if useful:
 npm.cmd run verify:vocabulary
 ```
 
+Shared advisory verification:
+
+```powershell
+cd F:\Projects\Docs\Aura-Project-Orchestration
+npm run verify:terminology
+```
+
+Treat shared verifier warnings as evidence. Do not fix warnings outside the accepted M16 label scope.
+
 Electron visual smoke is not required unless layout/CSS changes create a rendering risk or Human / Overseer asks for screenshot confirmation.
 
 ## Evidence
@@ -118,6 +133,7 @@ Record:
 - Internal ids/fields intentionally preserved.
 - Verification expectations updated.
 - Commands run and results.
+- Shared terminology verifier result and remaining warnings.
 - Whether Electron smoke was skipped or run, with reason.
 
 ## Dev Handoff
@@ -129,6 +145,7 @@ In `workspace/DevHS58-readout-naming-polish.md`, include:
 - Visible naming changes
 - Preserved internals
 - Verification
+- Shared verifier result / remaining warnings
 - Skipped / parked items
 - Residual risks
 - Recommended next packet

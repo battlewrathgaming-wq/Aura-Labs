@@ -69,4 +69,13 @@ npm.cmd run verify:all
 npm.cmd run verify:renderer-shell
 ```
 
+Also run the shared terminology verifier as advisory evidence:
+
+```powershell
+cd F:\Projects\Docs\Aura-Project-Orchestration
+npm run verify:terminology
+```
+
+Do not expand M16 beyond the two accepted visible label changes to chase shared verifier warnings.
+
 Electron visual smoke is not required unless layout/CSS changes create a rendering risk or Human / Overseer asks for screenshot confirmation.
