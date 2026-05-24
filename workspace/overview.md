@@ -27,14 +27,15 @@ It should use the inherited Aura Core scaffold lightly while developing a bridge
 | M02 | Human direction after M01 closure | Complete | Accepted Atlas rigging review and neutral bridge-state, visual-smoke, and shell-rigging advisory candidate. |
 | M03 | Human direction, UIUXHS16, UIUXHS21 | Complete | Accepted Aura Presentation Kit visual concept pack with typography/text containment first. |
 | M04 | Accepted M03 visual concept pack | Complete | Accepted one-screen Aura Lab visual prototype with typography, containment, and restrained sci-fi surface treatment. |
+| M05 | M04 closure residual risks | Active | Add project-local Electron smoke wrapper and dedicated long-text visual smoke mode. |
 
 ## Current Direction
 
-Active milestone: None selected
+Active milestone: M05 - Visual Smoke Hardening
 Last completed milestone: M04 - Aura Lab Visual Prototype
-Roadmap source: accepted M03 visual concept pack
+Roadmap source: M04 closure residual risks
 Current packet: `workspace/current.md`
-Current sequence: HS24
+Current sequence: HS25
 Latest accepted handshake: workspace/complete/milestone-M04/OverseerHS24-m04-closure.md
 
 ## Durable Record Index
@@ -60,9 +61,9 @@ Latest accepted handshake: workspace/complete/milestone-M04/OverseerHS24-m04-clo
 
 ### Transaction Records
 
-Active advisory handshakes:
+Active milestone handshakes:
 
-No active advisory handshakes.
+- `workspace/OverseerHS25-visual-smoke-hardening-runway.md`
 
 Completed milestone handshakes:
 
@@ -79,7 +80,7 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Should Aura Lab add a smoke wrapper, long-text smoke mode, human-directed visual polish, reusable kit extraction, or target-owned adapter review next?
+- Can Dev add smoke wrapper and long-text visual smoke coverage without changing product semantics or bridge contract?
 - Should Aura Lab request Atlas UI/UX adapter review, Atlas Engineering review, Sense review, or Core suitability review through target-owned packets?
 - Should Aura Lab define a durable bridge/data contract later, or keep the bridge provisional while exploring presentation direction?
 - Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?

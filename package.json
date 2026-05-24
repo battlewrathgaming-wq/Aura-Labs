@@ -6,6 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "electron .",
+    "smoke:electron": "powershell -ExecutionPolicy Bypass -File scripts/electron-visual-smoke.ps1",
     "verify:all": "node scripts/verify-all.js",
     "verify:core": "node scripts/verify-core.js",
     "verify:services": "node scripts/verify-services.js",

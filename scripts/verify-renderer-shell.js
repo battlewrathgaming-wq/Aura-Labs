@@ -9,15 +9,24 @@ function main() {
   const preload = read(path.join(root, 'src', 'main', 'preload.js'));
   const html = read(path.join(root, 'src', 'renderer', 'index.html'));
   const app = read(path.join(root, 'src', 'renderer', 'app.js'));
+  const packageJson = read(path.join(root, 'package.json'));
+  const smokeScript = read(path.join(root, 'scripts', 'electron-visual-smoke.ps1'));
 
   assert(main.includes("require('../modules/Frame')"), 'main process should create windows through Frame module');
   assert(main.includes('BrowserWindow'), 'main process should import BrowserWindow for activation checks');
   assert(main.includes('AURA_LAB_ELECTRON_VISUAL_SMOKE'), 'main process should expose explicit visual smoke flag');
   assert(main.includes('capturePage'), 'visual smoke should capture renderer screenshots');
   assert(main.includes('visual-smoke-result.json'), 'visual smoke should write a result artifact');
-  assert(main.includes("'normal', 'empty', 'stale', 'failed', 'partial'"), 'visual smoke should exercise bridge test modes');
+  assert(main.includes("'normal', 'empty', 'stale', 'failed', 'partial', 'long-text'"), 'visual smoke should exercise bridge test modes');
+  assert(main.includes('mode-long-text.png'), 'visual smoke should capture long-text mode');
   assert(main.includes('visual_structure'), 'visual smoke should capture prototype visual structure');
   assert(main.includes('scrollWidth > node.clientWidth'), 'visual smoke should check horizontal text overflow');
+  assert(packageJson.includes('"smoke:electron"'), 'package should expose project-local Electron smoke script');
+  assert(smokeScript.includes('AURA_LAB_ELECTRON_VISUAL_SMOKE'), 'Electron smoke wrapper should set explicit smoke flag');
+  assert(smokeScript.includes('AURA_LAB_VISUAL_SMOKE_DIR'), 'Electron smoke wrapper should set explicit smoke output dir');
+  assert(smokeScript.includes('visual-smoke-result.json'), 'Electron smoke wrapper should validate result artifact');
+  assert(smokeScript.includes('.tmp'), 'Electron smoke wrapper should keep artifacts under project .tmp');
+  assert(!smokeScript.includes('F:'), 'Electron smoke wrapper should derive project paths instead of hardcoding drive paths');
   assert(frame.includes('frame: false'), 'Frame module should create frameless windows');
   assert(frame.includes('state.bounds && state.bounds.x !== null && state.bounds.y !== null'), 'Frame module should guard null bounds before assigning coordinates');
   assert(frame.includes('contextIsolation: true'), 'Frame module should enable context isolation');

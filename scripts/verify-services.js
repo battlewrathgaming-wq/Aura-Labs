@@ -151,6 +151,15 @@ async function verifyRegistry() {
   assert(partialBriefing.attention_items === null, 'partial briefing should not provide blank attention data');
   assert(partialBriefing.certainty === 'Partial view; available facts are source-labeled.', 'partial briefing should include partial certainty language');
 
+  const longTextBriefing = await registry.invoke('aura.projectBriefing', { mode: 'long-text' });
+  assert(longTextBriefing.view_status === 'populated', 'project briefing should expose long-text populated fixture state');
+  assert(longTextBriefing.mode === 'long-text', 'long-text briefing should echo mode');
+  assert(longTextBriefing.fields.project_name.includes('long-text'), 'long-text briefing should stress title text');
+  assert(longTextBriefing.fields.current_focus.length > 140, 'long-text briefing should stress focus text');
+  assert(longTextBriefing.fields.expected_output.length > 120, 'long-text briefing should stress expected output text');
+  assert(longTextBriefing.source_labels.some((label) => label.includes('long-text visual smoke fixture')), 'long-text briefing should stress source labels');
+  assert(Array.isArray(longTextBriefing.attention_items) && longTextBriefing.attention_items.length === 3, 'long-text briefing should keep attention list capped at three items');
+
   const emptyBriefing = await registry.invoke('aura.projectBriefing', { mode: 'empty' });
   assert(emptyBriefing.view_status === 'empty', 'project briefing should expose empty fixture state');
   assert(emptyBriefing.mode === 'empty', 'empty briefing should echo mode');
@@ -208,7 +217,7 @@ async function verifyRegistry() {
 
 function assertModeList(modes) {
   assert(Array.isArray(modes), 'project briefing should expose available modes');
-  for (const mode of ['normal', 'empty', 'stale', 'failed', 'partial']) {
+  for (const mode of ['normal', 'empty', 'stale', 'failed', 'partial', 'long-text']) {
     assert(modes.some((entry) => entry.id === mode), `project briefing should expose ${mode} mode`);
   }
 }

@@ -45,7 +45,7 @@ async function runVisualSmoke(window) {
   const smokeDir = visualSmokeDir();
   fs.mkdirSync(smokeDir, { recursive: true });
 
-  const modes = ['normal', 'empty', 'stale', 'failed', 'partial'];
+  const modes = ['normal', 'empty', 'stale', 'failed', 'partial', 'long-text'];
   const observations = [];
   observations.push(await captureMode(window, 'normal', path.join(smokeDir, 'mode-normal.png')));
 
@@ -55,6 +55,7 @@ async function runVisualSmoke(window) {
   }
 
   window.setSize(720, 640);
+  await selectMode(window, 'partial');
   await delay(250);
   const narrow = await captureMode(window, 'partial', path.join(smokeDir, 'narrow-partial.png'));
 
@@ -71,6 +72,7 @@ async function runVisualSmoke(window) {
       'mode-stale.png',
       'mode-failed.png',
       'mode-partial.png',
+      'mode-long-text.png',
       'narrow-partial.png'
     ]
   });

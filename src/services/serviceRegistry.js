@@ -36,6 +36,12 @@ const BRIEFING_TEST_MODES = Object.freeze([
     label: 'Partial',
     status: 'partial',
     description: 'Return current briefing data with one expected field omitted.'
+  },
+  {
+    id: 'long-text',
+    label: 'Long text',
+    status: 'populated',
+    description: 'Return populated review data with overflow-prone briefing text.'
   }
 ]);
 
@@ -271,6 +277,10 @@ function buildProjectBriefing(payload = {}) {
     sequence: matchLine(currentText, 'Sequence')
   };
 
+  if (mode === 'long-text') {
+    applyLongTextFixture(fields, sources, now);
+  }
+
   const missing = Object.entries(fields)
     .filter(([, value]) => !value)
     .map(([key]) => key);
@@ -437,6 +447,20 @@ function buildAttentionItems(currentText, fields = {}) {
     });
   }
   return items.slice(0, 3);
+}
+
+function applyLongTextFixture(fields, sources, now) {
+  fields.project_name = 'Aura Lab visual smoke long-text briefing surface validation';
+  fields.active_milestone = 'M05 - Visual Smoke Hardening with intentionally extended milestone copy for containment review';
+  fields.current_focus = 'Add a project-local Electron smoke wrapper and a dedicated long-text visual smoke mode while keeping the accepted Aura Lab presentation semantics, source language, bridge test states, diagnostics hierarchy, and narrow-window text containment intact.';
+  fields.expected_output = 'workspace/DevHS25-visual-smoke-hardening.md with wrapper behavior, long-text mode data, verification evidence, screenshot notes, process cleanup, and residual risk recorded for Overseer review.';
+  fields.previous_accepted_handshake = 'workspace/complete/milestone-M04/OverseerHS24-m04-closure.md plus accepted visual prototype evidence from DevHS23 and durable M04 current-state notes.';
+  fields.sequence = 'HS25 long-text review fixture';
+  sources.push({
+    label: 'workspace/current.md plus long-text visual smoke fixture source label for overflow review',
+    available: true,
+    modified_at: now.toISOString()
+  });
 }
 
 function firstBulletAfterHeading(text, heading) {
