@@ -1,6 +1,6 @@
 # Aura Lab Terminology And State Bridge Audit
 
-Status: Advisory audit
+Status: Archived advisory audit; waiting authority definitions before acceptance
 Date: 2026-05-24
 Role: Terminology/state auditor
 Project: Aura Lab
@@ -481,4 +481,3 @@ Scope:
 Expected output:
 - One advisory workspace artifact with recommended UI copy decisions and deferred implementation notes.
 ```
-
