@@ -36,14 +36,15 @@ Aura Lab does not primarily own what each Aura product presents. It owns the Lab
 | M09 | Human direction after M08 closure | Complete | Accepted packaging classification for Lab-local, Core-neutral candidate, target-adaptable, and do-not-port outputs. |
 | M10 | Post-M09 UI/UX advisory | Complete | Accepted implemented Briefing plus Neutral Seed screenshot review. |
 | M11 | Human terminology correction, Overseer HS41 | Complete | Accepted neutral Presentation State Readout with physical/HUD-like theme and no default tactical/combat wording. |
+| M12 | UIUXHS43 naming feedback | Active | Rename accepted readout feature to Bridge State Readout without behavior, state, or doctrine changes. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M12 - Bridge State Readout Naming Alignment
 Last completed milestone: M11 - Presentation State Readout Retone
-Roadmap source: Waiting for Human / Overseer direction after M11 closure
+Roadmap source: Accepted UI/UX naming feedback
 Current packet: `workspace/current.md`
-Current sequence: HS42
+Current sequence: HS44
 Latest accepted handshake: workspace/complete/milestone-M11/OverseerHS42-m11-presentation-state-readout-acceptance.md
 
 ## Durable Record Index
@@ -80,7 +81,8 @@ Latest accepted handshake: workspace/complete/milestone-M11/OverseerHS42-m11-pre
 
 Active milestone handshakes:
 
-- None.
+- `workspace/UIUXHS43-bridge-state-readout-naming-feedback.md`
+- `workspace/OverseerHS44-bridge-state-readout-naming-acceptance.md`
 
 Completed milestone handshakes:
 
@@ -104,6 +106,6 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Should UI/UX rename `Presentation State Readout` to `Bridge State Readout` or `Source State Readout` later?
+- Can Dev complete the Bridge State Readout rename without behavior, state, or doctrine drift?
 - Should Aura Lab prepare a Core-owned transfer prompt for neutral presentation rigging candidates?
 - Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?
