@@ -5,9 +5,11 @@ Last reviewed: 2026-05-24
 
 ## Vision Statement
 
-Aura Lab is a light Aura workspace for shaping an HTML presentation layer for Aura project data.
+Aura Lab is a light Aura workspace for shaping portable post-bridge display mapping and presentation tooling.
 
-It should use the inherited Aura Core scaffold lightly while developing a bridge-aware presentation surface that can show real project data, empty/loading states, stale or failed bridge states, and clear trust/certainty language.
+It should use the inherited Aura Core scaffold lightly while proving whether bridge-shaped data can be rendered into the desired desktop style across real/fixture data, empty/loading states, stale or failed bridge states, partial certainty, long text, narrow layouts, and clear trust/certainty language.
+
+Aura Lab does not primarily own what each Aura product presents. It owns the Lab proving bench for everything past the bridge: display mapping, state grammar, typography, containment, shell verification, and visual smoke evidence.
 
 ## Coordination Model
 
@@ -42,7 +44,9 @@ Latest accepted handshake: workspace/complete/milestone-M04/OverseerHS24-m04-clo
 
 ### Docs
 
+- `docs/index.md`
 - `docs/README.md`
+- `docs/statements/post-bridge-presentation-boundary.md`
 - `docs/current-state/m00-boot-current-state.md`
 - `docs/current-state/m01-project-state-briefing-current-state.md`
 - `docs/current-state/m04-visual-prototype-current-state.md`
@@ -81,6 +85,7 @@ Completed milestone handshakes:
 ## Open Questions
 
 - Can Dev add smoke wrapper and long-text visual smoke coverage without changing product semantics or bridge contract?
-- Should Aura Lab request Atlas UI/UX adapter review, Atlas Engineering review, Sense review, or Core suitability review through target-owned packets?
-- Should Aura Lab define a durable bridge/data contract later, or keep the bridge provisional while exploring presentation direction?
+- Which post-bridge presentation patterns are portable enough to propose to Aura Core as neutral rigging?
+- Should Aura Lab request Atlas UI/UX adapter review, Atlas Engineering review, Sense review, or Core suitability review through target-owned packets before modeling target-like fixtures?
+- Should Aura Lab define a durable post-bridge presentation contract later, or keep the bridge provisional while exploring presentation direction?
 - Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?
