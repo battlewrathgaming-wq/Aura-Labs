@@ -7,12 +7,12 @@ Owner: Overseer
 ## Coordination State
 
 Active milestone: None
-Last completed milestone: M08 - Fixture-Backed Presentation Family Prototype
+Last completed milestone: M09 - Packaging Review
 Roadmap source: Human direction and accepted post-bridge presentation boundary
-Sequence: HS31
-Previous accepted handshake: `workspace/complete/milestone-M08/OverseerHS31-m08-closure.md`
+Sequence: HS32
+Previous accepted handshake: `workspace/complete/milestone-M09/OverseerHS32-packaging-review.md`
 Current executor: Human / Overseer
-Current focus: choose the next Aura Lab direction after the accepted family/state proof
+Current focus: choose the next Aura Lab direction after packaging classification
 Expected DevHS filename: None
 Archive target on next milestone completion: TBD
 
@@ -20,7 +20,7 @@ Archive target on next milestone completion: TBD
 
 This packet intentionally contains no Dev runway.
 
-Aura Lab has closed M08. The project now has:
+Aura Lab has closed M09. The project now has:
 
 - accepted post-bridge presentation boundary documentation
 - accepted one-screen Briefing visual prototype
@@ -28,30 +28,29 @@ Aura Lab has closed M08. The project now has:
 - deterministic state grammar including long-text
 - accepted separate `family` and `state` axes
 - accepted Briefing and Neutral Seed family proof
-- family-aware visual smoke evidence
+- accepted packaging classification
 
-The next step needs Human / Overseer direction because it determines classification and sequencing, not immediate implementation.
+The next step needs Human / Overseer direction because it determines whether to pause, review visuals, harden coverage, or prepare a target-owned/Core-owned prompt.
 
 ## Source Of Intent
 
 Accepted:
 
 - `docs/statements/post-bridge-presentation-boundary.md`: Aura Lab focuses on portable post-bridge display mapping and presentation tooling.
-- `docs/current-state/m07-fixture-backed-presentation-family-spec-current-state.md`: accepted Briefing plus Neutral Seed spec.
 - `docs/current-state/m08-fixture-backed-presentation-family-prototype-current-state.md`: accepted implementation of the first family/state proof.
-- `workspace/complete/milestone-M08/OverseerHS31-m08-closure.md`: M08 accepted and closed.
+- `docs/current-state/m09-packaging-review-current-state.md`: accepted classification of Lab-local, Core-neutral candidate, target-adaptable, and do-not-port outputs.
+- `workspace/complete/milestone-M09/OverseerHS32-packaging-review.md`: M09 accepted and closed.
 
 Deferred:
 
-- Neutral Seed stale/partial smoke screenshots beyond fixture-command support
-- Tactical HUD family
-- Operator Workbench family
-- packaging review
-- target-project adapter work
+- Core-owned transfer prompt
+- UI/UX screenshot review
+- Neutral Seed stale/partial smoke screenshots
+- target-owned Atlas/Sense review
 - durable post-bridge presentation contract
 - durable upstream bridge/data contract
 - framework or stack choice
-- Aura Core transfer
+- shared component extraction
 
 Rejected:
 
@@ -64,17 +63,16 @@ Escalated: None.
 
 Promoted into durable docs:
 
-- `docs/current-state/m08-fixture-backed-presentation-family-prototype-current-state.md`
+- `docs/current-state/m09-packaging-review-current-state.md`
 
 ## Current Decision Space
 
 Human / Overseer should choose one next direction:
 
-- pause Aura Lab with the family/state proof accepted
-- run a packaging review to classify Lab-local, Core-neutral candidate, target-adaptable, and do-not-port outputs
+- pause Aura Lab with packaging classification accepted
+- prepare a Core-owned transfer prompt for neutral presentation rigging candidates
+- request UI/UX review of implemented Briefing + Neutral Seed screenshots
 - add Neutral Seed stale/partial smoke screenshots
-- request UI/UX review of the implemented prototype screenshots
-- prepare a Core-neutral transfer candidate in an Aura Core-owned session
 - request target-owned Atlas/Sense review later
 
 ## Guardrails
