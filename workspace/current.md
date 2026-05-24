@@ -1,88 +1,95 @@
 # Current Workspace Packet
 
-Status: Active Dev runway
+Status: Active Dev redirect
 Updated: 2026-05-24
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M11 - Tactical Signal Readout
-Roadmap source: Human steering plus accepted Engineering/UIUX HS39 alignment
-Sequence: HS40
+Active milestone: M11 - Presentation State Readout Retone
+Roadmap source: Human terminology correction plus Overseer cross-project usage review
+Sequence: HS41
 Previous accepted handshake: `workspace/complete/milestone-M10/OverseerHS33-implemented-family-screenshot-review.md`
 Current executor: Dev
-Current focus: build the first tactical signal presentation feature
-Expected DevHS filename: `workspace/DevHS40-tactical-signal-readout.md`
+Current focus: revise the pending M11 implementation so the physical readout theme remains but tactical product wording is not accepted
+Expected DevHS filename: `workspace/DevHS41-presentation-state-readout-retone.md`
 Archive target on milestone completion: `workspace/complete/milestone-M11/`
 
 ## Purpose
 
 This is the only active executable work packet for Aura Lab.
 
-Aura Lab exists to explore high-quality HTML presentation features for bridge-fed information. Verification tooling supports those presentation experiments; it is not the product direction.
+Dev already completed an M11 implementation against the now-superseded Tactical Signal Readout wording. That handoff is not accepted as-is.
 
-M11 is reopened as a presentation-first combat-game information display slice. The old Confidence / Trust framing is replaced by Tactical Signal Readout.
-
-The feature should help a player or operator quickly read:
+Human correction:
 
 ```txt
-Is this feed live, scanning, aged, partial, lost, fallback, or no contact?
+Do not accept the tactical wordage. We want tactical theme but review over other projects for suitable usage.
 ```
+
+Aura Lab may use a physical, HUD-like, instrument-panel presentation theme. It should not claim Sense-owned tactical product vocabulary or make combat/tactical wording the reusable Lab module language.
 
 ## Source Of Intent
 
 Accepted into this packet:
 
-- Human steering: prioritize cool, high-quality HTML presentation features for bridge-fed data.
-- `workspace/EngineeringHS39-tactical-signal-readout-overseer-steering.md`: accepts Tactical Signal Readout as the corrected combat-game framing.
-- `workspace/UIUXHS39-tactical-signal-readout-alignment.md`: accepts Signal Readout Strip plus Inset Feed Detail Drawer as the next visible feature shape.
+- Human correction: tactical theme is acceptable; tactical wordage is not accepted.
+- Overseer cross-project review:
+  - AURA-Sense owns explicit tactical viewport / tactical HUD / Combat Witness language.
+  - Atlas avoids tactical-truth overclaiming and prefers evidence, sample, warning, freshness, partial, readiness, and source-basis language.
+  - Aura Lab should keep reusable post-bridge presentation language neutral enough to travel.
+- `workspace/DevHS40-tactical-signal-readout.md`: pending Dev handoff; useful implementation evidence, not accepted completion.
 - `docs/statements/post-bridge-presentation-boundary.md`: Aura Lab focuses on portable post-bridge display mapping and presentation tooling.
-- `docs/current-state/m08-fixture-backed-presentation-family-prototype-current-state.md`: accepted Briefing plus Neutral Seed family/state proof.
-- `docs/current-state/m09-packaging-review-current-state.md`: accepted packaging classification.
-- `docs/current-state/m10-implemented-family-screenshot-review-current-state.md`: accepted screenshot review and local refinement risks.
+- `docs/current-state/m10-implemented-family-screenshot-review-current-state.md`: latest accepted completed Lab state.
 
-Accepted with caveat:
+Superseded / archived:
 
-- `workspace/archive/EngineeringHS38-physical-presentation-layer-prompt.md`: useful technical constraints and research notes are accepted, but the artifact is superseded as a Dev prompt because it references the old M11 packet and old expected `DevHS36` filename.
+- `workspace/archive/EngineeringHS39-tactical-signal-readout-overseer-steering.md`
+- `workspace/archive/UIUXHS39-tactical-signal-readout-alignment.md`
+- `workspace/archive/OverseerHS40-tactical-signal-readout-runway.md`
 
 Accepted direction:
 
-- Build a visible Tactical Signal Readout.
-- Use tactical signal language instead of enterprise trust/confidence language.
-- Include a Signal Readout Strip near the primary reading path.
-- Include an Inset Feed Detail Drawer or equivalent clear disclosure.
-- Make live, scanning, aged, partial, lost, fallback, and no-contact states visually distinguishable.
-- Use source/freshness/certainty only as underlying presentation inputs, not visible enterprise doctrine.
-- Keep diagnostics compact, secondary, and instrument-like.
-- Keep verification minimal and supportive.
+- Keep the implemented physical readout surface if it is visually useful.
+- Keep lights, pips, bars, inset surfaces, sweep marks, and compact disclosure where they improve clarity.
+- Replace product-facing tactical/combat wording with neutral bridge-fed presentation wording.
+- Keep source/freshness/certainty visible, but frame it as state, basis, age, source coverage, gaps, unavailable data, or fallback.
+- Use Lab-local language that can be adapted by Sense, Atlas, or Core later without importing their doctrine.
 
 Rejected:
 
-- Confidence View, Trust Ribbon, trust score, confidence score, source ranking, or source authority doctrine as visible UI.
-- broad view-intent framework
-- screenshot diagnostic systems as product direction
-- broad visual-smoke matrices
-- elaborate fixture taxonomy
-- durable bridge/data contract
-- target-project adapters
-- Aura Core ownership claims
-- Atlas or Sense doctrine
+- `Tactical Signal Readout` as the accepted feature name.
+- `tactical`, `combat`, `operator under pressure`, `intel`, `contact`, `signal lost`, `scanning`, or similar combat-facing words as default reusable Lab copy.
+- Sense ownership claims or Sense product vocabulary as Lab baseline.
+- Atlas evidence doctrine as Lab baseline.
+- confidence/trust scores, source rankings, source authority doctrine, or truth claims.
 
-Deferred:
+Candidate neutral naming:
 
-- new presentation families
-- full tactical HUD family
-- Operator Workbench
-- timeline/activity surface
-- comparison/delta readout
-- source-first standalone view
-- attention-first standalone view
-- broad scenario packs
-- screenshot review workbench
-- shared component extraction
-- framework migration
+- `Presentation State Readout`
+- `Bridge State Readout`
+- `Source State Readout`
 
-Promoted into durable docs: None yet.
+Preferred visible state language:
+
+- `LIVE` or `CURRENT`
+- `UPDATING`
+- `AGED`
+- `PARTIAL`
+- `UNAVAILABLE`
+- `FALLBACK`
+- `NO DATA`
+
+Avoid visible defaults:
+
+- `TACTICAL`
+- `SCANNING`
+- `LOST`
+- `NO CONTACT`
+- `INTEL`
+- `TARGET`
+- `OPERATOR`
+- `COMBAT`
 
 ## Required Reading
 
@@ -93,14 +100,13 @@ Dev must read:
 - `workspace/overview.md`
 - `workspace/00-dot-protocol.md`
 - `workspace/current.md`
-- `workspace/EngineeringHS39-tactical-signal-readout-overseer-steering.md`
-- `workspace/UIUXHS39-tactical-signal-readout-alignment.md`
-- `workspace/archive/EngineeringHS38-physical-presentation-layer-prompt.md`
+- `workspace/DevHS40-tactical-signal-readout.md`
+- `workspace/OverseerHS41-presentation-language-correction.md`
+- `workspace/archive/EngineeringHS39-tactical-signal-readout-overseer-steering.md`
+- `workspace/archive/UIUXHS39-tactical-signal-readout-alignment.md`
 - `docs/index.md`
 - `docs/README.md`
 - `docs/statements/post-bridge-presentation-boundary.md`
-- `docs/current-state/m08-fixture-backed-presentation-family-prototype-current-state.md`
-- `docs/current-state/m09-packaging-review-current-state.md`
 - `docs/current-state/m10-implemented-family-screenshot-review-current-state.md`
 - `package.json`
 - `src/main/main.js`
@@ -109,76 +115,52 @@ Dev must read:
 - `src/renderer/index.html`
 - `src/renderer/app.js`
 - `src/renderer/styles.css`
-- `scripts/electron-visual-smoke.ps1`
 - `scripts/verify-renderer-shell.js`
 - `scripts/verify-services.js`
+- `scripts/electron-visual-smoke.ps1`
 
-Do not inspect or edit sibling projects for this packet.
+Do not inspect or edit sibling projects for this packet; Overseer has already performed the cross-project wording review.
 
 ## Ordered Dev Runway
 
-1. Confirm cwd is `F:\Projects\AURA- Lab`, read required sources, and inspect the current renderer/service fixture flow before editing.
-2. Add the Tactical Signal Readout near the primary reading path:
-   - visible state label: `LIVE`, `SCANNING`, `AGED`, `PARTIAL`, `LOST`, `FALLBACK`, or `NO CONTACT`
-   - embedded status light, pips, bars, sweep mark, or comparable instrument signal
-   - last ping / last known / scanning posture
-   - compact feed/source count
-   - short tactical summary line
-3. Add an Inset Feed Detail Drawer or equivalent clear disclosure:
-   - show feed/source details, signal age, known fields, gaps, fallback notes, warnings, and compact diagnostics
-   - keep detail secondary to the readout strip
-   - do not rely on hover-only access for critical information
-4. Improve degraded-state presentation only where it supports the readout:
-   - loading becomes scanning/acquiring
-   - stale becomes aged/last-known intel
-   - partial shows feed gaps without panic
-   - failed becomes signal lost or fallback
-   - empty becomes no contact, not broken UI
-5. Preserve existing scope:
-   - Briefing and Neutral Seed continue to render
-   - no new family
-   - no durable schema or bridge contract
-   - no target-project doctrine
-6. Apply physical presentation polish:
-   - use inset bands, layered panels, hairline borders, pips, restrained glow, surface texture, or subtle motion only where they improve clarity
-   - respect `prefers-reduced-motion`
-   - preserve text containment and narrow desktop behavior
-7. Update verification only enough to protect the feature and run the required commands.
-8. Update Evidence / Dev Handoff below and create `workspace/DevHS40-tactical-signal-readout.md`.
+1. Confirm the current tree contains the pending M11 implementation and read the required sources.
+2. Retone visible UI copy and code-facing presentation labels:
+   - replace `Tactical Signal Readout` with a neutral name, preferably `Presentation State Readout` unless a local fit is clearly better
+   - replace combat-facing labels such as `SCANNING`, `LOST`, and `NO CONTACT` with neutral state labels such as `UPDATING`, `UNAVAILABLE`, and `NO DATA`
+   - remove default visible `tactical`, `intel`, `contact`, `operator`, and combat framing
+3. Preserve the physical presentation theme:
+   - keep useful readout strip, lights, pips, inset panel, motion, and detail disclosure
+   - keep the experience visually cool and game-adjacent without making the reusable language tactical doctrine
+4. Preserve bridge/data honesty:
+   - source count, age/freshness, partial gaps, unavailable state, fallback state, and diagnostics remain visible
+   - do not add scores, ranks, authority levels, or truth claims
+5. Update renderer/static/smoke wording expectations only as needed for the retone.
+6. Run required verification.
+7. Update Evidence / Dev Handoff below and create `workspace/DevHS41-presentation-state-readout-retone.md`.
 
 ## Guardrails And Non-Goals
 
-- Do not make verification grammar the product.
-- Do not create a broad visual-smoke matrix.
-- Do not build elaborate fixture taxonomy.
+- Do not accept or reintroduce tactical wording as default Lab product language.
+- Do not erase the visual theme merely because wording changes.
+- Do not inspect or edit sibling projects.
 - Do not add new presentation families.
-- Do not implement a full Tactical HUD family.
-- Do not implement Operator Workbench.
-- Do not add timeline, activity, comparison, source-first, or attention-first standalone views.
 - Do not define a durable bridge/data contract.
-- Do not create a shared component library.
-- Do not choose or migrate UI framework.
-- Do not add confidence scoring, truth ranking, or source authority doctrine.
-- Do not import Atlas evidence doctrine or Sense tactical doctrine.
-- Do not treat Neutral Seed as Aura Core doctrine, ownership, architecture, or contract.
-- Do not expose new broad Electron APIs.
-- Do not disable context isolation.
-- Do not introduce `innerHTML` for dynamic service data.
+- Do not create target-project adapters.
+- Do not claim Aura Core ownership.
+- Do not import Atlas or Sense doctrine.
+- Do not broaden visual smoke beyond what the retone requires.
 - Do not stage `.tmp`, screenshots, result JSON, cache, dependency artifacts, or generated smoke output.
-- Do not edit Atlas, Sense, Aura Core, EVE-Threat-Overlay, or Bughunt.
 - Do not run live/private/destructive actions.
 
 ## Stop Conditions
 
 Stop and report back if:
 
-- Tactical Signal Readout requires a durable bridge/data contract
-- implementation needs scoring, ranking, or source authority doctrine
-- target-project semantics are needed to explain the signal state
-- a new family becomes necessary
-- loading capture requires brittle timing rather than a controlled state
-- smoke output becomes too broad for practical review
-- sibling-project inspection or edits become necessary
+- the implementation cannot be retuned without a larger UX decision
+- neutral wording makes state distinctions unclear
+- target-project terms are needed to explain the feature
+- verification requires broad fixture or smoke expansion
+- sibling-project edits become necessary
 - live/private/destructive actions become necessary
 
 ## Required Verification
@@ -206,15 +188,13 @@ Minimum expected evidence:
 - `verify:all` passes.
 - `smoke:electron` passes.
 - no Electron process remains after smoke.
-- Tactical Signal Readout is visible.
-- Feed Detail Drawer is visible or clearly reachable.
+- the readout feature remains visible.
+- tactical/combat wording is absent from default visible Lab UI copy.
+- state labels are neutral and readable.
 - Briefing still works.
 - Neutral Seed still works and remains generic.
-- source/freshness/certainty inputs are presented through tactical signal language.
 - diagnostics remain secondary.
 - representative long/narrow capture reports no horizontal overflow.
-
-Do not expand verification beyond what is needed to support the presentation feature.
 
 ## Evidence
 
@@ -248,7 +228,7 @@ Not yet recorded.
 
 Dev must complete this section before returning:
 
-Summary of implementation:
+Summary of retone:
 
 ```txt
 Not yet recorded.
@@ -260,31 +240,13 @@ Exact files changed:
 Not yet recorded.
 ```
 
-Tactical Signal Readout behavior:
+Visible wording changes:
 
 ```txt
 Not yet recorded.
 ```
 
-Feed Detail Drawer behavior:
-
-```txt
-Not yet recorded.
-```
-
-Degraded-state presentation behavior:
-
-```txt
-Not yet recorded.
-```
-
-Source/freshness treatment:
-
-```txt
-Not yet recorded.
-```
-
-Motion/responsive behavior:
+Physical theme preserved:
 
 ```txt
 Not yet recorded.
@@ -311,5 +273,5 @@ Not yet recorded.
 Expected handoff file:
 
 ```txt
-workspace/DevHS40-tactical-signal-readout.md
+workspace/DevHS41-presentation-state-readout-retone.md
 ```

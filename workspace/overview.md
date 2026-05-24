@@ -35,15 +35,15 @@ Aura Lab does not primarily own what each Aura product presents. It owns the Lab
 | M08 | M07 UI/UX spec | Complete | Accepted Dev prototype for Briefing plus Neutral Seed family/state proof. |
 | M09 | Human direction after M08 closure | Complete | Accepted packaging classification for Lab-local, Core-neutral candidate, target-adaptable, and do-not-port outputs. |
 | M10 | Post-M09 UI/UX advisory | Complete | Accepted implemented Briefing plus Neutral Seed screenshot review. |
-| M11 | Human steering, Engineering HS39, UI/UX HS39 | Active | Tactical Signal Readout Dev runway for combat-game feed state presentation; verification is support only. |
+| M11 | Human terminology correction, Overseer HS41 | Active | Retone pending readout implementation: keep physical/HUD-like theme, do not accept tactical wordage as reusable Lab language. |
 
 ## Current Direction
 
-Active milestone: M11 - Tactical Signal Readout
+Active milestone: M11 - Presentation State Readout Retone
 Last completed milestone: M10 - Implemented Family Screenshot Review
-Roadmap source: Human steering plus accepted Engineering/UIUX HS39 alignment
+Roadmap source: Human terminology correction plus Overseer cross-project usage review
 Current packet: `workspace/current.md`
-Current sequence: HS40
+Current sequence: HS41
 Latest accepted handshake: workspace/complete/milestone-M10/OverseerHS33-implemented-family-screenshot-review.md
 
 ## Durable Record Index
@@ -79,9 +79,8 @@ Latest accepted handshake: workspace/complete/milestone-M10/OverseerHS33-impleme
 
 Active milestone handshakes:
 
-- `workspace/EngineeringHS39-tactical-signal-readout-overseer-steering.md`
-- `workspace/UIUXHS39-tactical-signal-readout-alignment.md`
-- `workspace/OverseerHS40-tactical-signal-readout-runway.md`
+- `workspace/DevHS40-tactical-signal-readout.md`
+- `workspace/OverseerHS41-presentation-language-correction.md`
 
 Completed milestone handshakes:
 
@@ -104,6 +103,6 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Can Dev land Tactical Signal Readout as a high-quality presentation feature without turning verification into the product?
+- Can Dev preserve the physical readout theme while removing tactical/combat wordage from reusable Lab UI copy?
 - Should Aura Lab prepare a Core-owned transfer prompt for neutral presentation rigging candidates?
 - Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?
