@@ -44,17 +44,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M15 | Post-M14 UI/UX review | Complete | Accepted naming polish recommendation for Readout Detail and Neutral Sample. |
 | M16 | M15 naming recommendation | Complete | Accepted visible readout naming polish while preserving internals. |
 | M17 | Human protected-term guardrail proposal | Complete | Accepted shared protected-word lookup scaffold and Lab warning-only discovery check. |
+| M18 | Presentation concept runway | Complete | Accepted Instrument Status Band as the smallest safe next prototype and kept references advisory. |
 
 ## Current Direction
 
-Active milestone: M18 - Presentation Concept Pack
-Last completed milestone: M17 - Protected-Term Discovery Guardrail
-Roadmap source: Human direction after M17; `workspace/OverseerHS63-m18-presentation-concept-runway.md`
+Active milestone: M19 - Instrument Status Band Prototype
+Last completed milestone: M18 - Presentation Concept Pack
+Roadmap source: Accepted `workspace/complete/milestone-M18/UIUXHS64-presentation-concept-pack.md`
 Current packet: `workspace/current.md`
-Current sequence: HS63
-Latest accepted handshake: workspace/complete/milestone-M17/OverseerHS62-m17-acceptance.md
+Current sequence: HS67
+Latest accepted handshake: workspace/OverseerHS67-m18-acceptance-m19-runway.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: workspace/OverseerHS63-m18-presentation-concept-runway.md
+Active runway: workspace/OverseerHS67-m18-acceptance-m19-runway.md
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
@@ -75,6 +76,10 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/current-state/m09-packaging-review-current-state.md`
 - `docs/current-state/m10-implemented-family-screenshot-review-current-state.md`
 - `docs/current-state/m11-presentation-state-readout-current-state.md`
+
+### References
+
+- `workspace/reference/README.md`
 
 ### Shared Coordination Authority
 
@@ -101,7 +106,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 Active milestone handshakes:
 
-- `workspace/OverseerHS63-m18-presentation-concept-runway.md`
+- `workspace/OverseerHS67-m18-acceptance-m19-runway.md`
 - `workspace/LabRemoteConsumerConformanceHS66.md`
 
 Accepted authority records:
@@ -129,6 +134,7 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M15/`
 - `workspace/complete/milestone-M16/`
 - `workspace/complete/milestone-M17/`
+- `workspace/complete/milestone-M18/`
 
 ### Historical Archives
 
