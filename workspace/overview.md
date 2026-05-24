@@ -42,12 +42,12 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M13a - Presentation Vocabulary Inventory
 Last completed milestone: M12 - Bridge State Readout Naming Alignment
-Roadmap source: Waiting for Human / Overseer direction after M12 closure
+Roadmap source: Human slim-language direction and `workspace/critical/lab-vocabulary-instruction-packets.md`
 Current packet: `workspace/current.md`
-Current sequence: HS45
-Latest accepted handshake: workspace/complete/milestone-M12/OverseerHS45-m12-bridge-state-readout-rename-acceptance.md
+Current sequence: HS47
+Latest accepted handshake: workspace/OverseerHS47-m13a-presentation-vocabulary-inventory-runway.md
 
 ## Durable Record Index
 
@@ -91,7 +91,7 @@ Latest accepted handshake: workspace/complete/milestone-M12/OverseerHS45-m12-bri
 
 Active milestone handshakes:
 
-- None.
+- `workspace/OverseerHS47-m13a-presentation-vocabulary-inventory-runway.md`
 
 Accepted authority records:
 
