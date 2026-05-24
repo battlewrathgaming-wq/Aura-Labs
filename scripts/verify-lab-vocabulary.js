@@ -3,6 +3,7 @@ const path = require('node:path');
 const { projectRoot } = require('../src/util/tempPaths');
 
 const root = projectRoot();
+const protectedWordsRoot = 'F:\\Projects\\Docs\\Aura-Project-Orchestration\\terminology\\protected-words';
 
 const riskyVocabulary = [
   ['verified', /\bverified\b/i],
@@ -154,6 +155,8 @@ function main() {
     throw new Error(`Lab vocabulary guardrail failed:\n${failures.join('\n')}`);
   }
 
+  reportProtectedTermDiscovery();
+
   console.log('lab vocabulary verified');
 }
 
@@ -165,6 +168,204 @@ function riskyHits(copy) {
   return riskyVocabulary
     .filter(([, pattern]) => pattern.test(copy))
     .map(([label]) => label);
+}
+
+function reportProtectedTermDiscovery() {
+  const lookup = loadProtectedLookups();
+  const candidates = discoverCandidates(lookup);
+
+  if (lookup.warnings.length > 0) {
+    console.log('Lab protected-term discovery lookup warnings:');
+    lookup.warnings.forEach((warning) => console.log(`- ${warning}`));
+  }
+
+  if (candidates.length === 0) {
+    console.log('Lab protected-term discovery: 0 candidates');
+    return;
+  }
+
+  console.log(`Lab protected-term discovery: ${candidates.length} warning-only candidate(s)`);
+  for (const candidate of candidates.slice(0, 15)) {
+    console.log(
+      `- ${candidate.term} | owner=${candidate.owner} | layer=${candidate.layer} | ` +
+        `file=${candidate.file} | reason=${candidate.reason} | disposition=${candidate.disposition}`
+    );
+  }
+
+  if (candidates.length > 15) {
+    console.log(`- ${candidates.length - 15} additional candidate(s) omitted from console output`);
+  }
+}
+
+function loadProtectedLookups() {
+  const warnings = [];
+  const files = [
+    'atlas-protected.json',
+    'sense-protected.json',
+    'lab-protected.json',
+    'lab-quarantine.json',
+    'shared-collisions.json',
+    'pending-candidates.json'
+  ];
+  const lookup = {
+    warnings,
+    protectedTerms: [],
+    labAllowed: new Set(),
+    labQuarantine: [],
+    collisions: []
+  };
+
+  for (const filename of files) {
+    const fullPath = path.join(protectedWordsRoot, filename);
+    if (!fs.existsSync(fullPath)) {
+      warnings.push(`missing shared lookup file: ${fullPath}`);
+      continue;
+    }
+
+    let parsed;
+    try {
+      parsed = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+    } catch (error) {
+      warnings.push(`could not parse shared lookup file ${fullPath}: ${error.message}`);
+      continue;
+    }
+
+    if (filename === 'lab-protected.json') {
+      for (const entry of parsed.terms || []) {
+        lookup.labAllowed.add(entry.term.toLowerCase());
+        lookup.protectedTerms.push(entry);
+      }
+      continue;
+    }
+
+    if (filename === 'lab-quarantine.json') {
+      lookup.labQuarantine.push(...(parsed.terms || []));
+      continue;
+    }
+
+    if (filename === 'shared-collisions.json') {
+      lookup.collisions.push(...(parsed.terms || []));
+      continue;
+    }
+
+    lookup.protectedTerms.push(...(parsed.terms || []));
+  }
+
+  return lookup;
+}
+
+function discoverCandidates(lookup) {
+  const seen = new Set();
+  const candidates = [];
+  for (const surface of copySurface) {
+    for (const copy of surface.strings) {
+      const detected = classifyCopyCandidate(copy, surface.file, lookup);
+      if (!detected) continue;
+
+      const key = `${detected.term}|${detected.file}|${detected.reason}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      candidates.push(detected);
+    }
+  }
+
+  return candidates.sort((left, right) => {
+    const leftRank = dispositionRank(left.disposition);
+    const rightRank = dispositionRank(right.disposition);
+    if (leftRank !== rightRank) return leftRank - rightRank;
+    return left.term.localeCompare(right.term);
+  });
+}
+
+function classifyCopyCandidate(copy, file, lookup) {
+  const normalized = copy.trim();
+  if (!looksMeaningful(normalized)) return null;
+
+  const protectedHit = lookup.protectedTerms.find((entry) => includesTerm(normalized, entry.term));
+  if (protectedHit && protectedHit.owner !== 'Lab') {
+    return {
+      term: normalized,
+      owner: protectedHit.owner,
+      layer: inferLayer(normalized, file),
+      file,
+      reason: `matches ${protectedHit.owner}-protected term "${protectedHit.term}"`,
+      disposition: 'ask Human/Overseer before Lab default use'
+    };
+  }
+
+  const quarantineHit = lookup.labQuarantine.find((entry) => includesTerm(normalized, entry.term));
+  if (quarantineHit) {
+    return {
+      term: normalized,
+      owner: 'Lab review',
+      layer: inferLayer(normalized, file),
+      file,
+      reason: `contains Lab quarantine term "${quarantineHit.term}"`,
+      disposition: 'review as source-owned, internal/support, or replacement'
+    };
+  }
+
+  const collisionHit = lookup.collisions.find((entry) => includesTerm(normalized, entry.term));
+  if (collisionHit && !lookup.labAllowed.has(normalized.toLowerCase())) {
+    return {
+      term: normalized,
+      owner: (collisionHit.owners || ['shared collision']).join('/'),
+      layer: inferLayer(normalized, file),
+      file,
+      reason: `matches shared collision term "${collisionHit.term}"`,
+      disposition: 'qualify owner/layer or leave as reviewed Lab copy'
+    };
+  }
+
+  if (isCandidatePhrase(normalized) && !lookup.labAllowed.has(normalized.toLowerCase())) {
+    return {
+      term: normalized,
+      owner: 'Lab candidate',
+      layer: inferLayer(normalized, file),
+      file,
+      reason: 'meaningful UI/service phrase not in Lab protected list',
+      disposition: 'leave, protect, or mark support-only after Overseer review'
+    };
+  }
+
+  return null;
+}
+
+function looksMeaningful(copy) {
+  if (copy.length < 4 || copy.length > 140) return false;
+  if (!/[A-Za-z]/.test(copy)) return false;
+  if (/^[A-Z0-9_\-./:]+$/.test(copy)) return false;
+  if (/^workspace[\\/]/i.test(copy)) return false;
+  return true;
+}
+
+function isCandidatePhrase(copy) {
+  if (copy.includes(';') || copy.endsWith('.')) return false;
+  const words = copy.split(/\s+/).filter(Boolean);
+  if (words.length < 2 || words.length > 5) return false;
+  return words.some((word) => /^[A-Z][a-z]/.test(word));
+}
+
+function includesTerm(copy, term) {
+  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`\\b${escaped}\\b`, 'i').test(copy);
+}
+
+function inferLayer(copy, file) {
+  if (file.includes('renderer')) return 'UI-facing';
+  if (file.includes('serviceRegistry')) {
+    if (/^Return\b/.test(copy)) return 'service command description';
+    if (/basis|boundary|note|family|state/i.test(copy)) return 'bridge-facing presentation fixture';
+    return 'service/support copy';
+  }
+  return 'unresolved';
+}
+
+function dispositionRank(disposition) {
+  if (disposition.startsWith('ask')) return 0;
+  if (disposition.startsWith('review')) return 1;
+  if (disposition.startsWith('qualify')) return 2;
+  return 3;
 }
 
 main();

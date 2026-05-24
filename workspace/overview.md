@@ -39,15 +39,21 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M10 | Post-M09 UI/UX advisory | Complete | Accepted implemented Briefing plus Neutral Seed screenshot review. |
 | M11 | Human terminology correction, Overseer HS41 | Complete | Accepted neutral Presentation State Readout with physical/HUD-like theme and no default tactical/combat wording. |
 | M12 | UIUXHS43 naming feedback | Complete | Renamed accepted readout feature to Bridge State Readout without behavior, state, or doctrine changes. |
+| M13 | Human terminology authority correction | Complete | Accepted Lab presentation vocabulary inventory, replacement, and local vocabulary guardrail. |
+| M14 | M13 residual terminology/smoke risks | Complete | Accepted readout-basis correction and visual-smoke honesty checks. |
+| M15 | Post-M14 UI/UX review | Complete | Accepted naming polish recommendation for Readout Detail and Neutral Sample. |
+| M16 | M15 naming recommendation | Complete | Accepted visible readout naming polish while preserving internals. |
+| M17 | Human protected-term guardrail proposal | Complete | Accepted shared protected-word lookup scaffold and Lab warning-only discovery check. |
 
 ## Current Direction
 
 Active milestone: No active milestone
-Last completed milestone: M16 - Readout Naming Polish
+Last completed milestone: M17 - Protected-Term Discovery Guardrail
 Roadmap source: Waiting for Human / Overseer direction
 Current packet: `workspace/current.md`
-Current sequence: HS59
-Latest accepted handshake: workspace/OverseerHS59-m16-acceptance.md
+Current sequence: HS62
+Latest accepted handshake: workspace/OverseerHS62-m17-acceptance.md
+Latest scope proposal: workspace/OverseerHS60-protected-term-guardrail-scope.md
 
 ## Durable Record Index
 
@@ -86,6 +92,7 @@ Latest accepted handshake: workspace/OverseerHS59-m16-acceptance.md
 - `workspace/critical/critical-assets.md`
 - `workspace/critical/lab-vocabulary-instruction-packets.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\terminology\TerminologyAuthorityRuleset-2026-05-24.md`
+- `F:\Projects\Docs\Aura-Project-Orchestration\terminology\protected-words\README.md`
 
 ### Transaction Records
 
@@ -123,3 +130,5 @@ Completed milestone handshakes:
 - Should the next Lab milestone review Bridge State Readout use-case clarity across states?
 - Should Aura Lab park until a target project asks to adapt a presentation pattern?
 - Should the next Lab packet explore a new visible presentation feature prototype?
+- Should Atlas and Sense receive project-local protected-term checker adoption prompts?
+- Should Lab refine protected-term discovery output after a few review cycles?
