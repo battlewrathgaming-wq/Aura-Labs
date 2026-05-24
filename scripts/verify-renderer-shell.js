@@ -25,6 +25,8 @@ function main() {
   assert(main.includes('states_checked'), 'visual smoke should report checked states');
   assert(main.includes('viewports_checked'), 'visual smoke should report checked viewports');
   assert(main.includes('visual_structure'), 'visual smoke should capture prototype visual structure');
+  assert(main.includes('readout_label'), 'visual smoke should capture Presentation State Readout label');
+  assert(main.includes('source_drawer_visible'), 'visual smoke should capture Source Detail Drawer presence');
   assert(main.includes('scrollWidth > node.clientWidth'), 'visual smoke should check horizontal text overflow');
   assert(packageJson.includes('"smoke:electron"'), 'package should expose project-local Electron smoke script');
   assert(smokeScript.includes('AURA_LAB_ELECTRON_VISUAL_SMOKE'), 'Electron smoke wrapper should set explicit smoke flag');
@@ -48,6 +50,9 @@ function main() {
   assert(html.includes('briefing-title'), 'renderer should include project briefing title target');
   assert(html.includes('action-posture'), 'renderer should include action posture target');
   assert(html.includes('trust-strip'), 'renderer should include top trust strip');
+  assert(html.includes('state-readout'), 'renderer should include Presentation State Readout strip');
+  assert(html.includes('state-pips'), 'renderer should include state pips');
+  assert(html.includes('source-detail-drawer'), 'renderer should include Source Detail Drawer');
   assert(html.includes('attention-panel'), 'renderer should include needs attention panel');
   assert(html.includes('attention-list'), 'renderer should include attention list target');
   assert(html.includes('view-status'), 'renderer should include bridge state target');
@@ -67,6 +72,11 @@ function main() {
   assert(app.includes('presentationFamily'), 'renderer should track presentation family separately');
   assert(app.includes('actionPostureLabel'), 'renderer should render action posture');
   assert(app.includes('actionPostureDetail'), 'renderer should render action posture detail');
+  assert(app.includes('renderPresentationStateReadout'), 'renderer should render Presentation State Readout');
+  assert(app.includes('renderSourceDrawer'), 'renderer should render Source Detail Drawer');
+  assert(app.includes('UPDATING'), 'renderer should map loading state to updating language');
+  assert(app.includes('NO DATA'), 'renderer should map empty state to no-data language');
+  assert(app.includes('Last successful read'), 'renderer should map stale state to age language');
   assert(app.includes('renderAttention'), 'renderer should render attention items');
   assert(app.includes('No attention items reported'), 'renderer should include empty attention copy');
   assert(app.includes('Not provided'), 'renderer should include missing attention copy');

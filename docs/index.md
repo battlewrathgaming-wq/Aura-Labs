@@ -72,6 +72,7 @@ Start here:
 - `docs/README.md`
 - `docs/statements/post-bridge-presentation-boundary.md`
 - `docs/current-state/m04-visual-prototype-current-state.md`
+- `docs/current-state/m11-presentation-state-readout-current-state.md`
 - `workspace/overview.md`
 
 For current work, use `workspace/current.md` as the executable packet.

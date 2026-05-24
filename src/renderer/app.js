@@ -127,8 +127,11 @@ function renderBriefing(briefing) {
   document.querySelector('.bridge-state').dataset.status = status;
   document.querySelector('#action-posture-label').textContent = actionPostureLabel(briefing, status);
   document.querySelector('#action-posture-detail').textContent = actionPostureDetail(briefing, stateCopy);
-  document.querySelector('#certainty').textContent = briefing?.certainty || stateCopy.certainty;
-  document.querySelector('#sources').textContent = sourceCopy(briefing);
+  const readout = presentationStateReadout(briefing, status, stateCopy);
+  renderPresentationStateReadout(readout);
+  renderSourceDrawer(briefing, readout, status);
+  document.querySelector('#certainty').textContent = readout.basis;
+  document.querySelector('#sources').textContent = readout.sourceDisplay;
   document.querySelector('#briefing-mode-note').textContent = modeNoteCopy(briefing);
   syncControlValue('#presentation-family', state.presentationFamily);
   syncControlValue('#briefing-mode', state.briefingMode);
@@ -140,6 +143,186 @@ function renderBriefing(briefing) {
     item.textContent = valueCopy(fields[key], status);
     item.classList.toggle('muted-value', !fields[key]);
   }
+}
+
+function renderPresentationStateReadout(readoutState) {
+  const readout = document.querySelector('#state-readout');
+  readout.dataset.tone = readoutState.tone;
+  document.querySelector('#state-label').textContent = readoutState.label;
+  document.querySelector('#state-summary').textContent = readoutState.summary;
+  document.querySelector('#state-age').textContent = readoutState.ageLabel;
+  document.querySelector('#state-source-count').textContent = readoutState.sourceDisplay;
+
+  const pipList = document.querySelector('#state-pips');
+  pipList.textContent = '';
+  for (let index = 0; index < readoutState.totalSources; index += 1) {
+    const pip = document.createElement('span');
+    pip.className = 'state-pip';
+    pip.dataset.active = index < readoutState.availableSources ? 'true' : 'false';
+    pipList.appendChild(pip);
+  }
+}
+
+function renderSourceDrawer(briefing, readoutState, status) {
+  document.querySelector('#source-detail-state').textContent = readoutState.label;
+
+  const list = document.querySelector('#source-detail-list');
+  list.textContent = '';
+  appendSourceDetail(list, 'Readout age', readoutState.ageLabel);
+  appendSourceDetail(list, 'State summary', readoutState.summary);
+  appendSourceDetail(list, 'Readout basis', readoutState.basis);
+  appendSourceDetail(list, 'Known fields', knownFieldCopy(briefing, status));
+  appendSourceDetail(list, 'Source paths', sourceCopy(briefing));
+
+  const gaps = document.querySelector('#source-gap-list');
+  gaps.textContent = '';
+  const lines = detailLines(briefing, readoutState, status);
+  for (const line of lines) {
+    const item = document.createElement('p');
+    item.textContent = line;
+    gaps.appendChild(item);
+  }
+}
+
+function appendSourceDetail(list, labelText, valueText) {
+  const item = document.createElement('div');
+  const label = document.createElement('span');
+  const value = document.createElement('strong');
+  label.textContent = labelText;
+  value.textContent = valueText || 'Not provided';
+  item.append(label, value);
+  list.appendChild(item);
+}
+
+function presentationStateReadout(briefing, status, stateCopy) {
+  const labels = briefing?.source_labels || [];
+  const sources = briefing?.sources || [];
+  const totalSources = Math.max(labels.length, sources.length, 1);
+  const availableSources = status === 'loading' || status === 'empty'
+    ? 0
+    : sources.length > 0
+      ? sources.filter((source) => source?.available !== false).length
+      : labels.length;
+  const sourceDisplay = `${Math.min(availableSources, totalSources)}/${totalSources} sources`;
+  const ageLabel = readoutAgeCopy(briefing, status);
+  const gaps = briefing?.missing_fields || [];
+  const hasFallback = Boolean(briefing?.fallback_note);
+  const toneByStatus = {
+    loading: 'updating',
+    populated: 'current',
+    stale: 'aged',
+    partial: 'partial',
+    failed: hasFallback ? 'fallback' : 'unavailable',
+    empty: 'no-data'
+  };
+  const tone = toneByStatus[status] || 'unavailable';
+  const copy = {
+    current: {
+      label: 'CURRENT',
+      summary: 'Current bridge read is ready for display.',
+      basis: 'Current local sources available.'
+    },
+    updating: {
+      label: 'UPDATING',
+      summary: 'Updating from the local bridge.',
+      basis: 'Awaiting first bridge response.'
+    },
+    aged: {
+      label: 'AGED',
+      summary: 'Showing the last successful bridge read.',
+      basis: 'Last successful local source read.'
+    },
+    partial: {
+      label: 'PARTIAL',
+      summary: gaps.length > 0 ? `Readout returned with ${gaps.length} gap${gaps.length === 1 ? '' : 's'}.` : 'Readout returned with limited detail.',
+      basis: 'Available fields are still displayed.'
+    },
+    unavailable: {
+      label: 'UNAVAILABLE',
+      summary: 'Current bridge read is unavailable.',
+      basis: 'Bridge read unavailable.'
+    },
+    fallback: {
+      label: 'FALLBACK',
+      summary: briefing?.fallback_note || 'Using fallback display posture.',
+      basis: 'Fallback presentation path.'
+    },
+    'no-data': {
+      label: 'NO DATA',
+      summary: 'Bridge responded with no presentable data.',
+      basis: 'No presentation payload available.'
+    }
+  };
+  return {
+    ...copy[tone],
+    tone,
+    ageLabel,
+    sourceDisplay,
+    totalSources,
+    availableSources: Math.min(availableSources, totalSources),
+    stateSummary: stateCopy.summary
+  };
+}
+
+function readoutAgeCopy(briefing, status) {
+  if (status === 'loading') {
+    return 'Updating now';
+  }
+  if (status === 'empty') {
+    return 'No data returned';
+  }
+  if (!briefing?.last_read_at) {
+    return 'Last read unknown';
+  }
+  const readAt = new Date(briefing.last_read_at);
+  if (Number.isNaN(readAt.getTime())) {
+    return 'Last read unavailable';
+  }
+  const ageMs = Date.now() - readAt.getTime();
+  const minutes = Math.max(0, Math.round(ageMs / 60000));
+  if (status === 'stale') {
+    return `Last successful read ${minutes} min ago`;
+  }
+  if (status === 'failed') {
+    return minutes <= 0 ? 'Last attempt now' : `Last attempt ${minutes} min ago`;
+  }
+  return minutes <= 0 ? 'Last read now' : `Last read ${minutes} min ago`;
+}
+
+function knownFieldCopy(briefing, status) {
+  if (status === 'loading') {
+    return 'Acquiring fields';
+  }
+  const count = Object.values(briefing?.fields || {}).filter(Boolean).length;
+  return count > 0 ? `${count} fields` : 'No fields';
+}
+
+function detailLines(briefing, readoutState, status) {
+  const lines = [];
+  const missing = briefing?.missing_fields || [];
+  const warnings = briefing?.warnings || [];
+  if (missing.length > 0) {
+    lines.push(`Gaps: ${missing.join(', ')}`);
+  }
+  if (warnings.length > 0) {
+    lines.push(`Warnings: ${warnings.map((warning) => warning.message || warning.code || 'Warning').join('; ')}`);
+  }
+  if (briefing?.error?.message) {
+    lines.push(`Failure note: ${briefing.error.message}`);
+  }
+  if (readoutState.tone === 'fallback') {
+    lines.push(`Fallback note: ${readoutState.summary}`);
+  }
+  if (status === 'empty') {
+    lines.push('No data: no presentable fields were returned.');
+  }
+  if (status === 'loading') {
+    lines.push('Updating: waiting for the first local response.');
+  }
+  if (lines.length === 0) {
+    lines.push('No gaps or warnings reported.');
+  }
+  return lines;
 }
 
 function syncControlValue(selector, value) {

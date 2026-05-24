@@ -36,14 +36,40 @@
         </div>
         <div class="trust-strip">
           <div>
-            <span class="label">Certainty</span>
+            <span class="label">Readout status</span>
             <strong id="certainty">Reported by bridge</strong>
           </div>
           <div>
-            <span class="label">Sources</span>
+            <span class="label">Source coverage</span>
             <strong id="sources">Pending</strong>
           </div>
         </div>
+        <section class="state-readout" id="state-readout" data-tone="updating" aria-labelledby="state-label">
+          <div class="state-core">
+            <span class="state-light" aria-hidden="true"></span>
+            <div class="state-copy">
+              <p class="state-kicker">Presentation State Readout</p>
+              <h2 id="state-label">UPDATING</h2>
+              <p id="state-summary">Updating from the local bridge.</p>
+            </div>
+          </div>
+          <div class="state-instrument" aria-hidden="true">
+            <span class="state-sweep"></span>
+            <div class="state-pips" id="state-pips"></div>
+          </div>
+          <div class="state-meta">
+            <span id="state-age">Last read pending</span>
+            <span id="state-source-count">0/0 sources</span>
+          </div>
+        </section>
+        <details class="source-drawer" id="source-detail-drawer" open>
+          <summary>
+            <span>Source Detail</span>
+            <small id="source-detail-state">Updating</small>
+          </summary>
+          <div class="source-detail-grid" id="source-detail-list"></div>
+          <div class="source-gap-list" id="source-gap-list"></div>
+        </details>
         <section class="attention-panel" aria-labelledby="attention-title">
           <div class="attention-head">
             <h2 id="attention-title">Needs Attention</h2>

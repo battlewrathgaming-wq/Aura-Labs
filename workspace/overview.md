@@ -35,16 +35,16 @@ Aura Lab does not primarily own what each Aura product presents. It owns the Lab
 | M08 | M07 UI/UX spec | Complete | Accepted Dev prototype for Briefing plus Neutral Seed family/state proof. |
 | M09 | Human direction after M08 closure | Complete | Accepted packaging classification for Lab-local, Core-neutral candidate, target-adaptable, and do-not-port outputs. |
 | M10 | Post-M09 UI/UX advisory | Complete | Accepted implemented Briefing plus Neutral Seed screenshot review. |
-| M11 | Human terminology correction, Overseer HS41 | Active | Retone pending readout implementation: keep physical/HUD-like theme, do not accept tactical wordage as reusable Lab language. |
+| M11 | Human terminology correction, Overseer HS41 | Complete | Accepted neutral Presentation State Readout with physical/HUD-like theme and no default tactical/combat wording. |
 
 ## Current Direction
 
-Active milestone: M11 - Presentation State Readout Retone
-Last completed milestone: M10 - Implemented Family Screenshot Review
-Roadmap source: Human terminology correction plus Overseer cross-project usage review
+Active milestone: None
+Last completed milestone: M11 - Presentation State Readout Retone
+Roadmap source: Waiting for Human / Overseer direction after M11 closure
 Current packet: `workspace/current.md`
-Current sequence: HS41
-Latest accepted handshake: workspace/complete/milestone-M10/OverseerHS33-implemented-family-screenshot-review.md
+Current sequence: HS42
+Latest accepted handshake: workspace/complete/milestone-M11/OverseerHS42-m11-presentation-state-readout-acceptance.md
 
 ## Durable Record Index
 
@@ -62,6 +62,7 @@ Latest accepted handshake: workspace/complete/milestone-M10/OverseerHS33-impleme
 - `docs/current-state/m08-fixture-backed-presentation-family-prototype-current-state.md`
 - `docs/current-state/m09-packaging-review-current-state.md`
 - `docs/current-state/m10-implemented-family-screenshot-review-current-state.md`
+- `docs/current-state/m11-presentation-state-readout-current-state.md`
 
 ### Shared Coordination Authority
 
@@ -79,8 +80,7 @@ Latest accepted handshake: workspace/complete/milestone-M10/OverseerHS33-impleme
 
 Active milestone handshakes:
 
-- `workspace/DevHS40-tactical-signal-readout.md`
-- `workspace/OverseerHS41-presentation-language-correction.md`
+- None.
 
 Completed milestone handshakes:
 
@@ -96,6 +96,7 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M08/`
 - `workspace/complete/milestone-M09/`
 - `workspace/complete/milestone-M10/`
+- `workspace/complete/milestone-M11/`
 
 ### Historical Archives
 
@@ -103,6 +104,6 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Can Dev preserve the physical readout theme while removing tactical/combat wordage from reusable Lab UI copy?
+- Should UI/UX rename `Presentation State Readout` to `Bridge State Readout` or `Source State Readout` later?
 - Should Aura Lab prepare a Core-owned transfer prompt for neutral presentation rigging candidates?
 - Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?
