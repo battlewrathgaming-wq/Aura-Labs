@@ -54,6 +54,12 @@ Executes only the ordered runway in `workspace/current.md`, runs required verifi
 Specialists:
 Provide focused review or scoped implementation lenses. They do not own product direction.
 
+Advisory artifacts:
+Planner and specialist work products should contain analysis, findings, recommendations, risks, acceptance checks, and parked items. They should not be mostly prompt text. Prompts may appear only as short suggested next-action appendices after the artifact has done its analysis.
+
+Prompt requests:
+If the human asks for "a prompt," treat it as chat-only by default. Do not create or save a prompt artifact unless the human explicitly asks for a file or `workspace/current.md` requires one.
+
 Orchestrator:
 Routes work to the right role and prepares exact prompts. It does not replace Overseer or Dev.
 
