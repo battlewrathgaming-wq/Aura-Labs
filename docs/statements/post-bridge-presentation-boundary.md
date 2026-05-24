@@ -21,6 +21,22 @@ Aura Lab owns the proving bench for everything past the bridge:
 - visual smoke evidence, including screenshots, result JSON, overflow checks, and process cleanup
 - shell/runtime hygiene only where it makes presentation verification reliable
 
+## Bridge Authority Rule
+
+Individual Aura projects own their internal source-to-Bridge mappings.
+
+That means Atlas, Sense, Core, or another target project decides how its own backend/domain/service state becomes bridge-facing data. Aura Lab does not override those internal mappings.
+
+Bridge-to-Interface presentation should be preserved across projects unless:
+
+- the target project identifies a real conflict with its doctrine, product meaning, or safety boundary
+- the Human explicitly overrides the presentation language
+- the wording would incorrectly imply source truth, durable schema authority, target-project ownership, Atlas evidence doctrine, Sense tactical doctrine, or Aura Core ownership
+
+When Bridge-to-Interface terminology conflicts or Human override is given, Aura Lab owns the user-facing terminology decision for the shared presentation layer.
+
+This ownership applies to UI language, state labels, display affordances, and presentation-facing terminology. It does not make Aura Lab the owner of target project domain truth, internal service contracts, source semantics, or upstream bridge schemas.
+
 ## Not Owned
 
 Aura Lab does not own:
@@ -65,3 +81,5 @@ Unsafe candidates include:
 Atlas, Sense, and Aura Core adoption must happen through their own project authority.
 
 Aura Lab can prove mechanics. Target projects decide whether those mechanics fit their doctrine, language, data boundaries, and user intent.
+
+When a target project accepts a Lab presentation pattern, that project remains authoritative for internal-to-Bridge mapping. Aura Lab remains authoritative for shared Bridge-to-Interface terminology unless the target project records a conflict or the Human overrides the wording.

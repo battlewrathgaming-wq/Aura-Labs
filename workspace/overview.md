@@ -11,6 +11,8 @@ It should use the inherited Aura Core scaffold lightly while proving whether bri
 
 Aura Lab does not primarily own what each Aura product presents. It owns the Lab proving bench for everything past the bridge: display mapping, state grammar, typography, containment, shell verification, and visual smoke evidence.
 
+Authority clarification: individual projects own internal-to-Bridge mappings. Bridge-to-Interface terminology should be preserved unless there is conflict or Human override; in those cases, Aura Lab owns shared user-facing terminology for the presentation layer.
+
 ## Coordination Model
 
 - `workspace/current.md` is the only active executable work packet.
@@ -81,7 +83,7 @@ Latest accepted handshake: workspace/complete/milestone-M12/OverseerHS45-m12-bri
 
 Active milestone handshakes:
 
-- None.
+- `workspace/OverseerHS46-bridge-interface-authority-decision.md`
 
 Completed milestone handshakes:
 

@@ -23,6 +23,7 @@ There is no current Dev runway. Do not execute Dev work from this packet.
 - M00 through M12 are complete and accepted.
 - M11 accepted the neutral physical readout feature.
 - M12 renamed that feature to `Bridge State Readout`.
+- Human authority decision HS46 accepted: individual projects own internal-to-Bridge mappings; Lab owns shared Bridge-to-Interface user-facing terminology when preservation conflicts or Human override occurs.
 - Tactical/combat wording remains rejected as default reusable Lab language.
 - Verification tooling remains support for presentation work, not the product direction.
 
