@@ -12,7 +12,7 @@ async function boot() {
   await bootFrame();
   renderBriefing({
     view_status: 'loading',
-    certainty: 'Reported by bridge',
+    certainty: 'Bridge read pending',
     fields: {},
     source_labels: [],
     last_read_at: null
@@ -88,7 +88,7 @@ async function loadSelectedFixture() {
   stateSelect.disabled = true;
   renderBriefing({
     view_status: 'loading',
-    certainty: 'Reported by bridge',
+    certainty: 'Bridge read pending',
     fields: {},
     source_labels: [],
     last_read_at: null,
@@ -320,7 +320,7 @@ function detailLines(briefing, readoutState, status) {
     lines.push('Updating: waiting for the first local response.');
   }
   if (lines.length === 0) {
-    lines.push('No gaps or warnings reported.');
+    lines.push('No gaps or warnings shown.');
   }
   return lines;
 }
@@ -364,8 +364,8 @@ function renderAttention(briefing, status) {
   }
 
   if (!Array.isArray(items) || items.length === 0) {
-    count.textContent = 'None reported';
-    appendAttentionLine(list, briefing?.attention_empty_copy || 'No attention items reported.', 'muted-value');
+    count.textContent = 'None shown';
+    appendAttentionLine(list, briefing?.attention_empty_copy || 'No attention items shown.', 'muted-value');
     return;
   }
 
@@ -433,7 +433,7 @@ function statusCopyByStatus(status, projectName, briefing) {
       label: 'Loading',
       title: 'Reading project state',
       summary: 'Reading project state through the local service bridge.',
-      certainty: 'Reported by bridge'
+      certainty: 'Bridge read pending'
     },
     empty: {
       label: 'Empty',
@@ -445,7 +445,7 @@ function statusCopyByStatus(status, projectName, briefing) {
       label: 'Populated',
       title: projectName,
       summary: briefing?.fields?.current_focus || briefing?.fields?.project_description || 'Project briefing is available from local workspace sources.',
-      certainty: 'Verified from source'
+      certainty: 'Read from source'
     },
     stale: {
       label: 'Stale',

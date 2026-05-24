@@ -349,7 +349,7 @@ function buildProjectBriefing(payload = {}) {
       certainty: 'No presentation data available from fixture input.',
       action_posture: actionPostureForStatus('empty', {}),
       attention_items: [],
-      attention_empty_copy: 'No attention items reported.',
+      attention_empty_copy: 'No attention items shown.',
       fields: {},
       source_labels: sources.map((source) => source.label),
       sources,
@@ -379,7 +379,7 @@ function buildProjectBriefing(payload = {}) {
     certainty: certaintyForStatus(viewStatus),
     action_posture: actionPostureForStatus(viewStatus, fields),
     attention_items: attentionItems,
-    attention_empty_copy: 'No attention items reported.',
+    attention_empty_copy: 'No attention items shown.',
     fields,
     source_labels: sources.map((source) => source.label),
     sources,
@@ -439,12 +439,12 @@ function buildNeutralSeedFixture(state) {
   let certainty = fields.current_focus;
   let title = fields.project_name;
   let summary = fields.previous_accepted_handshake;
-  let emptyCopy = 'No sample items reported.';
+  let emptyCopy = 'No sample items shown.';
 
   if (state === 'empty') {
     viewStatus = 'empty';
     attentionItems = [];
-    title = 'No sample items reported';
+    title = 'No sample items shown';
     summary = 'The fixture returned an intentional empty presentation state.';
     certainty = 'No sample data available from fixture input.';
   }
@@ -512,13 +512,13 @@ function neutralSeedFields(state) {
       ? 'Last generated from deterministic Lab-local fixture data for display review'
       : 'Last generated from fixture data',
     current_focus: long
-      ? 'Display certainty: fixture-backed sample for typography, source labeling, and containment review only.'
-      : 'Display certainty: fixture-backed sample.',
+      ? 'Display basis: fixture-backed sample for typography, source labeling, and containment review only.'
+      : 'Display basis: fixture-backed sample.',
     expected_output: long
-      ? 'Presentation boundary: sample data verifies display mapping only and does not define product meaning or an upstream bridge contract.'
+      ? 'Presentation boundary: sample data exercises display mapping only and does not define product meaning or an upstream bridge contract.'
       : 'Presentation boundary: display mapping only.',
     previous_accepted_handshake: long
-      ? 'Display note: this neutral family uses generic sample slots to keep source, freshness, certainty, and unavailable copy visible under longer text pressure.'
+      ? 'Display note: this neutral family uses generic sample slots to keep basis, freshness, and availability copy visible under longer text pressure.'
       : 'Display note: generic sample slot.',
     sequence: state === 'long-text' ? 'Neutral long-text review state' : `Neutral ${state} review state`
   };
@@ -575,7 +575,7 @@ function neutralSeedFieldLabels() {
     active_milestone: 'Secondary sample',
     current_packet_path: 'Source layer',
     current_executor: 'Freshness basis',
-    current_focus: 'Display certainty',
+    current_focus: 'Display basis',
     expected_output: 'Presentation boundary',
     previous_accepted_handshake: 'Display note',
     sequence: 'Review token'
@@ -690,8 +690,8 @@ function buildAttentionItems(currentText, fields = {}) {
 function applyLongTextFixture(fields, sources, now) {
   fields.project_name = 'Aura Lab visual smoke long-text briefing surface validation';
   fields.active_milestone = 'M08 - Fixture-Backed Presentation Family Prototype with intentionally extended milestone copy for containment review';
-  fields.current_focus = 'Implement the first bounded fixture-backed presentation family proof while keeping Briefing behavior, source language, state grammar, diagnostics hierarchy, and narrow-window text containment intact.';
-  fields.expected_output = 'workspace/DevHS30-fixture-backed-presentation-family-prototype.md with family and state behavior, visual smoke evidence, screenshot notes, process cleanup, and residual risk recorded for Overseer review.';
+  fields.current_focus = 'Implement the first bounded fixture-backed presentation family prototype while keeping Briefing behavior, source language, state grammar, diagnostics hierarchy, and narrow-window text containment intact.';
+  fields.expected_output = 'workspace/DevHS30-fixture-backed-presentation-family-prototype.md with family and state behavior, visual smoke notes, screenshot notes, process cleanup, and residual risk captured for Overseer review.';
   fields.previous_accepted_handshake = 'workspace/complete/milestone-M07/OverseerHS30-m07-closure-and-m08-runway.md plus accepted family-spec and post-bridge presentation boundary notes.';
   fields.sequence = 'HS30 long-text review fixture';
   sources.push({
@@ -755,9 +755,9 @@ function certaintyForStatus(status) {
     return 'Showing last successful read; source may have changed.';
   }
   if (status === 'partial') {
-    return 'Partial view; available facts are source-labeled.';
+    return 'Partial readout; available fields include source labels.';
   }
-  return 'Verified from local workspace sources.';
+  return 'Read from local workspace sources.';
 }
 
 function registerElectronServiceHandlers(ipcMain, registry, contextProvider = () => ({})) {

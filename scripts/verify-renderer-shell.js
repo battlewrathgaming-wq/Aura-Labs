@@ -79,7 +79,7 @@ function main() {
   assert(app.includes('NO DATA'), 'renderer should map empty state to no-data language');
   assert(app.includes('Last successful read'), 'renderer should map stale state to age language');
   assert(app.includes('renderAttention'), 'renderer should render attention items');
-  assert(app.includes('No attention items reported'), 'renderer should include empty attention copy');
+  assert(app.includes('No attention items shown'), 'renderer should include empty attention copy');
   assert(app.includes('Not provided'), 'renderer should include missing attention copy');
   assert(app.includes('state: state.briefingMode'), 'renderer should invoke review state through bridge payload');
   assert(app.includes("stateSelect.addEventListener('change'"), 'renderer should repopulate fixture when review state changes');
@@ -90,7 +90,7 @@ function main() {
   assert(app.includes('stale'), 'renderer should handle stale state');
   assert(app.includes('failed'), 'renderer should handle failed state');
   assert(app.includes('partial'), 'renderer should handle partial state');
-  assert(app.includes('Verified from source'), 'renderer should include source certainty language');
+  assert(app.includes('Read from source'), 'renderer should include source basis language');
   assert(app.includes('Not provided'), 'renderer should include missing optional value language');
   assert(app.includes('Unavailable'), 'renderer should include unavailable value language');
   assert(main.includes('action_posture'), 'visual smoke should capture action posture');

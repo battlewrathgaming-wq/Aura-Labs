@@ -141,7 +141,7 @@ async function verifyRegistry() {
   assert(briefing.fields.current_packet_path === 'workspace/current.md', 'project briefing should identify current packet path');
   assert(briefing.source_labels.includes('workspace/current.md'), 'project briefing should label current packet source');
   assert(briefing.source_labels.includes('docs/current-state/m01-project-state-briefing-current-state.md'), 'project briefing should label accepted M01 current-state source');
-  assert(['Verified from local workspace sources.', 'Partial view; available facts are source-labeled.'].includes(briefing.certainty), 'project briefing should include certainty language');
+  assert(['Read from local workspace sources.', 'Partial readout; available fields include source labels.'].includes(briefing.certainty), 'project briefing should include basis language');
   assert(typeof briefing.last_read_at === 'string' && briefing.last_read_at.length > 0, 'project briefing should include last read time');
 
   const legacyFixtureBriefing = await registry.invoke('aura.projectBriefing', { fixtureState: 'partial' });
@@ -153,7 +153,7 @@ async function verifyRegistry() {
   assert(partialBriefing.missing_fields.includes('expected_output'), 'partial briefing should identify missing field');
   assert(partialBriefing.missing_fields.includes('attention_items'), 'partial briefing should identify missing attention items');
   assert(partialBriefing.attention_items === null, 'partial briefing should not provide blank attention data');
-  assert(partialBriefing.certainty === 'Partial view; available facts are source-labeled.', 'partial briefing should include partial certainty language');
+  assert(partialBriefing.certainty === 'Partial readout; available fields include source labels.', 'partial briefing should include partial basis language');
 
   const longTextBriefing = await registry.invoke('aura.projectBriefing', { mode: 'long-text' });
   assert(longTextBriefing.view_status === 'populated', 'project briefing should expose long-text populated fixture state');
@@ -169,7 +169,7 @@ async function verifyRegistry() {
   assert(emptyBriefing.mode === 'empty', 'empty briefing should echo mode');
   assert(emptyBriefing.action_posture.label === 'Human direction needed', 'empty briefing should expose action posture');
   assert(Array.isArray(emptyBriefing.attention_items) && emptyBriefing.attention_items.length === 0, 'empty briefing should expose empty attention list');
-  assert(emptyBriefing.attention_empty_copy === 'No attention items reported.', 'empty briefing should expose intentional empty attention copy');
+  assert(emptyBriefing.attention_empty_copy === 'No attention items shown.', 'empty briefing should expose intentional empty attention copy');
   assert(emptyBriefing.certainty === 'No presentation data available from fixture input.', 'empty briefing should include empty certainty language');
 
   const staleBriefing = await registry.invoke('aura.projectBriefing', { mode: 'stale' });
@@ -202,7 +202,7 @@ async function verifyRegistry() {
   assert(neutralFixture.field_labels.project_name === 'Primary sample', 'neutral seed should expose primary sample label');
   assert(neutralFixture.field_labels.current_packet_path === 'Source layer', 'neutral seed should expose source layer label');
   assert(neutralFixture.field_labels.current_executor === 'Freshness basis', 'neutral seed should expose freshness basis label');
-  assert(neutralFixture.field_labels.current_focus === 'Display certainty', 'neutral seed should expose display certainty label');
+  assert(neutralFixture.field_labels.current_focus === 'Display basis', 'neutral seed should expose display basis label');
   assert(neutralFixture.field_labels.expected_output === 'Presentation boundary', 'neutral seed should expose presentation boundary label');
   assert(Array.isArray(neutralFixture.attention_items) && neutralFixture.attention_items.length === 3, 'neutral seed should expose sample slots');
   assertSafeNeutralCopy(neutralFixture);
@@ -210,7 +210,7 @@ async function verifyRegistry() {
   const neutralEmpty = await registry.invoke('aura.presentationFixture', { family: 'neutral-seed', state: 'empty' });
   assert(neutralEmpty.view_status === 'empty', 'neutral seed should expose empty state');
   assert(Array.isArray(neutralEmpty.attention_items) && neutralEmpty.attention_items.length === 0, 'neutral seed empty should expose empty sample slots');
-  assert(neutralEmpty.attention_empty_copy === 'No sample items reported.', 'neutral seed empty should expose intentional empty copy');
+  assert(neutralEmpty.attention_empty_copy === 'No sample items shown.', 'neutral seed empty should expose intentional empty copy');
 
   const neutralFailed = await registry.invoke('aura.presentationFixture', { family: 'neutral-seed', state: 'failed' });
   assert(neutralFailed.view_status === 'failed', 'neutral seed should expose failed state');
