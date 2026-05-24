@@ -93,9 +93,14 @@ async function runVisualSmoke(window) {
   observations.push(narrowBriefing, narrowNeutralSeed);
 
   const screenshots = observations.map((observation) => observation.screenshot);
+  const blockingFailures = visualSmokeBlockingFailures(observations);
+  const smokePassed = blockingFailures.length === 0;
 
   writeVisualSmokeResult({
-    status: 'passed',
+    status: smokePassed ? 'passed' : 'failed',
+    message: smokePassed
+      ? 'Electron visual smoke passed.'
+      : 'Electron visual smoke found review-blocking selection or overflow issues.',
     checked_at: new Date().toISOString(),
     smoke_dir: smokeDir,
     families_checked: ['briefing', 'neutral-seed'],
@@ -105,6 +110,7 @@ async function runVisualSmoke(window) {
     },
     modes_checked: briefingStates,
     viewports_checked: ['desktop', 'narrow'],
+    blocking_failures: blockingFailures,
     observations,
     screenshots
   });
@@ -201,6 +207,37 @@ async function captureFixture(window, family, state, viewport, outputPath) {
       };
     })();
   `);
+}
+
+function visualSmokeBlockingFailures(observations) {
+  return observations.flatMap((observation) => {
+    const failures = [];
+    if (observation.selected_family !== observation.requested_family) {
+      failures.push({
+        code: 'SELECTED_FAMILY_MISMATCH',
+        screenshot: observation.screenshot,
+        requested_family: observation.requested_family,
+        selected_family: observation.selected_family
+      });
+    }
+    if (observation.selected_state !== observation.requested_state) {
+      failures.push({
+        code: 'SELECTED_STATE_MISMATCH',
+        screenshot: observation.screenshot,
+        requested_state: observation.requested_state,
+        selected_state: observation.selected_state
+      });
+    }
+    if (Array.isArray(observation.overflowing) && observation.overflowing.length > 0) {
+      failures.push({
+        code: 'HORIZONTAL_OVERFLOW',
+        screenshot: observation.screenshot,
+        viewport: observation.viewport,
+        overflowing: observation.overflowing
+      });
+    }
+    return failures;
+  });
 }
 
 function visualSmokeDir() {

@@ -3,6 +3,8 @@ const {
   taxonomyMessage,
   validateTaxonomyMessage
 } = require('../src/services/messageTaxonomy');
+const fs = require('node:fs');
+const path = require('node:path');
 const {
   ServiceRegistry,
   createDefaultRegistry,
@@ -14,6 +16,7 @@ const {
   TASK_CLASSIFICATIONS,
   TASK_STATES
 } = require('../src/services/taskRunner');
+const { projectRoot } = require('../src/util/tempPaths');
 
 async function main() {
   verifyTaxonomy();
@@ -137,10 +140,12 @@ async function verifyRegistry() {
   assert(briefing.attention_items.length > 0 && briefing.attention_items.length <= 3, 'project briefing should expose one to three attention items');
   assert(briefing.attention_items.some((item) => item.label === 'Current focus'), 'project briefing should include current focus attention item');
   assert(typeof briefing.fields.current_executor === 'string' && briefing.fields.current_executor.length > 0, 'project briefing should include current executor');
-  assert(typeof briefing.fields.expected_output === 'string' && briefing.fields.expected_output.length > 0, 'project briefing should include expected output');
+  assert(briefing.fields.expected_output !== 'None', 'project briefing should not expose literal None as expected output');
   assert(briefing.fields.current_packet_path === 'workspace/current.md', 'project briefing should identify current packet path');
   assert(briefing.source_labels.includes('workspace/current.md'), 'project briefing should label current packet source');
-  assert(briefing.source_labels.includes('docs/current-state/m01-project-state-briefing-current-state.md'), 'project briefing should label accepted M01 current-state source');
+  assert(briefing.source_labels.includes('docs/current-state/m11-presentation-state-readout-current-state.md'), 'project briefing should label accepted readout current-state source');
+  assert(!briefing.source_labels.includes('docs/current-state/m01-project-state-briefing-current-state.md'), 'project briefing should not use stale M01 current-state source as its current readout basis');
+  assertServiceRegistrySourceGuardsNoneHandoff();
   assert(['Read from local workspace sources.', 'Partial readout; available fields include source labels.'].includes(briefing.certainty), 'project briefing should include basis language');
   assert(typeof briefing.last_read_at === 'string' && briefing.last_read_at.length > 0, 'project briefing should include last read time');
 
@@ -278,6 +283,13 @@ function assertSafeNeutralCopy(fixture) {
   for (const banned of ['evidence', 'tactical', 'operator', 'assessment', 'watch', 'queue', 'combat', 'intelligence', 'core source', 'core seed', 'schema', 'source of truth', 'approved', 'synced', 'live']) {
     assert(!text.includes(banned), `neutral seed copy should not include ${banned}`);
   }
+}
+
+function assertServiceRegistrySourceGuardsNoneHandoff() {
+  const source = fs.readFileSync(path.join(projectRoot(), 'src', 'services', 'serviceRegistry.js'), 'utf8');
+  assert(source.includes("m11-presentation-state-readout-current-state.md"), 'service registry should read accepted readout current-state source');
+  assert(source.includes('function packetValue'), 'service registry should normalize packet values before display');
+  assert(source.includes("normalized.toLowerCase() === 'none'"), 'service registry should treat literal None as absent packet value');
 }
 
 async function assertRejects(fn, expectedCode, message) {

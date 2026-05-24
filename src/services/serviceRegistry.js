@@ -293,7 +293,7 @@ function buildProjectBriefing(payload = {}) {
   const now = new Date();
   const currentPath = path.join(root, 'workspace', 'current.md');
   const packagePath = path.join(root, 'package.json');
-  const briefingStatePath = path.join(root, 'docs', 'current-state', 'm01-project-state-briefing-current-state.md');
+  const readoutStatePath = path.join(root, 'docs', 'current-state', 'm11-presentation-state-readout-current-state.md');
   const sources = [];
   const warnings = [];
 
@@ -321,7 +321,7 @@ function buildProjectBriefing(payload = {}) {
     warnings.push(missingSource('package.json', error.message));
   }
 
-  readOptional(briefingStatePath, sources, warnings);
+  readOptional(readoutStatePath, sources, warnings);
 
   const fields = {
     project_name: projectName,
@@ -330,7 +330,7 @@ function buildProjectBriefing(payload = {}) {
     current_packet_path: 'workspace/current.md',
     current_executor: matchLine(currentText, 'Current executor'),
     current_focus: matchLine(currentText, 'Current focus'),
-    expected_output: matchLine(currentText, 'Expected output') || matchLine(currentText, 'Expected DevHS filename'),
+    expected_output: packetValue(matchLine(currentText, 'Expected output') || matchLine(currentText, 'Expected DevHS filename')),
     previous_accepted_handshake: matchLine(currentText, 'Previous accepted handshake'),
     sequence: matchLine(currentText, 'Sequence')
   };
@@ -618,6 +618,17 @@ function matchLine(text, label) {
   const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const match = text.match(new RegExp(`^${escaped}:\\s*(.+)$`, 'm'));
   return match ? match[1].trim().replace(/^`|`$/g, '') : null;
+}
+
+function packetValue(value) {
+  if (!value) {
+    return null;
+  }
+  const normalized = String(value).trim();
+  if (normalized.toLowerCase() === 'none') {
+    return null;
+  }
+  return normalized;
 }
 
 function displayNameFromPackage(name) {

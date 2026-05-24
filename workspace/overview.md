@@ -42,12 +42,12 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 
 ## Current Direction
 
-Active milestone: M14 - Readout Basis And Smoke Honesty Corrections
-Last completed milestone: M13c - Vocabulary Guardrail Verification
-Roadmap source: `F:\Projects\Docs\Aura-Project-Orchestration\terminology\Lab-Terminology-Boundary-Requirements-2026-05-24.md`
+Active milestone: None
+Last completed milestone: M14 - Readout Basis And Smoke Honesty Corrections
+Roadmap source: Waiting for Human / Overseer direction after M14 acceptance
 Current packet: `workspace/current.md`
-Current sequence: HS53
-Latest accepted handshake: workspace/OverseerHS53-m13c-acceptance-m14-runway.md
+Current sequence: HS55
+Latest accepted handshake: workspace/OverseerHS55-m14-acceptance.md
 
 ## Durable Record Index
 
@@ -91,8 +91,7 @@ Latest accepted handshake: workspace/OverseerHS53-m13c-acceptance-m14-runway.md
 
 Active milestone handshakes:
 
-- `workspace/DevHS52-lab-vocabulary-guardrail-verification.md`
-- `workspace/OverseerHS53-m13c-acceptance-m14-runway.md`
+- None.
 
 Accepted authority records:
 

@@ -28,6 +28,11 @@ function main() {
   assert(main.includes('readout_label'), 'visual smoke should capture Bridge State Readout label');
   assert(main.includes('source_drawer_visible'), 'visual smoke should capture Source Detail Drawer presence');
   assert(main.includes('scrollWidth > node.clientWidth'), 'visual smoke should check horizontal text overflow');
+  assert(main.includes('visualSmokeBlockingFailures'), 'visual smoke should evaluate review-blocking observations before reporting pass');
+  assert(main.includes('blocking_failures'), 'visual smoke result should report blocking failures');
+  assert(main.includes('SELECTED_FAMILY_MISMATCH'), 'visual smoke should block selected family mismatch');
+  assert(main.includes('SELECTED_STATE_MISMATCH'), 'visual smoke should block selected state mismatch');
+  assert(main.includes('HORIZONTAL_OVERFLOW'), 'visual smoke should block horizontal overflow');
   assert(packageJson.includes('"smoke:electron"'), 'package should expose project-local Electron smoke script');
   assert(smokeScript.includes('AURA_LAB_ELECTRON_VISUAL_SMOKE'), 'Electron smoke wrapper should set explicit smoke flag');
   assert(smokeScript.includes('AURA_LAB_VISUAL_SMOKE_DIR'), 'Electron smoke wrapper should set explicit smoke output dir');

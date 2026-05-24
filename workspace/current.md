@@ -1,138 +1,104 @@
 # Current Workspace Packet
 
-Status: Active
+Status: No active executable packet
 Updated: 2026-05-24
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M14 - Readout Basis And Smoke Honesty Corrections
-Last completed milestone: M13c - Vocabulary Guardrail Verification
-Current executor: Dev
-Current focus: correct readout basis references and make smoke pass/fail criteria honest
-Expected DevHS filename: `workspace/DevHS54-readout-basis-and-smoke-honesty.md`
+Active milestone: None
+Last completed milestone: M14 - Readout Basis And Smoke Honesty Corrections
+Current executor: Human / Overseer
+Current focus: waiting for Human / Overseer direction after M14 acceptance
+Expected DevHS filename: None
 
 ## Purpose
 
-M13a through M13c stabilized Lab's slim presentation vocabulary. The next advisory-backed work is not more terminology churn. It is readout and verification honesty:
+This file is reset after accepted M14.
 
-- the readout basis should point at current accepted Lab state, not stale M01-only source context
-- absent handoff should not surface as a literal handoff named `None`
-- visual smoke should fail or clearly block when captured state/selection/overflow issues make review evidence unreliable
+There is no current Dev runway. Do not execute Dev work from this packet.
 
-## Source Of Intent
+## Accepted Project State
 
-Accepted artifacts:
+- M00 through M14 are complete and accepted.
+- M13a inventoried Lab presentation-language risk.
+- M13b replaced accepted Lab-owned default copy with slim display language.
+- M13c added a narrow Lab-owned default copy vocabulary guardrail.
+- M14 corrected readout basis source freshness, absent handoff behavior, and visual smoke pass/fail honesty.
+- Lab owns Bridge -> Interface human presentation language only after preserving source-project meaning.
+- Atlas and Sense own what they emit and what those terms mean.
+- Verification tooling remains support for presentation work, not the product direction.
 
-- `workspace/LabVocabularyInventoryHS48-presentation-vocabulary-inventory.md`
-- `workspace/DevHS50-lab-presentation-vocabulary-replacement.md`
-- `workspace/DevHS52-lab-vocabulary-guardrail-verification.md`
-- `workspace/OverseerHS53-m13c-acceptance-m14-runway.md`
+Latest accepted handoff:
 
-Advisory source accepted for this bounded packet:
+```txt
+workspace/DevHS54-readout-basis-and-smoke-honesty.md
+```
 
-- `F:\Projects\Docs\Aura-Project-Orchestration\terminology\Lab-Terminology-Boundary-Requirements-2026-05-24.md`
+Latest Overseer acceptance:
 
-Accepted / active references:
+```txt
+workspace/OverseerHS55-m14-acceptance.md
+```
 
-- `AGENTS.md`
-- `workspace/overview.md`
-- `workspace/critical/README.md`
-- `workspace/critical/critical-terms.md`
-- `docs/current-state/m11-presentation-state-readout-current-state.md`
-- `F:\Projects\Docs\Aura-Project-Orchestration\terminology\TerminologyAuthorityRuleset-2026-05-24.md`
+Latest durable current-state note:
 
-## Accepted Scope
+```txt
+docs/current-state/m11-presentation-state-readout-current-state.md
+```
 
-Address only these audit-backed corrections:
+## Current Decision Space
 
-1. **Readout basis source freshness**
-   - Review `src/services/serviceRegistry.js` project briefing source labels.
-   - Replace stale M01-only current-state basis with the current accepted readout-state source, likely `docs/current-state/m11-presentation-state-readout-current-state.md`.
-   - Keep source labels factual and display-scoped.
+Human / Overseer may next:
 
-2. **Absent handoff display**
-   - Ensure missing or literal `None` expected handoff does not become a visible `Expected handoff: None` item.
-   - Prefer treating absent handoff as absent.
-   - Preserve real expected handoff values.
+- keep Aura Lab parked while target projects decide whether to adapt the pattern
+- review parked naming decisions such as `Source Detail` or visible `Neutral Seed`
+- ask UI/UX to review post-M14 presentation quality
+- ask Engineering/Test to review whether the vocabulary guardrail is maintainable
+- open a new bounded presentation feature milestone
 
-3. **Visual smoke honesty**
-   - Review `src/main/main.js` visual smoke result logic.
-   - Fail or emit a blocking failure when an observation has selected family/state mismatch or horizontal overflow in review-critical captures.
-   - Keep the existing smoke matrix; do not broaden it.
-   - Keep screenshot/result JSON output.
+## Parked Items
 
-Expected implementation files:
-
-- `src/services/serviceRegistry.js`
-- `src/main/main.js`
-- affected verifier scripts, likely `scripts/verify-services.js` and `scripts/verify-renderer-shell.js`
-- `workspace/DevHS54-readout-basis-and-smoke-honesty.md`
-
-## Ordered Runway
-
-1. Read this packet and the advisory boundary requirements.
-2. Inspect the current project briefing source-basis wiring and verifier expectations.
-3. Correct stale source-basis references with the current accepted Lab state source.
-4. Suppress absent/literal `None` handoff items while preserving real expected handoff values.
-5. Tighten visual smoke result criteria for selected family/state mismatch and horizontal overflow without expanding the smoke matrix.
-6. Update focused verifier expectations.
-7. Run required verification.
-8. Create `workspace/DevHS54-readout-basis-and-smoke-honesty.md`.
+- `Source Detail` naming decision.
+- `Neutral Seed` visible naming decision.
+- Support panel label decisions.
+- Completed current-state docs vocabulary rewrite.
+- Cross-project terminology decisions.
+- Broad smoke matrix expansion.
 
 ## Guardrails
 
-- Do not change Lab slim vocabulary beyond what is necessary for the three accepted corrections.
-- Do not relabel `Source Detail`, `Neutral Seed`, support panels, or `trust-strip`.
-- Do not rewrite completed current-state docs or archived handshakes.
-- Do not broaden visual smoke to new families, states, or viewport matrices.
-- Do not change source-owned Atlas/Sense terms or project meaning.
-- Do not rename service commands, IPC channels, schemas, payload fields, CSS compatibility names, family ids, screenshot names, package scripts, or inherited scaffold internals.
-- Do not run live network, private-state, destructive, or cross-project actions.
-
-## Stop Conditions
-
-Stop and hand back to Overseer if:
-
-- The current accepted source-basis doc is ambiguous.
-- Suppressing absent handoff requires changing the active packet format.
-- Smoke honesty cannot be tightened without large visual-smoke architecture changes.
-- Visual smoke starts failing because of a real presentation issue that needs Human / Overseer review.
-- GUI/Electron smoke requires approval beyond the existing `npm.cmd run smoke:electron` project-local script.
+- Do not infer Dev permission from this file.
+- Do not treat archived or completed handshakes as active task queues.
+- Do not reopen M14 without explicit Human / Overseer direction.
+- Do not run GUI/Electron smoke, live network, private-state, destructive, or cross-project actions from this packet.
 
 ## Verification
 
-Required:
+M14 acceptance verification was:
 
 ```powershell
 npm.cmd run verify:all
 npm.cmd run verify:renderer-shell
 npm.cmd run smoke:electron
+Get-Process electron -ErrorAction SilentlyContinue
 ```
 
-If smoke fails because it exposes a real overflow or selection issue, stop and report the failure rather than weakening the check.
+Results:
+
+```txt
+verify:all passed.
+verify:renderer-shell passed.
+smoke:electron passed.
+visual-smoke-result.json status: passed.
+visual-smoke-result.json blocking_failures: [].
+No Electron process remained after smoke.
+```
 
 ## Evidence
 
-Record:
-
-- Files changed.
-- Source-basis reference before/after.
-- Handoff absence behavior before/after.
-- Smoke failure criteria added.
-- Commands run and results.
-- Smoke result status and whether any Electron process remains.
+M14 accepted by `workspace/OverseerHS55-m14-acceptance.md`.
 
 ## Dev Handoff
 
-In `workspace/DevHS54-readout-basis-and-smoke-honesty.md`, include:
-
-- Request Received
-- Files changed
-- Readout basis correction
-- Absent handoff behavior
-- Smoke honesty behavior
-- Verification
-- Skipped / parked items
-- Residual risks
-- Recommended next packet
+No Dev handoff is expected.
