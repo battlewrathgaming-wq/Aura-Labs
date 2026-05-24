@@ -35,15 +35,15 @@ Aura Lab does not primarily own what each Aura product presents. It owns the Lab
 | M08 | M07 UI/UX spec | Complete | Accepted Dev prototype for Briefing plus Neutral Seed family/state proof. |
 | M09 | Human direction after M08 closure | Complete | Accepted packaging classification for Lab-local, Core-neutral candidate, target-adaptable, and do-not-port outputs. |
 | M10 | Post-M09 UI/UX advisory | Complete | Accepted implemented Briefing plus Neutral Seed screenshot review. |
-| M11 | UI/UX and Engineering HS34 proposals | Active | Dev runway for view intent axis, Confidence View, loading capture, and Neutral Seed state parity. |
+| M11 | Human steering correction, UI/UX HS34, Engineering HS34/HS35 | Active | Dev runway for Confidence / Trust presentation feature; verification is support only. |
 
 ## Current Direction
 
-Active milestone: M11 - Presentation View Intent And State Hardening
+Active milestone: M11 - Confidence Presentation Pass
 Last completed milestone: M10 - Implemented Family Screenshot Review
-Roadmap source: UI/UX and Engineering HS34 proposals accepted by Overseer
+Roadmap source: Human steering correction, UI/UX HS34, Engineering HS34/HS35 accepted by Overseer
 Current packet: `workspace/current.md`
-Current sequence: HS35
+Current sequence: HS36
 Latest accepted handshake: workspace/complete/milestone-M10/OverseerHS33-implemented-family-screenshot-review.md
 
 ## Durable Record Index
@@ -81,7 +81,9 @@ Active milestone handshakes:
 
 - `workspace/UIUXHS34-view-intent-axis-proposal.md`
 - `workspace/EngineeringHS34-presentation-view-intent-proposal.md`
+- `workspace/EngineeringHS35-presentation-feature-steering-proposal.md`
 - `workspace/OverseerHS35-m11-view-intent-runway.md`
+- `workspace/OverseerHS36-m11-steering-correction.md`
 
 Completed milestone handshakes:
 
@@ -104,7 +106,7 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Can Dev implement Confidence View without introducing scoring, source authority, product navigation, or target semantics?
-- Can loading be captured through controlled smoke behavior without brittle timing?
+- Can Dev make Confidence / Trust feel like a high-quality presentation feature rather than a test harness?
+- Can verification remain minimal and supportive rather than becoming the product direction?
 - Should Aura Lab prepare a Core-owned transfer prompt for neutral presentation rigging candidates?
 - Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?
