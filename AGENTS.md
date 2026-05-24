@@ -6,6 +6,13 @@ This project uses the Aura agent workflow.
 
 Aura Lab uses the Aura Core scaffold as inherited local rigging. Preserve this file as the project-root bootloader for agents.
 
+This project directory is the folder containing this `AGENTS.md`. Agents started here should treat it as the project root unless the human says otherwise.
+
+Shared update sources:
+
+- `F:\Projects\Docs\Aura-Agent-Coordination\templates\agents-template.md`
+- `F:\Projects\Docs\Aura-Agent-Coordination\roles\common-role-contract.md`
+
 ## Aura Lab Product Direction
 
 Aura Lab develops high-quality, portable HTML presentation modules for bridge-fed information.
@@ -110,6 +117,7 @@ F:\Projects\Docs\Aura-Agent-Coordination
 Useful files:
 
 - `roles\README.md`
+- `roles\common-role-contract.md`
 - `roles\[your-role]\README.md`
 - `roles\[your-role]\prompt.md`
 - `workspace-structure-authority.md`
@@ -119,6 +127,7 @@ Memory refresh expectation:
 
 - Re-read this `AGENTS.md`.
 - Re-read `workspace/overview.md`, `workspace/00-dot-protocol.md`, and `workspace/current.md`.
+- Re-read `roles/common-role-contract.md`.
 - Re-read the role prompt for your current role.
 - Treat compacted chat summaries as orientation only; prefer repo/workspace facts for current truth.
 - If your role is unclear after refresh, stop and ask the human before acting.
