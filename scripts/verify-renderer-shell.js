@@ -16,6 +16,8 @@ function main() {
   assert(main.includes('capturePage'), 'visual smoke should capture renderer screenshots');
   assert(main.includes('visual-smoke-result.json'), 'visual smoke should write a result artifact');
   assert(main.includes("'normal', 'empty', 'stale', 'failed', 'partial'"), 'visual smoke should exercise bridge test modes');
+  assert(main.includes('visual_structure'), 'visual smoke should capture prototype visual structure');
+  assert(main.includes('scrollWidth > node.clientWidth'), 'visual smoke should check horizontal text overflow');
   assert(frame.includes('frame: false'), 'Frame module should create frameless windows');
   assert(frame.includes('state.bounds && state.bounds.x !== null && state.bounds.y !== null'), 'Frame module should guard null bounds before assigning coordinates');
   assert(frame.includes('contextIsolation: true'), 'Frame module should enable context isolation');
@@ -26,6 +28,9 @@ function main() {
   assert(preload.includes('aura:window:set-always-on-top'), 'preload should expose always-on-top IPC');
   assert(html.includes('frame-chrome'), 'renderer should include Frame chrome');
   assert(html.includes('pin-window'), 'renderer should include always-on-top control');
+  assert(html.includes('system-surface'), 'renderer should include visual prototype surface class');
+  assert(html.includes('coordination-facts'), 'renderer should include grouped coordination facts class');
+  assert(html.includes('secondary-surface'), 'renderer should mark diagnostics as secondary visual surfaces');
   assert(html.includes('briefing-title'), 'renderer should include project briefing title target');
   assert(html.includes('action-posture'), 'renderer should include action posture target');
   assert(html.includes('trust-strip'), 'renderer should include top trust strip');

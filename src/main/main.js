@@ -20,7 +20,7 @@ function createWindow() {
     minHeight: 480,
     title: APP_NAME,
     preload: path.join(__dirname, 'preload.js'),
-    backgroundColor: '#f5f7f8',
+    backgroundColor: '#0f1416',
     defaultAlwaysOnTop: false
   });
 
@@ -114,7 +114,7 @@ async function captureMode(window, mode, outputPath) {
         return { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right };
       };
       const overflowing = Array.from(document.querySelectorAll('dd, strong, button, select, h1, p, span'))
-        .filter((node) => node.scrollWidth > node.clientWidth + 1 || node.scrollHeight > node.clientHeight + 1)
+        .filter((node) => node.scrollWidth > node.clientWidth + 1)
         .map((node) => ({
           tag: node.tagName.toLowerCase(),
           id: node.id || null,
@@ -134,6 +134,11 @@ async function captureMode(window, mode, outputPath) {
         freshness: text('#freshness'),
         sources: text('#sources'),
         mode_note: text('#briefing-mode-note'),
+        visual_structure: {
+          system_surface: Boolean(document.querySelector('.system-surface')),
+          coordination_facts: Boolean(document.querySelector('.coordination-facts')),
+          secondary_surfaces: document.querySelectorAll('.secondary-surface').length
+        },
         frame_controls_visible: ['#pin-window', '#minimize-window', '#close-window'].every((selector) => {
           const node = document.querySelector(selector);
           return node && node.getBoundingClientRect().width > 0 && node.getBoundingClientRect().height > 0;

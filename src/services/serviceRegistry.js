@@ -229,7 +229,7 @@ function buildProjectBriefing(payload = {}) {
   const now = new Date();
   const currentPath = path.join(root, 'workspace', 'current.md');
   const packagePath = path.join(root, 'package.json');
-  const uiuxPath = path.join(root, 'workspace', 'UIUXHS11-m01-feature-requirements.md');
+  const briefingStatePath = path.join(root, 'docs', 'current-state', 'm01-project-state-briefing-current-state.md');
   const sources = [];
   const warnings = [];
 
@@ -257,7 +257,7 @@ function buildProjectBriefing(payload = {}) {
     warnings.push(missingSource('package.json', error.message));
   }
 
-  readOptional(uiuxPath, sources, warnings);
+  readOptional(briefingStatePath, sources, warnings);
 
   const fields = {
     project_name: projectName,

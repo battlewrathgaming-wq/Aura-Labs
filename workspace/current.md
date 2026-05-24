@@ -7,12 +7,12 @@ Owner: Human direction, Overseer planning
 ## Coordination State
 
 Active milestone: None selected
-Last completed milestone: M02 - Reusable Rigging Pack
-Roadmap source: Human direction after M01 closure, accepted Atlas rigging review
-Sequence: HS20
-Previous accepted handshake: `workspace/complete/milestone-M02/OverseerHS20-m02-closure.md`
+Last completed milestone: M04 - Aura Lab Visual Prototype
+Roadmap source: accepted M03 visual concept pack
+Sequence: HS24
+Previous accepted handshake: `workspace/complete/milestone-M04/OverseerHS24-m04-closure.md`
 Current executor: Human / Overseer
-Current focus: choose the next Aura Lab direction after accepted neutral rigging candidate
+Current focus: choose the next Aura Lab direction after accepted visual prototype
 Expected output: Human direction or next Overseer packet
 Archive target on next milestone completion: To be defined when the next milestone is selected.
 
@@ -20,73 +20,86 @@ Archive target on next milestone completion: To be defined when the next milesto
 
 This is the only active executable work packet for Aura Lab.
 
-M02 is closed. Aura Lab now has an accepted advisory candidate pack for neutral bridge-state, visual-smoke, and Electron shell rigging. The pack is reusable guidance only. It is not a durable bridge schema, not target-project doctrine, not a framework choice, and not an implementation runway.
+M04 is closed. Aura Lab now has an accepted one-screen visual prototype for the project briefing surface. The prototype proves the accepted M03 typography, text-containment, and restrained sci-fi surface direction in the real Electron app while preserving bridge data, test modes, trust language, Needs Attention, diagnostics, and visual smoke coverage.
 
-No Dev or specialist work is authorized from this packet.
+No Dev work is authorized from this packet.
 
 ## Accepted Current State
 
-Accepted M02 outputs:
+Accepted M04 capabilities:
 
-- Atlas rigging review accepted as advisory input.
-- Atlas implementation and Atlas-owned adapter review deferred.
-- Neutral bridge-state, visual-smoke, and shell-rigging candidate accepted as an Aura Lab advisory pack.
-- The candidate uses mapping hooks instead of Atlas/Sense/Core product terms.
-- Durable docs remain unchanged for now; M02 produced a useful candidate, but not durable adopted Lab/Core/target doctrine.
+- existing Aura Lab briefing screen redesigned as a clean sci-fi desktop tool with ship-system cues
+- typography roles clarified without hero-scale trust text
+- title, action posture, trust band, Needs Attention, coordination facts, diagnostics, and test mode preserved
+- coordination facts widened and long rows given more space
+- Needs Attention moved to stacked rows for long text containment
+- source/freshness/certainty language remains visible
+- normal, empty, stale, failed, partial, and narrow partial visual smoke pass
+- visual smoke reports no horizontal text overflow in captured states
+- source labeling updated to the durable M01 current-state doc rather than the archived M01 UI/UX workspace file
 
-Accepted M02 candidate:
+Durable current-state record:
 
-- `workspace/complete/milestone-M02/EngineeringHS19-neutral-bridge-state-smoke-pack.md`
+- `docs/current-state/m04-visual-prototype-current-state.md`
 
-Completed M02 handshakes:
+Completed M04 handshakes:
 
-- `workspace/complete/milestone-M02/`
+- `workspace/complete/milestone-M04/`
 
 ## Advisory Artifact Review
 
-Accepted into M02:
+Accepted into M04:
 
-- `workspace/complete/milestone-M02/UIUXHS12-cross-project-packaging-opportunities.md`
-- `workspace/complete/milestone-M02/EngineeringHS18-atlas-rigging-review.md`
-- `workspace/complete/milestone-M02/EngineeringHS19-neutral-bridge-state-smoke-pack.md`
-
-Still active future advisory input:
-
-- `workspace/UIUXHS16-open-source-presentation-models.md`
+- `workspace/complete/milestone-M03/UIUXHS22-aura-presentation-kit-visual-concepts.md`
+- `workspace/complete/milestone-M04/DevHS23-aura-lab-visual-prototype.md`
 
 Disposition:
 
-- accepted: neutral bridge-state/smoke/shell rigging candidate as advisory pack.
-- deferred: Atlas adapter review, Atlas implementation, Sense review, Aura Core transfer, durable bridge/data contract, visual concept milestone, stack migration.
-- rejected: direct Lab-to-Atlas UI copy; porting Lab `Needs Attention` semantics into Atlas; generic source/certainty labels for evidence-bound surfaces without layer mapping.
+- accepted: one-screen Aura Lab visual prototype.
+- deferred: long-text bridge mode, project-local `smoke:electron` wrapper, reusable component extraction, Atlas/Sense/Core adapter work, durable bridge/data contract, framework choice, ambient animation, Aura Core transfer.
+- rejected: framework migration, dashboard card soup, one-note cyan-on-black styling, target-project adoption claims.
 - escalated: next milestone selection.
-- promoted into durable docs: None.
-- archived/completed: M02 transaction handshakes moved to `workspace/complete/milestone-M02/`.
+- promoted into durable docs: M04 current state.
+- archived/completed: M04 transaction handshakes moved to `workspace/complete/milestone-M04/`.
 
 ## Verification Accepted
 
-No code verification was required for M02 advisory work.
-
-Specialist reported read-only check:
+Overseer reran:
 
 ```powershell
-rg -n "view_status|attention_items|visual-smoke|contextIsolation|nodeIntegration|aura.projectBriefing|AURA_LAB_ELECTRON_VISUAL_SMOKE" src scripts docs workspace
+npm.cmd run verify:all
+$env:AURA_LAB_ELECTRON_VISUAL_SMOKE='1'; $env:AURA_LAB_VISUAL_SMOKE_DIR='F:\Projects\AURA- Lab\.tmp\electron-visual-smoke'; npm.cmd start
 ```
 
 Accepted result:
 
 ```txt
-read-only implementation context gathered successfully
-no app smoke, install, dev server, git, live, private, destructive, or cross-project verification was run
+verify:all passed
+visual smoke passed
+modes checked: normal, empty, stale, failed, partial
+narrow partial captured
+no horizontal overflow reported
+no Electron process remained
 ```
+
+Smoke artifact:
+
+- `.tmp\electron-visual-smoke\visual-smoke-result.json`
+
+Screenshots reviewed:
+
+- `.tmp\electron-visual-smoke\mode-normal.png`
+- `.tmp\electron-visual-smoke\narrow-partial.png`
 
 ## Human / Overseer Decision Needed
 
 Choose the next direction:
 
-- open a UI/UX visual concept milestone using `workspace/UIUXHS16-open-source-presentation-models.md`
-- create an Atlas-owned adapter-review prompt after Atlas HS24 is accepted/closed by Atlas Overseer
-- request Sense or Aura Core suitability review through that project owner
+- add a project-local `smoke:electron` wrapper for Aura Lab
+- add a dedicated long-text visual smoke mode
+- refine the visual prototype after human review
+- begin reusable kit extraction from the proven Lab prototype
+- request Atlas/Sense/Core adapter review through target-owned packets
 - define a durable bridge/data contract milestone
 - transfer selected seed-readiness lessons in an Aura Core session
 - park Aura Lab
@@ -94,20 +107,22 @@ Choose the next direction:
 ## Guardrails
 
 - Do not execute Dev work from this packet.
-- Do not initialize git or assume git exists.
-- Do not treat UIUXHS16 as an active implementation instruction until Overseer accepts it into `workspace/current.md`.
-- Do not treat completed M02 advisory artifacts as target-project authority.
+- Do not initialize or push git unless the Human asks.
+- Do not treat completed milestone artifacts as active task queues.
+- Do not treat the visual prototype as accepted by Atlas, Sense, or Aura Core.
 - Do not create durable bridge/data contracts until direction is accepted.
 - Do not make Aura Core transfer part of Aura Lab product scope unless explicitly selected as a separate direction.
 
 ## Evidence
 
-Overseer updated this packet for M02 closure.
+Overseer updated this packet for M04 closure.
 
 Verification run:
 
 ```txt
-No code verification required. Advisory read-only search accepted.
+npm.cmd run verify:all: passed
+$env:AURA_LAB_ELECTRON_VISUAL_SMOKE='1'; $env:AURA_LAB_VISUAL_SMOKE_DIR='F:\Projects\AURA- Lab\.tmp\electron-visual-smoke'; npm.cmd start: passed
+Get-Process electron -ErrorAction SilentlyContinue: no process output
 ```
 
 Files changed:
@@ -115,25 +130,27 @@ Files changed:
 ```txt
 workspace/current.md
 workspace/overview.md
-workspace/complete/milestone-M02/OverseerHS20-m02-closure.md
+docs/current-state/m04-visual-prototype-current-state.md
+workspace/complete/milestone-M04/OverseerHS24-m04-closure.md
 ```
 
 Findings:
 
 ```txt
-EngineeringHS19 satisfies the accepted HS19 advisory packet. M02 can close without durable docs because the result is a candidate pack, not adopted project doctrine.
+DevHS23 satisfies the M04 Dev runway. Visual prototype is accepted with deferrals for long-text mode and smoke wrapper.
 ```
 
 Deferrals:
 
 ```txt
-Visual concept milestone, Atlas adapter review, Sense/Core review, durable bridge contract, target-project implementation, and Aura Core transfer remain deferred.
+Long-text bridge mode, project-local smoke wrapper, reusable kit extraction, target-project adapters, durable bridge contract, framework choice, ambient animation, and Aura Core transfer remain deferred.
 ```
 
 ## Overseer Review
 
-- accepted / redirected: EngineeringHS19 accepted; M02 closed.
-- doctrine drift: None found. Pack uses mapping hooks and warnings rather than product doctrine.
-- architecture risk: Pack must not be treated as a durable schema.
+- accepted / redirected: DevHS23 accepted; M04 closed.
+- doctrine drift: None found. Prototype remains Aura Lab only.
+- architecture risk: visual smoke horizontal overflow check now ignores vertical overflow by design; acceptable for this slice, but long-text mode remains deferred.
+- visual risk: normal and narrow partial screenshots look readable; further subjective polish should be human-directed.
 - state updates needed: Human / Overseer should choose the next milestone.
 - next packet: Human / Overseer decision.

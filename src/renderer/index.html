@@ -17,10 +17,10 @@
         <button class="frame-button danger" type="button" id="close-window" title="Close" aria-label="Close">X</button>
       </nav>
     </header>
-    <main class="shell">
-      <section class="briefing" aria-labelledby="briefing-title">
+    <main class="shell lab-shell">
+      <section class="briefing system-surface" aria-labelledby="briefing-title">
         <div class="briefing-head">
-          <div>
+          <div class="briefing-primary">
             <p class="eyebrow">Aura Lab briefing</p>
             <div class="action-posture" id="action-posture">
               <span id="action-posture-label">Reading project state</span>
@@ -53,7 +53,7 @@
             <li>Reading project attention items.</li>
           </ul>
         </section>
-        <dl class="briefing-grid" id="briefing-grid">
+        <dl class="briefing-grid coordination-facts" id="briefing-grid">
           <div>
             <dt>Project</dt>
             <dd data-field="project_name">Reading</dd>
@@ -95,7 +95,7 @@
           <span id="briefing-mode-note">Development-only UI state preview</span>
         </div>
       </section>
-      <section class="panel compact diagnostics" aria-label="Secondary bridge diagnostics">
+      <section class="panel compact diagnostics secondary-surface" aria-label="Secondary bridge diagnostics">
         <h2>Bridge Diagnostics</h2>
         <dl class="status-grid">
           <div>
@@ -108,7 +108,7 @@
           </div>
         </dl>
       </section>
-      <section class="panel compact service-diagnostics">
+      <section class="panel compact service-diagnostics secondary-surface">
         <h2>Registered Services</h2>
         <ul id="service-list" class="service-list"></ul>
       </section>

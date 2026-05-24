@@ -136,7 +136,7 @@ async function verifyRegistry() {
   assert(typeof briefing.fields.expected_output === 'string' && briefing.fields.expected_output.length > 0, 'project briefing should include expected output');
   assert(briefing.fields.current_packet_path === 'workspace/current.md', 'project briefing should identify current packet path');
   assert(briefing.source_labels.includes('workspace/current.md'), 'project briefing should label current packet source');
-  assert(briefing.source_labels.includes('workspace/UIUXHS11-m01-feature-requirements.md'), 'project briefing should label accepted M01 UI/UX source');
+  assert(briefing.source_labels.includes('docs/current-state/m01-project-state-briefing-current-state.md'), 'project briefing should label accepted M01 current-state source');
   assert(briefing.certainty === 'Verified from local workspace sources.', 'project briefing should include certainty language');
   assert(typeof briefing.last_read_at === 'string' && briefing.last_read_at.length > 0, 'project briefing should include last read time');
 

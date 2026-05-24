@@ -25,15 +25,17 @@ It should use the inherited Aura Core scaffold lightly while developing a bridge
 | M00 | None yet | Complete | Booted Aura Lab, accepted briefing prototype, bridge test modes, visual smoke, and local Electron runtime readiness. |
 | M01 | None yet | Complete | Accepted project-state briefing IA, trust band, Needs Attention slice, six bridge states, and visual smoke coverage. |
 | M02 | Human direction after M01 closure | Complete | Accepted Atlas rigging review and neutral bridge-state, visual-smoke, and shell-rigging advisory candidate. |
+| M03 | Human direction, UIUXHS16, UIUXHS21 | Complete | Accepted Aura Presentation Kit visual concept pack with typography/text containment first. |
+| M04 | Accepted M03 visual concept pack | Complete | Accepted one-screen Aura Lab visual prototype with typography, containment, and restrained sci-fi surface treatment. |
 
 ## Current Direction
 
 Active milestone: None selected
-Last completed milestone: M02 - Reusable Rigging Pack
-Roadmap source: Human direction after M01 closure, accepted Atlas rigging review
+Last completed milestone: M04 - Aura Lab Visual Prototype
+Roadmap source: accepted M03 visual concept pack
 Current packet: `workspace/current.md`
-Current sequence: HS20
-Latest accepted handshake: workspace/complete/milestone-M02/OverseerHS20-m02-closure.md
+Current sequence: HS24
+Latest accepted handshake: workspace/complete/milestone-M04/OverseerHS24-m04-closure.md
 
 ## Durable Record Index
 
@@ -42,6 +44,7 @@ Latest accepted handshake: workspace/complete/milestone-M02/OverseerHS20-m02-clo
 - `docs/README.md`
 - `docs/current-state/m00-boot-current-state.md`
 - `docs/current-state/m01-project-state-briefing-current-state.md`
+- `docs/current-state/m04-visual-prototype-current-state.md`
 
 ### Shared Coordination Authority
 
@@ -59,8 +62,7 @@ Latest accepted handshake: workspace/complete/milestone-M02/OverseerHS20-m02-clo
 
 Active advisory handshakes:
 
-- `workspace/UIUXHS16-open-source-presentation-models.md`
-- `workspace/UIUXHS21-visual-concept-milestone-recommendation.md`
+No active advisory handshakes.
 
 Completed milestone handshakes:
 
@@ -68,6 +70,8 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M00/`
 - `workspace/complete/milestone-M01/`
 - `workspace/complete/milestone-M02/`
+- `workspace/complete/milestone-M03/`
+- `workspace/complete/milestone-M04/`
 
 ### Historical Archives
 
@@ -75,7 +79,7 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Should Aura Lab open a UI/UX visual concept milestone using UIUXHS16?
+- Should Aura Lab add a smoke wrapper, long-text smoke mode, human-directed visual polish, reusable kit extraction, or target-owned adapter review next?
 - Should Aura Lab request Atlas UI/UX adapter review, Atlas Engineering review, Sense review, or Core suitability review through target-owned packets?
 - Should Aura Lab define a durable bridge/data contract later, or keep the bridge provisional while exploring presentation direction?
 - Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?
