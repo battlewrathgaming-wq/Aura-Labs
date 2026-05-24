@@ -34,15 +34,16 @@ Aura Lab does not primarily own what each Aura product presents. It owns the Lab
 | M07 | M06 Engineering feasibility | Complete | Accepted UI/UX spec for Briefing plus Neutral Seed fixture-backed presentation family proof. |
 | M08 | M07 UI/UX spec | Complete | Accepted Dev prototype for Briefing plus Neutral Seed family/state proof. |
 | M09 | Human direction after M08 closure | Complete | Accepted packaging classification for Lab-local, Core-neutral candidate, target-adaptable, and do-not-port outputs. |
+| M10 | Post-M09 UI/UX advisory | Complete | Accepted implemented Briefing plus Neutral Seed screenshot review. |
 
 ## Current Direction
 
 Active milestone: None
-Last completed milestone: M09 - Packaging Review
+Last completed milestone: M10 - Implemented Family Screenshot Review
 Roadmap source: Human direction and accepted post-bridge presentation boundary
 Current packet: `workspace/current.md`
-Current sequence: HS32
-Latest accepted handshake: workspace/complete/milestone-M09/OverseerHS32-packaging-review.md
+Current sequence: HS33
+Latest accepted handshake: workspace/complete/milestone-M10/OverseerHS33-implemented-family-screenshot-review.md
 
 ## Durable Record Index
 
@@ -59,6 +60,7 @@ Latest accepted handshake: workspace/complete/milestone-M09/OverseerHS32-packagi
 - `docs/current-state/m07-fixture-backed-presentation-family-spec-current-state.md`
 - `docs/current-state/m08-fixture-backed-presentation-family-prototype-current-state.md`
 - `docs/current-state/m09-packaging-review-current-state.md`
+- `docs/current-state/m10-implemented-family-screenshot-review-current-state.md`
 
 ### Shared Coordination Authority
 
@@ -91,6 +93,7 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M07/`
 - `workspace/complete/milestone-M08/`
 - `workspace/complete/milestone-M09/`
+- `workspace/complete/milestone-M10/`
 
 ### Historical Archives
 
@@ -99,6 +102,6 @@ Completed milestone handshakes:
 ## Open Questions
 
 - Should Aura Lab prepare a Core-owned transfer prompt for neutral presentation rigging candidates?
-- Should Neutral Seed include stale/partial smoke screenshots before packaging review, or remain smaller until a future runway?
-- Should UI/UX review the implemented Briefing + Neutral Seed screenshots before any transfer or hardening?
+- Should Aura Lab open a small visual refinement and smoke-hardening milestone?
+- Should Aura Lab prepare a Core-owned transfer prompt for neutral presentation rigging candidates?
 - Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?
