@@ -127,8 +127,8 @@ function renderBriefing(briefing) {
   document.querySelector('.bridge-state').dataset.status = status;
   document.querySelector('#action-posture-label').textContent = actionPostureLabel(briefing, status);
   document.querySelector('#action-posture-detail').textContent = actionPostureDetail(briefing, stateCopy);
-  const readout = presentationStateReadout(briefing, status, stateCopy);
-  renderPresentationStateReadout(readout);
+  const readout = bridgeStateReadout(briefing, status, stateCopy);
+  renderBridgeStateReadout(readout);
   renderSourceDrawer(briefing, readout, status);
   document.querySelector('#certainty').textContent = readout.basis;
   document.querySelector('#sources').textContent = readout.sourceDisplay;
@@ -145,7 +145,7 @@ function renderBriefing(briefing) {
   }
 }
 
-function renderPresentationStateReadout(readoutState) {
+function renderBridgeStateReadout(readoutState) {
   const readout = document.querySelector('#state-readout');
   readout.dataset.tone = readoutState.tone;
   document.querySelector('#state-label').textContent = readoutState.label;
@@ -194,7 +194,7 @@ function appendSourceDetail(list, labelText, valueText) {
   list.appendChild(item);
 }
 
-function presentationStateReadout(briefing, status, stateCopy) {
+function bridgeStateReadout(briefing, status, stateCopy) {
   const labels = briefing?.source_labels || [];
   const sources = briefing?.sources || [];
   const totalSources = Math.max(labels.length, sources.length, 1);

@@ -1,12 +1,12 @@
-# M11 Presentation State Readout Current State
+# M11 Bridge State Readout Current State
 
 Status: Accepted
 Date: 2026-05-24
-Milestone: M11 - Presentation State Readout Retone
+Milestone: M11 - Presentation State Readout Retone; M12 naming alignment accepted `Bridge State Readout`
 
 ## Summary
 
-Aura Lab now has a neutral Presentation State Readout for bridge-fed presentation states.
+Aura Lab now has a neutral Bridge State Readout for bridge-fed presentation states.
 
 The readout keeps the physical, instrument-like presentation treatment from the M11 prototype while removing tactical/combat product wording from default Lab UI copy.
 
@@ -49,5 +49,5 @@ Results:
 
 ## Residual Risks
 
-- `Presentation State Readout` is accepted as the current Lab feature name, but future UI/UX may still rename it to `Bridge State Readout` or `Source State Readout`.
+- `Bridge State Readout` is accepted as the current Lab feature name after M12 naming alignment.
 - `FALLBACK` remains a guarded renderer path, but current accepted fixtures do not exercise fallback data.

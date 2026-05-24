@@ -36,16 +36,16 @@ Aura Lab does not primarily own what each Aura product presents. It owns the Lab
 | M09 | Human direction after M08 closure | Complete | Accepted packaging classification for Lab-local, Core-neutral candidate, target-adaptable, and do-not-port outputs. |
 | M10 | Post-M09 UI/UX advisory | Complete | Accepted implemented Briefing plus Neutral Seed screenshot review. |
 | M11 | Human terminology correction, Overseer HS41 | Complete | Accepted neutral Presentation State Readout with physical/HUD-like theme and no default tactical/combat wording. |
-| M12 | UIUXHS43 naming feedback | Active | Rename accepted readout feature to Bridge State Readout without behavior, state, or doctrine changes. |
+| M12 | UIUXHS43 naming feedback | Complete | Renamed accepted readout feature to Bridge State Readout without behavior, state, or doctrine changes. |
 
 ## Current Direction
 
-Active milestone: M12 - Bridge State Readout Naming Alignment
-Last completed milestone: M11 - Presentation State Readout Retone
-Roadmap source: Accepted UI/UX naming feedback
+Active milestone: None
+Last completed milestone: M12 - Bridge State Readout Naming Alignment
+Roadmap source: Waiting for Human / Overseer direction after M12 closure
 Current packet: `workspace/current.md`
-Current sequence: HS44
-Latest accepted handshake: workspace/complete/milestone-M11/OverseerHS42-m11-presentation-state-readout-acceptance.md
+Current sequence: HS45
+Latest accepted handshake: workspace/complete/milestone-M12/OverseerHS45-m12-bridge-state-readout-rename-acceptance.md
 
 ## Durable Record Index
 
@@ -81,8 +81,7 @@ Latest accepted handshake: workspace/complete/milestone-M11/OverseerHS42-m11-pre
 
 Active milestone handshakes:
 
-- `workspace/UIUXHS43-bridge-state-readout-naming-feedback.md`
-- `workspace/OverseerHS44-bridge-state-readout-naming-acceptance.md`
+- None.
 
 Completed milestone handshakes:
 
@@ -99,6 +98,7 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M09/`
 - `workspace/complete/milestone-M10/`
 - `workspace/complete/milestone-M11/`
+- `workspace/complete/milestone-M12/`
 
 ### Historical Archives
 
@@ -106,6 +106,6 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Can Dev complete the Bridge State Readout rename without behavior, state, or doctrine drift?
+- Should the next Lab milestone review Bridge State Readout use-case clarity across states?
 - Should Aura Lab prepare a Core-owned transfer prompt for neutral presentation rigging candidates?
 - Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?
