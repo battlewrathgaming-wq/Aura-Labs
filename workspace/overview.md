@@ -56,6 +56,7 @@ Latest accepted handshake: workspace/complete/milestone-M17/OverseerHS62-m17-acc
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/OverseerHS63-m18-presentation-concept-runway.md
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
+Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
 
@@ -101,6 +102,7 @@ Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `work
 Active milestone handshakes:
 
 - `workspace/OverseerHS63-m18-presentation-concept-runway.md`
+- `workspace/LabRemoteConsumerConformanceHS66.md`
 
 Accepted authority records:
 

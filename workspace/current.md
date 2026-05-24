@@ -23,6 +23,7 @@ Housekeeping note:
 - Atlas/Sense relay advisories are in `workspace/archive/cross-project-relay/`.
 - `workspace/UIUXHS64-presentation-concept-pack.md` is still pending on disk.
 - No Dev runway is open.
+- Remote Atlas/Sense read access is allowed under `workspace/LabRemoteConsumerConformanceHS66.md`.
 
 Accepted state:
 
@@ -54,6 +55,7 @@ This is concept work only. It should shape the next prototype before Dev impleme
 - M17 Dev handoff: `workspace/complete/milestone-M17/DevHS61-protected-term-discovery-guardrail.md`
 - M17 Overseer acceptance: `workspace/complete/milestone-M17/OverseerHS62-m17-acceptance.md`
 - Current UI/UX runway: `workspace/OverseerHS63-m18-presentation-concept-runway.md`
+- Remote consumer conformance: `workspace/LabRemoteConsumerConformanceHS66.md`
 
 ## Source Of Intent
 
