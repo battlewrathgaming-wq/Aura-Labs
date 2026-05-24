@@ -31,16 +31,17 @@ Aura Lab does not primarily own what each Aura product presents. It owns the Lab
 | M04 | Accepted M03 visual concept pack | Complete | Accepted one-screen Aura Lab visual prototype with typography, containment, and restrained sci-fi surface treatment. |
 | M05 | M04 closure residual risks | Complete | Accepted project-local Electron smoke wrapper and dedicated long-text visual smoke mode. |
 | M06 | UIUXHS27 accepted advisory | Complete | Accepted Engineering feasibility review for fixture-backed presentation families. |
-| M07 | M06 Engineering feasibility | Active | UI/UX spec for Briefing plus Neutral Seed fixture-backed presentation family proof. |
+| M07 | M06 Engineering feasibility | Complete | Accepted UI/UX spec for Briefing plus Neutral Seed fixture-backed presentation family proof. |
+| M08 | M07 UI/UX spec | Active | Dev prototype for Briefing plus Neutral Seed family/state proof. |
 
 ## Current Direction
 
-Active milestone: M07 - Fixture-Backed Presentation Family Spec
-Last completed milestone: M06 - Fixture-Backed Presentation Family Feasibility
-Roadmap source: M06 Engineering feasibility accepted by Overseer
+Active milestone: M08 - Fixture-Backed Presentation Family Prototype
+Last completed milestone: M07 - Fixture-Backed Presentation Family Spec
+Roadmap source: M07 UI/UX spec accepted by Overseer
 Current packet: `workspace/current.md`
-Current sequence: HS29
-Latest accepted handshake: workspace/complete/milestone-M06/OverseerHS29-m06-closure-and-m07-runway.md
+Current sequence: HS30
+Latest accepted handshake: workspace/complete/milestone-M07/OverseerHS30-m07-closure-and-m08-runway.md
 
 ## Durable Record Index
 
@@ -54,6 +55,7 @@ Latest accepted handshake: workspace/complete/milestone-M06/OverseerHS29-m06-clo
 - `docs/current-state/m04-visual-prototype-current-state.md`
 - `docs/current-state/m05-visual-smoke-hardening-current-state.md`
 - `docs/current-state/m06-fixture-backed-presentation-family-feasibility-current-state.md`
+- `docs/current-state/m07-fixture-backed-presentation-family-spec-current-state.md`
 
 ### Shared Coordination Authority
 
@@ -71,7 +73,7 @@ Latest accepted handshake: workspace/complete/milestone-M06/OverseerHS29-m06-clo
 
 Active milestone handshakes:
 
-- None yet for M07.
+- None yet for M08.
 
 Completed milestone handshakes:
 
@@ -83,6 +85,7 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M04/`
 - `workspace/complete/milestone-M05/`
 - `workspace/complete/milestone-M06/`
+- `workspace/complete/milestone-M07/`
 
 ### Historical Archives
 
@@ -91,6 +94,6 @@ Completed milestone handshakes:
 ## Open Questions
 
 - Which post-bridge presentation patterns are portable enough to propose to Aura Core as neutral rigging?
-- Can UI/UX specify Briefing plus Neutral Seed without implying Core ownership or target-project doctrine?
-- After UI/UX spec, should Aura Lab open a narrow Dev prototype or request another review first?
+- Can Dev implement Briefing plus Neutral Seed while preserving separate family/state axes and avoiding Core/target doctrine?
+- Should Neutral Seed include stale/partial after the first prototype, or remain smaller until packaging review?
 - Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?
