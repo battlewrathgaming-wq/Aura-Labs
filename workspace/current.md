@@ -1,6 +1,6 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Waiting on UI/UX artifact
 Updated: 2026-05-24
 Owner: Overseer
 
@@ -15,6 +15,14 @@ Expected artifact filename: `workspace/UIUXHS64-presentation-concept-pack.md`
 ## Current State
 
 Aura Lab is active for a UI/UX concept milestone after accepting the M17 protected-term discovery guardrail.
+
+Housekeeping note:
+
+- The active workspace root has been cleaned.
+- Completed M13-M17 handoffs are in `workspace/complete/`.
+- Atlas/Sense relay advisories are in `workspace/archive/cross-project-relay/`.
+- `workspace/UIUXHS64-presentation-concept-pack.md` is still pending on disk.
+- No Dev runway is open.
 
 Accepted state:
 
@@ -38,13 +46,13 @@ This is concept work only. It should shape the next prototype before Dev impleme
 
 ## Latest Accepted Work
 
-- Dev handoff: `workspace/DevHS58-readout-naming-polish.md`
-- Overseer acceptance: `workspace/OverseerHS59-m16-acceptance.md`
-- Accepted UI/UX source: `workspace/UIUXHS56-post-m14-presentation-quality-and-naming-review.md`
-- Previous runway: `workspace/OverseerHS57-m15-acceptance-m16-runway.md`
-- Latest scope proposal: `workspace/OverseerHS60-protected-term-guardrail-scope.md`
-- Latest Dev handoff: `workspace/DevHS61-protected-term-discovery-guardrail.md`
-- Latest Overseer acceptance: `workspace/OverseerHS62-m17-acceptance.md`
+- M16 Dev handoff: `workspace/complete/milestone-M16/DevHS58-readout-naming-polish.md`
+- M16 Overseer acceptance: `workspace/complete/milestone-M16/OverseerHS59-m16-acceptance.md`
+- M15 UI/UX source: `workspace/complete/milestone-M15/UIUXHS56-post-m14-presentation-quality-and-naming-review.md`
+- M15 runway: `workspace/complete/milestone-M15/OverseerHS57-m15-acceptance-m16-runway.md`
+- M17 scope proposal: `workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md`
+- M17 Dev handoff: `workspace/complete/milestone-M17/DevHS61-protected-term-discovery-guardrail.md`
+- M17 Overseer acceptance: `workspace/complete/milestone-M17/OverseerHS62-m17-acceptance.md`
 - Current UI/UX runway: `workspace/OverseerHS63-m18-presentation-concept-runway.md`
 
 ## Source Of Intent
@@ -61,8 +69,8 @@ Accepted references:
 - `workspace/overview.md`
 - `workspace/critical/README.md`
 - `workspace/critical/critical-terms.md`
-- `workspace/OverseerHS60-protected-term-guardrail-scope.md`
-- `workspace/OverseerHS62-m17-acceptance.md`
+- `workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md`
+- `workspace/complete/milestone-M17/OverseerHS62-m17-acceptance.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\terminology\protected-words\README.md`
 
 ## Ordered Runway
@@ -77,16 +85,9 @@ Accepted references:
 
 ## Concept Candidates
 
-- Ship Systems Readout.
-- Sensor Surface.
-- Activity Timeline.
-- Status Light Grammar.
-- Tactical Detail Drawer as a visual-theme idea only.
-- Atlas-adaptable Evidence Stack View.
-- Atlas-adaptable Actor Activity Strip.
-- Atlas-adaptable Provenance Drawer.
-- Atlas-adaptable Watch / Marked Split Panel.
-- Atlas-adaptable Evidence Delta View.
+The full concept candidate list lives in `workspace/OverseerHS63-m18-presentation-concept-runway.md`.
+
+UI/UX should review that runway and recommend one smallest safe prototype. Keep the active packet lean; do not treat concept names in the runway as Lab default copy or source-project authority.
 
 ## Guardrails
 
@@ -113,7 +114,7 @@ Stop and return to Human / Overseer if:
 
 No runtime verification is required for this UI/UX concept packet.
 
-Last verified by Overseer on 2026-05-24 after M17:
+Last checked by Overseer on 2026-05-24 after M17:
 
 ```powershell
 npm.cmd run verify:vocabulary
@@ -171,6 +172,12 @@ Expected artifact:
 ```txt
 workspace/UIUXHS64-presentation-concept-pack.md
 ```
+
+Current handoff state:
+
+- Pending.
+- If the UI/UX worker says `current.md` is stagnant, direct them to the updated status line and this handoff state.
+- They should create the artifact above or report the precise blocker.
 
 ## Parked Items
 

@@ -52,9 +52,10 @@ Last completed milestone: M17 - Protected-Term Discovery Guardrail
 Roadmap source: Human direction after M17; `workspace/OverseerHS63-m18-presentation-concept-runway.md`
 Current packet: `workspace/current.md`
 Current sequence: HS63
-Latest accepted handshake: workspace/OverseerHS62-m17-acceptance.md
-Latest scope proposal: workspace/OverseerHS60-protected-term-guardrail-scope.md
+Latest accepted handshake: workspace/complete/milestone-M17/OverseerHS62-m17-acceptance.md
+Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/OverseerHS63-m18-presentation-concept-runway.md
+Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 
 ## Durable Record Index
 
@@ -121,10 +122,16 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M10/`
 - `workspace/complete/milestone-M11/`
 - `workspace/complete/milestone-M12/`
+- `workspace/complete/milestone-M13/`
+- `workspace/complete/milestone-M14/`
+- `workspace/complete/milestone-M15/`
+- `workspace/complete/milestone-M16/`
+- `workspace/complete/milestone-M17/`
 
 ### Historical Archives
 
 - `workspace/archive/` stores inactive workspace records only when useful. It is not an active work queue.
+- `workspace/archive/cross-project-relay/` stores Atlas/Sense relay advisories created from Lab context.
 
 ## Open Questions
 
