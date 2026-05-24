@@ -45,36 +45,68 @@ async function runVisualSmoke(window) {
   const smokeDir = visualSmokeDir();
   fs.mkdirSync(smokeDir, { recursive: true });
 
-  const modes = ['normal', 'empty', 'stale', 'failed', 'partial', 'long-text'];
+  const briefingStates = ['normal', 'empty', 'stale', 'failed', 'partial', 'long-text'];
+  const neutralSeedStates = ['normal', 'empty', 'failed', 'long-text'];
   const observations = [];
-  observations.push(await captureMode(window, 'normal', path.join(smokeDir, 'mode-normal.png')));
 
-  for (const mode of modes.slice(1)) {
-    await selectMode(window, mode);
-    observations.push(await captureMode(window, mode, path.join(smokeDir, `mode-${mode}.png`)));
+  for (const state of briefingStates) {
+    await selectFixture(window, 'briefing', state);
+    observations.push(await captureFixture(
+      window,
+      'briefing',
+      state,
+      'desktop',
+      path.join(smokeDir, `family-briefing-state-${state}.png`)
+    ));
+  }
+
+  for (const state of neutralSeedStates) {
+    await selectFixture(window, 'neutral-seed', state);
+    observations.push(await captureFixture(
+      window,
+      'neutral-seed',
+      state,
+      'desktop',
+      path.join(smokeDir, `family-neutral-seed-state-${state}.png`)
+    ));
   }
 
   window.setSize(720, 640);
-  await selectMode(window, 'partial');
+  await selectFixture(window, 'briefing', 'partial');
   await delay(250);
-  const narrow = await captureMode(window, 'partial', path.join(smokeDir, 'narrow-partial.png'));
+  const narrowBriefing = await captureFixture(
+    window,
+    'briefing',
+    'partial',
+    'narrow',
+    path.join(smokeDir, 'family-briefing-state-partial-narrow.png')
+  );
+  await selectFixture(window, 'neutral-seed', 'long-text');
+  await delay(250);
+  const narrowNeutralSeed = await captureFixture(
+    window,
+    'neutral-seed',
+    'long-text',
+    'narrow',
+    path.join(smokeDir, 'family-neutral-seed-state-long-text-narrow.png')
+  );
+  observations.push(narrowBriefing, narrowNeutralSeed);
+
+  const screenshots = observations.map((observation) => observation.screenshot);
 
   writeVisualSmokeResult({
     status: 'passed',
     checked_at: new Date().toISOString(),
     smoke_dir: smokeDir,
-    modes_checked: modes,
+    families_checked: ['briefing', 'neutral-seed'],
+    states_checked: {
+      briefing: briefingStates,
+      'neutral-seed': neutralSeedStates
+    },
+    modes_checked: briefingStates,
+    viewports_checked: ['desktop', 'narrow'],
     observations,
-    narrow,
-    screenshots: [
-      'mode-normal.png',
-      'mode-empty.png',
-      'mode-stale.png',
-      'mode-failed.png',
-      'mode-partial.png',
-      'mode-long-text.png',
-      'narrow-partial.png'
-    ]
+    screenshots
   });
   app.quit();
 }
@@ -92,20 +124,23 @@ function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function selectMode(window, mode) {
+async function selectFixture(window, family, state) {
   await window.webContents.executeJavaScript(`
     (async () => {
-      const select = document.querySelector('#briefing-mode');
-      select.value = ${JSON.stringify(mode)};
-      select.dispatchEvent(new Event('change', { bubbles: true }));
+      const familySelect = document.querySelector('#presentation-family');
+      const stateSelect = document.querySelector('#briefing-mode');
+      familySelect.value = ${JSON.stringify(family)};
+      stateSelect.value = ${JSON.stringify(state)};
+      stateSelect.dispatchEvent(new Event('change', { bubbles: true }));
       await new Promise((resolve) => setTimeout(resolve, 350));
     })();
   `);
 }
 
-async function captureMode(window, mode, outputPath) {
+async function captureFixture(window, family, state, viewport, outputPath) {
   const image = await window.webContents.capturePage();
   fs.writeFileSync(outputPath, image.toPNG());
+  const screenshot = path.basename(outputPath);
   return window.webContents.executeJavaScript(`
     (() => {
       const text = (selector) => document.querySelector(selector)?.textContent?.trim() || '';
@@ -124,8 +159,16 @@ async function captureMode(window, mode, outputPath) {
         }));
       const briefing = box('.briefing');
       const diagnostics = box('.diagnostics');
+      const diagnosticsVisible = Boolean(diagnostics && diagnostics.bottom > diagnostics.top && diagnostics.right > diagnostics.left);
       return {
-        requested_mode: ${JSON.stringify(mode)},
+        family: ${JSON.stringify(family)},
+        state: ${JSON.stringify(state)},
+        viewport: ${JSON.stringify(viewport)},
+        screenshot: ${JSON.stringify(screenshot)},
+        requested_family: ${JSON.stringify(family)},
+        requested_state: ${JSON.stringify(state)},
+        selected_family: document.querySelector('#presentation-family')?.value || null,
+        selected_state: document.querySelector('#briefing-mode')?.value || null,
         selected_mode: document.querySelector('#briefing-mode')?.value || null,
         title: text('#briefing-title'),
         action_posture: text('#action-posture-label'),
@@ -145,6 +188,8 @@ async function captureMode(window, mode, outputPath) {
           const node = document.querySelector(selector);
           return node && node.getBoundingClientRect().width > 0 && node.getBoundingClientRect().height > 0;
         }),
+        diagnostics_visible: diagnosticsVisible,
+        diagnostics_secondary: Boolean(briefing && diagnostics && briefing.top < diagnostics.top),
         briefing_before_diagnostics: Boolean(briefing && diagnostics && briefing.top < diagnostics.top),
         overflowing
       };

@@ -1,286 +1,136 @@
 # Current Workspace Packet
 
-Status: Active Dev runway
+Status: Waiting for Human / Overseer direction
 Updated: 2026-05-24
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M08 - Fixture-Backed Presentation Family Prototype
-Roadmap source: M07 UI/UX spec accepted by Overseer
-Sequence: HS30
-Previous accepted handshake: `workspace/complete/milestone-M07/OverseerHS30-m07-closure-and-m08-runway.md`
-Current executor: Dev
-Current focus: implement the first bounded fixture-backed presentation family proof
-Expected DevHS filename: `workspace/DevHS30-fixture-backed-presentation-family-prototype.md`
-Archive target on milestone completion: `workspace/complete/milestone-M08/`
+Active milestone: None
+Last completed milestone: M08 - Fixture-Backed Presentation Family Prototype
+Roadmap source: Human direction and accepted post-bridge presentation boundary
+Sequence: HS31
+Previous accepted handshake: `workspace/complete/milestone-M08/OverseerHS31-m08-closure.md`
+Current executor: Human / Overseer
+Current focus: choose the next Aura Lab direction after the accepted family/state proof
+Expected DevHS filename: None
+Archive target on next milestone completion: TBD
 
 ## Purpose
 
-This is the only active executable work packet for Aura Lab.
+This packet intentionally contains no Dev runway.
 
-M06 accepted that fixture-backed presentation families are feasible if `family` and `state` remain separate axes. M07 accepted a UI/UX spec for the first bounded proof: preserve the current Briefing family and add one Lab-local Neutral Seed family. This packet asks Dev to implement that smallest useful proof.
+Aura Lab has closed M08. The project now has:
+
+- accepted post-bridge presentation boundary documentation
+- accepted one-screen Briefing visual prototype
+- project-local Electron smoke wrapper
+- deterministic state grammar including long-text
+- accepted separate `family` and `state` axes
+- accepted Briefing and Neutral Seed family proof
+- family-aware visual smoke evidence
+
+The next step needs Human / Overseer direction because it determines classification and sequencing, not immediate implementation.
 
 ## Source Of Intent
 
-Accepted into this packet:
+Accepted:
 
 - `docs/statements/post-bridge-presentation-boundary.md`: Aura Lab focuses on portable post-bridge display mapping and presentation tooling.
-- `workspace/complete/milestone-M06/EngineeringHS28-fixture-backed-presentation-family-feasibility.md`: recommends separate family/state axes, Lab-local fixture registry, renderer-level family switch, and family-aware smoke.
-- `docs/current-state/m06-fixture-backed-presentation-family-feasibility-current-state.md`: accepted M06 feasibility state.
-- `workspace/complete/milestone-M07/UIUXHS29-fixture-backed-presentation-family-spec.md`: accepted first proof spec.
-- `docs/current-state/m07-fixture-backed-presentation-family-spec-current-state.md`: accepted M07 spec state.
-- `workspace/complete/milestone-M07/OverseerHS30-m07-closure-and-m08-runway.md`: M07 accepted and M08 opened.
-
-Accepted constraints:
-
-- Implement only Briefing and Neutral Seed.
-- Keep Neutral Seed Lab-local and domain-neutral.
-- Keep `family` and `state` separate.
-- Preserve current state grammar: normal, empty, stale, failed, partial, long-text.
-- Preserve source/freshness/certainty in the primary reading path.
-- Preserve diagnostics as visible but secondary.
-- Preserve plain HTML/CSS/JS stack.
+- `docs/current-state/m07-fixture-backed-presentation-family-spec-current-state.md`: accepted Briefing plus Neutral Seed spec.
+- `docs/current-state/m08-fixture-backed-presentation-family-prototype-current-state.md`: accepted implementation of the first family/state proof.
+- `workspace/complete/milestone-M08/OverseerHS31-m08-closure.md`: M08 accepted and closed.
 
 Deferred:
 
-- Tactical HUD family.
-- Operator Workbench family.
-- packaging review.
-- target-project adapter work.
-- durable post-bridge presentation contract.
-- durable upstream bridge/data contract.
-- framework or stack choice.
-- Aura Core transfer.
+- Neutral Seed stale/partial smoke screenshots beyond fixture-command support
+- Tactical HUD family
+- Operator Workbench family
+- packaging review
+- target-project adapter work
+- durable post-bridge presentation contract
+- durable upstream bridge/data contract
+- framework or stack choice
+- Aura Core transfer
 
 Rejected:
 
-- treating Neutral Seed as Aura Core doctrine, ownership, architecture, or contract.
-- using target-like Atlas/Sense terms in Neutral Seed.
-- implementing all proposed families at once.
-- defining a durable bridge/data contract.
+- treating Neutral Seed as Aura Core doctrine, ownership, architecture, or contract
+- treating Lab fixtures as target-project doctrine
+- treating `aura.projectBriefing` or `aura.presentationFixture` as durable bridge contracts
+- starting target-project adapter work from Lab without target-owned review
 
 Escalated: None.
 
 Promoted into durable docs:
 
-- `docs/current-state/m07-fixture-backed-presentation-family-spec-current-state.md`
+- `docs/current-state/m08-fixture-backed-presentation-family-prototype-current-state.md`
 
-## Required Reading
+## Current Decision Space
 
-Dev must read:
+Human / Overseer should choose one next direction:
 
-- `AGENTS.md`
-- `workspace/README.md`
-- `workspace/overview.md`
-- `workspace/00-dot-protocol.md`
-- `workspace/current.md`
-- `docs/index.md`
-- `docs/README.md`
-- `docs/statements/post-bridge-presentation-boundary.md`
-- `docs/current-state/m04-visual-prototype-current-state.md`
-- `docs/current-state/m05-visual-smoke-hardening-current-state.md`
-- `docs/current-state/m06-fixture-backed-presentation-family-feasibility-current-state.md`
-- `docs/current-state/m07-fixture-backed-presentation-family-spec-current-state.md`
-- `workspace/complete/milestone-M06/EngineeringHS28-fixture-backed-presentation-family-feasibility.md`
-- `workspace/complete/milestone-M07/UIUXHS29-fixture-backed-presentation-family-spec.md`
-- `workspace/complete/milestone-M07/OverseerHS30-m07-closure-and-m08-runway.md`
-- `package.json`
-- `src/main/main.js`
-- `src/services/serviceRegistry.js`
-- `src/renderer/index.html`
-- `src/renderer/app.js`
-- `src/renderer/styles.css`
-- `scripts/electron-visual-smoke.ps1`
-- `scripts/verify-renderer-shell.js`
-- `scripts/verify-services.js`
+- pause Aura Lab with the family/state proof accepted
+- run a packaging review to classify Lab-local, Core-neutral candidate, target-adaptable, and do-not-port outputs
+- add Neutral Seed stale/partial smoke screenshots
+- request UI/UX review of the implemented prototype screenshots
+- prepare a Core-neutral transfer candidate in an Aura Core-owned session
+- request target-owned Atlas/Sense review later
 
-Do not inspect or edit sibling projects for this packet.
+## Guardrails
 
-## Ordered Dev Runway
-
-1. Confirm cwd is `F:\Projects\AURA- Lab`, current branch/tree health, and required files. Read all required sources before editing.
-2. Add a Lab-local family/state fixture shape:
-   - keep current Briefing behavior working
-   - add Neutral Seed fixture data
-   - keep `family` and `state` as separate axes
-   - keep states: normal, empty, stale, failed, partial, long-text
-   - keep fixture data Lab-local and provisional
-3. Add presentation-family selection in the development/review controls:
-   - suggested label: `Presentation family`
-   - keep state selector separate, suggested label: `Review state`
-   - do not make the family selector feel like product navigation
-4. Add Neutral Seed rendering:
-   - use generic labels such as `Primary sample`, `Secondary sample`, `Source layer`, `Freshness basis`, `Display certainty`, and `Presentation boundary`
-   - avoid evidence, tactical, operator, assessment, watch, queue, combat, intelligence, Core source, Core seed, schema, source of truth, approved, synced, or live
-   - keep trust/source/freshness/certainty visible
-   - keep diagnostics secondary
-   - support normal, empty, failed, and long-text at minimum
-5. Preserve Briefing coverage:
-   - normal, empty, stale, failed, partial, long-text
-   - existing direct `aura.projectBriefing` compatibility if practical
-   - existing source/freshness/certainty and diagnostics behavior
-6. Add family-aware visual smoke:
-   - Briefing: normal, empty, stale, failed, partial, long-text
-   - Neutral Seed: normal, empty, failed, long-text
-   - narrow viewport: Briefing partial and Neutral Seed long-text
-   - screenshot names should include family and state
-   - result JSON should include `families_checked`, `states_checked`, `viewports_checked`, `screenshots`, and `observations`
-   - observations should include family, state, viewport, title, status, certainty, freshness, sources, diagnostics visibility, diagnostics secondary status, frame controls visibility, and overflowing elements
-7. Update verification:
-   - service verification should check family/state shape and Neutral Seed safe copy
-   - renderer/static verification should check separate family/state controls and family-aware smoke coverage
-   - keep existing verification passing
-8. Run required verification, update Evidence / Dev Handoff below, and create `workspace/DevHS30-fixture-backed-presentation-family-prototype.md`.
-
-## Guardrails And Non-Goals
-
-- Do not implement Tactical HUD.
-- Do not implement Operator Workbench.
-- Do not define a durable bridge/data contract.
-- Do not create a shared component library.
-- Do not choose or migrate UI framework.
-- Do not treat Neutral Seed as Aura Core doctrine, ownership, architecture, or contract.
-- Do not import Atlas evidence doctrine or Sense tactical doctrine.
-- Do not use target-like terms in Neutral Seed.
-- Do not remove current Briefing behavior.
-- Do not remove existing state modes.
-- Do not stage `.tmp`, screenshots, result JSON, cache, dependency artifacts, or generated smoke output.
-- Do not edit Atlas, Sense, Aura Core, EVE-Threat-Overlay, or Bughunt.
+- Do not execute Dev work from this packet.
+- Do not infer a new milestone from completed handshakes.
+- Do not treat Lab fixture content as product direction.
+- Do not promote Lab terminology into Atlas, Sense, or Core.
+- Do not define a durable bridge contract without Human / Overseer acceptance.
+- Do not edit sibling projects from this packet.
 - Do not run live/private/destructive actions.
 
 ## Stop Conditions
 
-Stop and report back if:
+Stop and ask for Human / Overseer direction if:
 
-- Neutral Seed requires Core ownership language to implement
-- safe family modeling requires a durable bridge contract
-- state and family cannot remain separate without broader architecture change
-- implementation requires framework migration
-- visual smoke matrix becomes too broad to review
-- target-project doctrine is needed
-- sibling-project inspection or edits become necessary
-- live/private/destructive actions become necessary
+- a new implementation task is requested but no runway has been written
+- target-project adoption is proposed from Lab
+- bridge or schema ownership is unclear
+- the next action would require Atlas, Sense, or Core edits
+- a live/private/destructive action is needed
 
-## Required Verification
+## Verification
 
-Run:
+No verification is required while this packet waits for direction.
+
+Latest accepted M08 verification:
 
 ```powershell
 npm.cmd run verify:all
-```
-
-Run:
-
-```powershell
 npm.cmd run smoke:electron
-```
-
-Also ensure the direct visual smoke command still works unless a replacement is explicitly justified:
-
-```powershell
 $env:AURA_LAB_ELECTRON_VISUAL_SMOKE='1'; $env:AURA_LAB_VISUAL_SMOKE_DIR='F:\Projects\AURA- Lab\.tmp\electron-visual-smoke'; npm.cmd start
-```
-
-Check process cleanup:
-
-```powershell
 Get-Process electron -ErrorAction SilentlyContinue
 ```
 
-Expected evidence:
+Accepted result:
 
-- `verify:all` passes.
-- `smoke:electron` passes.
-- direct visual smoke passes or any replacement is explicitly justified.
-- no Electron process remains after smoke.
-- smoke covers Briefing normal, empty, stale, failed, partial, long-text.
-- smoke covers Neutral Seed normal, empty, failed, long-text.
-- smoke includes narrow Briefing partial and narrow Neutral Seed long-text.
-- long-text and narrow captures report no horizontal overflow.
+```txt
+verify:all passed
+smoke:electron passed
+direct visual smoke passed
+no Electron process remained
+visual-smoke-result.json status: passed
+families_checked: briefing, neutral-seed
+states_checked.briefing: normal, empty, stale, failed, partial, long-text
+states_checked.neutral-seed: normal, empty, failed, long-text
+viewports_checked: desktop, narrow
+long-text and narrow captures overflowing: []
+```
 
 ## Evidence
 
-Dev updates this section before handoff.
+No active executor evidence is required.
 
-Verification run:
+## Handoff
 
-```txt
-Not yet run.
-```
+Current executor is Human / Overseer.
 
-Files changed:
-
-```txt
-Not yet recorded.
-```
-
-Findings:
-
-```txt
-Not yet recorded.
-```
-
-Deferrals:
-
-```txt
-Not yet recorded.
-```
-
-## Dev Handoff
-
-Dev must complete this section before returning:
-
-Summary of implementation:
-
-```txt
-Not yet recorded.
-```
-
-Exact files changed:
-
-```txt
-Not yet recorded.
-```
-
-Family/state behavior:
-
-```txt
-Not yet recorded.
-```
-
-Neutral Seed copy safety:
-
-```txt
-Not yet recorded.
-```
-
-Visual smoke result path and coverage:
-
-```txt
-Not yet recorded.
-```
-
-Verification commands and results:
-
-```txt
-Not yet recorded.
-```
-
-Process cleanup result:
-
-```txt
-Not yet recorded.
-```
-
-Remaining risks or recommended Overseer action:
-
-```txt
-Not yet recorded.
-```
-
-Expected handoff file:
-
-```txt
-workspace/DevHS30-fixture-backed-presentation-family-prototype.md
-```
+Next expected action is a direction choice, not Dev execution.

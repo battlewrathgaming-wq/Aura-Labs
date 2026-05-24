@@ -21,7 +21,7 @@
       <section class="briefing system-surface" aria-labelledby="briefing-title">
         <div class="briefing-head">
           <div class="briefing-primary">
-            <p class="eyebrow">Aura Lab briefing</p>
+            <p class="eyebrow" id="family-label">Briefing</p>
             <div class="action-posture" id="action-posture">
               <span id="action-posture-label">Reading project state</span>
               <small id="action-posture-detail">Checking current packet posture.</small>
@@ -87,12 +87,16 @@
             <dd data-field="sequence">Reading</dd>
           </div>
         </dl>
-        <div class="test-mode-bar" aria-label="Bridge test mode controls">
-          <label for="briefing-mode">Bridge test mode</label>
+        <div class="test-mode-bar" aria-label="Presentation fixture controls">
+          <label for="presentation-family">Presentation family</label>
+          <select id="presentation-family" name="presentation-family">
+            <option value="briefing">Briefing</option>
+          </select>
+          <label for="briefing-mode">Review state</label>
           <select id="briefing-mode" name="briefing-mode">
             <option value="normal">Normal</option>
           </select>
-          <span id="briefing-mode-note">Development-only UI state preview</span>
+          <span id="briefing-mode-note">Development-only fixture preview</span>
         </div>
       </section>
       <section class="panel compact diagnostics secondary-surface" aria-label="Secondary bridge diagnostics">

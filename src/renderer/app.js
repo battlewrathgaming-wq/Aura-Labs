@@ -2,6 +2,8 @@ const state = {
   frame: {
     alwaysOnTop: false
   },
+  presentationFamily: 'briefing',
+  presentationFamilies: [],
   briefingMode: 'normal',
   briefingModes: []
 };
@@ -17,12 +19,12 @@ async function boot() {
   });
   const services = await window.aura.listServices();
   const readinessPromise = window.aura.invokeService('seed.readiness');
-  const briefingPromise = loadBriefing('normal');
+  const briefingPromise = loadBriefing('briefing', 'normal');
   const readiness = await readinessPromise;
   const briefing = await briefingPromise;
 
   renderBriefing(briefing);
-  setupBriefingModeControl(briefing);
+  setupFixtureControls(briefing);
 
   document.querySelector('#health').textContent = readiness.ok ? 'Ready' : 'Blocked';
   document.querySelector('#commands').textContent = String(services.length);
@@ -40,49 +42,84 @@ async function boot() {
   }
 }
 
-async function loadBriefing(mode) {
+async function loadBriefing(family, mode) {
+  state.presentationFamily = family || state.presentationFamily || 'briefing';
   state.briefingMode = mode || 'normal';
-  return window.aura.invokeService('aura.projectBriefing', {
-    mode: state.briefingMode
+  return window.aura.invokeService('aura.presentationFixture', {
+    family: state.presentationFamily,
+    state: state.briefingMode
   });
 }
 
-function setupBriefingModeControl(briefing) {
-  const select = document.querySelector('#briefing-mode');
-  state.briefingModes = briefing?.available_modes || [];
+function setupFixtureControls(briefing) {
+  const familySelect = document.querySelector('#presentation-family');
+  const stateSelect = document.querySelector('#briefing-mode');
+  state.presentationFamilies = briefing?.available_families || [];
+  state.briefingModes = briefing?.available_states || briefing?.available_modes || [];
+  if (state.presentationFamilies.length > 0) {
+    familySelect.textContent = '';
+    for (const family of state.presentationFamilies) {
+      const option = document.createElement('option');
+      option.value = family.id;
+      option.textContent = family.label;
+      familySelect.appendChild(option);
+    }
+  }
   if (state.briefingModes.length > 0) {
-    select.textContent = '';
+    stateSelect.textContent = '';
     for (const mode of state.briefingModes) {
       const option = document.createElement('option');
       option.value = mode.id;
       option.textContent = mode.label;
-      select.appendChild(option);
+      stateSelect.appendChild(option);
     }
   }
-  select.value = briefing?.mode || state.briefingMode;
-  select.addEventListener('change', async () => {
-    select.disabled = true;
-    renderBriefing({
-      view_status: 'loading',
-      certainty: 'Reported by bridge',
-      fields: {},
-      source_labels: [],
-      last_read_at: null,
-      mode: select.value,
-      available_modes: state.briefingModes
-    });
-    try {
-      renderBriefing(await loadBriefing(select.value));
-    } finally {
-      select.disabled = false;
-    }
+  familySelect.value = briefing?.family || state.presentationFamily;
+  stateSelect.value = briefing?.state || briefing?.mode || state.briefingMode;
+
+  familySelect.addEventListener('change', () => loadSelectedFixture());
+  stateSelect.addEventListener('change', () => loadSelectedFixture());
+}
+
+async function loadSelectedFixture() {
+  const familySelect = document.querySelector('#presentation-family');
+  const stateSelect = document.querySelector('#briefing-mode');
+  familySelect.disabled = true;
+  stateSelect.disabled = true;
+  renderBriefing({
+    view_status: 'loading',
+    certainty: 'Reported by bridge',
+    fields: {},
+    source_labels: [],
+    last_read_at: null,
+    family: familySelect.value,
+    family_label: selectedOptionText(familySelect),
+    state: stateSelect.value,
+    mode: stateSelect.value,
+    available_families: state.presentationFamilies,
+    available_states: state.briefingModes,
+    available_modes: state.briefingModes
   });
+  try {
+    renderBriefing(await loadBriefing(familySelect.value, stateSelect.value));
+  } finally {
+    familySelect.disabled = false;
+    stateSelect.disabled = false;
+  }
+}
+
+function selectedOptionText(select) {
+  return select.options[select.selectedIndex]?.textContent || '';
 }
 
 function renderBriefing(briefing) {
   const status = briefing?.view_status || 'failed';
   const fields = briefing?.fields || {};
   const stateCopy = statusCopy(status, briefing);
+  state.presentationFamily = briefing?.family || state.presentationFamily || 'briefing';
+  state.briefingMode = briefing?.state || briefing?.mode || state.briefingMode || 'normal';
+  document.body.dataset.family = state.presentationFamily;
+  document.querySelector('#family-label').textContent = briefing?.family_label || 'Briefing';
   document.querySelector('#briefing-title').textContent = stateCopy.title;
   document.querySelector('#briefing-summary').textContent = stateCopy.summary;
   document.querySelector('#view-status').textContent = stateCopy.label;
@@ -93,6 +130,9 @@ function renderBriefing(briefing) {
   document.querySelector('#certainty').textContent = briefing?.certainty || stateCopy.certainty;
   document.querySelector('#sources').textContent = sourceCopy(briefing);
   document.querySelector('#briefing-mode-note').textContent = modeNoteCopy(briefing);
+  syncControlValue('#presentation-family', state.presentationFamily);
+  syncControlValue('#briefing-mode', state.briefingMode);
+  renderFieldLabels(briefing);
   renderAttention(briefing, status);
 
   for (const item of document.querySelectorAll('[data-field]')) {
@@ -102,9 +142,28 @@ function renderBriefing(briefing) {
   }
 }
 
+function syncControlValue(selector, value) {
+  const select = document.querySelector(selector);
+  if (select && value && Array.from(select.options).some((option) => option.value === value)) {
+    select.value = value;
+  }
+}
+
+function renderFieldLabels(briefing) {
+  const labels = briefing?.field_labels || {};
+  for (const item of document.querySelectorAll('[data-field]')) {
+    const key = item.dataset.field;
+    const label = item.parentElement?.querySelector('dt');
+    if (label && labels[key]) {
+      label.textContent = labels[key];
+    }
+  }
+}
+
 function renderAttention(briefing, status) {
   const list = document.querySelector('#attention-list');
   const count = document.querySelector('#attention-count');
+  document.querySelector('#attention-title').textContent = briefing?.attention_title || 'Needs Attention';
   list.textContent = '';
 
   if (status === 'loading') {
@@ -152,8 +211,12 @@ function appendAttentionLine(list, text, className) {
 }
 
 function modeNoteCopy(briefing) {
-  const modes = briefing?.available_modes || state.briefingModes || [];
-  const mode = modes.find((entry) => entry.id === briefing?.mode);
+  const modes = briefing?.available_states || briefing?.available_modes || state.briefingModes || [];
+  const mode = modes.find((entry) => entry.id === (briefing?.state || briefing?.mode));
+  const family = briefing?.available_families?.find((entry) => entry.id === briefing?.family);
+  if (family && mode) {
+    return `${family.label}; ${mode.description}`;
+  }
   return mode?.description || 'Development-only UI state preview';
 }
 
@@ -170,6 +233,18 @@ function actionPostureDetail(briefing, stateCopy) {
 
 function statusCopy(status, briefing) {
   const projectName = briefing?.fields?.project_name || 'Aura Lab';
+  if (briefing?.title || briefing?.summary) {
+    const fallback = statusCopyByStatus(status, projectName, briefing);
+    return {
+      ...fallback,
+      title: briefing.title || fallback.title,
+      summary: briefing.summary || fallback.summary
+    };
+  }
+  return statusCopyByStatus(status, projectName, briefing);
+}
+
+function statusCopyByStatus(status, projectName, briefing) {
   const copy = {
     loading: {
       label: 'Loading',

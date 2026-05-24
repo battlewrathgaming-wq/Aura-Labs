@@ -6,6 +6,7 @@ const {
 const {
   ServiceRegistry,
   createDefaultRegistry,
+  PRESENTATION_FAMILIES,
   BRIEFING_TEST_MODES
 } = require('../src/services/serviceRegistry');
 const {
@@ -111,7 +112,10 @@ async function verifyRegistry() {
   const commands = registry.listCommands();
   assert(commands.some((entry) => entry.command === 'seed.health'), 'default registry should include seed health');
   assert(commands.some((entry) => entry.command === 'aura.projectBriefing'), 'default registry should include project briefing');
+  assert(commands.some((entry) => entry.command === 'aura.presentationFixture'), 'default registry should include presentation fixture');
   assertModeList(BRIEFING_TEST_MODES);
+  assert(PRESENTATION_FAMILIES.some((entry) => entry.id === 'briefing'), 'presentation families should include briefing');
+  assert(PRESENTATION_FAMILIES.some((entry) => entry.id === 'neutral-seed'), 'presentation families should include neutral seed');
 
   const health = await registry.invoke('seed.health', {}, { appName: 'Fixture App' });
   assert(health.ok === true, 'seed health should return ok');
@@ -184,6 +188,46 @@ async function verifyRegistry() {
   const fallbackBriefing = await registry.invoke('aura.projectBriefing', { mode: 'unknown' });
   assert(fallbackBriefing.mode === 'normal', 'unknown briefing mode should fall back to normal');
 
+  const briefingFixture = await registry.invoke('aura.presentationFixture', { family: 'briefing', state: 'normal' });
+  assert(briefingFixture.family === 'briefing', 'presentation fixture should echo briefing family');
+  assert(briefingFixture.state === 'normal', 'presentation fixture should echo normal state');
+  assertModeList(briefingFixture.available_states);
+  assertFamilyList(briefingFixture.available_families);
+  assert(briefingFixture.field_labels.current_focus === 'Focus', 'briefing fixture should expose briefing field labels');
+
+  const neutralFixture = await registry.invoke('aura.presentationFixture', { family: 'neutral-seed', state: 'normal' });
+  assert(neutralFixture.family === 'neutral-seed', 'presentation fixture should echo neutral seed family');
+  assert(neutralFixture.state === 'normal', 'neutral seed fixture should echo normal state');
+  assert(neutralFixture.view_status === 'populated', 'neutral seed normal fixture should be populated');
+  assert(neutralFixture.field_labels.project_name === 'Primary sample', 'neutral seed should expose primary sample label');
+  assert(neutralFixture.field_labels.current_packet_path === 'Source layer', 'neutral seed should expose source layer label');
+  assert(neutralFixture.field_labels.current_executor === 'Freshness basis', 'neutral seed should expose freshness basis label');
+  assert(neutralFixture.field_labels.current_focus === 'Display certainty', 'neutral seed should expose display certainty label');
+  assert(neutralFixture.field_labels.expected_output === 'Presentation boundary', 'neutral seed should expose presentation boundary label');
+  assert(Array.isArray(neutralFixture.attention_items) && neutralFixture.attention_items.length === 3, 'neutral seed should expose sample slots');
+  assertSafeNeutralCopy(neutralFixture);
+
+  const neutralEmpty = await registry.invoke('aura.presentationFixture', { family: 'neutral-seed', state: 'empty' });
+  assert(neutralEmpty.view_status === 'empty', 'neutral seed should expose empty state');
+  assert(Array.isArray(neutralEmpty.attention_items) && neutralEmpty.attention_items.length === 0, 'neutral seed empty should expose empty sample slots');
+  assert(neutralEmpty.attention_empty_copy === 'No sample items reported.', 'neutral seed empty should expose intentional empty copy');
+
+  const neutralFailed = await registry.invoke('aura.presentationFixture', { family: 'neutral-seed', state: 'failed' });
+  assert(neutralFailed.view_status === 'failed', 'neutral seed should expose failed state');
+  assert(neutralFailed.attention_items === null, 'neutral seed failed should expose unavailable sample slots');
+  assert(neutralFailed.certainty.includes('Unavailable'), 'neutral seed failed should expose unavailable certainty');
+
+  const neutralLongText = await registry.invoke('aura.presentationFixture', { family: 'neutral-seed', state: 'long-text' });
+  assert(neutralLongText.view_status === 'populated', 'neutral seed long-text should be populated');
+  assert(neutralLongText.fields.project_name.length > 60, 'neutral seed long-text should stress title');
+  assert(neutralLongText.fields.expected_output.length > 100, 'neutral seed long-text should stress presentation boundary');
+  assert(neutralLongText.source_labels.some((label) => label.includes('long source label')), 'neutral seed long-text should stress source labels');
+  assertSafeNeutralCopy(neutralLongText);
+
+  const fallbackFixture = await registry.invoke('aura.presentationFixture', { family: 'unknown', state: 'unknown' });
+  assert(fallbackFixture.family === 'briefing', 'unknown presentation family should fall back to briefing');
+  assert(fallbackFixture.state === 'normal', 'unknown presentation state should fall back to normal');
+
   const checksum = await registry.invoke('util.checksum', { value: { b: 2, a: 1 } });
   assert(typeof checksum.checksum === 'string' && checksum.checksum.length === 64, 'checksum command should return sha256');
 
@@ -219,6 +263,20 @@ function assertModeList(modes) {
   assert(Array.isArray(modes), 'project briefing should expose available modes');
   for (const mode of ['normal', 'empty', 'stale', 'failed', 'partial', 'long-text']) {
     assert(modes.some((entry) => entry.id === mode), `project briefing should expose ${mode} mode`);
+  }
+}
+
+function assertFamilyList(families) {
+  assert(Array.isArray(families), 'presentation fixture should expose available families');
+  for (const family of ['briefing', 'neutral-seed']) {
+    assert(families.some((entry) => entry.id === family), `presentation fixture should expose ${family} family`);
+  }
+}
+
+function assertSafeNeutralCopy(fixture) {
+  const text = JSON.stringify(fixture).toLowerCase();
+  for (const banned of ['evidence', 'tactical', 'operator', 'assessment', 'watch', 'queue', 'combat', 'intelligence', 'core source', 'core seed', 'schema', 'source of truth', 'approved', 'synced', 'live']) {
+    assert(!text.includes(banned), `neutral seed copy should not include ${banned}`);
   }
 }
 

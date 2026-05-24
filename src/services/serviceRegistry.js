@@ -11,7 +11,7 @@ const BRIEFING_TEST_MODES = Object.freeze([
     id: 'normal',
     label: 'Normal',
     status: 'populated',
-    description: 'Read the current workspace briefing from local files.'
+    description: 'Return populated presentation data from local fixture sources.'
   },
   {
     id: 'empty',
@@ -23,25 +23,38 @@ const BRIEFING_TEST_MODES = Object.freeze([
     id: 'stale',
     label: 'Stale',
     status: 'stale',
-    description: 'Return current briefing data with an old last-read time.'
+    description: 'Return presentation data with an old last-read time.'
   },
   {
     id: 'failed',
     label: 'Failed',
     status: 'failed',
-    description: 'Return a failed bridge-read state.'
+    description: 'Return a failed fixture-read state.'
   },
   {
     id: 'partial',
     label: 'Partial',
     status: 'partial',
-    description: 'Return current briefing data with one expected field omitted.'
+    description: 'Return presentation data with one expected field omitted.'
   },
   {
     id: 'long-text',
     label: 'Long text',
     status: 'populated',
-    description: 'Return populated review data with overflow-prone briefing text.'
+    description: 'Return populated review data with overflow-prone presentation text.'
+  }
+]);
+
+const PRESENTATION_FAMILIES = Object.freeze([
+  {
+    id: 'briefing',
+    label: 'Briefing',
+    description: 'Lab project-state briefing presentation fixture.'
+  },
+  {
+    id: 'neutral-seed',
+    label: 'Neutral Seed',
+    description: 'Lab-local neutral presentation fixture.'
   }
 ]);
 
@@ -135,6 +148,11 @@ function createDefaultRegistry(options = {}) {
       description: 'Return provisional Aura Lab project briefing data from local workspace files',
       handler: (payload = {}) => buildProjectBriefing(payload)
     })
+    .register('aura.presentationFixture', {
+      classification: TASK_CLASSIFICATIONS.READ_ONLY,
+      description: 'Return Lab-local presentation fixture data by family and state',
+      handler: (payload = {}) => buildPresentationFixture(payload)
+    })
     .register('util.checksum', {
       classification: TASK_CLASSIFICATIONS.READ_ONLY,
       description: 'Return a stable checksum for a JSON-compatible payload',
@@ -160,6 +178,46 @@ function createDefaultRegistry(options = {}) {
     });
 
   return registry;
+}
+
+function buildPresentationFixture(payload = {}) {
+  const family = normalizePresentationFamily(payload.family);
+  const state = normalizeBriefingMode(payload.state || payload.mode || payload.fixtureState);
+  if (family === 'neutral-seed') {
+    return buildNeutralSeedFixture(state);
+  }
+  return decoratePresentationFixture(buildProjectBriefing({ mode: state }), {
+    family: 'briefing',
+    familyLabel: 'Briefing',
+    state,
+    attentionTitle: 'Needs Attention',
+    fieldLabels: briefingFieldLabels()
+  });
+}
+
+function decoratePresentationFixture(fixture, {
+  family,
+  familyLabel,
+  state,
+  attentionTitle,
+  fieldLabels
+}) {
+  return {
+    ...fixture,
+    family,
+    family_label: familyLabel,
+    state,
+    mode: fixture.mode || state,
+    attention_title: attentionTitle,
+    field_labels: fieldLabels,
+    available_families: PRESENTATION_FAMILIES,
+    available_states: BRIEFING_TEST_MODES
+  };
+}
+
+function normalizePresentationFamily(value) {
+  const family = typeof value === 'string' ? value.trim().toLowerCase() : 'briefing';
+  return PRESENTATION_FAMILIES.some((entry) => entry.id === family) ? family : 'briefing';
 }
 
 function validatePayload(definition, payload, context, command) {
@@ -340,7 +398,187 @@ function attachModeMetadata(briefing, mode) {
   return {
     ...briefing,
     mode,
-    available_modes: BRIEFING_TEST_MODES
+    available_modes: BRIEFING_TEST_MODES,
+    available_states: BRIEFING_TEST_MODES,
+    available_families: PRESENTATION_FAMILIES
+  };
+}
+
+function buildNeutralSeedFixture(state) {
+  const now = new Date();
+  if (state === 'failed') {
+    return decoratePresentationFixture({
+      view_status: 'failed',
+      title: 'Neutral sample unavailable',
+      summary: 'Required sample data is unavailable for this presentation review state.',
+      certainty: 'Unavailable; required sample could not be read.',
+      action_posture: {
+        label: 'Unavailable',
+        detail: 'Presentation fixture returned an unavailable sample state.'
+      },
+      attention_items: null,
+      attention_empty_copy: 'Unavailable',
+      fields: {},
+      source_labels: ['neutral sample fixture'],
+      sources: [{ label: 'neutral sample fixture', available: false }],
+      missing_fields: [],
+      warnings: [],
+      error: {
+        source: 'neutral sample fixture',
+        message: 'Required sample unavailable.'
+      },
+      last_read_at: now.toISOString()
+    }, neutralSeedMetadata(state));
+  }
+
+  const fields = neutralSeedFields(state);
+  const sources = neutralSeedSources(state, now);
+  const missing = [];
+  let viewStatus = 'populated';
+  let attentionItems = neutralSeedItems(fields);
+  let certainty = fields.current_focus;
+  let title = fields.project_name;
+  let summary = fields.previous_accepted_handshake;
+  let emptyCopy = 'No sample items reported.';
+
+  if (state === 'empty') {
+    viewStatus = 'empty';
+    attentionItems = [];
+    title = 'No sample items reported';
+    summary = 'The fixture returned an intentional empty presentation state.';
+    certainty = 'No sample data available from fixture input.';
+  }
+
+  if (state === 'partial') {
+    viewStatus = 'partial';
+    fields.expected_output = null;
+    missing.push('presentation_boundary');
+    certainty = 'Partial sample; available display slots are source-labeled.';
+  }
+
+  const lastReadAt = state === 'stale'
+    ? new Date(now.getTime() - 11 * 60 * 1000)
+    : now;
+  if (state === 'stale') {
+    viewStatus = 'stale';
+    fields.current_executor = 'Showing prior fixture generation; sample may have changed.';
+    certainty = 'Showing previous fixture generation; sample may have changed.';
+  }
+
+  return decoratePresentationFixture({
+    view_status: viewStatus,
+    title,
+    summary,
+    certainty,
+    action_posture: {
+      label: 'Presentation fixture',
+      detail: fields.expected_output || summary
+    },
+    attention_items: attentionItems,
+    attention_empty_copy: emptyCopy,
+    fields,
+    source_labels: sources.map((source) => source.label),
+    sources,
+    missing_fields: missing,
+    warnings: [],
+    last_read_at: lastReadAt.toISOString()
+  }, neutralSeedMetadata(state));
+}
+
+function neutralSeedMetadata(state) {
+  return {
+    family: 'neutral-seed',
+    familyLabel: 'Neutral Seed',
+    state,
+    attentionTitle: 'Sample slots',
+    fieldLabels: neutralSeedFieldLabels()
+  };
+}
+
+function neutralSeedFields(state) {
+  const long = state === 'long-text';
+  return {
+    project_name: long
+      ? 'Neutral presentation sample with extended display title for containment review'
+      : 'Neutral presentation sample',
+    project_description: 'Fixture-backed presentation test data.',
+    active_milestone: long
+      ? 'Secondary sample value with extra wording to pressure repeated rows without target terms'
+      : 'Secondary sample value',
+    current_packet_path: long
+      ? 'presentation fixture source layer with deliberately long neutral label'
+      : 'presentation fixture source layer',
+    current_executor: long
+      ? 'Last generated from deterministic Lab-local fixture data for display review'
+      : 'Last generated from fixture data',
+    current_focus: long
+      ? 'Display certainty: fixture-backed sample for typography, source labeling, and containment review only.'
+      : 'Display certainty: fixture-backed sample.',
+    expected_output: long
+      ? 'Presentation boundary: sample data verifies display mapping only and does not define product meaning or an upstream bridge contract.'
+      : 'Presentation boundary: display mapping only.',
+    previous_accepted_handshake: long
+      ? 'Display note: this neutral family uses generic sample slots to keep source, freshness, certainty, and unavailable copy visible under longer text pressure.'
+      : 'Display note: generic sample slot.',
+    sequence: state === 'long-text' ? 'Neutral long-text review state' : `Neutral ${state} review state`
+  };
+}
+
+function neutralSeedSources(state, now) {
+  return [
+    {
+      label: state === 'long-text'
+        ? 'Lab-local neutral fixture source layer with long source label'
+        : 'Lab-local neutral fixture source layer',
+      available: state !== 'failed',
+      modified_at: now.toISOString()
+    }
+  ];
+}
+
+function neutralSeedItems(fields) {
+  return [
+    {
+      label: 'Primary sample',
+      text: fields.project_name,
+      source: 'neutral fixture'
+    },
+    {
+      label: 'Secondary sample',
+      text: fields.active_milestone,
+      source: 'neutral fixture'
+    },
+    {
+      label: 'Display note',
+      text: fields.previous_accepted_handshake,
+      source: 'neutral fixture'
+    }
+  ];
+}
+
+function briefingFieldLabels() {
+  return {
+    project_name: 'Project',
+    active_milestone: 'Active milestone',
+    current_packet_path: 'Current packet',
+    current_executor: 'Executor',
+    current_focus: 'Focus',
+    expected_output: 'Expected output',
+    previous_accepted_handshake: 'Previous handshake',
+    sequence: 'Sequence'
+  };
+}
+
+function neutralSeedFieldLabels() {
+  return {
+    project_name: 'Primary sample',
+    active_milestone: 'Secondary sample',
+    current_packet_path: 'Source layer',
+    current_executor: 'Freshness basis',
+    current_focus: 'Display certainty',
+    expected_output: 'Presentation boundary',
+    previous_accepted_handshake: 'Display note',
+    sequence: 'Review token'
   };
 }
 
@@ -451,11 +689,11 @@ function buildAttentionItems(currentText, fields = {}) {
 
 function applyLongTextFixture(fields, sources, now) {
   fields.project_name = 'Aura Lab visual smoke long-text briefing surface validation';
-  fields.active_milestone = 'M05 - Visual Smoke Hardening with intentionally extended milestone copy for containment review';
-  fields.current_focus = 'Add a project-local Electron smoke wrapper and a dedicated long-text visual smoke mode while keeping the accepted Aura Lab presentation semantics, source language, bridge test states, diagnostics hierarchy, and narrow-window text containment intact.';
-  fields.expected_output = 'workspace/DevHS25-visual-smoke-hardening.md with wrapper behavior, long-text mode data, verification evidence, screenshot notes, process cleanup, and residual risk recorded for Overseer review.';
-  fields.previous_accepted_handshake = 'workspace/complete/milestone-M04/OverseerHS24-m04-closure.md plus accepted visual prototype evidence from DevHS23 and durable M04 current-state notes.';
-  fields.sequence = 'HS25 long-text review fixture';
+  fields.active_milestone = 'M08 - Fixture-Backed Presentation Family Prototype with intentionally extended milestone copy for containment review';
+  fields.current_focus = 'Implement the first bounded fixture-backed presentation family proof while keeping Briefing behavior, source language, state grammar, diagnostics hierarchy, and narrow-window text containment intact.';
+  fields.expected_output = 'workspace/DevHS30-fixture-backed-presentation-family-prototype.md with family and state behavior, visual smoke evidence, screenshot notes, process cleanup, and residual risk recorded for Overseer review.';
+  fields.previous_accepted_handshake = 'workspace/complete/milestone-M07/OverseerHS30-m07-closure-and-m08-runway.md plus accepted family-spec and post-bridge presentation boundary notes.';
+  fields.sequence = 'HS30 long-text review fixture';
   sources.push({
     label: 'workspace/current.md plus long-text visual smoke fixture source label for overflow review',
     available: true,
@@ -550,5 +788,7 @@ module.exports = {
   validatePayload,
   buildSeedReadiness,
   buildProjectBriefing,
+  buildPresentationFixture,
+  PRESENTATION_FAMILIES,
   BRIEFING_TEST_MODES
 };

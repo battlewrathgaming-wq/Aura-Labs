@@ -277,7 +277,8 @@ h2 {
 }
 
 .test-mode-bar {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(130px, 180px) auto minmax(130px, 180px) minmax(0, 1fr);
   align-items: center;
   gap: 10px;
   border-top: 1px solid var(--line);
@@ -291,6 +292,7 @@ h2 {
 }
 
 .test-mode-bar select {
+  min-width: 0;
   min-height: 32px;
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -363,6 +365,14 @@ h2 {
 .attention-list span,
 .attention-list small {
   display: block;
+}
+
+body[data-family="neutral-seed"] .attention-panel {
+  background: linear-gradient(90deg, rgba(117, 213, 199, 0.07), rgba(145, 162, 159, 0.035));
+}
+
+body[data-family="neutral-seed"] .attention-list strong {
+  color: var(--accent);
 }
 
 .attention-list strong {
@@ -464,7 +474,6 @@ dd {
 
   .test-mode-bar {
     align-items: stretch;
-    flex-direction: column;
   }
 
   h1 {
