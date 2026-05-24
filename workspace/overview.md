@@ -47,13 +47,14 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 
 ## Current Direction
 
-Active milestone: No active milestone
+Active milestone: M18 - Presentation Concept Pack
 Last completed milestone: M17 - Protected-Term Discovery Guardrail
-Roadmap source: Waiting for Human / Overseer direction
+Roadmap source: Human direction after M17; `workspace/OverseerHS63-m18-presentation-concept-runway.md`
 Current packet: `workspace/current.md`
-Current sequence: HS62
+Current sequence: HS63
 Latest accepted handshake: workspace/OverseerHS62-m17-acceptance.md
 Latest scope proposal: workspace/OverseerHS60-protected-term-guardrail-scope.md
+Active runway: workspace/OverseerHS63-m18-presentation-concept-runway.md
 
 ## Durable Record Index
 
@@ -98,7 +99,7 @@ Latest scope proposal: workspace/OverseerHS60-protected-term-guardrail-scope.md
 
 Active milestone handshakes:
 
-- No active milestone handshakes.
+- `workspace/OverseerHS63-m18-presentation-concept-runway.md`
 
 Accepted authority records:
 
