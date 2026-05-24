@@ -6,17 +6,19 @@ Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M13a - Presentation Vocabulary Inventory
-Last completed milestone: M12 - Bridge State Readout Naming Alignment
-Current executor: Dev / Engineering specialist
-Current focus: inventory Lab-owned default presentation language before any replacement work
-Expected DevHS filename: `workspace/LabVocabularyInventoryHS48-presentation-vocabulary-inventory.md`
+Active milestone: M13b - Presentation Vocabulary Replacement
+Last completed milestone: M13a - Presentation Vocabulary Inventory
+Current executor: Dev
+Current focus: replace accepted Lab-owned default copy with slim display language
+Expected DevHS filename: `workspace/DevHS50-lab-presentation-vocabulary-replacement.md`
 
 ## Purpose
 
-Aura Lab is moving into terminology stabilization so its own presentation language becomes slim, product-agnostic, and display-scoped before Lab presents Atlas/Sense bridge-fed data.
+Aura Lab is tightening its own presentation voice so Lab can apply faces to bridge-fed project data without importing Atlas, Sense, Core, backend, proof, monitoring, history, or authority-heavy language.
 
-This packet is an inventory and classification pass only. It does not authorize copy replacement, verifier creation, source-owned term changes, or implementation refactors.
+This packet accepts the safe-now replacement groups from `workspace/LabVocabularyInventoryHS48-presentation-vocabulary-inventory.md`.
+
+Clean the presentation face, not the inherited scaffold bones.
 
 ## Source Of Intent
 
@@ -27,6 +29,11 @@ Accepted Human / Overseer direction:
 - Lab owns Bridge -> Interface human presentation language only after preserving source-project meaning.
 - Atlas and Sense own what they emit and what those terms mean.
 - Shared spelling does not imply shared meaning.
+- Inherited Core/scaffold internals should not be scrubbed during this pass.
+
+Accepted M13a artifact:
+
+- `workspace/LabVocabularyInventoryHS48-presentation-vocabulary-inventory.md`
 
 Accepted / active references:
 
@@ -35,97 +42,106 @@ Accepted / active references:
 - `workspace/critical/README.md`
 - `workspace/critical/critical-terms.md`
 - `workspace/critical/critical-assets.md`
-- `workspace/critical/lab-vocabulary-instruction-packets.md`
 - `F:\Projects\Docs\Aura-Agent-Coordination\relay\lab-terminology-stabilization-prompt.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\terminology\TerminologyAuthorityRuleset-2026-05-24.md`
 
-Relevant accepted project state:
+## Accepted Scope
 
-- M00 through M12 are complete and accepted.
-- M11 accepted the neutral physical readout feature.
-- M12 renamed that feature to `Bridge State Readout`.
-- HS46 accepted the Bridge -> Interface authority boundary.
-- Tactical/combat wording remains rejected as default reusable Lab language.
-- Verification tooling remains support for presentation work, not the product direction.
+Apply only the 13 safe-now Lab-owned display/review copy groups accepted from M13a:
+
+1. `Reported by bridge` -> `Bridge read pending` or `Awaiting bridge read`
+2. `Verified from source` -> `Read from source`
+3. `Verified from local workspace sources.` -> `Read from local workspace sources.`
+4. `Partial view; available facts are source-labeled.` -> `Partial readout; available fields include source labels.`
+5. `Display certainty` -> `Display basis` or `Readout basis`
+6. Neutral display note using `certainty` -> basis/freshness/availability wording
+7. `sample data verifies display mapping` -> `sample data exercises display mapping`
+8. `No gaps or warnings reported.` -> `No gaps or warnings shown.`
+9. `None reported` -> `None shown`
+10. `No attention items reported.` -> `No attention items shown.`
+11. `No sample items reported.` -> `No sample items shown.`
+12. Long-text fixture `presentation family proof` -> `presentation family prototype`
+13. Long-text fixture `visual smoke evidence ... recorded` -> `visual smoke notes ... captured`
+
+Expected implementation files if the inventory remains accurate:
+
+- `src/renderer/index.html`
+- `src/renderer/app.js`
+- `src/services/serviceRegistry.js`
+- `scripts/verify-services.js`
+- `scripts/verify-renderer-shell.js`
 
 ## Ordered Runway
 
-1. Read the source-of-intent files above, plus `package.json`, `src/renderer/`, `src/services/`, `scripts/verify-services.js`, and `scripts/verify-renderer-shell.js`.
-2. Inventory visible or review-facing Lab copy that may be Lab-owned default language, including renderer labels, fixture text, visible state labels, smoke-visible strings, and behavior-facing docs that feed UI meaning.
-3. Classify each risky occurrence as one of: `Lab display`, `source-owned`, `internal/support`, `replace candidate`, or `archive/historical`.
-4. Build a proposed replacement table using slim Lab language such as `Readout`, `Readout basis`, `Readout age`, `State`, `Surface`, `Coverage`, `Gaps`, `Warnings`, `Freshness`, and `Availability`.
-5. Mark which replacements appear safe now and which need Human / Overseer or source-project owner decision.
-6. Create `workspace/LabVocabularyInventoryHS48-presentation-vocabulary-inventory.md` with the required sections below.
-
-## Required Artifact Sections
-
-The inventory artifact must include:
-
-- Request Received
-- Files inspected
-- Short current-state understanding
-- Risky term occurrence table
-- Proposed replacement table
-- Safe-now replacements
-- Needs Human / Overseer decision
-- Source-owned terms intentionally preserved
-- Internal/support terms intentionally left alone
-- Recommended next packet
-
-The replacement table must include:
-
-- current string
-- file/location
-- risk category
-- why risky
-- proposed Lab wording
-- safe now: yes/no
-- owner/decision needed
+1. Read `workspace/LabVocabularyInventoryHS48-presentation-vocabulary-inventory.md` and this current packet.
+2. Apply only the accepted safe-now copy replacements listed above.
+3. Update only verifier expectations directly affected by those copy changes.
+4. Do not introduce a copy registry unless the accepted copy changes cannot be kept clear without one.
+5. Run required verification.
+6. Create `workspace/DevHS50-lab-presentation-vocabulary-replacement.md`.
 
 ## Guardrails
 
-- Do not change source code, UI copy, docs, tests, package scripts, or verification behavior in this packet except for the expected inventory artifact.
-- Do not add a copy registry yet.
-- Do not add or modify a vocabulary verifier yet.
-- Do not rename IPC channels, service commands, schemas, payload fields, CSS compatibility names, or internal identifiers.
+- Do not rename service commands, IPC channels, schemas, payload fields, CSS compatibility names, family ids, screenshot names, package scripts, or internal identifiers.
+- Do not rename `neutral-seed`, `seed.health`, `seed.readiness`, `trust-strip`, or inherited Core/scaffold internals.
 - Do not rename Atlas/Sense emitted terms.
-- Do not decide final preserve-exact status for Atlas or Sense.
-- Do not treat frequency, extraction, or audits as authority.
+- Do not change `Neutral Seed` visible family name in this packet.
+- Do not change `Source Detail`, `Source coverage`, `Source paths`, or `Source: ...` labels in this packet.
+- Do not relabel `Bridge Diagnostics`, `Registered Services`, `Runtime`, or `Commands` in this packet.
+- Do not rewrite completed current-state docs or archived handshakes.
+- Do not add a vocabulary guardrail/verifier beyond updating existing assertions for accepted copy.
 - Do not create shared Aura doctrine or a universal glossary.
-- Do not run GUI/Electron smoke, live network, private-state, destructive, or cross-project actions from this packet.
+- Do not run GUI/Electron smoke, live network, private-state, destructive, or cross-project actions unless the changed UI layout clearly requires smoke and Human / Overseer approves it.
+
+## Parked Decision Items
+
+Park these from HS48:
+
+- Whether visible `Neutral Seed` should become `Neutral Surface`, `Neutral Sample`, or remain with Lab-local context.
+- Whether `Source Detail` should move toward `Readout Detail` / `Display basis`.
+- Whether secondary support panels should keep `Bridge Diagnostics`, `Registered Services`, `Runtime`, and `Commands`.
+- Whether `trust-strip` internal compatibility names should ever be renamed.
+- Whether completed current-state docs need a separate vocabulary stabilization note.
 
 ## Stop Conditions
 
 Stop and hand back to Overseer if:
 
-- The inventory requires deciding whether to change an Atlas/Sense-owned emitted term.
-- A term cannot be classified without source-project authority.
-- The work appears to require implementation instead of artifact-only inventory.
-- The active files contradict the accepted authority model.
-- You need GUI/Electron smoke, live network, private-state access, destructive action, or cross-project edits.
+- A replacement requires changing a source-owned Atlas/Sense term.
+- A replacement requires renaming inherited Core/scaffold internals.
+- The safe-now inventory proves materially inaccurate in active source files.
+- The work appears to require a copy registry, new verifier, architecture refactor, or docs history rewrite.
+- GUI/Electron smoke, live network, private-state access, destructive action, or cross-project edits become necessary.
 
 ## Verification
 
-This is an artifact-only inventory packet. No code verification is required if no files are changed except the expected inventory artifact.
+Required:
 
-If the executor changes anything beyond the expected artifact, stop and explain why before proceeding.
+```powershell
+npm.cmd run verify:all
+npm.cmd run verify:renderer-shell
+```
+
+Do not run Electron visual smoke unless visual layout changed enough to create a meaningful rendering risk or Human / Overseer asks for it.
 
 ## Evidence
 
 Record:
 
-- Files inspected.
-- Search patterns or commands used.
-- Risky strings found.
-- Why each replacement is or is not safe now.
-- Any terms left untouched because they are source-owned or internal/support.
+- Files changed.
+- Exact safe-now replacement groups applied.
+- Verifier expectations updated.
+- Commands run and results.
+- Any safe-now replacements intentionally skipped and why.
 
 ## Dev Handoff
 
-In the handoff, state:
+In `workspace/DevHS50-lab-presentation-vocabulary-replacement.md`, include:
 
-- Whether the inventory completed.
-- Whether any safe-now replacements are ready for Overseer acceptance.
-- Which terms require Human / Overseer or Atlas/Sense owner decision.
-- Whether M13b - Presentation Vocabulary Replacement is ready to be written as the next packet.
-- Any residual risk in running a replacement pass.
+- Request Received
+- Files changed
+- Replacements applied
+- Verification
+- Skipped / parked items
+- Residual risks
+- Recommended next packet, likely M13c - Vocabulary Guardrail Verification only after Overseer accepts M13b
