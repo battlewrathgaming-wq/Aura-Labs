@@ -1,42 +1,50 @@
 # Current Workspace Packet
 
-Status: Active Engineering advisory runway
+Status: Active UI/UX advisory runway
 Updated: 2026-05-24
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M06 - Fixture-Backed Presentation Family Feasibility
-Roadmap source: UIUXHS27 advisory accepted by Overseer
-Sequence: HS28
-Previous accepted handshake: `workspace/complete/milestone-M05/OverseerHS26-m05-closure.md`
-Current executor: Engineering
-Current focus: assess safe implementation shape for fixture-backed presentation families
-Expected EngineeringHS filename: `workspace/EngineeringHS28-fixture-backed-presentation-family-feasibility.md`
-Archive target on milestone completion: `workspace/complete/milestone-M06/`
+Active milestone: M07 - Fixture-Backed Presentation Family Spec
+Roadmap source: M06 Engineering feasibility accepted by Overseer
+Sequence: HS29
+Previous accepted handshake: `workspace/complete/milestone-M06/OverseerHS29-m06-closure-and-m07-runway.md`
+Current executor: UI/UX
+Current focus: specify a bounded first fixture-backed presentation family proof
+Expected UIUXHS filename: `workspace/UIUXHS29-fixture-backed-presentation-family-spec.md`
+Archive target on milestone completion: `workspace/complete/milestone-M07/`
 
 ## Purpose
 
 This is the only active executable work packet for Aura Lab.
 
-Aura Lab has accepted a durable project boundary: portable post-bridge display mapping and presentation tooling. M04 proved one visual surface. M05 hardened visual smoke and long-text pressure. UI/UX HS27 recommends the next milestone as fixture-backed presentation families, but specifically recommends Engineering feasibility first so implementation shape is understood before UI/UX writes a detailed family spec or Dev prototypes family switching.
+M06 accepted that fixture-backed presentation families are feasible if Aura Lab keeps `family` and `state` as separate axes, keeps fixture modeling Lab-local, and starts with a small proof rather than all proposed families. Engineering recommends current Briefing plus one neutral second family, preferably Neutral Seed when no target-owned direction exists.
 
-This packet asks Engineering to advise on how fixture-backed presentation families could be modeled safely. It does not ask for code implementation.
+This packet asks UI/UX to specify that bounded first proof. It does not ask for code implementation.
 
 ## Source Of Intent
 
 Accepted into this packet:
 
-- `workspace/UIUXHS27-non-authoritative-milestone-recommendations.md`: recommends Engineering feasibility before UI/UX family spec and Dev prototype.
 - `docs/statements/post-bridge-presentation-boundary.md`: Aura Lab focuses on portable post-bridge display mapping and presentation tooling.
-- `docs/current-state/m04-visual-prototype-current-state.md`: accepted one-screen visual prototype.
-- `docs/current-state/m05-visual-smoke-hardening-current-state.md`: accepted smoke wrapper and long-text visual smoke hardening.
-- `workspace/complete/milestone-M05/OverseerHS26-m05-closure.md`: M05 closed and no Dev runway active afterward.
+- `workspace/complete/milestone-M06/EngineeringHS28-fixture-backed-presentation-family-feasibility.md`: recommends separate family/state axes, Lab-local fixture registry, renderer-level family switch, and family-aware smoke.
+- `docs/current-state/m06-fixture-backed-presentation-family-feasibility-current-state.md`: accepted M06 feasibility state.
+- `workspace/complete/milestone-M06/UIUXHS27-non-authoritative-milestone-recommendations.md`: recommends fixture-backed presentation families as next direction.
+
+Accepted constraints:
+
+- Specify only the current Briefing family and one Neutral Seed family for the first proof.
+- Keep Tactical HUD and Operator Workbench deferred unless Human/Overseer later request target-owned review or a new advisory pass.
+- Treat all fixture content as Lab-local.
+- Treat Neutral Seed as a presentation test family, not Aura Core doctrine.
+- Keep family/state separated.
+- Preserve current state grammar: normal, empty, stale, failed, partial, long-text.
+- Preserve source/freshness/certainty as presentation affordances.
 
 Deferred:
 
-- UI/UX Presentation Family Spec.
-- Dev prototype for family switching.
+- Dev prototype.
 - Packaging review.
 - target-project adapter work.
 - durable post-bridge presentation contract.
@@ -46,120 +54,121 @@ Deferred:
 
 Rejected:
 
-- jumping directly to Dev implementation.
-- implementing all proposed families at once.
-- treating Lab fixtures as target-project doctrine.
-- treating `aura.projectBriefing` as a durable bridge contract.
+- writing target-project doctrine.
+- specifying all four families as implementation-ready.
+- treating Neutral Seed as Core-owned.
+- treating `aura.projectBriefing` or any future fixture command as a durable bridge contract.
 
 Escalated: None.
 
-Promoted into durable docs: None for M06 yet.
+Promoted into durable docs:
+
+- `docs/current-state/m06-fixture-backed-presentation-family-feasibility-current-state.md`
 
 ## Required Reading
 
-Engineering must read:
+UI/UX must read:
 
 - `AGENTS.md`
 - `workspace/README.md`
 - `workspace/overview.md`
 - `workspace/00-dot-protocol.md`
 - `workspace/current.md`
-- `workspace/UIUXHS27-non-authoritative-milestone-recommendations.md`
+- `workspace/complete/milestone-M06/UIUXHS27-non-authoritative-milestone-recommendations.md`
 - `docs/index.md`
 - `docs/README.md`
 - `docs/statements/post-bridge-presentation-boundary.md`
 - `docs/current-state/m04-visual-prototype-current-state.md`
 - `docs/current-state/m05-visual-smoke-hardening-current-state.md`
-- `workspace/complete/milestone-M05/OverseerHS26-m05-closure.md`
-- `package.json`
-- `src/main/main.js`
-- `src/services/serviceRegistry.js`
+- `docs/current-state/m06-fixture-backed-presentation-family-feasibility-current-state.md`
+- `workspace/complete/milestone-M06/EngineeringHS28-fixture-backed-presentation-family-feasibility.md`
+- `workspace/complete/milestone-M06/OverseerHS29-m06-closure-and-m07-runway.md`
+
+Optional read-only implementation context:
+
 - `src/renderer/index.html`
+- `src/renderer/app.js`
 - `src/renderer/styles.css`
-- `scripts/electron-visual-smoke.ps1`
-- `scripts/verify-renderer-shell.js`
-- `scripts/verify-services.js`
-
-Optional read-only references inside Aura Lab:
-
 - `.tmp\electron-visual-smoke\visual-smoke-result.json` if present
 
 Do not inspect or edit sibling projects for this packet.
 
-## Ordered Engineering Runway
+## Ordered UI/UX Runway
 
 1. Confirm cwd is `F:\Projects\AURA- Lab`, inspect git tree health, and read all required sources before writing the advisory.
-2. Summarize the current post-bridge presentation architecture:
-   - service command / bridge boundary
-   - fixture/test mode shape
-   - renderer mapping shape
-   - visual smoke selection shape
-   - verification hooks
-3. Evaluate safe modeling options for fixture-backed presentation families:
-   - separate service commands
-   - separate fixture modes
-   - neutral fixture registry
-   - renderer-level family switch
-   - any smaller option already implied by the code
-4. Recommend the smallest implementation path that could later prove family switching without framework migration or durable bridge-contract work.
-5. Define how visual smoke should select and report:
-   - family
-   - state
-   - viewport
-   - long-text pressure
-   - overflow evidence
-   - screenshots/result JSON
-6. Classify likely outputs as:
-   - Lab-local
-   - Core-neutral candidate
-   - target-adaptable only after target-owned review
-   - do-not-port
-7. Create `workspace/EngineeringHS28-fixture-backed-presentation-family-feasibility.md` with findings, recommendation, risks, stop conditions for Dev, and suggested next role/action.
+2. Define the first family proof as two Lab-owned presentation families:
+   - Briefing family
+   - Neutral Seed family
+3. For each family, specify:
+   - intended screen role
+   - first-screen hierarchy
+   - typography roles
+   - containment rules
+   - trust/source/freshness/certainty placement
+   - diagnostics behavior
+   - state mapping for normal, empty, stale, failed, partial, and long-text
+   - what fixture copy must not imply
+4. Define shared presentation grammar across the two families:
+   - family versus state
+   - primary surface versus secondary diagnostics
+   - density, spacing, and text pressure expectations
+   - how the house style should remain consistent without making both families look identical
+5. Define family-aware visual smoke expectations:
+   - recommended screenshot names
+   - required family/state/viewport coverage
+   - long-text and narrow viewport pressure
+   - overflow and clipping notes UI/UX expects Dev to prove later
+6. Name explicit non-goals and target-boundary cautions:
+   - no Atlas doctrine
+   - no Sense doctrine
+   - no Core ownership claim
+   - no durable bridge contract
+7. Create `workspace/UIUXHS29-fixture-backed-presentation-family-spec.md` with the spec, risks, human decisions, and recommended next role/action.
 
 ## Guardrails And Non-Goals
 
 - Do not implement code.
-- Do not redesign UI.
 - Do not write a Dev runway.
 - Do not define a durable bridge/data contract.
 - Do not create a shared component library.
 - Do not choose a UI framework or migrate stack.
-- Do not edit Atlas, Sense, Aura Core, EVE-Threat-Overlay, or Bughunt.
+- Do not specify Tactical HUD or Operator Workbench as implementation-ready.
 - Do not import Atlas evidence doctrine or Sense tactical doctrine.
 - Do not treat Lab fixture content as product direction.
+- Do not treat Neutral Seed as Aura Core doctrine.
+- Do not edit Atlas, Sense, Aura Core, EVE-Threat-Overlay, or Bughunt.
 - Do not run live/private/destructive actions.
-- Do not stage generated `.tmp`, screenshots, result JSON, cache, or dependency artifacts.
 
 ## Stop Conditions
 
 Stop and report back if:
 
-- safe family modeling appears to require a durable bridge contract
-- target-project doctrine is needed to answer the feasibility question
-- implementation would require a framework migration
+- the spec needs target-project doctrine to be meaningful
+- Neutral Seed cannot be described without implying Core ownership
+- a durable bridge contract appears necessary
+- implementation details require Engineering or Dev decisions outside the accepted M06 constraints
 - sibling-project inspection or edits become necessary
 - live/private/destructive actions become necessary
-- the current code shape contradicts the accepted post-bridge presentation boundary
 
 ## Required Verification
 
 No runtime verification is required.
 
-Engineering should perform read-only source inspection and cite files reviewed.
+UI/UX should perform read-only source inspection and cite files reviewed.
 
-Optional non-mutating checks are allowed if useful:
+Optional non-mutating check:
 
 ```powershell
-npm.cmd run verify:all
+git status --short --branch
 ```
 
-If run, record the result in the advisory. Do not run GUI/Electron smoke unless specifically needed for the feasibility read.
+If run, record the result in the advisory.
 
 ## Evidence
 
-Engineering updates this section only if this packet is executed in-place.
+UI/UX updates this section only if this packet is executed in-place.
 
-Verification or checks run:
+Checks run:
 
 ```txt
 Not yet run.
@@ -177,22 +186,24 @@ Findings:
 Not yet recorded.
 ```
 
-## Engineering Handoff
+## UI/UX Handoff
 
-Engineering must create:
+UI/UX must create:
 
 ```txt
-workspace/EngineeringHS28-fixture-backed-presentation-family-feasibility.md
+workspace/UIUXHS29-fixture-backed-presentation-family-spec.md
 ```
 
 The handoff must include:
 
 - files reviewed
-- current architecture summary
-- modeling options considered
-- recommended smallest path
-- visual smoke strategy
-- classification of Lab-local / Core-neutral / target-adaptable / do-not-port outputs
-- risks
-- stop conditions for any later Dev packet
+- first proof family definitions
+- shared presentation grammar
+- state mapping guidance
+- typography and containment guidance
+- trust/source/freshness/certainty guidance
+- diagnostics guidance
+- family-aware visual smoke expectations
+- non-goals and target-boundary cautions
+- human decisions needed
 - recommended next role/action
