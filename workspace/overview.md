@@ -30,14 +30,15 @@ Aura Lab does not primarily own what each Aura product presents. It owns the Lab
 | M03 | Human direction, UIUXHS16, UIUXHS21 | Complete | Accepted Aura Presentation Kit visual concept pack with typography/text containment first. |
 | M04 | Accepted M03 visual concept pack | Complete | Accepted one-screen Aura Lab visual prototype with typography, containment, and restrained sci-fi surface treatment. |
 | M05 | M04 closure residual risks | Complete | Accepted project-local Electron smoke wrapper and dedicated long-text visual smoke mode. |
+| M06 | UIUXHS27 accepted advisory | Active | Engineering feasibility review for fixture-backed presentation families. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M06 - Fixture-Backed Presentation Family Feasibility
 Last completed milestone: M05 - Visual Smoke Hardening
-Roadmap source: Human direction and accepted post-bridge presentation boundary
+Roadmap source: UIUXHS27 advisory accepted by Overseer
 Current packet: `workspace/current.md`
-Current sequence: HS26
+Current sequence: HS28
 Latest accepted handshake: workspace/complete/milestone-M05/OverseerHS26-m05-closure.md
 
 ## Durable Record Index
@@ -68,7 +69,8 @@ Latest accepted handshake: workspace/complete/milestone-M05/OverseerHS26-m05-clo
 
 Active milestone handshakes:
 
-- None.
+- `workspace/UIUXHS27-non-authoritative-milestone-recommendations.md`
+- `workspace/OverseerHS28-engineering-feasibility-runway.md`
 
 Completed milestone handshakes:
 
@@ -87,6 +89,7 @@ Completed milestone handshakes:
 ## Open Questions
 
 - Which post-bridge presentation patterns are portable enough to propose to Aura Core as neutral rigging?
-- Should Aura Lab request Atlas UI/UX adapter review, Atlas Engineering review, Sense review, or Core suitability review through target-owned packets before modeling target-like fixtures?
-- Should Aura Lab define a durable post-bridge presentation contract later, or keep the bridge provisional while exploring presentation direction?
+- What is the smallest safe implementation shape for fixture-backed presentation families?
+- Should the next artifact after Engineering be a UI/UX family spec, a Dev prototype runway, or a contract/planning pass?
+- Which second family should be prototyped first after Briefing: Tactical HUD, Operator Workbench, or Neutral Seed?
 - Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?
