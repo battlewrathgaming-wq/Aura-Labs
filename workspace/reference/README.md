@@ -179,6 +179,14 @@ Prefer stable source notes. If the reference is from a live website, include the
 
 Do not paste long copyrighted text. Summarize what matters.
 
+## Resource Site Library
+
+For broader internet research starting points, use:
+
+- `workspace/reference/resource-sites-library-2026-05-24.md`
+
+This file lists public resource sites for human factors, telemetry displays, data visualization, game/HUD references, sci-fi UI inspiration, and status-dashboard patterns.
+
 ## Screenshot Notes
 
 If storing screenshots later, prefer a small local structure such as:
