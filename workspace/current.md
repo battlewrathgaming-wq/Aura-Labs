@@ -6,19 +6,19 @@ Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M13c - Vocabulary Guardrail Verification
-Last completed milestone: M13b - Presentation Vocabulary Replacement
-Current executor: Dev / Test specialist
-Current focus: add a narrow guardrail for Lab-owned default presentation copy
-Expected DevHS filename: `workspace/DevHS52-lab-vocabulary-guardrail-verification.md`
+Active milestone: M14 - Readout Basis And Smoke Honesty Corrections
+Last completed milestone: M13c - Vocabulary Guardrail Verification
+Current executor: Dev
+Current focus: correct readout basis references and make smoke pass/fail criteria honest
+Expected DevHS filename: `workspace/DevHS54-readout-basis-and-smoke-honesty.md`
 
 ## Purpose
 
-M13a identified risky Lab-owned presentation language. M13b replaced the accepted safe-now copy groups with slimmer display language.
+M13a through M13c stabilized Lab's slim presentation vocabulary. The next advisory-backed work is not more terminology churn. It is readout and verification honesty:
 
-M13c should add a narrow guardrail so Lab-owned default copy does not drift back into proof, authority, Atlas/Sense/Core, monitoring, history, or backend-heavy language.
-
-This guardrail exists only to support Aura Lab's presentation language. It must not become the product direction.
+- the readout basis should point at current accepted Lab state, not stale M01-only source context
+- absent handoff should not surface as a literal handoff named `None`
+- visual smoke should fail or clearly block when captured state/selection/overflow issues make review evidence unreliable
 
 ## Source Of Intent
 
@@ -26,8 +26,12 @@ Accepted artifacts:
 
 - `workspace/LabVocabularyInventoryHS48-presentation-vocabulary-inventory.md`
 - `workspace/DevHS50-lab-presentation-vocabulary-replacement.md`
-- `workspace/OverseerHS49-m13a-acceptance-m13b-runway.md`
-- `workspace/OverseerHS51-m13b-acceptance-m13c-runway.md`
+- `workspace/DevHS52-lab-vocabulary-guardrail-verification.md`
+- `workspace/OverseerHS53-m13c-acceptance-m14-runway.md`
+
+Advisory source accepted for this bounded packet:
+
+- `F:\Projects\Docs\Aura-Project-Orchestration\terminology\Lab-Terminology-Boundary-Requirements-2026-05-24.md`
 
 Accepted / active references:
 
@@ -35,87 +39,66 @@ Accepted / active references:
 - `workspace/overview.md`
 - `workspace/critical/README.md`
 - `workspace/critical/critical-terms.md`
-- `workspace/critical/critical-assets.md`
-- `F:\Projects\Docs\Aura-Agent-Coordination\relay\lab-terminology-stabilization-prompt.md`
+- `docs/current-state/m11-presentation-state-readout-current-state.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\terminology\TerminologyAuthorityRuleset-2026-05-24.md`
-
-Accepted Human / Overseer direction:
-
-- Clean Lab's presentation face, not the inherited scaffold bones.
-- Lab owns Bridge -> Interface human presentation language only after preserving source-project meaning.
-- Atlas and Sense own what they emit and what those terms mean.
-- Shared spelling does not imply shared meaning.
-- Inherited Core/scaffold internals should not be scrubbed.
 
 ## Accepted Scope
 
-Add a small guardrail that checks Lab-owned default user-facing or review-facing copy for risky vocabulary.
+Address only these audit-backed corrections:
 
-Approved check surface:
+1. **Readout basis source freshness**
+   - Review `src/services/serviceRegistry.js` project briefing source labels.
+   - Replace stale M01-only current-state basis with the current accepted readout-state source, likely `docs/current-state/m11-presentation-state-readout-current-state.md`.
+   - Keep source labels factual and display-scoped.
 
-- `src/renderer/index.html`
-- `src/renderer/app.js`
+2. **Absent handoff display**
+   - Ensure missing or literal `None` expected handoff does not become a visible `Expected handoff: None` item.
+   - Prefer treating absent handoff as absent.
+   - Preserve real expected handoff values.
+
+3. **Visual smoke honesty**
+   - Review `src/main/main.js` visual smoke result logic.
+   - Fail or emit a blocking failure when an observation has selected family/state mismatch or horizontal overflow in review-critical captures.
+   - Keep the existing smoke matrix; do not broaden it.
+   - Keep screenshot/result JSON output.
+
+Expected implementation files:
+
 - `src/services/serviceRegistry.js`
-- existing verifier-visible default copy only where it protects current UI/presentation strings
-
-Risky Lab-default vocabulary should include, at minimum:
-
-- `verified`
-- `trust`
-- `certainty`
-- `proof`
-- `truth`
-- `source of truth`
-- `authoritative`
-- `evidence`
-- `intel`
-- `intelligence`
-- `tactical`
-- `combat`
-- `operator`
-- `watch`
-- `monitoring`
-- `listening`
-- `snapshot`
-- `report`
-- `record`
-- `finding`
-- `schema`
-- `Core`
-- `Seed`
+- `src/main/main.js`
+- affected verifier scripts, likely `scripts/verify-services.js` and `scripts/verify-renderer-shell.js`
+- `workspace/DevHS54-readout-basis-and-smoke-honesty.md`
 
 ## Ordered Runway
 
-1. Read the accepted artifacts and current packet.
-2. Inspect existing verification structure in `scripts/`.
-3. Add the smallest practical vocabulary guardrail for current Lab-owned default copy.
-4. Prefer an explicit allowlist/exclusion model over broad repository scanning.
-5. Wire the guardrail into `npm.cmd run verify:all` only if false positives are controlled for the approved surface.
-6. Run required verification.
-7. Create `workspace/DevHS52-lab-vocabulary-guardrail-verification.md`.
+1. Read this packet and the advisory boundary requirements.
+2. Inspect the current project briefing source-basis wiring and verifier expectations.
+3. Correct stale source-basis references with the current accepted Lab state source.
+4. Suppress absent/literal `None` handoff items while preserving real expected handoff values.
+5. Tighten visual smoke result criteria for selected family/state mismatch and horizontal overflow without expanding the smoke matrix.
+6. Update focused verifier expectations.
+7. Run required verification.
+8. Create `workspace/DevHS54-readout-basis-and-smoke-honesty.md`.
 
 ## Guardrails
 
-- Do not run a broad repository keyword check.
-- Do not scan or fail `workspace/archive/`, `workspace/complete/`, completed current-state history, critical authority docs, or source-owned boundary docs.
-- Do not fail source-owned Atlas/Sense terms merely because they appear.
-- Do not fail internal/support identifiers or compatibility names.
-- Do not rename service commands, IPC channels, schemas, payload fields, CSS compatibility names, family ids, screenshot names, package scripts, or internal identifiers.
-- Do not rename `neutral-seed`, `seed.health`, `seed.readiness`, `trust-strip`, or inherited Core/scaffold internals.
-- Do not change user-facing copy except if required to make the accepted M13b copy consistent with the guardrail.
-- Do not relabel parked decision items: `Neutral Seed`, `Source Detail`, support panels, `trust-strip`, or completed docs.
-- Do not run GUI/Electron smoke, live network, private-state, destructive, or cross-project actions from this packet.
+- Do not change Lab slim vocabulary beyond what is necessary for the three accepted corrections.
+- Do not relabel `Source Detail`, `Neutral Seed`, support panels, or `trust-strip`.
+- Do not rewrite completed current-state docs or archived handshakes.
+- Do not broaden visual smoke to new families, states, or viewport matrices.
+- Do not change source-owned Atlas/Sense terms or project meaning.
+- Do not rename service commands, IPC channels, schemas, payload fields, CSS compatibility names, family ids, screenshot names, package scripts, or inherited scaffold internals.
+- Do not run live network, private-state, destructive, or cross-project actions.
 
 ## Stop Conditions
 
 Stop and hand back to Overseer if:
 
-- The guardrail cannot avoid false positives without broad exceptions.
-- The guardrail would block source-owned or boundary-preserving terminology.
-- The guardrail requires deciding a parked item.
-- The implementation would require a copy registry or architecture refactor.
-- The work expands into broad repository scanning or docs cleanup.
-- GUI/Electron smoke, live network, private-state access, destructive action, or cross-project edits become necessary.
+- The current accepted source-basis doc is ambiguous.
+- Suppressing absent handoff requires changing the active packet format.
+- Smoke honesty cannot be tightened without large visual-smoke architecture changes.
+- Visual smoke starts failing because of a real presentation issue that needs Human / Overseer review.
+- GUI/Electron smoke requires approval beyond the existing `npm.cmd run smoke:electron` project-local script.
 
 ## Verification
 
@@ -123,38 +106,32 @@ Required:
 
 ```powershell
 npm.cmd run verify:all
-```
-
-If a new guardrail script is added, run it directly as well.
-
-If renderer shell assertions change, also run:
-
-```powershell
 npm.cmd run verify:renderer-shell
+npm.cmd run smoke:electron
 ```
 
-Electron visual smoke is not required unless visual layout changes.
+If smoke fails because it exposes a real overflow or selection issue, stop and report the failure rather than weakening the check.
 
 ## Evidence
 
 Record:
 
 - Files changed.
-- Guardrail surface checked.
-- Risky vocabulary list used.
-- Exclusions / allowlist rationale.
-- Whether the guardrail is hard-fail or warning/report only.
+- Source-basis reference before/after.
+- Handoff absence behavior before/after.
+- Smoke failure criteria added.
 - Commands run and results.
-- Any false positives or parked vocabulary.
+- Smoke result status and whether any Electron process remains.
 
 ## Dev Handoff
 
-In `workspace/DevHS52-lab-vocabulary-guardrail-verification.md`, include:
+In `workspace/DevHS54-readout-basis-and-smoke-honesty.md`, include:
 
 - Request Received
 - Files changed
-- Guardrail behavior
-- Exclusions / allowlist
+- Readout basis correction
+- Absent handoff behavior
+- Smoke honesty behavior
 - Verification
 - Skipped / parked items
 - Residual risks
