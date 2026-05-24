@@ -111,6 +111,40 @@ When Atlas or Sense wants to adopt a Lab pattern, the receiving project should:
 5. Have the receiving project Overseer accept, reject, or narrow it.
 6. Only then open a local Dev runway in the receiving project.
 
+## Atlas Concept Render Constraints
+
+If Atlas reviews a Lab-inspired concept render before implementation or a detailed UI packet, treat the image as:
+
+```txt
+atmosphere, hierarchy, and interaction intent only
+```
+
+Do not treat the image as:
+
+```txt
+pixel-perfect specification, source authority, terminology authority, or implementation instruction
+```
+
+Atlas authority constraints:
+
+- `Watcher` should remain `Watch` unless the Human explicitly blesses `Watcher` as presentation-only.
+- `Evidence` in navigation is acceptable only if it opens stored evidence/provenance, not Discovery output.
+- `Possible Leads` must remain Discovery output, not Evidence.
+- `Assessment Memory` is acceptable only as deliberate operator memory.
+- `API Gate` is acceptable as UI wording only if it maps to External API enabled/disabled and does not imply new backend authority.
+
+Atlas owns:
+
+- Evidence
+- Discovery
+- Watch
+- Marked
+- provenance
+- storage
+- renderer semantics
+
+Lab may improve human-facing presentation after the bridge, but must preserve Atlas meaning.
+
 ## Portable From Lab
 
 Usually portable:
