@@ -35,14 +35,15 @@ Aura Lab does not primarily own what each Aura product presents. It owns the Lab
 | M08 | M07 UI/UX spec | Complete | Accepted Dev prototype for Briefing plus Neutral Seed family/state proof. |
 | M09 | Human direction after M08 closure | Complete | Accepted packaging classification for Lab-local, Core-neutral candidate, target-adaptable, and do-not-port outputs. |
 | M10 | Post-M09 UI/UX advisory | Complete | Accepted implemented Briefing plus Neutral Seed screenshot review. |
+| M11 | UI/UX and Engineering HS34 proposals | Active | Dev runway for view intent axis, Confidence View, loading capture, and Neutral Seed state parity. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M11 - Presentation View Intent And State Hardening
 Last completed milestone: M10 - Implemented Family Screenshot Review
-Roadmap source: Human direction and accepted post-bridge presentation boundary
+Roadmap source: UI/UX and Engineering HS34 proposals accepted by Overseer
 Current packet: `workspace/current.md`
-Current sequence: HS33
+Current sequence: HS35
 Latest accepted handshake: workspace/complete/milestone-M10/OverseerHS33-implemented-family-screenshot-review.md
 
 ## Durable Record Index
@@ -78,7 +79,9 @@ Latest accepted handshake: workspace/complete/milestone-M10/OverseerHS33-impleme
 
 Active milestone handshakes:
 
-- None.
+- `workspace/UIUXHS34-view-intent-axis-proposal.md`
+- `workspace/EngineeringHS34-presentation-view-intent-proposal.md`
+- `workspace/OverseerHS35-m11-view-intent-runway.md`
 
 Completed milestone handshakes:
 
@@ -101,7 +104,7 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Should Aura Lab prepare a Core-owned transfer prompt for neutral presentation rigging candidates?
-- Should Aura Lab open a small visual refinement and smoke-hardening milestone?
+- Can Dev implement Confidence View without introducing scoring, source authority, product navigation, or target semantics?
+- Can loading be captured through controlled smoke behavior without brittle timing?
 - Should Aura Lab prepare a Core-owned transfer prompt for neutral presentation rigging candidates?
 - Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?
