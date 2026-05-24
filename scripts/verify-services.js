@@ -202,6 +202,8 @@ async function verifyRegistry() {
 
   const neutralFixture = await registry.invoke('aura.presentationFixture', { family: 'neutral-seed', state: 'normal' });
   assert(neutralFixture.family === 'neutral-seed', 'presentation fixture should echo neutral seed family');
+  assert(neutralFixture.family_label === 'Neutral Sample', 'presentation fixture should expose visible neutral sample label');
+  assert(neutralFixture.available_families.some((entry) => entry.id === 'neutral-seed' && entry.label === 'Neutral Sample'), 'presentation fixture should preserve neutral-seed id while exposing neutral sample label');
   assert(neutralFixture.state === 'normal', 'neutral seed fixture should echo normal state');
   assert(neutralFixture.view_status === 'populated', 'neutral seed normal fixture should be populated');
   assert(neutralFixture.field_labels.project_name === 'Primary sample', 'neutral seed should expose primary sample label');

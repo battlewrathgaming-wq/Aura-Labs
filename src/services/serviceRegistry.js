@@ -53,7 +53,7 @@ const PRESENTATION_FAMILIES = Object.freeze([
   },
   {
     id: 'neutral-seed',
-    label: 'Neutral Seed',
+    label: 'Neutral Sample',
     description: 'Lab-local neutral presentation fixture.'
   }
 ]);
@@ -488,7 +488,7 @@ function buildNeutralSeedFixture(state) {
 function neutralSeedMetadata(state) {
   return {
     family: 'neutral-seed',
-    familyLabel: 'Neutral Seed',
+    familyLabel: 'Neutral Sample',
     state,
     attentionTitle: 'Sample slots',
     fieldLabels: neutralSeedFieldLabels()

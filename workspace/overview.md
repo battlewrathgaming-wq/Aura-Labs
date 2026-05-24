@@ -42,12 +42,12 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 
 ## Current Direction
 
-Active milestone: M16 - Readout Naming Polish
-Last completed milestone: M15 - Post-M14 Presentation Quality And Naming Review
-Roadmap source: Accepted `workspace/UIUXHS56-post-m14-presentation-quality-and-naming-review.md`
+Active milestone: No active milestone
+Last completed milestone: M16 - Readout Naming Polish
+Roadmap source: Waiting for Human / Overseer direction
 Current packet: `workspace/current.md`
-Current sequence: HS57
-Latest accepted handshake: workspace/OverseerHS57-m15-acceptance-m16-runway.md
+Current sequence: HS59
+Latest accepted handshake: workspace/OverseerHS59-m16-acceptance.md
 
 ## Durable Record Index
 
@@ -91,8 +91,7 @@ Latest accepted handshake: workspace/OverseerHS57-m15-acceptance-m16-runway.md
 
 Active milestone handshakes:
 
-- `workspace/UIUXHS56-post-m14-presentation-quality-and-naming-review.md`
-- `workspace/OverseerHS57-m15-acceptance-m16-runway.md`
+- No active milestone handshakes.
 
 Accepted authority records:
 
@@ -122,5 +121,5 @@ Completed milestone handshakes:
 ## Open Questions
 
 - Should the next Lab milestone review Bridge State Readout use-case clarity across states?
-- Should Aura Lab prepare a Core-owned transfer prompt for neutral presentation rigging candidates?
-- Should Aura Core seed-readiness lessons be transferred in a separate Aura Core project session?
+- Should Aura Lab park until a target project asks to adapt a presentation pattern?
+- Should the next Lab packet explore a new visible presentation feature prototype?

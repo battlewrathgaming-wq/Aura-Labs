@@ -26,7 +26,7 @@ function main() {
   assert(main.includes('viewports_checked'), 'visual smoke should report checked viewports');
   assert(main.includes('visual_structure'), 'visual smoke should capture prototype visual structure');
   assert(main.includes('readout_label'), 'visual smoke should capture Bridge State Readout label');
-  assert(main.includes('source_drawer_visible'), 'visual smoke should capture Source Detail Drawer presence');
+  assert(main.includes('source_drawer_visible'), 'visual smoke should capture Readout Detail drawer presence');
   assert(main.includes('scrollWidth > node.clientWidth'), 'visual smoke should check horizontal text overflow');
   assert(main.includes('visualSmokeBlockingFailures'), 'visual smoke should evaluate review-blocking observations before reporting pass');
   assert(main.includes('blocking_failures'), 'visual smoke result should report blocking failures');
@@ -58,7 +58,9 @@ function main() {
   assert(html.includes('state-readout'), 'renderer should include Bridge State Readout strip');
   assert(html.includes('Bridge State Readout'), 'renderer should label the readout as Bridge State Readout');
   assert(html.includes('state-pips'), 'renderer should include state pips');
-  assert(html.includes('source-detail-drawer'), 'renderer should include Source Detail Drawer');
+  assert(html.includes('source-detail-drawer'), 'renderer should include readout detail drawer compatibility target');
+  assert(html.includes('Readout Detail'), 'renderer should label visible drawer as Readout Detail');
+  assert(!html.includes('Source Detail'), 'renderer should not keep stale visible Source Detail label');
   assert(html.includes('attention-panel'), 'renderer should include needs attention panel');
   assert(html.includes('attention-list'), 'renderer should include attention list target');
   assert(html.includes('view-status'), 'renderer should include bridge state target');
@@ -79,7 +81,7 @@ function main() {
   assert(app.includes('actionPostureLabel'), 'renderer should render action posture');
   assert(app.includes('actionPostureDetail'), 'renderer should render action posture detail');
   assert(app.includes('renderBridgeStateReadout'), 'renderer should render Bridge State Readout');
-  assert(app.includes('renderSourceDrawer'), 'renderer should render Source Detail Drawer');
+  assert(app.includes('renderSourceDrawer'), 'renderer should render readout detail drawer through existing compatibility function');
   assert(app.includes('UPDATING'), 'renderer should map loading state to updating language');
   assert(app.includes('NO DATA'), 'renderer should map empty state to no-data language');
   assert(app.includes('Last successful read'), 'renderer should map stale state to age language');

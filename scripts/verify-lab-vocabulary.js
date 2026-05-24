@@ -30,9 +30,7 @@ const riskyVocabulary = [
   ['Seed', /\bSeed\b/]
 ];
 
-const allowedRiskyPhrases = new Set([
-  'Neutral Seed'
-]);
+const allowedRiskyPhrases = new Set();
 
 const copySurface = [
   {
@@ -47,7 +45,7 @@ const copySurface = [
       'Updating from the local bridge.',
       'Last read pending',
       '0/0 sources',
-      'Source Detail',
+      'Readout Detail',
       'Needs Attention',
       'Reading project attention items.',
       'Presentation family',
@@ -109,7 +107,7 @@ const copySurface = [
     file: 'src/services/serviceRegistry.js',
     strings: [
       'Briefing',
-      'Neutral Seed',
+      'Neutral Sample',
       'Return populated presentation data from local fixture sources.',
       'Return an empty presentation state.',
       'Return presentation data with an old last-read time.',

@@ -1,151 +1,91 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Parked
 Updated: 2026-05-24
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M16 - Readout Naming Polish
-Last completed milestone: M15 - Post-M14 Presentation Quality And Naming Review
-Current executor: Dev
-Current focus: apply two accepted visible naming changes from the post-M14 UI/UX review
-Expected DevHS filename: `workspace/DevHS58-readout-naming-polish.md`
+Active milestone: No active milestone
+Last completed milestone: M16 - Readout Naming Polish
+Current executor: Human / Overseer
+Current focus: waiting for Human / Overseer direction after M16 acceptance
+Expected DevHS filename: Not assigned
 
-## Purpose
+## Current State
 
-M15 reviewed the stabilized post-M14 presentation surface and recommended a small naming pass before broader Lab work.
+Aura Lab is parked after accepting the M16 naming polish.
 
-This packet accepts only two visible naming changes:
+Accepted state:
 
-- `Source Detail` -> `Readout Detail`
-- visible `Neutral Seed` -> `Neutral Sample`
+- M00 through M16 are complete.
+- Bridge State Readout remains the accepted Lab presentation feature.
+- The visible readout drawer now uses `Readout Detail`.
+- The visible neutral fixture family label now uses `Neutral Sample`.
+- Internal compatibility names, payload fields, service commands, screenshot names, and source-owned terms remain unchanged by design.
+- Local vocabulary and renderer verification now protect the accepted visible labels.
+- The shared terminology check remains advisory and is not the product direction.
 
-This is a narrow polish packet. It is not a refactor, fixture taxonomy change, smoke expansion, source-owned terminology decision, or visual redesign.
+## Latest Accepted Work
 
-## Source Of Intent
-
-Accepted artifacts:
-
-- `workspace/UIUXHS56-post-m14-presentation-quality-and-naming-review.md`
-- `workspace/OverseerHS57-m15-acceptance-m16-runway.md`
-- `workspace/DevHS54-readout-basis-and-smoke-honesty.md`
-- `workspace/DevHS52-lab-vocabulary-guardrail-verification.md`
-- `workspace/DevHS50-lab-presentation-vocabulary-replacement.md`
-
-Accepted / active references:
-
-- `AGENTS.md`
-- `workspace/overview.md`
-- `workspace/critical/README.md`
-- `workspace/critical/critical-terms.md`
-- `workspace/critical/critical-assets.md`
-- `docs/current-state/m11-presentation-state-readout-current-state.md`
-- `docs/statements/post-bridge-presentation-boundary.md`
-- `F:\Projects\Docs\Aura-Project-Orchestration\terminology\TerminologyAuthorityRuleset-2026-05-24.md`
-- `F:\Projects\Docs\Aura-Project-Orchestration\scripts\verify-terminology.js`
-
-Advisory note:
-
-- The shared terminology verifier is evidence, not authority. Use it as a smoke signal after the local M16 changes, but do not expand this packet beyond the two accepted visible labels.
-
-## Accepted Scope
-
-Apply only:
-
-1. Rename visible `Source Detail` copy to `Readout Detail`.
-2. Rename visible `Neutral Seed` copy to `Neutral Sample`.
-3. Update directly affected verifier expectations and vocabulary guardrail copy-surface entries.
-4. Create `workspace/DevHS58-readout-naming-polish.md`.
-
-Expected implementation files if the UI/UX inventory remains accurate:
-
-- `src/renderer/index.html`
-- `src/renderer/app.js`
-- `src/services/serviceRegistry.js`
-- `scripts/verify-renderer-shell.js`
-- `scripts/verify-services.js`
-- `scripts/verify-lab-vocabulary.js`
-- `workspace/DevHS58-readout-naming-polish.md`
-
-## Ordered Runway
-
-1. Read this packet and `workspace/UIUXHS56-post-m14-presentation-quality-and-naming-review.md`.
-2. Change only visible copy for `Source Detail` and `Neutral Seed`.
-3. Preserve internal ids, payload fields, CSS/data compatibility names, screenshot names, service command names, and completed docs.
-4. Update directly affected verification expectations.
-5. Run required local verification.
-6. Run the shared terminology verifier and record remaining warnings.
-7. Create the Dev handoff.
-
-## Guardrails
-
-- Do not rename `neutral-seed` ids, CSS selectors, data attributes, screenshot names, or payload values.
-- Do not rename source fields such as `source_labels`, `sources`, `source_drawer_visible`, or internal source/basis fields.
-- Do not relabel support panels such as `Bridge Diagnostics`, `Registered Services`, `Runtime`, or `Commands`.
-- Do not edit completed current-state docs or archived/completed handshakes.
-- Do not broaden visual smoke coverage.
-- Do not change Atlas/Sense source-owned terms.
-- Do not create shared Aura doctrine.
-- Do not run live network, private-state, destructive, or cross-project actions.
-
-## Stop Conditions
-
-Stop and hand back to Overseer if:
-
-- The visible naming change requires internal id or payload changes.
-- Verification cannot distinguish visible `Neutral Sample` from internal `neutral-seed`.
-- The vocabulary guardrail cannot be updated without weakening source-owned/scaffold protections.
-- The work expands into support panel relabeling, visual redesign, or smoke matrix changes.
+- Dev handoff: `workspace/DevHS58-readout-naming-polish.md`
+- Overseer acceptance: `workspace/OverseerHS59-m16-acceptance.md`
+- Accepted UI/UX source: `workspace/UIUXHS56-post-m14-presentation-quality-and-naming-review.md`
+- Previous runway: `workspace/OverseerHS57-m15-acceptance-m16-runway.md`
 
 ## Verification
 
-Required:
+Overseer reran on 2026-05-24:
 
 ```powershell
 npm.cmd run verify:all
 npm.cmd run verify:renderer-shell
-```
-
-Run the vocabulary check directly if useful:
-
-```powershell
 npm.cmd run verify:vocabulary
 ```
 
-Shared advisory verification:
+Results:
 
-```powershell
-cd F:\Projects\Docs\Aura-Project-Orchestration
-npm run verify:terminology
+```txt
+verify:all passed.
+verify:renderer-shell passed.
+verify:vocabulary passed.
 ```
 
-Treat shared verifier warnings as evidence. Do not fix warnings outside the accepted M16 label scope.
+Shared advisory terminology check was run from:
 
-Electron visual smoke is not required unless layout/CSS changes create a rendering risk or Human / Overseer asks for screenshot confirmation.
+```txt
+F:\Projects\Docs\Aura-Project-Orchestration
+```
 
-## Evidence
+Command:
 
-Record:
+```powershell
+npm.cmd run verify:terminology
+```
 
-- Files changed.
-- Visible labels changed.
-- Internal ids/fields intentionally preserved.
-- Verification expectations updated.
-- Commands run and results.
-- Shared terminology verifier result and remaining warnings.
-- Whether Electron smoke was skipped or run, with reason.
+Result:
 
-## Dev Handoff
+```txt
+Terminology verification: 46/46 resource checks passed.
+Advisory warnings remain for existing compatibility names and historical coordination text.
+```
 
-In `workspace/DevHS58-readout-naming-polish.md`, include:
+Electron visual smoke was not run for M16 because no layout, CSS, smoke matrix, or structural rendering change was made.
 
-- Request Received
-- Files changed
-- Visible naming changes
-- Preserved internals
-- Verification
-- Shared verifier result / remaining warnings
-- Skipped / parked items
-- Residual risks
-- Recommended next packet
+## Parked Items
+
+- Support panel label polish.
+- Deeper compatibility-name cleanup.
+- Completed current-state doc vocabulary cleanup.
+- Broad visual-smoke matrix expansion.
+- Cross-project adoption decisions.
+- New visible presentation feature prototype.
+
+## Next Decision Space
+
+Human / Overseer can choose one next move:
+
+- Park Aura Lab and let target projects review whether they want to adapt the presentation pattern.
+- Ask UI/UX for a new bounded visible presentation feature concept.
+- Ask Engineering/Test to review whether local and shared vocabulary guardrails are maintainable.
+- Open a small Dev packet only after the next visible presentation change is clearly accepted.
