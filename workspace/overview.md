@@ -42,12 +42,12 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M15 - Post-M14 Presentation Quality And Naming Review
 Last completed milestone: M14 - Readout Basis And Smoke Honesty Corrections
-Roadmap source: Waiting for Human / Overseer direction after M14 acceptance
+Roadmap source: Parked naming decisions after M14 acceptance
 Current packet: `workspace/current.md`
-Current sequence: HS55
-Latest accepted handshake: workspace/OverseerHS55-m14-acceptance.md
+Current sequence: HS56
+Latest accepted handshake: workspace/OverseerHS56-m15-uiux-runway.md
 
 ## Durable Record Index
 
@@ -91,7 +91,7 @@ Latest accepted handshake: workspace/OverseerHS55-m14-acceptance.md
 
 Active milestone handshakes:
 
-- None.
+- `workspace/OverseerHS56-m15-uiux-runway.md`
 
 Accepted authority records:
 

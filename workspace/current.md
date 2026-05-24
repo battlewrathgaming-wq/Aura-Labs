@@ -1,104 +1,131 @@
 # Current Workspace Packet
 
-Status: No active executable packet
+Status: Active
 Updated: 2026-05-24
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M15 - Post-M14 Presentation Quality And Naming Review
 Last completed milestone: M14 - Readout Basis And Smoke Honesty Corrections
-Current executor: Human / Overseer
-Current focus: waiting for Human / Overseer direction after M14 acceptance
-Expected DevHS filename: None
+Current executor: UI/UX specialist
+Current focus: review the stabilized Lab presentation surface and parked naming/display decisions
+Expected handoff filename: `workspace/UIUXHS56-post-m14-presentation-quality-and-naming-review.md`
 
 ## Purpose
 
-This file is reset after accepted M14.
+M13a through M13c stabilized Lab's slim presentation language. M14 corrected readout basis freshness, absent handoff behavior, and visual smoke honesty.
 
-There is no current Dev runway. Do not execute Dev work from this packet.
+The next useful move is not Dev implementation. It is a UI/UX advisory review of whether the current Lab face now feels clear, calm, portable, and presentation-first after the terminology and smoke-hardening work.
+
+This packet should produce recommendations only. Do not implement code.
+
+## Source Of Intent
+
+Accepted artifacts:
+
+- `workspace/LabVocabularyInventoryHS48-presentation-vocabulary-inventory.md`
+- `workspace/DevHS50-lab-presentation-vocabulary-replacement.md`
+- `workspace/DevHS52-lab-vocabulary-guardrail-verification.md`
+- `workspace/DevHS54-readout-basis-and-smoke-honesty.md`
+- `workspace/OverseerHS55-m14-acceptance.md`
+
+Accepted / active references:
+
+- `AGENTS.md`
+- `workspace/overview.md`
+- `workspace/critical/README.md`
+- `workspace/critical/critical-terms.md`
+- `docs/current-state/m11-presentation-state-readout-current-state.md`
+- `docs/statements/post-bridge-presentation-boundary.md`
+- `F:\Projects\Docs\Aura-Project-Orchestration\terminology\TerminologyAuthorityRuleset-2026-05-24.md`
+- `F:\Projects\Docs\Aura-Project-Orchestration\terminology\Lab-Terminology-Boundary-Requirements-2026-05-24.md`
 
 ## Accepted Project State
 
 - M00 through M14 are complete and accepted.
-- M13a inventoried Lab presentation-language risk.
-- M13b replaced accepted Lab-owned default copy with slim display language.
-- M13c added a narrow Lab-owned default copy vocabulary guardrail.
-- M14 corrected readout basis source freshness, absent handoff behavior, and visual smoke pass/fail honesty.
 - Lab owns Bridge -> Interface human presentation language only after preserving source-project meaning.
 - Atlas and Sense own what they emit and what those terms mean.
-- Verification tooling remains support for presentation work, not the product direction.
+- Lab default copy should be slim, neutral, product-agnostic, and display-scoped.
+- Verification tooling supports presentation work; it is not the product direction.
 
-Latest accepted handoff:
+## Review Scope
 
-```txt
-workspace/DevHS54-readout-basis-and-smoke-honesty.md
-```
+Review the current Lab presentation surface and advise on:
 
-Latest Overseer acceptance:
+1. Whether `Source Detail` should remain, or whether `Readout Detail`, `Basis Detail`, or another lower-authority label better fits Lab's slim display language.
+2. Whether visible `Neutral Seed` should remain with Lab-local context, or whether `Neutral Surface`, `Neutral Sample`, or another label better avoids Core/scaffold ownership drift.
+3. Whether `Bridge Diagnostics`, `Registered Services`, `Runtime`, and `Commands` remain acceptably secondary, or should be softened or further demoted in future UI work.
+4. Whether the current Bridge State Readout labels, source/basis/freshness treatment, empty/partial/unavailable presentation, and long-text containment still feel clear after M13/M14.
+5. Whether the next product-facing milestone should be a visual refinement, a new presentation feature prototype, a small naming pass, or no immediate Lab work.
 
-```txt
-workspace/OverseerHS55-m14-acceptance.md
-```
+## Materials To Inspect
 
-Latest durable current-state note:
+Read:
 
-```txt
-docs/current-state/m11-presentation-state-readout-current-state.md
-```
+- active files listed under Source Of Intent
+- `src/renderer/index.html`
+- `src/renderer/app.js`
+- `src/renderer/styles.css`
+- `src/services/serviceRegistry.js`
+- `.tmp/electron-visual-smoke/visual-smoke-result.json` if present
 
-## Current Decision Space
+Optional visual evidence:
 
-Human / Overseer may next:
+- `.tmp/electron-visual-smoke/*.png` if present
 
-- keep Aura Lab parked while target projects decide whether to adapt the pattern
-- review parked naming decisions such as `Source Detail` or visible `Neutral Seed`
-- ask UI/UX to review post-M14 presentation quality
-- ask Engineering/Test to review whether the vocabulary guardrail is maintainable
-- open a new bounded presentation feature milestone
+If screenshots are stale or missing, note that limitation. Do not run Electron smoke from this packet unless Human / Overseer explicitly asks.
 
-## Parked Items
+## Required Artifact Sections
 
-- `Source Detail` naming decision.
-- `Neutral Seed` visible naming decision.
-- Support panel label decisions.
-- Completed current-state docs vocabulary rewrite.
-- Cross-project terminology decisions.
-- Broad smoke matrix expansion.
+The UI/UX artifact must include:
+
+- Request Received
+- Files / evidence reviewed
+- Current-state understanding
+- Presentation quality findings
+- Naming recommendations
+- Parked decision recommendations
+- Risks / blockers
+- Recommended next packet
 
 ## Guardrails
 
-- Do not infer Dev permission from this file.
-- Do not treat archived or completed handshakes as active task queues.
-- Do not reopen M14 without explicit Human / Overseer direction.
-- Do not run GUI/Electron smoke, live network, private-state, destructive, or cross-project actions from this packet.
+- Do not implement code.
+- Do not rewrite `workspace/current.md`.
+- Do not run GUI/Electron smoke, live network, private-state, destructive, or cross-project actions.
+- Do not decide Atlas or Sense meaning.
+- Do not create shared Aura doctrine.
+- Do not treat verification tooling as product direction.
+- Do not broaden the smoke matrix or fixture taxonomy.
+- Do not require Dev work unless the recommendation is bounded and presentation-led.
+
+## Stop Conditions
+
+Stop and hand back to Overseer if:
+
+- The review requires fresh GUI/Electron smoke.
+- The review requires deciding source-owned Atlas/Sense meaning.
+- The review requires changing Lab product direction.
+- The review cannot distinguish presentation wording from source-project semantics.
 
 ## Verification
 
-M14 acceptance verification was:
-
-```powershell
-npm.cmd run verify:all
-npm.cmd run verify:renderer-shell
-npm.cmd run smoke:electron
-Get-Process electron -ErrorAction SilentlyContinue
-```
-
-Results:
-
-```txt
-verify:all passed.
-verify:renderer-shell passed.
-smoke:electron passed.
-visual-smoke-result.json status: passed.
-visual-smoke-result.json blocking_failures: [].
-No Electron process remained after smoke.
-```
+No code verification is required for this advisory artifact.
 
 ## Evidence
 
-M14 accepted by `workspace/OverseerHS55-m14-acceptance.md`.
+Record:
 
-## Dev Handoff
+- Files and screenshot/result evidence inspected.
+- Any stale or missing visual evidence.
+- Which naming options are recommended, parked, or rejected.
+- Whether further Dev work is warranted.
 
-No Dev handoff is expected.
+## Handoff
+
+Create:
+
+```txt
+workspace/UIUXHS56-post-m14-presentation-quality-and-naming-review.md
+```

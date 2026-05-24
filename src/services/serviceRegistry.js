@@ -749,6 +749,12 @@ function actionPostureForStatus(status, fields = {}) {
       detail: fields.current_focus || 'Project is waiting for review or direction.'
     };
   }
+  if (executor.includes('ui/ux') || executor.includes('specialist')) {
+    return {
+      label: 'Specialist review ready',
+      detail: fields.current_focus || 'Current packet is ready for specialist review.'
+    };
+  }
   if (fields.previous_accepted_handshake) {
     return {
       label: 'Accepted current state',

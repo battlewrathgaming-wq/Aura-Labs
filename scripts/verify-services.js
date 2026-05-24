@@ -135,7 +135,7 @@ async function verifyRegistry() {
   assert(briefing.mode === 'normal', 'project briefing should echo normal mode');
   assertModeList(briefing.available_modes);
   assert(briefing.fields.project_name === 'Aura Lab', 'project briefing should expose compact project display name');
-  assert(['Dev runway ready', 'Human direction needed'].includes(briefing.action_posture.label), 'project briefing should derive current action posture');
+  assert(['Dev runway ready', 'Human direction needed', 'Specialist review ready'].includes(briefing.action_posture.label), 'project briefing should derive current action posture');
   assert(Array.isArray(briefing.attention_items), 'project briefing should expose attention items');
   assert(briefing.attention_items.length > 0 && briefing.attention_items.length <= 3, 'project briefing should expose one to three attention items');
   assert(briefing.attention_items.some((item) => item.label === 'Current focus'), 'project briefing should include current focus attention item');
