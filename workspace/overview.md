@@ -79,9 +79,21 @@ Latest accepted handshake: workspace/complete/milestone-M12/OverseerHS45-m12-bri
 - `package.json`
 - `scripts/verify-all.js`
 
+### Critical Vocabulary References
+
+- `workspace/critical/README.md`
+- `workspace/critical/critical-terms.md`
+- `workspace/critical/critical-assets.md`
+- `workspace/critical/lab-vocabulary-instruction-packets.md`
+- `F:\Projects\Docs\Aura-Project-Orchestration\terminology\TerminologyAuthorityRuleset-2026-05-24.md`
+
 ### Transaction Records
 
 Active milestone handshakes:
+
+- None.
+
+Accepted authority records:
 
 - `workspace/OverseerHS46-bridge-interface-authority-decision.md`
 

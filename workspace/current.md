@@ -44,9 +44,24 @@ workspace/complete/milestone-M12/
 Human / Overseer may next:
 
 - open a fresh milestone packet
+- adopt one of the candidate vocabulary packets in `workspace/critical/lab-vocabulary-instruction-packets.md`
 - ask UI/UX to review visual quality or terminology use cases
 - ask Engineering to review portability boundaries
 - keep Aura Lab parked while target projects decide whether to adapt the pattern
+
+Candidate vocabulary sequence:
+
+```txt
+workspace/critical/lab-vocabulary-instruction-packets.md
+```
+
+Recommended order:
+
+1. M13a - Presentation Vocabulary Inventory
+2. M13b - Presentation Vocabulary Replacement
+3. M13c - Vocabulary Guardrail Verification
+
+These are candidate packets only. They are not active Dev permission until Human / Overseer places one into this current packet.
 
 ## Guardrails
 
