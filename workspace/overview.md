@@ -29,16 +29,16 @@ Aura Lab does not primarily own what each Aura product presents. It owns the Lab
 | M02 | Human direction after M01 closure | Complete | Accepted Atlas rigging review and neutral bridge-state, visual-smoke, and shell-rigging advisory candidate. |
 | M03 | Human direction, UIUXHS16, UIUXHS21 | Complete | Accepted Aura Presentation Kit visual concept pack with typography/text containment first. |
 | M04 | Accepted M03 visual concept pack | Complete | Accepted one-screen Aura Lab visual prototype with typography, containment, and restrained sci-fi surface treatment. |
-| M05 | M04 closure residual risks | Active | Add project-local Electron smoke wrapper and dedicated long-text visual smoke mode. |
+| M05 | M04 closure residual risks | Complete | Accepted project-local Electron smoke wrapper and dedicated long-text visual smoke mode. |
 
 ## Current Direction
 
-Active milestone: M05 - Visual Smoke Hardening
-Last completed milestone: M04 - Aura Lab Visual Prototype
-Roadmap source: M04 closure residual risks
+Active milestone: None
+Last completed milestone: M05 - Visual Smoke Hardening
+Roadmap source: Human direction and accepted post-bridge presentation boundary
 Current packet: `workspace/current.md`
-Current sequence: HS25
-Latest accepted handshake: workspace/complete/milestone-M04/OverseerHS24-m04-closure.md
+Current sequence: HS26
+Latest accepted handshake: workspace/complete/milestone-M05/OverseerHS26-m05-closure.md
 
 ## Durable Record Index
 
@@ -50,6 +50,7 @@ Latest accepted handshake: workspace/complete/milestone-M04/OverseerHS24-m04-clo
 - `docs/current-state/m00-boot-current-state.md`
 - `docs/current-state/m01-project-state-briefing-current-state.md`
 - `docs/current-state/m04-visual-prototype-current-state.md`
+- `docs/current-state/m05-visual-smoke-hardening-current-state.md`
 
 ### Shared Coordination Authority
 
@@ -67,7 +68,7 @@ Latest accepted handshake: workspace/complete/milestone-M04/OverseerHS24-m04-clo
 
 Active milestone handshakes:
 
-- `workspace/OverseerHS25-visual-smoke-hardening-runway.md`
+- None.
 
 Completed milestone handshakes:
 
@@ -77,6 +78,7 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M02/`
 - `workspace/complete/milestone-M03/`
 - `workspace/complete/milestone-M04/`
+- `workspace/complete/milestone-M05/`
 
 ### Historical Archives
 
@@ -84,7 +86,6 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Can Dev add smoke wrapper and long-text visual smoke coverage without changing product semantics or bridge contract?
 - Which post-bridge presentation patterns are portable enough to propose to Aura Core as neutral rigging?
 - Should Aura Lab request Atlas UI/UX adapter review, Atlas Engineering review, Sense review, or Core suitability review through target-owned packets before modeling target-like fixtures?
 - Should Aura Lab define a durable post-bridge presentation contract later, or keep the bridge provisional while exploring presentation direction?
