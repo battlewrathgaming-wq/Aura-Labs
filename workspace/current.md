@@ -1,6 +1,6 @@
 # Current Workspace Packet
 
-Status: Idle
+Status: Active
 Updated: 2026-05-25
 Owner: Overseer
 
@@ -8,9 +8,9 @@ Owner: Overseer
 
 Active milestone: M29 - Presentation Head Improvement Rail
 Last completed milestone: M29 / H02 - Loading State Parity
-Current executor: Human / Overseer
-Current focus: H02 accepted; ready to open H03 View Intent Axis when directed.
-Expected artifact filename: No active artifact expected.
+Current executor: Dev
+Current focus: implement H03 View Intent Axis with Summary / Basis / Details on one display family first
+Expected artifact filename: `workspace/DevHS95-view-intent-axis.md`
 
 ## Current State
 
@@ -91,7 +91,7 @@ Accepted H02 result:
 - Loading smoke coverage exists for both current families.
 - No target-project adapter, source-project meaning, export/seeding, renderer split, durable bridge/runtime contract, IPC channel, network path, or dependency was introduced.
 
-Recommended next slice:
+Active slice:
 
 - H03 View Intent Axis using accepted UX direction.
 
@@ -108,6 +108,7 @@ Accepted source of intent for M29:
 - `workspace/OverseerHS93-m29-loading-state-parity-runway.md`
 - `workspace/DevHS93-loading-state-parity.md`
 - `workspace/OverseerHS94-h02-loading-state-acceptance.md`
+- `workspace/OverseerHS95-m29-view-intent-axis-runway.md`
 
 Read first:
 
@@ -143,6 +144,127 @@ Use this when opening the next runway:
 - Prototype one display family first.
 
 Do not make confidence/trust/proof language the first user-facing view axis. Express confidence through basis, freshness, coverage, gaps, and warnings.
+
+## Ordered Runway
+
+1. Inspect the current renderer state/family model and decide the smallest family surface for H03, using one family first.
+2. Add `viewIntent` as a deliberate renderer/test concept with `summary-first` as the default.
+3. Add a visible segmented control for the user-facing view switch.
+4. Support three user-facing view labels: `Summary`, `Basis`, and `Details`.
+5. Keep the same surface stable across view modes; reorder emphasis rather than replacing the display.
+6. Keep stable across all view intents: title/readout label, status band, primary state, freshness/last read, basis/source cue, warning/gap marker, detail affordance, and diagnostics access.
+7. Add targeted verification/smoke coverage for the view axis on the selected family.
+8. Create the expected DevHS handoff with selected family, view intent behavior, verification, smoke notes, and residual risks.
+
+## Acceptance Criteria
+
+This runway is acceptable if:
+
+- `viewIntent` exists as a renderer/test concept
+- `summary-first` remains the default behavior
+- the visible switch exposes `Summary`, `Basis`, and `Details`
+- one display family demonstrates all three view intents
+- the view switch changes emphasis without changing display identity
+- stable identity elements remain stable across view intents
+- basis mode emphasizes basis, freshness, coverage, gaps, and warnings without stronger claim language
+- Details mode improves access to gaps, warnings, and diagnostic rows without making diagnostics primary
+- visual smoke or renderer verification can observe the new view axis
+- no target-project adapter, source-project meaning, export/seeding, or renderer split is introduced
+- SmokeFlash remains hidden/gated support tooling
+- verification passes
+
+Redirect or stop if:
+
+- the view axis needs target-project data or target-owned terms
+- the implementation requires a durable bridge/runtime contract
+- the work turns into confidence-first, source-first, triage, delta, or split work
+- the test update becomes a broad matrix beyond the selected family and necessary view checks
+- normal launch depends on workshop state
+
+## Guardrails And Non-Goals
+
+Allowed:
+
+- add `viewIntent` as a local renderer/test axis
+- add visible segmented control UI
+- add Summary/Basis/Details rendering emphasis for one family
+- add targeted fixture/smoke/verification support
+- update local vocabulary checks for accepted visible copy
+- make small style changes needed for the segmented control and view emphasis
+
+Not allowed:
+
+- target-project adapters
+- Atlas/Sense implementation
+- export/seeding
+- broad SmokeFlash workbench
+- broad visual-smoke matrix
+- durable bridge/runtime contract
+- named confidence-first implementation
+- source-first as a separate named product mode beyond the accepted Basis view
+- attention triage or delta view
+- new dependencies
+- live/private/network work
+
+## Stop Conditions
+
+Stop and return to Human / Overseer if:
+
+- one-family scope is not enough to prove the axis
+- view labels need key-term promotion before implementation
+- source-owned meaning decisions are required
+- a bridge/runtime contract decision is required
+- normal launch cannot stay clean
+- SmokeFlash/workshop state becomes product navigation
+- verification requires live/private/network data
+- Electron runtime/install issues become the main work
+
+## Required Verification
+
+Always run:
+
+```powershell
+npm.cmd run verify:renderer-shell
+npm.cmd run verify:all
+npm.cmd run verify:vocabulary
+```
+
+Run Electron smoke because visible view-axis behavior and smoke coverage are expected to change:
+
+```powershell
+npm.cmd run smoke:electron
+```
+
+Run shared terminology check if visible or documentation wording changes:
+
+```powershell
+cd F:\Projects\Docs\Aura-Project-Orchestration
+npm.cmd run verify:terminology
+```
+
+## Evidence
+
+Dev should fill this after work:
+
+- Files changed:
+- Selected family:
+- View intents supported:
+- UI behavior:
+- Stable identity elements:
+- Smoke/test model impact:
+- Verification run:
+- Smoke result:
+- Remaining risks:
+
+## Handoff
+
+Expected output:
+
+```txt
+workspace/DevHS95-view-intent-axis.md
+```
+
+The handoff must state whether H03 is ready for Overseer acceptance and whether the next M29 slice should move to an expressive view, remain on H03 cleanup, or pause for UI/UX review.
 
 ## H02 Verification Notes
 
