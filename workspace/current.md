@@ -1,20 +1,20 @@
 # Current Workspace Packet
 
-Status: Idle
+Status: Active
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M25 - Display Material Requirements
 Last completed milestone: M24 - Active Display Request Advisory Comparison
-Current executor: Human / source-project relay
-Current focus: relay the accepted M24 advisory comparison to Atlas and Sense for fitness discussion
-Expected artifact filename: None
+Current executor: UI/UX advisor / display material designer
+Current focus: derive individual display material requirements from M24 and Human fitness notes
+Expected artifact filename: `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md`
 
 ## Current State
 
-Aura Lab has accepted and closed M24. Lab is waiting on Human relay / source-project discussion before opening workflow refactor, adoption records, target-project runways, or implementation work.
+Aura Lab has accepted and closed M24. M25 is now open to capture which individual display materials Lab needs to make next, without doing Atlas/Sense feature delivery.
 
 Housekeeping note:
 
@@ -56,19 +56,20 @@ Accepted state:
 - M24 accepted `workspace/DisplayResponseComparisonHS82-active-display-requests.md`.
 - M24 acceptance is recorded in `workspace/OverseerHS83-m24-acceptance.md`.
 - Human fitness notes are recorded lightly in `workspace/OverseerHS83-m24-acceptance.md`; source projects track acceptance/completion locally.
-- Lab is idle and waiting for Human/source-project relay.
+- M25 is open as `Display Material Requirements`.
+- Workflow refactor remains parked until this milestone completes or Human explicitly opens it.
 
 ## Purpose
 
-Lab is in a waiting state after the first active request response layer:
+M25 develops the material requirements layer after the first active request response cycle:
 
 ```txt
-Human relay / source-project fitness discussion
+Display Material Requirements
 ```
 
-The goal is to let Atlas and Sense review Lab's advisory comparison under their own authority. No adoption or implementation is authorized by Lab acceptance.
+The goal is to translate M24 recommendations and Human fitness notes into a clear list of reusable Lab display materials, what each must prove, and which should be prototyped first.
 
-This is not implementation, a bridge contract, runtime fixture doctrine, target adoption, source-project semantics, or product doctrine.
+This is advisory/requirements work only. It is not implementation, a bridge contract, runtime fixture doctrine, target adoption, source-project semantics, or product doctrine.
 
 ## Latest Accepted Work
 
@@ -104,6 +105,7 @@ This is not implementation, a bridge contract, runtime fixture doctrine, target 
 - M23 acceptance / M24 runway: `workspace/OverseerHS81-m23-acceptance-m24-runway.md`
 - M24 artifact: `workspace/DisplayResponseComparisonHS82-active-display-requests.md`
 - M24 acceptance: `workspace/OverseerHS83-m24-acceptance.md`
+- M25 runway: `workspace/OverseerHS84-m25-display-material-requirements-runway.md`
 
 ## Source Of Intent
 
@@ -128,6 +130,9 @@ Accepted source of intent:
 - Human direction that Sense is caught up and M23 can close.
 - Human direction to focus on completing M24 before workflow refactor.
 - Human direction that workflow refactor can happen after this milestone is complete.
+- Human correction that Lab is not doing feature delivery here.
+- Human direction to capture requirements for individual display materials.
+- Human direction that UX should outline and carry the work toward prototype readiness in one complete output.
 - Central display request workflow context.
 - `workspace/display-asset-documentation-owner-contract.md`
 
@@ -153,6 +158,7 @@ Accepted references:
 - `workspace/OverseerHS81-m23-acceptance-m24-runway.md`
 - `workspace/DisplayResponseComparisonHS82-active-display-requests.md`
 - `workspace/OverseerHS83-m24-acceptance.md`
+- `workspace/OverseerHS84-m25-display-material-requirements-runway.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\known-workflows\display_request.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\workflow-maps\display-request-space-to-state.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
@@ -163,29 +169,41 @@ Accepted references:
 
 ## Ordered Runway
 
-1. Human relays the accepted M24 advisory comparison to Atlas and Sense.
-2. Atlas and Sense discuss fitness, source meaning, user flow, and whether the recommendation should be accepted, adapted, rejected, parked, or refined locally.
-3. Do not create Lab-side adoption records for Atlas or Sense.
-4. Do not open Dev work from Lab.
-5. Open the workflow refactor only after Human confirms the request-response cycle is stable enough to refactor.
+1. Read M24 artifacts, M24 Human fitness notes, M20, M21, M22, Lab critical files, workshop README, and the display asset documentation owner contract.
+2. Extract material needs from M24 recommendations and Human fitness notes.
+3. Create a material requirements table, one row per needed display material, not per source-project feature.
+4. Map each material requirement back to M20 slots, M21 display types, and M22 material sets.
+5. For each material, name required states, copy/text pressure, layout/narrow pressure, interaction/reveal pressure, source-meaning risk, and what the material must prove.
+6. Rate prototype readiness: ready, needs more material, needs source-project decision, parked.
+7. Recommend first, second, and third prototype material candidates.
+8. List product-specific or too-complex items that remain parked.
+9. Suggest future SmokeFlash/staged-ingest needs, but do not build them.
 
-## Progress Criteria
+## Acceptance Criteria
 
-The current waiting state can progress if:
+M25 can be accepted if the artifact:
 
-- Human asks Lab to open the workflow refactor packet
-- Atlas or Sense returns acceptance/adaptation/rejection/refinement feedback
-- Human asks Lab to prepare relay text
-- Human asks Lab to open a new display request comparison or tooling packet
+- is requirements capture, not feature delivery
+- derives material needs from M24 and Human fitness notes
+- identifies individual display materials Lab needs to make
+- maps material needs to M20 slots, M21 display types, and M22 material sets
+- names what each material must prove
+- separates reusable Lab material from Atlas/Sense-specific product work
+- recommends first, second, and third prototype candidates
+- names what remains parked
+- keeps future SmokeFlash/staged-ingest as suggested needs only
+- does not authorize Dev implementation
 
-Reject or redirect future requests if they:
+Reject or redirect if the artifact:
 
-- becomes a target implementation plan
-- creates source-project Dev instructions
-- renames Atlas or Sense terms
-- treats Lab material sets as target vocabulary
-- introduces new backend, bridge, IPC, payload, schema, persistence, runtime, or provider requirements
-- expands beyond the four active requests
+- becomes an Atlas or Sense implementation plan
+- builds a feature spec for target projects
+- opens Dev work
+- treats source-project terms as Lab defaults
+- skips slot/type/material mapping
+- produces only inspiration or visual taste notes
+- turns SmokeFlash into the active task
+- revives parked target-project complexity as immediate work
 
 ## Concept Candidates
 
@@ -197,7 +215,7 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 
 ## Guardrails
 
-- This is an idle relay state, not Dev implementation.
+- This is a material requirements packet, not Dev implementation.
 - Do not implement a full Ship/System face.
 - Do not implement Atlas or Sense adapters.
 - Do not make Lab an Atlas, Sense, or Core adapter.
@@ -215,7 +233,7 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 - Do not treat inspiration images or websites as requirements.
 - Do not use archived docs or reference folders as active task queues.
 - Do not create a hidden backlog; every recommended display type needs a disposition.
-- Do not implement SmokeFlash from this waiting state.
+- Do not implement SmokeFlash in M25.
 - Do not promote the repeat cycle until the material bench and inventory scaffold are accepted.
 
 ## Stop Conditions
@@ -235,7 +253,7 @@ Stop and return to Human / Overseer if the work would:
 - require target-project files to be changed
 - require live/private/network access as a prerequisite
 - produce only an inspiration gallery without slot mapping and disposition
-- turn SmokeFlash tooling into the current waiting state
+- turn SmokeFlash tooling into the M25 product
 - disrupt target-project active runways while deploying advisory pointers
 
 ## Verification
@@ -255,7 +273,7 @@ npm.cmd run verify:terminology
 
 ## Support
 
-Current support:
+M25 support:
 
 - `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
@@ -277,10 +295,10 @@ Current support:
 Expected output:
 
 ```txt
-None
+workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md
 ```
 
-Human/source-project relay may reference `workspace/DisplayResponseComparisonHS82-active-display-requests.md`.
+The artifact should include files reviewed, current-state understanding, extraction method, material requirements table, first/second/third prototype candidate recommendations, parked items, future SmokeFlash/staged-ingest needs, and acceptance criteria.
 
 ## Reference Folder
 
@@ -290,7 +308,7 @@ Do not convert references into requirements unless this packet already names the
 
 ## Parked Items
 
-- SmokeFlash HTML harness until Human prioritizes tooling.
+- SmokeFlash HTML harness until M25 completes or Human prioritizes tooling.
 - Cannibalizing Sense log-reader shape for Lab-local staged ingest until a later tooling packet.
 - Repeat implementation cycle until the use-case capture, material bench, and inventory scaffold are accepted.
 - Support panel label polish.
