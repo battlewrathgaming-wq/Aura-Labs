@@ -549,3 +549,138 @@ request_display:
     - Do not rewrite Marked.
     - Do not add backend, bridge, persistence, or contract changes.
   notes: This request protects the accepted asymmetric model: Watch can imply Marked interest, but Marked does not imply Watch.
+
+---
+
+# request_display: Sense - Clipboard Acquisition Authority Window
+
+Status: submitted
+Project: Sense
+Source owner: AURA-Sense
+Request owner: AURA-Sense Overseer
+Date: 2026-05-25
+Lab intake state: not-yet-reviewed
+
+This is an advisory-only display request.
+
+AURA-Sense owns the meaning of this surface, source terms, data, lane/state semantics, runtime behavior, and final adoption. Aura Lab may compare Bridge -> Interface display methods, but must preserve Sense terms, Sense semantics, and the scoped boundary below.
+
+This request is limited to one bounded display problem. It does not authorize implementation, bridge/IPC/contract changes, backend changes, persistence changes, terminology renames, runtime behavior changes, shortcut behavior changes, or Sense adoption.
+
+Active Sense request count: 1 of 5
+
+request_display:
+  id: sense.clipboard-window
+  project: Sense
+  status: submitted
+  request_strength: pressure-test
+  requester_role: Overseer
+  source_owner: AURA-Sense
+  product_attachment:
+    product_area: Threat Intel / Clipboard Acquisition
+    surface: Clipboard widget inside the Threat Intel acquisition bar
+    user_task: Understand whether clipboard acquisition is idle, active, blocked, captured, cooling down, or available through shortcut/manual input without mistaking it for background monitoring.
+    owning_milestone_or_packet: HS15 Clipboard Window Request Display Review / HS16 Request Display
+    priority: high
+    decision_needed: Compare up to three display methods for a compact visible authority window that preserves Sense meaning.
+  scope:
+    boundary: One flow slice: Clipboard Acquisition widget inside the Threat Intel acquisition bar.
+    included:
+      - Clipboard widget.
+      - Key chips / shortcut indicator.
+      - Acquisition status label.
+      - Clipboard lifecycle states.
+      - Captured target transition into Threat Intel.
+      - Alternate shortcut status.
+      - Manual input path as deliberate alternate input.
+      - Live IO blocked display.
+      - Timeout, rejection, cancellation, and cooldown states.
+      - Compact/narrow overlay behavior.
+    excluded:
+      - Threat Intel provider result layout.
+      - Full Threat Intel drawer redesign.
+      - Gateway marker semantics.
+      - Shortcut behavior changes.
+      - Runtime/live IO policy changes.
+      - Backend, bridge, IPC, payload, schema, service, provider, persistence, or renderer behavior changes.
+      - New data fields or runtime requirements.
+      - Sense adoption or implementation.
+    max_candidate_methods: 3
+    source_project_acceptance_needed: true
+  surface_or_use_case: Show a short clipboard authority window for target acquisition without implying background clipboard monitoring.
+  current_presentation: Clipboard Acquisition appears as a compact widget in the Threat Intel acquisition area with key chips, state text, acquisition status, target transition, and blocked/cooldown/manual path feedback.
+  user_goal: Tell whether clipboard acquisition is idle, active, blocked, captured, rejected, timed out, cooling down, available by shortcut, available by alternate shortcut, or available through manual input.
+  data_origin: AURA-Sense `clipboard.acquisition.snapshot`, runtime shortcut status, runtime live IO authority, and Threat Intel target display state.
+  source_terms_to_preserve:
+    - Clipboard Acquisition
+    - Threat Intel
+    - Live IO blocked
+    - No scan
+    - Pulling
+    - Listening
+    - Cooldown
+    - Idle
+    - Control+\
+    - Control+Alt+Space
+    - clipboard.acquisition.snapshot
+  source_terms_to_avoid_or_qualify:
+    - monitoring, unless explicitly negated as not background monitoring
+    - watcher / watching for clipboard behavior
+    - hidden scan
+    - live, unless tied to existing Sense live IO authority
+    - fallback, unless it is clearly manual or alternate input and not an alternate truth source
+    - evidence, proof, assessment, storage, history, or durable record semantics
+  known_fields:
+    - Clipboard snapshot state.
+    - Snapshot message or reason, where available.
+    - Captured target text, where available.
+    - Shortcut registered state.
+    - Alternate shortcut status.
+    - Shortcut unavailable / manual path state.
+    - Live IO enabled or blocked.
+    - Current Threat target display.
+    - Three-second active window.
+    - Five-second cooldown.
+    - Unchanged clipboard ignored after arming.
+  gaps_or_unknowns:
+    - Best visual distinction between Pulling and Listening.
+    - Whether Pulling, Listening, and Cooldown should be preserve-exact visible labels or Lab-translatable visible labels with Sense meaning preserved.
+    - Best compact treatment for alternate shortcut copy.
+    - Best captured-target transition pattern that avoids hidden-scan implication.
+  state_cases:
+    - Idle.
+    - Pulling / arming.
+    - Listening, three-second window.
+    - Captured target.
+    - Scan pending after capture.
+    - Rejected clipboard content.
+    - Unchanged clipboard content ignored.
+    - Timeout.
+    - Cancellation.
+    - Cooldown, five-second interval.
+    - Live IO blocked.
+    - Shortcut registered.
+    - Alternate shortcut registered.
+    - Shortcut unavailable / manual path.
+  freshness_or_age_needs: Show active authority only during the short window. Show cooldown as a bounded interval. Do not imply persistent listening.
+  basis_or_source_needs: The widget is based on `clipboard.acquisition.snapshot`; shortcut status comes from runtime reporting; live IO authority comes from backend runtime policy; renderer display is presentation-only.
+  warning_or_gap_needs: No background monitoring, no hidden scan, no provider call unless deliberate Threat Intel scan path starts, no provider-failure reading of Live IO blocked.
+  density_or_layout_constraints: Must fit compact overlay/narrow viewport, use visible state text rather than color alone, and avoid layout shift from long alternate shortcut copy.
+  interaction_needs: Compare display methods for short active state, cooldown/blocked/manual alternate input, and captured target transition. Do not recommend shortcut behavior changes.
+  candidate_display_methods_requested: Compare compact authority strip, lifecycle stepper, and command-status card if useful; Lab may substitute better bounded methods.
+  lab_material_sets_relevant:
+    - availability-distinction
+    - status-chip-row
+    - gap-warning-pressure
+    - collision-language
+  verification_or_review_needs: Sense terminology boundary review and Sense Overseer/Human adoption review. If later implemented: clipboard race verification, renderer shell check, Electron visual smoke if layout/CSS changes, and protected-term check.
+  non_goals:
+    - Do not create a Dev runway.
+    - Do not change shortcut behavior.
+    - Do not change runtime/live IO policy.
+    - Do not change backend, bridge, IPC, payload, schema, service, provider, persistence, or renderer behavior.
+    - Do not imply background clipboard monitoring.
+    - Do not imply hidden scan or automatic provider call.
+    - Do not import Atlas historical proof, storage, assessment, routine-check, or stored-record semantics.
+    - Do not make Lab vocabulary Sense authority.
+  notes: Sense accepted `sense.clipboard-window` as request-ready in `workspace/OverseerHS15-clipboard-window-request-display-review-acceptance.md`. The local source request artifact is `F:\Projects\AURA-Sense\workspace\RequestDisplayHS16-clipboard-window.md`.
