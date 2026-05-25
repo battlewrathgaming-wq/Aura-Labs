@@ -53,6 +53,15 @@ Recommended next choice:
 - If Human wants more visual direction, open a UI/UX visual sketch pass across the pending material set.
 - If Human wants to pause, keep M31 parked with pending material breadth captured.
 
+## Runway Shape
+
+- current packet: Human / Overseer selection among the M31 pending material candidates.
+- likely next packet if accepted: one bounded Dev prototype for a selected material, or one UI/UX visual sketch pass across the pending set.
+- follow-up packet if clean: update material page / ledger state, then decide whether to repeat the material cycle or park M31.
+- stop or Human decision point: choosing which material gets implementation attention, whether visual sketching should happen first, or whether M31 should park after catalog growth.
+
+Dev executes nothing from this packet. Likely-next and follow-up lines are orientation, not authorization.
+
 ## Guardrails And Non-Goals
 
 Do not execute Dev work from this packet.
@@ -83,6 +92,8 @@ Run shared terminology verification because terminology-sensitive material pages
 cd F:\Projects\Docs\Aura-Project-Orchestration
 npm.cmd run verify:terminology
 ```
+
+Do not run terminology verification as routine background work for every `.`. Run it only when material terminology, display copy, adapter-facing labels, critical terms, release/push readiness, or the active packet requires it.
 
 ## Evidence
 
