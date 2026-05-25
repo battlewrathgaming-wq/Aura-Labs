@@ -8,6 +8,12 @@ const { auraTempRoot, projectRoot } = require('../util/tempPaths');
 
 const BRIEFING_TEST_MODES = Object.freeze([
   {
+    id: 'loading',
+    label: 'Loading',
+    status: 'loading',
+    description: 'Return a calm pending presentation state.'
+  },
+  {
     id: 'normal',
     label: 'Normal',
     status: 'populated',
@@ -303,6 +309,21 @@ function buildProjectBriefing(payload = {}) {
   const sources = [];
   const warnings = [];
 
+  if (mode === 'loading') {
+    return attachModeMetadata({
+      view_status: 'loading',
+      action_posture: actionPostureForStatus('loading', {}),
+      attention_items: null,
+      attention_empty_copy: 'Reading project attention items.',
+      fields: {},
+      source_labels: [],
+      sources: [],
+      missing_fields: [],
+      warnings: [],
+      last_read_at: null
+    }, mode);
+  }
+
   if (mode === 'failed') {
     return attachModeMetadata(failedBriefing('Fixture failed bridge read', 'test-mode'), mode);
   }
@@ -416,6 +437,23 @@ function attachModeMetadata(briefing, mode) {
 
 function buildNeutralSeedFixture(state) {
   const now = new Date();
+  if (state === 'loading') {
+    return decoratePresentationFixture({
+      view_status: 'loading',
+      title: 'Reading presentation state',
+      summary: 'Reading neutral fixture through the local service bridge.',
+      action_posture: actionPostureForStatus('loading', {}),
+      attention_items: null,
+      attention_empty_copy: 'Reading sample slots.',
+      fields: {},
+      source_labels: [],
+      sources: [],
+      missing_fields: [],
+      warnings: [],
+      last_read_at: null
+    }, neutralSeedMetadata(state));
+  }
+
   if (state === 'failed') {
     return decoratePresentationFixture({
       view_status: 'failed',
@@ -800,6 +838,12 @@ function firstBulletAfterHeading(text, heading) {
 }
 
 function actionPostureForStatus(status, fields = {}) {
+  if (status === 'loading') {
+    return {
+      label: 'Reading presentation state',
+      detail: 'Waiting for the first local response.'
+    };
+  }
   if (status === 'failed') {
     return {
       label: 'Unavailable',

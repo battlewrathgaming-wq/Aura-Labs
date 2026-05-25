@@ -20,8 +20,8 @@ function main() {
   assert(main.includes("material: process.env.AURA_LAB_MATERIAL_HARNESS || 'mat-authority-window-ttl-strip'"), 'main process should pass material harness only through workshop query');
   assert(main.includes('capturePage'), 'visual smoke should capture renderer screenshots');
   assert(main.includes('visual-smoke-result.json'), 'visual smoke should write a result artifact');
-  assert(main.includes("['normal', 'empty', 'stale', 'failed', 'partial', 'long-text']"), 'visual smoke should exercise briefing states');
-  assert(main.includes("['normal', 'empty', 'failed', 'long-text']"), 'visual smoke should exercise neutral seed states');
+  assert(main.includes("['loading', 'normal', 'empty', 'stale', 'failed', 'partial', 'long-text']"), 'visual smoke should exercise briefing states including loading');
+  assert(main.includes("['loading', 'normal', 'empty', 'failed', 'long-text']"), 'visual smoke should exercise neutral seed states including loading');
   assert(main.includes('family-neutral-seed-state-${state}.png'), 'visual smoke should capture neutral seed state screenshots');
   assert(main.includes('family-briefing-state-partial-narrow.png'), 'visual smoke should capture narrow briefing partial state');
   assert(main.includes('families_checked'), 'visual smoke should report checked families');
@@ -109,6 +109,8 @@ function main() {
   assert(app.includes('Fallback basis active'), 'renderer should expose fallback marker copy');
   assert(app.includes('Band marker'), 'Readout Detail should include band marker detail');
   assert(app.includes('UPDATING'), 'renderer should map loading state to updating language');
+  assert(app.includes("return briefing?.action_posture?.label || 'Reading presentation state'"), 'renderer should render explicit loading action posture when supplied');
+  assert(app.includes("return 'pending'"), 'renderer should expose pending marker tone for loading');
   assert(app.includes('NO DATA'), 'renderer should map empty state to no-data language');
   assert(app.includes('Last successful read'), 'renderer should map stale state to age language');
   assert(app.includes('renderAttention'), 'renderer should render attention items');

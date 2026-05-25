@@ -1,16 +1,16 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
 Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M28 - Authority Window TTL Strip Prototype
-Current executor: Dev
-Current focus: implement H02 Loading State Parity as the first bounded presentation-head improvement
-Expected artifact filename: `workspace/DevHS93-loading-state-parity.md`
+Last completed milestone: M29 / H02 - Loading State Parity
+Current executor: Human / Overseer
+Current focus: H02 accepted; ready to open H03 View Intent Axis when directed.
+Expected artifact filename: No active artifact expected.
 
 ## Current State
 
@@ -75,17 +75,29 @@ Electron smoke result:
 - Material state names are Lab staging labels, not bridge/runtime contract values.
 - No combined output reference is accepted yet; M28 accepted an individual material prototype.
 
-## M29 Purpose
+## M29 State
 
-M29 opens the Presentation Head Improvement Rail.
+M29 is active as the Presentation Head Improvement Rail.
 
-The first runway is H02 Loading State Parity. Dev should make loading a first-class presentation state and update the renderer/test model enough that loading is directly observable.
+Completed slice:
 
-This is a presentation-head improvement, not a renderer split or target-project integration.
+- H02 Loading State Parity.
+
+Accepted H02 result:
+
+- `loading` is now a first-class selectable presentation test mode.
+- Briefing and Neutral Sample both return intentional loading payloads.
+- Loading uses `UPDATING`, `Updating now`, pending basis language, and a pending marker tone.
+- Loading smoke coverage exists for both current families.
+- No target-project adapter, source-project meaning, export/seeding, renderer split, durable bridge/runtime contract, IPC channel, network path, or dependency was introduced.
+
+Recommended next slice:
+
+- H03 View Intent Axis using accepted UX direction.
 
 ## Source Of Intent
 
-Accepted source of intent:
+Accepted source of intent for M29:
 
 - Human direction to focus this phase on presentation improvements.
 - Human direction to review split/readiness only when the presentation head is good enough.
@@ -94,6 +106,8 @@ Accepted source of intent:
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
 - `docs/roadmap/future-candidate-bank.md`
 - `workspace/OverseerHS93-m29-loading-state-parity-runway.md`
+- `workspace/DevHS93-loading-state-parity.md`
+- `workspace/OverseerHS94-h02-loading-state-acceptance.md`
 
 Read first:
 
@@ -117,74 +131,22 @@ Read first:
 - `scripts/verify-renderer-shell.js`
 - `scripts/verify-lab-vocabulary.js`
 
-## Ordered Runway
+## Accepted UX Direction For H03
 
-1. Inspect the existing presentation state model, fixture/test modes, renderer state copy, and visual smoke capture path.
-2. Add loading as a first-class presentation state for the existing presentation head.
-3. Keep the default populated/empty/stale/failed/partial/long-text behavior stable.
-4. Make loading visually intentional: calm pending state, clear basis/readout age language, no false unavailable or failed implication, no target-project terms.
-5. Add or update fixture/test mode support so loading can be selected and checked like the other states.
-6. Update renderer shell and smoke checks so loading is part of the active test model.
-7. Create the expected DevHS handoff with files changed, loading-state behavior, verification, smoke result notes, and residual risks.
+Use this when opening the next runway:
 
-## Acceptance Criteria
+- Start with `summary-first` plus source/basis-first.
+- Prefer visible labels like `Summary`, `Basis`, and `Details`.
+- Use a segmented control for user-facing view intent.
+- Keep the same surface stable across view modes and reorder emphasis instead of changing the whole display.
+- Keep title/readout label, status band, primary state, freshness/last read, basis/source cue, warning/gap marker, detail affordance, and diagnostics access stable.
+- Prototype one display family first.
 
-This runway is acceptable if:
+Do not make confidence/trust/proof language the first user-facing view axis. Express confidence through basis, freshness, coverage, gaps, and warnings.
 
-- loading is selectable or reachable as a first-class presentation state
-- loading is visually distinct from empty, failed, stale, and partial
-- loading copy uses Lab-owned slim language and does not overstate source availability
-- loading keeps the normal presentation head stable
-- visual smoke or renderer verification can observe loading directly
-- no target-project adapter, source-project meaning, export/seeding, or renderer split is introduced
-- SmokeFlash remains hidden/gated support tooling
-- verification passes
+## H02 Verification Notes
 
-Redirect or stop if:
-
-- loading requires a durable bridge/runtime contract decision
-- loading requires target-project data or target-owned terms
-- the change turns into `viewIntent`, confidence view, source-first view, or renderer split work
-- the test update becomes a broad smoke matrix rather than loading coverage
-- normal launch depends on workshop state
-
-## Guardrails And Non-Goals
-
-Allowed:
-
-- add loading fixture/test mode
-- add loading renderer copy and visual treatment
-- add targeted smoke/verification coverage
-- update local vocabulary checks for accepted visible copy
-- make small style changes needed for loading clarity
-
-Not allowed:
-
-- target-project adapters
-- Atlas/Sense implementation
-- export/seeding
-- broad SmokeFlash workbench
-- broad visual-smoke matrix
-- durable bridge/runtime contract
-- `viewIntent` axis implementation
-- confidence/source/triage/delta view implementation
-- new dependencies
-- live/private/network work
-
-## Stop Conditions
-
-Stop and return to Human / Overseer if:
-
-- loading cannot be represented without changing source-owned meaning
-- a bridge/runtime contract decision is required
-- normal launch cannot stay clean
-- SmokeFlash/workshop state becomes product navigation
-- verification requires live/private/network data
-- Electron runtime/install issues become the main work
-
-## Required Verification
-
-Always run:
+H02 acceptance verification rerun by Overseer:
 
 ```powershell
 npm.cmd run verify:renderer-shell
@@ -192,40 +154,37 @@ npm.cmd run verify:all
 npm.cmd run verify:vocabulary
 ```
 
-Run Electron smoke because visible state behavior and smoke coverage are expected to change:
+All passed.
+
+Shared terminology check rerun from `F:\Projects\Docs\Aura-Project-Orchestration`:
+
+```powershell
+npm.cmd run verify:terminology
+```
+
+Passed 53/53 checks with the existing 24 advisory warnings.
+
+Dev ran Electron smoke:
 
 ```powershell
 npm.cmd run smoke:electron
 ```
 
-Run shared terminology check if visible or documentation wording changes:
+Smoke result reviewed:
 
-```powershell
-cd F:\Projects\Docs\Aura-Project-Orchestration
-npm.cmd run verify:terminology
-```
+- `.tmp/electron-visual-smoke/visual-smoke-result.json`
+- `status: passed`
+- `blocking_failures: []`
+- loading included in `states_checked.briefing`
+- loading included in `states_checked.neutral-seed`
+- loading included in `modes_checked`
 
-## Evidence
+## Residual Risks
 
-Dev should fill this after work:
-
-- Files changed:
-- Loading state behavior:
-- Normal launch impact:
-- Smoke/test model impact:
-- Verification run:
-- Smoke result:
-- Remaining risks:
-
-## Handoff
-
-Expected output:
-
-```txt
-workspace/DevHS93-loading-state-parity.md
-```
-
-The handoff must state whether loading is ready for Overseer acceptance and whether the next M29 slice should remain H02 cleanup, move to H03 `viewIntent`, or pause for UI/UX review.
+- Existing inherited naming tripwires remain.
+- Loading is a Lab fixture/test and renderer presentation state, not a durable bridge/runtime contract value.
+- Broader state/view matrices remain parked.
+- H03 still needs a bounded runway before Dev starts `viewIntent`.
 
 ## Parked Items
 

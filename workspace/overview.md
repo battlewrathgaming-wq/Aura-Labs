@@ -56,18 +56,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M26 | Human direction after M25 | Complete | Accepted individual reusable display material schemas and divided them into material library pages with the ledger as index. |
 | M27 | Human direction after M26 and HS88 | Complete | Accepted SmokeFlash boundary hardening with normal launch isolated from visible workshop controls and split-before-export noted as residual risk. |
 | M28 | Human direction after M27 controls | Complete | Accepted first Lab-local visible material prototype for Authority Window TTL Strip using ADR-controlled SmokeFlash workshop path. |
-| M29 | Presentation Head Improvement Rail | Active | Opened H02 Loading State Parity as the first bounded presentation-head improvement. |
+| M29 | Presentation Head Improvement Rail | Active | Accepted H02 Loading State Parity; ready to open H03 View Intent Axis. |
 
 ## Current Direction
 
 Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M28 - Authority Window TTL Strip Prototype
+Last completed milestone: M29 / H02 - Loading State Parity
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS93
-Latest accepted handshake: workspace/OverseerHS92-m28-acceptance.md
+Current sequence: HS94
+Latest accepted handshake: workspace/OverseerHS94-h02-loading-state-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: workspace/OverseerHS93-m29-loading-state-parity-runway.md
+Active runway: None
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
@@ -154,6 +154,8 @@ Active milestone handshakes:
 - `workspace/DevHS91-authority-window-ttl-strip-prototype.md`
 - `workspace/OverseerHS92-m28-acceptance.md`
 - `workspace/OverseerHS93-m29-loading-state-parity-runway.md`
+- `workspace/DevHS93-loading-state-parity.md`
+- `workspace/OverseerHS94-h02-loading-state-acceptance.md`
 
 Accepted authority records:
 

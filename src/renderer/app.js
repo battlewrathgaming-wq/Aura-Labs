@@ -472,6 +472,9 @@ function bandMarkerCopy({ tone, gaps, warnings, briefing, status }) {
 }
 
 function bandMarkerTone({ tone, gaps, warnings, briefing, status }) {
+  if (status === 'loading' || tone === 'updating') {
+    return 'pending';
+  }
   if (tone === 'fallback') {
     return 'fallback';
   }
@@ -625,7 +628,7 @@ function modeNoteCopy(briefing) {
 
 function actionPostureLabel(briefing, status) {
   if (status === 'loading') {
-    return 'Reading project state';
+    return briefing?.action_posture?.label || 'Reading presentation state';
   }
   return briefing?.action_posture?.label || statusCopy(status, briefing).certainty;
 }

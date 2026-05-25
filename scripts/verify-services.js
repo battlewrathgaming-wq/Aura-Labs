@@ -152,6 +152,14 @@ async function verifyRegistry() {
   const legacyFixtureBriefing = await registry.invoke('aura.projectBriefing', { fixtureState: 'partial' });
   assert(legacyFixtureBriefing.view_status === 'partial', 'project briefing should preserve legacy fixture state compatibility');
 
+  const loadingBriefing = await registry.invoke('aura.projectBriefing', { mode: 'loading' });
+  assert(loadingBriefing.view_status === 'loading', 'project briefing should expose loading fixture state');
+  assert(loadingBriefing.mode === 'loading', 'loading briefing should echo mode');
+  assert(loadingBriefing.last_read_at === null, 'loading briefing should not claim a completed read time');
+  assert(!Object.hasOwn(loadingBriefing, 'certainty'), 'loading briefing should not add legacy basis field');
+  assert(loadingBriefing.action_posture.label === 'Reading presentation state', 'loading briefing should expose reading action posture');
+  assert(loadingBriefing.attention_items === null, 'loading briefing should expose pending attention data');
+
   const partialBriefing = await registry.invoke('aura.projectBriefing', { mode: 'partial' });
   assert(partialBriefing.view_status === 'partial', 'project briefing should expose partial fixture state');
   assert(partialBriefing.mode === 'partial', 'partial briefing should echo mode');
@@ -222,6 +230,12 @@ async function verifyRegistry() {
   assert(Array.isArray(neutralFixture.attention_items) && neutralFixture.attention_items.length === 3, 'neutral seed should expose sample slots');
   assertSafeNeutralCopy(neutralFixture);
 
+  const neutralLoading = await registry.invoke('aura.presentationFixture', { family: 'neutral-seed', state: 'loading' });
+  assert(neutralLoading.view_status === 'loading', 'neutral seed should expose loading state');
+  assert(neutralLoading.state === 'loading', 'neutral seed loading should echo loading state');
+  assert(neutralLoading.last_read_at === null, 'neutral seed loading should not claim a completed read time');
+  assert(!Object.hasOwn(neutralLoading, 'certainty'), 'neutral seed loading should not add legacy basis field');
+
   const neutralEmpty = await registry.invoke('aura.presentationFixture', { family: 'neutral-seed', state: 'empty' });
   assert(neutralEmpty.view_status === 'empty', 'neutral seed should expose empty state');
   assert(Array.isArray(neutralEmpty.attention_items) && neutralEmpty.attention_items.length === 0, 'neutral seed empty should expose empty sample slots');
@@ -283,7 +297,7 @@ async function verifyRegistry() {
 
 function assertModeList(modes) {
   assert(Array.isArray(modes), 'project briefing should expose available modes');
-  for (const mode of ['normal', 'empty', 'stale', 'failed', 'fallback', 'partial', 'long-text']) {
+  for (const mode of ['loading', 'normal', 'empty', 'stale', 'failed', 'fallback', 'partial', 'long-text']) {
     assert(modes.some((entry) => entry.id === mode), `project briefing should expose ${mode} mode`);
   }
 }

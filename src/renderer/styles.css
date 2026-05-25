@@ -234,6 +234,11 @@ h2 {
   background: rgba(105, 196, 143, 0.09);
 }
 
+.bridge-state[data-status="loading"] {
+  border-color: rgba(117, 213, 199, 0.38);
+  background: rgba(117, 213, 199, 0.075);
+}
+
 .bridge-state[data-status="partial"],
 .bridge-state[data-status="stale"] {
   border-color: rgba(214, 170, 82, 0.44);
@@ -701,6 +706,11 @@ h2 {
 .state-readout[data-marker="clear"] #state-marker {
   border-color: rgba(105, 196, 143, 0.36);
   color: var(--ok);
+}
+
+.state-readout[data-marker="pending"] #state-marker {
+  border-color: rgba(117, 213, 199, 0.4);
+  color: var(--accent);
 }
 
 .source-drawer {

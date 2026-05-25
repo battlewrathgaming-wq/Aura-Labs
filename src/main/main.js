@@ -53,8 +53,8 @@ async function runVisualSmoke(window) {
   const smokeDir = visualSmokeDir();
   fs.mkdirSync(smokeDir, { recursive: true });
 
-  const briefingStates = ['normal', 'empty', 'stale', 'failed', 'partial', 'long-text'];
-  const neutralSeedStates = ['normal', 'empty', 'failed', 'long-text'];
+  const briefingStates = ['loading', 'normal', 'empty', 'stale', 'failed', 'partial', 'long-text'];
+  const neutralSeedStates = ['loading', 'normal', 'empty', 'failed', 'long-text'];
   const observations = [];
 
   for (const state of briefingStates) {
