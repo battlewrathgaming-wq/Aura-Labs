@@ -146,6 +146,21 @@ const presentationSlotRegistry = {
             { type: 'source-path', tone: readoutState.availableSources > 0 ? 'clear' : 'pending', label: 'Source path facet' }
           ]
         }),
+        overflowSentinel: slotOverflowSentinel({
+          evaluate: ({ briefing }) => {
+            const sourceLabels = briefing?.source_labels || [];
+            const copy = sourceCopy(briefing);
+            if (sourceLabels.length > 1 || copy.length > 56) {
+              return {
+                kind: 'constrained',
+                tone: sourceLabels.length > 0 ? 'clear' : 'pending',
+                label: 'Constrained row content',
+                basis: 'source-paths'
+              };
+            }
+            return null;
+          }
+        }),
         value: ({ briefing }) => sourceCopy(briefing),
         hydration: slotHydration({
           detail: ({ briefing }) => [
@@ -177,6 +192,13 @@ function slotRowFacets({ render = () => [] } = {}) {
   return {
     localOnly: true,
     render
+  };
+}
+
+function slotOverflowSentinel({ evaluate = () => null } = {}) {
+  return {
+    localOnly: true,
+    evaluate
   };
 }
 
@@ -602,6 +624,12 @@ function appendSourceDetail(list, labelText, valueText, slot = {}, hydration = {
     item.dataset.presentationFacets = rowFacets.map((facet) => `${facet.type}:${facet.tone}`).join('|');
     appendSlotRowFacets(item, rowFacets);
   }
+  const overflowSentinel = slotOverflowSentinelValue(slot, hydration.context, valueText, hydration);
+  item.dataset.presentationOverflow = overflowSentinel?.kind || 'none';
+  if (overflowSentinel) {
+    item.dataset.presentationOverflowBasis = overflowSentinel.basis;
+    appendSlotOverflowSentinel(item, overflowSentinel);
+  }
   const label = document.createElement('span');
   const value = document.createElement('strong');
   label.textContent = labelText;
@@ -624,6 +652,33 @@ function slotRowFacetValues(slot, context) {
       tone: facet.tone || 'neutral',
       label: facet.label || 'Row facet'
     }));
+}
+
+function slotOverflowSentinelValue(slot, context, valueText, hydration) {
+  if (!slot.overflowSentinel?.localOnly || typeof slot.overflowSentinel.evaluate !== 'function') {
+    return null;
+  }
+  const sentinel = slot.overflowSentinel.evaluate({ ...context, valueText, hydration });
+  if (!sentinel) {
+    return null;
+  }
+  return {
+    kind: sentinel.kind || 'constrained',
+    tone: sentinel.tone || 'neutral',
+    label: sentinel.label || 'Constrained row content',
+    basis: sentinel.basis || 'row-content'
+  };
+}
+
+function appendSlotOverflowSentinel(item, sentinel) {
+  const marker = document.createElement('span');
+  marker.className = 'slot-overflow-sentinel';
+  marker.dataset.overflowKind = sentinel.kind;
+  marker.dataset.tone = sentinel.tone;
+  marker.setAttribute('role', 'img');
+  marker.setAttribute('aria-label', sentinel.label);
+  marker.title = sentinel.label;
+  item.appendChild(marker);
 }
 
 function appendSlotRowFacets(item, facets) {

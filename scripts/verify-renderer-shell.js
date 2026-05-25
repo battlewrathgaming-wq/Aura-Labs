@@ -128,6 +128,14 @@ function main() {
   assert(app.includes('dataset.presentationFacetCount'), 'renderer should mark rendered row facet count locally');
   assert(app.includes('dataset.presentationFacets'), 'renderer should keep row facet metadata local to rendered slots');
   assert(app.includes('slot-row-facets'), 'renderer should render compact row facets without a new surface');
+  assert(app.includes('slotOverflowSentinel'), 'registered slots should declare a local overflow sentinel shape');
+  assert(app.includes('overflowSentinel: slotOverflowSentinel'), 'one or more registered slots should prove overflow sentinel behavior');
+  assert(app.includes('slotOverflowSentinelValue'), 'renderer should resolve overflow sentinels for Readout Detail rows');
+  assert(app.includes('appendSlotOverflowSentinel'), 'renderer should render overflow sentinel inside existing rows');
+  assert(app.includes('dataset.presentationOverflow'), 'renderer should mark overflow sentinel state locally');
+  assert(app.includes('dataset.presentationOverflowBasis'), 'renderer should keep sentinel basis local to rendered slots');
+  assert(app.includes('Constrained row content'), 'overflow sentinel should use compact constrained-content presentation language');
+  assert(app.includes('slot-overflow-sentinel'), 'renderer should render a compact overflow sentinel without a new surface');
   assert(app.includes('slotLazyVisual'), 'registered slots should declare a local lazy visual shape');
   assert(app.includes('lazyVisual: slotLazyVisual'), 'one registered slot should prove a lazy visual treatment');
   assert(app.includes("treatment: 'marker-signal'"), 'Band marker slot should prove the lazy visual treatment');
@@ -212,6 +220,9 @@ function main() {
   assert(styles.includes('.slot-row-facets'), 'renderer styles should contain compact row facets');
   assert(styles.includes('data-presentation-facet-count'), 'renderer styles should keep facet rows compact');
   assert(styles.includes('i[data-tone="attention"]'), 'renderer styles should tone row facets without changing labels');
+  assert(styles.includes('.slot-overflow-sentinel'), 'renderer styles should contain compact overflow sentinel treatment');
+  assert(styles.includes('data-presentation-overflow'), 'renderer styles should reserve compact space only for sentinel rows');
+  assert(styles.includes('data-overflow-kind'), 'renderer styles should keep sentinel markers local and non-semantic');
   for (const materialState of ['idle', 'active-window', 'captured', 'timeout', 'cooldown', 'blocked', 'manual-path']) {
     assert(app.includes(`id: '${materialState}'`), `renderer should define material state ${materialState}`);
   }

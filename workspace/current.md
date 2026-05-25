@@ -7,10 +7,10 @@ Owner: Overseer
 ## Coordination State
 
 Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / HS116 - Row Facets
-Current executor: Dev
-Current focus: Overflow sentinel for registered presentation rows.
-Expected artifact filename: `workspace/DevHS118-overflow-sentinel.md`
+Last completed milestone: M29 / HS118 - Overflow Sentinel
+Current executor: Overseer
+Current focus: M29 close/readiness review.
+Expected artifact filename: `workspace/OverseerHS120-m29-close-readiness-review.md`
 
 ## Current State
 
@@ -29,16 +29,18 @@ Accepted M29 slices:
 - HS112 Focus/Reveal Controller Correction.
 - HS114 Lazy-Loaded Visual Slot.
 - HS116 Row Facets.
+- HS118 Overflow Sentinel.
 
-Accepted HS116 result:
+Accepted HS118 result:
 
-- Existing Briefing Readout Detail slots can declare compact row facets.
-- Facets are renderer-local and optional presentation markers.
-- Facets render inside existing Readout Detail rows as a slim side rail.
-- Facets do not change visible labels, bridge meaning, source-project semantics, dependencies, routes, IPC, preload, or split/export behavior.
+- Registered rows can carry a compact overflow/constrained-content sentinel.
+- The sentinel is renderer-local and optional presentation behavior.
+- The existing Briefing Readout Detail `source-paths` row proves the sentinel.
 - Default rows remain compact and readable.
+- Virtualization remains parked.
+- No dependency, route, module/bundle split, bridge payload, IPC channel, preload bridge, service command, fixture contract, target adapter, source-project meaning, new surface, or SmokeFlash/workshop exposure was introduced.
 
-The next executable slice is overflow sentinel. This should add a small renderer-local signal when a registered row has clipped, long, or constrained detail, without making rows dense and without implementing virtualization.
+M29 has now delivered a long sequence of presentation-head capabilities. Do not automatically open another Dev implementation slice. Review whether M29 should close or whether one more bounded review/advisory step is needed.
 
 ## Source Of Intent
 
@@ -46,8 +48,8 @@ Accepted source of intent:
 
 - Human direction to hammer in the presentation feature set.
 - `workspace/OverseerHS105-follow-on-feature-candidates.md`
-- `workspace/DevHS116-row-facets.md`
-- `workspace/OverseerHS117-hs116-row-facets-acceptance.md`
+- `workspace/DevHS118-overflow-sentinel.md`
+- `workspace/OverseerHS119-hs118-overflow-sentinel-acceptance.md`
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
 - `docs/roadmap/future-candidate-bank.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
@@ -61,92 +63,79 @@ Read first:
 - `workspace/critical/README.md`
 - `workspace/critical/critical-terms.md`
 - `workspace/critical/critical-assets.md`
-- `workspace/OverseerHS117-hs116-row-facets-acceptance.md`
-- `src/renderer/index.html`
+- `workspace/OverseerHS119-hs118-overflow-sentinel-acceptance.md`
+- `docs/roadmap/m29-presentation-head-improvement-rail.md`
+- `docs/roadmap/future-candidate-bank.md`
+- `docs/adr/0001-smokeflash-split-timing.md`
+- `docs/adr/0002-target-owned-presentation-adapters.md`
 - `src/renderer/app.js`
 - `src/renderer/styles.css`
 - `scripts/verify-renderer-shell.js`
 - `package.json`
 
-## Ordered Dev Runway
+## Ordered Overseer Runway
 
-1. Inspect the current registered slot rows, hydration, focus/reveal, lazy visual slot, row facets, and Readout Detail rendering path.
-2. Add a small renderer-local overflow sentinel shape for registered rows.
-3. Apply the sentinel to the existing Briefing Readout Detail path without changing visible labels or source meaning.
-4. Keep the sentinel compact and honest; it should indicate constrained or long row content without adding a new surface.
-5. Do not implement virtualization, list windowing, or broad overflow diagnostics.
-6. Add renderer-shell verification for the sentinel shape and proof path.
-7. Run Electron smoke if visible behavior, CSS, or smoke-targeted output changes.
-8. Do not implement virtualized list helper, reduced-motion gate, fixture adapter, draggable layout board, screenshot comparison index, split, adapters, or security review.
-9. Create `workspace/DevHS118-overflow-sentinel.md`.
+1. Review accepted M29 slices and compare them to M29 acceptance criteria.
+2. Summarize what the presentation head can now express.
+3. Identify what remains parked: virtualized list helper, reduced-motion gate, Lab fixture adapter, renderer security review, split/readiness, target adapters, production tooling.
+4. Decide whether M29 should close now, close after Human/UI review, or continue with one more bounded Dev slice.
+5. If closing, recommend the next milestone type and why.
+6. Create `workspace/OverseerHS120-m29-close-readiness-review.md`.
+7. Do not implement code.
 
 ## Acceptance Criteria
 
-This slice is acceptable if:
+This review is acceptable if:
 
-- registered rows can carry a compact overflow/constrained-content sentinel
-- the sentinel is renderer-local and optional presentation behavior
-- the existing Briefing/readout/detail path proves the sentinel
-- default rows remain compact and readable
-- Summary, Basis, and Details remain the only visible view options
-- no new drawer/modal/panel/navigation surface is introduced
-- no dependency, route, bundle split, bridge/runtime contract, or source-project meaning is introduced
-- no target-project adapter or adoption claim is introduced
-- virtualization remains parked
-- verification commands and results are recorded in the DevHS
+- it clearly states whether M29 is ready to close
+- it summarizes accepted M29 capabilities without overstating portability
+- it separates product-facing presentation features from support tooling
+- it names parked items and recommends disposition
+- it does not open target-project adapters or shared doctrine
+- it recommends one next move
+- it records verification evidence already available
 
 ## Guardrails And Non-Goals
 
 Allowed:
 
-- renderer-local code changes
-- small CSS for compact overflow markers
-- small verification updates
-- small handoff updates
-- Lab slim presentation language
+- read files
+- write the expected Overseer review artifact
+- update `workspace/current.md` only if the review determines the next runway
+- run verification if needed
 
 Not allowed:
 
-- bridge payload changes
-- preload/IPC/service command changes
-- source-project semantics
+- code changes
 - target-project adapters
-- new dependency or build tool change
-- actual renderer bundle splitting
-- durable key-term promotion for sentinel names
+- source-project semantics
+- dependency or build changes
+- renderer split implementation
 - virtualized list helper implementation
 - reduced-motion gate implementation
-- Lab fixture adapter implementation
-- new drawer/modal/navigation surface
+- fixture adapter implementation
 - production tooling implementation
-- renderer security review
+- renderer security review implementation
 - live/private/network work
 - destructive or git history operations
 
 ## Stop Conditions
 
-Stop and return to Human / Overseer if:
+Stop and return to Human if:
 
-- overflow sentinel requires source-project semantics or bridge payload changes
-- sentinel makes the default row visibly dense or noisy
-- sentinel requires a new surface rather than the existing Readout Detail path
-- implementation requires virtualization, dependency, route, module/bundle split, IPC, preload, service command, or fixture contract change
-- verification failures point to Electron/runtime installation rather than this slice
+- M29 closure depends on Human visual judgment
+- a security concern appears that should interrupt feature planning
+- the next milestone choice is ambiguous between product-facing presentation and split/readiness
+- verification state cannot be trusted from available records
 
 ## Required Verification
 
-Run:
+No new verification is strictly required for the review if existing records are sufficient.
+
+If useful, run:
 
 ```powershell
-npm.cmd run verify:renderer-shell
-npm.cmd run verify:vocabulary
 npm.cmd run verify:all
-```
-
-Run Electron smoke if visible renderer behavior, layout, CSS, or smoke-targeted presentation output changes:
-
-```powershell
-npm.cmd run smoke:electron
 ```
 
 Run shared terminology verification if durable docs or visible copy change:
@@ -158,33 +147,32 @@ npm.cmd run verify:terminology
 
 ## Evidence
 
-Dev should fill this after work:
+Overseer should fill this after review:
 
-- Files changed:
-- Sentinel shape:
-- Proof path:
-- Density/readability note:
-- Commands run:
-- Results:
-- Remaining risks:
+- Files reviewed:
+- Accepted M29 capability summary:
+- Verification records:
+- Parked items:
+- Closure recommendation:
+- Next move:
 
-## Dev Handoff
+## Handoff
 
 Expected output:
 
 ```txt
-workspace/DevHS118-overflow-sentinel.md
+workspace/OverseerHS120-m29-close-readiness-review.md
 ```
 
-The handoff must state whether overflow sentinel is ready to support later virtualized list work.
+The handoff must state whether Dev should remain parked until Human accepts the M29 close/readiness recommendation.
 
 ## Advisory Disposition
 
-- Accepted: HS116 Row Facets.
-- Accepted next: overflow sentinel.
-- Deferred: renderer security review until closer to split/export readiness.
-- Parked: virtualized list helper until overflow/list pressure is clearer.
+- Accepted: HS118 Overflow Sentinel.
+- Opened: M29 close/readiness review.
+- Parked: virtualized list helper until review chooses next milestone.
 - Parked: reduced-motion gate and Lab fixture adapter.
+- Deferred: renderer security review until closer to split/export readiness unless review recommends pulling it forward.
 - Parked: Lab-only draggable layout board and screenshot comparison index as support tooling.
 - Parked: target-project adapters and export/seeding.
 
