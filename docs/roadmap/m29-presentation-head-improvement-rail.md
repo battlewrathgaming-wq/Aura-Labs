@@ -34,6 +34,24 @@ Display material proving still matters, but it is support for the presentation h
 
 Use accepted material pages when they help pressure the renderer. Do not make every material its own milestone.
 
+## Accepted H03 Direction
+
+H03 should introduce `viewIntent` through a small, user-facing view switch rather than a hidden fixture-only selector.
+
+Accepted planning direction:
+
+- start with `summary-first` plus source/basis-first
+- use visible labels like `Summary`, `Basis`, and `Details`
+- use a segmented control for the user-facing view switch
+- keep the same surface stable across view modes
+- reorder emphasis instead of changing the whole display
+- keep title/readout label, status band, primary state, freshness/last read, basis/source cue, warning/gap marker, detail affordance, and diagnostics access stable
+- prototype one display family first
+
+Do not make confidence/trust/proof language the first user-facing view axis. If confidence-like readability is needed, express it through basis, freshness, coverage, gaps, and warnings.
+
+This direction is roadmap-level planning. Do not promote `Summary`, `Basis`, or `Details` into key terms until H03 is implemented and accepted.
+
 ## Acceptance Criteria
 
 M29 is complete when:
