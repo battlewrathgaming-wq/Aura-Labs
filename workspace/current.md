@@ -1,20 +1,20 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Waiting
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M20 - Display Vocabulary And Slot Taxonomy
-Last completed milestone: M19 - Instrument Status Band Prototype
-Current executor: UI development owner / display asset documentor
-Current focus: classify terminology into display classes/types and derive a Lab slot vocabulary
-Expected artifact filename: `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
+Active milestone: None
+Last completed milestone: M20 - Display Vocabulary And Slot Taxonomy
+Current executor: Human / Overseer
+Current focus: waiting for Human / Overseer direction after M20 closure
+Expected artifact filename: None
 
 ## Current State
 
-Aura Lab is active for a documentation/advisory milestone after accepting and closing M19.
+Aura Lab is waiting after accepting and closing M20.
 
 Housekeeping note:
 
@@ -27,7 +27,7 @@ Housekeeping note:
 
 Accepted state:
 
-- M00 through M19 are complete.
+- M00 through M20 are complete.
 - Bridge State Readout remains the accepted Lab presentation feature.
 - M18 accepted `Instrument Status Band` as the next smallest safe presentation prototype.
 - The visible readout drawer now uses `Readout Detail`.
@@ -40,19 +40,20 @@ Accepted state:
 - The Instrument Status Band prototype is accepted as Lab advisory presentation-pattern input.
 - Sense conformance is already handled; Sense may now read M19 as advisory input through Sense authority.
 - The display asset documentation owner contract is active.
-- M20 is open to develop terminology-to-slot understanding before more primitive development.
+- M20 accepted `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`.
+- The initial Lab display slot vocabulary is accepted as display asset vocabulary, not bridge fields or target-project contracts.
 
 ## Purpose
 
-M20 develops the understanding layer needed before future display primitive work:
+M20 developed the understanding layer needed before future display primitive work:
 
 ```txt
 Display Vocabulary And Slot Taxonomy
 ```
 
-The goal is to classify project-wide terminology into display classes/types, identify recurring display pressures, and propose a robust Lab-owned slot vocabulary.
+The accepted result classifies project-wide terminology into display classes/types, identifies recurring display pressures, and proposes a Lab-owned slot vocabulary.
 
-This is advisory/documentation work only. It is not implementation, a bridge contract, a shared glossary, target adoption, or product doctrine.
+This remains advisory/documentation work only. It is not implementation, a bridge contract, a shared glossary, target adoption, or product doctrine.
 
 ## Latest Accepted Work
 
@@ -73,6 +74,8 @@ This is advisory/documentation work only. It is not implementation, a bridge con
 - M19 Overseer acceptance: `workspace/OverseerHS71-m19-acceptance.md`
 - Display asset documentation owner contract: `workspace/display-asset-documentation-owner-contract.md`
 - M20 runway: `workspace/OverseerHS74-m20-display-taxonomy-runway.md`
+- M20 UI documentor artifact: `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
+- M20 Overseer acceptance: `workspace/OverseerHS75-m20-acceptance.md`
 
 ## Source Of Intent
 
@@ -101,35 +104,16 @@ Accepted references:
 
 ## Ordered Runway
 
-This is not a Dev runway. Do not implement code.
+No active runway.
 
-1. Read this packet and the display asset documentation owner contract.
-2. Read the Lab critical terminology files and the project-wide terminology folder.
-3. Build a class/type table for relevant Lab, Atlas, and Sense terms.
-4. Derive recurring display pressures from those terms.
-5. Propose an initial Lab-owned slot vocabulary for display assets.
-6. Define translation/disposition rules for source terms becoming Lab display needs.
-7. Identify primitive/display-element families implied by the slot vocabulary.
-8. Prepare the next research pass by naming display types worth studying.
-9. End with accepted candidate slot names, unresolved slot names, terms needing owner review, and recommended next packet.
-10. Create `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`.
+Do not execute Dev work from this packet.
 
-## Acceptance Criteria
+Next valid moves:
 
-Artifact must be accepted only if it provides:
-
-1. Terminology coverage across relevant Lab, Atlas, and Sense terms.
-2. Owner/layer separation for each meaningful term.
-3. A class/type table with term, owner, layer, source artifact, display class, display type, likely slot need, source meaning risk, Lab translation allowed, and notes.
-4. A display pressure model.
-5. An initial Lab-owned slot vocabulary.
-6. Translation/disposition rules.
-7. Primitive implications.
-8. Research seeds for existing display types and slots.
-9. A usable structure short enough to inform the display asset inventory.
-10. A decision list.
-
-Reject if it is only a glossary, tells Dev what to build, makes Lab owner of Atlas/Sense meaning, fails to produce a usable slot vocabulary, or cannot inform the display asset inventory.
+1. Human / Overseer may open `M21 - Display Material Bench`.
+2. Human / Overseer may open a broad display-pattern research sweep.
+3. Human / Overseer may open display inventory scaffold work.
+4. Human / Overseer may park Lab while target projects continue local adoption work.
 
 ## Concept Candidates
 
@@ -167,13 +151,13 @@ Stop and return to Human / Overseer if the work would:
 
 ## Verification
 
-Required before closure:
+Latest accepted verification:
 
 ```powershell
 npm.cmd run verify:all
 ```
 
-Optional shared advisory check:
+Shared advisory check:
 
 ```powershell
 cd F:\Projects\Docs\Aura-Project-Orchestration
@@ -182,22 +166,14 @@ npm.cmd run verify:terminology
 
 ## Support
 
-M20 should record:
+M20 support:
 
-- files reviewed
-- terminology sources used
-- table structure
-- display pressure categories
-- proposed slot vocabulary
-- translation/disposition rules
-- primitive implications
-- research seeds
-- unresolved owner questions
-- verification/support commands run
+- `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
+- `workspace/OverseerHS75-m20-acceptance.md`
 
 ## Handoff
 
-Expected artifact:
+Accepted artifact:
 
 ```txt
 workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md

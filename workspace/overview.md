@@ -46,17 +46,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M17 | Human protected-term guardrail proposal | Complete | Accepted shared protected-word lookup scaffold and Lab warning-only discovery check. |
 | M18 | Presentation concept runway | Complete | Accepted Instrument Status Band as the smallest safe next prototype and kept references advisory. |
 | M19 | M18 accepted Instrument Status Band concept | Complete | Accepted visible Instrument Status Band prototype on the existing Bridge State Readout, with compact state slots, readout basis, age, gaps/warnings marker, detail reveal, and verified renderer/Electron smoke. |
+| M20 | Human direction after M19 and display asset owner contract | Complete | Accepted terminology-to-slot taxonomy and initial Lab display slot vocabulary for future asset inventory and material-bench work. |
 
 ## Current Direction
 
-Active milestone: M20 - Display Vocabulary And Slot Taxonomy
-Last completed milestone: M19 - Instrument Status Band Prototype
+Active milestone: None
+Last completed milestone: M20 - Display Vocabulary And Slot Taxonomy
 Roadmap source: Human direction after M19 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS74
-Latest accepted handshake: workspace/OverseerHS71-m19-acceptance.md
+Current sequence: HS75
+Latest accepted handshake: workspace/OverseerHS75-m20-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: workspace/OverseerHS74-m20-display-taxonomy-runway.md
+Active runway: None
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
