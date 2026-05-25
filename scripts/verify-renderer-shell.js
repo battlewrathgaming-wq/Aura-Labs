@@ -39,6 +39,7 @@ function main() {
   assert(main.includes('HORIZONTAL_OVERFLOW'), 'visual smoke should block horizontal overflow');
   assert(main.includes('SELECTED_VIEW_INTENT_MISMATCH'), 'visual smoke should block selected view intent mismatch');
   assert(main.includes('VIEW_INTENT_LABELS_MISSING'), 'visual smoke should block missing view intent labels');
+  assert(main.includes('BASIS_FOCUS_COPY_MISSING'), 'visual smoke should block missing basis focus copy');
   assert(main.includes('family-briefing-state-partial-view-${intent}.png'), 'visual smoke should capture targeted briefing view intents');
   assert(packageJson.includes('"smoke:electron"'), 'package should expose project-local Electron smoke script');
   assert(smokeScript.includes('AURA_LAB_ELECTRON_VISUAL_SMOKE'), 'Electron smoke wrapper should set explicit smoke flag');
@@ -70,6 +71,10 @@ function main() {
   assert(html.includes('Summary'), 'renderer should expose Summary view label');
   assert(html.includes('Basis'), 'renderer should expose Basis view label');
   assert(html.includes('Details'), 'renderer should expose Details view label');
+  assert(html.includes('basis-focus'), 'renderer should include Basis view focus rail');
+  assert(html.includes('Freshness'), 'renderer should expose freshness label in Basis focus');
+  assert(html.includes('Coverage'), 'renderer should expose coverage label in Basis focus');
+  assert(html.includes('Gaps / warnings'), 'renderer should expose gaps and warnings label in Basis focus');
   assert(html.includes('state-readout'), 'renderer should include Bridge State Readout strip');
   assert(html.includes('instrument-status-band'), 'renderer should mark state readout as Instrument Status Band prototype');
   assert(html.includes('Bridge State Readout'), 'renderer should label the readout as Bridge State Readout');
@@ -99,6 +104,7 @@ function main() {
   assert(app.includes('seed.readiness'), 'renderer should request seed readiness through services');
   assert(app.includes('setupWorkshopMode'), 'renderer should gate workshop mode from query params');
   assert(app.includes('setupViewIntentControl'), 'renderer should initialize the view intent control');
+  assert(app.includes('renderBasisFocus'), 'renderer should render Basis view focus values');
   assert(app.includes("viewIntent: 'summary-first'"), 'renderer should default view intent to summary-first');
   assert(app.includes("['summary-first', 'basis', 'details']"), 'renderer should define the local view intent axis');
   assert(app.includes('document.body.dataset.viewIntent'), 'renderer should expose selected view intent through body data');

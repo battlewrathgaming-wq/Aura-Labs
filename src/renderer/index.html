@@ -49,6 +49,24 @@
           <button type="button" id="view-intent-basis" data-view-intent-option="basis" aria-pressed="false">Basis</button>
           <button type="button" id="view-intent-details" data-view-intent-option="details" aria-pressed="false">Details</button>
         </div>
+        <section class="basis-focus" id="basis-focus" aria-label="Basis view focus">
+          <div>
+            <span>Basis</span>
+            <strong id="basis-focus-basis">Awaiting first bridge response.</strong>
+          </div>
+          <div>
+            <span>Freshness</span>
+            <strong id="basis-focus-freshness">Last read pending</strong>
+          </div>
+          <div>
+            <span>Coverage</span>
+            <strong id="basis-focus-coverage">0/0 sources</strong>
+          </div>
+          <div>
+            <span>Gaps / warnings</span>
+            <strong id="basis-focus-marker">Updating</strong>
+          </div>
+        </section>
         <section class="state-readout instrument-status-band" id="state-readout" data-tone="updating" data-marker="attention" data-view-intent="summary-first" aria-labelledby="state-label">
           <div class="state-core">
             <span class="state-light" aria-hidden="true"></span>

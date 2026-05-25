@@ -1,16 +1,16 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
 Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / H03 - View Intent Axis
-Current executor: Dev
-Current focus: Improve the Briefing family `Basis` view as the first bounded expressive view after H03.
-Expected artifact filename: `workspace/DevHS97-basis-first-expressive-view.md`
+Last completed milestone: M29 / HS97 - Basis-First Expressive View
+Current executor: Human / Overseer
+Current focus: HS97 accepted; awaiting direction on another bounded presentation-head slice, UI/UX review, or split-readiness review.
+Expected artifact filename: No active artifact expected.
 
 ## Current State
 
@@ -20,21 +20,18 @@ Accepted M29 slices:
 
 - H02 Loading State Parity.
 - H03 View Intent Axis.
+- HS97 Basis-First Expressive View.
 
-Accepted H03 result:
+Accepted HS97 result:
 
-- `viewIntent` is a local renderer/test axis.
-- `summary-first` is the default behavior.
-- `Summary`, `Basis`, and `Details` are visible H03 view labels.
-- Briefing demonstrates all three view intents.
-- The same surface, family, and selected state remain stable across the switch.
+- The Briefing family now has a compact basis-focus rail.
+- The rail surfaces `Basis`, `Freshness`, `Coverage`, and `Gaps / warnings`.
+- The rail sits before the state band so the `Basis` view shows its focus structure in the first visible slice.
+- `Basis` gives the rail stronger visual priority while keeping Summary and Details stable.
+- `summary-first` remains the default behavior.
+- Details still emphasizes the Readout Detail path without making diagnostics primary.
 - Smoke captures `summary-first`, `basis`, and `details` on `briefing` / `partial`.
-- No target-project adapter, source-project meaning, export/seeding, renderer split, durable bridge/runtime contract, or new dependency was introduced.
-
-Active next slice:
-
-- Use the accepted view switch to make the Briefing family `Basis` view meaningfully more useful.
-- Keep this as a presentation emphasis change, not a new page, target adapter, or bridge/runtime contract.
+- No target-project adapter, source-project meaning, export/seeding, renderer split, durable bridge/runtime contract, IPC channel, network path, or dependency was introduced.
 
 ## Source Of Intent
 
@@ -51,163 +48,66 @@ Accepted source of intent:
 - `workspace/DevHS95-view-intent-axis.md`
 - `workspace/OverseerHS96-h03-view-intent-acceptance.md`
 - `workspace/OverseerHS97-m29-basis-first-expressive-view-runway.md`
+- `workspace/DevHS97-basis-first-expressive-view.md`
+- `workspace/OverseerHS98-hs97-basis-view-acceptance.md`
 
-Read first:
+## Latest Accepted Artifacts
 
-- `AGENTS.md`
-- `workspace/current.md`
-- `workspace/overseer.md`
-- `workspace/overview.md`
-- `workspace/critical/README.md`
-- `workspace/critical/critical-terms.md`
-- `workspace/critical/critical-assets.md`
-- `docs/roadmap/README.md`
-- `docs/roadmap/m29-presentation-head-improvement-rail.md`
-- `docs/roadmap/future-candidate-bank.md`
-- `docs/adr/0001-smokeflash-split-timing.md`
-- `docs/adr/0002-target-owned-presentation-adapters.md`
-- `src/main/main.js`
-- `src/renderer/index.html`
-- `src/renderer/app.js`
-- `src/renderer/styles.css`
-- `scripts/electron-visual-smoke.ps1`
-- `scripts/verify-renderer-shell.js`
-- `scripts/verify-lab-vocabulary.js`
+- `workspace/DevHS97-basis-first-expressive-view.md`
+- `workspace/OverseerHS98-hs97-basis-view-acceptance.md`
 
-## Ordered Runway
+## Verification Notes
 
-1. Inspect the accepted H03 implementation and smoke model for the Briefing family.
-2. Keep the visible view labels stable: `Summary`, `Basis`, and `Details`.
-3. Keep `summary-first` as the default behavior.
-4. Improve the Briefing family `Basis` view so basis, freshness, coverage, gaps, and warnings have a clearer visual hierarchy than H03.
-5. Keep stable across the three views: title/readout label, status band, primary state, freshness/last read cue, basis cue, warning/gap marker, detail affordance, and diagnostics access.
-6. Preserve Summary and Details behavior unless a tiny supporting adjustment is required to keep the surface coherent.
-7. Add targeted renderer/smoke coverage proving the improved `Basis` view is visible and does not regress Summary or Details identity.
-8. Create `workspace/DevHS97-basis-first-expressive-view.md`.
-
-## Acceptance Criteria
-
-This runway is acceptable if:
-
-- the Briefing family `Basis` view is visibly more useful than the accepted H03 version
-- the view remains a presentation emphasis change, not a new page or separate product mode
-- basis, freshness, coverage, gaps, and warnings are easier to scan
-- Summary remains the default and still reads as the primary overview
-- Details still opens/emphasizes the Readout Detail path without making diagnostics primary
-- stable identity elements remain present across all three views
-- visible copy stays in Lab slim language and avoids stronger claim wording
-- targeted renderer verification or smoke can observe the improved Basis view
-- no target-project adapter, source-project meaning, export/seeding, renderer split, durable bridge/runtime contract, IPC channel, network path, or dependency is introduced
-- SmokeFlash remains hidden/gated support tooling
-- verification passes
-
-Redirect or stop if:
-
-- making the Basis view useful requires source-project data or source-owned terms
-- Dev needs to rename or promote view labels as critical/key terms
-- the work turns into a broad multi-family view matrix
-- a bridge/runtime contract decision is required
-- normal launch depends on workshop state
-
-## Guardrails And Non-Goals
-
-Allowed:
-
-- improve `Basis` view layout and hierarchy for the Briefing family
-- make small HTML/CSS/JS changes needed for the improved presentation
-- refine local fixture/render metadata only as needed to demonstrate the view
-- update targeted renderer/smoke checks for the changed presentation
-- update local vocabulary checks if visible copy changes
-
-Not allowed:
-
-- new visible view labels
-- target-project adapters
-- Atlas/Sense implementation
-- export/seeding
-- renderer split
-- broad SmokeFlash workbench
-- broad visual-smoke matrix
-- durable bridge/runtime contract
-- source-project meaning decisions
-- attention triage view
-- comparison/delta view
-- new dependencies
-- live/private/network work
-
-## Stop Conditions
-
-Stop and return to Human / Overseer if:
-
-- the Briefing family cannot carry the expressive Basis work cleanly
-- the work needs target-project terms or source-owned meaning
-- the view labels need key-term promotion before implementation
-- normal launch cannot stay clean
-- SmokeFlash/workshop state becomes product navigation
-- verification requires live/private/network data
-- Electron runtime/install issues become the main work
-
-## Required Verification
-
-Always run:
+HS97 acceptance verification rerun by Overseer:
 
 ```powershell
 npm.cmd run verify:renderer-shell
 npm.cmd run verify:all
 npm.cmd run verify:vocabulary
-```
-
-Run Electron smoke because visible view behavior is expected to change:
-
-```powershell
 npm.cmd run smoke:electron
 ```
 
-Run shared terminology check if visible copy or durable documentation wording changes:
+All passed.
+
+Shared terminology check rerun from `F:\Projects\Docs\Aura-Project-Orchestration`:
 
 ```powershell
-cd F:\Projects\Docs\Aura-Project-Orchestration
 npm.cmd run verify:terminology
 ```
 
-## Evidence
+Passed 53/53 checks with the existing 24 advisory warnings.
 
-Dev should fill this after work:
+Electron smoke result:
 
-- Files changed:
-- Selected family:
-- View behavior changed:
-- Stable identity elements:
-- Copy changes:
-- Smoke/test model impact:
-- Verification run:
-- Smoke result:
-- Remaining risks:
-
-## Dev Handoff
-
-Expected output:
-
-```txt
-workspace/DevHS97-basis-first-expressive-view.md
-```
-
-The handoff must state whether the expressive Basis view is ready for Overseer acceptance and whether the next M29 move should continue presentation-head improvement, pause for UI/UX review, or review split readiness.
-
-## Advisory Disposition
-
-- Accepted: H03 View Intent Axis as the basis for this runway.
-- Accepted: `Summary`, `Basis`, and `Details` as H03 visible labels for this slice.
-- Accepted: use Basis view to express basis/freshness/coverage/gaps/warnings rather than opening a separate stronger-claim view.
-- Deferred: key-term promotion for `Summary`, `Basis`, and `Details`.
-- Deferred: H08 Presentation Readiness Split.
-- Parked: target-project adapters and adoption work.
-- Parked: T-lane workshop tooling unless needed to support presentation improvement.
+- `.tmp/electron-visual-smoke/visual-smoke-result.json`
+- `status: passed`
+- `blocking_failures: []`
+- `view_intents_checked.briefing`: `summary-first`, `basis`, `details`
+- `basis_focus_visible`: true in targeted view observations
+- screenshot reviewed: `family-briefing-state-partial-view-basis.png`
+- no Electron process remained afterward
 
 ## Residual Risks
 
 - Existing inherited naming tripwires remain.
 - `viewIntent` is local renderer/test state only, not a durable bridge/runtime contract.
-- Only the Briefing family proves the view axis so far.
+- HS97 is proven only on the Briefing family.
+- `Summary`, `Basis`, and `Details` remain accepted visible labels for this slice, not durable key terms.
+- The new focus labels are Lab-visible presentation labels, not source-project terms.
 - SmokeFlash/material harness code remains in the renderer bundle under ADR 0001 Lab-local allowance.
 - SmokeFlash must still be split before export, seeding, or target-project consumption.
+
+## Recommended Next Choices
+
+- Short UI/UX review of H03/HS97 screenshots.
+- Another bounded presentation-head slice if Human wants to keep improving the renderer this week.
+- Split-readiness review only when the presentation head feels good enough to consider export/seeding.
+
+## Parked Items
+
+- Target-project adapters and adoption work.
+- Export/seeding.
+- Renderer split.
+- Broad SmokeFlash workbench.
+- Broad visual-smoke matrix.
+- Durable bridge/runtime contracts.

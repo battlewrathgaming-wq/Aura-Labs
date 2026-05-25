@@ -306,6 +306,11 @@ async function captureViewIntent(window, family, state, intent, viewport, output
         readout_basis: text('#state-basis'),
         band_marker: text('#state-marker'),
         source_coverage: text('#state-source-count'),
+        basis_focus_visible: Boolean(document.querySelector('#basis-focus')),
+        basis_focus_basis: text('#basis-focus-basis'),
+        basis_focus_freshness: text('#basis-focus-freshness'),
+        basis_focus_coverage: text('#basis-focus-coverage'),
+        basis_focus_marker: text('#basis-focus-marker'),
         source_drawer_visible: Boolean(document.querySelector('#source-detail-drawer')),
         source_drawer_open: Boolean(document.querySelector('#source-detail-drawer')?.open),
         diagnostics_visible: Boolean(document.querySelector('.diagnostics')),
@@ -408,6 +413,12 @@ function visualSmokeBlockingFailures(observations) {
         code: 'VIEW_INTENT_STABLE_COPY_MISSING',
         screenshot: observation.screenshot,
         requested_view_intent: observation.requested_view_intent
+      });
+    }
+    if (observation.requested_view_intent === 'basis' && (!observation.basis_focus_visible || !observation.basis_focus_basis || !observation.basis_focus_freshness || !observation.basis_focus_coverage || !observation.basis_focus_marker)) {
+      failures.push({
+        code: 'BASIS_FOCUS_COPY_MISSING',
+        screenshot: observation.screenshot
       });
     }
     if (observation.selected_family !== observation.requested_family) {

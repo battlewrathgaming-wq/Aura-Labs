@@ -318,6 +318,7 @@ function renderBriefing(briefing) {
   document.querySelector('#action-posture-detail').textContent = actionPostureDetail(briefing, stateCopy);
   const readout = bridgeStateReadout(briefing, status, stateCopy);
   renderBridgeStateReadout(readout);
+  renderBasisFocus(readout);
   renderSourceDrawer(briefing, readout, status);
   document.querySelector('#certainty').textContent = readout.basis;
   document.querySelector('#sources').textContent = readout.sourceDisplay;
@@ -332,6 +333,13 @@ function renderBriefing(briefing) {
     item.textContent = valueCopy(fields[key], status);
     item.classList.toggle('muted-value', !fields[key]);
   }
+}
+
+function renderBasisFocus(readoutState) {
+  document.querySelector('#basis-focus-basis').textContent = readoutState.basis;
+  document.querySelector('#basis-focus-freshness').textContent = readoutState.ageLabel;
+  document.querySelector('#basis-focus-coverage').textContent = readoutState.sourceDisplay;
+  document.querySelector('#basis-focus-marker').textContent = readoutState.marker;
 }
 
 function renderBridgeStateReadout(readoutState) {

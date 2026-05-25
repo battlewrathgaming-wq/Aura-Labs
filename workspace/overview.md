@@ -56,18 +56,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M26 | Human direction after M25 | Complete | Accepted individual reusable display material schemas and divided them into material library pages with the ledger as index. |
 | M27 | Human direction after M26 and HS88 | Complete | Accepted SmokeFlash boundary hardening with normal launch isolated from visible workshop controls and split-before-export noted as residual risk. |
 | M28 | Human direction after M27 controls | Complete | Accepted first Lab-local visible material prototype for Authority Window TTL Strip using ADR-controlled SmokeFlash workshop path. |
-| M29 | Presentation Head Improvement Rail | Active | H03 View Intent Axis accepted; HS97 opened a bounded Basis-first expressive view runway. |
+| M29 | Presentation Head Improvement Rail | Active | Accepted HS97 Basis-first expressive view; awaiting next Human / Overseer direction. |
 
 ## Current Direction
 
 Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / H03 - View Intent Axis
+Last completed milestone: M29 / HS97 - Basis-First Expressive View
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS97
-Latest accepted handshake: workspace/OverseerHS96-h03-view-intent-acceptance.md
+Current sequence: HS98
+Latest accepted handshake: workspace/OverseerHS98-hs97-basis-view-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: workspace/OverseerHS97-m29-basis-first-expressive-view-runway.md
+Active runway: None
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
@@ -160,6 +160,8 @@ Active milestone handshakes:
 - `workspace/DevHS95-view-intent-axis.md`
 - `workspace/OverseerHS96-h03-view-intent-acceptance.md`
 - `workspace/OverseerHS97-m29-basis-first-expressive-view-runway.md`
+- `workspace/DevHS97-basis-first-expressive-view.md`
+- `workspace/OverseerHS98-hs97-basis-view-acceptance.md`
 
 Accepted authority records:
 
