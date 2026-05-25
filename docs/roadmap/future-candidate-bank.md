@@ -45,6 +45,9 @@ The H-lane is the current strategic rail for the next Lab phase. The T-lane supp
 | H06 | Attention Triage View | Add a view organized around review-needed, blocked, missing input, stale source, and partial result. Keep labels Lab-neutral. | Candidate after H03. |
 | H07 | Comparison / Delta View | Render previous/current fixture reads and show what changed, disappeared, became stale, became available, or changed basis. | Candidate after stable fixture history shape. |
 | H08 | Presentation Readiness Split | Before export/seeding, split SmokeFlash/material harness/workshop tooling out of the offered renderer bundle. The clean head becomes safe for Atlas/Sense adapter trials. | Candidate export gate; aligns with ADR 0001. |
+| H09 | Presentation Slot Registry | Add a small renderer-local registry for Lab presentation slots, so slot purpose, state, render entry, and verification hints are addressable without source-project meaning. | Accepted next bounded candidate after HS104. |
+| H10 | Lazy-Loaded Visual Slot | Add one deferred visual slot pattern that can load heavier visual treatment only when requested or visible, without changing bridge meaning. | Candidate after H09 proves the registry shape. |
+| H11 | Virtualized List Helper | Add a renderer helper for long readout/list surfaces so dense bridge-fed rows stay fast, contained, and readable. | Candidate after H09/H10 or when list pressure is concrete. |
 
 ## I-Lane: Integration Readiness Candidates
 
@@ -60,13 +63,14 @@ The H-lane is the current strategic rail for the next Lab phase. The T-lane supp
 
 Near path:
 
-1. Use M29 to improve the presentation head through H02, H03, and one expressive view.
+1. Use M29 to improve the presentation head through H02, H03, and bounded visible presentation capability.
 2. Keep material proving as support for the presentation head, not the main road.
-3. Consider H01 before the head grows too much or before export/readiness work.
-4. Explore H04-H07 as actual presentation modes.
-5. Use H08/M32 as the export-readiness gate.
-6. Open I-lane work only after the clean head and adapter boundaries are strong enough.
-7. Open T-lane tooling only when workflow friction slows product work.
+3. Build H09 before H10/H11 so later slot behavior has a clear local address.
+4. Consider H01 before the head grows too much or before export/readiness work.
+5. Explore H04-H07 as actual presentation modes.
+6. Use H08/M32 as the export-readiness gate.
+7. Open I-lane work only after the clean head and adapter boundaries are strong enough.
+8. Open T-lane tooling only when workflow friction slows product work.
 
 ## Vocabulary Notes
 

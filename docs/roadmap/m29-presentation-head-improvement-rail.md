@@ -6,12 +6,13 @@ Status: Candidate
 
 Improve Aura Lab's product-facing presentation head through visible renderer capabilities, while keeping workshop tooling bounded and support-only.
 
-M29 should advance the H-lane direction from the candidate bank. The likely arc is:
+M29 should advance the H-lane direction from the candidate bank. The current arc is:
 
 1. make loading a first-class presentation state
 2. add `viewIntent` as a render axis after family and state
-3. prove one alternate view intent, such as confidence-first or source-first
-4. close with a review of whether the renderer is good enough to justify split/readiness work
+3. prove alternate view emphasis through Summary / Basis / Details
+4. add bounded feature-enrichment scaffolding, starting with a presentation slot registry
+5. defer renderer security and split/readiness review until the head is closer to export shape
 
 ## Why This Is Milestone-Sized
 
@@ -24,8 +25,9 @@ M29 is milestone-sized because it changes what the renderer can express and what
 - Add loading state parity to the renderer and smoke model.
 - Add `viewIntent` as a deliberate presentation axis.
 - Keep `summary-first` as the default view intent.
-- Prototype one expressive view intent, likely confidence-first or source-first.
+- Prototype or polish alternate view emphasis through Lab-slim Summary / Basis / Details language.
 - Capture any new presentation test axis created by the work.
+- Add a presentation slot registry before lazy visual slots or virtualized helpers.
 - Review split readiness at close without starting export/seeding by default.
 
 ## Supporting Work
@@ -59,6 +61,7 @@ M29 is complete when:
 - loading is represented as a first-class presentation state or explicitly deferred with reason
 - `viewIntent` is added as a renderer/test concept or explicitly deferred with reason
 - at least one alternate view intent is scoped, prototyped, or parked with clear rationale
+- the presentation slot registry is implemented or explicitly deferred with reason
 - verification covers any new state or view axis introduced
 - SmokeFlash remains hidden/gated workshop tooling
 - no target-project adapter, source-project meaning, or export/seeding work is introduced

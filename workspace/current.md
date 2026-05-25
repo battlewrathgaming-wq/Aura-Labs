@@ -8,9 +8,9 @@ Owner: Overseer
 
 Active milestone: M29 - Presentation Head Improvement Rail
 Last completed milestone: M29 / HS102 - Details View Inspection
-Current executor: Security specialist / Reviewer
-Current focus: Renderer security review after the final bounded M29 presentation slice.
-Expected artifact filename: `workspace/SecurityHS104-renderer-security-review.md`
+Current executor: Dev
+Current focus: Presentation slot registry scaffold for the Lab renderer.
+Expected artifact filename: `workspace/DevHS105-presentation-slot-registry.md`
 
 ## Current State
 
@@ -24,34 +24,28 @@ Accepted M29 slices:
 - HS99 Basis Rail Polish.
 - HS102 Details View Inspection.
 
-Accepted HS102 result:
+Accepted HS104 direction:
 
-- The Briefing `Details` view now brings the existing Readout Detail drawer into the first Details flow before the Bridge State Readout band.
-- The drawer is styled as a calm inspection surface for readout age/timing, state summary, basis, known fields, band marker, source paths, gaps, and warnings.
-- `Summary`, `Basis`, and `Details` remain the only visible view options.
-- Summary remains default.
-- The HS99 Basis rail placement and polish are preserved.
-- Diagnostics remain secondary and are not promoted into Details.
-- Targeted smoke captures `summary-first`, `basis`, and `details` on `briefing` / `partial`.
-- No target-project adapter, source-project meaning, export/seeding, renderer split, durable bridge/runtime contract, IPC channel, network path, or dependency was introduced.
+- The previously opened renderer security review is deferred until closer to split/export readiness.
+- Human introduced immediate feature-enrichment scope: presentation slot registry, lazy-loaded visual slot, and virtualized list helper.
+- Human also introduced production-pipeline scope: Lab-only draggable layout board and screenshot comparison index.
+- Overseer accepted the feature-enrichment sequence but split it into bounded slices.
+- The production-pipeline items are parked as support tooling and are not product direction.
 
-Accepted sequence:
-
-- One bounded presentation-head slice after HS99.
-- Then renderer security review.
-
-The bounded slice is now accepted. Open the renderer security review.
+The next executable slice is the presentation slot registry scaffold. This is a local renderer/presentation structure, not a bridge contract and not target-project meaning.
 
 ## Source Of Intent
 
 Accepted source of intent:
 
-- Human direction to do one bounded presentation slice, then a renderer security review.
-- Human direction to focus this phase on presentation improvements.
-- `workspace/OverseerHS101-m29-next-slice-security-sequence.md`
-- `workspace/OverseerHS102-m29-details-view-inspection-runway.md`
-- `workspace/DevHS102-details-view-inspection.md`
-- `workspace/OverseerHS103-hs102-details-view-acceptance.md`
+- Human direction to defer renderer security review until closer to split.
+- Human immediate scope: presentation slot registry, lazy-loaded visual slot, virtualized list helper.
+- Human production-pipeline candidates: Lab-only draggable layout board and screenshot comparison index.
+- `workspace/OverseerHS104-immediate-scope-lane-reset.md`
+- `docs/roadmap/m29-presentation-head-improvement-rail.md`
+- `docs/roadmap/future-candidate-bank.md`
+- `docs/adr/0001-smokeflash-split-timing.md`
+- `docs/adr/0002-target-owned-presentation-adapters.md`
 
 Read first:
 
@@ -61,115 +55,129 @@ Read first:
 - `workspace/critical/README.md`
 - `workspace/critical/critical-terms.md`
 - `workspace/critical/critical-assets.md`
-- `docs/adr/0001-smokeflash-split-timing.md`
-- `docs/adr/0002-target-owned-presentation-adapters.md`
+- `workspace/display-materials/README.md`
+- `workspace/display-schema-ledger.md`
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
-- `workspace/OverseerHS101-m29-next-slice-security-sequence.md`
-- `workspace/OverseerHS103-hs102-details-view-acceptance.md`
-- `src/main/main.js`
-- `src/main/preload.js`
+- `docs/roadmap/future-candidate-bank.md`
 - `src/renderer/index.html`
 - `src/renderer/app.js`
 - `src/renderer/styles.css`
-- `src/services/serviceRegistry.js`
-- `scripts/electron-visual-smoke.ps1`
 - `scripts/verify-renderer-shell.js`
 - `package.json`
 
-## Ordered Review Runway
+## Ordered Dev Runway
 
-1. Review renderer and Electron boundary assumptions in the listed files.
-2. Review DOM insertion/text handling and whether bridge/fixture strings are treated as text rather than HTML.
-3. Review preload, IPC, service access, and renderer command exposure for unnecessary authority.
-4. Review SmokeFlash/workshop gating and normal launch isolation.
-5. Review whether recent M29 view-intent, Basis rail, and Details inspection changes introduced renderer risk.
-6. Review Electron window/shell assumptions relevant to renderer safety.
-7. Run lightweight verification only if useful for confirming current state.
-8. Create `workspace/SecurityHS104-renderer-security-review.md`.
+1. Inspect the current renderer structure and identify where Briefing/readout slots are currently represented or implied.
+2. Add a small renderer-local presentation slot registry scaffold that can describe Lab display slots without importing source-project meaning.
+3. Wire one narrow existing surface to use or reference the registry in a way that proves the shape, preferably around the current Briefing/readout/basis/detail path.
+4. Keep compatibility names, fixture ids, smoke selectors, payload fields, IPC channels, service commands, and visible labels stable unless a tiny local rename is required and covered.
+5. Do not implement the lazy-loaded visual slot or virtualized list helper in this packet; only leave the registry shape compatible with those later slices.
+6. Do not implement the draggable layout board, screenshot comparison index, split, target adapters, or security review in this packet.
+7. Update renderer/local verification expectations if the registry changes renderer-shell assumptions.
+8. Create `workspace/DevHS105-presentation-slot-registry.md`.
 
 ## Acceptance Criteria
 
-This review is acceptable if it:
+This slice is acceptable if:
 
-- identifies whether the renderer is acceptable for continued Lab-local presentation work
-- lists concrete findings by severity, with file references
-- distinguishes blocker, fix-before-export, and acceptable-Lab-local risks
-- reviews DOM/text handling, preload/IPC exposure, workshop gating, and normal launch isolation
-- calls out any impact from HS102 or the current M29 view work
-- does not implement code
-- does not open target-project adapters, export/seeding, renderer split, or live/private/network work
-- recommends the next move after review
+- a fresh Dev can point to a small presentation slot registry in renderer code
+- the registry is Lab-local and presentation-owned, not a bridge/runtime/source-project contract
+- at least one current presentation path uses or validates the registry shape
+- current visible presentation behavior remains stable unless deliberately and narrowly improved
+- no target-project terms, adapters, or source-project doctrine are introduced
+- lazy loading and virtualization remain future work
+- production pipeline tooling remains parked
+- verification commands and results are recorded in the DevHS
 
 ## Guardrails And Non-Goals
 
 Allowed:
 
-- read files
-- inspect current smoke result files
-- run local verification commands if useful
-- write the expected security review artifact
+- renderer-local code changes
+- small verification updates
+- small documentation/handoff updates
+- local presentation terminology that follows Lab slim language
 
 Not allowed:
 
-- code changes
-- dependency changes
 - target-project adapters
-- export/seeding
-- renderer split implementation
+- source-project meaning changes
+- durable bridge/runtime contracts
+- preload/IPC authority expansion
+- dependency changes
+- normal-launch SmokeFlash/workshop exposure
+- lazy-loaded visual slot implementation
+- virtualized list helper implementation
+- draggable layout board implementation
+- screenshot comparison index implementation
+- renderer security review
 - live/private/network work
-- GUI/manual smoke unless Human explicitly asks
 - destructive or git history operations
 
 ## Stop Conditions
 
 Stop and return to Human / Overseer if:
 
-- a possible critical security issue needs immediate Human review
-- review requires live/private/network data
-- review requires changing code to continue
-- the renderer boundary depends on target-project adapter assumptions
-- Electron runtime/install issues become the main work
+- the slot registry requires changing bridge payloads, IPC channels, preload surface, or service commands
+- the registry would force broad renderer refactor beyond the current presentation path
+- source-project terms or target-project semantics become necessary to name the slots
+- SmokeFlash/workshop state must enter normal launch to make progress
+- verification failures point to Electron/runtime installation rather than this slice
 
 ## Required Verification
 
-No verification is strictly required for a read-only security review.
-
-If useful, run:
+Run:
 
 ```powershell
 npm.cmd run verify:renderer-shell
+npm.cmd run verify:vocabulary
 npm.cmd run verify:all
 ```
 
-Do not run Electron smoke unless Human or Overseer asks for GUI/smoke confirmation.
+Run Electron smoke if visible renderer behavior, layout, CSS, or smoke-targeted presentation output changes:
+
+```powershell
+npm.cmd run smoke:electron
+```
+
+Run shared terminology verification if durable docs or visible copy change:
+
+```powershell
+cd F:\Projects\Docs\Aura-Project-Orchestration
+npm.cmd run verify:terminology
+```
 
 ## Evidence
 
-Security reviewer should fill this after work:
+Dev should fill this after work:
 
-- Files reviewed:
+- Files changed:
+- Registry shape:
+- Current path using registry:
+- Compatibility names intentionally left alone:
 - Commands run:
-- Findings:
-- Blockers:
-- Fix-before-export risks:
-- Acceptable Lab-local risks:
-- Recommended next move:
+- Results:
+- Remaining risks:
 
-## Review Handoff
+## Dev Handoff
 
 Expected output:
 
 ```txt
-workspace/SecurityHS104-renderer-security-review.md
+workspace/DevHS105-presentation-slot-registry.md
 ```
 
-The handoff must state whether the renderer can continue Lab-local presentation work and whether any fix runway is needed before split/readiness review.
+The handoff must state whether the registry is ready to support a later lazy-loaded visual slot and whether any blocker exists before the virtualized list helper is scoped.
 
 ## Advisory Disposition
 
 - Accepted: HS102 Details View Inspection.
-- Accepted: open renderer security review after HS102.
-- Deferred: split-readiness review until after security review.
+- Accepted: HS104 immediate scope lane reset.
+- Accepted next: presentation slot registry scaffold.
+- Deferred: renderer security review until closer to split/export readiness.
+- Parked: lazy-loaded visual slot until registry is proven.
+- Parked: virtualized list helper until registry/list pressure is clearer.
+- Parked: Lab-only draggable layout board and screenshot comparison index as support tooling.
 - Parked: target-project adapters and export/seeding.
 
 ## Residual Risks
@@ -179,3 +187,4 @@ The handoff must state whether the renderer can continue Lab-local presentation 
 - M29 presentation-head work is proven only on the Briefing family.
 - SmokeFlash/material harness code remains in the renderer bundle under ADR 0001 Lab-local allowance.
 - SmokeFlash must still be split before export, seeding, or target-project consumption.
+- Production-pipeline tooling may become necessary if Human/agent UI communication remains costly, but it should be opened as a separate Lab-only support lane.
