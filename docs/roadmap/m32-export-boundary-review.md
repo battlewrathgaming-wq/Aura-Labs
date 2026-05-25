@@ -1,6 +1,6 @@
 # M32 - Export Boundary Review
 
-Status: Active
+Status: Complete
 
 ## Outcome
 
@@ -40,3 +40,7 @@ M32 is complete when:
 ## Activation
 
 Activated by HS129 after M31 accepted two non-TTL Lab-local material prototypes. M32 is advisory and does not authorize split/export implementation.
+
+## Closure
+
+Closed accepted in HS130. Primary accepted recommendation: open a composed display output milestone before split/export work.

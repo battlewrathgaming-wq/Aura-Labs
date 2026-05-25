@@ -59,20 +59,21 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M29 | Presentation Head Improvement Rail | Complete | Accepted loading state parity, Summary/Basis/Details view intent, slot registry/policy, detail hydration, focus/reveal, lazy visual slot, row facets, overflow sentinel, and HS120 close/readiness review. |
 | M30 | Presentation Resilience Gate | Complete | Accepted a bounded renderer-local reduced-motion gate for the presentation head, with normal verification and Electron smoke. |
 | M31 | Display Material Repeat Cycle | Complete | Accepted Long Text Detail Block and Availability Reason Treatment as two non-TTL material prototypes; remaining candidates are parked for later packets. |
-| M32 | Export Boundary Review | Active | Advisory review opened to distinguish clean presentation-head candidates from Lab-only SmokeFlash/workshop/material harness before any export or target consumption decision. |
+| M32 | Export Boundary Review | Complete | Accepted Engineering review; split/export remains parked and composed display output is recommended first. |
+| M33 | Composed Display Output | Active | UI/UX advisory opened to define the first combined Lab-local display output from accepted materials. |
 
 ## Current Direction
 
-Active milestone: M32 - Export Boundary Review
-Last completed milestone: M31 / HS128 - Display Material Repeat Cycle Closure
+Active milestone: M33 - Composed Display Output
+Last completed milestone: M32 / HS130 - Export Boundary Review Acceptance
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS129
-Latest accepted handshake: workspace/complete/milestone-M31/OverseerHS128-hs127-availability-reason-treatment-acceptance.md
-Latest active runway: workspace/OverseerHS129-m32-export-boundary-review-runway.md
+Current sequence: HS131
+Latest accepted handshake: workspace/complete/milestone-M32/OverseerHS130-engineeringhs129-export-boundary-acceptance.md
+Latest active runway: workspace/OverseerHS131-m33-composed-display-output-runway.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
-Housekeeping: active root cleaned on 2026-05-25; M19-M30 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root cleaned on 2026-05-26; M19-M32 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -87,6 +88,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/roadmap/m30-presentation-resilience-gate.md`
 - `docs/roadmap/m31-display-material-repeat-cycle.md`
 - `docs/roadmap/m32-export-boundary-review.md`
+- `docs/roadmap/m33-composed-display-output.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/composed-display-output-candidate.md`
 - `docs/roadmap/m32-export-boundary-review.md`
@@ -135,7 +137,7 @@ Active milestone handshakes:
 
 - `workspace/LabRemoteConsumerConformanceHS66.md`
 - `workspace/request_display.md`
-- `workspace/OverseerHS129-m32-export-boundary-review-runway.md`
+- `workspace/OverseerHS131-m33-composed-display-output-runway.md`
 
 Accepted authority records:
 
@@ -176,6 +178,7 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M29/`
 - `workspace/complete/milestone-M30/`
 - `workspace/complete/milestone-M31/`
+- `workspace/complete/milestone-M32/`
 
 ### Historical Archives
 
@@ -192,4 +195,4 @@ Completed milestone handshakes:
 - Where should the future use-case comparison landing zone live after material bench shape is clearer?
 - Should SmokeFlash split-readiness move forward before export, seeding, or target-project consumption?
 - Should Source / Basis Coverage Marker or Compact Value Rail become a later prototype?
-- Should the next milestone focus on composed display outputs, further material prototypes, or export/split readiness?
+- Should the M33 composed output become a Dev prototype after UI/UX advisory acceptance?
