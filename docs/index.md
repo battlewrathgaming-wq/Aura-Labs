@@ -8,7 +8,7 @@ The authoritative implementation truth lives in `docs/current-state/`. Workspace
 
 Aura Lab is a portable post-bridge display mapping and presentation tooling bench.
 
-It receives bridge-shaped or fixture-backed data and proves whether Aura can render that data in the desired desktop style with stable typography, containment, trust/freshness language, state handling, diagnostics, and visual smoke evidence.
+It receives bridge-shaped or fixture-backed data and proves whether Aura can render that data in the desired desktop style with stable typography, containment, source/freshness/basis language, state handling, diagnostics, and visual smoke evidence.
 
 Aura Lab is not:
 
@@ -70,6 +70,7 @@ Start here:
 
 - `README.md`
 - `docs/README.md`
+- `docs/roadmap/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
 - `docs/statements/post-bridge-presentation-boundary.md`

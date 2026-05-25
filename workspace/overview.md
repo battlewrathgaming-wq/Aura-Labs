@@ -16,6 +16,7 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 ## Coordination Model
 
 - `workspace/current.md` is the only active executable work packet.
+- `workspace/overseer.md` guides Overseer milestone/runway shaping and acceptance criteria.
 - Handshake files in `workspace/` are active-milestone transaction notes.
 - Completed milestone handshakes move in batch to `workspace/complete/milestone-XX/`.
 - `docs/` starts lean and grows durable records only when real product or architecture truth exists.
@@ -75,6 +76,11 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 - `docs/index.md`
 - `docs/README.md`
+- `docs/roadmap/README.md`
+- `docs/roadmap/m29-display-material-proving-bench.md`
+- `docs/roadmap/m30-display-material-repeat-cycle.md`
+- `docs/roadmap/m31-composed-display-output.md`
+- `docs/roadmap/m32-export-boundary-review.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
 - `docs/statements/post-bridge-presentation-boundary.md`

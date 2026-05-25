@@ -35,6 +35,7 @@ Sense has already validated the model by adapting the instrument grammar without
 
 - `workspace/overview.md` is the project map and durable record index.
 - `workspace/current.md` is the only active executable work packet.
+- `workspace/overseer.md` is the Overseer guide for milestone/runway shaping and acceptance criteria.
 - `workspace/00-dot-protocol.md` defines the role-sensitive `.` signal.
 - `workspace/prompts.md` holds reusable Overseer, Dev, and specialist prompts.
 - `workspace/complete/` stores batch-archived milestone handshakes.
@@ -57,6 +58,14 @@ Every executable packet should name the element, source of intent, material or f
 Workshop notes, reference notes, and proposal files do not authorize Dev work. Dev work starts only from `workspace/current.md`.
 
 The UI development owner may lead display asset documentation shape and inventory productivity under `workspace/display-asset-documentation-owner-contract.md`. This does not make that role the owner of Lab direction, target-project adoption, or Dev runways.
+
+## Roadmap And Runway Rule
+
+Durable milestone direction lives in `docs/roadmap/`.
+
+Use roadmap files to describe milestone-sized outcomes. Use `workspace/current.md` to describe the active executable runway.
+
+Every active runway must include acceptance criteria. The criteria should describe what makes the work complete, useful, reviewable, verified, and bounded.
 
 ## SmokeFlash Boundary Note
 

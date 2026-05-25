@@ -8,6 +8,8 @@ Start at:
 
 Active agent coordination belongs in `workspace/`. `workspace/current.md` is the executable packet; docs are not task queues.
 
+Roadmap direction belongs in `docs/roadmap/`. Roadmap files describe milestone-sized outcomes; they do not authorize work by themselves.
+
 ## Documentation Boundary
 
 Aura Lab documentation should preserve the project boundary:

@@ -43,6 +43,7 @@ Start here:
 
 - `workspace/README.md`
 - `workspace/overview.md`
+- `workspace/overseer.md`
 - `workspace/00-dot-protocol.md`
 - `workspace/current.md`
 - `workspace/critical/README.md`
