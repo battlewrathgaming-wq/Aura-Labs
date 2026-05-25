@@ -1,20 +1,20 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M24 - Active Display Request Advisory Comparison
-Last completed milestone: M23 - Display Use Case Capture
-Current executor: UI/UX advisor or UI development owner / display asset documentor
-Current focus: compare Bridge -> Interface display methods for the four active Atlas/Sense requests
-Expected artifact filename: `workspace/DisplayResponseComparisonHS82-active-display-requests.md`
+Active milestone: None
+Last completed milestone: M24 - Active Display Request Advisory Comparison
+Current executor: Human / source-project relay
+Current focus: relay the accepted M24 advisory comparison to Atlas and Sense for fitness discussion
+Expected artifact filename: None
 
 ## Current State
 
-Aura Lab has accepted and closed M23. M24 is now open to answer the active display requests with advisory comparison, before test-build or SmokeFlash work.
+Aura Lab has accepted and closed M24. Lab is waiting on Human relay / source-project discussion before opening workflow refactor, adoption records, target-project runways, or implementation work.
 
 Housekeeping note:
 
@@ -53,19 +53,21 @@ Accepted state:
 - `workspace/display-request-cooperation-contract.md` is the cooperative advisory contract for request limits, scope, product attachment, and archive expectations.
 - M23 accepted `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`.
 - Active request count is Atlas 3 and Sense 1, both under the five-request cap.
-- M24 is open as `Active Display Request Advisory Comparison`.
+- M24 accepted `workspace/DisplayResponseComparisonHS82-active-display-requests.md`.
+- M24 acceptance is recorded in `workspace/OverseerHS83-m24-acceptance.md`.
+- Lab is idle and waiting for Human/source-project relay.
 
 ## Purpose
 
-M24 develops the first active request response layer before future display primitive work:
+Lab is in a waiting state after the first active request response layer:
 
 ```txt
-Active Display Request Advisory Comparison
+Human relay / source-project fitness discussion
 ```
 
-The goal is to compare Bridge -> Interface display methods for the four active Atlas/Sense requests, preserving source-project meaning and leaving adoption to the source projects.
+The goal is to let Atlas and Sense review Lab's advisory comparison under their own authority. No adoption or implementation is authorized by Lab acceptance.
 
-This is advisory/documentation work only. It is not implementation, a bridge contract, runtime fixture doctrine, target adoption, source-project semantics, or product doctrine.
+This is not implementation, a bridge contract, runtime fixture doctrine, target adoption, source-project semantics, or product doctrine.
 
 ## Latest Accepted Work
 
@@ -99,6 +101,8 @@ This is advisory/documentation work only. It is not implementation, a bridge con
 - M23 cooperation contract: `workspace/display-request-cooperation-contract.md`
 - M23 artifact: `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`
 - M23 acceptance / M24 runway: `workspace/OverseerHS81-m23-acceptance-m24-runway.md`
+- M24 artifact: `workspace/DisplayResponseComparisonHS82-active-display-requests.md`
+- M24 acceptance: `workspace/OverseerHS83-m24-acceptance.md`
 
 ## Source Of Intent
 
@@ -121,6 +125,8 @@ Accepted source of intent:
 - Human direction to include limited scope and product attachment so requests can act as internal display checklists.
 - Human direction to avoid double work by keeping canonical requests source-owned and Lab outputs recorded once.
 - Human direction that Sense is caught up and M23 can close.
+- Human direction to focus on completing M24 before workflow refactor.
+- Human direction that workflow refactor can happen after this milestone is complete.
 - Central display request workflow context.
 - `workspace/display-asset-documentation-owner-contract.md`
 
@@ -144,6 +150,8 @@ Accepted references:
 - `workspace/display-request-cooperation-contract.md`
 - `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`
 - `workspace/OverseerHS81-m23-acceptance-m24-runway.md`
+- `workspace/DisplayResponseComparisonHS82-active-display-requests.md`
+- `workspace/OverseerHS83-m24-acceptance.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\known-workflows\display_request.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\workflow-maps\display-request-space-to-state.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
@@ -154,30 +162,22 @@ Accepted references:
 
 ## Ordered Runway
 
-1. Read `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`, `workspace/request_display.md`, `workspace/display-request-cooperation-contract.md`, M20, M21, M22, and the central display request workflow.
-2. For each active request, restate the source-project owner, scope boundary, source terms to preserve, non-goals, and adoption authority.
-3. Compare the three candidate display methods already named in M23. Refine method names or split a method only if needed for clarity.
-4. For each method, describe first-read hierarchy, state/basis/freshness/gap treatment, interaction/reveal behavior, narrow behavior, terminology risks, and verification expectations if later adopted.
-5. Recommend one method per request, or recommend split/merge/park/return-to-project if the request needs source-project decisions before design.
-6. Provide a response/adoption handoff table that source projects can use locally: request id, recommended method, source-project review needed, adoption state suggestion, and implementation-packet-ready only if appropriate.
-7. Do not create target-project runways, source-project adoption records, or Dev tasks.
+1. Human relays the accepted M24 advisory comparison to Atlas and Sense.
+2. Atlas and Sense discuss fitness, source meaning, user flow, and whether the recommendation should be accepted, adapted, rejected, parked, or refined locally.
+3. Do not create Lab-side adoption records for Atlas or Sense.
+4. Do not open Dev work from Lab.
+5. Open the workflow refactor only after Human confirms the request-response cycle is stable enough to refactor.
 
-## Acceptance Criteria
+## Progress Criteria
 
-M24 can be accepted if the artifact:
+The current waiting state can progress if:
 
-- covers all four active requests
-- preserves Atlas and Sense source meanings
-- keeps Lab advice Bridge -> Interface only
-- compares three display methods per request or explains why one should be split/parked
-- gives a clear recommendation or decision needed per request
-- records risks and non-goals
-- includes enough handoff shape for Atlas/Sense to accept, adapt, reject, or park locally
-- does not authorize Dev work
-- does not turn Lab vocabulary into target-project terms
-- does not treat archived or inventory-only rows as active requests
+- Human asks Lab to open the workflow refactor packet
+- Atlas or Sense returns acceptance/adaptation/rejection/refinement feedback
+- Human asks Lab to prepare relay text
+- Human asks Lab to open a new display request comparison or tooling packet
 
-Reject or redirect if the artifact:
+Reject or redirect future requests if they:
 
 - becomes a target implementation plan
 - creates source-project Dev instructions
@@ -196,7 +196,7 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 
 ## Guardrails
 
-- This is an advisory comparison packet, not Dev implementation.
+- This is an idle relay state, not Dev implementation.
 - Do not implement a full Ship/System face.
 - Do not implement Atlas or Sense adapters.
 - Do not make Lab an Atlas, Sense, or Core adapter.
@@ -214,7 +214,7 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 - Do not treat inspiration images or websites as requirements.
 - Do not use archived docs or reference folders as active task queues.
 - Do not create a hidden backlog; every recommended display type needs a disposition.
-- Do not implement SmokeFlash in M24.
+- Do not implement SmokeFlash from this waiting state.
 - Do not promote the repeat cycle until the material bench and inventory scaffold are accepted.
 
 ## Stop Conditions
@@ -234,7 +234,7 @@ Stop and return to Human / Overseer if the work would:
 - require target-project files to be changed
 - require live/private/network access as a prerequisite
 - produce only an inspiration gallery without slot mapping and disposition
-- turn SmokeFlash tooling into the M24 product
+- turn SmokeFlash tooling into the current waiting state
 - disrupt target-project active runways while deploying advisory pointers
 
 ## Verification
@@ -254,7 +254,7 @@ npm.cmd run verify:terminology
 
 ## Support
 
-M24 support:
+Current support:
 
 - `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
@@ -273,13 +273,13 @@ M24 support:
 
 ## Handoff
 
-Expected artifact:
+Expected output:
 
 ```txt
-workspace/DisplayResponseComparisonHS82-active-display-requests.md
+None
 ```
 
-The artifact should include files reviewed, active request list, source-owner boundaries, per-request method comparison, recommendation or decision needed, risks, source-project review/adoption handoff table, parked items, and verification results.
+Human/source-project relay may reference `workspace/DisplayResponseComparisonHS82-active-display-requests.md`.
 
 ## Reference Folder
 
@@ -289,7 +289,7 @@ Do not convert references into requirements unless this packet already names the
 
 ## Parked Items
 
-- SmokeFlash HTML harness until M24 and inventory shape are accepted or Human prioritizes tooling.
+- SmokeFlash HTML harness until Human prioritizes tooling.
 - Cannibalizing Sense log-reader shape for Lab-local staged ingest until a later tooling packet.
 - Repeat implementation cycle until the use-case capture, material bench, and inventory scaffold are accepted.
 - Support panel label polish.
