@@ -1,20 +1,20 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Waiting
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M21 - Display Type Library Research Sweep
-Last completed milestone: M20 - Display Vocabulary And Slot Taxonomy
-Current executor: UI development owner / display asset documentor
-Current focus: expand the type-to-display library before repeat-cycle or material-bench work
-Expected artifact filename: `workspace/DisplayTypeLibraryHS76-display-pattern-research.md`
+Active milestone: None
+Last completed milestone: M21 - Display Type Library Research Sweep
+Current executor: Human / Overseer
+Current focus: waiting for Human / Overseer direction after M21 closure
+Expected artifact filename: None
 
 ## Current State
 
-Aura Lab has accepted and closed M20. The next useful step is not a repeat build cycle yet. Lab first needs a broader type-to-display library so future primitives can be selected, pressured, compared, and rejected with better taste and less churn.
+Aura Lab has accepted and closed M21.
 
 Housekeeping note:
 
@@ -42,20 +42,21 @@ Accepted state:
 - The display asset documentation owner contract is active.
 - M20 accepted `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`.
 - The initial Lab display slot vocabulary is accepted as display asset vocabulary, not bridge fields or target-project contracts.
-- M21 is now open to research display types and map them back to the accepted slot vocabulary.
-- The display material bench and any repeat implementation cycle are parked until this library expansion is accepted.
+- M21 accepted `workspace/DisplayTypeLibraryHS76-display-pattern-research.md`.
+- M21 accepted the display type library as advisory display-planning input, not implementation, bridge contract, target adoption, or source-project meaning.
+- M22 is recommended as `Display Material Bench`, but is not yet open.
 
 ## Purpose
 
-M21 develops the next understanding layer before future display primitive work:
+M21 developed the next understanding layer before future display primitive work:
 
 ```txt
 Display Type Library Research Sweep
 ```
 
-The goal is to expand Lab's library of display types: what each type is good for, what slots it can carry, what pressures it handles, how it behaves in narrow shells, and when it should be parked.
+The accepted result expands Lab's display type library: what each type is good for, what slots it can carry, what pressures it handles, how it behaves in narrow shells, and when it should be parked.
 
-This is advisory/documentation work only. It is not implementation, a bridge contract, a shared glossary, target adoption, source-project semantics, or product doctrine.
+This remains advisory/documentation work only. It is not implementation, a bridge contract, a shared glossary, target adoption, source-project semantics, or product doctrine.
 
 ## Latest Accepted Work
 
@@ -79,6 +80,8 @@ This is advisory/documentation work only. It is not implementation, a bridge con
 - M20 UI documentor artifact: `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
 - M20 Overseer acceptance: `workspace/OverseerHS75-m20-acceptance.md`
 - M21 runway: `workspace/OverseerHS76-m21-display-type-library-runway.md`
+- M21 UI documentor artifact: `workspace/DisplayTypeLibraryHS76-display-pattern-research.md`
+- M21 Overseer acceptance: `workspace/OverseerHS77-m21-acceptance.md`
 
 ## Source Of Intent
 
@@ -112,13 +115,16 @@ Accepted references:
 
 ## Ordered Runway
 
-1. Read the accepted M20 taxonomy, the display asset documentation owner contract, the workshop README, and the shared terminology / critical indexes named above.
-2. Research display types that could serve Lab's accepted slots and recurring pressures. Use local reference material first; use web references only if permitted by the working environment and cite URLs when used.
-3. Produce a type-to-display table covering each display type's purpose, best-fit slots, pressure cases, strengths, failure modes, narrow behavior, text containment needs, motion suitability, terminology risks, and candidate Lab asset family.
-4. Include at least these display-type families: status band, status chip, value rail, gauge or meter, counter or reel, timeline or bead strip, activity surface, compact table or list, detail reveal, source coverage marker, gap / warning marker, availability reason treatment, compare strip, diagnostic panel, map / sensor display, matrix / heatmap, progress strip, empty / unavailable panel.
-5. Map each recommended display type back to the accepted M20 slot vocabulary and identify which slots still need material samples before UI build work.
-6. Prioritize a short list of near-term Lab display types for the material bench, plus a parked list for types that are too semantic-heavy, too broad, or too target-specific.
-7. Recommend the next packet after M21, with the expected sequence being material bench first, inventory scaffold second, repeat implementation cycle later.
+No active runway.
+
+Do not execute Dev work from this packet.
+
+Next valid moves:
+
+1. Human / Overseer may open `M22 - Display Material Bench`.
+2. Human / Overseer may review M21 before opening M22.
+3. Human / Overseer may prepare the future use-case comparison landing zone after the material bench shape is clearer.
+4. Human / Overseer may park Lab while target projects continue local adoption work.
 
 ## Concept Candidates
 
@@ -164,7 +170,7 @@ Stop and return to Human / Overseer if the work would:
 
 ## Verification
 
-Required local verification after artifact creation:
+Latest accepted local verification:
 
 ```powershell
 npm.cmd run verify:all
@@ -183,30 +189,24 @@ M21 support:
 
 - `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
+- `workspace/DisplayTypeLibraryHS76-display-pattern-research.md`
+- `workspace/OverseerHS77-m21-acceptance.md`
 - `workspace/display-asset-documentation-owner-contract.md`
 - `workspace/workshop/README.md`
 
 ## Handoff
 
-Expected artifact:
+Accepted artifact:
 
 ```txt
 workspace/DisplayTypeLibraryHS76-display-pattern-research.md
 ```
 
-The artifact should include:
+Acceptance:
 
-- files and references reviewed
-- current-state understanding
-- display type table
-- slot mapping back to M20 vocabulary
-- source/URL notes for external references, if used
-- terminology and owner/layer risks
-- narrow-shell and text-containment findings
-- near-term display types for material bench
-- parked display types and why
-- acceptance checklist
-- recommended next packet
+```txt
+workspace/OverseerHS77-m21-acceptance.md
+```
 
 ## Reference Folder
 
@@ -216,8 +216,8 @@ Do not convert references into requirements unless this packet already names the
 
 ## Parked Items
 
-- Repeat implementation cycle until M21 and the material bench are accepted.
-- `M21 - Display Material Bench` as previously named; it should now become the likely M22 after display type research.
+- Repeat implementation cycle until the material bench and inventory scaffold are accepted.
+- Use-case comparison landing zone until the material bench shape is clearer.
 - Support panel label polish.
 - Deeper compatibility-name cleanup.
 - Lab protected-term discovery false-positive refinement.
