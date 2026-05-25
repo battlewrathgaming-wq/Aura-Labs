@@ -20,11 +20,11 @@ Current proposal:
 
 - `workspace/OverseerProposalHS72-display-elements-workshop-and-material-bench.md`
 
-Accepted M19 proof:
+Accepted M19 support:
 
 - `docs/current-state/m19-instrument-status-band-current-state.md`
 
-Sense has already validated the model by adapting the instrument grammar without adopting Lab state semantics. Treat that as evidence for the method, not permission to create shared doctrine.
+Sense has already validated the model by adapting the instrument grammar without adopting Lab state semantics. Treat that as support for the method, not permission to create shared doctrine.
 
 ## Core Files
 
