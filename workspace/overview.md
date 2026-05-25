@@ -58,7 +58,7 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M28 | Human direction after M27 controls | Complete | Accepted first Lab-local visible material prototype for Authority Window TTL Strip using ADR-controlled SmokeFlash workshop path. |
 | M29 | Presentation Head Improvement Rail | Complete | Accepted loading state parity, Summary/Basis/Details view intent, slot registry/policy, detail hydration, focus/reveal, lazy visual slot, row facets, overflow sentinel, and HS120 close/readiness review. |
 | M30 | Presentation Resilience Gate | Complete | Accepted a bounded renderer-local reduced-motion gate for the presentation head, with normal verification and Electron smoke. |
-| M31 | Display Material Repeat Cycle | Active | UIUXHS123 accepted as advisory; four pending material pages added for Human / Overseer next-step selection. |
+| M31 | Display Material Repeat Cycle | Active | HS125 opened for a bounded Dev prototype of the pending Long Text Detail Block material. |
 
 ## Current Direction
 
@@ -66,9 +66,9 @@ Active milestone: M31 - Display Material Repeat Cycle
 Last completed milestone: M30 / HS122 - Reduced-Motion Gate Acceptance
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS124
+Current sequence: HS125
 Latest accepted handshake: workspace/OverseerHS124-uiuxhs123-material-expansion-acceptance.md
-Latest active runway: workspace/OverseerHS123-m31-guided-material-expansion-runway.md
+Latest active runway: workspace/OverseerHS125-m31-long-text-detail-block-runway.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
 Housekeeping: active root cleaned on 2026-05-25; M19-M30 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
@@ -136,6 +136,7 @@ Active milestone handshakes:
 - `workspace/OverseerHS123-m31-guided-material-expansion-runway.md`
 - `workspace/UIUXHS123-guided-display-material-expansion.md`
 - `workspace/OverseerHS124-uiuxhs123-material-expansion-acceptance.md`
+- `workspace/OverseerHS125-m31-long-text-detail-block-runway.md`
 
 Accepted authority records:
 
