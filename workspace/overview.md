@@ -53,17 +53,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M24 | M23 accepted request capture | Complete | Accepted advisory comparison for the four active Atlas/Sense display requests and prepared Human/source-project relay. |
 | M25 | Human correction after M24 | Complete | Accepted requirements for individual reusable Lab display materials and recommended prototype candidates. |
 | M26 | Human direction after M25 | Complete | Accepted individual reusable display material schemas and divided them into material library pages with the ledger as index. |
+| M27 | Human direction after M26 and HS88 | Active | Opened SmokeFlash boundary review with conditional keep, harden, split, or stop outcome. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M27 - SmokeFlash Boundary Review And Conditional Harness
 Last completed milestone: M26 - Guided Display Material Production
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS87
+Current sequence: HS89
 Latest accepted handshake: workspace/OverseerHS87-m26-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: None; waiting for Human / Overseer direction
+Active runway: workspace/OverseerHS89-m27-smokeflash-boundary-runway.md
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
@@ -134,6 +135,8 @@ Active milestone handshakes:
 - `workspace/OverseerHS86-m26-guided-material-production-runway.md`
 - `workspace/DisplayMaterialSchemasHS86-guided-material-production.md`
 - `workspace/OverseerHS87-m26-acceptance.md`
+- `workspace/OverseerHS88-smokeflash-boundary-lessons.md`
+- `workspace/OverseerHS89-m27-smokeflash-boundary-runway.md`
 
 Accepted authority records:
 
