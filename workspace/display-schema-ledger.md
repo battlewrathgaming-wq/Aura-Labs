@@ -6,9 +6,9 @@ Owner: Aura Lab Overseer
 
 ## Purpose
 
-Track Lab-produced display schemas as they move from pending to accepted, parked, or superseded.
+Track Lab display-schema ingredients and combined outputs as they move from pending to accepted, parked, or superseded.
 
-This ledger exists so Lab can iterate through produced schema outputs without duplicating work or turning upstream relay into a callback system.
+This ledger exists so Lab can iterate through reusable display ingredients and combined display outputs without duplicating work or turning upstream relay into a callback system.
 
 This is not:
 
@@ -23,7 +23,8 @@ Source projects track their own acceptance, completion, and implementation state
 
 ## Use Rules
 
-- Add one row per produced Lab display schema or schema-ready output.
+- Add ingredient rows for individual reusable snippets/materials.
+- Add output rows for combined display references that can be reused statefully.
 - Use the canonical artifact path; do not copy the schema body into this ledger.
 - Mark status as `pending`, `accepted`, `parked`, `superseded`, or `rejected`.
 - Keep delivery notes as upstream discussion buckets only.
@@ -53,9 +54,13 @@ Delivery notes are upstream buckets for Human relay and discussion. They are not
 | `future-workflow` | Useful for later workflow refactor. |
 | `future-smokeflash` | Useful for later staged-ingest/tooling work. |
 
-## Produced Schema Ledger
+## Ingredient Inventory
 
-| Schema ID | Schema / output name | Status | Canonical artifact | Derived from | Intended use | Upstream discussion buckets | Supersedes / followed by | Notes |
+Individual snippets/materials live here: the ingredients bag.
+
+These are reusable display parts or schema-ready material requirements. They are not yet a complete combined display reference unless an output row points to them.
+
+| Ingredient ID | Ingredient / material name | Status | Canonical artifact | Derived from | Intended use | Upstream discussion buckets | Supersedes / followed by | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `mat-authority-window-ttl-strip` | Authority Window TTL Strip material requirement | accepted | `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md` | M24 Sense clipboard request and Human TTL fitness note | First candidate for future display schema/prototype output. | `lab-internal`; `human-relay`; `sense-discussion`; `future-smokeflash` | none yet | Accepted as material requirement, not yet a produced single schema. |
 | `mat-expandable-status-card` | Expandable Status Card material requirement | accepted | `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md` | M24 Atlas right-rail request and Human fit note | Second candidate for future display schema/prototype output. | `lab-internal`; `human-relay`; `atlas-discussion`; `future-smokeflash` | none yet | Accepted as material requirement, not yet a produced single schema. |
@@ -63,13 +68,15 @@ Delivery notes are upstream buckets for Human relay and discussion. They are not
 | `mat-compact-status-plus-drawer` | Compact Status Plus Drawer material requirement | accepted | `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md` | M24 Atlas Watch adaptation note | Future candidate after first schema outputs. | `lab-internal`; `human-relay`; `atlas-discussion` | none yet | Accepted as material requirement; not in first-three prototype order. |
 | `mat-connected-system-radius` | Connected System / Radius Visualization | parked | `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md` | Human Atlas Watch complexity note | Parked future visualization concept. | `future-smokeflash`; `atlas-discussion` | none yet | Needs source-owned relation/radius meaning before Lab material work. |
 
-## Future Row Shape For Single Schemas
+## Combined Output References
 
-When UX starts producing single-schema outputs, add rows like:
+Combined outputs live here: the single "use" reference.
 
-| Schema ID | Schema / output name | Status | Canonical artifact | Derived from | Intended use | Upstream discussion buckets | Supersedes / followed by | Notes |
+Once Lab has built a type of display for Atlas, Sense, or Lab-local use, record the combined schema/output here so it can be reused statefully without re-reading every ingredient.
+
+| Output ID | Output / combined display name | Status | Canonical artifact | Ingredients used | Target / use context | Upstream discussion buckets | Supersedes / followed by | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `schema-authority-window-ttl-v1` | Authority Window TTL Strip Schema v1 | pending | `workspace/[future-artifact].md` | `mat-authority-window-ttl-strip` | Single display schema for the authority-window TTL material. | `lab-internal`; `human-relay`; `sense-discussion` | follows `mat-authority-window-ttl-strip` | Example only; replace when produced. |
+| _none yet_ | _No combined outputs accepted yet_ | _n/a_ | _n/a_ | _n/a_ | _n/a_ | _n/a_ | _n/a_ | Add rows here when UX produces a single reusable display schema/output. |
 
 ## Parked Handling
 

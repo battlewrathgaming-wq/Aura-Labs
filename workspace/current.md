@@ -61,7 +61,7 @@ Accepted state:
 - M25 acceptance is recorded in `workspace/OverseerHS85-m25-acceptance.md`.
 - Workflow refactor remains parked until Human explicitly opens it.
 - Recommended next candidates are Authority Window TTL material prototype, workflow refactor, or SmokeFlash feasibility.
-- `workspace/display-schema-ledger.md` tracks produced and schema-ready Lab display schema outputs without creating callback obligations.
+- `workspace/display-schema-ledger.md` tracks individual display-schema ingredients and combined output references without creating callback obligations.
 
 ## Purpose
 
