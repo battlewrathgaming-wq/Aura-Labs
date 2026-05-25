@@ -60,7 +60,16 @@ Before producing or updating inventory/workshop documentation, read:
 Terminology authority:
 
 - `F:\Projects\Docs\Aura-Project-Orchestration\critical`
+- `F:\Projects\Docs\Aura-Project-Orchestration\terminology`
 - `F:\Projects\Docs\Aura-Project-Orchestration\terminology\TerminologyAuthorityRuleset-2026-05-24.md`
+
+Terminology discovery use:
+
+- Treat `F:\Projects\Docs\Aura-Project-Orchestration\terminology` as a starting point for answering what kinds of information may need display treatment across Aura projects.
+- Use its project-wide indexes, term classes, use cases, and type notes to identify candidate display pressures such as lane labels, state names, source/basis language, freshness language, sample/cap terms, action terms, diagnostic terms, and target-owned meanings.
+- Use the terminology folder as discovery and classification input, not as product direction, a shared glossary mandate, or a Dev task queue.
+- When a term suggests a display need, classify owner and layer before proposing a Lab display asset.
+- Prefer translating the display need into Lab-owned presentation vocabulary while preserving source-project meaning.
 
 ## Workflow
 
