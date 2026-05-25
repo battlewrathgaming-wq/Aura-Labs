@@ -1,71 +1,49 @@
-# Current Workspace Packet
+# OverseerHS102 - M29 Details View Inspection Runway
 
-Status: Active
-Updated: 2026-05-25
-Owner: Overseer
+Status: Active runway
+Date: 2026-05-25
+Role: Overseer
 
-## Coordination State
+## Purpose
 
-Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / HS99 - Basis Rail Polish
-Current executor: Dev
-Current focus: Improve the Briefing `Details` view as a calm inspection surface before renderer security review.
-Expected artifact filename: `workspace/DevHS102-details-view-inspection.md`
+Open the final bounded presentation-head slice before renderer security review.
 
-## Current State
+This runway should improve the existing Briefing `Details` view so it reads as a calm inspection surface for readout detail, gaps, warnings, and supporting rows. Summary and Basis are already accepted and should remain stable.
 
-Aura Lab is in M29, the Presentation Head Improvement Rail.
-
-Accepted M29 slices:
-
-- H02 Loading State Parity.
-- H03 View Intent Axis.
-- HS97 Basis-First Expressive View.
-- HS99 Basis Rail Polish.
-
-Accepted sequence:
-
-- One more bounded presentation-head slice.
-- Then renderer security review.
-
-Selected slice:
-
-- Improve the Briefing `Details` view so the Readout Detail path, gaps, warnings, timing, and supporting rows read as an intentional inspection surface.
-
-## Source Of Intent
-
-Accepted source of intent:
-
-- Human direction to do one bounded presentation slice, then a renderer security review.
-- Human direction to focus this phase on presentation improvements.
-- Human direction to review split/readiness only when the presentation head is good enough.
-- `docs/roadmap/README.md`
-- `docs/roadmap/m29-presentation-head-improvement-rail.md`
-- `docs/roadmap/future-candidate-bank.md`
-- `workspace/OverseerHS100-hs99-basis-rail-polish-acceptance.md`
-- `workspace/OverseerHS101-m29-next-slice-security-sequence.md`
-- `workspace/OverseerHS102-m29-details-view-inspection-runway.md`
-
-Read first:
+## Files Reviewed
 
 - `AGENTS.md`
 - `workspace/current.md`
 - `workspace/overview.md`
-- `workspace/critical/README.md`
-- `workspace/critical/critical-terms.md`
-- `workspace/critical/critical-assets.md`
-- `docs/roadmap/README.md`
-- `docs/roadmap/m29-presentation-head-improvement-rail.md`
-- `docs/roadmap/future-candidate-bank.md`
 - `workspace/OverseerHS100-hs99-basis-rail-polish-acceptance.md`
 - `workspace/OverseerHS101-m29-next-slice-security-sequence.md`
-- `src/renderer/index.html`
-- `src/renderer/app.js`
-- `src/renderer/styles.css`
-- `src/main/main.js`
-- `scripts/electron-visual-smoke.ps1`
-- `scripts/verify-renderer-shell.js`
-- `scripts/verify-lab-vocabulary.js`
+- `docs/roadmap/m29-presentation-head-improvement-rail.md`
+- `docs/roadmap/future-candidate-bank.md`
+
+## Roadmap Alignment
+
+M29 outcome:
+
+- improve the product-facing presentation head through visible renderer capabilities
+- keep the test model aligned with renderer capability
+- keep workshop tooling bounded and support-only
+
+This runway completes the accepted sequence from HS101: one more bounded presentation-head slice before the renderer security review.
+
+## Accepted Source Of Intent
+
+- Human direction to do one bounded presentation slice, then a renderer security review.
+- Accepted HS99 Basis rail polish in `workspace/OverseerHS100-hs99-basis-rail-polish-acceptance.md`.
+- Accepted sequence record in `workspace/OverseerHS101-m29-next-slice-security-sequence.md`.
+- M29 roadmap direction to improve the presentation head without target adapters or export/seeding work.
+
+## Current Executor
+
+Dev.
+
+## Expected Handoff
+
+`workspace/DevHS102-details-view-inspection.md`
 
 ## Ordered Runway
 
@@ -76,7 +54,7 @@ Read first:
 5. Keep diagnostics secondary; Details must not become a diagnostics-first view.
 6. Keep existing Lab slim labels unless a minor copy adjustment is needed for clarity.
 7. Preserve or update targeted smoke so `summary-first`, `basis`, and `details` still pass on Briefing partial.
-8. Create `workspace/DevHS102-details-view-inspection.md`.
+8. Create `workspace/DevHS102-details-view-inspection.md` with files changed, behavior summary, screenshot notes, verification, and residual risks.
 
 ## Acceptance Criteria
 
@@ -188,11 +166,3 @@ The handoff must state whether the Details view slice is ready for Overseer acce
 - Deferred: renderer security review until this slice is accepted.
 - Deferred: split-readiness review.
 - Parked: target-project adapters and adoption work.
-
-## Residual Risks
-
-- Existing inherited naming tripwires remain.
-- `viewIntent` is local renderer/test state only, not a durable bridge/runtime contract.
-- HS97/HS99/HS102 remains proven only on the Briefing family.
-- SmokeFlash/material harness code remains in the renderer bundle under ADR 0001 Lab-local allowance.
-- SmokeFlash must still be split before export, seeding, or target-project consumption.
