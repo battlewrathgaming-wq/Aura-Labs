@@ -1,20 +1,20 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Waiting
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M22 - Display Material Bench
-Last completed milestone: M21 - Display Type Library Research Sweep
-Current executor: UI development owner / display asset documentor
-Current focus: create hard display material for near-term display types before tooling or implementation
-Expected artifact filename: `workspace/reference/display-material-bench-2026-05-25.md`
+Active milestone: None
+Last completed milestone: M22 - Display Material Bench
+Current executor: Human / Overseer
+Current focus: waiting for Human / Overseer direction after M22 closure
+Expected artifact filename: None
 
 ## Current State
 
-Aura Lab has accepted and closed M21. M22 is now open to create the display material bench recommended by M21.
+Aura Lab has accepted and closed M22.
 
 Housekeeping note:
 
@@ -44,20 +44,23 @@ Accepted state:
 - The initial Lab display slot vocabulary is accepted as display asset vocabulary, not bridge fields or target-project contracts.
 - M21 accepted `workspace/DisplayTypeLibraryHS76-display-pattern-research.md`.
 - M21 accepted the display type library as advisory display-planning input, not implementation, bridge contract, target adoption, or source-project meaning.
-- M22 is open as `Display Material Bench`.
+- M22 was opened as `Display Material Bench` and is now accepted.
 - SmokeFlash is accepted as a later light harness candidate, not active M22 work.
+- M22 accepted `workspace/reference/display-material-bench-2026-05-25.md`.
+- M22 accepted Material Set Formation, including `Material class`, as authoring structure for future expansion.
+- M23 is recommended as `Display Inventory Scaffold`, but is not yet open.
 
 ## Purpose
 
-M22 develops the hard content layer before future display primitive work:
+M22 developed the hard content layer before future display primitive work:
 
 ```txt
 Display Material Bench
 ```
 
-The goal is to create reusable staged display material: realistic labels, values, basis text, freshness cases, source-owned placeholders, absence states, gaps, warnings, long text, narrow summaries, and structured rows that can pressure the display types accepted by M21.
+The accepted result creates reusable staged display material: realistic labels, values, basis text, freshness cases, source-owned placeholders, absence states, gaps, warnings, long text, narrow summaries, structured rows, and Material Set Formation lanes that can pressure the display types accepted by M21.
 
-This is advisory/documentation work only. It is not implementation, a bridge contract, runtime fixture doctrine, target adoption, source-project semantics, or product doctrine.
+This remains advisory/documentation work only. It is not implementation, a bridge contract, runtime fixture doctrine, target adoption, source-project semantics, or product doctrine.
 
 ## Latest Accepted Work
 
@@ -84,6 +87,8 @@ This is advisory/documentation work only. It is not implementation, a bridge con
 - M21 UI documentor artifact: `workspace/DisplayTypeLibraryHS76-display-pattern-research.md`
 - M21 Overseer acceptance: `workspace/OverseerHS77-m21-acceptance.md`
 - M22 runway: `workspace/OverseerHS78-m22-display-material-bench-runway.md`
+- M22 material artifact: `workspace/reference/display-material-bench-2026-05-25.md`
+- M22 Overseer acceptance: `workspace/OverseerHS79-m22-acceptance.md`
 
 ## Source Of Intent
 
@@ -122,35 +127,16 @@ Accepted references:
 
 ## Ordered Runway
 
-1. Read M20 slot taxonomy, M21 display type library, M21 acceptance, workshop README, and Lab critical terminology guidance.
-2. Define the material bench purpose as reusable staged content that pressures display types without becoming runtime fixture doctrine.
-3. Create material sets for Readout Detail Reveal, Availability Reason Treatment, Source Coverage Marker, Gap / Warning Marker, Long Text Detail Block, Status Chip, Value Rail, Empty / Unavailable Panel, and Grouped Pips / Status Constellation.
-4. Include realistic field values, long text, narrow summaries, absence/availability cases, source-owned label placeholders, basis/freshness cases, gaps, warnings, and expected display pressure.
-5. Include collision cases for `source`, `sample`, `state`, `gateway`, `report`, and `snapshot` as owner/layer qualification problems, not shared terminology decisions.
-6. Add a staged-ingest shape that a future light SmokeFlash harness could replay, but do not implement the harness.
-7. Recommend the next packet after M22: likely display inventory scaffold, SmokeFlash harness feasibility, or first material-backed primitive selection.
+No active runway.
 
-## Acceptance Criteria
+Do not execute Dev work from this packet.
 
-M22 can be accepted if the artifact:
+Next valid moves:
 
-- maps every material set to M20 slots and M21 display types
-- gives each material set a clear display problem it is meant to pressure
-- includes hard cases: long text, missing fields, stale/aged read, blocked, unavailable, no data, gaps, warnings, source-owned placeholders, and narrow summaries
-- keeps source-project terms as placeholders or qualified examples, not Lab-owned defaults
-- includes a staged-ingest shape future tooling can replay without implementing tooling now
-- makes the next work easier to scope: inventory, SmokeFlash, or first material-backed primitive
-- avoids becoming a bridge contract, runtime fixture doctrine, glossary, target adoption packet, or Dev build request
-
-Reject or redirect if the artifact:
-
-- reads like an inspiration board
-- only lists copy samples without slot/type mapping
-- lacks hard content pressure
-- collapses distinct absence states into one generic empty state
-- turns SmokeFlash into the main work
-- asks Dev to build before the material is accepted
-- imports Atlas/Sense meaning as Lab language
+1. Human / Overseer may open `M23 - Display Inventory Scaffold`.
+2. Human / Overseer may review M22 before opening M23.
+3. Human / Overseer may open SmokeFlash feasibility later if tooling becomes the priority.
+4. Human / Overseer may park Lab while target projects continue local adoption work.
 
 ## Concept Candidates
 
@@ -222,18 +208,24 @@ M22 support:
 - `workspace/DisplayTypeLibraryHS76-display-pattern-research.md`
 - `workspace/OverseerHS77-m21-acceptance.md`
 - `workspace/OverseerHS78-m22-display-material-bench-runway.md`
+- `workspace/reference/display-material-bench-2026-05-25.md`
+- `workspace/OverseerHS79-m22-acceptance.md`
 - `workspace/display-asset-documentation-owner-contract.md`
 - `workspace/workshop/README.md`
 
 ## Handoff
 
-Expected artifact:
+Accepted artifact:
 
 ```txt
 workspace/reference/display-material-bench-2026-05-25.md
 ```
 
-The artifact should include files reviewed, material bench purpose, material sets, slot/type mapping, staged-ingest shape for future harness work, source-owned placeholder notes, narrow/text pressure, verification results, and recommended next packet.
+Acceptance:
+
+```txt
+workspace/OverseerHS79-m22-acceptance.md
+```
 
 ## Reference Folder
 
