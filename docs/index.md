@@ -71,6 +71,7 @@ Start here:
 - `README.md`
 - `docs/README.md`
 - `docs/roadmap/README.md`
+- `docs/roadmap/future-candidate-bank.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
 - `docs/statements/post-bridge-presentation-boundary.md`

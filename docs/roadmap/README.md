@@ -32,6 +32,10 @@ Aura Lab is moving from accepted material schemas into visible, inspectable HTML
 | M31 | Composed Display Output | Candidate | `docs/roadmap/m31-composed-display-output.md` |
 | M32 | Export Boundary Review | Candidate | `docs/roadmap/m32-export-boundary-review.md` |
 
+Candidate bank:
+
+- `docs/roadmap/future-candidate-bank.md`
+
 ## Promotion Gates
 
 Individual material accepted:
