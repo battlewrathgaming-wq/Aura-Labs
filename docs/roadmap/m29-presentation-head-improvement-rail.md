@@ -85,7 +85,7 @@ M29 is complete when:
 - H04 Confidence View or H05 Source-First View
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
-- `workspace/OverseerHS92-m28-acceptance.md`
+- `workspace/complete/milestone-M28/OverseerHS92-m28-acceptance.md`
 
 ## Verification Shape
 

@@ -68,7 +68,7 @@ Current sequence: HS111
 Latest accepted handshake: workspace/OverseerHS110-hs109-detail-hydration-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
-Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
+Housekeeping: active root cleaned on 2026-05-25; M19-M28 handoffs moved to `workspace/complete/`, M29 remains active in root, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -126,33 +126,8 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 Active milestone handshakes:
 
-- `workspace/OverseerHS67-m18-acceptance-m19-runway.md`
 - `workspace/LabRemoteConsumerConformanceHS66.md`
-- `workspace/OverseerHS76-m21-display-type-library-runway.md`
-- `workspace/DisplayTypeLibraryHS76-display-pattern-research.md`
-- `workspace/OverseerHS77-m21-acceptance.md`
-- `workspace/OverseerHS78-m22-display-material-bench-runway.md`
-- `workspace/reference/display-material-bench-2026-05-25.md`
-- `workspace/OverseerHS79-m22-acceptance.md`
 - `workspace/request_display.md`
-- `workspace/OverseerHS80-m23-display-use-case-capture-runway.md`
-- `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`
-- `workspace/OverseerHS81-m23-acceptance-m24-runway.md`
-- `workspace/DisplayResponseComparisonHS82-active-display-requests.md`
-- `workspace/OverseerHS83-m24-acceptance.md`
-- `workspace/OverseerHS84-m25-display-material-requirements-runway.md`
-- `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md`
-- `workspace/OverseerHS85-m25-acceptance.md`
-- `workspace/OverseerHS86-m26-guided-material-production-runway.md`
-- `workspace/DisplayMaterialSchemasHS86-guided-material-production.md`
-- `workspace/OverseerHS87-m26-acceptance.md`
-- `workspace/OverseerHS88-smokeflash-boundary-lessons.md`
-- `workspace/OverseerHS89-m27-smokeflash-boundary-runway.md`
-- `workspace/DevHS89-smokeflash-boundary-review.md`
-- `workspace/OverseerHS90-m27-acceptance.md`
-- `workspace/OverseerHS91-m28-authority-window-ttl-strip-runway.md`
-- `workspace/DevHS91-authority-window-ttl-strip-prototype.md`
-- `workspace/OverseerHS92-m28-acceptance.md`
 - `workspace/OverseerHS93-m29-loading-state-parity-runway.md`
 - `workspace/DevHS93-loading-state-parity.md`
 - `workspace/OverseerHS94-h02-loading-state-acceptance.md`
@@ -205,6 +180,16 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M16/`
 - `workspace/complete/milestone-M17/`
 - `workspace/complete/milestone-M18/`
+- `workspace/complete/milestone-M19/`
+- `workspace/complete/milestone-M20/`
+- `workspace/complete/milestone-M21/`
+- `workspace/complete/milestone-M22/`
+- `workspace/complete/milestone-M23/`
+- `workspace/complete/milestone-M24/`
+- `workspace/complete/milestone-M25/`
+- `workspace/complete/milestone-M26/`
+- `workspace/complete/milestone-M27/`
+- `workspace/complete/milestone-M28/`
 
 ### Historical Archives
 

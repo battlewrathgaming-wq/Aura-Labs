@@ -18,8 +18,8 @@ Build a library of ways information can be displayed, a workshop where new displ
 
 Current proposal:
 
-- `workspace/OverseerProposalHS72-display-elements-workshop-and-material-bench.md`
-- `workspace/OverseerProposalHS72-lab-display-inventory-and-material-contract.md`
+- `workspace/complete/milestone-M20/OverseerProposalHS72-display-elements-workshop-and-material-bench.md`
+- `workspace/complete/milestone-M20/OverseerProposalHS72-lab-display-inventory-and-material-contract.md`
 
 Active owner contract:
 
