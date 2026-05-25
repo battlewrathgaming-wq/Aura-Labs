@@ -49,18 +49,19 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M20 | Human direction after M19 and display asset owner contract | Complete | Accepted terminology-to-slot taxonomy and initial Lab display slot vocabulary for future asset inventory and material-bench work. |
 | M21 | Human direction after M20 | Complete | Accepted display type library research mapped to M20 slot vocabulary, with material-bench candidates and parked higher-risk types. |
 | M22 | M21 accepted display type library | Complete | Accepted display material bench with Material Set Formation, Material class lane, staged-ingest shape, and pressure cases for near-term display types. |
-| M23 | Human direction after M22 | Active | Capture display use cases and map them to request_display intake, slots, display types, material sets, and three candidate display methods. |
+| M23 | Human direction after M22 | Complete | Accepted display use-case capture with Atlas 3 active requests and Sense 1 active request, mapped to request_display intake, slots, display types, material sets, and candidate methods. |
+| M24 | M23 accepted request capture | Active | Compare Bridge -> Interface display methods for the four active Atlas/Sense requests and prepare advisory response handoff. |
 
 ## Current Direction
 
-Active milestone: M23 - Display Use Case Capture
-Last completed milestone: M22 - Display Material Bench
+Active milestone: M24 - Active Display Request Advisory Comparison
+Last completed milestone: M23 - Display Use Case Capture
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS80
-Latest accepted handshake: workspace/OverseerHS79-m22-acceptance.md
+Current sequence: HS82
+Latest accepted handshake: workspace/OverseerHS81-m23-acceptance-m24-runway.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: workspace/OverseerHS80-m23-display-use-case-capture-runway.md
+Active runway: workspace/OverseerHS81-m23-acceptance-m24-runway.md
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
@@ -121,6 +122,8 @@ Active milestone handshakes:
 - `workspace/OverseerHS79-m22-acceptance.md`
 - `workspace/request_display.md`
 - `workspace/OverseerHS80-m23-display-use-case-capture-runway.md`
+- `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`
+- `workspace/OverseerHS81-m23-acceptance-m24-runway.md`
 
 Accepted authority records:
 

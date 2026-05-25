@@ -6,15 +6,15 @@ Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M23 - Display Use Case Capture
-Last completed milestone: M22 - Display Material Bench
-Current executor: Human / source-project owners, then UI development owner / display asset documentor
-Current focus: gather scoped `request_display` entries, then map them to three candidate display methods
-Expected artifact filename: `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`
+Active milestone: M24 - Active Display Request Advisory Comparison
+Last completed milestone: M23 - Display Use Case Capture
+Current executor: UI/UX advisor or UI development owner / display asset documentor
+Current focus: compare Bridge -> Interface display methods for the four active Atlas/Sense requests
+Expected artifact filename: `workspace/DisplayResponseComparisonHS82-active-display-requests.md`
 
 ## Current State
 
-Aura Lab has accepted and closed M22. M23 is now open to capture display use cases before test-build or SmokeFlash work.
+Aura Lab has accepted and closed M23. M24 is now open to answer the active display requests with advisory comparison, before test-build or SmokeFlash work.
 
 Housekeeping note:
 
@@ -48,19 +48,22 @@ Accepted state:
 - SmokeFlash is accepted as a later light harness candidate, not active M22 work.
 - M22 accepted `workspace/reference/display-material-bench-2026-05-25.md`.
 - M22 accepted Material Set Formation, including `Material class`, as authoring structure for future expansion.
-- M23 is open as `Display Use Case Capture`.
+- M23 is complete as `Display Use Case Capture`.
 - `workspace/request_display.md` is the advisory request schema for other projects to ask Lab for Bridge -> Interface display suggestions.
 - `workspace/display-request-cooperation-contract.md` is the cooperative advisory contract for request limits, scope, product attachment, and archive expectations.
+- M23 accepted `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`.
+- Active request count is Atlas 3 and Sense 1, both under the five-request cap.
+- M24 is open as `Active Display Request Advisory Comparison`.
 
 ## Purpose
 
-M23 develops the use-case layer before future display primitive work:
+M24 develops the first active request response layer before future display primitive work:
 
 ```txt
-Display Use Case Capture
+Active Display Request Advisory Comparison
 ```
 
-The goal is to map known presentation surfaces and incoming `request_display` entries to Lab display slots, display types, material sets, and three candidate display methods.
+The goal is to compare Bridge -> Interface display methods for the four active Atlas/Sense requests, preserving source-project meaning and leaving adoption to the source projects.
 
 This is advisory/documentation work only. It is not implementation, a bridge contract, runtime fixture doctrine, target adoption, source-project semantics, or product doctrine.
 
@@ -94,6 +97,8 @@ This is advisory/documentation work only. It is not implementation, a bridge con
 - M23 request schema: `workspace/request_display.md`
 - M23 runway: `workspace/OverseerHS80-m23-display-use-case-capture-runway.md`
 - M23 cooperation contract: `workspace/display-request-cooperation-contract.md`
+- M23 artifact: `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`
+- M23 acceptance / M24 runway: `workspace/OverseerHS81-m23-acceptance-m24-runway.md`
 
 ## Source Of Intent
 
@@ -114,6 +119,9 @@ Accepted source of intent:
 - Human authorization for advisory cross-project `request_display` pointers.
 - Human direction to cap active requests at five per project.
 - Human direction to include limited scope and product attachment so requests can act as internal display checklists.
+- Human direction to avoid double work by keeping canonical requests source-owned and Lab outputs recorded once.
+- Human direction that Sense is caught up and M23 can close.
+- Central display request workflow context.
 - `workspace/display-asset-documentation-owner-contract.md`
 
 Accepted references:
@@ -134,6 +142,10 @@ Accepted references:
 - `workspace/request_display.md`
 - `workspace/OverseerHS80-m23-display-use-case-capture-runway.md`
 - `workspace/display-request-cooperation-contract.md`
+- `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`
+- `workspace/OverseerHS81-m23-acceptance-m24-runway.md`
+- `F:\Projects\Docs\Aura-Project-Orchestration\known-workflows\display_request.md`
+- `F:\Projects\Docs\Aura-Project-Orchestration\workflow-maps\display-request-space-to-state.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
 - `workspace/workshop/README.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\terminology\protected-words\README.md`
@@ -142,41 +154,37 @@ Accepted references:
 
 ## Ordered Runway
 
-1. Human / source-project owners gather scoped `request_display` entries using the request schema and cooperation contract.
-2. Keep each project to five active requests unless Human / Overseer explicitly overrides the cap.
-3. Read `workspace/request_display.md`, `workspace/display-request-cooperation-contract.md`, M20 slot taxonomy, M21 display type library, M22 material bench, Lab critical terms, and the display asset documentation owner contract.
-4. Define the use-case capture purpose: map real or known current presentation surfaces to candidate Lab display methods without taking source-project ownership.
-5. Build a use-case comparison table covering Lab-known surfaces first, then Atlas/Sense/other-project entries that arrive through `request_display`.
-6. For each row, capture project owner, product attachment, limited scope, surface/use case, current presentation, user goal, source terms to preserve, terms to qualify, known fields, state/freshness/basis/gap needs, applicable M20 slots, applicable M21 display types, applicable M22 material sets, and three candidate display methods.
-7. Give each row a disposition: near-term Lab candidate, needs target review, needs material, needs inventory entry, parked, or not suitable.
-8. Record advisory cross-project `request_display` pointer deployment without changing target-project active runways.
-9. Recommend the next packet after M23: likely Display Inventory Scaffold, SmokeFlash feasibility, or first material-backed primitive selection.
+1. Read `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`, `workspace/request_display.md`, `workspace/display-request-cooperation-contract.md`, M20, M21, M22, and the central display request workflow.
+2. For each active request, restate the source-project owner, scope boundary, source terms to preserve, non-goals, and adoption authority.
+3. Compare the three candidate display methods already named in M23. Refine method names or split a method only if needed for clarity.
+4. For each method, describe first-read hierarchy, state/basis/freshness/gap treatment, interaction/reveal behavior, narrow behavior, terminology risks, and verification expectations if later adopted.
+5. Recommend one method per request, or recommend split/merge/park/return-to-project if the request needs source-project decisions before design.
+6. Provide a response/adoption handoff table that source projects can use locally: request id, recommended method, source-project review needed, adoption state suggestion, and implementation-packet-ready only if appropriate.
+7. Do not create target-project runways, source-project adoption records, or Dev tasks.
 
 ## Acceptance Criteria
 
-M23 can be accepted if the artifact:
+M24 can be accepted if the artifact:
 
-- defines a usable use-case comparison table
-- uses `request_display` as an advisory intake shape
-- follows the cooperative request cap of five active requests per project unless Human / Overseer overrides it
-- includes limited scope and product attachment for captured requests
-- maps use cases to M20 slots, M21 display types, and M22 material sets
-- offers three distinct display methods per suitable known presentation
-- makes clear which project owns source meaning
-- preserves target-project terms rather than making them Lab defaults
-- gives future inventory, SmokeFlash, or primitive-selection work a better target
-- records any cross-project pointers deployed and keeps them advisory
+- covers all four active requests
+- preserves Atlas and Sense source meanings
+- keeps Lab advice Bridge -> Interface only
+- compares three display methods per request or explains why one should be split/parked
+- gives a clear recommendation or decision needed per request
+- records risks and non-goals
+- includes enough handoff shape for Atlas/Sense to accept, adapt, reject, or park locally
+- does not authorize Dev work
+- does not turn Lab vocabulary into target-project terms
+- does not treat archived or inventory-only rows as active requests
 
 Reject or redirect if the artifact:
 
-- becomes a target adoption plan
-- becomes a bridge contract or payload schema
-- asks Dev to implement
-- treats Lab as owner of target-project meaning
-- skips slot/type/material mapping
-- gives only one display option where comparison is possible
-- turns request intake into a hidden backlog
-- omits scope boundaries for active requests
+- becomes a target implementation plan
+- creates source-project Dev instructions
+- renames Atlas or Sense terms
+- treats Lab material sets as target vocabulary
+- introduces new backend, bridge, IPC, payload, schema, persistence, runtime, or provider requirements
+- expands beyond the four active requests
 
 ## Concept Candidates
 
@@ -188,7 +196,7 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 
 ## Guardrails
 
-- This is a use-case/documentation packet, not Dev implementation.
+- This is an advisory comparison packet, not Dev implementation.
 - Do not implement a full Ship/System face.
 - Do not implement Atlas or Sense adapters.
 - Do not make Lab an Atlas, Sense, or Core adapter.
@@ -206,7 +214,7 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 - Do not treat inspiration images or websites as requirements.
 - Do not use archived docs or reference folders as active task queues.
 - Do not create a hidden backlog; every recommended display type needs a disposition.
-- Do not implement SmokeFlash in M23.
+- Do not implement SmokeFlash in M24.
 - Do not promote the repeat cycle until the material bench and inventory scaffold are accepted.
 
 ## Stop Conditions
@@ -226,7 +234,7 @@ Stop and return to Human / Overseer if the work would:
 - require target-project files to be changed
 - require live/private/network access as a prerequisite
 - produce only an inspiration gallery without slot mapping and disposition
-- turn SmokeFlash tooling into the M23 product
+- turn SmokeFlash tooling into the M24 product
 - disrupt target-project active runways while deploying advisory pointers
 
 ## Verification
@@ -246,7 +254,7 @@ npm.cmd run verify:terminology
 
 ## Support
 
-M23 support:
+M24 support:
 
 - `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
@@ -260,16 +268,18 @@ M23 support:
 - `workspace/OverseerHS80-m23-display-use-case-capture-runway.md`
 - `workspace/display-asset-documentation-owner-contract.md`
 - `workspace/workshop/README.md`
+- `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`
+- `workspace/OverseerHS81-m23-acceptance-m24-runway.md`
 
 ## Handoff
 
 Expected artifact:
 
 ```txt
-workspace/DisplayUseCaseCaptureHS80-request-display-map.md
+workspace/DisplayResponseComparisonHS82-active-display-requests.md
 ```
 
-The artifact should include files reviewed, use-case capture purpose, request workflow notes, active request count per project, pointer deployment notes, use-case comparison table, three candidate display methods per suitable use case, limited scope, product attachment, slot/type/material mapping, risks, parked items, verification results, and recommended next packet.
+The artifact should include files reviewed, active request list, source-owner boundaries, per-request method comparison, recommendation or decision needed, risks, source-project review/adoption handoff table, parked items, and verification results.
 
 ## Reference Folder
 
@@ -279,7 +289,7 @@ Do not convert references into requirements unless this packet already names the
 
 ## Parked Items
 
-- SmokeFlash HTML harness until M23 and inventory shape are accepted or Human prioritizes tooling.
+- SmokeFlash HTML harness until M24 and inventory shape are accepted or Human prioritizes tooling.
 - Cannibalizing Sense log-reader shape for Lab-local staged ingest until a later tooling packet.
 - Repeat implementation cycle until the use-case capture, material bench, and inventory scaffold are accepted.
 - Support panel label polish.
