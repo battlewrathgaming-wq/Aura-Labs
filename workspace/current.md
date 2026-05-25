@@ -1,20 +1,20 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M25 - Display Material Requirements
-Last completed milestone: M24 - Active Display Request Advisory Comparison
-Current executor: UI/UX advisor / display material designer
-Current focus: derive individual display material requirements from M24 and Human fitness notes
-Expected artifact filename: `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md`
+Active milestone: None
+Last completed milestone: M25 - Display Material Requirements
+Current executor: Human / Overseer
+Current focus: choose next packet: material prototype, workflow refactor, or SmokeFlash feasibility
+Expected artifact filename: None
 
 ## Current State
 
-Aura Lab has accepted and closed M24. M25 is now open to capture which individual display materials Lab needs to make next, without doing Atlas/Sense feature delivery.
+Aura Lab has accepted and closed M25. Lab is waiting on Human / Overseer direction for the next packet.
 
 Housekeeping note:
 
@@ -57,19 +57,22 @@ Accepted state:
 - M24 acceptance is recorded in `workspace/OverseerHS83-m24-acceptance.md`.
 - Human fitness notes are recorded lightly in `workspace/OverseerHS83-m24-acceptance.md`; source projects track acceptance/completion locally.
 - M25 is open as `Display Material Requirements`.
-- Workflow refactor remains parked until this milestone completes or Human explicitly opens it.
+- M25 accepted `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md`.
+- M25 acceptance is recorded in `workspace/OverseerHS85-m25-acceptance.md`.
+- Workflow refactor remains parked until Human explicitly opens it.
+- Recommended next candidates are Authority Window TTL material prototype, workflow refactor, or SmokeFlash feasibility.
 
 ## Purpose
 
-M25 develops the material requirements layer after the first active request response cycle:
+Lab is in a waiting state after the material requirements layer:
 
 ```txt
-Display Material Requirements
+Human / Overseer next-packet decision
 ```
 
-The goal is to translate M24 recommendations and Human fitness notes into a clear list of reusable Lab display materials, what each must prove, and which should be prototyped first.
+The goal is to choose whether Lab next opens a visible material prototype, workflow refactor, or SmokeFlash feasibility.
 
-This is advisory/requirements work only. It is not implementation, a bridge contract, runtime fixture doctrine, target adoption, source-project semantics, or product doctrine.
+No implementation, target adoption, or workflow refactor is active until Human / Overseer opens a packet.
 
 ## Latest Accepted Work
 
@@ -106,6 +109,8 @@ This is advisory/requirements work only. It is not implementation, a bridge cont
 - M24 artifact: `workspace/DisplayResponseComparisonHS82-active-display-requests.md`
 - M24 acceptance: `workspace/OverseerHS83-m24-acceptance.md`
 - M25 runway: `workspace/OverseerHS84-m25-display-material-requirements-runway.md`
+- M25 artifact: `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md`
+- M25 acceptance: `workspace/OverseerHS85-m25-acceptance.md`
 
 ## Source Of Intent
 
@@ -133,6 +138,7 @@ Accepted source of intent:
 - Human correction that Lab is not doing feature delivery here.
 - Human direction to capture requirements for individual display materials.
 - Human direction that UX should outline and carry the work toward prototype readiness in one complete output.
+- M25 accepted material requirements.
 - Central display request workflow context.
 - `workspace/display-asset-documentation-owner-contract.md`
 
@@ -159,6 +165,8 @@ Accepted references:
 - `workspace/DisplayResponseComparisonHS82-active-display-requests.md`
 - `workspace/OverseerHS83-m24-acceptance.md`
 - `workspace/OverseerHS84-m25-display-material-requirements-runway.md`
+- `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md`
+- `workspace/OverseerHS85-m25-acceptance.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\known-workflows\display_request.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\workflow-maps\display-request-space-to-state.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
@@ -169,32 +177,21 @@ Accepted references:
 
 ## Ordered Runway
 
-1. Read M24 artifacts, M24 Human fitness notes, M20, M21, M22, Lab critical files, workshop README, and the display asset documentation owner contract.
-2. Extract material needs from M24 recommendations and Human fitness notes.
-3. Create a material requirements table, one row per needed display material, not per source-project feature.
-4. Map each material requirement back to M20 slots, M21 display types, and M22 material sets.
-5. For each material, name required states, copy/text pressure, layout/narrow pressure, interaction/reveal pressure, source-meaning risk, and what the material must prove.
-6. Rate prototype readiness: ready, needs more material, needs source-project decision, parked.
-7. Recommend first, second, and third prototype material candidates.
-8. List product-specific or too-complex items that remain parked.
-9. Suggest future SmokeFlash/staged-ingest needs, but do not build them.
+1. Human / Overseer chooses the next packet.
+2. Do not start Dev or UI/UX work from this idle state.
+3. Preserve accepted M25 prototype candidate order unless Human redirects.
+4. Keep workflow refactor parked unless Human explicitly opens it.
 
 ## Acceptance Criteria
 
-M25 can be accepted if the artifact:
+The current waiting state can progress if Human opens:
 
-- is requirements capture, not feature delivery
-- derives material needs from M24 and Human fitness notes
-- identifies individual display materials Lab needs to make
-- maps material needs to M20 slots, M21 display types, and M22 material sets
-- names what each material must prove
-- separates reusable Lab material from Atlas/Sense-specific product work
-- recommends first, second, and third prototype candidates
-- names what remains parked
-- keeps future SmokeFlash/staged-ingest as suggested needs only
-- does not authorize Dev implementation
+- Authority Window TTL material prototype
+- Display request workflow refactor
+- SmokeFlash staged-ingest feasibility
+- another scoped display material or requirements packet
 
-Reject or redirect if the artifact:
+Reject or redirect future requests if they:
 
 - becomes an Atlas or Sense implementation plan
 - builds a feature spec for target projects
@@ -295,10 +292,10 @@ M25 support:
 Expected output:
 
 ```txt
-workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md
+None
 ```
 
-The artifact should include files reviewed, current-state understanding, extraction method, material requirements table, first/second/third prototype candidate recommendations, parked items, future SmokeFlash/staged-ingest needs, and acceptance criteria.
+Accepted M25 artifact: `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md`
 
 ## Reference Folder
 
