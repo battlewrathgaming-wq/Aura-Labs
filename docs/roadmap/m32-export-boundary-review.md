@@ -1,6 +1,6 @@
 # M32 - Export Boundary Review
 
-Status: Candidate
+Status: Active
 
 ## Outcome
 
@@ -36,3 +36,7 @@ M32 is complete when:
 - accepted composed output or strong enough material surface to justify export review
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
+
+## Activation
+
+Activated by HS129 after M31 accepted two non-TTL Lab-local material prototypes. M32 is advisory and does not authorize split/export implementation.
