@@ -1,12 +1,14 @@
 # Display Material Repeat Cycle Candidate
 
-Status: Deferred candidate
+Status: Promoted to M31
 
 ## Outcome
 
 Use the M29 proving-bench rules to produce a small batch of reusable display materials without turning each material into a separate milestone.
 
-This was previously staged as M30. After M29 closure, M30 was redirected to a smaller presentation resilience gate. This candidate remains useful, but it is not the active M30 milestone.
+This was previously staged as M30. After M29 closure, M30 was redirected to a smaller presentation resilience gate. The repeat-cycle concept is now promoted to M31:
+
+- `docs/roadmap/m31-display-material-repeat-cycle.md`
 
 ## Likely Runways
 

@@ -11,14 +11,15 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-Between milestones after Presentation Resilience Gate closure.
+Display Material Repeat Cycle.
 
-Aura Lab has closed M29 and M30. The next milestone should be selected from concrete Human priority: continue presentation features, resume display-material batching, compose an accepted output, or move toward split/export readiness.
+Aura Lab has closed M29 and M30. It is now using the accepted material library to produce a small repeatable batch of visible display materials without turning support tooling into the product.
 
 ## Near Outcomes
 
 - Keep presentation test coverage aligned with renderer capabilities.
 - Preserve Summary / Basis / Details readability as new slices are added.
+- Prove that accepted material pages can become visible prototypes through repeatable bounded packets.
 - Keep SmokeFlash as hidden/gated Lab tooling until a renderer split is earned.
 - Defer split/readiness until Human explicitly moves toward export or target consumption.
 
@@ -28,13 +29,14 @@ Aura Lab has closed M29 and M30. The next milestone should be selected from conc
 | --- | --- | --- | --- |
 | M29 | Presentation Head Improvement Rail | Complete | `docs/roadmap/m29-presentation-head-improvement-rail.md` |
 | M30 | Presentation Resilience Gate | Complete | `docs/roadmap/m30-presentation-resilience-gate.md` |
-| M31 | Composed Display Output | Candidate | `docs/roadmap/m31-composed-display-output.md` |
+| M31 | Display Material Repeat Cycle | Active | `docs/roadmap/m31-display-material-repeat-cycle.md` |
 | M32 | Export Boundary Review | Candidate | `docs/roadmap/m32-export-boundary-review.md` |
 
 Candidate bank:
 
 - `docs/roadmap/future-candidate-bank.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
+- `docs/roadmap/composed-display-output-candidate.md`
 
 ## Promotion Gates
 

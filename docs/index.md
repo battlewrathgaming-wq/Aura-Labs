@@ -74,6 +74,7 @@ Start here:
 - `docs/roadmap/future-candidate-bank.md`
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
 - `docs/roadmap/m30-presentation-resilience-gate.md`
+- `docs/roadmap/m31-display-material-repeat-cycle.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
 - `docs/statements/post-bridge-presentation-boundary.md`

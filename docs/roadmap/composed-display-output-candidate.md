@@ -1,6 +1,6 @@
-# M31 - Composed Display Output
+# Composed Display Output Candidate
 
-Status: Candidate
+Status: Deferred candidate
 
 ## Outcome
 
@@ -18,7 +18,7 @@ This milestone should prove how Lab materials work together as a larger presenta
 
 ## Acceptance Criteria
 
-M31 is complete when:
+This candidate is complete when promoted into a future milestone and:
 
 - the composed output uses accepted materials rather than inventing a new broad surface
 - the output has a clear display use
