@@ -1,7 +1,7 @@
 # Current Workspace Packet
 
 Status: Active
-Updated: 2026-05-24
+Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
@@ -63,6 +63,8 @@ This is a visible HTML/CSS/JS presentation feature. It is not a backend contract
 - M18 UI/UX concept pack: `workspace/complete/milestone-M18/UIUXHS64-presentation-concept-pack.md`
 - Current Overseer runway: `workspace/OverseerHS67-m18-acceptance-m19-runway.md`
 - Remote consumer conformance: `workspace/LabRemoteConsumerConformanceHS66.md`
+- Accepted UI developer advisory: `workspace/UIDevHS69-instrument-status-band-implementation-advisory.md`
+- Overseer advisory review: `workspace/OverseerHS70-uidevhs69-advisory-review.md`
 
 ## Source Of Intent
 
@@ -71,6 +73,7 @@ Accepted source of intent:
 - Human direction that Lab should ask whether a presentation should exist before building it.
 - M18 UI/UX recommendation to build `Instrument Status Band` first.
 - Reference folder accepted as inspiration only.
+- UIDevHS69 accepted as practical M19 advisory input, subordinate to this current packet.
 
 Accepted references:
 
@@ -87,14 +90,15 @@ Accepted references:
 
 1. Read this packet, `AGENTS.md`, `workspace/overview.md`, and the accepted M18 concept pack.
 2. Inspect the existing renderer/service fixture patterns before editing.
-3. Add one Instrument Status Band to the Lab renderer using neutral Lab presentation language.
-4. Feed it from existing or narrowly extended Lab fixture data.
-5. Cover these display states: current, updating, aged, partial, unavailable, fallback, and no data.
-6. Include a compact detail reveal or reuse `Readout Detail` where it fits cleanly.
-7. Preserve internal compatibility names unless a local rename is necessary and well covered.
-8. Update focused renderer/service/vocabulary verification.
-9. Run required verification.
-10. Create `workspace/DevHS68-instrument-status-band-prototype.md`.
+3. Use `workspace/UIDevHS69-instrument-status-band-implementation-advisory.md` as accepted advisory input while keeping this packet authoritative.
+4. Add one Instrument Status Band to the Lab renderer using neutral Lab presentation language.
+5. Feed it from existing or narrowly extended Lab fixture data.
+6. Cover these display states: current, updating, aged, partial, unavailable, fallback, and no data.
+7. Include a compact detail reveal or reuse `Readout Detail` where it fits cleanly.
+8. Preserve internal compatibility names unless a local rename is necessary and well covered.
+9. Update focused renderer/service/vocabulary verification.
+10. Run required verification.
+11. Create `workspace/DevHS68-instrument-status-band-prototype.md`.
 
 ## Concept Candidates
 
