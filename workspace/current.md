@@ -1,20 +1,20 @@
 # Current Workspace Packet
 
-Status: Waiting
+Status: Active
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M21 - Display Type Library Research Sweep
 Last completed milestone: M20 - Display Vocabulary And Slot Taxonomy
-Current executor: Human / Overseer
-Current focus: waiting for Human / Overseer direction after M20 closure
-Expected artifact filename: None
+Current executor: UI development owner / display asset documentor
+Current focus: expand the type-to-display library before repeat-cycle or material-bench work
+Expected artifact filename: `workspace/DisplayTypeLibraryHS76-display-pattern-research.md`
 
 ## Current State
 
-Aura Lab is waiting after accepting and closing M20.
+Aura Lab has accepted and closed M20. The next useful step is not a repeat build cycle yet. Lab first needs a broader type-to-display library so future primitives can be selected, pressured, compared, and rejected with better taste and less churn.
 
 Housekeeping note:
 
@@ -42,18 +42,20 @@ Accepted state:
 - The display asset documentation owner contract is active.
 - M20 accepted `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`.
 - The initial Lab display slot vocabulary is accepted as display asset vocabulary, not bridge fields or target-project contracts.
+- M21 is now open to research display types and map them back to the accepted slot vocabulary.
+- The display material bench and any repeat implementation cycle are parked until this library expansion is accepted.
 
 ## Purpose
 
-M20 developed the understanding layer needed before future display primitive work:
+M21 develops the next understanding layer before future display primitive work:
 
 ```txt
-Display Vocabulary And Slot Taxonomy
+Display Type Library Research Sweep
 ```
 
-The accepted result classifies project-wide terminology into display classes/types, identifies recurring display pressures, and proposes a Lab-owned slot vocabulary.
+The goal is to expand Lab's library of display types: what each type is good for, what slots it can carry, what pressures it handles, how it behaves in narrow shells, and when it should be parked.
 
-This remains advisory/documentation work only. It is not implementation, a bridge contract, a shared glossary, target adoption, or product doctrine.
+This is advisory/documentation work only. It is not implementation, a bridge contract, a shared glossary, target adoption, source-project semantics, or product doctrine.
 
 ## Latest Accepted Work
 
@@ -76,6 +78,7 @@ This remains advisory/documentation work only. It is not implementation, a bridg
 - M20 runway: `workspace/OverseerHS74-m20-display-taxonomy-runway.md`
 - M20 UI documentor artifact: `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
 - M20 Overseer acceptance: `workspace/OverseerHS75-m20-acceptance.md`
+- M21 runway: `workspace/OverseerHS76-m21-display-type-library-runway.md`
 
 ## Source Of Intent
 
@@ -87,6 +90,8 @@ Accepted source of intent:
 - UIDevHS69 accepted as practical M19 advisory input, subordinate to this current packet.
 - Human direction to use terminology understanding as the starting point for what needs to be displayed.
 - Human direction to develop a robust primitive slot vocabulary before tailoring display elements to product visions.
+- Human direction to expand the type-to-display library before entering a repeat cycle.
+- Human direction that the next step is most likely a research task.
 - `workspace/display-asset-documentation-owner-contract.md`
 
 Accepted references:
@@ -98,22 +103,22 @@ Accepted references:
 - `workspace/complete/milestone-M18/UIUXHS64-presentation-concept-pack.md`
 - `workspace/complete/milestone-M18/OverseerHS63-m18-presentation-concept-runway.md`
 - `workspace/OverseerHS67-m18-acceptance-m19-runway.md`
+- `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
+- `workspace/OverseerHS75-m20-acceptance.md`
+- `workspace/workshop/README.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\terminology\protected-words\README.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\terminology`
 - `F:\Projects\Docs\Aura-Project-Orchestration\critical`
 
 ## Ordered Runway
 
-No active runway.
-
-Do not execute Dev work from this packet.
-
-Next valid moves:
-
-1. Human / Overseer may open `M21 - Display Material Bench`.
-2. Human / Overseer may open a broad display-pattern research sweep.
-3. Human / Overseer may open display inventory scaffold work.
-4. Human / Overseer may park Lab while target projects continue local adoption work.
+1. Read the accepted M20 taxonomy, the display asset documentation owner contract, the workshop README, and the shared terminology / critical indexes named above.
+2. Research display types that could serve Lab's accepted slots and recurring pressures. Use local reference material first; use web references only if permitted by the working environment and cite URLs when used.
+3. Produce a type-to-display table covering each display type's purpose, best-fit slots, pressure cases, strengths, failure modes, narrow behavior, text containment needs, motion suitability, terminology risks, and candidate Lab asset family.
+4. Include at least these display-type families: status band, status chip, value rail, gauge or meter, counter or reel, timeline or bead strip, activity surface, compact table or list, detail reveal, source coverage marker, gap / warning marker, availability reason treatment, compare strip, diagnostic panel, map / sensor display, matrix / heatmap, progress strip, empty / unavailable panel.
+5. Map each recommended display type back to the accepted M20 slot vocabulary and identify which slots still need material samples before UI build work.
+6. Prioritize a short list of near-term Lab display types for the material bench, plus a parked list for types that are too semantic-heavy, too broad, or too target-specific.
+7. Recommend the next packet after M21, with the expected sequence being material bench first, inventory scaffold second, repeat implementation cycle later.
 
 ## Concept Candidates
 
@@ -125,6 +130,7 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 
 ## Guardrails
 
+- This is a research and documentation packet, not Dev implementation.
 - Do not implement a full Ship/System face.
 - Do not implement Atlas or Sense adapters.
 - Do not make Lab an Atlas, Sense, or Core adapter.
@@ -136,6 +142,10 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 - Do not require live/private/network data.
 - Do not add a theme system, color editor, external UI framework, or broad reference-library feature.
 - Do not rename IPC channels, service commands, payload fields, screenshot names, or compatibility ids unless the packet becomes impossible without it.
+- Do not treat inspiration images or websites as requirements.
+- Do not use archived docs or reference folders as active task queues.
+- Do not create a hidden backlog; every recommended display type needs a disposition.
+- Do not promote the repeat cycle until the type library is accepted.
 
 ## Stop Conditions
 
@@ -148,10 +158,13 @@ Stop and return to Human / Overseer if the work would:
 - rename source-project terms
 - create a shared Aura glossary
 - make terminology risk unbounded through Lab display language
+- require target-project files to be changed
+- require live/private/network access as a prerequisite
+- produce only an inspiration gallery without slot mapping and disposition
 
 ## Verification
 
-Latest accepted verification:
+Required local verification after artifact creation:
 
 ```powershell
 npm.cmd run verify:all
@@ -166,18 +179,34 @@ npm.cmd run verify:terminology
 
 ## Support
 
-M20 support:
+M21 support:
 
 - `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
+- `workspace/display-asset-documentation-owner-contract.md`
+- `workspace/workshop/README.md`
 
 ## Handoff
 
-Accepted artifact:
+Expected artifact:
 
 ```txt
-workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md
+workspace/DisplayTypeLibraryHS76-display-pattern-research.md
 ```
+
+The artifact should include:
+
+- files and references reviewed
+- current-state understanding
+- display type table
+- slot mapping back to M20 vocabulary
+- source/URL notes for external references, if used
+- terminology and owner/layer risks
+- narrow-shell and text-containment findings
+- near-term display types for material bench
+- parked display types and why
+- acceptance checklist
+- recommended next packet
 
 ## Reference Folder
 
@@ -187,6 +216,8 @@ Do not convert references into requirements unless this packet already names the
 
 ## Parked Items
 
+- Repeat implementation cycle until M21 and the material bench are accepted.
+- `M21 - Display Material Bench` as previously named; it should now become the likely M22 after display type research.
 - Support panel label polish.
 - Deeper compatibility-name cleanup.
 - Lab protected-term discovery false-positive refinement.
