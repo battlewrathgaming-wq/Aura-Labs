@@ -7,10 +7,10 @@ Owner: Overseer
 ## Coordination State
 
 Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / HS99 - Basis Rail Polish
-Current executor: Dev
-Current focus: Improve the Briefing `Details` view as a calm inspection surface before renderer security review.
-Expected artifact filename: `workspace/DevHS102-details-view-inspection.md`
+Last completed milestone: M29 / HS102 - Details View Inspection
+Current executor: Security specialist / Reviewer
+Current focus: Renderer security review after the final bounded M29 presentation slice.
+Expected artifact filename: `workspace/SecurityHS104-renderer-security-review.md`
 
 ## Current State
 
@@ -22,15 +22,25 @@ Accepted M29 slices:
 - H03 View Intent Axis.
 - HS97 Basis-First Expressive View.
 - HS99 Basis Rail Polish.
+- HS102 Details View Inspection.
+
+Accepted HS102 result:
+
+- The Briefing `Details` view now brings the existing Readout Detail drawer into the first Details flow before the Bridge State Readout band.
+- The drawer is styled as a calm inspection surface for readout age/timing, state summary, basis, known fields, band marker, source paths, gaps, and warnings.
+- `Summary`, `Basis`, and `Details` remain the only visible view options.
+- Summary remains default.
+- The HS99 Basis rail placement and polish are preserved.
+- Diagnostics remain secondary and are not promoted into Details.
+- Targeted smoke captures `summary-first`, `basis`, and `details` on `briefing` / `partial`.
+- No target-project adapter, source-project meaning, export/seeding, renderer split, durable bridge/runtime contract, IPC channel, network path, or dependency was introduced.
 
 Accepted sequence:
 
-- One more bounded presentation-head slice.
+- One bounded presentation-head slice after HS99.
 - Then renderer security review.
 
-Selected slice:
-
-- Improve the Briefing `Details` view so the Readout Detail path, gaps, warnings, timing, and supporting rows read as an intentional inspection surface.
+The bounded slice is now accepted. Open the renderer security review.
 
 ## Source Of Intent
 
@@ -38,13 +48,10 @@ Accepted source of intent:
 
 - Human direction to do one bounded presentation slice, then a renderer security review.
 - Human direction to focus this phase on presentation improvements.
-- Human direction to review split/readiness only when the presentation head is good enough.
-- `docs/roadmap/README.md`
-- `docs/roadmap/m29-presentation-head-improvement-rail.md`
-- `docs/roadmap/future-candidate-bank.md`
-- `workspace/OverseerHS100-hs99-basis-rail-polish-acceptance.md`
 - `workspace/OverseerHS101-m29-next-slice-security-sequence.md`
 - `workspace/OverseerHS102-m29-details-view-inspection-runway.md`
+- `workspace/DevHS102-details-view-inspection.md`
+- `workspace/OverseerHS103-hs102-details-view-acceptance.md`
 
 Read first:
 
@@ -54,145 +61,121 @@ Read first:
 - `workspace/critical/README.md`
 - `workspace/critical/critical-terms.md`
 - `workspace/critical/critical-assets.md`
-- `docs/roadmap/README.md`
+- `docs/adr/0001-smokeflash-split-timing.md`
+- `docs/adr/0002-target-owned-presentation-adapters.md`
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
-- `docs/roadmap/future-candidate-bank.md`
-- `workspace/OverseerHS100-hs99-basis-rail-polish-acceptance.md`
 - `workspace/OverseerHS101-m29-next-slice-security-sequence.md`
+- `workspace/OverseerHS103-hs102-details-view-acceptance.md`
+- `src/main/main.js`
+- `src/main/preload.js`
 - `src/renderer/index.html`
 - `src/renderer/app.js`
 - `src/renderer/styles.css`
-- `src/main/main.js`
+- `src/services/serviceRegistry.js`
 - `scripts/electron-visual-smoke.ps1`
 - `scripts/verify-renderer-shell.js`
-- `scripts/verify-lab-vocabulary.js`
+- `package.json`
 
-## Ordered Runway
+## Ordered Review Runway
 
-1. Inspect the current Briefing Summary / Basis / Details implementation and smoke screenshots.
-2. Keep `Summary`, `Basis`, and `Details` as the only visible view options.
-3. Keep Summary and Basis behavior stable except for tiny supporting style adjustments if needed.
-4. Improve the Details view so the Readout Detail path, gaps, warnings, timing, and supporting rows read as an intentional inspection surface.
-5. Keep diagnostics secondary; Details must not become a diagnostics-first view.
-6. Keep existing Lab slim labels unless a minor copy adjustment is needed for clarity.
-7. Preserve or update targeted smoke so `summary-first`, `basis`, and `details` still pass on Briefing partial.
-8. Create `workspace/DevHS102-details-view-inspection.md`.
+1. Review renderer and Electron boundary assumptions in the listed files.
+2. Review DOM insertion/text handling and whether bridge/fixture strings are treated as text rather than HTML.
+3. Review preload, IPC, service access, and renderer command exposure for unnecessary authority.
+4. Review SmokeFlash/workshop gating and normal launch isolation.
+5. Review whether recent M29 view-intent, Basis rail, and Details inspection changes introduced renderer risk.
+6. Review Electron window/shell assumptions relevant to renderer safety.
+7. Run lightweight verification only if useful for confirming current state.
+8. Create `workspace/SecurityHS104-renderer-security-review.md`.
 
 ## Acceptance Criteria
 
-This runway is acceptable if:
+This review is acceptable if it:
 
-- Summary, Basis, and Details remain the only visible view options
-- Details view visibly improves inspection of readout detail, gaps, warnings, timing, and supporting rows
-- Details does not become a diagnostics-first surface
-- Summary remains the default overview
-- Basis rail remains before the readout body and keeps its accepted polish
-- the first Details screenshot reads as an intentional inspection mode, not just the same surface with a highlighted drawer
-- no source-project meaning is imported
-- no new bridge/runtime contract, target adapter, export path, renderer split, IPC channel, network path, or dependency is introduced
-- targeted screenshots still pass: `summary-first`, `basis`, and `details`
-- verification passes
-
-Redirect or stop if:
-
-- useful Details work requires changing view labels
-- the work turns into a new content model or another named expressive view
-- the work requires target-project terms or source-owned meaning
-- the work becomes a major redesign
-- normal launch depends on workshop state
+- identifies whether the renderer is acceptable for continued Lab-local presentation work
+- lists concrete findings by severity, with file references
+- distinguishes blocker, fix-before-export, and acceptable-Lab-local risks
+- reviews DOM/text handling, preload/IPC exposure, workshop gating, and normal launch isolation
+- calls out any impact from HS102 or the current M29 view work
+- does not implement code
+- does not open target-project adapters, export/seeding, renderer split, or live/private/network work
+- recommends the next move after review
 
 ## Guardrails And Non-Goals
 
 Allowed:
 
-- small HTML/CSS/JS changes for Details view hierarchy
-- small copy adjustment only if it stays inside accepted Lab slim language
-- targeted renderer/smoke updates if structure changes
-- style adjustments needed to keep Summary, Basis, and Details coherent
+- read files
+- inspect current smoke result files
+- run local verification commands if useful
+- write the expected security review artifact
 
 Not allowed:
 
-- new visible view labels
+- code changes
+- dependency changes
 - target-project adapters
-- Atlas/Sense implementation
 - export/seeding
-- renderer split
-- broad visual-smoke matrix
-- durable bridge/runtime contract
-- durable key-term promotion
-- diagnostics-first work
-- major palette/material redesign
-- new dependencies
+- renderer split implementation
 - live/private/network work
-- renderer security review in this packet
+- GUI/manual smoke unless Human explicitly asks
+- destructive or git history operations
 
 ## Stop Conditions
 
 Stop and return to Human / Overseer if:
 
-- Details cannot be improved without changing accepted view structure
-- source-owned meaning decisions are required
-- normal launch cannot stay clean
-- SmokeFlash/workshop state becomes product navigation
-- verification requires live/private/network data
+- a possible critical security issue needs immediate Human review
+- review requires live/private/network data
+- review requires changing code to continue
+- the renderer boundary depends on target-project adapter assumptions
 - Electron runtime/install issues become the main work
 
 ## Required Verification
 
-Always run:
+No verification is strictly required for a read-only security review.
+
+If useful, run:
 
 ```powershell
 npm.cmd run verify:renderer-shell
 npm.cmd run verify:all
-npm.cmd run verify:vocabulary
 ```
 
-Run Electron smoke because visible Details behavior is expected to change:
-
-```powershell
-npm.cmd run smoke:electron
-```
-
-Run shared terminology check if visible copy or durable documentation wording changes:
-
-```powershell
-cd F:\Projects\Docs\Aura-Project-Orchestration
-npm.cmd run verify:terminology
-```
+Do not run Electron smoke unless Human or Overseer asks for GUI/smoke confirmation.
 
 ## Evidence
 
-Dev should fill this after work:
+Security reviewer should fill this after work:
 
-- Files changed:
-- Details behavior changed:
-- Summary/Basis stability:
-- Screenshot/smoke notes:
-- Verification run:
-- Remaining risks:
+- Files reviewed:
+- Commands run:
+- Findings:
+- Blockers:
+- Fix-before-export risks:
+- Acceptable Lab-local risks:
+- Recommended next move:
 
-## Dev Handoff
+## Review Handoff
 
 Expected output:
 
 ```txt
-workspace/DevHS102-details-view-inspection.md
+workspace/SecurityHS104-renderer-security-review.md
 ```
 
-The handoff must state whether the Details view slice is ready for Overseer acceptance and whether the next M29 move should be the renderer security review.
+The handoff must state whether the renderer can continue Lab-local presentation work and whether any fix runway is needed before split/readiness review.
 
 ## Advisory Disposition
 
-- Accepted: one final bounded presentation-head slice before renderer security review.
-- Accepted: Details view inspection improvement as the selected slice.
-- Deferred: renderer security review until this slice is accepted.
-- Deferred: split-readiness review.
-- Parked: target-project adapters and adoption work.
+- Accepted: HS102 Details View Inspection.
+- Accepted: open renderer security review after HS102.
+- Deferred: split-readiness review until after security review.
+- Parked: target-project adapters and export/seeding.
 
 ## Residual Risks
 
 - Existing inherited naming tripwires remain.
 - `viewIntent` is local renderer/test state only, not a durable bridge/runtime contract.
-- HS97/HS99/HS102 remains proven only on the Briefing family.
+- M29 presentation-head work is proven only on the Briefing family.
 - SmokeFlash/material harness code remains in the renderer bundle under ADR 0001 Lab-local allowance.
 - SmokeFlash must still be split before export, seeding, or target-project consumption.

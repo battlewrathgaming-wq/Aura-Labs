@@ -31,6 +31,8 @@ function main() {
   assert(main.includes('visual_structure'), 'visual smoke should capture prototype visual structure');
   assert(main.includes('readout_label'), 'visual smoke should capture Bridge State Readout label');
   assert(main.includes('source_drawer_visible'), 'visual smoke should capture Readout Detail drawer presence');
+  assert(main.includes('source_drawer_open'), 'visual smoke should capture Readout Detail drawer open state');
+  assert(main.includes('diagnostics_secondary'), 'visual smoke should confirm diagnostics stay secondary');
   assert(main.includes('scrollWidth > node.clientWidth'), 'visual smoke should check horizontal text overflow');
   assert(main.includes('visualSmokeBlockingFailures'), 'visual smoke should evaluate review-blocking observations before reporting pass');
   assert(main.includes('blocking_failures'), 'visual smoke result should report blocking failures');
@@ -40,7 +42,9 @@ function main() {
   assert(main.includes('SELECTED_VIEW_INTENT_MISMATCH'), 'visual smoke should block selected view intent mismatch');
   assert(main.includes('VIEW_INTENT_LABELS_MISSING'), 'visual smoke should block missing view intent labels');
   assert(main.includes('BASIS_FOCUS_COPY_MISSING'), 'visual smoke should block missing basis focus copy');
+  assert(main.includes('DETAILS_INSPECTION_PATH_MISSING'), 'visual smoke should block missing Details inspection path');
   assert(main.includes('family-briefing-state-partial-view-${intent}.png'), 'visual smoke should capture targeted briefing view intents');
+  assert(main.includes("document.querySelector('.briefing')?.scrollIntoView({ block: 'start' })"), 'visual smoke should reset targeted view screenshots to briefing');
   assert(packageJson.includes('"smoke:electron"'), 'package should expose project-local Electron smoke script');
   assert(smokeScript.includes('AURA_LAB_ELECTRON_VISUAL_SMOKE'), 'Electron smoke wrapper should set explicit smoke flag');
   assert(smokeScript.includes('AURA_LAB_WORKSHOP_MODE'), 'Electron smoke wrapper should set explicit workshop flag');

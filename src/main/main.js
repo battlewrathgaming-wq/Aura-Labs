@@ -269,6 +269,7 @@ async function selectViewIntent(window, intent) {
       const button = document.querySelector(${JSON.stringify(`[data-view-intent-option="${intent}"]`)});
       if (!button) return;
       button.click();
+      document.querySelector('.briefing')?.scrollIntoView({ block: 'start' });
       await new Promise((resolve) => setTimeout(resolve, 180));
     })();
   `);
@@ -281,6 +282,12 @@ async function captureViewIntent(window, family, state, intent, viewport, output
   return window.webContents.executeJavaScript(`
     (() => {
       const text = (selector) => document.querySelector(selector)?.textContent?.trim() || '';
+      const box = (selector) => {
+        const node = document.querySelector(selector);
+        if (!node) return null;
+        const rect = node.getBoundingClientRect();
+        return { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right };
+      };
       const overflowing = Array.from(document.querySelectorAll('dd, strong, button, select, h1, p, span'))
         .filter((node) => node.scrollWidth > node.clientWidth + 1)
         .map((node) => ({
@@ -288,6 +295,8 @@ async function captureViewIntent(window, family, state, intent, viewport, output
           id: node.id || null,
           text: node.textContent.trim().slice(0, 80)
         }));
+      const briefing = box('.briefing');
+      const diagnostics = box('.diagnostics');
       return {
         family: ${JSON.stringify(family)},
         state: ${JSON.stringify(state)},
@@ -314,6 +323,7 @@ async function captureViewIntent(window, family, state, intent, viewport, output
         source_drawer_visible: Boolean(document.querySelector('#source-detail-drawer')),
         source_drawer_open: Boolean(document.querySelector('#source-detail-drawer')?.open),
         diagnostics_visible: Boolean(document.querySelector('.diagnostics')),
+        diagnostics_secondary: Boolean(briefing && diagnostics && briefing.top < diagnostics.top),
         view_switch_labels: Array.from(document.querySelectorAll('[data-view-intent-option]')).map((node) => node.textContent.trim()),
         overflowing
       };
@@ -419,6 +429,15 @@ function visualSmokeBlockingFailures(observations) {
       failures.push({
         code: 'BASIS_FOCUS_COPY_MISSING',
         screenshot: observation.screenshot
+      });
+    }
+    if (observation.requested_view_intent === 'details' && (!observation.source_drawer_visible || !observation.source_drawer_open || observation.diagnostics_secondary !== true)) {
+      failures.push({
+        code: 'DETAILS_INSPECTION_PATH_MISSING',
+        screenshot: observation.screenshot,
+        source_drawer_visible: observation.source_drawer_visible,
+        source_drawer_open: observation.source_drawer_open,
+        diagnostics_secondary: observation.diagnostics_secondary
       });
     }
     if (observation.selected_family !== observation.requested_family) {
