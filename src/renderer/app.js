@@ -22,14 +22,26 @@ const presentationSlotRegistry = {
         label: 'Readout age',
         lane: 'freshness',
         viewIntent: slotViewIntentPolicy({ details: { emphasis: 'primary' } }),
-        value: ({ readoutState }) => readoutState.ageLabel
+        value: ({ readoutState }) => readoutState.ageLabel,
+        hydration: slotHydration({
+          detail: ({ readoutState }) => [
+            ['Freshness', readoutState.ageLabel],
+            ['Inspection use', 'Shows when this readout basis was last updated.']
+          ]
+        })
       },
       {
         id: 'state-summary',
         label: 'State summary',
         lane: 'state',
         viewIntent: slotViewIntentPolicy(),
-        value: ({ readoutState }) => readoutState.summary
+        value: ({ readoutState }) => readoutState.summary,
+        hydration: slotHydration({
+          detail: ({ readoutState }) => [
+            ['Readout state', readoutState.label],
+            ['Summary', readoutState.summary]
+          ]
+        })
       },
       {
         id: 'readout-basis',
@@ -39,7 +51,13 @@ const presentationSlotRegistry = {
           basis: { emphasis: 'primary' },
           details: { emphasis: 'primary' }
         }),
-        value: ({ readoutState }) => readoutState.basis
+        value: ({ readoutState }) => readoutState.basis,
+        hydration: slotHydration({
+          detail: ({ readoutState }) => [
+            ['Basis', readoutState.basis],
+            ['Use', 'Explains what the visible readout is based on.']
+          ]
+        })
       },
       {
         id: 'known-fields',
@@ -49,7 +67,13 @@ const presentationSlotRegistry = {
           basis: { emphasis: 'support' },
           details: { emphasis: 'support' }
         }),
-        value: ({ briefing, status }) => knownFieldCopy(briefing, status)
+        value: ({ briefing, status }) => knownFieldCopy(briefing, status),
+        hydration: slotHydration({
+          detail: ({ briefing, status }) => [
+            ['Known fields', knownFieldCopy(briefing, status)],
+            ['Coverage note', sourceCopy(briefing)]
+          ]
+        })
       },
       {
         id: 'band-marker',
@@ -59,7 +83,13 @@ const presentationSlotRegistry = {
           basis: { emphasis: 'support' },
           details: { emphasis: 'primary' }
         }),
-        value: ({ readoutState }) => readoutState.marker
+        value: ({ readoutState }) => readoutState.marker,
+        hydration: slotHydration({
+          detail: ({ readoutState }) => [
+            ['Marker', readoutState.marker],
+            ['Marker tone', readoutState.markerTone]
+          ]
+        })
       },
       {
         id: 'source-paths',
@@ -70,7 +100,13 @@ const presentationSlotRegistry = {
           basis: { emphasis: 'support' },
           details: { emphasis: 'support' }
         }),
-        value: ({ briefing }) => sourceCopy(briefing)
+        value: ({ briefing }) => sourceCopy(briefing),
+        hydration: slotHydration({
+          detail: ({ briefing }) => [
+            ['Source paths', sourceCopy(briefing)],
+            ['Display scope', 'Source labels are shown only as readout context.']
+          ]
+        })
       }
     ]
   }
@@ -81,6 +117,13 @@ function slotViewIntentPolicy(overrides = {}) {
     'summary-first': { available: true, order: 10, emphasis: overrides.summary?.emphasis || 'quiet' },
     basis: { available: true, order: 10, emphasis: overrides.basis?.emphasis || 'quiet' },
     details: { available: true, order: 10, emphasis: overrides.details?.emphasis || 'inspect' }
+  };
+}
+
+function slotHydration({ detail = () => [] } = {}) {
+  return {
+    compact: true,
+    detail
   };
 }
 
@@ -443,7 +486,8 @@ function renderSourceDrawer(briefing, readoutState, status) {
   const list = document.querySelector('#source-detail-list');
   list.textContent = '';
   for (const slot of presentationSlots('briefingReadoutDetail', state.viewIntent)) {
-    appendSourceDetail(list, slot.label, slot.value({ briefing, readoutState, status }), slot);
+    const context = { briefing, readoutState, status };
+    appendSourceDetail(list, slot.label, slot.value(context), slot, slotDetailHydration(slot, context));
   }
 
   const gaps = document.querySelector('#source-gap-list');
@@ -466,7 +510,15 @@ function presentationSlots(registryId, viewIntent = state.viewIntent) {
     .sort((left, right) => left.activePolicy.order - right.activePolicy.order);
 }
 
-function appendSourceDetail(list, labelText, valueText, slot = {}) {
+function slotDetailHydration(slot, context) {
+  const detailRows = slot.hydration?.detail?.(context) || [];
+  return {
+    compact: slot.hydration?.compact !== false,
+    detailRows
+  };
+}
+
+function appendSourceDetail(list, labelText, valueText, slot = {}, hydration = { compact: true, detailRows: [] }) {
   const item = document.createElement('div');
   if (slot.id) {
     item.dataset.presentationSlot = slot.id;
@@ -476,6 +528,11 @@ function appendSourceDetail(list, labelText, valueText, slot = {}) {
   }
   if (slot.activePolicy?.emphasis) {
     item.dataset.presentationEmphasis = slot.activePolicy.emphasis;
+  }
+  item.dataset.presentationHydration = hydration.compact ? 'compact' : 'expanded';
+  item.dataset.presentationDetailCount = String(hydration.detailRows.length);
+  if (hydration.detailRows.length > 0) {
+    item.dataset.presentationDetail = hydration.detailRows.map(([label, value]) => `${label}: ${value}`).join(' | ');
   }
   const label = document.createElement('span');
   const value = document.createElement('strong');
