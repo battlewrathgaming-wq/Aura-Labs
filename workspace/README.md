@@ -19,6 +19,11 @@ Build a library of ways information can be displayed, a workshop where new displ
 Current proposal:
 
 - `workspace/OverseerProposalHS72-display-elements-workshop-and-material-bench.md`
+- `workspace/OverseerProposalHS72-lab-display-inventory-and-material-contract.md`
+
+Active owner contract:
+
+- `workspace/display-asset-documentation-owner-contract.md`
 
 Accepted M19 support:
 
@@ -50,6 +55,8 @@ Future Lab work should follow this loop unless `workspace/current.md` explicitly
 Every executable packet should name the element, source of intent, material or fixture pressure, required states, required slots, narrow behavior, verification commands, and expected handoff file.
 
 Workshop notes, reference notes, and proposal files do not authorize Dev work. Dev work starts only from `workspace/current.md`.
+
+The UI development owner may lead display asset documentation shape and inventory productivity under `workspace/display-asset-documentation-owner-contract.md`. This does not make that role the owner of Lab direction, target-project adoption, or Dev runways.
 
 ## Shared Authority
 
