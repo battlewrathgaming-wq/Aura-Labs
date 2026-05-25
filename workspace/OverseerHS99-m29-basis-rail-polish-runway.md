@@ -1,79 +1,49 @@
-# Current Workspace Packet
+# OverseerHS99 - M29 Basis Rail Polish Runway
 
-Status: Active
-Updated: 2026-05-25
-Owner: Overseer
+Status: Active runway
+Date: 2026-05-25
+Role: Overseer
 
-## Coordination State
+## Purpose
 
-Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / HS97 - Basis-First Expressive View
-Current executor: Dev
-Current focus: Polish the Briefing `Basis` rail so it reads as a compact instrument/status strip rather than another card row.
-Expected artifact filename: `workspace/DevHS99-basis-rail-polish.md`
+Open the next M29 slice after HS97 acceptance and UI/UX review.
 
-## Current State
+This runway should polish the existing Briefing `Basis` rail so it reads more like an instrument strip and less like another row of cards. This is a restraint-and-craft pass, not a feature expansion.
 
-Aura Lab is in M29, the Presentation Head Improvement Rail.
-
-Accepted M29 slices:
-
-- H02 Loading State Parity.
-- H03 View Intent Axis.
-- HS97 Basis-First Expressive View.
-
-Accepted HS97 result:
-
-- The Briefing family now has a compact basis-focus rail.
-- The rail surfaces `Basis`, `Freshness`, `Coverage`, and `Gaps / warnings`.
-- The rail sits before the state band so the `Basis` view shows its focus structure in the first visible slice.
-- `Basis` gives the rail stronger visual priority while keeping Summary and Details stable.
-- `summary-first` remains the default behavior.
-- Details still emphasizes the Readout Detail path without making diagnostics primary.
-- Smoke captures `summary-first`, `basis`, and `details` on `briefing` / `partial`.
-
-Accepted UI/UX advisory for next slice:
-
-- Keep `Summary / Basis / Details`.
-- Keep the rail before the readout body.
-- Make the rail feel more like an instrument strip and less like another row of cards.
-- Do not add another expressive view yet.
-- Do not start split readiness yet.
-
-## Source Of Intent
-
-Accepted source of intent:
-
-- Human direction to focus this phase on presentation improvements.
-- Human direction to review split/readiness only when the presentation head is good enough.
-- Human confirmation that the H-lane Presentation Head Milestones are the active line.
-- `docs/roadmap/README.md`
-- `docs/roadmap/m29-presentation-head-improvement-rail.md`
-- `docs/roadmap/future-candidate-bank.md`
-- `workspace/OverseerHS98-hs97-basis-view-acceptance.md`
-- `workspace/UIUXHS99-hs97-view-polish-advisory.md`
-- `workspace/OverseerHS99-m29-basis-rail-polish-runway.md`
-
-Read first:
+## Files Reviewed
 
 - `AGENTS.md`
 - `workspace/current.md`
 - `workspace/overview.md`
-- `workspace/critical/README.md`
-- `workspace/critical/critical-terms.md`
-- `workspace/critical/critical-assets.md`
-- `docs/roadmap/README.md`
-- `docs/roadmap/m29-presentation-head-improvement-rail.md`
-- `docs/roadmap/future-candidate-bank.md`
 - `workspace/OverseerHS98-hs97-basis-view-acceptance.md`
 - `workspace/UIUXHS99-hs97-view-polish-advisory.md`
-- `src/renderer/index.html`
-- `src/renderer/app.js`
-- `src/renderer/styles.css`
-- `src/main/main.js`
-- `scripts/electron-visual-smoke.ps1`
-- `scripts/verify-renderer-shell.js`
-- `scripts/verify-lab-vocabulary.js`
+- `docs/roadmap/m29-presentation-head-improvement-rail.md`
+- `docs/roadmap/future-candidate-bank.md`
+
+## Roadmap Alignment
+
+M29 outcome:
+
+- improve the product-facing presentation head through visible renderer capabilities
+- keep the test model aligned with renderer capability
+- keep workshop tooling bounded and support-only
+
+This runway continues M29 by polishing the accepted expressive Basis view before adding another view or reviewing split readiness.
+
+## Accepted Source Of Intent
+
+- Human direction to focus this phase on presentation improvements.
+- Human direction to review split/readiness only when the presentation head is good enough.
+- Accepted HS97 result in `workspace/OverseerHS98-hs97-basis-view-acceptance.md`.
+- Human-provided UI/UX advisory accepted into `workspace/UIUXHS99-hs97-view-polish-advisory.md`.
+
+## Current Executor
+
+Dev.
+
+## Expected Handoff
+
+`workspace/DevHS99-basis-rail-polish.md`
 
 ## Ordered Runway
 
@@ -200,11 +170,3 @@ The handoff must state whether the polish is ready for Overseer acceptance and w
 - Deferred: split-readiness review.
 - Parked: another expressive view.
 - Parked: target-project adapters and adoption work.
-
-## Residual Risks
-
-- Existing inherited naming tripwires remain.
-- `viewIntent` is local renderer/test state only, not a durable bridge/runtime contract.
-- HS97/HS99 remains proven only on the Briefing family.
-- SmokeFlash/material harness code remains in the renderer bundle under ADR 0001 Lab-local allowance.
-- SmokeFlash must still be split before export, seeding, or target-project consumption.
