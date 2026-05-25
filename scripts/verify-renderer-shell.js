@@ -119,9 +119,14 @@ function main() {
   assert(app.includes('dataset.presentationEmphasis'), 'renderer should mark rendered slot emphasis locally');
   assert(app.includes('slotHydration'), 'registered slots should declare a detail hydration shape');
   assert(app.includes('slotDetailHydration'), 'renderer should resolve slot hydration for Readout Detail rows');
+  assert(app.includes('setupSlotRevealController'), 'renderer should attach a local focus/reveal controller for hydrated slots');
+  assert(app.includes("item.dataset.presentationReveal = 'closed'"), 'slot reveal should default to closed');
+  assert(app.includes("item.addEventListener('focus'"), 'slot reveal should open on row focus');
+  assert(app.includes("event.key === 'Enter' || event.key === ' '"), 'slot reveal should support keyboard toggle');
   assert(app.includes('dataset.presentationHydration'), 'renderer should mark rendered slot hydration state locally');
   assert(app.includes('dataset.presentationDetailCount'), 'renderer should mark hydrated detail row count locally');
   assert(app.includes('dataset.presentationDetail'), 'renderer should keep hydrated detail text local to rendered slots');
+  assert(app.includes('slot-reveal'), 'renderer should render hydrated detail inside existing rows');
   assert(app.includes('presentationSlots('), 'renderer should resolve registered presentation slots');
   assert(app.includes('dataset.presentationSlot'), 'renderer should mark rendered slot nodes with slot ids');
   assert(app.includes('dataset.presentationLane'), 'renderer should mark rendered slot nodes with slot lanes');

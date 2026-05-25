@@ -539,7 +539,45 @@ function appendSourceDetail(list, labelText, valueText, slot = {}, hydration = {
   label.textContent = labelText;
   value.textContent = valueText || 'Not provided';
   item.append(label, value);
+  setupSlotRevealController(item, hydration);
   list.appendChild(item);
+}
+
+function setupSlotRevealController(item, hydration) {
+  if (hydration.detailRows.length === 0) {
+    return;
+  }
+  item.tabIndex = 0;
+  item.setAttribute('aria-expanded', 'false');
+  item.dataset.presentationReveal = 'closed';
+
+  const detail = document.createElement('dl');
+  detail.className = 'slot-reveal';
+  detail.hidden = true;
+  for (const [labelText, valueText] of hydration.detailRows) {
+    const row = document.createElement('div');
+    const term = document.createElement('dt');
+    const description = document.createElement('dd');
+    term.textContent = labelText;
+    description.textContent = valueText || 'Not provided';
+    row.append(term, description);
+    detail.appendChild(row);
+  }
+  item.appendChild(detail);
+
+  const setOpen = (open) => {
+    detail.hidden = !open;
+    item.dataset.presentationReveal = open ? 'open' : 'closed';
+    item.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  item.addEventListener('focus', () => setOpen(true));
+  item.addEventListener('click', () => setOpen(item.dataset.presentationReveal !== 'open'));
+  item.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setOpen(item.dataset.presentationReveal !== 'open');
+    }
+  });
 }
 
 function bridgeStateReadout(briefing, status, stateCopy) {

@@ -9,8 +9,8 @@ Owner: Overseer
 Active milestone: M29 - Presentation Head Improvement Rail
 Last completed milestone: M29 / HS109 - Detail Hydration
 Current executor: Dev
-Current focus: Focus/reveal controller for hydrated presentation slots.
-Expected artifact filename: `workspace/DevHS111-focus-reveal-controller.md`
+Current focus: Correct first-click reveal behavior for hydrated presentation slots.
+Expected artifact filename: `workspace/DevHS112-focus-reveal-controller-correction.md`
 
 ## Current State
 
@@ -27,16 +27,16 @@ Accepted M29 slices:
 - HS107 View-Intent Slot Policy.
 - HS109 Detail Hydration.
 
-Accepted HS109 result:
+HS111 focus/reveal controller landed but is redirected for a narrow interaction correction.
 
-- Registered slots can now expose compact row values and optional hydrated detail rows.
-- Hydration is renderer-local and Lab-owned presentation behavior.
-- Briefing Readout Detail proves the hydration shape.
-- Hydrated detail is kept as local rendered-node metadata.
-- Visible labels, compact values, view modes, and default density remain stable.
-- No bridge payload, IPC, preload, service command, target adapter, source-project meaning, dependency, or SmokeFlash/workshop exposure was introduced.
+Review finding:
 
-The next executable slice is a focus/reveal controller. This should provide a small local way to reveal hydrated slot detail through the existing Readout Detail surface without creating a broad new surface or changing bridge meaning.
+- rows open on focus
+- rows also toggle on click
+- a normal mouse click may focus the row open and then immediately click-toggle it closed
+- first-click reveal should leave a closed row open
+
+The correction should preserve the existing surface and avoid broadening scope.
 
 ## Source Of Intent
 
@@ -44,8 +44,8 @@ Accepted source of intent:
 
 - Human direction to hammer in the presentation feature set.
 - `workspace/OverseerHS105-follow-on-feature-candidates.md`
-- `workspace/DevHS109-detail-hydration.md`
-- `workspace/OverseerHS110-hs109-detail-hydration-acceptance.md`
+- `workspace/DevHS111-focus-reveal-controller.md`
+- `workspace/OverseerHS112-hs111-focus-reveal-correction.md`
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
 - `docs/roadmap/future-candidate-bank.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
@@ -59,8 +59,8 @@ Read first:
 - `workspace/critical/README.md`
 - `workspace/critical/critical-terms.md`
 - `workspace/critical/critical-assets.md`
-- `workspace/OverseerHS110-hs109-detail-hydration-acceptance.md`
-- `src/renderer/index.html`
+- `workspace/DevHS111-focus-reveal-controller.md`
+- `workspace/OverseerHS112-hs111-focus-reveal-correction.md`
 - `src/renderer/app.js`
 - `src/renderer/styles.css`
 - `scripts/verify-renderer-shell.js`
@@ -68,24 +68,23 @@ Read first:
 
 ## Ordered Dev Runway
 
-1. Inspect the current presentation slot registry, view-intent policy, hydration metadata, and Readout Detail rendering path.
-2. Add a small renderer-local focus/reveal controller for hydrated slot rows.
-3. Use the existing Readout Detail surface as the proof path; do not create a new drawer, modal, panel, navigation surface, or view mode.
-4. Keep the default readout compact. Hydrated detail should be revealed only when a row is focused, selected, or otherwise explicitly revealed through the existing surface.
-5. Preserve Summary, Basis, and Details as the only visible view options.
-6. Add renderer-shell verification for the controller shape and proof path.
-7. Do not implement lazy visual slots, virtualization, row facets, overflow sentinel, reduced-motion gate, fixture adapter, draggable layout board, screenshot comparison index, split, adapters, or security review.
-8. Create `workspace/DevHS111-focus-reveal-controller.md`.
+1. Inspect the current `setupSlotRevealController(...)` focus/click/keyboard behavior.
+2. Fix first-click reveal so a closed hydrated row opens and remains open after mouse activation.
+3. Preserve keyboard access: focus should still reveal, and `Enter` / `Space` should still toggle intentionally.
+4. Keep hydrated detail inside the existing Readout Detail row; do not create a new drawer, modal, panel, navigation surface, or view mode.
+5. Keep Summary, Basis, and Details as the only visible view options.
+6. Update renderer-shell verification if needed so the interaction contract is represented.
+7. Run the required verification, including Electron smoke because visible interaction/CSS behavior is involved.
+8. Create `workspace/DevHS112-focus-reveal-controller-correction.md`.
 
 ## Acceptance Criteria
 
-This slice is acceptable if:
+This correction is acceptable if:
 
-- hydrated slot detail can be revealed through a small renderer-local controller
-- the controller is Lab-owned presentation behavior only
-- the existing Briefing/readout/detail path proves the controller
+- first mouse click on a closed hydrated row reveals detail and leaves it open
+- focus reveal still works
+- `Enter` / `Space` keyboard toggle still works
 - default readout density remains compact
-- Summary, Basis, and Details remain the only visible view options
 - no new drawer/modal/panel/navigation surface is introduced
 - no bridge/runtime/source-project contract is introduced
 - no target-project meaning, adapter, or adoption claim is introduced
@@ -97,10 +96,9 @@ This slice is acceptable if:
 Allowed:
 
 - renderer-local code changes
+- small CSS only if needed for the existing Readout Detail row reveal behavior
 - small verification updates
-- small CSS only if needed for existing Readout Detail reveal behavior
 - small handoff updates
-- Lab slim presentation language
 
 Not allowed:
 
@@ -108,7 +106,7 @@ Not allowed:
 - preload/IPC/service command changes
 - source-project semantics
 - target-project adapters
-- durable key-term promotion for slot ids, lanes, emphasis, hydration keys, or reveal state
+- durable key-term promotion for reveal state
 - lazy-loaded visual slot implementation
 - virtualized list helper implementation
 - row facets implementation
@@ -125,13 +123,10 @@ Not allowed:
 
 Stop and return to Human / Overseer if:
 
-- focus/reveal requires changing bridge payloads, IPC, preload, service commands, or fixture contracts
-- focus/reveal would force a broad renderer rewrite
-- the default readout would become visibly denser
-- the Details view would become diagnostics-first
-- Summary/Basis/Details would need to become source-project doctrine or durable shared terms
-- focus/reveal requires new visible modes beyond Summary, Basis, and Details
-- verification failures point to Electron/runtime installation rather than this slice
+- first-click reveal requires a broader interaction redesign
+- the correction would make the default readout visibly denser
+- the correction requires changing bridge payloads, IPC, preload, service commands, or fixture contracts
+- verification failures point to Electron/runtime installation rather than this correction
 
 ## Required Verification
 
@@ -141,11 +136,6 @@ Run:
 npm.cmd run verify:renderer-shell
 npm.cmd run verify:vocabulary
 npm.cmd run verify:all
-```
-
-Run Electron smoke if visible renderer behavior, layout, CSS, or smoke-targeted presentation output changes:
-
-```powershell
 npm.cmd run smoke:electron
 ```
 
@@ -161,9 +151,9 @@ npm.cmd run verify:terminology
 Dev should fill this after work:
 
 - Files changed:
-- Controller shape:
-- Proof path:
-- Compatibility names intentionally left alone:
+- Interaction correction:
+- First-click behavior:
+- Keyboard behavior:
 - Commands run:
 - Results:
 - Remaining risks:
@@ -173,17 +163,17 @@ Dev should fill this after work:
 Expected output:
 
 ```txt
-workspace/DevHS111-focus-reveal-controller.md
+workspace/DevHS112-focus-reveal-controller-correction.md
 ```
 
-The handoff must state whether the controller is ready to support a later lazy-loaded visual slot.
+The handoff must state whether the corrected focus/reveal controller is ready for Overseer acceptance and whether it remains ready to support a later lazy-loaded visual slot.
 
 ## Advisory Disposition
 
 - Accepted: HS109 Detail Hydration.
-- Accepted next: focus/reveal controller.
+- Redirected: HS111 Focus/Reveal Controller pending first-click correction.
 - Deferred: renderer security review until closer to split/export readiness.
-- Parked: lazy-loaded visual slot until registry/policy/hydration/reveal are proven.
+- Parked: lazy-loaded visual slot until registry/policy/hydration/reveal are accepted.
 - Parked: virtualized list helper until registry/list pressure is clearer.
 - Parked: row facets, overflow sentinel, reduced-motion gate, and Lab fixture adapter.
 - Parked: Lab-only draggable layout board and screenshot comparison index as support tooling.

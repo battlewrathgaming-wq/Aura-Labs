@@ -56,7 +56,7 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M26 | Human direction after M25 | Complete | Accepted individual reusable display material schemas and divided them into material library pages with the ledger as index. |
 | M27 | Human direction after M26 and HS88 | Complete | Accepted SmokeFlash boundary hardening with normal launch isolated from visible workshop controls and split-before-export noted as residual risk. |
 | M28 | Human direction after M27 controls | Complete | Accepted first Lab-local visible material prototype for Authority Window TTL Strip using ADR-controlled SmokeFlash workshop path. |
-| M29 | Presentation Head Improvement Rail | Active | HS109 detail hydration accepted; HS111 active for focus/reveal controller. |
+| M29 | Presentation Head Improvement Rail | Active | HS111 redirected for first-click reveal correction; HS112 active. |
 
 ## Current Direction
 
@@ -64,7 +64,7 @@ Active milestone: M29 - Presentation Head Improvement Rail
 Last completed milestone: M29 / HS109 - Detail Hydration
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS111
+Current sequence: HS112
 Latest accepted handshake: workspace/OverseerHS110-hs109-detail-hydration-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
@@ -153,6 +153,8 @@ Active milestone handshakes:
 - `workspace/OverseerHS108-hs107-view-intent-slot-policy-acceptance.md`
 - `workspace/DevHS109-detail-hydration.md`
 - `workspace/OverseerHS110-hs109-detail-hydration-acceptance.md`
+- `workspace/DevHS111-focus-reveal-controller.md`
+- `workspace/OverseerHS112-hs111-focus-reveal-correction.md`
 
 Accepted authority records:
 
