@@ -56,16 +56,16 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M26 | Human direction after M25 | Complete | Accepted individual reusable display material schemas and divided them into material library pages with the ledger as index. |
 | M27 | Human direction after M26 and HS88 | Complete | Accepted SmokeFlash boundary hardening with normal launch isolated from visible workshop controls and split-before-export noted as residual risk. |
 | M28 | Human direction after M27 controls | Complete | Accepted first Lab-local visible material prototype for Authority Window TTL Strip using ADR-controlled SmokeFlash workshop path. |
-| M29 | Presentation Head Improvement Rail | Active | HS112 focus/reveal correction accepted; HS114 active for lazy-loaded visual slot proof. |
+| M29 | Presentation Head Improvement Rail | Active | HS114 lazy-loaded visual slot accepted; HS116 active for row facets. |
 
 ## Current Direction
 
 Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / HS112 - Focus/Reveal Controller Correction
+Last completed milestone: M29 / HS114 - Lazy-Loaded Visual Slot
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS114
-Latest accepted handshake: workspace/OverseerHS113-hs112-focus-reveal-acceptance.md
+Current sequence: HS116
+Latest accepted handshake: workspace/OverseerHS115-hs114-lazy-loaded-visual-slot-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
 Housekeeping: active root cleaned on 2026-05-25; M19-M28 handoffs moved to `workspace/complete/`, M29 remains active in root, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
@@ -157,6 +157,8 @@ Active milestone handshakes:
 - `workspace/OverseerHS112-hs111-focus-reveal-correction.md`
 - `workspace/DevHS112-focus-reveal-controller-correction.md`
 - `workspace/OverseerHS113-hs112-focus-reveal-acceptance.md`
+- `workspace/DevHS114-lazy-loaded-visual-slot.md`
+- `workspace/OverseerHS115-hs114-lazy-loaded-visual-slot-acceptance.md`
 
 Accepted authority records:
 

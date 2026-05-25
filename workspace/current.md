@@ -7,10 +7,10 @@ Owner: Overseer
 ## Coordination State
 
 Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / HS112 - Focus/Reveal Controller Correction
+Last completed milestone: M29 / HS114 - Lazy-Loaded Visual Slot
 Current executor: Dev
-Current focus: Lazy-loaded visual slot proof for the Lab renderer.
-Expected artifact filename: `workspace/DevHS114-lazy-loaded-visual-slot.md`
+Current focus: Row facets for registered presentation rows.
+Expected artifact filename: `workspace/DevHS116-row-facets.md`
 
 ## Current State
 
@@ -27,17 +27,17 @@ Accepted M29 slices:
 - HS107 View-Intent Slot Policy.
 - HS109 Detail Hydration.
 - HS112 Focus/Reveal Controller Correction.
+- HS114 Lazy-Loaded Visual Slot.
 
-Accepted HS112 result:
+Accepted HS114 result:
 
-- Hydrated Readout Detail rows can reveal local detail through the existing row.
-- First mouse click on a closed hydrated row opens and leaves it open.
-- Focus reveal still works.
-- `Enter` / `Space` keyboard toggle still works.
-- Default readout density remains compact.
-- No new drawer, modal, panel, navigation surface, view mode, bridge payload, IPC channel, preload bridge, service command, source-project meaning, target adapter, dependency, or SmokeFlash/workshop exposure was introduced.
+- One registered slot can declare an optional lazy visual treatment.
+- The existing Briefing Readout Detail `band-marker` slot proves the `marker-signal` lazy treatment.
+- The default row remains useful before enhancement loads.
+- Lazy visual state is renderer-local data/CSS only.
+- No dependency, route, module/bundle split, bridge payload, IPC channel, preload bridge, service command, target adapter, source-project meaning, new surface, or SmokeFlash/workshop exposure was introduced.
 
-The next executable slice is a lazy-loaded visual slot proof. This should add one deferred visual treatment to one registered slot path without changing bridge meaning or turning the renderer into a bundle-splitting/export task.
+The next executable slice is row facets. This should add small renderer-local row-side markers for existing registered rows so state, basis, gap, warning, or action cues can be expressed consistently without making the row dense.
 
 ## Source Of Intent
 
@@ -45,8 +45,8 @@ Accepted source of intent:
 
 - Human direction to hammer in the presentation feature set.
 - `workspace/OverseerHS105-follow-on-feature-candidates.md`
-- `workspace/DevHS112-focus-reveal-controller-correction.md`
-- `workspace/OverseerHS113-hs112-focus-reveal-acceptance.md`
+- `workspace/DevHS114-lazy-loaded-visual-slot.md`
+- `workspace/OverseerHS115-hs114-lazy-loaded-visual-slot-acceptance.md`
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
 - `docs/roadmap/future-candidate-bank.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
@@ -60,7 +60,7 @@ Read first:
 - `workspace/critical/README.md`
 - `workspace/critical/critical-terms.md`
 - `workspace/critical/critical-assets.md`
-- `workspace/OverseerHS113-hs112-focus-reveal-acceptance.md`
+- `workspace/OverseerHS115-hs114-lazy-loaded-visual-slot-acceptance.md`
 - `src/renderer/index.html`
 - `src/renderer/app.js`
 - `src/renderer/styles.css`
@@ -69,29 +69,29 @@ Read first:
 
 ## Ordered Dev Runway
 
-1. Inspect the current presentation slot registry, view-intent policy, hydration metadata, focus/reveal controller, and Readout Detail rendering path.
-2. Add a small renderer-local lazy visual slot mechanism for one existing registered slot.
-3. Use the existing Briefing Readout Detail path as the proof path; do not create a new drawer, modal, panel, navigation surface, view mode, route, dependency, or build split.
-4. Keep default rendering compact and usable before the visual slot loads.
-5. Ensure the lazy slot loads only as local presentation enhancement and does not change bridge payload, source meaning, or required content.
-6. Add renderer-shell verification for the lazy slot mechanism and proof path.
+1. Inspect the current presentation slot registry, view-intent policy, hydration, focus/reveal, lazy visual slot, and Readout Detail rendering path.
+2. Add a small renderer-local row facet shape for registered slots.
+3. Apply facets to one or more existing Briefing Readout Detail slots without changing visible labels or source meaning.
+4. Keep facets compact and secondary; they should support scanning without making the default row dense.
+5. Use the existing Readout Detail surface as the proof path; do not create a new drawer, modal, panel, navigation surface, view mode, dependency, route, or build split.
+6. Add renderer-shell verification for the facet shape and proof path.
 7. Run Electron smoke if visible behavior, CSS, or smoke-targeted output changes.
-8. Do not implement virtualization, row facets, overflow sentinel, reduced-motion gate, fixture adapter, draggable layout board, screenshot comparison index, split, adapters, or security review.
-9. Create `workspace/DevHS114-lazy-loaded-visual-slot.md`.
+8. Do not implement overflow sentinel, virtualization, reduced-motion gate, fixture adapter, draggable layout board, screenshot comparison index, split, adapters, or security review.
+9. Create `workspace/DevHS116-row-facets.md`.
 
 ## Acceptance Criteria
 
 This slice is acceptable if:
 
-- one registered slot can declare or use a lazy-loaded visual treatment
-- the visual treatment is renderer-local and optional presentation enhancement
-- the existing Briefing/readout/detail path proves the lazy slot
-- the default row remains useful before lazy enhancement loads
+- registered slots can declare compact row facets
+- facets are renderer-local and optional presentation markers
+- the existing Briefing/readout/detail path proves facets
+- default rows remain compact and readable
 - Summary, Basis, and Details remain the only visible view options
 - no new drawer/modal/panel/navigation surface is introduced
 - no dependency, route, bundle split, bridge/runtime contract, or source-project meaning is introduced
 - no target-project adapter or adoption claim is introduced
-- follow-on features remain parked
+- overflow sentinel and virtualization remain parked
 - verification commands and results are recorded in the DevHS
 
 ## Guardrails And Non-Goals
@@ -99,7 +99,7 @@ This slice is acceptable if:
 Allowed:
 
 - renderer-local code changes
-- small CSS for the existing Readout Detail slot enhancement
+- small CSS for compact row facets
 - small verification updates
 - small handoff updates
 - Lab slim presentation language
@@ -112,10 +112,9 @@ Not allowed:
 - target-project adapters
 - new dependency or build tool change
 - actual renderer bundle splitting
-- durable key-term promotion for lazy slot state
-- virtualized list helper implementation
-- row facets implementation
+- durable key-term promotion for facet names
 - overflow sentinel implementation
+- virtualized list helper implementation
 - reduced-motion gate implementation
 - Lab fixture adapter implementation
 - new drawer/modal/navigation surface
@@ -128,10 +127,10 @@ Not allowed:
 
 Stop and return to Human / Overseer if:
 
-- lazy loading requires a dependency, route, module/bundle split, IPC, preload, service command, or fixture contract change
-- the default readout becomes dependent on lazy-loaded content
-- the lazy slot requires source-project semantics
-- the proof requires a new surface rather than the existing Readout Detail path
+- row facets require source-project semantics or bridge payload changes
+- facets make the default row visibly dense or noisy
+- facets require a new surface rather than the existing Readout Detail path
+- implementation requires a dependency, route, module/bundle split, IPC, preload, service command, or fixture contract change
 - verification failures point to Electron/runtime installation rather than this slice
 
 ## Required Verification
@@ -162,9 +161,9 @@ npm.cmd run verify:terminology
 Dev should fill this after work:
 
 - Files changed:
-- Lazy slot shape:
+- Facet shape:
 - Proof path:
-- Fallback/default behavior:
+- Density/readability note:
 - Commands run:
 - Results:
 - Remaining risks:
@@ -174,18 +173,19 @@ Dev should fill this after work:
 Expected output:
 
 ```txt
-workspace/DevHS114-lazy-loaded-visual-slot.md
+workspace/DevHS116-row-facets.md
 ```
 
-The handoff must state whether the lazy slot proof is ready to support later row facets or overflow sentinel work.
+The handoff must state whether row facets are ready to support later overflow sentinel or virtualized list work.
 
 ## Advisory Disposition
 
-- Accepted: HS112 Focus/Reveal Controller Correction.
-- Accepted next: lazy-loaded visual slot.
+- Accepted: HS114 Lazy-Loaded Visual Slot.
+- Accepted next: row facets.
 - Deferred: renderer security review until closer to split/export readiness.
-- Parked: virtualized list helper until registry/list pressure is clearer.
-- Parked: row facets, overflow sentinel, reduced-motion gate, and Lab fixture adapter.
+- Parked: overflow sentinel until row facets are proven.
+- Parked: virtualized list helper until row/facet/list pressure is clearer.
+- Parked: reduced-motion gate and Lab fixture adapter.
 - Parked: Lab-only draggable layout board and screenshot comparison index as support tooling.
 - Parked: target-project adapters and export/seeding.
 
@@ -194,6 +194,6 @@ The handoff must state whether the lazy slot proof is ready to support later row
 - Existing inherited naming tripwires remain.
 - `viewIntent` remains local renderer/test state only, not a durable bridge/runtime contract.
 - M29 presentation-head work is still proven only on the Briefing family.
-- Slot ids, lanes, emphasis, hydration keys, reveal state, and lazy slot state are local renderer implementation details, not durable key terms.
+- Slot ids, lanes, emphasis, hydration keys, reveal state, lazy slot state, and facet names are local renderer implementation details, not durable key terms.
 - SmokeFlash/material harness code remains in the renderer bundle under ADR 0001 Lab-local allowance.
 - SmokeFlash must still be split before export, seeding, or target-project consumption.

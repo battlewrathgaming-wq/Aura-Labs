@@ -51,7 +51,7 @@ The H-lane is the current strategic rail for the next Lab phase. The T-lane supp
 | H12 | View-Intent Slot Policy | Define how registered slots respond to Summary / Basis / Details view emphasis while keeping identity and source meaning stable. | Accepted next bounded candidate after HS105. |
 | H13 | Detail Hydration | Let compact slots reveal deeper detail rows only when needed, without making the default readout dense. | Accepted next bounded candidate after HS107. |
 | H14 | Focus / Reveal Controller | Add a renderer-local controller for focus, reveal, and collapse behavior across slot surfaces. | Accepted next bounded candidate after HS109. |
-| H15 | Row Facets | Define reusable row-side facets such as state, age, basis, gap, warning, and action markers for dense readout rows. | Candidate before or with H11. |
+| H15 | Row Facets | Define reusable row-side facets such as state, age, basis, gap, warning, and action markers for dense readout rows. | Accepted next bounded candidate after HS114. |
 | H16 | Overflow Sentinel | Add a visible overflow/containment marker for long copy, missing room, or clipped secondary detail. | Candidate before broad list work. |
 | H17 | Reduced-Motion Gate | Add a presentation gate so motion and transitions can be reduced without breaking comprehension. | Candidate for any animated/responsive slice. |
 | H18 | Lab Fixture Adapter | Add a Lab-local adapter from material/request shapes into fixture data for presentation pressure only. | Candidate after H09; not a bridge contract. |

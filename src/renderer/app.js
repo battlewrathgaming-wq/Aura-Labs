@@ -89,6 +89,18 @@ const presentationSlotRegistry = {
             ['Marker', readoutState.marker],
             ['Marker tone', readoutState.markerTone]
           ]
+        }),
+        lazyVisual: slotLazyVisual({
+          treatment: 'marker-signal',
+          render: ({ readoutState }) => ({
+            label: 'Marker signal',
+            tone: readoutState.markerTone,
+            values: [
+              readoutState.markerTone,
+              readoutState.tone,
+              readoutState.availableSources === readoutState.totalSources ? 'covered' : 'gapped'
+            ]
+          })
         })
       },
       {
@@ -124,6 +136,14 @@ function slotHydration({ detail = () => [] } = {}) {
   return {
     compact: true,
     detail
+  };
+}
+
+function slotLazyVisual({ treatment, render } = {}) {
+  return {
+    localOnly: true,
+    treatment,
+    load: (context) => Promise.resolve().then(() => render(context))
   };
 }
 
@@ -514,7 +534,8 @@ function slotDetailHydration(slot, context) {
   const detailRows = slot.hydration?.detail?.(context) || [];
   return {
     compact: slot.hydration?.compact !== false,
-    detailRows
+    detailRows,
+    context
   };
 }
 
@@ -539,8 +560,37 @@ function appendSourceDetail(list, labelText, valueText, slot = {}, hydration = {
   label.textContent = labelText;
   value.textContent = valueText || 'Not provided';
   item.append(label, value);
+  setupLazySlotVisual(item, slot, hydration.context);
   setupSlotRevealController(item, hydration);
   list.appendChild(item);
+}
+
+function setupLazySlotVisual(item, slot, context) {
+  if (!slot.lazyVisual?.localOnly || typeof slot.lazyVisual.load !== 'function') {
+    return;
+  }
+  item.dataset.presentationLazyVisual = 'pending';
+  item.dataset.presentationLazyTreatment = slot.lazyVisual.treatment || 'local';
+  slot.lazyVisual.load(context).then((visual) => {
+    if (!item.isConnected) {
+      return;
+    }
+    const visualNode = document.createElement('div');
+    visualNode.className = 'slot-lazy-visual';
+    visualNode.dataset.tone = visual?.tone || 'neutral';
+    visualNode.setAttribute('aria-label', visual?.label || 'Local visual treatment');
+    for (const valueText of visual?.values || []) {
+      const pip = document.createElement('i');
+      pip.textContent = valueText || 'Not provided';
+      visualNode.appendChild(pip);
+    }
+    item.appendChild(visualNode);
+    item.dataset.presentationLazyVisual = 'loaded';
+  }).catch(() => {
+    if (item.isConnected) {
+      item.dataset.presentationLazyVisual = 'unavailable';
+    }
+  });
 }
 
 function setupSlotRevealController(item, hydration) {

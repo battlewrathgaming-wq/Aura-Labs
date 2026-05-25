@@ -9,6 +9,7 @@ function main() {
   const preload = read(path.join(root, 'src', 'main', 'preload.js'));
   const html = read(path.join(root, 'src', 'renderer', 'index.html'));
   const app = read(path.join(root, 'src', 'renderer', 'app.js'));
+  const styles = read(path.join(root, 'src', 'renderer', 'styles.css'));
   const packageJson = read(path.join(root, 'package.json'));
   const smokeScript = read(path.join(root, 'scripts', 'electron-visual-smoke.ps1'));
 
@@ -120,6 +121,16 @@ function main() {
   assert(app.includes('slotHydration'), 'registered slots should declare a detail hydration shape');
   assert(app.includes('slotDetailHydration'), 'renderer should resolve slot hydration for Readout Detail rows');
   assert(app.includes('setupSlotRevealController'), 'renderer should attach a local focus/reveal controller for hydrated slots');
+  assert(app.includes('slotLazyVisual'), 'registered slots should declare a local lazy visual shape');
+  assert(app.includes('lazyVisual: slotLazyVisual'), 'one registered slot should prove a lazy visual treatment');
+  assert(app.includes("treatment: 'marker-signal'"), 'Band marker slot should prove the lazy visual treatment');
+  assert(app.includes('setupLazySlotVisual'), 'renderer should attach lazy visual enhancement locally');
+  assert(app.includes("item.dataset.presentationLazyVisual = 'pending'"), 'lazy visual should begin as a pending local enhancement');
+  assert(app.includes("item.dataset.presentationLazyVisual = 'loaded'"), 'lazy visual should mark local enhancement loaded');
+  assert(app.includes('slot.lazyVisual?.localOnly'), 'lazy visual loading should remain renderer-local and optional');
+  assert(app.includes('Promise.resolve().then'), 'lazy visual proof should defer locally without bundle splitting');
+  assert(app.includes('item.isConnected'), 'lazy visual should avoid decorating stale rendered rows');
+  assert(app.includes('slot-lazy-visual'), 'renderer should render lazy visual inside existing Readout Detail rows');
   assert(app.includes("item.dataset.presentationReveal = 'closed'"), 'slot reveal should default to closed');
   assert(app.includes('closedBeforePointer'), 'slot reveal should preserve first-click open behavior');
   assert(app.includes("item.addEventListener('pointerdown'"), 'slot reveal should inspect pointer state before focus opens the row');
@@ -129,6 +140,7 @@ function main() {
   assert(app.includes('dataset.presentationHydration'), 'renderer should mark rendered slot hydration state locally');
   assert(app.includes('dataset.presentationDetailCount'), 'renderer should mark hydrated detail row count locally');
   assert(app.includes('dataset.presentationDetail'), 'renderer should keep hydrated detail text local to rendered slots');
+  assert(app.includes('dataset.presentationLazyTreatment'), 'renderer should mark lazy visual treatment locally');
   assert(app.includes('slot-reveal'), 'renderer should render hydrated detail inside existing rows');
   assert(app.includes('presentationSlots('), 'renderer should resolve registered presentation slots');
   assert(app.includes('dataset.presentationSlot'), 'renderer should mark rendered slot nodes with slot ids');
@@ -187,6 +199,9 @@ function main() {
   assert(app.includes('window.auraWindow.setAlwaysOnTop'), 'renderer should toggle always-on-top through Frame bridge');
   assert(!app.includes('innerHTML'), 'renderer should not use innerHTML in the seed shell');
   assert(app.includes('textContent'), 'renderer should render dynamic service data as textContent');
+  assert(styles.includes('.slot-lazy-visual'), 'renderer styles should contain the lazy visual treatment');
+  assert(styles.includes('data-presentation-lazy-visual="pending"'), 'renderer styles should preserve useful pending lazy visual row state');
+  assert(styles.includes('data-presentation-lazy-visual="loaded"'), 'renderer styles should mark loaded lazy visual row state');
   for (const materialState of ['idle', 'active-window', 'captured', 'timeout', 'cooldown', 'blocked', 'manual-path']) {
     assert(app.includes(`id: '${materialState}'`), `renderer should define material state ${materialState}`);
   }
