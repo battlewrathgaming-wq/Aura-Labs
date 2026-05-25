@@ -48,17 +48,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M19 | M18 accepted Instrument Status Band concept | Complete | Accepted visible Instrument Status Band prototype on the existing Bridge State Readout, with compact state slots, readout basis, age, gaps/warnings marker, detail reveal, and verified renderer/Electron smoke. |
 | M20 | Human direction after M19 and display asset owner contract | Complete | Accepted terminology-to-slot taxonomy and initial Lab display slot vocabulary for future asset inventory and material-bench work. |
 | M21 | Human direction after M20 | Complete | Accepted display type library research mapped to M20 slot vocabulary, with material-bench candidates and parked higher-risk types. |
+| M22 | M21 accepted display type library | Active | Create hard display material for near-term display types before SmokeFlash, inventory scaffold, or repeat implementation. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M22 - Display Material Bench
 Last completed milestone: M21 - Display Type Library Research Sweep
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS77
+Current sequence: HS78
 Latest accepted handshake: workspace/OverseerHS77-m21-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: None
+Active runway: workspace/OverseerHS78-m22-display-material-bench-runway.md
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
@@ -114,6 +115,7 @@ Active milestone handshakes:
 - `workspace/OverseerHS76-m21-display-type-library-runway.md`
 - `workspace/DisplayTypeLibraryHS76-display-pattern-research.md`
 - `workspace/OverseerHS77-m21-acceptance.md`
+- `workspace/OverseerHS78-m22-display-material-bench-runway.md`
 
 Accepted authority records:
 
@@ -155,5 +157,5 @@ Completed milestone handshakes:
 - Should Atlas and Sense receive project-local protected-term checker adoption prompts?
 - Should Lab refine protected-term discovery output after a few review cycles?
 - Should Sense now perform its local adoption review using accepted M19 as advisory input?
-- Should the next Lab milestone open M22 - Display Material Bench?
 - Where should the future use-case comparison landing zone live after material bench shape is clearer?
+- Should SmokeFlash become the first tooling packet after material and inventory are accepted?
