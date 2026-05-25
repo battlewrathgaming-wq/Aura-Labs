@@ -136,6 +136,28 @@ async function runVisualSmoke(window) {
     path.join(smokeDir, 'material-authority-window-ttl-strip-state-cooldown-narrow.png')
   ));
 
+  const longTextStates = ['long-paragraph', 'long-token', 'path-like-value', 'warning-explanation', 'grouped-gaps', 'source-placeholder'];
+  await loadMaterialHarness(window, 'mat-long-text-detail-block');
+  window.setSize(960, 640);
+  for (const state of longTextStates) {
+    await selectLongTextMaterialState(window, state);
+    observations.push(await captureLongTextMaterialState(
+      window,
+      state,
+      'desktop',
+      path.join(smokeDir, `material-long-text-detail-block-state-${state}.png`)
+    ));
+  }
+
+  window.setSize(560, 640);
+  await selectLongTextMaterialState(window, 'long-token');
+  observations.push(await captureLongTextMaterialState(
+    window,
+    'long-token',
+    'narrow',
+    path.join(smokeDir, 'material-long-text-detail-block-state-long-token-narrow.png')
+  ));
+
   const screenshots = observations.map((observation) => observation.screenshot);
   const blockingFailures = visualSmokeBlockingFailures(observations);
   const smokePassed = blockingFailures.length === 0;
@@ -151,7 +173,8 @@ async function runVisualSmoke(window) {
     states_checked: {
       briefing: briefingStates,
       'neutral-seed': neutralSeedStates,
-      'mat-authority-window-ttl-strip': materialStates
+      'mat-authority-window-ttl-strip': materialStates,
+      'mat-long-text-detail-block': longTextStates
     },
     view_intents_checked: {
       briefing: briefingViewIntents
@@ -343,6 +366,32 @@ async function selectMaterialState(window, state) {
   `);
 }
 
+async function loadMaterialHarness(window, material) {
+  await window.webContents.executeJavaScript(`
+    (() => {
+      state.materialHarness = ${JSON.stringify(material)};
+      setupMaterialHarness();
+    })();
+  `);
+  await delay(250);
+}
+
+async function selectLongTextMaterialState(window, state) {
+  await window.webContents.executeJavaScript(`
+    (async () => {
+      const stateSelect = document.querySelector('#material-state');
+      if (!stateSelect) return;
+      stateSelect.value = ${JSON.stringify(state)};
+      stateSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      const detailToggle = document.querySelector('#long-text-detail-toggle');
+      if (detailToggle && detailToggle.getAttribute('aria-expanded') !== 'true') {
+        detailToggle.click();
+      }
+      await new Promise((resolve) => setTimeout(resolve, 180));
+    })();
+  `);
+}
+
 async function captureMaterialState(window, state, viewport, outputPath) {
   const image = await window.webContents.capturePage();
   fs.writeFileSync(outputPath, image.toPNG());
@@ -372,6 +421,42 @@ async function captureMaterialState(window, state, viewport, outputPath) {
         material_marker: text('#ttl-light'),
         material_detail_control_visible: Boolean(document.querySelector('#ttl-detail-toggle') && !document.querySelector('#ttl-detail-toggle').hidden),
         material_detail_rows: document.querySelectorAll('#ttl-detail div').length,
+        overflowing
+      };
+    })();
+  `);
+}
+
+async function captureLongTextMaterialState(window, state, viewport, outputPath) {
+  const image = await window.webContents.capturePage();
+  fs.writeFileSync(outputPath, image.toPNG());
+  const screenshot = path.basename(outputPath);
+  return window.webContents.executeJavaScript(`
+    (() => {
+      const text = (selector) => document.querySelector(selector)?.textContent?.trim() || '';
+      const overflowing = Array.from(document.querySelectorAll('#long-text-detail-block strong, #long-text-detail-block button, #long-text-detail-block span, #long-text-detail-block p, #long-text-detail-block code, #long-text-detail-block li'))
+        .filter((node) => node.scrollWidth > node.clientWidth + 1)
+        .map((node) => ({
+          tag: node.tagName.toLowerCase(),
+          id: node.id || null,
+          text: node.textContent.trim().slice(0, 80)
+        }));
+      return {
+        family: 'material',
+        material_id: 'mat-long-text-detail-block',
+        state: ${JSON.stringify(state)},
+        viewport: ${JSON.stringify(viewport)},
+        screenshot: ${JSON.stringify(screenshot)},
+        requested_material_state: ${JSON.stringify(state)},
+        selected_material_state: document.querySelector('#material-state')?.value || null,
+        material_harness_visible: Boolean(document.querySelector('#material-harness') && document.body.dataset.workshop === 'true'),
+        material_state: text('#long-text-state'),
+        material_chip: text('#long-text-cue'),
+        material_reason: text('#material-harness-title'),
+        material_marker: text('#long-text-marker'),
+        material_detail_control_visible: Boolean(document.querySelector('#long-text-detail-toggle') && !document.querySelector('#long-text-detail-toggle').hidden),
+        material_detail_rows: document.querySelectorAll('#long-text-detail .long-text-detail-row').length,
+        long_text_detail_open: Boolean(!document.querySelector('#long-text-detail')?.hidden),
         overflowing
       };
     })();

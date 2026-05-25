@@ -1,8 +1,9 @@
 # Long Text Detail Block
 
-Status: pending
+Status: accepted
 Material id: `mat-long-text-detail-block`
 Schema source: `workspace/UIUXHS123-guided-display-material-expansion.md`
+Prototype source: `workspace/DevHS125-long-text-detail-block-prototype.md`
 
 ## Purpose
 
@@ -78,4 +79,4 @@ Narrow shells should keep a compact summary first, then stack long text below. L
 
 ## Examples / Screenshots
 
-None yet.
+- Accepted Lab-local material harness prototype in HS125.

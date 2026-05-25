@@ -101,8 +101,11 @@ function main() {
   assert(html.includes('briefing-mode-note'), 'renderer should include bridge test mode note target');
   assert(html.includes('material-harness'), 'renderer should include isolated material harness surface');
   assert(html.includes('mat-authority-window-ttl-strip') || app.includes('mat-authority-window-ttl-strip'), 'renderer should support the authority window TTL material id');
+  assert(html.includes('long-text-detail-block'), 'renderer should include the Long Text Detail Block prototype shell');
+  assert(app.includes('mat-long-text-detail-block'), 'renderer should support the Long Text Detail Block material id');
   assert(html.includes('Authority Window TTL Strip'), 'renderer should label the material harness');
   assert(html.includes('ttl-detail-toggle'), 'renderer should include material detail reveal control');
+  assert(html.includes('long-text-detail-toggle'), 'renderer should include long text material detail reveal control');
   assert(html.includes('service-diagnostics'), 'renderer should demote registered services');
   assert(html.includes('data-field="current_executor"'), 'renderer should include current executor field');
   assert(html.includes('service-list'), 'renderer should include service list target');
@@ -172,7 +175,11 @@ function main() {
   assert(app.includes('setupMaterialHarness'), 'renderer should initialize the material harness only in workshop mode');
   assert(app.includes('authorityWindowStates'), 'renderer should define staged authority window material states');
   assert(app.includes('renderAuthorityWindowMaterial'), 'renderer should render staged authority window material');
+  assert(app.includes('longTextDetailBlockStates'), 'renderer should define staged long text material states');
+  assert(app.includes('renderLongTextDetailBlock'), 'renderer should render staged long text material');
+  assert(app.includes('longTextDetailRow'), 'renderer should render long text detail rows safely as text');
   assert(app.includes('toggleMaterialDetail'), 'renderer should support material detail reveal');
+  assert(app.includes('toggleLongTextDetail'), 'renderer should support long text material detail reveal');
   assert(app.includes('aura.presentationFixture'), 'renderer should request family fixtures through services');
   assert(app.includes('loadBriefing'), 'renderer should load briefing through bridge helper');
   assert(app.includes('setupFixtureControls'), 'renderer should setup family/state controls');
@@ -213,6 +220,9 @@ function main() {
   assert(main.includes('material_state'), 'visual smoke should capture material state');
   assert(main.includes('material_reason'), 'visual smoke should capture material reason');
   assert(main.includes('material-authority-window-ttl-strip-state-${state}.png'), 'visual smoke should capture each material state');
+  assert(main.includes('material-long-text-detail-block-state-${state}.png'), 'visual smoke should capture long text material states');
+  assert(main.includes('material-long-text-detail-block-state-long-token-narrow.png'), 'visual smoke should capture narrow long-token material state');
+  assert(main.includes('captureLongTextMaterialState'), 'visual smoke should inspect long text material containment');
   assert(main.includes('SELECTED_MATERIAL_STATE_MISMATCH'), 'visual smoke should block material state mismatch');
   assert(main.includes('MATERIAL_STATE_COPY_MISSING'), 'visual smoke should block missing material state copy');
   assert(app.includes('window.auraWindow.setAlwaysOnTop'), 'renderer should toggle always-on-top through Frame bridge');
@@ -234,8 +244,14 @@ function main() {
   assert(styles.includes('body[data-reduced-motion="reduce"] .source-detail-grid .slot-lazy-visual'), 'lazy visual treatment should remain static under reduced motion');
   assert(styles.includes('body[data-reduced-motion="reduce"] .source-detail-grid .slot-row-facets'), 'row facets should remain static under reduced motion');
   assert(styles.includes('body[data-reduced-motion="reduce"] .source-detail-grid .slot-overflow-sentinel'), 'overflow sentinel should remain static under reduced motion');
+  assert(styles.includes('.long-text-detail-block'), 'renderer styles should contain Long Text Detail Block treatment');
+  assert(styles.includes('.long-text-detail-row code'), 'long text material should style long tokens and paths for containment');
+  assert(styles.includes('word-break: break-word'), 'long text material should break long unbroken values safely');
   for (const materialState of ['idle', 'active-window', 'captured', 'timeout', 'cooldown', 'blocked', 'manual-path']) {
     assert(app.includes(`id: '${materialState}'`), `renderer should define material state ${materialState}`);
+  }
+  for (const materialState of ['long-paragraph', 'long-token', 'path-like-value', 'warning-explanation', 'grouped-gaps', 'source-placeholder']) {
+    assert(app.includes(`id: '${materialState}'`), `renderer should define long text material state ${materialState}`);
   }
   assert(app.includes("chip: 'TTL 00:03'"), 'renderer should show active-window TTL timing');
   assert(app.includes("chip: 'Next in 00:05'"), 'renderer should show cooldown timing');

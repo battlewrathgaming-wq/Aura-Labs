@@ -161,7 +161,7 @@
               <option value="idle">Idle</option>
             </select>
           </div>
-          <div class="ttl-strip" id="authority-window-ttl-strip">
+          <div class="ttl-strip material-prototype" id="authority-window-ttl-strip">
             <span class="ttl-light" id="ttl-light" aria-hidden="true"></span>
             <strong id="ttl-state">Idle</strong>
             <span class="ttl-chip" id="ttl-chip">No active window</span>
@@ -169,6 +169,15 @@
             <button type="button" id="ttl-detail-toggle" aria-expanded="false" aria-controls="ttl-detail">Details</button>
           </div>
           <div class="ttl-detail" id="ttl-detail" hidden></div>
+          <div class="long-text-detail-block material-prototype" id="long-text-detail-block" hidden>
+            <div class="long-text-parent">
+              <span class="long-text-marker" id="long-text-marker" aria-hidden="true">LT</span>
+              <strong id="long-text-state">Long paragraph</strong>
+              <span class="long-text-cue" id="long-text-cue">Detail holds extended copy.</span>
+              <button type="button" id="long-text-detail-toggle" aria-expanded="false" aria-controls="long-text-detail">Details</button>
+            </div>
+            <div class="long-text-detail-body" id="long-text-detail" hidden></div>
+          </div>
         </section>
       </section>
       <section class="panel compact diagnostics secondary-surface" aria-label="Secondary bridge diagnostics">

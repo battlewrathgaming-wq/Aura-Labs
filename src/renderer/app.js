@@ -331,22 +331,49 @@ function setupFixtureControls(briefing) {
 
 function setupMaterialHarness() {
   const harness = document.querySelector('#material-harness');
-  if (!state.workshopMode || state.materialHarness !== 'mat-authority-window-ttl-strip') {
+  const material = materialHarnessDefinition(state.materialHarness);
+  if (!state.workshopMode || !material) {
     harness.hidden = true;
     return;
   }
   harness.hidden = false;
+  harness.dataset.material = material.id;
+  document.querySelector('#material-harness-title').textContent = material.title;
+  for (const prototype of document.querySelectorAll('.material-prototype')) {
+    prototype.hidden = prototype.id !== material.elementId;
+  }
   const stateSelect = document.querySelector('#material-state');
   stateSelect.textContent = '';
-  for (const materialState of authorityWindowStates()) {
+  for (const materialState of material.states()) {
     const option = document.createElement('option');
     option.value = materialState.id;
     option.textContent = materialState.label;
     stateSelect.appendChild(option);
   }
-  stateSelect.addEventListener('change', () => renderAuthorityWindowMaterial(stateSelect.value));
+  stateSelect.addEventListener('change', () => material.render(stateSelect.value));
   document.querySelector('#ttl-detail-toggle').addEventListener('click', toggleMaterialDetail);
-  renderAuthorityWindowMaterial('idle');
+  document.querySelector('#long-text-detail-toggle').addEventListener('click', toggleLongTextDetail);
+  material.render(material.states()[0].id);
+}
+
+function materialHarnessDefinition(materialId) {
+  const definitions = {
+    'mat-authority-window-ttl-strip': {
+      id: 'mat-authority-window-ttl-strip',
+      title: 'Authority Window TTL Strip',
+      elementId: 'authority-window-ttl-strip',
+      states: authorityWindowStates,
+      render: renderAuthorityWindowMaterial
+    },
+    'mat-long-text-detail-block': {
+      id: 'mat-long-text-detail-block',
+      title: 'Long Text Detail Block',
+      elementId: 'long-text-detail-block',
+      states: longTextDetailBlockStates,
+      render: renderLongTextDetailBlock
+    }
+  };
+  return definitions[materialId] || null;
 }
 
 function authorityWindowStates() {
@@ -477,6 +504,172 @@ function renderAuthorityWindowMaterial(stateId) {
 function toggleMaterialDetail() {
   const detail = document.querySelector('#ttl-detail');
   const button = document.querySelector('#ttl-detail-toggle');
+  detail.hidden = !detail.hidden;
+  button.setAttribute('aria-expanded', detail.hidden ? 'false' : 'true');
+}
+
+function longTextDetailBlockStates() {
+  return [
+    {
+      id: 'long-paragraph',
+      label: 'Long paragraph',
+      tone: 'current',
+      marker: 'LP',
+      cue: 'Extended paragraph is held in detail.',
+      detail: [
+        {
+          label: 'Long paragraph',
+          type: 'paragraph',
+          value: 'This Lab-local material keeps a compact parent cue while a fuller readout basis can continue for several clauses, naming freshness, coverage, warnings, and display limits without forcing the first-read surface to become a wall of text.'
+        },
+        {
+          label: 'Warning explanation',
+          type: 'paragraph',
+          value: 'Warning copy remains explanatory rather than alarm-heavy; it describes why the display needs attention without claiming source authority or creating product doctrine.'
+        }
+      ]
+    },
+    {
+      id: 'long-token',
+      label: 'Long token',
+      tone: 'partial',
+      marker: 'TK',
+      cue: 'Unbroken sample token wraps inside detail.',
+      detail: [
+        {
+          label: 'Long unbroken token',
+          type: 'code',
+          value: 'SAMPLE_DISPLAY_TOKEN_7F3A2C9D0B4E6A8C1F5D2B9E0A4C7F1D_SOURCE_LAYER_PLACEHOLDER_ONLY_FOR_CONTAINMENT_REVIEW'
+        },
+        {
+          label: 'Containment note',
+          type: 'paragraph',
+          value: 'The token is staged display material for wrap pressure only.'
+        }
+      ]
+    },
+    {
+      id: 'path-like-value',
+      label: 'Path-like value',
+      tone: 'aged',
+      marker: 'PV',
+      cue: 'Display sample path is qualified in detail.',
+      detail: [
+        {
+          label: 'Path-like value',
+          type: 'code',
+          value: 'display-sample://source-project-owned/layer/readout-basis/long-text-detail-block/example-path-with-many-segments'
+        },
+        {
+          label: 'Owner / layer note',
+          type: 'paragraph',
+          value: 'This is display sample material. A real path-like value would be owned by the source project and shown here only as Bridge -> Interface presentation.'
+        }
+      ]
+    },
+    {
+      id: 'warning-explanation',
+      label: 'Warning explanation',
+      tone: 'fallback',
+      marker: 'WX',
+      cue: 'Long warning explanation stays behind detail.',
+      detail: [
+        {
+          label: 'Warning explanation',
+          type: 'paragraph',
+          value: 'The readout can explain a warning in complete language while the parent row stays compact; this avoids turning a small warning cue into a dominant product surface.'
+        },
+        {
+          label: 'Availability note',
+          type: 'paragraph',
+          value: 'The display can show fallback or limited availability without implying the source has no data unless the source project says so.'
+        }
+      ]
+    },
+    {
+      id: 'grouped-gaps',
+      label: 'Grouped gaps',
+      tone: 'partial',
+      marker: 'GG',
+      cue: 'Gap groups live in detail rows.',
+      detail: [
+        {
+          label: 'Missing display fields',
+          type: 'list',
+          values: ['freshness detail omitted in sample', 'coverage count omitted in sample', 'secondary basis omitted in sample']
+        },
+        {
+          label: 'Deferred detail',
+          type: 'list',
+          values: ['warning text can be expanded', 'source path can be qualified', 'long token can wrap safely']
+        }
+      ]
+    },
+    {
+      id: 'source-placeholder',
+      label: 'Source-owned placeholder',
+      tone: 'blocked',
+      marker: 'SP',
+      cue: 'Owner and layer qualification stay visible.',
+      detail: [
+        {
+          label: 'Source-owned placeholder',
+          type: 'paragraph',
+          value: 'Placeholder owner: source project. Layer shown here: Lab display sample. The placeholder demonstrates containment only and does not define source-project meaning.'
+        },
+        {
+          label: 'Readout basis note',
+          type: 'paragraph',
+          value: 'Lab may present the basis clearly after the bridge, but the source project owns what it emits and what the emitted value means.'
+        }
+      ]
+    }
+  ];
+}
+
+function renderLongTextDetailBlock(stateId) {
+  const materialState = longTextDetailBlockStates().find((entry) => entry.id === stateId) || longTextDetailBlockStates()[0];
+  const block = document.querySelector('#long-text-detail-block');
+  block.dataset.state = materialState.id;
+  block.dataset.tone = materialState.tone;
+  document.querySelector('#long-text-marker').textContent = materialState.marker;
+  document.querySelector('#long-text-state').textContent = materialState.label;
+  document.querySelector('#long-text-cue').textContent = materialState.cue;
+  const detail = document.querySelector('#long-text-detail');
+  detail.textContent = '';
+  for (const entry of materialState.detail) {
+    detail.appendChild(longTextDetailRow(entry));
+  }
+  detail.hidden = true;
+  document.querySelector('#long-text-detail-toggle').setAttribute('aria-expanded', 'false');
+}
+
+function longTextDetailRow(entry) {
+  const row = document.createElement('section');
+  row.className = 'long-text-detail-row';
+  row.dataset.detailType = entry.type || 'paragraph';
+  const label = document.createElement('span');
+  label.textContent = entry.label;
+  row.appendChild(label);
+  if (entry.type === 'list') {
+    const list = document.createElement('ul');
+    for (const valueText of entry.values || []) {
+      const item = document.createElement('li');
+      item.textContent = valueText;
+      list.appendChild(item);
+    }
+    row.appendChild(list);
+    return row;
+  }
+  const value = document.createElement(entry.type === 'code' ? 'code' : 'p');
+  value.textContent = entry.value || 'Not provided';
+  row.appendChild(value);
+  return row;
+}
+
+function toggleLongTextDetail() {
+  const detail = document.querySelector('#long-text-detail');
+  const button = document.querySelector('#long-text-detail-toggle');
   detail.hidden = !detail.hidden;
   button.setAttribute('aria-expanded', detail.hidden ? 'false' : 'true');
 }
