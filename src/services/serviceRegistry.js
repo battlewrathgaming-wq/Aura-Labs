@@ -32,6 +32,12 @@ const BRIEFING_TEST_MODES = Object.freeze([
     description: 'Return a failed fixture-read state.'
   },
   {
+    id: 'fallback',
+    label: 'Fallback',
+    status: 'failed',
+    description: 'Return an unavailable readout with fallback display basis.'
+  },
+  {
     id: 'partial',
     label: 'Partial',
     status: 'partial',
@@ -301,6 +307,10 @@ function buildProjectBriefing(payload = {}) {
     return attachModeMetadata(failedBriefing('Fixture failed bridge read', 'test-mode'), mode);
   }
 
+  if (mode === 'fallback') {
+    return attachModeMetadata(fallbackBriefing(), mode);
+  }
+
   let currentText = '';
   try {
     currentText = readRequired(currentPath, sources);
@@ -428,6 +438,34 @@ function buildNeutralSeedFixture(state) {
         message: 'Required sample unavailable.'
       },
       last_read_at: now.toISOString()
+    }, neutralSeedMetadata(state));
+  }
+
+  if (state === 'fallback') {
+    return decoratePresentationFixture({
+      view_status: 'failed',
+      title: 'Neutral sample fallback',
+      summary: 'Showing fallback display basis for the neutral presentation sample.',
+      fallback_note: 'Fallback display basis available.',
+      certainty: 'Fallback presentation path.',
+      action_posture: {
+        label: 'Fallback',
+        detail: 'Presentation fixture returned fallback display basis.'
+      },
+      attention_items: [
+        {
+          label: 'Fallback basis',
+          text: 'Fallback display basis available.',
+          source: 'neutral fixture'
+        }
+      ],
+      attention_empty_copy: 'No sample items shown.',
+      fields: neutralSeedFields(state),
+      source_labels: ['neutral sample fallback basis'],
+      sources: [{ label: 'neutral sample fallback basis', available: true, modified_at: now.toISOString() }],
+      missing_fields: ['live_sample'],
+      warnings: [{ message: 'Primary sample unavailable; fallback display basis shown.' }],
+      last_read_at: new Date(now.getTime() - 9 * 60 * 1000).toISOString()
     }, neutralSeedMetadata(state));
   }
 
@@ -668,6 +706,45 @@ function failedBriefing(message, source) {
       message
     },
     last_read_at: new Date().toISOString()
+  };
+}
+
+function fallbackBriefing() {
+  const now = new Date();
+  return {
+    view_status: 'failed',
+    title: 'Project briefing fallback',
+    summary: 'Showing fallback display basis for the project briefing readout.',
+    fallback_note: 'Fallback display basis available.',
+    certainty: 'Fallback presentation path.',
+    action_posture: {
+      label: 'Fallback',
+      detail: 'Project briefing is using fallback display basis.'
+    },
+    attention_items: [
+      {
+        label: 'Fallback basis',
+        text: 'Fallback display basis available.',
+        source: 'test-mode'
+      }
+    ],
+    attention_empty_copy: 'No attention items shown.',
+    fields: {
+      project_name: APP_NAME,
+      project_description: 'Fallback presentation fixture.',
+      active_milestone: 'Fallback review state',
+      current_packet_path: 'workspace/current.md',
+      current_executor: 'Fallback display basis',
+      current_focus: 'Review fallback state treatment for the Instrument Status Band.',
+      expected_output: null,
+      previous_accepted_handshake: null,
+      sequence: 'Fallback review state'
+    },
+    source_labels: ['fallback display basis'],
+    sources: [{ label: 'fallback display basis', available: true, modified_at: now.toISOString() }],
+    missing_fields: ['current_packet_read'],
+    warnings: [{ message: 'Current packet read unavailable; fallback display basis shown.' }],
+    last_read_at: new Date(now.getTime() - 9 * 60 * 1000).toISOString()
   };
 }
 

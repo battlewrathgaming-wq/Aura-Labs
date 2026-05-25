@@ -1,7 +1,7 @@
 # Aura Lab Workspace Overview
 
 Status: Active
-Last reviewed: 2026-05-24
+Last reviewed: 2026-05-25
 
 ## Vision Statement
 
@@ -45,17 +45,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M16 | M15 naming recommendation | Complete | Accepted visible readout naming polish while preserving internals. |
 | M17 | Human protected-term guardrail proposal | Complete | Accepted shared protected-word lookup scaffold and Lab warning-only discovery check. |
 | M18 | Presentation concept runway | Complete | Accepted Instrument Status Band as the smallest safe next prototype and kept references advisory. |
+| M19 | M18 accepted Instrument Status Band concept | Complete | Accepted visible Instrument Status Band prototype on the existing Bridge State Readout, with compact state slots, readout basis, age, gaps/warnings marker, detail reveal, and verified renderer/Electron smoke. |
 
 ## Current Direction
 
-Active milestone: M19 - Instrument Status Band Prototype
-Last completed milestone: M18 - Presentation Concept Pack
+Active milestone: None
+Last completed milestone: M19 - Instrument Status Band Prototype
 Roadmap source: Accepted `workspace/complete/milestone-M18/UIUXHS64-presentation-concept-pack.md`
 Current packet: `workspace/current.md`
-Current sequence: HS67
-Latest accepted handshake: workspace/OverseerHS67-m18-acceptance-m19-runway.md
+Current sequence: HS71
+Latest accepted handshake: workspace/OverseerHS71-m19-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: workspace/OverseerHS67-m18-acceptance-m19-runway.md
+Active runway: None
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
@@ -148,3 +149,4 @@ Completed milestone handshakes:
 - Should the next Lab packet explore a new visible presentation feature prototype?
 - Should Atlas and Sense receive project-local protected-term checker adoption prompts?
 - Should Lab refine protected-term discovery output after a few review cycles?
+- Should Sense now perform its local adoption review using accepted M19 as advisory input?

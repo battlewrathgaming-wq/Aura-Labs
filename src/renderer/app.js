@@ -148,10 +148,14 @@ function renderBriefing(briefing) {
 function renderBridgeStateReadout(readoutState) {
   const readout = document.querySelector('#state-readout');
   readout.dataset.tone = readoutState.tone;
+  readout.dataset.marker = readoutState.markerTone;
   document.querySelector('#state-label').textContent = readoutState.label;
+  document.querySelector('#state-primary-value').textContent = readoutState.primaryValue;
   document.querySelector('#state-summary').textContent = readoutState.summary;
   document.querySelector('#state-age').textContent = readoutState.ageLabel;
   document.querySelector('#state-source-count').textContent = readoutState.sourceDisplay;
+  document.querySelector('#state-basis').textContent = readoutState.basis;
+  document.querySelector('#state-marker').textContent = readoutState.marker;
 
   const pipList = document.querySelector('#state-pips');
   pipList.textContent = '';
@@ -172,6 +176,7 @@ function renderSourceDrawer(briefing, readoutState, status) {
   appendSourceDetail(list, 'State summary', readoutState.summary);
   appendSourceDetail(list, 'Readout basis', readoutState.basis);
   appendSourceDetail(list, 'Known fields', knownFieldCopy(briefing, status));
+  appendSourceDetail(list, 'Band marker', readoutState.marker);
   appendSourceDetail(list, 'Source paths', sourceCopy(briefing));
 
   const gaps = document.querySelector('#source-gap-list');
@@ -206,6 +211,7 @@ function bridgeStateReadout(briefing, status, stateCopy) {
   const sourceDisplay = `${Math.min(availableSources, totalSources)}/${totalSources} sources`;
   const ageLabel = readoutAgeCopy(briefing, status);
   const gaps = briefing?.missing_fields || [];
+  const warnings = briefing?.warnings || [];
   const hasFallback = Boolean(briefing?.fallback_note);
   const toneByStatus = {
     loading: 'updating',
@@ -256,12 +262,63 @@ function bridgeStateReadout(briefing, status, stateCopy) {
   return {
     ...copy[tone],
     tone,
+    primaryValue: primaryValueCopy(briefing, status, stateCopy, copy[tone]),
     ageLabel,
     sourceDisplay,
+    marker: bandMarkerCopy({ tone, gaps, warnings, briefing, status }),
+    markerTone: bandMarkerTone({ tone, gaps, warnings, briefing, status }),
     totalSources,
     availableSources: Math.min(availableSources, totalSources),
     stateSummary: stateCopy.summary
   };
+}
+
+function primaryValueCopy(briefing, status, stateCopy, readoutCopy) {
+  if (status === 'loading') {
+    return 'Reading local bridge';
+  }
+  return briefing?.primary_value || stateCopy.title || readoutCopy.label;
+}
+
+function bandMarkerCopy({ tone, gaps, warnings, briefing, status }) {
+  if (status === 'empty') {
+    return warnings.length > 0
+      ? `${warnings.length} warning${warnings.length === 1 ? '' : 's'}`
+      : 'No data';
+  }
+  const parts = [];
+  if (gaps.length > 0) {
+    parts.push(`${gaps.length} gap${gaps.length === 1 ? '' : 's'}`);
+  }
+  if (warnings.length > 0) {
+    parts.push(`${warnings.length} warning${warnings.length === 1 ? '' : 's'}`);
+  }
+  if (parts.length > 0) {
+    return parts.join(' / ');
+  }
+  if (tone === 'fallback') {
+    return 'Fallback basis active';
+  }
+  if (status === 'failed' || briefing?.error?.message) {
+    return 'Unavailable';
+  }
+  if (status === 'loading') {
+    return 'Updating';
+  }
+  return 'No gaps or warnings';
+}
+
+function bandMarkerTone({ tone, gaps, warnings, briefing, status }) {
+  if (tone === 'fallback') {
+    return 'fallback';
+  }
+  if (status === 'failed' || briefing?.error?.message) {
+    return 'unavailable';
+  }
+  if (gaps.length > 0 || warnings.length > 0 || tone === 'aged' || tone === 'partial') {
+    return 'attention';
+  }
+  return 'clear';
 }
 
 function readoutAgeCopy(briefing, status) {

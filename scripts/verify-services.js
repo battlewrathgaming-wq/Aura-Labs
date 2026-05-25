@@ -190,8 +190,16 @@ async function verifyRegistry() {
   assert(failedBriefing.attention_items === null, 'failed briefing should expose unavailable attention data');
   assert(failedBriefing.certainty === 'Unavailable; required source could not be read.', 'failed briefing should include failed certainty language');
 
-  const fallbackBriefing = await registry.invoke('aura.projectBriefing', { mode: 'unknown' });
-  assert(fallbackBriefing.mode === 'normal', 'unknown briefing mode should fall back to normal');
+  const fallbackBriefing = await registry.invoke('aura.projectBriefing', { mode: 'fallback' });
+  assert(fallbackBriefing.view_status === 'failed', 'project briefing should expose fallback as unavailable readout state');
+  assert(fallbackBriefing.mode === 'fallback', 'fallback briefing should echo fallback mode');
+  assert(fallbackBriefing.fallback_note === 'Fallback display basis available.', 'fallback briefing should expose fallback note');
+  assert(fallbackBriefing.action_posture.label === 'Fallback', 'fallback briefing should expose fallback action posture');
+  assert(fallbackBriefing.missing_fields.includes('current_packet_read'), 'fallback briefing should identify missing live read basis');
+  assert(fallbackBriefing.warnings.length === 1, 'fallback briefing should expose warning for fallback basis');
+
+  const unknownBriefing = await registry.invoke('aura.projectBriefing', { mode: 'unknown' });
+  assert(unknownBriefing.mode === 'normal', 'unknown briefing mode should fall back to normal');
 
   const briefingFixture = await registry.invoke('aura.presentationFixture', { family: 'briefing', state: 'normal' });
   assert(briefingFixture.family === 'briefing', 'presentation fixture should echo briefing family');
@@ -223,6 +231,13 @@ async function verifyRegistry() {
   assert(neutralFailed.view_status === 'failed', 'neutral seed should expose failed state');
   assert(neutralFailed.attention_items === null, 'neutral seed failed should expose unavailable sample slots');
   assert(neutralFailed.certainty.includes('Unavailable'), 'neutral seed failed should expose unavailable certainty');
+
+  const neutralFallback = await registry.invoke('aura.presentationFixture', { family: 'neutral-seed', state: 'fallback' });
+  assert(neutralFallback.view_status === 'failed', 'neutral seed should expose fallback as unavailable readout state');
+  assert(neutralFallback.state === 'fallback', 'neutral seed fallback should echo fallback state');
+  assert(neutralFallback.fallback_note === 'Fallback display basis available.', 'neutral seed fallback should expose fallback note');
+  assert(neutralFallback.action_posture.label === 'Fallback', 'neutral seed fallback should expose fallback action posture');
+  assert(neutralFallback.missing_fields.includes('live_sample'), 'neutral seed fallback should identify missing live sample');
 
   const neutralLongText = await registry.invoke('aura.presentationFixture', { family: 'neutral-seed', state: 'long-text' });
   assert(neutralLongText.view_status === 'populated', 'neutral seed long-text should be populated');
@@ -268,7 +283,7 @@ async function verifyRegistry() {
 
 function assertModeList(modes) {
   assert(Array.isArray(modes), 'project briefing should expose available modes');
-  for (const mode of ['normal', 'empty', 'stale', 'failed', 'partial', 'long-text']) {
+  for (const mode of ['normal', 'empty', 'stale', 'failed', 'fallback', 'partial', 'long-text']) {
     assert(modes.some((entry) => entry.id === mode), `project briefing should expose ${mode} mode`);
   }
 }

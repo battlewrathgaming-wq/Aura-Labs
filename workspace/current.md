@@ -1,20 +1,20 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Waiting
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M19 - Instrument Status Band Prototype
-Last completed milestone: M18 - Presentation Concept Pack
-Current executor: Dev
-Current focus: build one bounded visible Instrument Status Band prototype
-Expected DevHS filename: `workspace/DevHS68-instrument-status-band-prototype.md`
+Active milestone: None
+Last completed milestone: M19 - Instrument Status Band Prototype
+Current executor: Human / Overseer
+Current focus: waiting for Human / Overseer direction after M19 closure
+Expected DevHS filename: None
 
 ## Current State
 
-Aura Lab is active for a Dev prototype milestone after accepting the M18 presentation concept pack.
+Aura Lab is waiting after accepting and closing M19.
 
 Housekeeping note:
 
@@ -27,7 +27,7 @@ Housekeeping note:
 
 Accepted state:
 
-- M00 through M18 are complete.
+- M00 through M19 are complete.
 - Bridge State Readout remains the accepted Lab presentation feature.
 - M18 accepted `Instrument Status Band` as the next smallest safe presentation prototype.
 - The visible readout drawer now uses `Readout Detail`.
@@ -37,18 +37,20 @@ Accepted state:
 - The shared terminology check remains advisory and is not the product direction.
 - Shared protected-word lookup files now exist for owner-aware discovery.
 - Lab vocabulary verification now reports warning-only protected-term discovery candidates.
+- The Instrument Status Band prototype is accepted as Lab advisory presentation-pattern input.
+- Sense conformance is already handled; Sense may now read M19 as advisory input through Sense authority.
 
 ## Purpose
 
-M19 implements one bounded Lab presentation primitive:
+M19 implemented one bounded Lab presentation primitive:
 
 ```txt
 Instrument Status Band
 ```
 
-The goal is a compact, beautiful, state-aware band for bridge-fed readouts. It should show the readout label, primary value/status, state light, freshness/age, basis summary, gaps/warnings marker, and optional detail reveal.
+The accepted result is a compact, state-aware band for bridge-fed readouts. It shows the readout label, primary value/status, state light, freshness/age, basis summary, gaps/warnings marker, and optional detail reveal.
 
-This is a visible HTML/CSS/JS presentation feature. It is not a backend contract, target adapter, or broad fixture taxonomy pass.
+This remains a visible HTML/CSS/JS presentation feature. It is not a backend contract, target adapter, or broad fixture taxonomy.
 
 ## Latest Accepted Work
 
@@ -65,10 +67,12 @@ This is a visible HTML/CSS/JS presentation feature. It is not a backend contract
 - Remote consumer conformance: `workspace/LabRemoteConsumerConformanceHS66.md`
 - Accepted UI developer advisory: `workspace/UIDevHS69-instrument-status-band-implementation-advisory.md`
 - Overseer advisory review: `workspace/OverseerHS70-uidevhs69-advisory-review.md`
+- M19 Dev handoff: `workspace/DevHS68-instrument-status-band-prototype.md`
+- M19 Overseer acceptance: `workspace/OverseerHS71-m19-acceptance.md`
 
 ## Source Of Intent
 
-Accepted source of intent:
+Accepted source of intent for the closed M19 work:
 
 - Human direction that Lab should ask whether a presentation should exist before building it.
 - M18 UI/UX recommendation to build `Instrument Status Band` first.
@@ -88,25 +92,24 @@ Accepted references:
 
 ## Ordered Runway
 
-1. Read this packet, `AGENTS.md`, `workspace/overview.md`, and the accepted M18 concept pack.
-2. Inspect the existing renderer/service fixture patterns before editing.
-3. Use `workspace/UIDevHS69-instrument-status-band-implementation-advisory.md` as accepted advisory input while keeping this packet authoritative.
-4. Add one Instrument Status Band to the Lab renderer using neutral Lab presentation language.
-5. Feed it from existing or narrowly extended Lab fixture data.
-6. Cover these display states: current, updating, aged, partial, unavailable, fallback, and no data.
-7. Include a compact detail reveal or reuse `Readout Detail` where it fits cleanly.
-8. Preserve internal compatibility names unless a local rename is necessary and well covered.
-9. Update focused renderer/service/vocabulary verification.
-10. Run required verification.
-11. Create `workspace/DevHS68-instrument-status-band-prototype.md`.
+No active Dev runway.
+
+Do not execute Dev work from this packet.
+
+Next valid moves:
+
+1. Human / Overseer may park Lab while Sense or Atlas performs target-owned adoption review.
+2. Human / Overseer may write a small Sense delta prompt that points to accepted M19 input.
+3. Human / Overseer may open a new bounded Lab presentation primitive.
+4. Human / Overseer may open warning-candidate triage if terminology review noise becomes costly.
 
 ## Concept Candidates
 
-The concept candidate list is complete for M18 and now lives in `workspace/complete/milestone-M18/`.
+The concept candidate list is complete for M18 and lives in `workspace/complete/milestone-M18/`.
 
-M19 accepts only `Instrument Status Band`.
+M19 accepted only `Instrument Status Band`.
 
-Park all other concepts unless Human / Overseer explicitly opens them later.
+All other concepts remain parked unless Human / Overseer explicitly opens them later.
 
 ## Guardrails
 
@@ -124,31 +127,27 @@ Park all other concepts unless Human / Overseer explicitly opens them later.
 
 ## Stop Conditions
 
-Stop and return to Human / Overseer if:
+Stop and return to Human / Overseer if any future work would:
 
-- the band requires source-project meaning decisions
-- the fixture shape begins to look like a durable bridge contract
-- implementation requires broad renderer restructuring
-- the prototype cannot cover states without a large fixture taxonomy expansion
-- terminology risk cannot be bounded through Lab display language
+- require source-project meaning decisions
+- turn Lab fixture shape into a durable bridge contract
+- require broad renderer restructuring
+- expand into a large fixture taxonomy
+- make terminology risk unbounded through Lab display language
 
 ## Verification
 
-Required:
+Latest accepted verification:
 
 ```powershell
 npm.cmd run verify:vocabulary
 npm.cmd run verify:renderer-shell
 npm.cmd run verify:all
-```
-
-Run Electron smoke if layout/CSS changes affect visible renderer surfaces:
-
-```powershell
 npm.cmd run smoke:electron
+Get-Process electron -ErrorAction SilentlyContinue
 ```
 
-Shared advisory check after local verification:
+Shared advisory check:
 
 ```powershell
 cd F:\Projects\Docs\Aura-Project-Orchestration
@@ -157,25 +156,25 @@ npm.cmd run verify:terminology
 
 ## Evidence
 
-Dev should record:
+M19 Dev evidence recorded 2026-05-25:
 
-- files changed
-- visible module behavior
-- fixture/data shape used
-- states covered
-- detail reveal behavior
-- internal names intentionally preserved
-- verification commands and results
-- whether Electron smoke was run or skipped, with reason
-- remaining warning-only terminology candidates
+- Files changed: `src/renderer/index.html`, `src/renderer/app.js`, `src/renderer/styles.css`, `src/services/serviceRegistry.js`, `src/main/main.js`, `scripts/verify-lab-vocabulary.js`, `scripts/verify-renderer-shell.js`, `scripts/verify-services.js`, `workspace/current.md`, `workspace/DevHS68-instrument-status-band-prototype.md`.
+- Visible module behavior: the existing `#state-readout` is now marked and styled as the Instrument Status Band prototype while preserving visible `Bridge State Readout`; the closed band shows state label, primary value/status, state light, pips/inset, readout age, source coverage, readout basis, and a gap/warning/availability marker.
+- Fixture/data shape used: existing briefing and Neutral Sample fixture data feeds the primary value, basis, age, sources, gaps, warnings, and detail; one narrow Lab-local `fallback` review state was added to existing fixture modes to exercise `FALLBACK` without defining a durable bridge contract.
+- States covered: `CURRENT`, `UPDATING`, `AGED`, `PARTIAL`, `UNAVAILABLE`, `FALLBACK`, and `NO DATA`.
+- Detail reveal behavior: existing `Readout Detail` remains the compact reveal and now includes the band marker in addition to readout age, state summary, readout basis, known fields, source paths, gaps, warnings, fallback notes, and unavailable/no-data notes.
+- Internal names intentionally preserved: `#state-readout`, `#source-detail-drawer`, `source-detail-*` ids/classes, `neutral-seed`, payload fields, service commands, IPC channels, screenshot names, and smoke matrix names.
+- Verification commands and results: `npm.cmd run verify:vocabulary` passed with 31 warning-only protected-term discovery candidates; `npm.cmd run verify:renderer-shell` passed; `npm.cmd run verify:all` passed; `npm.cmd run smoke:electron` passed; `npm.cmd run verify:terminology` passed from `F:\Projects\Docs\Aura-Project-Orchestration`.
+- Electron smoke: run because visible renderer layout/CSS changed. Result `.tmp/electron-visual-smoke/visual-smoke-result.json` reported `status: passed`, `blocking_failures: []`, no horizontal overflow, and no Electron process remained.
+- Shared advisory terminology result: `53/53 resource checks passed` with 24 warnings remaining for existing compatibility/internal `trust-strip` and `certainty` surfaces.
+- Remaining local warning-only terminology candidates: 31, including existing source/sample/state collision candidates plus new `Band marker` / Instrument Status Band review wording candidates for Overseer review.
 
 ## Handoff
 
-Expected artifact:
+M19 handoff:
 
-```txt
-workspace/DevHS68-instrument-status-band-prototype.md
-```
+- `workspace/DevHS68-instrument-status-band-prototype.md`
+- `workspace/OverseerHS71-m19-acceptance.md`
 
 ## Reference Folder
 

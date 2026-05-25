@@ -44,12 +44,13 @@
             <strong id="sources">Pending</strong>
           </div>
         </div>
-        <section class="state-readout" id="state-readout" data-tone="updating" aria-labelledby="state-label">
+        <section class="state-readout instrument-status-band" id="state-readout" data-tone="updating" data-marker="attention" aria-labelledby="state-label">
           <div class="state-core">
             <span class="state-light" aria-hidden="true"></span>
             <div class="state-copy">
               <p class="state-kicker">Bridge State Readout</p>
               <h2 id="state-label">UPDATING</h2>
+              <strong id="state-primary-value">Reading local bridge</strong>
               <p id="state-summary">Updating from the local bridge.</p>
             </div>
           </div>
@@ -60,6 +61,8 @@
           <div class="state-meta">
             <span id="state-age">Last read pending</span>
             <span id="state-source-count">0/0 sources</span>
+            <span id="state-basis">Awaiting first bridge response.</span>
+            <span id="state-marker">Updating</span>
           </div>
         </section>
         <details class="source-drawer" id="source-detail-drawer" open>

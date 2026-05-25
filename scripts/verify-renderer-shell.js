@@ -56,7 +56,11 @@ function main() {
   assert(html.includes('action-posture'), 'renderer should include action posture target');
   assert(html.includes('trust-strip'), 'renderer should include top trust strip');
   assert(html.includes('state-readout'), 'renderer should include Bridge State Readout strip');
+  assert(html.includes('instrument-status-band'), 'renderer should mark state readout as Instrument Status Band prototype');
   assert(html.includes('Bridge State Readout'), 'renderer should label the readout as Bridge State Readout');
+  assert(html.includes('state-primary-value'), 'renderer should include primary value slot for the instrument band');
+  assert(html.includes('state-basis'), 'renderer should include basis slot for the instrument band');
+  assert(html.includes('state-marker'), 'renderer should include gap and warning marker slot for the instrument band');
   assert(html.includes('state-pips'), 'renderer should include state pips');
   assert(html.includes('source-detail-drawer'), 'renderer should include readout detail drawer compatibility target');
   assert(html.includes('Readout Detail'), 'renderer should label visible drawer as Readout Detail');
@@ -81,7 +85,12 @@ function main() {
   assert(app.includes('actionPostureLabel'), 'renderer should render action posture');
   assert(app.includes('actionPostureDetail'), 'renderer should render action posture detail');
   assert(app.includes('renderBridgeStateReadout'), 'renderer should render Bridge State Readout');
+  assert(app.includes('primaryValueCopy'), 'renderer should derive Instrument Status Band primary value');
+  assert(app.includes('bandMarkerCopy'), 'renderer should derive Instrument Status Band marker copy');
+  assert(app.includes('bandMarkerTone'), 'renderer should derive non-color-only marker tone');
   assert(app.includes('renderSourceDrawer'), 'renderer should render readout detail drawer through existing compatibility function');
+  assert(app.includes('Fallback basis active'), 'renderer should expose fallback marker copy');
+  assert(app.includes('Band marker'), 'Readout Detail should include band marker detail');
   assert(app.includes('UPDATING'), 'renderer should map loading state to updating language');
   assert(app.includes('NO DATA'), 'renderer should map empty state to no-data language');
   assert(app.includes('Last successful read'), 'renderer should map stale state to age language');
@@ -97,6 +106,7 @@ function main() {
   assert(app.includes('stale'), 'renderer should handle stale state');
   assert(app.includes('failed'), 'renderer should handle failed state');
   assert(app.includes('partial'), 'renderer should handle partial state');
+  assert(app.includes('fallback'), 'renderer should handle fallback tone');
   assert(app.includes('Read from source'), 'renderer should include source basis language');
   assert(app.includes('Not provided'), 'renderer should include missing optional value language');
   assert(app.includes('Unavailable'), 'renderer should include unavailable value language');
