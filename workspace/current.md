@@ -55,6 +55,7 @@ Accepted state:
 - Active request count is Atlas 3 and Sense 1, both under the five-request cap.
 - M24 accepted `workspace/DisplayResponseComparisonHS82-active-display-requests.md`.
 - M24 acceptance is recorded in `workspace/OverseerHS83-m24-acceptance.md`.
+- Human fitness notes are recorded lightly in `workspace/OverseerHS83-m24-acceptance.md`; source projects track acceptance/completion locally.
 - Lab is idle and waiting for Human/source-project relay.
 
 ## Purpose

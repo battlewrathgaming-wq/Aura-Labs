@@ -43,6 +43,19 @@ It preserves Atlas and Sense source meanings, keeps Lab advice Bridge -> Interfa
 - Source-project reasoning, fitness, and product-flow discussion should happen through Human relay and source-project authority.
 - Workflow refactor is intentionally parked until after this milestone closes.
 
+## Human Fitness Notes
+
+Date: 2026-05-25
+
+These notes are a light customer/end-user fitness signal for relay. They are not adoption records, completion tracking, implementation approval, or source-project state.
+
+| Request | Fitness signal | Note |
+| --- | --- | --- |
+| `atlas.overview.right-rail-status-stack` | Fit | Expandable/detail treatment feels acceptable. |
+| `atlas.discovery.queue-review-possible-leads` | Fit | Table/detail-drawer direction feels acceptable. |
+| `atlas.watch.state-display` | Adapt | Prefer compact status plus drawer/detail over full ladder for now. Connected-system/radius visualization remains parked as future complexity. |
+| `sense.clipboard-window` | Fit with emphasis | Timing/TTL display is important because it communicates the bounded clipboard listening window and supports user trust. |
+
 ## Verification
 
 Ran:
