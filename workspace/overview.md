@@ -52,18 +52,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M23 | Human direction after M22 | Complete | Accepted display use-case capture with Atlas 3 active requests and Sense 1 active request, mapped to request_display intake, slots, display types, material sets, and candidate methods. |
 | M24 | M23 accepted request capture | Complete | Accepted advisory comparison for the four active Atlas/Sense display requests and prepared Human/source-project relay. |
 | M25 | Human correction after M24 | Complete | Accepted requirements for individual reusable Lab display materials and recommended prototype candidates. |
-| M26 | Human direction after M25 | Active | UI/UX runway opened to produce individual reusable display material schemas from accepted M25 requirements. |
+| M26 | Human direction after M25 | Complete | Accepted individual reusable display material schemas and divided them into material library pages with the ledger as index. |
 
 ## Current Direction
 
-Active milestone: M26 - Guided Display Material Production
-Last completed milestone: M25 - Display Material Requirements
+Active milestone: None
+Last completed milestone: M26 - Guided Display Material Production
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS86
-Latest accepted handshake: workspace/OverseerHS85-m25-acceptance.md
+Current sequence: HS87
+Latest accepted handshake: workspace/OverseerHS87-m26-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: workspace/OverseerHS86-m26-guided-material-production-runway.md
+Active runway: None; waiting for Human / Overseer direction
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
@@ -132,6 +132,8 @@ Active milestone handshakes:
 - `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md`
 - `workspace/OverseerHS85-m25-acceptance.md`
 - `workspace/OverseerHS86-m26-guided-material-production-runway.md`
+- `workspace/DisplayMaterialSchemasHS86-guided-material-production.md`
+- `workspace/OverseerHS87-m26-acceptance.md`
 
 Accepted authority records:
 
