@@ -8,7 +8,7 @@ Owner: Aura Lab Overseer
 
 `request_display` is the lightweight intake shape for projects that want Aura Lab presentation help.
 
-It lets Atlas, Sense, Core, or another Aura project describe a current presentation use case without giving Lab ownership of source-project meaning.
+It lets Atlas, Sense, Lab, or another Aura project describe a current presentation use case without giving Lab ownership of source-project meaning.
 
 This is not:
 
@@ -38,15 +38,39 @@ Aura Lab owns:
 
 Human override can resolve conflicts.
 
+## Active Request Limit
+
+Each project should keep no more than five active `request_display` entries in Lab review at one time.
+
+This is a cooperative throttle to keep requests from becoming automatic backlog churn.
+
+Active statuses:
+
+- `submitted`
+- `active-review`
+- `accepted-input`
+
+Non-active statuses:
+
+- `draft`
+- `queued`
+- `returned-to-project`
+- `parked`
+- `superseded`
+
+Human / Overseer may explicitly allow more than five active requests for a project.
+
 ## Request Workflow
 
 1. The requesting project identifies a current presentation surface or planned presentation use case.
-2. The requesting project fills one `request_display` entry using the schema below.
-3. The requesting project keeps source-owned terms qualified and names any terms Lab must preserve.
-4. Lab uses the request as advisory input for M23 use-case capture.
-5. Lab maps the request to M20 slots, M21 display types, and M22 material sets.
-6. Lab proposes three distinct display methods where useful.
-7. The requesting project reviews adoption under its own authority before implementation.
+2. The requesting project adds a clear project header.
+3. The requesting project defines limited scope and product attachment.
+4. The requesting project fills one `request_display` entry using the schema below.
+5. The requesting project keeps source-owned terms qualified and names any terms Lab must preserve.
+6. Lab uses the request as advisory input for M23 use-case capture.
+7. Lab maps the request to M20 slots, M21 display types, and M22 material sets.
+8. Lab proposes up to three distinct display methods where useful.
+9. The requesting project reviews adoption under its own authority before implementation.
 
 Do not treat a `request_display` entry as implementation approval.
 
@@ -54,13 +78,41 @@ Do not treat a `request_display` entry as implementation approval.
 
 Use this shape in Markdown, YAML-like text, JSON, or a table. Keep the meaning the same.
 
+Recommended header:
+
+```md
+# request_display: [Project] - [Surface / Use Case]
+
+Status: submitted
+Project: Atlas | Sense | other
+Source owner: project, lane, or surface owner
+Request owner: Human / Overseer / UIUX / Engineering / Dev
+Date: YYYY-MM-DD
+Lab intake state: not-yet-reviewed
+```
+
 ```yaml
 request_display:
   id: project-short-name.surface-or-use-case
-  project: Atlas | Sense | Core | Lab | other
-  status: proposed | active-review | accepted-input | parked
+  project: Atlas | Sense | Lab | other
+  status: draft | queued | submitted | active-review | accepted-input | returned-to-project | parked | superseded
   requester_role: Human | Overseer | UIUX | Engineering | Dev | other
   source_owner: project or lane that owns the meaning
+  product_attachment:
+    product_area: product area, lane, page, or feature
+    surface: specific surface or component
+    user_task: what the human needs to understand or decide
+    owning_milestone_or_packet: optional
+    priority: low | medium | high
+    decision_needed: choose display method | gather options | pressure-test existing display | park
+  scope:
+    boundary: one surface | one card | one row type | one state family | one flow slice
+    included:
+      - what Lab should consider
+    excluded:
+      - what Lab must not consider
+    max_candidate_methods: 3
+    source_project_acceptance_needed: true
   surface_or_use_case: current presentation surface or task
   current_presentation: how it is shown today
   user_goal: what the human needs to understand or decide
@@ -102,7 +154,14 @@ request_display:
 | --- | --- |
 | Request ID |  |
 | Project |  |
+| Status |  |
+| Source owner |  |
+| Request owner |  |
+| Product area |  |
 | Surface / use case |  |
+| Scope boundary |  |
+| In scope |  |
+| Out of scope |  |
 | Current presentation |  |
 | User goal |  |
 | Source terms to preserve |  |
@@ -119,6 +178,33 @@ request_display:
 | Relevant Lab material sets |  |
 | Verification / review needs |  |
 | Non-goals |  |
+
+## Archive / Inventory
+
+Completed requests should eventually be archived with their final filled request and Lab response.
+
+Suggested future archive shape:
+
+```txt
+workspace/archive/display-requests/
+  README.md
+  schema.md
+  atlas/
+  sense/
+  lab/
+```
+
+Archived requests should include:
+
+- original `request_display`
+- limited scope
+- product attachment
+- Lab comparison response
+- selected or parked disposition
+- source-project review result if known
+- links to follow-up packets if any
+
+Do not treat archived requests as active task queues.
 
 ## Lab M23 Use
 

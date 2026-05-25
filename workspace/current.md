@@ -8,8 +8,8 @@ Owner: Overseer
 
 Active milestone: M23 - Display Use Case Capture
 Last completed milestone: M22 - Display Material Bench
-Current executor: UI development owner / display asset documentor
-Current focus: capture real presentation use cases and map them to three candidate display methods
+Current executor: Human / source-project owners, then UI development owner / display asset documentor
+Current focus: gather scoped `request_display` entries, then map them to three candidate display methods
 Expected artifact filename: `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`
 
 ## Current State
@@ -50,6 +50,7 @@ Accepted state:
 - M22 accepted Material Set Formation, including `Material class`, as authoring structure for future expansion.
 - M23 is open as `Display Use Case Capture`.
 - `workspace/request_display.md` is the advisory request schema for other projects to ask Lab for Bridge -> Interface display suggestions.
+- `workspace/display-request-cooperation-contract.md` is the cooperative advisory contract for request limits, scope, product attachment, and archive expectations.
 
 ## Purpose
 
@@ -92,6 +93,7 @@ This is advisory/documentation work only. It is not implementation, a bridge con
 - M22 Overseer acceptance: `workspace/OverseerHS79-m22-acceptance.md`
 - M23 request schema: `workspace/request_display.md`
 - M23 runway: `workspace/OverseerHS80-m23-display-use-case-capture-runway.md`
+- M23 cooperation contract: `workspace/display-request-cooperation-contract.md`
 
 ## Source Of Intent
 
@@ -110,6 +112,8 @@ Accepted source of intent:
 - Human direction to do use-case capture before test build.
 - Human direction to include a display request schema and request workflow.
 - Human authorization for advisory cross-project `request_display` pointers.
+- Human direction to cap active requests at five per project.
+- Human direction to include limited scope and product attachment so requests can act as internal display checklists.
 - `workspace/display-asset-documentation-owner-contract.md`
 
 Accepted references:
@@ -129,6 +133,7 @@ Accepted references:
 - `workspace/OverseerHS79-m22-acceptance.md`
 - `workspace/request_display.md`
 - `workspace/OverseerHS80-m23-display-use-case-capture-runway.md`
+- `workspace/display-request-cooperation-contract.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
 - `workspace/workshop/README.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\terminology\protected-words\README.md`
@@ -137,13 +142,15 @@ Accepted references:
 
 ## Ordered Runway
 
-1. Read `workspace/request_display.md`, M20 slot taxonomy, M21 display type library, M22 material bench, Lab critical terms, and the display asset documentation owner contract.
-2. Define the use-case capture purpose: map real or known current presentation surfaces to candidate Lab display methods without taking source-project ownership.
-3. Build a use-case comparison table covering Lab-known surfaces first, then Atlas/Sense/other-project entries that arrive through `request_display`.
-4. For each row, capture project owner, surface/use case, current presentation, user goal, source terms to preserve, terms to qualify, known fields, state/freshness/basis/gap needs, applicable M20 slots, applicable M21 display types, applicable M22 material sets, and three candidate display methods.
-5. Give each row a disposition: near-term Lab candidate, needs target review, needs material, needs inventory entry, parked, or not suitable.
-6. Record advisory cross-project `request_display` pointer deployment without changing target-project active runways.
-7. Recommend the next packet after M23: likely Display Inventory Scaffold, SmokeFlash feasibility, or first material-backed primitive selection.
+1. Human / source-project owners gather scoped `request_display` entries using the request schema and cooperation contract.
+2. Keep each project to five active requests unless Human / Overseer explicitly overrides the cap.
+3. Read `workspace/request_display.md`, `workspace/display-request-cooperation-contract.md`, M20 slot taxonomy, M21 display type library, M22 material bench, Lab critical terms, and the display asset documentation owner contract.
+4. Define the use-case capture purpose: map real or known current presentation surfaces to candidate Lab display methods without taking source-project ownership.
+5. Build a use-case comparison table covering Lab-known surfaces first, then Atlas/Sense/other-project entries that arrive through `request_display`.
+6. For each row, capture project owner, product attachment, limited scope, surface/use case, current presentation, user goal, source terms to preserve, terms to qualify, known fields, state/freshness/basis/gap needs, applicable M20 slots, applicable M21 display types, applicable M22 material sets, and three candidate display methods.
+7. Give each row a disposition: near-term Lab candidate, needs target review, needs material, needs inventory entry, parked, or not suitable.
+8. Record advisory cross-project `request_display` pointer deployment without changing target-project active runways.
+9. Recommend the next packet after M23: likely Display Inventory Scaffold, SmokeFlash feasibility, or first material-backed primitive selection.
 
 ## Acceptance Criteria
 
@@ -151,6 +158,8 @@ M23 can be accepted if the artifact:
 
 - defines a usable use-case comparison table
 - uses `request_display` as an advisory intake shape
+- follows the cooperative request cap of five active requests per project unless Human / Overseer overrides it
+- includes limited scope and product attachment for captured requests
 - maps use cases to M20 slots, M21 display types, and M22 material sets
 - offers three distinct display methods per suitable known presentation
 - makes clear which project owns source meaning
@@ -167,6 +176,7 @@ Reject or redirect if the artifact:
 - skips slot/type/material mapping
 - gives only one display option where comparison is possible
 - turns request intake into a hidden backlog
+- omits scope boundaries for active requests
 
 ## Concept Candidates
 
@@ -188,6 +198,7 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 - Do not create a durable bridge contract.
 - Do not create runtime fixture doctrine.
 - Do not make `request_display` a runtime schema.
+- Do not exceed five active requests per project without explicit Human / Overseer direction.
 - Do not expand visual smoke matrices.
 - Do not require live/private/network data.
 - Do not add a theme system, color editor, external UI framework, or broad reference-library feature.
@@ -207,6 +218,7 @@ Stop and return to Human / Overseer if the work would:
 - turn display classes into a durable bridge contract
 - turn display material into runtime fixtures or payload contracts
 - turn `request_display` into runtime schema or target adoption
+- turn scoped requests into an unbounded active queue
 - instruct Dev to implement
 - rename source-project terms
 - create a shared Aura glossary
@@ -244,6 +256,7 @@ M23 support:
 - `workspace/reference/display-material-bench-2026-05-25.md`
 - `workspace/OverseerHS79-m22-acceptance.md`
 - `workspace/request_display.md`
+- `workspace/display-request-cooperation-contract.md`
 - `workspace/OverseerHS80-m23-display-use-case-capture-runway.md`
 - `workspace/display-asset-documentation-owner-contract.md`
 - `workspace/workshop/README.md`
@@ -256,7 +269,7 @@ Expected artifact:
 workspace/DisplayUseCaseCaptureHS80-request-display-map.md
 ```
 
-The artifact should include files reviewed, use-case capture purpose, request workflow notes, pointer deployment notes, use-case comparison table, three candidate display methods per suitable use case, slot/type/material mapping, risks, parked items, verification results, and recommended next packet.
+The artifact should include files reviewed, use-case capture purpose, request workflow notes, active request count per project, pointer deployment notes, use-case comparison table, three candidate display methods per suitable use case, limited scope, product attachment, slot/type/material mapping, risks, parked items, verification results, and recommended next packet.
 
 ## Reference Folder
 
