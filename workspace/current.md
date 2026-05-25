@@ -1,20 +1,20 @@
 # Current Workspace Packet
 
-Status: Waiting
+Status: Active
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M23 - Display Use Case Capture
 Last completed milestone: M22 - Display Material Bench
-Current executor: Human / Overseer
-Current focus: waiting for Human / Overseer direction after M22 closure
-Expected artifact filename: None
+Current executor: UI development owner / display asset documentor
+Current focus: capture real presentation use cases and map them to three candidate display methods
+Expected artifact filename: `workspace/DisplayUseCaseCaptureHS80-request-display-map.md`
 
 ## Current State
 
-Aura Lab has accepted and closed M22.
+Aura Lab has accepted and closed M22. M23 is now open to capture display use cases before test-build or SmokeFlash work.
 
 Housekeeping note:
 
@@ -48,19 +48,20 @@ Accepted state:
 - SmokeFlash is accepted as a later light harness candidate, not active M22 work.
 - M22 accepted `workspace/reference/display-material-bench-2026-05-25.md`.
 - M22 accepted Material Set Formation, including `Material class`, as authoring structure for future expansion.
-- M23 is recommended as `Display Inventory Scaffold`, but is not yet open.
+- M23 is open as `Display Use Case Capture`.
+- `workspace/request_display.md` is the advisory request schema for other projects to ask Lab for Bridge -> Interface display suggestions.
 
 ## Purpose
 
-M22 developed the hard content layer before future display primitive work:
+M23 develops the use-case layer before future display primitive work:
 
 ```txt
-Display Material Bench
+Display Use Case Capture
 ```
 
-The accepted result creates reusable staged display material: realistic labels, values, basis text, freshness cases, source-owned placeholders, absence states, gaps, warnings, long text, narrow summaries, structured rows, and Material Set Formation lanes that can pressure the display types accepted by M21.
+The goal is to map known presentation surfaces and incoming `request_display` entries to Lab display slots, display types, material sets, and three candidate display methods.
 
-This remains advisory/documentation work only. It is not implementation, a bridge contract, runtime fixture doctrine, target adoption, source-project semantics, or product doctrine.
+This is advisory/documentation work only. It is not implementation, a bridge contract, runtime fixture doctrine, target adoption, source-project semantics, or product doctrine.
 
 ## Latest Accepted Work
 
@@ -89,6 +90,8 @@ This remains advisory/documentation work only. It is not implementation, a bridg
 - M22 runway: `workspace/OverseerHS78-m22-display-material-bench-runway.md`
 - M22 material artifact: `workspace/reference/display-material-bench-2026-05-25.md`
 - M22 Overseer acceptance: `workspace/OverseerHS79-m22-acceptance.md`
+- M23 request schema: `workspace/request_display.md`
+- M23 runway: `workspace/OverseerHS80-m23-display-use-case-capture-runway.md`
 
 ## Source Of Intent
 
@@ -104,6 +107,9 @@ Accepted source of intent:
 - Human direction that the next step is most likely a research task.
 - Human direction that display material means hard content used to test display types.
 - Human agreement to create display material before a lightweight SmokeFlash harness.
+- Human direction to do use-case capture before test build.
+- Human direction to include a display request schema and request workflow.
+- Human authorization for advisory cross-project `request_display` pointers.
 - `workspace/display-asset-documentation-owner-contract.md`
 
 Accepted references:
@@ -119,6 +125,10 @@ Accepted references:
 - `workspace/DisplayTypeLibraryHS76-display-pattern-research.md`
 - `workspace/OverseerHS77-m21-acceptance.md`
 - `workspace/OverseerHS78-m22-display-material-bench-runway.md`
+- `workspace/reference/display-material-bench-2026-05-25.md`
+- `workspace/OverseerHS79-m22-acceptance.md`
+- `workspace/request_display.md`
+- `workspace/OverseerHS80-m23-display-use-case-capture-runway.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
 - `workspace/workshop/README.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\terminology\protected-words\README.md`
@@ -127,16 +137,36 @@ Accepted references:
 
 ## Ordered Runway
 
-No active runway.
+1. Read `workspace/request_display.md`, M20 slot taxonomy, M21 display type library, M22 material bench, Lab critical terms, and the display asset documentation owner contract.
+2. Define the use-case capture purpose: map real or known current presentation surfaces to candidate Lab display methods without taking source-project ownership.
+3. Build a use-case comparison table covering Lab-known surfaces first, then Atlas/Sense/other-project entries that arrive through `request_display`.
+4. For each row, capture project owner, surface/use case, current presentation, user goal, source terms to preserve, terms to qualify, known fields, state/freshness/basis/gap needs, applicable M20 slots, applicable M21 display types, applicable M22 material sets, and three candidate display methods.
+5. Give each row a disposition: near-term Lab candidate, needs target review, needs material, needs inventory entry, parked, or not suitable.
+6. Record advisory cross-project `request_display` pointer deployment without changing target-project active runways.
+7. Recommend the next packet after M23: likely Display Inventory Scaffold, SmokeFlash feasibility, or first material-backed primitive selection.
 
-Do not execute Dev work from this packet.
+## Acceptance Criteria
 
-Next valid moves:
+M23 can be accepted if the artifact:
 
-1. Human / Overseer may open `M23 - Display Inventory Scaffold`.
-2. Human / Overseer may review M22 before opening M23.
-3. Human / Overseer may open SmokeFlash feasibility later if tooling becomes the priority.
-4. Human / Overseer may park Lab while target projects continue local adoption work.
+- defines a usable use-case comparison table
+- uses `request_display` as an advisory intake shape
+- maps use cases to M20 slots, M21 display types, and M22 material sets
+- offers three distinct display methods per suitable known presentation
+- makes clear which project owns source meaning
+- preserves target-project terms rather than making them Lab defaults
+- gives future inventory, SmokeFlash, or primitive-selection work a better target
+- records any cross-project pointers deployed and keeps them advisory
+
+Reject or redirect if the artifact:
+
+- becomes a target adoption plan
+- becomes a bridge contract or payload schema
+- asks Dev to implement
+- treats Lab as owner of target-project meaning
+- skips slot/type/material mapping
+- gives only one display option where comparison is possible
+- turns request intake into a hidden backlog
 
 ## Concept Candidates
 
@@ -148,7 +178,7 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 
 ## Guardrails
 
-- This is a material/documentation packet, not Dev implementation.
+- This is a use-case/documentation packet, not Dev implementation.
 - Do not implement a full Ship/System face.
 - Do not implement Atlas or Sense adapters.
 - Do not make Lab an Atlas, Sense, or Core adapter.
@@ -157,6 +187,7 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 - Do not turn protected-term discovery into the product direction.
 - Do not create a durable bridge contract.
 - Do not create runtime fixture doctrine.
+- Do not make `request_display` a runtime schema.
 - Do not expand visual smoke matrices.
 - Do not require live/private/network data.
 - Do not add a theme system, color editor, external UI framework, or broad reference-library feature.
@@ -164,7 +195,7 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 - Do not treat inspiration images or websites as requirements.
 - Do not use archived docs or reference folders as active task queues.
 - Do not create a hidden backlog; every recommended display type needs a disposition.
-- Do not implement SmokeFlash in M22.
+- Do not implement SmokeFlash in M23.
 - Do not promote the repeat cycle until the material bench and inventory scaffold are accepted.
 
 ## Stop Conditions
@@ -175,6 +206,7 @@ Stop and return to Human / Overseer if the work would:
 - turn terminology indexes into product direction
 - turn display classes into a durable bridge contract
 - turn display material into runtime fixtures or payload contracts
+- turn `request_display` into runtime schema or target adoption
 - instruct Dev to implement
 - rename source-project terms
 - create a shared Aura glossary
@@ -182,7 +214,8 @@ Stop and return to Human / Overseer if the work would:
 - require target-project files to be changed
 - require live/private/network access as a prerequisite
 - produce only an inspiration gallery without slot mapping and disposition
-- turn SmokeFlash tooling into the M22 product
+- turn SmokeFlash tooling into the M23 product
+- disrupt target-project active runways while deploying advisory pointers
 
 ## Verification
 
@@ -201,7 +234,7 @@ npm.cmd run verify:terminology
 
 ## Support
 
-M22 support:
+M23 support:
 
 - `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
@@ -210,22 +243,20 @@ M22 support:
 - `workspace/OverseerHS78-m22-display-material-bench-runway.md`
 - `workspace/reference/display-material-bench-2026-05-25.md`
 - `workspace/OverseerHS79-m22-acceptance.md`
+- `workspace/request_display.md`
+- `workspace/OverseerHS80-m23-display-use-case-capture-runway.md`
 - `workspace/display-asset-documentation-owner-contract.md`
 - `workspace/workshop/README.md`
 
 ## Handoff
 
-Accepted artifact:
+Expected artifact:
 
 ```txt
-workspace/reference/display-material-bench-2026-05-25.md
+workspace/DisplayUseCaseCaptureHS80-request-display-map.md
 ```
 
-Acceptance:
-
-```txt
-workspace/OverseerHS79-m22-acceptance.md
-```
+The artifact should include files reviewed, use-case capture purpose, request workflow notes, pointer deployment notes, use-case comparison table, three candidate display methods per suitable use case, slot/type/material mapping, risks, parked items, verification results, and recommended next packet.
 
 ## Reference Folder
 
@@ -235,10 +266,9 @@ Do not convert references into requirements unless this packet already names the
 
 ## Parked Items
 
-- SmokeFlash HTML harness until M22 is accepted.
+- SmokeFlash HTML harness until M23 and inventory shape are accepted or Human prioritizes tooling.
 - Cannibalizing Sense log-reader shape for Lab-local staged ingest until a later tooling packet.
-- Repeat implementation cycle until the material bench and inventory scaffold are accepted.
-- Use-case comparison landing zone until the material bench shape is clearer.
+- Repeat implementation cycle until the use-case capture, material bench, and inventory scaffold are accepted.
 - Support panel label polish.
 - Deeper compatibility-name cleanup.
 - Lab protected-term discovery false-positive refinement.

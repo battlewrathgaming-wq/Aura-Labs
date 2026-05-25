@@ -49,17 +49,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M20 | Human direction after M19 and display asset owner contract | Complete | Accepted terminology-to-slot taxonomy and initial Lab display slot vocabulary for future asset inventory and material-bench work. |
 | M21 | Human direction after M20 | Complete | Accepted display type library research mapped to M20 slot vocabulary, with material-bench candidates and parked higher-risk types. |
 | M22 | M21 accepted display type library | Complete | Accepted display material bench with Material Set Formation, Material class lane, staged-ingest shape, and pressure cases for near-term display types. |
+| M23 | Human direction after M22 | Active | Capture display use cases and map them to request_display intake, slots, display types, material sets, and three candidate display methods. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M23 - Display Use Case Capture
 Last completed milestone: M22 - Display Material Bench
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS79
+Current sequence: HS80
 Latest accepted handshake: workspace/OverseerHS79-m22-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: None
+Active runway: workspace/OverseerHS80-m23-display-use-case-capture-runway.md
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
@@ -118,6 +119,8 @@ Active milestone handshakes:
 - `workspace/OverseerHS78-m22-display-material-bench-runway.md`
 - `workspace/reference/display-material-bench-2026-05-25.md`
 - `workspace/OverseerHS79-m22-acceptance.md`
+- `workspace/request_display.md`
+- `workspace/OverseerHS80-m23-display-use-case-capture-runway.md`
 
 Accepted authority records:
 
@@ -160,5 +163,4 @@ Completed milestone handshakes:
 - Should Lab refine protected-term discovery output after a few review cycles?
 - Should Sense now perform its local adoption review using accepted M19 as advisory input?
 - Where should the future use-case comparison landing zone live after material bench shape is clearer?
-- Should the next Lab milestone open M23 - Display Inventory Scaffold?
 - Should SmokeFlash become the first tooling packet after material and inventory are accepted?
