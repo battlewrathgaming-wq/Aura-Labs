@@ -171,6 +171,7 @@ Active milestone handshakes:
 - `workspace/DevHS102-details-view-inspection.md`
 - `workspace/OverseerHS103-hs102-details-view-acceptance.md`
 - `workspace/OverseerHS104-immediate-scope-lane-reset.md`
+- `workspace/OverseerHS105-follow-on-feature-candidates.md`
 
 Accepted authority records:
 

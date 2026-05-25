@@ -48,6 +48,13 @@ The H-lane is the current strategic rail for the next Lab phase. The T-lane supp
 | H09 | Presentation Slot Registry | Add a small renderer-local registry for Lab presentation slots, so slot purpose, state, render entry, and verification hints are addressable without source-project meaning. | Accepted next bounded candidate after HS104. |
 | H10 | Lazy-Loaded Visual Slot | Add one deferred visual slot pattern that can load heavier visual treatment only when requested or visible, without changing bridge meaning. | Candidate after H09 proves the registry shape. |
 | H11 | Virtualized List Helper | Add a renderer helper for long readout/list surfaces so dense bridge-fed rows stay fast, contained, and readable. | Candidate after H09/H10 or when list pressure is concrete. |
+| H12 | View-Intent Slot Policy | Define how registered slots respond to Summary / Basis / Details view emphasis while keeping identity and source meaning stable. | Candidate after H09. |
+| H13 | Detail Hydration | Let compact slots reveal deeper detail rows only when needed, without making the default readout dense. | Candidate after H09/H12. |
+| H14 | Focus / Reveal Controller | Add a renderer-local controller for focus, reveal, and collapse behavior across slot surfaces. | Candidate after H09/H12. |
+| H15 | Row Facets | Define reusable row-side facets such as state, age, basis, gap, warning, and action markers for dense readout rows. | Candidate before or with H11. |
+| H16 | Overflow Sentinel | Add a visible overflow/containment marker for long copy, missing room, or clipped secondary detail. | Candidate before broad list work. |
+| H17 | Reduced-Motion Gate | Add a presentation gate so motion and transitions can be reduced without breaking comprehension. | Candidate for any animated/responsive slice. |
+| H18 | Lab Fixture Adapter | Add a Lab-local adapter from material/request shapes into fixture data for presentation pressure only. | Candidate after H09; not a bridge contract. |
 
 ## I-Lane: Integration Readiness Candidates
 
@@ -65,12 +72,15 @@ Near path:
 
 1. Use M29 to improve the presentation head through H02, H03, and bounded visible presentation capability.
 2. Keep material proving as support for the presentation head, not the main road.
-3. Build H09 before H10/H11 so later slot behavior has a clear local address.
-4. Consider H01 before the head grows too much or before export/readiness work.
-5. Explore H04-H07 as actual presentation modes.
-6. Use H08/M32 as the export-readiness gate.
-7. Open I-lane work only after the clean head and adapter boundaries are strong enough.
-8. Open T-lane tooling only when workflow friction slows product work.
+3. Build H09 before H10-H18 so later slot behavior has a clear local address.
+4. Prefer H12/H14/H13 after H09 if the next need is richer interaction and reveal.
+5. Prefer H16/H15/H11 if the next need is long or dense readout pressure.
+6. Consider H17 before adding motion-heavy presentation.
+7. Consider H01 before the head grows too much or before export/readiness work.
+8. Explore H04-H07 as actual presentation modes.
+9. Use H08/M32 as the export-readiness gate.
+10. Open I-lane work only after the clean head and adapter boundaries are strong enough.
+11. Open T-lane tooling only when workflow friction slows product work.
 
 ## Vocabulary Notes
 

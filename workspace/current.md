@@ -177,6 +177,7 @@ The handoff must state whether the registry is ready to support a later lazy-loa
 - Deferred: renderer security review until closer to split/export readiness.
 - Parked: lazy-loaded visual slot until registry is proven.
 - Parked: virtualized list helper until registry/list pressure is clearer.
+- Parked: view-intent slot policy, detail hydration, focus/reveal controller, row facets, overflow sentinel, reduced-motion gate, and Lab fixture adapter until HS105 is accepted.
 - Parked: Lab-only draggable layout board and screenshot comparison index as support tooling.
 - Parked: target-project adapters and export/seeding.
 
