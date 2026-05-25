@@ -7,10 +7,10 @@ Owner: Overseer
 ## Coordination State
 
 Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / HS109 - Detail Hydration
+Last completed milestone: M29 / HS112 - Focus/Reveal Controller Correction
 Current executor: Dev
-Current focus: Correct first-click reveal behavior for hydrated presentation slots.
-Expected artifact filename: `workspace/DevHS112-focus-reveal-controller-correction.md`
+Current focus: Lazy-loaded visual slot proof for the Lab renderer.
+Expected artifact filename: `workspace/DevHS114-lazy-loaded-visual-slot.md`
 
 ## Current State
 
@@ -26,17 +26,18 @@ Accepted M29 slices:
 - HS105 Presentation Slot Registry.
 - HS107 View-Intent Slot Policy.
 - HS109 Detail Hydration.
+- HS112 Focus/Reveal Controller Correction.
 
-HS111 focus/reveal controller landed but is redirected for a narrow interaction correction.
+Accepted HS112 result:
 
-Review finding:
+- Hydrated Readout Detail rows can reveal local detail through the existing row.
+- First mouse click on a closed hydrated row opens and leaves it open.
+- Focus reveal still works.
+- `Enter` / `Space` keyboard toggle still works.
+- Default readout density remains compact.
+- No new drawer, modal, panel, navigation surface, view mode, bridge payload, IPC channel, preload bridge, service command, source-project meaning, target adapter, dependency, or SmokeFlash/workshop exposure was introduced.
 
-- rows open on focus
-- rows also toggle on click
-- a normal mouse click may focus the row open and then immediately click-toggle it closed
-- first-click reveal should leave a closed row open
-
-The correction should preserve the existing surface and avoid broadening scope.
+The next executable slice is a lazy-loaded visual slot proof. This should add one deferred visual treatment to one registered slot path without changing bridge meaning or turning the renderer into a bundle-splitting/export task.
 
 ## Source Of Intent
 
@@ -44,8 +45,8 @@ Accepted source of intent:
 
 - Human direction to hammer in the presentation feature set.
 - `workspace/OverseerHS105-follow-on-feature-candidates.md`
-- `workspace/DevHS111-focus-reveal-controller.md`
-- `workspace/OverseerHS112-hs111-focus-reveal-correction.md`
+- `workspace/DevHS112-focus-reveal-controller-correction.md`
+- `workspace/OverseerHS113-hs112-focus-reveal-acceptance.md`
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
 - `docs/roadmap/future-candidate-bank.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
@@ -59,8 +60,8 @@ Read first:
 - `workspace/critical/README.md`
 - `workspace/critical/critical-terms.md`
 - `workspace/critical/critical-assets.md`
-- `workspace/DevHS111-focus-reveal-controller.md`
-- `workspace/OverseerHS112-hs111-focus-reveal-correction.md`
+- `workspace/OverseerHS113-hs112-focus-reveal-acceptance.md`
+- `src/renderer/index.html`
 - `src/renderer/app.js`
 - `src/renderer/styles.css`
 - `scripts/verify-renderer-shell.js`
@@ -68,26 +69,28 @@ Read first:
 
 ## Ordered Dev Runway
 
-1. Inspect the current `setupSlotRevealController(...)` focus/click/keyboard behavior.
-2. Fix first-click reveal so a closed hydrated row opens and remains open after mouse activation.
-3. Preserve keyboard access: focus should still reveal, and `Enter` / `Space` should still toggle intentionally.
-4. Keep hydrated detail inside the existing Readout Detail row; do not create a new drawer, modal, panel, navigation surface, or view mode.
-5. Keep Summary, Basis, and Details as the only visible view options.
-6. Update renderer-shell verification if needed so the interaction contract is represented.
-7. Run the required verification, including Electron smoke because visible interaction/CSS behavior is involved.
-8. Create `workspace/DevHS112-focus-reveal-controller-correction.md`.
+1. Inspect the current presentation slot registry, view-intent policy, hydration metadata, focus/reveal controller, and Readout Detail rendering path.
+2. Add a small renderer-local lazy visual slot mechanism for one existing registered slot.
+3. Use the existing Briefing Readout Detail path as the proof path; do not create a new drawer, modal, panel, navigation surface, view mode, route, dependency, or build split.
+4. Keep default rendering compact and usable before the visual slot loads.
+5. Ensure the lazy slot loads only as local presentation enhancement and does not change bridge payload, source meaning, or required content.
+6. Add renderer-shell verification for the lazy slot mechanism and proof path.
+7. Run Electron smoke if visible behavior, CSS, or smoke-targeted output changes.
+8. Do not implement virtualization, row facets, overflow sentinel, reduced-motion gate, fixture adapter, draggable layout board, screenshot comparison index, split, adapters, or security review.
+9. Create `workspace/DevHS114-lazy-loaded-visual-slot.md`.
 
 ## Acceptance Criteria
 
-This correction is acceptable if:
+This slice is acceptable if:
 
-- first mouse click on a closed hydrated row reveals detail and leaves it open
-- focus reveal still works
-- `Enter` / `Space` keyboard toggle still works
-- default readout density remains compact
+- one registered slot can declare or use a lazy-loaded visual treatment
+- the visual treatment is renderer-local and optional presentation enhancement
+- the existing Briefing/readout/detail path proves the lazy slot
+- the default row remains useful before lazy enhancement loads
+- Summary, Basis, and Details remain the only visible view options
 - no new drawer/modal/panel/navigation surface is introduced
-- no bridge/runtime/source-project contract is introduced
-- no target-project meaning, adapter, or adoption claim is introduced
+- no dependency, route, bundle split, bridge/runtime contract, or source-project meaning is introduced
+- no target-project adapter or adoption claim is introduced
 - follow-on features remain parked
 - verification commands and results are recorded in the DevHS
 
@@ -96,9 +99,10 @@ This correction is acceptable if:
 Allowed:
 
 - renderer-local code changes
-- small CSS only if needed for the existing Readout Detail row reveal behavior
+- small CSS for the existing Readout Detail slot enhancement
 - small verification updates
 - small handoff updates
+- Lab slim presentation language
 
 Not allowed:
 
@@ -106,8 +110,9 @@ Not allowed:
 - preload/IPC/service command changes
 - source-project semantics
 - target-project adapters
-- durable key-term promotion for reveal state
-- lazy-loaded visual slot implementation
+- new dependency or build tool change
+- actual renderer bundle splitting
+- durable key-term promotion for lazy slot state
 - virtualized list helper implementation
 - row facets implementation
 - overflow sentinel implementation
@@ -123,10 +128,11 @@ Not allowed:
 
 Stop and return to Human / Overseer if:
 
-- first-click reveal requires a broader interaction redesign
-- the correction would make the default readout visibly denser
-- the correction requires changing bridge payloads, IPC, preload, service commands, or fixture contracts
-- verification failures point to Electron/runtime installation rather than this correction
+- lazy loading requires a dependency, route, module/bundle split, IPC, preload, service command, or fixture contract change
+- the default readout becomes dependent on lazy-loaded content
+- the lazy slot requires source-project semantics
+- the proof requires a new surface rather than the existing Readout Detail path
+- verification failures point to Electron/runtime installation rather than this slice
 
 ## Required Verification
 
@@ -136,6 +142,11 @@ Run:
 npm.cmd run verify:renderer-shell
 npm.cmd run verify:vocabulary
 npm.cmd run verify:all
+```
+
+Run Electron smoke if visible renderer behavior, layout, CSS, or smoke-targeted presentation output changes:
+
+```powershell
 npm.cmd run smoke:electron
 ```
 
@@ -151,9 +162,9 @@ npm.cmd run verify:terminology
 Dev should fill this after work:
 
 - Files changed:
-- Interaction correction:
-- First-click behavior:
-- Keyboard behavior:
+- Lazy slot shape:
+- Proof path:
+- Fallback/default behavior:
 - Commands run:
 - Results:
 - Remaining risks:
@@ -163,17 +174,16 @@ Dev should fill this after work:
 Expected output:
 
 ```txt
-workspace/DevHS112-focus-reveal-controller-correction.md
+workspace/DevHS114-lazy-loaded-visual-slot.md
 ```
 
-The handoff must state whether the corrected focus/reveal controller is ready for Overseer acceptance and whether it remains ready to support a later lazy-loaded visual slot.
+The handoff must state whether the lazy slot proof is ready to support later row facets or overflow sentinel work.
 
 ## Advisory Disposition
 
-- Accepted: HS109 Detail Hydration.
-- Redirected: HS111 Focus/Reveal Controller pending first-click correction.
+- Accepted: HS112 Focus/Reveal Controller Correction.
+- Accepted next: lazy-loaded visual slot.
 - Deferred: renderer security review until closer to split/export readiness.
-- Parked: lazy-loaded visual slot until registry/policy/hydration/reveal are accepted.
 - Parked: virtualized list helper until registry/list pressure is clearer.
 - Parked: row facets, overflow sentinel, reduced-motion gate, and Lab fixture adapter.
 - Parked: Lab-only draggable layout board and screenshot comparison index as support tooling.
@@ -184,6 +194,6 @@ The handoff must state whether the corrected focus/reveal controller is ready fo
 - Existing inherited naming tripwires remain.
 - `viewIntent` remains local renderer/test state only, not a durable bridge/runtime contract.
 - M29 presentation-head work is still proven only on the Briefing family.
-- Slot ids, lanes, emphasis, hydration keys, and reveal state are local renderer implementation details, not durable key terms.
+- Slot ids, lanes, emphasis, hydration keys, reveal state, and lazy slot state are local renderer implementation details, not durable key terms.
 - SmokeFlash/material harness code remains in the renderer bundle under ADR 0001 Lab-local allowance.
 - SmokeFlash must still be split before export, seeding, or target-project consumption.

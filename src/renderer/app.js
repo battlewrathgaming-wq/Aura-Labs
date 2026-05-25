@@ -570,8 +570,18 @@ function setupSlotRevealController(item, hydration) {
     item.dataset.presentationReveal = open ? 'open' : 'closed';
     item.setAttribute('aria-expanded', open ? 'true' : 'false');
   };
+  let closedBeforePointer = true;
+  item.addEventListener('pointerdown', () => {
+    closedBeforePointer = item.dataset.presentationReveal !== 'open';
+  });
   item.addEventListener('focus', () => setOpen(true));
-  item.addEventListener('click', () => setOpen(item.dataset.presentationReveal !== 'open'));
+  item.addEventListener('click', () => {
+    if (closedBeforePointer) {
+      setOpen(true);
+      return;
+    }
+    setOpen(item.dataset.presentationReveal !== 'open');
+  });
   item.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();

@@ -121,6 +121,9 @@ function main() {
   assert(app.includes('slotDetailHydration'), 'renderer should resolve slot hydration for Readout Detail rows');
   assert(app.includes('setupSlotRevealController'), 'renderer should attach a local focus/reveal controller for hydrated slots');
   assert(app.includes("item.dataset.presentationReveal = 'closed'"), 'slot reveal should default to closed');
+  assert(app.includes('closedBeforePointer'), 'slot reveal should preserve first-click open behavior');
+  assert(app.includes("item.addEventListener('pointerdown'"), 'slot reveal should inspect pointer state before focus opens the row');
+  assert(app.includes('if (closedBeforePointer)'), 'slot reveal first click on a closed row should leave the row open');
   assert(app.includes("item.addEventListener('focus'"), 'slot reveal should open on row focus');
   assert(app.includes("event.key === 'Enter' || event.key === ' '"), 'slot reveal should support keyboard toggle');
   assert(app.includes('dataset.presentationHydration'), 'renderer should mark rendered slot hydration state locally');
