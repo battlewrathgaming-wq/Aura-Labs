@@ -1,8 +1,9 @@
 # Availability Reason Treatment
 
-Status: pending
+Status: accepted
 Material id: `mat-availability-reason-treatment`
-Schema source: `workspace/UIUXHS123-guided-display-material-expansion.md`
+Schema source: `workspace/complete/milestone-M31/UIUXHS123-guided-display-material-expansion.md`
+Prototype source: `workspace/complete/milestone-M31/DevHS127-availability-reason-treatment-prototype.md`
 
 ## Purpose
 
@@ -81,4 +82,15 @@ Keep state and reason visible before any supporting explanation. Fallback should
 
 ## Examples / Screenshots
 
-None yet.
+Accepted Lab-local material harness prototype in HS127.
+
+Smoke evidence:
+
+- `.tmp/electron-visual-smoke/material-availability-reason-treatment-state-no-data.png`
+- `.tmp/electron-visual-smoke/material-availability-reason-treatment-state-unavailable.png`
+- `.tmp/electron-visual-smoke/material-availability-reason-treatment-state-blocked.png`
+- `.tmp/electron-visual-smoke/material-availability-reason-treatment-state-failed.png`
+- `.tmp/electron-visual-smoke/material-availability-reason-treatment-state-fallback.png`
+- `.tmp/electron-visual-smoke/material-availability-reason-treatment-state-aged.png`
+- `.tmp/electron-visual-smoke/material-availability-reason-treatment-state-source-no-scan.png`
+- `.tmp/electron-visual-smoke/material-availability-reason-treatment-state-source-no-scan-narrow.png`

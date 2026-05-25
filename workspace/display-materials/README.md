@@ -24,7 +24,7 @@ Use `workspace/display-schema-ledger.md` as the catalog/index. Use the pages her
 | Table Row Detail Drawer | accepted | `workspace/display-materials/table-row-detail-drawer.md` |
 | Warning / Gap Edge | accepted | `workspace/display-materials/warning-gap-edge.md` |
 | Long Text Detail Block | accepted | `workspace/display-materials/long-text-detail-block.md` |
-| Availability Reason Treatment | pending | `workspace/display-materials/availability-reason-treatment.md` |
+| Availability Reason Treatment | accepted | `workspace/display-materials/availability-reason-treatment.md` |
 | Source / Basis Coverage Marker | pending | `workspace/display-materials/source-basis-coverage-marker.md` |
 | Compact Value Rail | pending | `workspace/display-materials/compact-value-rail.md` |
 

@@ -1,6 +1,6 @@
 # M31 - Display Material Repeat Cycle
 
-Status: Active
+Status: Complete
 
 ## Outcome
 
@@ -39,6 +39,15 @@ M31 is complete when:
 - acceptance criteria remain consistent across the batch
 - workshop tooling stays support-only
 - no target-project adapter, source-project meaning, export/seeding, or bridge/runtime contract is introduced
+
+## Closure
+
+Closed accepted in HS128 after two non-TTL material prototypes were accepted:
+
+- Long Text Detail Block
+- Availability Reason Treatment
+
+Remaining pending candidates, Source / Basis Coverage Marker and Compact Value Rail, are not required to close M31 and can be reopened by a later packet.
 
 ## Non-Goals
 

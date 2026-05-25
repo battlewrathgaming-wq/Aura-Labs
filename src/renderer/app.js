@@ -353,6 +353,7 @@ function setupMaterialHarness() {
   stateSelect.addEventListener('change', () => material.render(stateSelect.value));
   document.querySelector('#ttl-detail-toggle').addEventListener('click', toggleMaterialDetail);
   document.querySelector('#long-text-detail-toggle').addEventListener('click', toggleLongTextDetail);
+  document.querySelector('#availability-detail-toggle').addEventListener('click', toggleAvailabilityDetail);
   material.render(material.states()[0].id);
 }
 
@@ -371,6 +372,13 @@ function materialHarnessDefinition(materialId) {
       elementId: 'long-text-detail-block',
       states: longTextDetailBlockStates,
       render: renderLongTextDetailBlock
+    },
+    'mat-availability-reason-treatment': {
+      id: 'mat-availability-reason-treatment',
+      title: 'Availability Reason Treatment',
+      elementId: 'availability-reason-treatment',
+      states: availabilityReasonTreatmentStates,
+      render: renderAvailabilityReasonTreatment
     }
   };
   return definitions[materialId] || null;
@@ -670,6 +678,125 @@ function longTextDetailRow(entry) {
 function toggleLongTextDetail() {
   const detail = document.querySelector('#long-text-detail');
   const button = document.querySelector('#long-text-detail-toggle');
+  detail.hidden = !detail.hidden;
+  button.setAttribute('aria-expanded', detail.hidden ? 'false' : 'true');
+}
+
+function availabilityReasonTreatmentStates() {
+  return [
+    {
+      id: 'no-data',
+      label: 'No data',
+      tone: 'quiet',
+      marker: 'ND',
+      reason: 'No presentable data is available.',
+      detail: [
+        ['Reason', 'The display received no fields suitable for this material.'],
+        ['Readout basis', 'No presentation payload available.'],
+        ['Owner / layer note', 'Lab is showing display availability only; source projects own what they emit.']
+      ]
+    },
+    {
+      id: 'unavailable',
+      label: 'Unavailable',
+      tone: 'unavailable',
+      marker: 'UN',
+      reason: 'Current read is unavailable.',
+      detail: [
+        ['Reason', 'The current read cannot be shown.'],
+        ['Readout basis', 'Unavailable current read.'],
+        ['Owner / layer note', 'This is a Lab display state, not a source-project absence claim.']
+      ]
+    },
+    {
+      id: 'blocked',
+      label: 'Blocked',
+      tone: 'blocked',
+      marker: 'BL',
+      reason: 'Source-owned gate is blocked.',
+      detail: [
+        ['Reason', 'Required source-owned authority or access is blocked.'],
+        ['Basis', 'Blocked is preserved as a source-owned placeholder when supplied.'],
+        ['Owner / layer note', 'Source project owns the block reason; Lab presents it after the bridge.']
+      ]
+    },
+    {
+      id: 'failed',
+      label: 'Failed',
+      tone: 'failed',
+      marker: 'FL',
+      reason: 'Read attempt failed.',
+      detail: [
+        ['Reason', 'The read attempt failed before presentable content could be produced.'],
+        ['Basis', 'Failure is about the current read path, not proof that source data is absent.'],
+        ['Warning', 'Use restrained styling unless the source project marks the failure as urgent.']
+      ]
+    },
+    {
+      id: 'fallback',
+      label: 'Fallback',
+      tone: 'fallback',
+      marker: 'FB',
+      reason: 'Showing fallback basis.',
+      detail: [
+        ['Reason', 'Current read is limited; fallback basis is visible.'],
+        ['Fallback note', 'Previous or alternate display basis may be shown only when clearly labeled.'],
+        ['Readout basis', 'Fallback presentation path.']
+      ]
+    },
+    {
+      id: 'aged',
+      label: 'Aged',
+      tone: 'aged',
+      marker: 'AG',
+      reason: 'Showing older readout basis.',
+      detail: [
+        ['Reason', 'Current display is based on an older readout.'],
+        ['Readout age', 'Last successful read is older than the preferred window.'],
+        ['Basis', 'Aged display is still distinct from failed, blocked, or unavailable.']
+      ]
+    },
+    {
+      id: 'source-no-scan',
+      label: 'Source-owned no scan',
+      tone: 'source-owned',
+      marker: 'NS',
+      reason: 'Source-owned no-scan placeholder.',
+      detail: [
+        ['Reason', 'No-scan wording is source-owned when supplied by a source project.'],
+        ['Owner / layer note', 'Owner: source project. Layer shown here: Lab Bridge -> Interface display.'],
+        ['Fallback note', 'Do not replace source-owned no-scan meaning with generic unavailable or failed copy.']
+      ]
+    }
+  ];
+}
+
+function renderAvailabilityReasonTreatment(stateId) {
+  const materialState = availabilityReasonTreatmentStates().find((entry) => entry.id === stateId) || availabilityReasonTreatmentStates()[0];
+  const block = document.querySelector('#availability-reason-treatment');
+  block.dataset.state = materialState.id;
+  block.dataset.tone = materialState.tone;
+  document.querySelector('#availability-marker').textContent = materialState.marker;
+  document.querySelector('#availability-state').textContent = materialState.label;
+  document.querySelector('#availability-reason').textContent = materialState.reason;
+  const detail = document.querySelector('#availability-detail');
+  detail.textContent = '';
+  for (const [labelText, valueText] of materialState.detail) {
+    const row = document.createElement('div');
+    const label = document.createElement('span');
+    const value = document.createElement('strong');
+    label.textContent = labelText;
+    value.textContent = valueText;
+    row.append(label, value);
+    detail.appendChild(row);
+  }
+  detail.hidden = true;
+  document.querySelector('#availability-detail-toggle').setAttribute('aria-expanded', 'false');
+}
+
+function toggleAvailabilityDetail() {
+  const detail = document.querySelector('#availability-detail');
+  const button = document.querySelector('#availability-detail-toggle');
   detail.hidden = !detail.hidden;
   button.setAttribute('aria-expanded', detail.hidden ? 'false' : 'true');
 }

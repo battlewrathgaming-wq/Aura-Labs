@@ -58,17 +58,17 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M28 | Human direction after M27 controls | Complete | Accepted first Lab-local visible material prototype for Authority Window TTL Strip using ADR-controlled SmokeFlash workshop path. |
 | M29 | Presentation Head Improvement Rail | Complete | Accepted loading state parity, Summary/Basis/Details view intent, slot registry/policy, detail hydration, focus/reveal, lazy visual slot, row facets, overflow sentinel, and HS120 close/readiness review. |
 | M30 | Presentation Resilience Gate | Complete | Accepted a bounded renderer-local reduced-motion gate for the presentation head, with normal verification and Electron smoke. |
-| M31 | Display Material Repeat Cycle | Active | HS127 opened for a bounded Dev prototype of the pending Availability Reason Treatment material. |
+| M31 | Display Material Repeat Cycle | Complete | Accepted Long Text Detail Block and Availability Reason Treatment as two non-TTL material prototypes; remaining candidates are parked for later packets. |
 
 ## Current Direction
 
-Active milestone: M31 - Display Material Repeat Cycle
-Last completed milestone: M30 / HS122 - Reduced-Motion Gate Acceptance
+Active milestone: None
+Last completed milestone: M31 / HS128 - Display Material Repeat Cycle Closure
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS127
-Latest accepted handshake: workspace/OverseerHS126-hs125-long-text-detail-block-acceptance.md
-Latest active runway: workspace/OverseerHS127-m31-availability-reason-treatment-runway.md
+Current sequence: none
+Latest accepted handshake: workspace/complete/milestone-M31/OverseerHS128-hs127-availability-reason-treatment-acceptance.md
+Latest active runway: none
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
 Housekeeping: active root cleaned on 2026-05-25; M19-M30 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
@@ -133,13 +133,7 @@ Active milestone handshakes:
 
 - `workspace/LabRemoteConsumerConformanceHS66.md`
 - `workspace/request_display.md`
-- `workspace/OverseerHS123-m31-guided-material-expansion-runway.md`
-- `workspace/UIUXHS123-guided-display-material-expansion.md`
-- `workspace/OverseerHS124-uiuxhs123-material-expansion-acceptance.md`
-- `workspace/OverseerHS125-m31-long-text-detail-block-runway.md`
-- `workspace/DevHS125-long-text-detail-block-prototype.md`
-- `workspace/OverseerHS126-hs125-long-text-detail-block-acceptance.md`
-- `workspace/OverseerHS127-m31-availability-reason-treatment-runway.md`
+- None.
 
 Accepted authority records:
 
@@ -179,6 +173,7 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M28/`
 - `workspace/complete/milestone-M29/`
 - `workspace/complete/milestone-M30/`
+- `workspace/complete/milestone-M31/`
 
 ### Historical Archives
 
@@ -194,5 +189,5 @@ Completed milestone handshakes:
 - Should Sense now perform its local adoption review using accepted M19 as advisory input?
 - Where should the future use-case comparison landing zone live after material bench shape is clearer?
 - Should SmokeFlash split-readiness move forward before export, seeding, or target-project consumption?
-- Which guided M31 material candidates should be accepted into pending material pages after UI/UX review?
-- Should M31 proceed from guided library expansion into Dev prototypes, or stop after catalog growth?
+- Should Source / Basis Coverage Marker or Compact Value Rail become a later prototype?
+- Should the next milestone focus on composed display outputs, further material prototypes, or export/split readiness?

@@ -2,7 +2,7 @@
 
 Status: pending
 Material id: `mat-source-basis-coverage-marker`
-Schema source: `workspace/UIUXHS123-guided-display-material-expansion.md`
+Schema source: `workspace/complete/milestone-M31/UIUXHS123-guided-display-material-expansion.md`
 
 ## Purpose
 

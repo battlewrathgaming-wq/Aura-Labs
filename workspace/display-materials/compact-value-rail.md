@@ -2,7 +2,7 @@
 
 Status: pending
 Material id: `mat-compact-value-rail`
-Schema source: `workspace/UIUXHS123-guided-display-material-expansion.md`
+Schema source: `workspace/complete/milestone-M31/UIUXHS123-guided-display-material-expansion.md`
 
 ## Purpose
 

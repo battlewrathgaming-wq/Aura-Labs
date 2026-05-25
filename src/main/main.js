@@ -158,6 +158,28 @@ async function runVisualSmoke(window) {
     path.join(smokeDir, 'material-long-text-detail-block-state-long-token-narrow.png')
   ));
 
+  const availabilityStates = ['no-data', 'unavailable', 'blocked', 'failed', 'fallback', 'aged', 'source-no-scan'];
+  await loadMaterialHarness(window, 'mat-availability-reason-treatment');
+  window.setSize(960, 640);
+  for (const state of availabilityStates) {
+    await selectAvailabilityMaterialState(window, state);
+    observations.push(await captureAvailabilityMaterialState(
+      window,
+      state,
+      'desktop',
+      path.join(smokeDir, `material-availability-reason-treatment-state-${state}.png`)
+    ));
+  }
+
+  window.setSize(560, 640);
+  await selectAvailabilityMaterialState(window, 'source-no-scan');
+  observations.push(await captureAvailabilityMaterialState(
+    window,
+    'source-no-scan',
+    'narrow',
+    path.join(smokeDir, 'material-availability-reason-treatment-state-source-no-scan-narrow.png')
+  ));
+
   const screenshots = observations.map((observation) => observation.screenshot);
   const blockingFailures = visualSmokeBlockingFailures(observations);
   const smokePassed = blockingFailures.length === 0;
@@ -174,7 +196,8 @@ async function runVisualSmoke(window) {
       briefing: briefingStates,
       'neutral-seed': neutralSeedStates,
       'mat-authority-window-ttl-strip': materialStates,
-      'mat-long-text-detail-block': longTextStates
+      'mat-long-text-detail-block': longTextStates,
+      'mat-availability-reason-treatment': availabilityStates
     },
     view_intents_checked: {
       briefing: briefingViewIntents
@@ -392,6 +415,22 @@ async function selectLongTextMaterialState(window, state) {
   `);
 }
 
+async function selectAvailabilityMaterialState(window, state) {
+  await window.webContents.executeJavaScript(`
+    (async () => {
+      const stateSelect = document.querySelector('#material-state');
+      if (!stateSelect) return;
+      stateSelect.value = ${JSON.stringify(state)};
+      stateSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      const detailToggle = document.querySelector('#availability-detail-toggle');
+      if (detailToggle && detailToggle.getAttribute('aria-expanded') !== 'true') {
+        detailToggle.click();
+      }
+      await new Promise((resolve) => setTimeout(resolve, 180));
+    })();
+  `);
+}
+
 async function captureMaterialState(window, state, viewport, outputPath) {
   const image = await window.webContents.capturePage();
   fs.writeFileSync(outputPath, image.toPNG());
@@ -457,6 +496,42 @@ async function captureLongTextMaterialState(window, state, viewport, outputPath)
         material_detail_control_visible: Boolean(document.querySelector('#long-text-detail-toggle') && !document.querySelector('#long-text-detail-toggle').hidden),
         material_detail_rows: document.querySelectorAll('#long-text-detail .long-text-detail-row').length,
         long_text_detail_open: Boolean(!document.querySelector('#long-text-detail')?.hidden),
+        overflowing
+      };
+    })();
+  `);
+}
+
+async function captureAvailabilityMaterialState(window, state, viewport, outputPath) {
+  const image = await window.webContents.capturePage();
+  fs.writeFileSync(outputPath, image.toPNG());
+  const screenshot = path.basename(outputPath);
+  return window.webContents.executeJavaScript(`
+    (() => {
+      const text = (selector) => document.querySelector(selector)?.textContent?.trim() || '';
+      const overflowing = Array.from(document.querySelectorAll('#availability-reason-treatment strong, #availability-reason-treatment button, #availability-reason-treatment span'))
+        .filter((node) => node.scrollWidth > node.clientWidth + 1)
+        .map((node) => ({
+          tag: node.tagName.toLowerCase(),
+          id: node.id || null,
+          text: node.textContent.trim().slice(0, 80)
+        }));
+      return {
+        family: 'material',
+        material_id: 'mat-availability-reason-treatment',
+        state: ${JSON.stringify(state)},
+        viewport: ${JSON.stringify(viewport)},
+        screenshot: ${JSON.stringify(screenshot)},
+        requested_material_state: ${JSON.stringify(state)},
+        selected_material_state: document.querySelector('#material-state')?.value || null,
+        material_harness_visible: Boolean(document.querySelector('#material-harness') && document.body.dataset.workshop === 'true'),
+        material_state: text('#availability-state'),
+        material_chip: text('#availability-reason'),
+        material_reason: text('#material-harness-title'),
+        material_marker: text('#availability-marker'),
+        material_detail_control_visible: Boolean(document.querySelector('#availability-detail-toggle') && !document.querySelector('#availability-detail-toggle').hidden),
+        material_detail_rows: document.querySelectorAll('#availability-detail div').length,
+        availability_detail_open: Boolean(!document.querySelector('#availability-detail')?.hidden),
         overflowing
       };
     })();

@@ -2,8 +2,8 @@
 
 Status: accepted
 Material id: `mat-long-text-detail-block`
-Schema source: `workspace/UIUXHS123-guided-display-material-expansion.md`
-Prototype source: `workspace/DevHS125-long-text-detail-block-prototype.md`
+Schema source: `workspace/complete/milestone-M31/UIUXHS123-guided-display-material-expansion.md`
+Prototype source: `workspace/complete/milestone-M31/DevHS125-long-text-detail-block-prototype.md`
 
 ## Purpose
 
