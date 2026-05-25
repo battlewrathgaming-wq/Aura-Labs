@@ -7,12 +7,14 @@ const state = {
   presentationFamily: 'briefing',
   presentationFamilies: [],
   briefingMode: 'normal',
-  briefingModes: []
+  briefingModes: [],
+  viewIntent: 'summary-first'
 };
 
 async function boot() {
   await bootFrame();
   setupWorkshopMode();
+  setupViewIntentControl();
   renderBriefing({
     view_status: 'loading',
     certainty: 'Bridge read pending',
@@ -43,6 +45,30 @@ async function boot() {
     classification.textContent = service.classification;
     item.append(command, classification);
     list.appendChild(item);
+  }
+}
+
+function setupViewIntentControl() {
+  for (const button of document.querySelectorAll('[data-view-intent-option]')) {
+    button.addEventListener('click', () => setViewIntent(button.dataset.viewIntentOption));
+  }
+  setViewIntent(state.viewIntent);
+}
+
+function setViewIntent(intent) {
+  const nextIntent = ['summary-first', 'basis', 'details'].includes(intent) ? intent : 'summary-first';
+  state.viewIntent = nextIntent;
+  document.body.dataset.viewIntent = nextIntent;
+  const readout = document.querySelector('#state-readout');
+  if (readout) {
+    readout.dataset.viewIntent = nextIntent;
+  }
+  const sourceDrawer = document.querySelector('#source-detail-drawer');
+  if (sourceDrawer && nextIntent === 'details') {
+    sourceDrawer.open = true;
+  }
+  for (const button of document.querySelectorAll('[data-view-intent-option]')) {
+    button.setAttribute('aria-pressed', button.dataset.viewIntentOption === nextIntent ? 'true' : 'false');
   }
 }
 

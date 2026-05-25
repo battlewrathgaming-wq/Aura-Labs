@@ -44,7 +44,12 @@
             <strong id="sources">Pending</strong>
           </div>
         </div>
-        <section class="state-readout instrument-status-band" id="state-readout" data-tone="updating" data-marker="attention" aria-labelledby="state-label">
+        <div class="view-intent-control" aria-label="View intent">
+          <button type="button" id="view-intent-summary" data-view-intent-option="summary-first" aria-pressed="true">Summary</button>
+          <button type="button" id="view-intent-basis" data-view-intent-option="basis" aria-pressed="false">Basis</button>
+          <button type="button" id="view-intent-details" data-view-intent-option="details" aria-pressed="false">Details</button>
+        </div>
+        <section class="state-readout instrument-status-band" id="state-readout" data-tone="updating" data-marker="attention" data-view-intent="summary-first" aria-labelledby="state-label">
           <div class="state-core">
             <span class="state-light" aria-hidden="true"></span>
             <div class="state-copy">

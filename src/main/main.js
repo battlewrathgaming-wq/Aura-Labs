@@ -101,6 +101,21 @@ async function runVisualSmoke(window) {
   observations.push(narrowBriefing, narrowNeutralSeed);
 
   window.setSize(960, 640);
+  await selectFixture(window, 'briefing', 'partial');
+  const briefingViewIntents = ['summary-first', 'basis', 'details'];
+  for (const intent of briefingViewIntents) {
+    await selectViewIntent(window, intent);
+    observations.push(await captureViewIntent(
+      window,
+      'briefing',
+      'partial',
+      intent,
+      'desktop',
+      path.join(smokeDir, `family-briefing-state-partial-view-${intent}.png`)
+    ));
+  }
+
+  window.setSize(960, 640);
   const materialStates = ['idle', 'active-window', 'captured', 'timeout', 'cooldown', 'blocked', 'manual-path'];
   for (const state of materialStates) {
     await selectMaterialState(window, state);
@@ -137,6 +152,9 @@ async function runVisualSmoke(window) {
       briefing: briefingStates,
       'neutral-seed': neutralSeedStates,
       'mat-authority-window-ttl-strip': materialStates
+    },
+    view_intents_checked: {
+      briefing: briefingViewIntents
     },
     modes_checked: briefingStates,
     viewports_checked: ['desktop', 'narrow'],
@@ -245,6 +263,59 @@ async function captureFixture(window, family, state, viewport, outputPath) {
   `);
 }
 
+async function selectViewIntent(window, intent) {
+  await window.webContents.executeJavaScript(`
+    (async () => {
+      const button = document.querySelector(${JSON.stringify(`[data-view-intent-option="${intent}"]`)});
+      if (!button) return;
+      button.click();
+      await new Promise((resolve) => setTimeout(resolve, 180));
+    })();
+  `);
+}
+
+async function captureViewIntent(window, family, state, intent, viewport, outputPath) {
+  const image = await window.webContents.capturePage();
+  fs.writeFileSync(outputPath, image.toPNG());
+  const screenshot = path.basename(outputPath);
+  return window.webContents.executeJavaScript(`
+    (() => {
+      const text = (selector) => document.querySelector(selector)?.textContent?.trim() || '';
+      const overflowing = Array.from(document.querySelectorAll('dd, strong, button, select, h1, p, span'))
+        .filter((node) => node.scrollWidth > node.clientWidth + 1)
+        .map((node) => ({
+          tag: node.tagName.toLowerCase(),
+          id: node.id || null,
+          text: node.textContent.trim().slice(0, 80)
+        }));
+      return {
+        family: ${JSON.stringify(family)},
+        state: ${JSON.stringify(state)},
+        viewport: ${JSON.stringify(viewport)},
+        screenshot: ${JSON.stringify(screenshot)},
+        requested_family: ${JSON.stringify(family)},
+        requested_state: ${JSON.stringify(state)},
+        requested_view_intent: ${JSON.stringify(intent)},
+        selected_family: document.querySelector('#presentation-family')?.value || null,
+        selected_state: document.querySelector('#briefing-mode')?.value || null,
+        selected_view_intent: document.body.dataset.viewIntent || null,
+        title: text('#briefing-title'),
+        readout_label: text('#state-label'),
+        band_primary_value: text('#state-primary-value'),
+        readout_age: text('#state-age'),
+        readout_basis: text('#state-basis'),
+        band_marker: text('#state-marker'),
+        source_coverage: text('#state-source-count'),
+        source_drawer_visible: Boolean(document.querySelector('#source-detail-drawer')),
+        source_drawer_open: Boolean(document.querySelector('#source-detail-drawer')?.open),
+        diagnostics_visible: Boolean(document.querySelector('.diagnostics')),
+        view_switch_labels: Array.from(document.querySelectorAll('[data-view-intent-option]')).map((node) => node.textContent.trim()),
+        overflowing
+      };
+    })();
+  `);
+}
+
 async function selectMaterialState(window, state) {
   await window.webContents.executeJavaScript(`
     (async () => {
@@ -315,6 +386,28 @@ function visualSmokeBlockingFailures(observations) {
         code: 'MATERIAL_STATE_COPY_MISSING',
         screenshot: observation.screenshot,
         requested_material_state: observation.requested_material_state
+      });
+    }
+    if (observation.requested_view_intent && observation.selected_view_intent !== observation.requested_view_intent) {
+      failures.push({
+        code: 'SELECTED_VIEW_INTENT_MISMATCH',
+        screenshot: observation.screenshot,
+        requested_view_intent: observation.requested_view_intent,
+        selected_view_intent: observation.selected_view_intent
+      });
+    }
+    if (observation.requested_view_intent && !['Summary', 'Basis', 'Details'].every((label) => observation.view_switch_labels?.includes(label))) {
+      failures.push({
+        code: 'VIEW_INTENT_LABELS_MISSING',
+        screenshot: observation.screenshot,
+        labels: observation.view_switch_labels || []
+      });
+    }
+    if (observation.requested_view_intent && (!observation.title || !observation.readout_label || !observation.band_primary_value || !observation.readout_age || !observation.readout_basis || !observation.band_marker || !observation.source_coverage)) {
+      failures.push({
+        code: 'VIEW_INTENT_STABLE_COPY_MISSING',
+        screenshot: observation.screenshot,
+        requested_view_intent: observation.requested_view_intent
       });
     }
     if (observation.selected_family !== observation.requested_family) {
