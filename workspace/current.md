@@ -1,20 +1,20 @@
 # Current Workspace Packet
 
-Status: Waiting
+Status: Active
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M20 - Display Vocabulary And Slot Taxonomy
 Last completed milestone: M19 - Instrument Status Band Prototype
-Current executor: Human / Overseer
-Current focus: waiting for Human / Overseer direction after M19 closure
-Expected DevHS filename: None
+Current executor: UI development owner / display asset documentor
+Current focus: classify terminology into display classes/types and derive a Lab slot vocabulary
+Expected artifact filename: `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`
 
 ## Current State
 
-Aura Lab is waiting after accepting and closing M19.
+Aura Lab is active for a documentation/advisory milestone after accepting and closing M19.
 
 Housekeeping note:
 
@@ -39,18 +39,20 @@ Accepted state:
 - Lab vocabulary verification now reports warning-only protected-term discovery candidates.
 - The Instrument Status Band prototype is accepted as Lab advisory presentation-pattern input.
 - Sense conformance is already handled; Sense may now read M19 as advisory input through Sense authority.
+- The display asset documentation owner contract is active.
+- M20 is open to develop terminology-to-slot understanding before more primitive development.
 
 ## Purpose
 
-M19 implemented one bounded Lab presentation primitive:
+M20 develops the understanding layer needed before future display primitive work:
 
 ```txt
-Instrument Status Band
+Display Vocabulary And Slot Taxonomy
 ```
 
-The accepted result is a compact, state-aware band for bridge-fed readouts. It shows the readout label, primary value/status, state light, freshness/age, basis summary, gaps/warnings marker, and optional detail reveal.
+The goal is to classify project-wide terminology into display classes/types, identify recurring display pressures, and propose a robust Lab-owned slot vocabulary.
 
-This remains a visible HTML/CSS/JS presentation feature. It is not a backend contract, target adapter, or broad fixture taxonomy.
+This is advisory/documentation work only. It is not implementation, a bridge contract, a shared glossary, target adoption, or product doctrine.
 
 ## Latest Accepted Work
 
@@ -69,15 +71,20 @@ This remains a visible HTML/CSS/JS presentation feature. It is not a backend con
 - Overseer advisory review: `workspace/OverseerHS70-uidevhs69-advisory-review.md`
 - M19 Dev handoff: `workspace/DevHS68-instrument-status-band-prototype.md`
 - M19 Overseer acceptance: `workspace/OverseerHS71-m19-acceptance.md`
+- Display asset documentation owner contract: `workspace/display-asset-documentation-owner-contract.md`
+- M20 runway: `workspace/OverseerHS74-m20-display-taxonomy-runway.md`
 
 ## Source Of Intent
 
-Accepted source of intent for the closed M19 work:
+Accepted source of intent:
 
 - Human direction that Lab should ask whether a presentation should exist before building it.
 - M18 UI/UX recommendation to build `Instrument Status Band` first.
 - Reference folder accepted as inspiration only.
 - UIDevHS69 accepted as practical M19 advisory input, subordinate to this current packet.
+- Human direction to use terminology understanding as the starting point for what needs to be displayed.
+- Human direction to develop a robust primitive slot vocabulary before tailoring display elements to product visions.
+- `workspace/display-asset-documentation-owner-contract.md`
 
 Accepted references:
 
@@ -89,19 +96,40 @@ Accepted references:
 - `workspace/complete/milestone-M18/OverseerHS63-m18-presentation-concept-runway.md`
 - `workspace/OverseerHS67-m18-acceptance-m19-runway.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\terminology\protected-words\README.md`
+- `F:\Projects\Docs\Aura-Project-Orchestration\terminology`
+- `F:\Projects\Docs\Aura-Project-Orchestration\critical`
 
 ## Ordered Runway
 
-No active Dev runway.
+This is not a Dev runway. Do not implement code.
 
-Do not execute Dev work from this packet.
+1. Read this packet and the display asset documentation owner contract.
+2. Read the Lab critical terminology files and the project-wide terminology folder.
+3. Build a class/type table for relevant Lab, Atlas, and Sense terms.
+4. Derive recurring display pressures from those terms.
+5. Propose an initial Lab-owned slot vocabulary for display assets.
+6. Define translation/disposition rules for source terms becoming Lab display needs.
+7. Identify primitive/display-element families implied by the slot vocabulary.
+8. Prepare the next research pass by naming display types worth studying.
+9. End with accepted candidate slot names, unresolved slot names, terms needing owner review, and recommended next packet.
+10. Create `workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md`.
 
-Next valid moves:
+## Acceptance Criteria
 
-1. Human / Overseer may park Lab while Sense or Atlas performs target-owned adoption review.
-2. Human / Overseer may write a small Sense delta prompt that points to accepted M19 input.
-3. Human / Overseer may open a new bounded Lab presentation primitive.
-4. Human / Overseer may open warning-candidate triage if terminology review noise becomes costly.
+Artifact must be accepted only if it provides:
+
+1. Terminology coverage across relevant Lab, Atlas, and Sense terms.
+2. Owner/layer separation for each meaningful term.
+3. A class/type table with term, owner, layer, source artifact, display class, display type, likely slot need, source meaning risk, Lab translation allowed, and notes.
+4. A display pressure model.
+5. An initial Lab-owned slot vocabulary.
+6. Translation/disposition rules.
+7. Primitive implications.
+8. Research seeds for existing display types and slots.
+9. A usable structure short enough to inform the display asset inventory.
+10. A decision list.
+
+Reject if it is only a glossary, tells Dev what to build, makes Lab owner of Atlas/Sense meaning, fails to produce a usable slot vocabulary, or cannot inform the display asset inventory.
 
 ## Concept Candidates
 
@@ -127,54 +155,53 @@ All other concepts remain parked unless Human / Overseer explicitly opens them l
 
 ## Stop Conditions
 
-Stop and return to Human / Overseer if any future work would:
+Stop and return to Human / Overseer if the work would:
 
 - require source-project meaning decisions
-- turn Lab fixture shape into a durable bridge contract
-- require broad renderer restructuring
-- expand into a large fixture taxonomy
+- turn terminology indexes into product direction
+- turn display classes into a durable bridge contract
+- instruct Dev to implement
+- rename source-project terms
+- create a shared Aura glossary
 - make terminology risk unbounded through Lab display language
 
 ## Verification
 
-Latest accepted verification:
+Required before closure:
 
 ```powershell
-npm.cmd run verify:vocabulary
-npm.cmd run verify:renderer-shell
 npm.cmd run verify:all
-npm.cmd run smoke:electron
-Get-Process electron -ErrorAction SilentlyContinue
 ```
 
-Shared advisory check:
+Optional shared advisory check:
 
 ```powershell
 cd F:\Projects\Docs\Aura-Project-Orchestration
 npm.cmd run verify:terminology
 ```
 
-## Evidence
+## Support
 
-M19 Dev evidence recorded 2026-05-25:
+M20 should record:
 
-- Files changed: `src/renderer/index.html`, `src/renderer/app.js`, `src/renderer/styles.css`, `src/services/serviceRegistry.js`, `src/main/main.js`, `scripts/verify-lab-vocabulary.js`, `scripts/verify-renderer-shell.js`, `scripts/verify-services.js`, `workspace/current.md`, `workspace/DevHS68-instrument-status-band-prototype.md`.
-- Visible module behavior: the existing `#state-readout` is now marked and styled as the Instrument Status Band prototype while preserving visible `Bridge State Readout`; the closed band shows state label, primary value/status, state light, pips/inset, readout age, source coverage, readout basis, and a gap/warning/availability marker.
-- Fixture/data shape used: existing briefing and Neutral Sample fixture data feeds the primary value, basis, age, sources, gaps, warnings, and detail; one narrow Lab-local `fallback` review state was added to existing fixture modes to exercise `FALLBACK` without defining a durable bridge contract.
-- States covered: `CURRENT`, `UPDATING`, `AGED`, `PARTIAL`, `UNAVAILABLE`, `FALLBACK`, and `NO DATA`.
-- Detail reveal behavior: existing `Readout Detail` remains the compact reveal and now includes the band marker in addition to readout age, state summary, readout basis, known fields, source paths, gaps, warnings, fallback notes, and unavailable/no-data notes.
-- Internal names intentionally preserved: `#state-readout`, `#source-detail-drawer`, `source-detail-*` ids/classes, `neutral-seed`, payload fields, service commands, IPC channels, screenshot names, and smoke matrix names.
-- Verification commands and results: `npm.cmd run verify:vocabulary` passed with 31 warning-only protected-term discovery candidates; `npm.cmd run verify:renderer-shell` passed; `npm.cmd run verify:all` passed; `npm.cmd run smoke:electron` passed; `npm.cmd run verify:terminology` passed from `F:\Projects\Docs\Aura-Project-Orchestration`.
-- Electron smoke: run because visible renderer layout/CSS changed. Result `.tmp/electron-visual-smoke/visual-smoke-result.json` reported `status: passed`, `blocking_failures: []`, no horizontal overflow, and no Electron process remained.
-- Shared advisory terminology result: `53/53 resource checks passed` with 24 warnings remaining for existing compatibility/internal `trust-strip` and `certainty` surfaces.
-- Remaining local warning-only terminology candidates: 31, including existing source/sample/state collision candidates plus new `Band marker` / Instrument Status Band review wording candidates for Overseer review.
+- files reviewed
+- terminology sources used
+- table structure
+- display pressure categories
+- proposed slot vocabulary
+- translation/disposition rules
+- primitive implications
+- research seeds
+- unresolved owner questions
+- verification/support commands run
 
 ## Handoff
 
-M19 handoff:
+Expected artifact:
 
-- `workspace/DevHS68-instrument-status-band-prototype.md`
-- `workspace/OverseerHS71-m19-acceptance.md`
+```txt
+workspace/DisplayTaxonomyHS73-terminology-to-slot-map.md
+```
 
 ## Reference Folder
 

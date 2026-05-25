@@ -49,14 +49,14 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M20 - Display Vocabulary And Slot Taxonomy
 Last completed milestone: M19 - Instrument Status Band Prototype
-Roadmap source: Accepted `workspace/complete/milestone-M18/UIUXHS64-presentation-concept-pack.md`
+Roadmap source: Human direction after M19 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS71
+Current sequence: HS74
 Latest accepted handshake: workspace/OverseerHS71-m19-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: None
+Active runway: workspace/OverseerHS74-m20-display-taxonomy-runway.md
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
