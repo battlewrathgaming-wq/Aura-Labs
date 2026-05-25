@@ -121,6 +121,13 @@ function main() {
   assert(app.includes('slotHydration'), 'registered slots should declare a detail hydration shape');
   assert(app.includes('slotDetailHydration'), 'renderer should resolve slot hydration for Readout Detail rows');
   assert(app.includes('setupSlotRevealController'), 'renderer should attach a local focus/reveal controller for hydrated slots');
+  assert(app.includes('slotRowFacets'), 'registered slots should declare a local row facet shape');
+  assert(app.includes('rowFacets: slotRowFacets'), 'one or more registered slots should prove row facets');
+  assert(app.includes('slotRowFacetValues'), 'renderer should resolve row facet values for Readout Detail rows');
+  assert(app.includes('appendSlotRowFacets'), 'renderer should render row facets inside existing Readout Detail rows');
+  assert(app.includes('dataset.presentationFacetCount'), 'renderer should mark rendered row facet count locally');
+  assert(app.includes('dataset.presentationFacets'), 'renderer should keep row facet metadata local to rendered slots');
+  assert(app.includes('slot-row-facets'), 'renderer should render compact row facets without a new surface');
   assert(app.includes('slotLazyVisual'), 'registered slots should declare a local lazy visual shape');
   assert(app.includes('lazyVisual: slotLazyVisual'), 'one registered slot should prove a lazy visual treatment');
   assert(app.includes("treatment: 'marker-signal'"), 'Band marker slot should prove the lazy visual treatment');
@@ -202,6 +209,9 @@ function main() {
   assert(styles.includes('.slot-lazy-visual'), 'renderer styles should contain the lazy visual treatment');
   assert(styles.includes('data-presentation-lazy-visual="pending"'), 'renderer styles should preserve useful pending lazy visual row state');
   assert(styles.includes('data-presentation-lazy-visual="loaded"'), 'renderer styles should mark loaded lazy visual row state');
+  assert(styles.includes('.slot-row-facets'), 'renderer styles should contain compact row facets');
+  assert(styles.includes('data-presentation-facet-count'), 'renderer styles should keep facet rows compact');
+  assert(styles.includes('i[data-tone="attention"]'), 'renderer styles should tone row facets without changing labels');
   for (const materialState of ['idle', 'active-window', 'captured', 'timeout', 'cooldown', 'blocked', 'manual-path']) {
     assert(app.includes(`id: '${materialState}'`), `renderer should define material state ${materialState}`);
   }

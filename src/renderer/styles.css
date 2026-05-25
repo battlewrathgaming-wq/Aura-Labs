@@ -938,10 +938,15 @@ body[data-view-intent="details"] .material-harness {
 
 .source-detail-grid div {
   min-width: 0;
+  position: relative;
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 10px;
   background: var(--panel-soft);
+}
+
+.source-detail-grid div[data-presentation-facet-count]:not([data-presentation-facet-count="0"]) {
+  padding-left: 24px;
 }
 
 .source-detail-grid div:focus {
@@ -979,6 +984,50 @@ body[data-view-intent="details"] .material-harness {
   font-size: 0.86rem;
   line-height: 1.35;
   overflow-wrap: anywhere;
+}
+
+.source-detail-grid .slot-row-facets {
+  position: absolute;
+  inset: 10px auto 10px 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 6px;
+  margin: 0;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  text-transform: none;
+}
+
+.source-detail-grid .slot-row-facets i {
+  flex: 1 1 8px;
+  min-height: 8px;
+  border-radius: 999px;
+  background: rgba(145, 162, 159, 0.32);
+  overflow: hidden;
+}
+
+.source-detail-grid .slot-row-facets i[data-tone="current"],
+.source-detail-grid .slot-row-facets i[data-tone="clear"] {
+  background: rgba(105, 196, 143, 0.72);
+}
+
+.source-detail-grid .slot-row-facets i[data-tone="aged"],
+.source-detail-grid .slot-row-facets i[data-tone="partial"],
+.source-detail-grid .slot-row-facets i[data-tone="attention"],
+.source-detail-grid .slot-row-facets i[data-tone="fallback"] {
+  background: rgba(214, 170, 82, 0.74);
+}
+
+.source-detail-grid .slot-row-facets i[data-tone="unavailable"],
+.source-detail-grid .slot-row-facets i[data-tone="no-data"] {
+  background: rgba(239, 119, 108, 0.74);
+}
+
+.source-detail-grid .slot-row-facets i[data-tone="updating"],
+.source-detail-grid .slot-row-facets i[data-tone="pending"] {
+  background: rgba(117, 213, 199, 0.68);
 }
 
 .source-detail-grid .slot-lazy-visual,

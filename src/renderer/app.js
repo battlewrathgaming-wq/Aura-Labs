@@ -22,6 +22,11 @@ const presentationSlotRegistry = {
         label: 'Readout age',
         lane: 'freshness',
         viewIntent: slotViewIntentPolicy({ details: { emphasis: 'primary' } }),
+        rowFacets: slotRowFacets({
+          render: ({ readoutState }) => [
+            { type: 'freshness', tone: readoutState.tone, label: 'Freshness facet' }
+          ]
+        }),
         value: ({ readoutState }) => readoutState.ageLabel,
         hydration: slotHydration({
           detail: ({ readoutState }) => [
@@ -35,6 +40,11 @@ const presentationSlotRegistry = {
         label: 'State summary',
         lane: 'state',
         viewIntent: slotViewIntentPolicy(),
+        rowFacets: slotRowFacets({
+          render: ({ readoutState }) => [
+            { type: 'state', tone: readoutState.tone, label: 'State facet' }
+          ]
+        }),
         value: ({ readoutState }) => readoutState.summary,
         hydration: slotHydration({
           detail: ({ readoutState }) => [
@@ -50,6 +60,11 @@ const presentationSlotRegistry = {
         viewIntent: slotViewIntentPolicy({
           basis: { emphasis: 'primary' },
           details: { emphasis: 'primary' }
+        }),
+        rowFacets: slotRowFacets({
+          render: ({ readoutState }) => [
+            { type: 'basis', tone: readoutState.tone, label: 'Basis facet' }
+          ]
         }),
         value: ({ readoutState }) => readoutState.basis,
         hydration: slotHydration({
@@ -67,6 +82,15 @@ const presentationSlotRegistry = {
           basis: { emphasis: 'support' },
           details: { emphasis: 'support' }
         }),
+        rowFacets: slotRowFacets({
+          render: ({ briefing, status }) => [
+            {
+              type: 'coverage',
+              tone: status === 'loading' ? 'pending' : Object.values(briefing?.fields || {}).some(Boolean) ? 'clear' : 'attention',
+              label: 'Coverage facet'
+            }
+          ]
+        }),
         value: ({ briefing, status }) => knownFieldCopy(briefing, status),
         hydration: slotHydration({
           detail: ({ briefing, status }) => [
@@ -82,6 +106,11 @@ const presentationSlotRegistry = {
         viewIntent: slotViewIntentPolicy({
           basis: { emphasis: 'support' },
           details: { emphasis: 'primary' }
+        }),
+        rowFacets: slotRowFacets({
+          render: ({ readoutState }) => [
+            { type: 'marker', tone: readoutState.markerTone, label: 'Marker facet' }
+          ]
         }),
         value: ({ readoutState }) => readoutState.marker,
         hydration: slotHydration({
@@ -112,6 +141,11 @@ const presentationSlotRegistry = {
           basis: { emphasis: 'support' },
           details: { emphasis: 'support' }
         }),
+        rowFacets: slotRowFacets({
+          render: ({ readoutState }) => [
+            { type: 'source-path', tone: readoutState.availableSources > 0 ? 'clear' : 'pending', label: 'Source path facet' }
+          ]
+        }),
         value: ({ briefing }) => sourceCopy(briefing),
         hydration: slotHydration({
           detail: ({ briefing }) => [
@@ -136,6 +170,13 @@ function slotHydration({ detail = () => [] } = {}) {
   return {
     compact: true,
     detail
+  };
+}
+
+function slotRowFacets({ render = () => [] } = {}) {
+  return {
+    localOnly: true,
+    render
   };
 }
 
@@ -555,6 +596,12 @@ function appendSourceDetail(list, labelText, valueText, slot = {}, hydration = {
   if (hydration.detailRows.length > 0) {
     item.dataset.presentationDetail = hydration.detailRows.map(([label, value]) => `${label}: ${value}`).join(' | ');
   }
+  const rowFacets = slotRowFacetValues(slot, hydration.context);
+  item.dataset.presentationFacetCount = String(rowFacets.length);
+  if (rowFacets.length > 0) {
+    item.dataset.presentationFacets = rowFacets.map((facet) => `${facet.type}:${facet.tone}`).join('|');
+    appendSlotRowFacets(item, rowFacets);
+  }
   const label = document.createElement('span');
   const value = document.createElement('strong');
   label.textContent = labelText;
@@ -563,6 +610,34 @@ function appendSourceDetail(list, labelText, valueText, slot = {}, hydration = {
   setupLazySlotVisual(item, slot, hydration.context);
   setupSlotRevealController(item, hydration);
   list.appendChild(item);
+}
+
+function slotRowFacetValues(slot, context) {
+  if (!slot.rowFacets?.localOnly || typeof slot.rowFacets.render !== 'function') {
+    return [];
+  }
+  return slot.rowFacets.render(context)
+    .filter(Boolean)
+    .slice(0, 3)
+    .map((facet) => ({
+      type: facet.type || 'state',
+      tone: facet.tone || 'neutral',
+      label: facet.label || 'Row facet'
+    }));
+}
+
+function appendSlotRowFacets(item, facets) {
+  const rail = document.createElement('span');
+  rail.className = 'slot-row-facets';
+  rail.setAttribute('aria-label', facets.map((facet) => facet.label).join(', '));
+  for (const facet of facets) {
+    const marker = document.createElement('i');
+    marker.dataset.facetType = facet.type;
+    marker.dataset.tone = facet.tone;
+    marker.textContent = facet.type;
+    rail.appendChild(marker);
+  }
+  item.appendChild(rail);
 }
 
 function setupLazySlotVisual(item, slot, context) {
