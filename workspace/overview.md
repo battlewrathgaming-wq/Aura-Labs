@@ -74,6 +74,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 - `docs/index.md`
 - `docs/README.md`
+- `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/statements/post-bridge-presentation-boundary.md`
 - `docs/current-state/m00-boot-current-state.md`
 - `docs/current-state/m01-project-state-briefing-current-state.md`

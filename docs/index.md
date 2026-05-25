@@ -70,6 +70,7 @@ Start here:
 
 - `README.md`
 - `docs/README.md`
+- `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/statements/post-bridge-presentation-boundary.md`
 - `docs/current-state/m04-visual-prototype-current-state.md`
 - `docs/current-state/m11-presentation-state-readout-current-state.md`
