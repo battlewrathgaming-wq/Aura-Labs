@@ -6,6 +6,26 @@ Aura Lab uses the lean workspace-first launch model.
 
 Root `AGENTS.md` is the project bootloader for agents. Read it first when present, then use this workspace folder for active coordination.
 
+## Current Focus
+
+Aura Lab is a display-elements workshop for post-bridge presentation.
+
+The working focus is:
+
+```txt
+Build a library of ways information can be displayed, a workshop where new display ideas can be tested without overcommitting, and a material bench that proves those ways hold up under real display pressure.
+```
+
+Current proposal:
+
+- `workspace/OverseerProposalHS72-display-elements-workshop-and-material-bench.md`
+
+Accepted M19 proof:
+
+- `docs/current-state/m19-instrument-status-band-current-state.md`
+
+Sense has already validated the model by adapting the instrument grammar without adopting Lab state semantics. Treat that as evidence for the method, not permission to create shared doctrine.
+
 ## Core Files
 
 - `workspace/overview.md` is the project map and durable record index.
@@ -13,6 +33,23 @@ Root `AGENTS.md` is the project bootloader for agents. Read it first when presen
 - `workspace/00-dot-protocol.md` defines the role-sensitive `.` signal.
 - `workspace/prompts.md` holds reusable Overseer, Dev, and specialist prompts.
 - `workspace/complete/` stores batch-archived milestone handshakes.
+- `workspace/workshop/` stores skunkworks/display-idea notes that are not executable until promoted through `workspace/current.md`.
+- `workspace/reference/` stores reference and material-bench inputs. It is inspiration and test material, not a task queue.
+
+## Display Element Contract
+
+Future Lab work should follow this loop unless `workspace/current.md` explicitly narrows or overrides it:
+
+1. Name the display element.
+2. Choose the display material.
+3. Build or refine one bounded implementation.
+4. Verify readability, state behavior, and narrow layout.
+5. Catalog what can now be displayed.
+6. Park everything else.
+
+Every executable packet should name the element, source of intent, material or fixture pressure, required states, required slots, narrow behavior, verification commands, and expected handoff file.
+
+Workshop notes, reference notes, and proposal files do not authorize Dev work. Dev work starts only from `workspace/current.md`.
 
 ## Shared Authority
 

@@ -16,7 +16,11 @@ It starts from the Aura Core scaffold and keeps the useful local app rigging:
 
 The project should stay light. Product direction, milestone work, and implementation runways move through `workspace/current.md`.
 
-The first product concern is the post-bridge presenter rig: display mapping, typography, containment, shell verification, and state handling after data has crossed a bridge. Lab fixtures such as `aura.projectBriefing` and Needs Attention are test material, not the product boundary.
+The current product focus is a display-elements workshop: small portable HTML/CSS/JS ways to show bridge-fed information clearly. Lab should answer, "you can now display information like this," while target projects keep ownership of their own meaning.
+
+Start agents at `AGENTS.md`, then `workspace/README.md`. Workshop/skunkworks guidance lives at `workspace/workshop/README.md`.
+
+The core product concern is the post-bridge presenter rig: display mapping, typography, containment, shell verification, and state handling after data has crossed a bridge. Lab fixtures such as `aura.projectBriefing` and Needs Attention are test material, not the product boundary.
 
 Durable project documentation starts at `docs/index.md`.
 
