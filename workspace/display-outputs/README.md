@@ -1,6 +1,6 @@
 # Display Outputs
 
-Status: Empty output library
+Status: Active output library
 Purpose: combined reusable Lab display references
 
 This folder holds accepted composed display outputs after materials are combined into a larger reusable reference.
@@ -16,6 +16,6 @@ This folder is not:
 
 ## Current Outputs
 
-None yet.
-
-The first combined output page should be added only when a future Human-piloted packet accepts a composed display reference.
+| Output | Status | Page |
+| --- | --- | --- |
+| Instrument Readout Panel | accepted | `workspace/display-outputs/instrument-readout-panel.md` |

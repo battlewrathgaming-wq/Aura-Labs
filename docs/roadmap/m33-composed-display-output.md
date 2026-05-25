@@ -1,6 +1,6 @@
 # M33 - Composed Display Output
 
-Status: Active
+Status: Complete
 
 ## Outcome
 
@@ -51,3 +51,13 @@ M33 is complete when:
 - `workspace/display-materials/`
 - `workspace/display-schema-ledger.md`
 - `workspace/display-outputs/`
+
+## Closure
+
+Closed accepted in HS132.
+
+Accepted output:
+
+- `workspace/display-outputs/instrument-readout-panel.md`
+
+Next recommended step: a bounded Lab-local Dev prototype for the Instrument Readout Panel, with no export, split, target adapter, or bridge/runtime contract work.
