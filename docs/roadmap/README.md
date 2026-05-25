@@ -1,6 +1,6 @@
 # Aura Lab Roadmap
 
-Status: Initial durable roadmap scaffold
+Status: Active durable roadmap scaffold
 Last reviewed: 2026-05-25
 
 ## Purpose
@@ -11,31 +11,31 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-Presentation Head Improvement Rail.
+Presentation Resilience Gate.
 
-Aura Lab is improving the product-facing presentation head before deciding whether it is good enough to split, protect, or offer to target projects. Material prototypes and workshop tooling support that goal, but they are not the main road.
+Aura Lab has closed M29 and is adding a small product-facing resilience gate before deciding whether to continue presentation improvements, resume display-material batching, or move toward split/export readiness.
 
 ## Near Outcomes
 
-- Make loading a first-class presentation state or explicitly defer it.
-- Add `viewIntent` as a renderer/test axis after family and state.
-- Prove one expressive view intent, likely confidence-first or source-first.
-- Keep presentation test coverage aligned with new renderer capabilities.
+- Keep reduced-motion handling aligned with the richer M29 presentation head.
+- Preserve Summary / Basis / Details readability without relying on animation.
+- Keep presentation test coverage aligned with renderer capabilities.
 - Keep SmokeFlash as hidden/gated Lab tooling until a renderer split is earned.
-- Close the phase by reviewing whether split/readiness work is justified.
+- Defer split/readiness until Human explicitly moves toward export or target consumption.
 
 ## Candidate Milestones
 
 | Milestone | Outcome | Status | File |
 | --- | --- | --- | --- |
-| M29 | Presentation Head Improvement Rail | Candidate | `docs/roadmap/m29-presentation-head-improvement-rail.md` |
-| M30 | Display Material Repeat Cycle | Candidate | `docs/roadmap/m30-display-material-repeat-cycle.md` |
+| M29 | Presentation Head Improvement Rail | Complete | `docs/roadmap/m29-presentation-head-improvement-rail.md` |
+| M30 | Presentation Resilience Gate | Active | `docs/roadmap/m30-presentation-resilience-gate.md` |
 | M31 | Composed Display Output | Candidate | `docs/roadmap/m31-composed-display-output.md` |
 | M32 | Export Boundary Review | Candidate | `docs/roadmap/m32-export-boundary-review.md` |
 
 Candidate bank:
 
 - `docs/roadmap/future-candidate-bank.md`
+- `docs/roadmap/display-material-repeat-cycle-candidate.md`
 
 ## Promotion Gates
 

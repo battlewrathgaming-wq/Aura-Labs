@@ -36,6 +36,6 @@ M31 is complete when:
 
 ## Dependencies
 
-- accepted individual materials from M29/M30
+- accepted individual materials from M26/M28 or a future material-repeat cycle
 - a clear Human or UI/UX reason to compose them
 - `workspace/display-outputs/` structure

@@ -57,15 +57,17 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M27 | Human direction after M26 and HS88 | Complete | Accepted SmokeFlash boundary hardening with normal launch isolated from visible workshop controls and split-before-export noted as residual risk. |
 | M28 | Human direction after M27 controls | Complete | Accepted first Lab-local visible material prototype for Authority Window TTL Strip using ADR-controlled SmokeFlash workshop path. |
 | M29 | Presentation Head Improvement Rail | Complete | Accepted loading state parity, Summary/Basis/Details view intent, slot registry/policy, detail hydration, focus/reveal, lazy visual slot, row facets, overflow sentinel, and HS120 close/readiness review. |
+| M30 | Presentation Resilience Gate | Active | HS121 opened for a bounded reduced-motion gate after M29 close. |
 
 ## Current Direction
 
-Active milestone: None - awaiting Human / Overseer direction
+Active milestone: M30 - Presentation Resilience Gate
 Last completed milestone: M29 / HS120 - M29 Close Readiness Review
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS120
+Current sequence: HS121
 Latest accepted handshake: workspace/complete/milestone-M29/OverseerHS120-m29-close-readiness-review.md
+Latest active runway: workspace/OverseerHS121-m30-reduced-motion-runway.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
 Housekeeping: active root cleaned on 2026-05-25; M19-M29 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
@@ -80,7 +82,8 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/roadmap/README.md`
 - `docs/roadmap/future-candidate-bank.md`
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
-- `docs/roadmap/m30-display-material-repeat-cycle.md`
+- `docs/roadmap/m30-presentation-resilience-gate.md`
+- `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/m31-composed-display-output.md`
 - `docs/roadmap/m32-export-boundary-review.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
@@ -128,6 +131,7 @@ Active milestone handshakes:
 
 - `workspace/LabRemoteConsumerConformanceHS66.md`
 - `workspace/request_display.md`
+- `workspace/OverseerHS121-m30-reduced-motion-runway.md`
 
 Accepted authority records:
 
