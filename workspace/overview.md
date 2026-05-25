@@ -78,7 +78,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/README.md`
 - `docs/roadmap/README.md`
 - `docs/roadmap/future-candidate-bank.md`
-- `docs/roadmap/m29-display-material-proving-bench.md`
+- `docs/roadmap/m29-presentation-head-improvement-rail.md`
 - `docs/roadmap/m30-display-material-repeat-cycle.md`
 - `docs/roadmap/m31-composed-display-output.md`
 - `docs/roadmap/m32-export-boundary-review.md`

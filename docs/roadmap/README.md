@@ -11,23 +11,24 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-Display Material Proving Bench.
+Presentation Head Improvement Rail.
 
-Aura Lab is moving from accepted material schemas into visible, inspectable HTML presentation materials. The goal is to learn which display materials are strong enough to become reusable Lab ingredients without treating workshop tooling, screenshot checks, or target-project adapters as the product.
+Aura Lab is improving the product-facing presentation head before deciding whether it is good enough to split, protect, or offer to target projects. Material prototypes and workshop tooling support that goal, but they are not the main road.
 
 ## Near Outcomes
 
-- Prove a small set of individual display materials.
-- Define what makes a material complete, useful, and reviewable.
+- Make loading a first-class presentation state or explicitly defer it.
+- Add `viewIntent` as a renderer/test axis after family and state.
+- Prove one expressive view intent, likely confidence-first or source-first.
+- Keep presentation test coverage aligned with new renderer capabilities.
 - Keep SmokeFlash as hidden/gated Lab tooling until a renderer split is earned.
-- Prepare a repeat-cycle for future material production.
-- Delay composed display outputs until individual materials are strong enough to combine.
+- Close the phase by reviewing whether split/readiness work is justified.
 
 ## Candidate Milestones
 
 | Milestone | Outcome | Status | File |
 | --- | --- | --- | --- |
-| M29 | Display Material Proving Bench | Candidate | `docs/roadmap/m29-display-material-proving-bench.md` |
+| M29 | Presentation Head Improvement Rail | Candidate | `docs/roadmap/m29-presentation-head-improvement-rail.md` |
 | M30 | Display Material Repeat Cycle | Candidate | `docs/roadmap/m30-display-material-repeat-cycle.md` |
 | M31 | Composed Display Output | Candidate | `docs/roadmap/m31-composed-display-output.md` |
 | M32 | Export Boundary Review | Candidate | `docs/roadmap/m32-export-boundary-review.md` |
@@ -37,6 +38,14 @@ Candidate bank:
 - `docs/roadmap/future-candidate-bank.md`
 
 ## Promotion Gates
+
+Presentation head improvement accepted:
+
+- new state or view axis is deliberate
+- renderer behavior is visible and reviewable
+- smoke/test coverage tracks the new capability
+- default presentation remains stable
+- SmokeFlash remains workshop-only
 
 Individual material accepted:
 

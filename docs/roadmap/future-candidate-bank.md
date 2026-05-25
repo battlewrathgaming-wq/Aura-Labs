@@ -19,7 +19,7 @@ These candidates are grouped by lane:
 - **H-lane:** product-facing presentation head work.
 - **I-lane:** integration readiness and target-owned adapter work.
 
-The H-lane is closest to Lab's primary product direction. The T-lane supports productivity and review. The I-lane stays gated until the clean presentation head is ready enough to offer.
+The H-lane is the current strategic rail for the next Lab phase. The T-lane supports productivity and review. The I-lane stays gated until the clean presentation head is ready enough to offer.
 
 ## T-Lane: Workshop And Coordination Tooling
 
@@ -27,7 +27,7 @@ The H-lane is closest to Lab's primary product direction. The T-lane supports pr
 | --- | --- | --- | --- |
 | T01 | Pane Board Layout Capture | Build a separate Lab-only Electron tool where ID panes can be dragged, resized, snapped to grid, saved as JSON, and captured as OCR-friendly screenshots. Used for layout blocking before real content work. | Park until layout friction is high enough. |
 | T02 | OCR-Friendly Review Screenshots | Standardize board screenshots with clean background, visible pane IDs, coordinates, viewport, layout ID, timestamp, and high-contrast labels so humans and agents can review layouts from images. | Park as support tooling. |
-| T03 | Scenario Pack Runner | Add reusable pressure scenarios such as source-heavy, long copy, missing critical field, stale with newer diagnostic, narrow pressure, and failed-primary/partial-secondary. Used to test layouts without product doctrine. | Candidate support for M29/M30 if needed. |
+| T03 | Scenario Pack Runner | Add reusable pressure scenarios such as source-heavy, long copy, missing critical field, stale with newer diagnostic, narrow pressure, and failed-primary/partial-secondary. Used to test layouts without product doctrine. | Candidate support if M29 needs richer capability pressure. |
 | T04 | Screenshot Review Workbench | Show saved layout/screenshots side by side for human and agent review. Helps compare normal, long-text, narrow, failed, and partial states without opening raw files. | Park until review cost is visible. |
 | T05 | Candidate Sheet Generator | Generate a review sheet for each layout/material: what it proves, states covered, portable structure, Lab-local content, do-not-port semantics, screenshots, overflow notes, and known risks. | Candidate once material output volume grows. |
 | T06 | Gate-Aware Board / Continue Gates | Create a structured planning board where cards move through gates like Candidate, Needs Human Decision, Ready For Overseer, Prompt Ready, In Current.md, Review, Closed, Parked. Board is coordination only, not execution authority. | Park; avoid creating a second work authority. |
@@ -60,9 +60,9 @@ The H-lane is closest to Lab's primary product direction. The T-lane supports pr
 
 Near path:
 
-1. Continue M29/M30 material proving.
-2. Consider H01 before the presentation head grows too much.
-3. Add H02 and H03 when state/view axes are ready for more expressive presentation.
+1. Use M29 to improve the presentation head through H02, H03, and one expressive view.
+2. Keep material proving as support for the presentation head, not the main road.
+3. Consider H01 before the head grows too much or before export/readiness work.
 4. Explore H04-H07 as actual presentation modes.
 5. Use H08/M32 as the export-readiness gate.
 6. Open I-lane work only after the clean head and adapter boundaries are strong enough.
