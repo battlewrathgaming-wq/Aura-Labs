@@ -9,7 +9,7 @@ Owner: Overseer
 Active milestone: M29 - Presentation Head Improvement Rail
 Last completed milestone: M29 / HS99 - Basis Rail Polish
 Current executor: Human / Overseer
-Current focus: HS99 accepted; awaiting direction on UI/UX review, another bounded presentation-head slice, or split-readiness review.
+Current focus: HS99 accepted; next sequence is one bounded presentation-head slice, then renderer security review.
 Expected artifact filename: No active artifact expected.
 
 ## Current State
@@ -50,6 +50,7 @@ Accepted source of intent:
 - `workspace/OverseerHS99-m29-basis-rail-polish-runway.md`
 - `workspace/DevHS99-basis-rail-polish.md`
 - `workspace/OverseerHS100-hs99-basis-rail-polish-acceptance.md`
+- `workspace/OverseerHS101-m29-next-slice-security-sequence.md`
 
 ## Latest Accepted Artifacts
 
@@ -96,17 +97,26 @@ Electron smoke result:
 - SmokeFlash/material harness code remains in the renderer bundle under ADR 0001 Lab-local allowance.
 - SmokeFlash must still be split before export, seeding, or target-project consumption.
 
-## Recommended Next Choices
+## Accepted Next Sequence
 
-- Short UI/UX review of the refined Summary / Basis / Details screenshots.
-- Another bounded presentation-head slice if Human wants to keep improving the renderer this week.
-- Split-readiness review only when the presentation head feels good enough to consider export/seeding.
+1. Open one more bounded presentation-head slice.
+2. After that slice is accepted, run a security review of the renderer.
+
+The next Dev runway should not be opened until the specific presentation slice is selected.
+
+Candidate slice shapes:
+
+- one more Summary/Basis/Details polish focused on first-screen read speed
+- a small Details-view presentation improvement
+- a compact status/action strip improvement
+- a focused empty/failed/partial state presentation improvement
 
 ## Parked Items
 
 - Target-project adapters and adoption work.
 - Export/seeding.
 - Renderer split.
+- Renderer security review until after the next presentation slice.
 - Broad SmokeFlash workbench.
 - Broad visual-smoke matrix.
 - Durable bridge/runtime contracts.
