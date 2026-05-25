@@ -61,6 +61,7 @@ Accepted state:
 - M25 acceptance is recorded in `workspace/OverseerHS85-m25-acceptance.md`.
 - Workflow refactor remains parked until Human explicitly opens it.
 - Recommended next candidates are Authority Window TTL material prototype, workflow refactor, or SmokeFlash feasibility.
+- `workspace/display-schema-ledger.md` tracks produced and schema-ready Lab display schema outputs without creating callback obligations.
 
 ## Purpose
 
@@ -139,6 +140,7 @@ Accepted source of intent:
 - Human direction to capture requirements for individual display materials.
 - Human direction that UX should outline and carry the work toward prototype readiness in one complete output.
 - M25 accepted material requirements.
+- Human direction to keep a table for produced schemas with accepted/pending state and upstream discussion buckets, without callbacks.
 - Central display request workflow context.
 - `workspace/display-asset-documentation-owner-contract.md`
 
@@ -167,6 +169,7 @@ Accepted references:
 - `workspace/OverseerHS84-m25-display-material-requirements-runway.md`
 - `workspace/DisplayMaterialRequirementsHS84-m24-derived-materials.md`
 - `workspace/OverseerHS85-m25-acceptance.md`
+- `workspace/display-schema-ledger.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\known-workflows\display_request.md`
 - `F:\Projects\Docs\Aura-Project-Orchestration\workflow-maps\display-request-space-to-state.md`
 - `workspace/OverseerHS75-m20-acceptance.md`
