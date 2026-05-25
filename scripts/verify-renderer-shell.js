@@ -111,6 +111,12 @@ function main() {
   assert(app.includes('presentationSlotRegistry'), 'renderer should define a local presentation slot registry');
   assert(app.includes('briefingReadoutDetail'), 'renderer should register Briefing Readout Detail slots');
   assert(app.includes('lab-presentation'), 'presentation slot registry should be Lab-owned');
+  assert(app.includes('slotViewIntentPolicy'), 'registered slots should declare a view intent policy shape');
+  assert(app.includes("'summary-first': { available: true"), 'slot policy should include summary-first participation');
+  assert(app.includes('basis: { available: true'), 'slot policy should include Basis participation');
+  assert(app.includes('details: { available: true'), 'slot policy should include Details participation');
+  assert(app.includes('activePolicy'), 'renderer should resolve an active slot policy for the selected view');
+  assert(app.includes('dataset.presentationEmphasis'), 'renderer should mark rendered slot emphasis locally');
   assert(app.includes('presentationSlots('), 'renderer should resolve registered presentation slots');
   assert(app.includes('dataset.presentationSlot'), 'renderer should mark rendered slot nodes with slot ids');
   assert(app.includes('dataset.presentationLane'), 'renderer should mark rendered slot nodes with slot lanes');

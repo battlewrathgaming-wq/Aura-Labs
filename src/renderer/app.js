@@ -21,41 +21,68 @@ const presentationSlotRegistry = {
         id: 'readout-age',
         label: 'Readout age',
         lane: 'freshness',
+        viewIntent: slotViewIntentPolicy({ details: { emphasis: 'primary' } }),
         value: ({ readoutState }) => readoutState.ageLabel
       },
       {
         id: 'state-summary',
         label: 'State summary',
         lane: 'state',
+        viewIntent: slotViewIntentPolicy(),
         value: ({ readoutState }) => readoutState.summary
       },
       {
         id: 'readout-basis',
         label: 'Readout basis',
         lane: 'basis',
+        viewIntent: slotViewIntentPolicy({
+          basis: { emphasis: 'primary' },
+          details: { emphasis: 'primary' }
+        }),
         value: ({ readoutState }) => readoutState.basis
       },
       {
         id: 'known-fields',
         label: 'Known fields',
         lane: 'coverage',
+        viewIntent: slotViewIntentPolicy({
+          basis: { emphasis: 'support' },
+          details: { emphasis: 'support' }
+        }),
         value: ({ briefing, status }) => knownFieldCopy(briefing, status)
       },
       {
         id: 'band-marker',
         label: 'Band marker',
         lane: 'warnings',
+        viewIntent: slotViewIntentPolicy({
+          basis: { emphasis: 'support' },
+          details: { emphasis: 'primary' }
+        }),
         value: ({ readoutState }) => readoutState.marker
       },
       {
         id: 'source-paths',
         label: 'Source paths',
         lane: 'coverage',
+        viewIntent: slotViewIntentPolicy({
+          summary: { emphasis: 'quiet' },
+          basis: { emphasis: 'support' },
+          details: { emphasis: 'support' }
+        }),
         value: ({ briefing }) => sourceCopy(briefing)
       }
     ]
   }
 };
+
+function slotViewIntentPolicy(overrides = {}) {
+  return {
+    'summary-first': { available: true, order: 10, emphasis: overrides.summary?.emphasis || 'quiet' },
+    basis: { available: true, order: 10, emphasis: overrides.basis?.emphasis || 'quiet' },
+    details: { available: true, order: 10, emphasis: overrides.details?.emphasis || 'inspect' }
+  };
+}
 
 async function boot() {
   await bootFrame();
@@ -415,7 +442,7 @@ function renderSourceDrawer(briefing, readoutState, status) {
 
   const list = document.querySelector('#source-detail-list');
   list.textContent = '';
-  for (const slot of presentationSlots('briefingReadoutDetail')) {
+  for (const slot of presentationSlots('briefingReadoutDetail', state.viewIntent)) {
     appendSourceDetail(list, slot.label, slot.value({ briefing, readoutState, status }), slot);
   }
 
@@ -429,8 +456,14 @@ function renderSourceDrawer(briefing, readoutState, status) {
   }
 }
 
-function presentationSlots(registryId) {
-  return presentationSlotRegistry[registryId]?.slots || [];
+function presentationSlots(registryId, viewIntent = state.viewIntent) {
+  return (presentationSlotRegistry[registryId]?.slots || [])
+    .map((slot) => ({
+      ...slot,
+      activePolicy: slot.viewIntent?.[viewIntent] || slot.viewIntent?.['summary-first'] || { available: true, order: 10, emphasis: 'quiet' }
+    }))
+    .filter((slot) => slot.activePolicy.available !== false)
+    .sort((left, right) => left.activePolicy.order - right.activePolicy.order);
 }
 
 function appendSourceDetail(list, labelText, valueText, slot = {}) {
@@ -440,6 +473,9 @@ function appendSourceDetail(list, labelText, valueText, slot = {}) {
   }
   if (slot.lane) {
     item.dataset.presentationLane = slot.lane;
+  }
+  if (slot.activePolicy?.emphasis) {
+    item.dataset.presentationEmphasis = slot.activePolicy.emphasis;
   }
   const label = document.createElement('span');
   const value = document.createElement('strong');
