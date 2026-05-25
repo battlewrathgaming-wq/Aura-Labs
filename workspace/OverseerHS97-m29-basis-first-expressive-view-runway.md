@@ -1,78 +1,55 @@
-# Current Workspace Packet
+# OverseerHS97 - M29 Basis-First Expressive View Runway
 
-Status: Active
-Updated: 2026-05-25
-Owner: Overseer
+Status: Active runway
+Date: 2026-05-25
+Role: Overseer
 
-## Coordination State
+## Purpose
 
-Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / H03 - View Intent Axis
-Current executor: Dev
-Current focus: Improve the Briefing family `Basis` view as the first bounded expressive view after H03.
-Expected artifact filename: `workspace/DevHS97-basis-first-expressive-view.md`
+Open the next M29 slice after H03 View Intent Axis.
 
-## Current State
+This runway should use the accepted `Summary / Basis / Details` view switch to make the `Basis` view meaningfully more useful on the existing Briefing family. The goal is a visible presentation improvement, not a new contract or target-project adapter.
 
-Aura Lab is in M29, the Presentation Head Improvement Rail.
+## Files Reviewed
 
-Accepted M29 slices:
-
-- H02 Loading State Parity.
-- H03 View Intent Axis.
-
-Accepted H03 result:
-
-- `viewIntent` is a local renderer/test axis.
-- `summary-first` is the default behavior.
-- `Summary`, `Basis`, and `Details` are visible H03 view labels.
-- Briefing demonstrates all three view intents.
-- The same surface, family, and selected state remain stable across the switch.
-- Smoke captures `summary-first`, `basis`, and `details` on `briefing` / `partial`.
-- No target-project adapter, source-project meaning, export/seeding, renderer split, durable bridge/runtime contract, or new dependency was introduced.
-
-Active next slice:
-
-- Use the accepted view switch to make the Briefing family `Basis` view meaningfully more useful.
-- Keep this as a presentation emphasis change, not a new page, target adapter, or bridge/runtime contract.
-
-## Source Of Intent
-
-Accepted source of intent:
-
-- Human direction to focus this phase on presentation improvements.
-- Human direction to review split/readiness only when the presentation head is good enough.
-- Human confirmation that the H-lane Presentation Head Milestones are the active line.
-- Accepted H03 UX direction: `Summary / Basis / Details`, segmented switch, same surface, reordered emphasis.
+- `AGENTS.md`
+- `workspace/current.md`
+- `workspace/overseer.md`
+- `workspace/overview.md`
 - `docs/roadmap/README.md`
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
 - `docs/roadmap/future-candidate-bank.md`
 - `workspace/OverseerHS95-m29-view-intent-axis-runway.md`
 - `workspace/DevHS95-view-intent-axis.md`
 - `workspace/OverseerHS96-h03-view-intent-acceptance.md`
-- `workspace/OverseerHS97-m29-basis-first-expressive-view-runway.md`
-
-Read first:
-
-- `AGENTS.md`
-- `workspace/current.md`
-- `workspace/overseer.md`
-- `workspace/overview.md`
-- `workspace/critical/README.md`
-- `workspace/critical/critical-terms.md`
-- `workspace/critical/critical-assets.md`
-- `docs/roadmap/README.md`
-- `docs/roadmap/m29-presentation-head-improvement-rail.md`
-- `docs/roadmap/future-candidate-bank.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
-- `src/main/main.js`
-- `src/renderer/index.html`
-- `src/renderer/app.js`
-- `src/renderer/styles.css`
-- `scripts/electron-visual-smoke.ps1`
-- `scripts/verify-renderer-shell.js`
-- `scripts/verify-lab-vocabulary.js`
+
+## Roadmap Alignment
+
+M29 outcome:
+
+- improve the product-facing presentation head through visible renderer capabilities
+- keep the test model aligned with renderer capability
+- keep workshop tooling bounded and support-only
+
+This runway advances the first expressive view work after H03. It uses the accepted `Basis` view rather than opening a separate stronger-claim view.
+
+## Accepted Source Of Intent
+
+- Human direction to focus this week on presentation improvements.
+- Human direction to review split/readiness only when the presentation head is good enough.
+- Accepted H03 UX direction: use `Summary`, `Basis`, and `Details`; keep the same surface stable; reorder emphasis instead of replacing the whole display.
+- Accepted H03 result in `workspace/OverseerHS96-h03-view-intent-acceptance.md`.
+- Roadmap M29 requirement to prove at least one alternate view intent or park it with clear rationale.
+
+## Current Executor
+
+Dev.
+
+## Expected Handoff
+
+`workspace/DevHS97-basis-first-expressive-view.md`
 
 ## Ordered Runway
 
@@ -83,7 +60,7 @@ Read first:
 5. Keep stable across the three views: title/readout label, status band, primary state, freshness/last read cue, basis cue, warning/gap marker, detail affordance, and diagnostics access.
 6. Preserve Summary and Details behavior unless a tiny supporting adjustment is required to keep the surface coherent.
 7. Add targeted renderer/smoke coverage proving the improved `Basis` view is visible and does not regress Summary or Details identity.
-8. Create `workspace/DevHS97-basis-first-expressive-view.md`.
+8. Create the expected DevHS handoff with files changed, behavior summary, verification, smoke evidence, and residual risks.
 
 ## Acceptance Criteria
 
@@ -203,11 +180,3 @@ The handoff must state whether the expressive Basis view is ready for Overseer a
 - Deferred: H08 Presentation Readiness Split.
 - Parked: target-project adapters and adoption work.
 - Parked: T-lane workshop tooling unless needed to support presentation improvement.
-
-## Residual Risks
-
-- Existing inherited naming tripwires remain.
-- `viewIntent` is local renderer/test state only, not a durable bridge/runtime contract.
-- Only the Briefing family proves the view axis so far.
-- SmokeFlash/material harness code remains in the renderer bundle under ADR 0001 Lab-local allowance.
-- SmokeFlash must still be split before export, seeding, or target-project consumption.
