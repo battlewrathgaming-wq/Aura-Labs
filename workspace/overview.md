@@ -56,19 +56,19 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M26 | Human direction after M25 | Complete | Accepted individual reusable display material schemas and divided them into material library pages with the ledger as index. |
 | M27 | Human direction after M26 and HS88 | Complete | Accepted SmokeFlash boundary hardening with normal launch isolated from visible workshop controls and split-before-export noted as residual risk. |
 | M28 | Human direction after M27 controls | Complete | Accepted first Lab-local visible material prototype for Authority Window TTL Strip using ADR-controlled SmokeFlash workshop path. |
-| M29 | Presentation Head Improvement Rail | Active | HS118 overflow sentinel accepted; HS120 active for M29 close/readiness review. |
+| M29 | Presentation Head Improvement Rail | Complete | Accepted loading state parity, Summary/Basis/Details view intent, slot registry/policy, detail hydration, focus/reveal, lazy visual slot, row facets, overflow sentinel, and HS120 close/readiness review. |
 
 ## Current Direction
 
-Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / HS118 - Overflow Sentinel
+Active milestone: None - awaiting Human / Overseer direction
+Last completed milestone: M29 / HS120 - M29 Close Readiness Review
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
 Current sequence: HS120
-Latest accepted handshake: workspace/OverseerHS119-hs118-overflow-sentinel-acceptance.md
+Latest accepted handshake: workspace/complete/milestone-M29/OverseerHS120-m29-close-readiness-review.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
-Housekeeping: active root cleaned on 2026-05-25; M19-M28 handoffs moved to `workspace/complete/`, M29 remains active in root, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root cleaned on 2026-05-25; M19-M29 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -128,41 +128,6 @@ Active milestone handshakes:
 
 - `workspace/LabRemoteConsumerConformanceHS66.md`
 - `workspace/request_display.md`
-- `workspace/OverseerHS93-m29-loading-state-parity-runway.md`
-- `workspace/DevHS93-loading-state-parity.md`
-- `workspace/OverseerHS94-h02-loading-state-acceptance.md`
-- `workspace/OverseerHS95-m29-view-intent-axis-runway.md`
-- `workspace/DevHS95-view-intent-axis.md`
-- `workspace/OverseerHS96-h03-view-intent-acceptance.md`
-- `workspace/OverseerHS97-m29-basis-first-expressive-view-runway.md`
-- `workspace/DevHS97-basis-first-expressive-view.md`
-- `workspace/OverseerHS98-hs97-basis-view-acceptance.md`
-- `workspace/UIUXHS99-hs97-view-polish-advisory.md`
-- `workspace/OverseerHS99-m29-basis-rail-polish-runway.md`
-- `workspace/DevHS99-basis-rail-polish.md`
-- `workspace/OverseerHS100-hs99-basis-rail-polish-acceptance.md`
-- `workspace/OverseerHS101-m29-next-slice-security-sequence.md`
-- `workspace/OverseerHS102-m29-details-view-inspection-runway.md`
-- `workspace/DevHS102-details-view-inspection.md`
-- `workspace/OverseerHS103-hs102-details-view-acceptance.md`
-- `workspace/OverseerHS104-immediate-scope-lane-reset.md`
-- `workspace/OverseerHS105-follow-on-feature-candidates.md`
-- `workspace/DevHS105-presentation-slot-registry.md`
-- `workspace/OverseerHS106-hs105-presentation-slot-registry-acceptance.md`
-- `workspace/DevHS107-view-intent-slot-policy.md`
-- `workspace/OverseerHS108-hs107-view-intent-slot-policy-acceptance.md`
-- `workspace/DevHS109-detail-hydration.md`
-- `workspace/OverseerHS110-hs109-detail-hydration-acceptance.md`
-- `workspace/DevHS111-focus-reveal-controller.md`
-- `workspace/OverseerHS112-hs111-focus-reveal-correction.md`
-- `workspace/DevHS112-focus-reveal-controller-correction.md`
-- `workspace/OverseerHS113-hs112-focus-reveal-acceptance.md`
-- `workspace/DevHS114-lazy-loaded-visual-slot.md`
-- `workspace/OverseerHS115-hs114-lazy-loaded-visual-slot-acceptance.md`
-- `workspace/DevHS116-row-facets.md`
-- `workspace/OverseerHS117-hs116-row-facets-acceptance.md`
-- `workspace/DevHS118-overflow-sentinel.md`
-- `workspace/OverseerHS119-hs118-overflow-sentinel-acceptance.md`
 
 Accepted authority records:
 
@@ -200,6 +165,7 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M26/`
 - `workspace/complete/milestone-M27/`
 - `workspace/complete/milestone-M28/`
+- `workspace/complete/milestone-M29/`
 
 ### Historical Archives
 
@@ -210,9 +176,9 @@ Completed milestone handshakes:
 
 - Should the next Lab milestone review Bridge State Readout use-case clarity across states?
 - Should Aura Lab park until a target project asks to adapt a presentation pattern?
-- Should the next Lab packet explore a new visible presentation feature prototype?
+- Should the next Lab packet open reduced-motion / presentation resilience, renderer split-readiness review, or another visible presentation feature prototype?
 - Should Atlas and Sense receive project-local protected-term checker adoption prompts?
 - Should Lab refine protected-term discovery output after a few review cycles?
 - Should Sense now perform its local adoption review using accepted M19 as advisory input?
 - Where should the future use-case comparison landing zone live after material bench shape is clearer?
-- Should SmokeFlash become the first tooling packet after material and inventory are accepted?
+- Should SmokeFlash split-readiness move forward before export, seeding, or target-project consumption?
