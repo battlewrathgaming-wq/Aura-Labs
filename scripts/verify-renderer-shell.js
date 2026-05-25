@@ -108,6 +108,10 @@ function main() {
   assert(html.includes('service-list'), 'renderer should include service list target');
   assert(app.includes('seed.readiness'), 'renderer should request seed readiness through services');
   assert(app.includes('setupWorkshopMode'), 'renderer should gate workshop mode from query params');
+  assert(app.includes('setupReducedMotionGate'), 'renderer should initialize a local reduced-motion gate');
+  assert(app.includes("window.matchMedia?.('(prefers-reduced-motion: reduce)'"), 'reduced-motion gate should respect the browser preference');
+  assert(app.includes('document.body.dataset.reducedMotion'), 'reduced-motion gate should expose only local body state');
+  assert(app.includes("state.reducedMotion = matches ? 'reduce' : 'no-preference'"), 'reduced-motion gate should keep local preference names bounded');
   assert(app.includes('setupViewIntentControl'), 'renderer should initialize the view intent control');
   assert(app.includes('presentationSlotRegistry'), 'renderer should define a local presentation slot registry');
   assert(app.includes('briefingReadoutDetail'), 'renderer should register Briefing Readout Detail slots');
@@ -223,6 +227,13 @@ function main() {
   assert(styles.includes('.slot-overflow-sentinel'), 'renderer styles should contain compact overflow sentinel treatment');
   assert(styles.includes('data-presentation-overflow'), 'renderer styles should reserve compact space only for sentinel rows');
   assert(styles.includes('data-overflow-kind'), 'renderer styles should keep sentinel markers local and non-semantic');
+  assert(styles.includes('@media (prefers-reduced-motion: reduce)'), 'renderer styles should include a browser-preference reduced-motion gate');
+  assert(styles.includes('body[data-reduced-motion="reduce"] .state-sweep'), 'renderer styles should include the local reduced-motion body hook');
+  assert(styles.includes('animation-iteration-count: 1 !important'), 'reduced-motion gate should stop repeating animation loops');
+  assert(styles.includes('body[data-reduced-motion="reduce"] .slot-reveal'), 'reveal/detail behavior should remain static under reduced motion');
+  assert(styles.includes('body[data-reduced-motion="reduce"] .source-detail-grid .slot-lazy-visual'), 'lazy visual treatment should remain static under reduced motion');
+  assert(styles.includes('body[data-reduced-motion="reduce"] .source-detail-grid .slot-row-facets'), 'row facets should remain static under reduced motion');
+  assert(styles.includes('body[data-reduced-motion="reduce"] .source-detail-grid .slot-overflow-sentinel'), 'overflow sentinel should remain static under reduced motion');
   for (const materialState of ['idle', 'active-window', 'captured', 'timeout', 'cooldown', 'blocked', 'manual-path']) {
     assert(app.includes(`id: '${materialState}'`), `renderer should define material state ${materialState}`);
   }

@@ -8,7 +8,8 @@ const state = {
   presentationFamilies: [],
   briefingMode: 'normal',
   briefingModes: [],
-  viewIntent: 'summary-first'
+  viewIntent: 'summary-first',
+  reducedMotion: 'no-preference'
 };
 
 const presentationSlotRegistry = {
@@ -213,6 +214,7 @@ function slotLazyVisual({ treatment, render } = {}) {
 async function boot() {
   await bootFrame();
   setupWorkshopMode();
+  setupReducedMotionGate();
   setupViewIntentControl();
   renderBriefing({
     view_status: 'loading',
@@ -269,6 +271,16 @@ function setViewIntent(intent) {
   for (const button of document.querySelectorAll('[data-view-intent-option]')) {
     button.setAttribute('aria-pressed', button.dataset.viewIntentOption === nextIntent ? 'true' : 'false');
   }
+}
+
+function setupReducedMotionGate() {
+  const motionQuery = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+  const setMotionPreference = (matches) => {
+    state.reducedMotion = matches ? 'reduce' : 'no-preference';
+    document.body.dataset.reducedMotion = state.reducedMotion;
+  };
+  setMotionPreference(Boolean(motionQuery?.matches));
+  motionQuery?.addEventListener?.('change', (event) => setMotionPreference(event.matches));
 }
 
 function setupWorkshopMode() {

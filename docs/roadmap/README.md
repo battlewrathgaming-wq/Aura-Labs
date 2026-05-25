@@ -11,15 +11,14 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-Presentation Resilience Gate.
+Between milestones after Presentation Resilience Gate closure.
 
-Aura Lab has closed M29 and is adding a small product-facing resilience gate before deciding whether to continue presentation improvements, resume display-material batching, or move toward split/export readiness.
+Aura Lab has closed M29 and M30. The next milestone should be selected from concrete Human priority: continue presentation features, resume display-material batching, compose an accepted output, or move toward split/export readiness.
 
 ## Near Outcomes
 
-- Keep reduced-motion handling aligned with the richer M29 presentation head.
-- Preserve Summary / Basis / Details readability without relying on animation.
 - Keep presentation test coverage aligned with renderer capabilities.
+- Preserve Summary / Basis / Details readability as new slices are added.
 - Keep SmokeFlash as hidden/gated Lab tooling until a renderer split is earned.
 - Defer split/readiness until Human explicitly moves toward export or target consumption.
 
@@ -28,7 +27,7 @@ Aura Lab has closed M29 and is adding a small product-facing resilience gate bef
 | Milestone | Outcome | Status | File |
 | --- | --- | --- | --- |
 | M29 | Presentation Head Improvement Rail | Complete | `docs/roadmap/m29-presentation-head-improvement-rail.md` |
-| M30 | Presentation Resilience Gate | Active | `docs/roadmap/m30-presentation-resilience-gate.md` |
+| M30 | Presentation Resilience Gate | Complete | `docs/roadmap/m30-presentation-resilience-gate.md` |
 | M31 | Composed Display Output | Candidate | `docs/roadmap/m31-composed-display-output.md` |
 | M32 | Export Boundary Review | Candidate | `docs/roadmap/m32-export-boundary-review.md` |
 

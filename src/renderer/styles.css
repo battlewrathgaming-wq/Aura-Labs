@@ -1371,8 +1371,46 @@ dd {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
   .state-sweep,
   .state-readout[data-tone="updating"] .state-light {
     animation: none;
   }
+
+  .state-sweep {
+    opacity: 0.14;
+    transform: none;
+  }
+
+  .slot-reveal,
+  .source-detail-grid .slot-lazy-visual,
+  .source-detail-grid .slot-row-facets,
+  .source-detail-grid .slot-overflow-sentinel {
+    transition: none;
+  }
+}
+
+body[data-reduced-motion="reduce"] .state-sweep,
+body[data-reduced-motion="reduce"] .state-readout[data-tone="updating"] .state-light {
+  animation: none;
+}
+
+body[data-reduced-motion="reduce"] .state-sweep {
+  opacity: 0.14;
+  transform: none;
+}
+
+body[data-reduced-motion="reduce"] .slot-reveal,
+body[data-reduced-motion="reduce"] .source-detail-grid .slot-lazy-visual,
+body[data-reduced-motion="reduce"] .source-detail-grid .slot-row-facets,
+body[data-reduced-motion="reduce"] .source-detail-grid .slot-overflow-sentinel {
+  transition: none;
 }

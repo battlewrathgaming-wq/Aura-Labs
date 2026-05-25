@@ -57,20 +57,19 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M27 | Human direction after M26 and HS88 | Complete | Accepted SmokeFlash boundary hardening with normal launch isolated from visible workshop controls and split-before-export noted as residual risk. |
 | M28 | Human direction after M27 controls | Complete | Accepted first Lab-local visible material prototype for Authority Window TTL Strip using ADR-controlled SmokeFlash workshop path. |
 | M29 | Presentation Head Improvement Rail | Complete | Accepted loading state parity, Summary/Basis/Details view intent, slot registry/policy, detail hydration, focus/reveal, lazy visual slot, row facets, overflow sentinel, and HS120 close/readiness review. |
-| M30 | Presentation Resilience Gate | Active | HS121 opened for a bounded reduced-motion gate after M29 close. |
+| M30 | Presentation Resilience Gate | Complete | Accepted a bounded renderer-local reduced-motion gate for the presentation head, with normal verification and Electron smoke. |
 
 ## Current Direction
 
-Active milestone: M30 - Presentation Resilience Gate
-Last completed milestone: M29 / HS120 - M29 Close Readiness Review
+Active milestone: None - awaiting Human / Overseer direction
+Last completed milestone: M30 / HS122 - Reduced-Motion Gate Acceptance
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS121
-Latest accepted handshake: workspace/complete/milestone-M29/OverseerHS120-m29-close-readiness-review.md
-Latest active runway: workspace/OverseerHS121-m30-reduced-motion-runway.md
+Current sequence: HS122
+Latest accepted handshake: workspace/complete/milestone-M30/OverseerHS122-hs121-reduced-motion-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
-Housekeeping: active root cleaned on 2026-05-25; M19-M29 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root cleaned on 2026-05-25; M19-M30 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -131,7 +130,6 @@ Active milestone handshakes:
 
 - `workspace/LabRemoteConsumerConformanceHS66.md`
 - `workspace/request_display.md`
-- `workspace/OverseerHS121-m30-reduced-motion-runway.md`
 
 Accepted authority records:
 
@@ -170,6 +168,7 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M27/`
 - `workspace/complete/milestone-M28/`
 - `workspace/complete/milestone-M29/`
+- `workspace/complete/milestone-M30/`
 
 ### Historical Archives
 
