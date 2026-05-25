@@ -2,6 +2,8 @@ const state = {
   frame: {
     alwaysOnTop: false
   },
+  workshopMode: false,
+  materialHarness: null,
   presentationFamily: 'briefing',
   presentationFamilies: [],
   briefingMode: 'normal',
@@ -10,6 +12,7 @@ const state = {
 
 async function boot() {
   await bootFrame();
+  setupWorkshopMode();
   renderBriefing({
     view_status: 'loading',
     certainty: 'Bridge read pending',
@@ -25,6 +28,7 @@ async function boot() {
 
   renderBriefing(briefing);
   setupFixtureControls(briefing);
+  setupMaterialHarness();
 
   document.querySelector('#health').textContent = readiness.ok ? 'Ready' : 'Blocked';
   document.querySelector('#commands').textContent = String(services.length);
@@ -40,6 +44,13 @@ async function boot() {
     item.append(command, classification);
     list.appendChild(item);
   }
+}
+
+function setupWorkshopMode() {
+  const params = new URLSearchParams(window.location.search);
+  state.workshopMode = params.get('workshop') === '1';
+  state.materialHarness = params.get('material');
+  document.body.dataset.workshop = state.workshopMode ? 'true' : 'false';
 }
 
 async function loadBriefing(family, mode) {
@@ -79,6 +90,102 @@ function setupFixtureControls(briefing) {
 
   familySelect.addEventListener('change', () => loadSelectedFixture());
   stateSelect.addEventListener('change', () => loadSelectedFixture());
+}
+
+function setupMaterialHarness() {
+  const harness = document.querySelector('#material-harness');
+  if (!state.workshopMode || state.materialHarness !== 'mat-authority-window-ttl-strip') {
+    harness.hidden = true;
+    return;
+  }
+  harness.hidden = false;
+  const stateSelect = document.querySelector('#material-state');
+  stateSelect.textContent = '';
+  for (const materialState of authorityWindowStates()) {
+    const option = document.createElement('option');
+    option.value = materialState.id;
+    option.textContent = materialState.label;
+    stateSelect.appendChild(option);
+  }
+  stateSelect.addEventListener('change', () => renderAuthorityWindowMaterial(stateSelect.value));
+  document.querySelector('#ttl-detail-toggle').addEventListener('click', toggleMaterialDetail);
+  renderAuthorityWindowMaterial('idle');
+}
+
+function authorityWindowStates() {
+  return [
+    {
+      id: 'idle',
+      label: 'Idle',
+      chip: 'No active window',
+      reason: 'Awaiting staged authority window.',
+      detail: ['Authority note: no active interval.', 'Availability: idle.', 'Manual path: available if source project provides one.']
+    },
+    {
+      id: 'active-window',
+      label: 'Active window',
+      chip: 'TTL 00:03',
+      reason: 'Authority window is open for a bounded interval.',
+      detail: ['Authority note: short active interval.', 'Warning: do not imply background behavior.', 'Next: capture or timeout.']
+    },
+    {
+      id: 'captured',
+      label: 'Captured',
+      chip: 'Handoff shown',
+      reason: 'Display-only handoff marker is available.',
+      detail: ['Effect note: captured marker is display-only.', 'Readout age: just read.', 'Detail path: source project owns action meaning.']
+    },
+    {
+      id: 'timeout',
+      label: 'Timeout',
+      chip: 'Window closed',
+      reason: 'Authority interval ended without capture.',
+      detail: ['Reason: TTL elapsed.', 'Availability: no active interval.', 'Manual path remains available if provided.']
+    },
+    {
+      id: 'cooldown',
+      label: 'Cooldown',
+      chip: 'Next in 00:05',
+      reason: 'Waiting before the next eligible authority window.',
+      detail: ['Cooldown note: next eligible moment is staged.', 'Availability: waiting.', 'Warning: timer is display material only.']
+    },
+    {
+      id: 'blocked',
+      label: 'Blocked',
+      chip: 'Authority blocked',
+      reason: 'Required authority path is unavailable.',
+      detail: ['Blocked basis: required authority unavailable.', 'Gaps: no active interval.', 'Manual path: check source-owned path.']
+    },
+    {
+      id: 'manual-path',
+      label: 'Manual path',
+      chip: 'Use manual route',
+      reason: 'Shortcut unavailable; manual path remains visible.',
+      detail: ['Availability note: shortcut unavailable.', 'Manual path: source-owned manual route.', 'Warning: no automatic capture implied.']
+    }
+  ];
+}
+
+function renderAuthorityWindowMaterial(stateId) {
+  const materialState = authorityWindowStates().find((entry) => entry.id === stateId) || authorityWindowStates()[0];
+  document.querySelector('#authority-window-ttl-strip').dataset.state = materialState.id;
+  document.querySelector('#ttl-state').textContent = materialState.label;
+  document.querySelector('#ttl-chip').textContent = materialState.chip;
+  document.querySelector('#ttl-reason').textContent = materialState.reason;
+  const detail = document.querySelector('#ttl-detail');
+  detail.textContent = '';
+  for (const line of materialState.detail) {
+    const row = document.createElement('p');
+    row.textContent = line;
+    detail.appendChild(row);
+  }
+}
+
+function toggleMaterialDetail() {
+  const detail = document.querySelector('#ttl-detail');
+  const button = document.querySelector('#ttl-detail-toggle');
+  detail.hidden = !detail.hidden;
+  button.setAttribute('aria-expanded', detail.hidden ? 'false' : 'true');
 }
 
 async function loadSelectedFixture() {

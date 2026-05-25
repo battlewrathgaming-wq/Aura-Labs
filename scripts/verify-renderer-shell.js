@@ -15,6 +15,9 @@ function main() {
   assert(main.includes("require('../modules/Frame')"), 'main process should create windows through Frame module');
   assert(main.includes('BrowserWindow'), 'main process should import BrowserWindow for activation checks');
   assert(main.includes('AURA_LAB_ELECTRON_VISUAL_SMOKE'), 'main process should expose explicit visual smoke flag');
+  assert(main.includes('AURA_LAB_WORKSHOP_MODE'), 'main process should expose explicit workshop mode flag');
+  assert(main.includes('AURA_LAB_MATERIAL_HARNESS'), 'main process should expose explicit material harness flag');
+  assert(main.includes("material: process.env.AURA_LAB_MATERIAL_HARNESS || 'mat-authority-window-ttl-strip'"), 'main process should pass material harness only through workshop query');
   assert(main.includes('capturePage'), 'visual smoke should capture renderer screenshots');
   assert(main.includes('visual-smoke-result.json'), 'visual smoke should write a result artifact');
   assert(main.includes("['normal', 'empty', 'stale', 'failed', 'partial', 'long-text']"), 'visual smoke should exercise briefing states');
@@ -35,6 +38,8 @@ function main() {
   assert(main.includes('HORIZONTAL_OVERFLOW'), 'visual smoke should block horizontal overflow');
   assert(packageJson.includes('"smoke:electron"'), 'package should expose project-local Electron smoke script');
   assert(smokeScript.includes('AURA_LAB_ELECTRON_VISUAL_SMOKE'), 'Electron smoke wrapper should set explicit smoke flag');
+  assert(smokeScript.includes('AURA_LAB_WORKSHOP_MODE'), 'Electron smoke wrapper should set explicit workshop flag');
+  assert(smokeScript.includes('AURA_LAB_MATERIAL_HARNESS'), 'Electron smoke wrapper should set explicit material harness flag');
   assert(smokeScript.includes('AURA_LAB_VISUAL_SMOKE_DIR'), 'Electron smoke wrapper should set explicit smoke output dir');
   assert(smokeScript.includes('visual-smoke-result.json'), 'Electron smoke wrapper should validate result artifact');
   assert(smokeScript.includes('.tmp'), 'Electron smoke wrapper should keep artifacts under project .tmp');
@@ -48,6 +53,8 @@ function main() {
   assert(preload.includes('auraWindow'), 'preload should expose Frame window bridge');
   assert(preload.includes('aura:window:set-always-on-top'), 'preload should expose always-on-top IPC');
   assert(html.includes('frame-chrome'), 'renderer should include Frame chrome');
+  assert(html.includes('data-workshop="false"'), 'normal renderer launch should default workshop mode off');
+  assert(html.includes('workshop-only'), 'renderer should mark workshop controls separately from offered surface');
   assert(html.includes('pin-window'), 'renderer should include always-on-top control');
   assert(html.includes('system-surface'), 'renderer should include visual prototype surface class');
   assert(html.includes('coordination-facts'), 'renderer should include grouped coordination facts class');
@@ -74,10 +81,20 @@ function main() {
   assert(html.includes('Presentation family'), 'renderer should label family control as presentation family');
   assert(html.includes('Review state'), 'renderer should label state control as review state');
   assert(html.includes('briefing-mode-note'), 'renderer should include bridge test mode note target');
+  assert(html.includes('material-harness'), 'renderer should include isolated material harness surface');
+  assert(html.includes('mat-authority-window-ttl-strip') || app.includes('mat-authority-window-ttl-strip'), 'renderer should support the authority window TTL material id');
+  assert(html.includes('Authority Window TTL Strip'), 'renderer should label the material harness');
+  assert(html.includes('ttl-detail-toggle'), 'renderer should include material detail reveal control');
   assert(html.includes('service-diagnostics'), 'renderer should demote registered services');
   assert(html.includes('data-field="current_executor"'), 'renderer should include current executor field');
   assert(html.includes('service-list'), 'renderer should include service list target');
   assert(app.includes('seed.readiness'), 'renderer should request seed readiness through services');
+  assert(app.includes('setupWorkshopMode'), 'renderer should gate workshop mode from query params');
+  assert(app.includes('document.body.dataset.workshop'), 'renderer should expose workshop mode through body data only');
+  assert(app.includes('setupMaterialHarness'), 'renderer should initialize the material harness only in workshop mode');
+  assert(app.includes('authorityWindowStates'), 'renderer should define staged authority window material states');
+  assert(app.includes('renderAuthorityWindowMaterial'), 'renderer should render staged authority window material');
+  assert(app.includes('toggleMaterialDetail'), 'renderer should support material detail reveal');
   assert(app.includes('aura.presentationFixture'), 'renderer should request family fixtures through services');
   assert(app.includes('loadBriefing'), 'renderer should load briefing through bridge helper');
   assert(app.includes('setupFixtureControls'), 'renderer should setup family/state controls');
@@ -112,6 +129,8 @@ function main() {
   assert(app.includes('Unavailable'), 'renderer should include unavailable value language');
   assert(main.includes('action_posture'), 'visual smoke should capture action posture');
   assert(main.includes('attention_items'), 'visual smoke should capture attention items');
+  assert(main.includes('material_harness_visible'), 'visual smoke should capture workshop material harness visibility');
+  assert(main.includes('material_state'), 'visual smoke should capture material state');
   assert(app.includes('window.auraWindow.setAlwaysOnTop'), 'renderer should toggle always-on-top through Frame bridge');
   assert(!app.includes('innerHTML'), 'renderer should not use innerHTML in the seed shell');
   assert(app.includes('textContent'), 'renderer should render dynamic service data as textContent');

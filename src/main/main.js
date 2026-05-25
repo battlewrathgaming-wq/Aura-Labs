@@ -25,7 +25,15 @@ function createWindow() {
   });
 
   mainWindow = window;
-  window.loadFile(path.join(__dirname, '..', 'renderer', 'index.html'));
+  const workshopMode = process.env.AURA_LAB_ELECTRON_VISUAL_SMOKE === '1' || process.env.AURA_LAB_WORKSHOP_MODE === '1';
+  window.loadFile(path.join(__dirname, '..', 'renderer', 'index.html'), {
+    query: workshopMode
+      ? {
+          workshop: '1',
+          material: process.env.AURA_LAB_MATERIAL_HARNESS || 'mat-authority-window-ttl-strip'
+        }
+      : {}
+  });
   if (process.env.AURA_LAB_ELECTRON_VISUAL_SMOKE === '1') {
     runVisualSmoke(window).catch((error) => {
       writeVisualSmokeResult({
@@ -194,6 +202,9 @@ async function captureFixture(window, family, state, viewport, outputPath) {
         freshness: text('#freshness'),
         sources: text('#sources'),
         mode_note: text('#briefing-mode-note'),
+        material_harness_visible: Boolean(document.querySelector('#material-harness') && document.body.dataset.workshop === 'true'),
+        material_state: text('#ttl-state'),
+        material_chip: text('#ttl-chip'),
         visual_structure: {
           system_surface: Boolean(document.querySelector('.system-surface')),
           coordination_facts: Boolean(document.querySelector('.coordination-facts')),

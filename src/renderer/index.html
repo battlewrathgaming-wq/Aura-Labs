@@ -6,7 +6,7 @@
     <title>Aura Lab</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
-  <body>
+  <body data-workshop="false">
     <header class="frame-chrome">
       <div class="frame-drag-region">
         <span>Aura Lab</span>
@@ -116,7 +116,7 @@
             <dd data-field="sequence">Reading</dd>
           </div>
         </dl>
-        <div class="test-mode-bar" aria-label="Presentation fixture controls">
+        <div class="test-mode-bar workshop-only" aria-label="Presentation fixture controls">
           <label for="presentation-family">Presentation family</label>
           <select id="presentation-family" name="presentation-family">
             <option value="briefing">Briefing</option>
@@ -127,6 +127,26 @@
           </select>
           <span id="briefing-mode-note">Development-only fixture preview</span>
         </div>
+        <section class="material-harness workshop-only" id="material-harness" aria-labelledby="material-harness-title">
+          <div class="material-harness-head">
+            <div>
+              <p class="eyebrow">SmokeFlash material harness</p>
+              <h2 id="material-harness-title">Authority Window TTL Strip</h2>
+            </div>
+            <label for="material-state">Material state</label>
+            <select id="material-state" name="material-state">
+              <option value="idle">Idle</option>
+            </select>
+          </div>
+          <div class="ttl-strip" id="authority-window-ttl-strip">
+            <span class="ttl-light" id="ttl-light" aria-hidden="true"></span>
+            <strong id="ttl-state">Idle</strong>
+            <span id="ttl-chip">No active window</span>
+            <span id="ttl-reason">Awaiting staged authority window.</span>
+            <button type="button" id="ttl-detail-toggle" aria-expanded="false" aria-controls="ttl-detail">Detail</button>
+          </div>
+          <div class="ttl-detail" id="ttl-detail" hidden></div>
+        </section>
       </section>
       <section class="panel compact diagnostics secondary-surface" aria-label="Secondary bridge diagnostics">
         <h2>Bridge Diagnostics</h2>

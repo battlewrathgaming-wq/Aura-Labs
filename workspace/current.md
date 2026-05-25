@@ -1,197 +1,149 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-05-25
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M27 - SmokeFlash Boundary Review And Conditional Harness
-Last completed milestone: M26 - Guided Display Material Production
-Current executor: Dev
-Current focus: inspect the existing in-app smoke harness boundary and conditionally harden or split the smallest Lab-only material harness
-Expected artifact filename: `workspace/DevHS89-smokeflash-boundary-review.md`
+Active milestone: None
+Last completed milestone: M27 - SmokeFlash Boundary Review And Conditional Harness
+Current executor: Human / Overseer
+Current focus: choose the next Human-piloted Lab packet
+Expected artifact filename: None
 
 ## Current State
 
-Aura Lab has accepted and closed M26.
+Aura Lab has accepted and closed M27.
 
-Accepted M26 state:
+Accepted M27 state:
+
+- Boundary outcome: `harden`.
+- Normal launch stays free of visible workshop controls.
+- Workshop/smoke launch uses explicit environment and query gating.
+- `mat-authority-window-ttl-strip` now has a static Lab-only workshop harness.
+- SmokeFlash remains Lab workshop tooling, not the offered presentation layer.
+- No target-project files, target adapters, live/private/network data, bridge contract, or runtime payload contract were introduced.
+
+Accepted material/library state remains:
 
 - `workspace/display-materials/` holds accepted individual material pages.
 - `workspace/display-schema-ledger.md` remains the catalog/index for ingredients and combined outputs.
-- `workspace/display-outputs/` exists as the empty shelf for future combined reusable display references.
+- `workspace/display-outputs/` is reserved for future combined reusable display references.
 - No combined display output is accepted yet.
 
-M27 opens because Human identified a product boundary risk: Aura Lab may currently carry smoke/workshop tooling inside the same Electron app that represents the offered presentation layer.
+Residual M27 risk:
 
-The goal is to find out whether that is harmless and isolated, or whether Lab should split/clone the harness so the offered presentation layer stays clean.
+- The offered renderer still contains hidden workshop DOM/JS.
+- This is acceptable for Lab-local hardening.
+- Before export/seeding into another project, split SmokeFlash/material harness code into a separate Lab-only harness entry.
+- Current smoke confirms workshop harness visibility and default material state; future material prototype work should review additional material states directly.
 
 ## Purpose
 
-Answer this product-boundary question through code inspection and the smallest safe implementation if suitable:
+Lab is in a waiting state after SmokeFlash boundary hardening:
 
 ```txt
-Is in-app SmokeFlash harmlessly isolated workshop tooling, or is it entangled with the offered presentation layer?
+Human / Overseer next-packet decision
 ```
 
-Allowed outcomes:
+Recommended next choices:
 
-- `keep`: existing in-app smoke path is isolated enough; document why.
-- `harden`: existing path is isolated enough and can cheaply support one material harness path.
-- `split`: cloning/splitting a Lab-only harness is cheap and clearly improves the product boundary.
-- `stop`: the split or hardening would require broad Electron/runtime refactor; document the risk and next recommendation.
+- small `mat-authority-window-ttl-strip` prototype packet
+- renderer split packet before export/seeding
+- park while Human/UX research continues
 
 ## Source Of Intent
 
 Accepted source of intent:
 
 - Human direction that Lab's offered product is the presentation layer, not workshop tooling.
-- Human concern that other Aura apps have been built with smoke/workshop tooling inside the app.
-- Human direction to find out whether this is a non-issue or needs refactor.
+- Human concern that smoke/workshop tooling may be built into other app renderers.
+- M27 Dev handoff: `workspace/DevHS89-smokeflash-boundary-review.md`
+- M27 acceptance: `workspace/OverseerHS90-m27-acceptance.md`
+- M26 accepted material library and ledger.
 - `workspace/OverseerHS88-smokeflash-boundary-lessons.md`
-- `workspace/OverseerHS87-m26-acceptance.md`
-- `workspace/DisplayMaterialSchemasHS86-guided-material-production.md`
-- `workspace/display-materials/authority-window-ttl-strip.md`
-- `workspace/display-schema-ledger.md`
-
-Read first:
-
-- `AGENTS.md`
-- `workspace/current.md`
-- `workspace/overview.md`
-- `workspace/critical/README.md`
-- `workspace/critical/critical-terms.md`
-- `workspace/critical/critical-assets.md`
-- `workspace/OverseerHS88-smokeflash-boundary-lessons.md`
-- `workspace/display-materials/authority-window-ttl-strip.md`
-- `package.json`
-- `src/main/main.js`
-- `scripts/electron-visual-smoke.ps1`
-- `scripts/verify-renderer-shell.js`
-- `src/renderer/index.html`
-- `src/renderer/app.js`
 
 ## Ordered Runway
 
-1. Inspect the existing smoke path in `src/main/main.js`, `scripts/electron-visual-smoke.ps1`, package scripts, and renderer controls.
-2. Classify the current boundary as `keep`, `harden`, `split`, or `stop`.
-3. If the current path is isolated enough, document why normal presentation launch is not affected by smoke/workshop tooling.
-4. If a small local hardening is suitable, add the smallest Lab-only SmokeFlash/material harness support for `mat-authority-window-ttl-strip`.
-5. If cloning/splitting is clearly cheaper and cleaner than in-app hardening, create the smallest separate Lab-only harness entry point.
-6. Stop instead of implementing if the work needs broad Electron/runtime refactor, target-project adapters, live/private data, or a large visual-smoke matrix.
-7. Create the expected DevHS handoff with the decision, files changed, verification results, and remaining boundary risks.
-
-## Implementation Bounds
-
-If implementation is suitable, keep it small:
-
-- one material only: `mat-authority-window-ttl-strip`
-- staged/static Lab material only
-- no target-project data
-- no live/private/network access
-- no bridge contract
-- no target adapters
-- no broad smoke matrix
-- no source-project terminology changes
-- no workflow refactor
-
-Normal presentation launch must remain polished and free of rough workshop controls.
-
-Workshop/SmokeFlash launch may include state switching, staged material content, and rough controls if clearly isolated.
+1. Human / Overseer chooses the next packet.
+2. Do not start Dev or UI/UX work from this idle state.
+3. Preserve the accepted SmokeFlash boundary: workshop tooling supports presentation work but is not the offered surface.
+4. If export/seeding becomes active, address the hidden workshop DOM/JS split first.
 
 ## Acceptance Criteria
 
-M27 is acceptable if Dev:
+The current waiting state can progress if Human opens:
 
-- identifies whether SmokeFlash is isolated or entangled
-- names the selected outcome: `keep`, `harden`, `split`, or `stop`
-- preserves normal presentation launch behavior
-- avoids broad Electron/runtime refactor
-- avoids target-project edits and source-project meaning decisions
-- either implements a tiny isolated harness path or clearly explains why no implementation was safe
-- runs required verification
-- leaves a clear handoff for Overseer review
+- Authority Window TTL Strip material prototype
+- SmokeFlash/renderer split before export or seeding
+- another scoped material prototype
+- another bounded display-material packet
+- parking/housekeeping while research continues
 
-Reject or redirect if the work:
+Reject or redirect future requests if they:
 
-- treats SmokeFlash as part of the offered presentation layer
-- makes normal launch depend on workshop state
-- expands visual smoke into a broad matrix
-- turns staged material shapes into bridge/runtime contracts
-- imports Atlas or Sense meaning
-- changes target projects
-- makes the first material prototype wait on a large tooling renovation
+- treat SmokeFlash as the offered presentation layer
+- make normal launch depend on workshop state
+- turn staged material shapes into bridge/runtime contracts
+- create target-project adoption records in Lab
+- broaden visual smoke matrices without a feature need
+- skip source-project authority for target-owned meaning
 
 ## Guardrails
 
 - The presentation layer is the thing Lab offers.
 - SmokeFlash is workshop tooling.
-- Verification and staged ingest support the product; they are not the product.
-- Keep slim Lab language for Lab-owned copy.
-- Preserve source-owned terms only when referenced as source-owned examples.
-- Do not use live/private/network data.
-- Do not edit Atlas, Sense, shared scaffold, or orchestration records.
-- Do not add new dependencies unless the packet is impossible without them.
+- Lab material pages are reusable display ingredients, not target-project features.
+- Lab output pages are combined reusable display references, not adoption records.
+- The ledger is an index, not a backlog.
+- Use slim Lab language for Lab-owned defaults.
+- Preserve true/source terms when referencing source-owned project examples.
+- Do not edit Atlas, Sense, shared scaffold, or orchestration records unless explicitly asked.
+- Do not require live/private/network data.
+- Do not start Dev work without a new executable packet.
 
 ## Stop Conditions
 
-Stop and return to Human / Overseer if:
+Stop and return to Human / Overseer if the work would:
 
-- splitting requires broad Electron/runtime changes
-- hardening changes normal presentation launch
-- smoke controls leak into the offered surface
-- staged material needs start becoming a bridge contract
-- target-project files or target-project data are needed
-- Electron runtime/install problems become the main work
-- verification requires live/private/network data
+- require source-project meaning decisions
+- require target-project file edits
+- create a new shared terminology rule
+- turn a material into a durable bridge contract
+- create a combined output without accepted prototype result
+- require live/private/network data
+- start implementation without a Dev runway
 
-## Required Verification
+## Verification
 
-Always run:
+Latest accepted local verification:
 
 ```powershell
-npm.cmd run verify:all
 npm.cmd run verify:renderer-shell
-```
-
-Run Electron smoke if UI, launch behavior, renderer state, or smoke code changes:
-
-```powershell
+npm.cmd run verify:all
+npm.cmd run verify:vocabulary
 npm.cmd run smoke:electron
 ```
 
-Run shared terminology check if visible or documentation wording changes:
+Shared advisory check:
 
 ```powershell
 cd F:\Projects\Docs\Aura-Project-Orchestration
 npm.cmd run verify:terminology
 ```
 
-## Evidence
-
-Dev should fill this after work:
-
-- Boundary outcome:
-- Files changed:
-- Normal launch impact:
-- SmokeFlash/workshop launch impact:
-- Material support added or deferred:
-- Verification run:
-- Remaining risks:
-
 ## Handoff
 
 Expected output:
 
 ```txt
-workspace/DevHS89-smokeflash-boundary-review.md
+None
 ```
-
-The handoff must state whether the next Overseer move should accept, redirect, or open a follow-up prototype packet.
 
 ## Parked Items
 
+- SmokeFlash split before export/seeding.
 - Broad SmokeFlash workbench.
 - Broad visual-smoke matrix.
 - Target-project adapters.

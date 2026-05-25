@@ -14,6 +14,8 @@ if (Test-Path -LiteralPath $resultPath) {
 }
 
 $env:AURA_LAB_ELECTRON_VISUAL_SMOKE = "1"
+$env:AURA_LAB_WORKSHOP_MODE = "1"
+$env:AURA_LAB_MATERIAL_HARNESS = "mat-authority-window-ttl-strip"
 $env:AURA_LAB_VISUAL_SMOKE_DIR = $smokeRoot
 $env:npm_config_cache = Join-Path $cacheRoot "npm"
 

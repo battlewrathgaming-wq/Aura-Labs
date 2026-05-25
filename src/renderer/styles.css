@@ -33,6 +33,10 @@ body {
   font-family: "Segoe UI", system-ui, sans-serif;
 }
 
+body[data-workshop="false"] .workshop-only {
+  display: none !important;
+}
+
 .frame-chrome {
   height: 38px;
   display: grid;
@@ -285,6 +289,110 @@ h2 {
   padding-top: 14px;
   color: var(--muted);
   font-size: 0.82rem;
+}
+
+.material-harness {
+  display: grid;
+  gap: 12px;
+  border: 1px dashed rgba(215, 193, 111, 0.4);
+  border-radius: 8px;
+  padding: 14px;
+  background: rgba(215, 193, 111, 0.055);
+}
+
+.material-harness-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(130px, 180px);
+  align-items: center;
+  gap: 10px;
+}
+
+.material-harness-head h2 {
+  margin: 0;
+}
+
+.material-harness-head label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.material-harness select {
+  min-height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel-raised);
+  color: var(--fg);
+  padding: 4px 8px;
+}
+
+.ttl-strip {
+  display: grid;
+  grid-template-columns: auto minmax(100px, 160px) minmax(96px, 130px) minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px;
+  background: rgba(10, 16, 18, 0.58);
+}
+
+.ttl-light {
+  width: 12px;
+  height: 12px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  color: var(--dim);
+  background: currentColor;
+}
+
+.ttl-strip strong,
+.ttl-strip span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ttl-strip strong {
+  text-transform: uppercase;
+}
+
+.ttl-strip button {
+  min-height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel-raised);
+  color: var(--fg);
+}
+
+.ttl-strip[data-state="active-window"] .ttl-light,
+.ttl-strip[data-state="captured"] .ttl-light {
+  color: var(--ok);
+}
+
+.ttl-strip[data-state="timeout"] .ttl-light,
+.ttl-strip[data-state="cooldown"] .ttl-light,
+.ttl-strip[data-state="manual-path"] .ttl-light {
+  color: var(--warn);
+}
+
+.ttl-strip[data-state="blocked"] .ttl-light {
+  color: var(--bad);
+}
+
+.ttl-detail {
+  display: grid;
+  gap: 8px;
+}
+
+.ttl-detail p {
+  border-left: 2px solid var(--accent-2);
+  padding-left: 10px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .test-mode-bar label {
@@ -786,6 +894,8 @@ dd {
   .briefing-grid,
   .trust-strip,
   .state-readout,
+  .material-harness-head,
+  .ttl-strip,
   .source-detail-grid,
   .attention-list,
   .test-mode-bar,
