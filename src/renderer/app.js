@@ -117,67 +117,123 @@ function authorityWindowStates() {
     {
       id: 'idle',
       label: 'Idle',
+      tone: 'quiet',
+      marker: 'ID',
       chip: 'No active window',
-      reason: 'Awaiting staged authority window.',
-      detail: ['Authority note: no active interval.', 'Availability: idle.', 'Manual path: available if source project provides one.']
+      reason: 'Ready when an authority interval is supplied.',
+      detail: [
+        ['Authority note', 'No active interval is open.'],
+        ['Availability', 'Idle.'],
+        ['Manual path', 'Available only if the source project supplies one.']
+      ]
     },
     {
       id: 'active-window',
       label: 'Active window',
+      tone: 'open',
+      marker: 'ON',
       chip: 'TTL 00:03',
-      reason: 'Authority window is open for a bounded interval.',
-      detail: ['Authority note: short active interval.', 'Warning: do not imply background behavior.', 'Next: capture or timeout.']
+      reason: 'Bounded interval is open.',
+      detail: [
+        ['Authority note', 'Short active interval.'],
+        ['Warning', 'Do not imply background behavior.'],
+        ['Next', 'Capture or timeout.']
+      ]
     },
     {
       id: 'captured',
       label: 'Captured',
+      tone: 'settled',
+      marker: 'OK',
       chip: 'Handoff shown',
-      reason: 'Display-only handoff marker is available.',
-      detail: ['Effect note: captured marker is display-only.', 'Readout age: just read.', 'Detail path: source project owns action meaning.']
+      reason: 'Display-only handoff marker is present.',
+      detail: [
+        ['Effect note', 'Captured marker is display-only.'],
+        ['Readout age', 'Just read.'],
+        ['Detail path', 'Source project owns action meaning.']
+      ]
     },
     {
       id: 'timeout',
       label: 'Timeout',
+      tone: 'closed',
+      marker: 'TO',
       chip: 'Window closed',
-      reason: 'Authority interval ended without capture.',
-      detail: ['Reason: TTL elapsed.', 'Availability: no active interval.', 'Manual path remains available if provided.']
+      reason: 'Interval ended without capture.',
+      detail: [
+        ['Reason', 'TTL elapsed.'],
+        ['Availability', 'No active interval.'],
+        ['Manual path', 'Remains available if provided.']
+      ]
     },
     {
       id: 'cooldown',
       label: 'Cooldown',
+      tone: 'waiting',
+      marker: 'CD',
       chip: 'Next in 00:05',
-      reason: 'Waiting before the next eligible authority window.',
-      detail: ['Cooldown note: next eligible moment is staged.', 'Availability: waiting.', 'Warning: timer is display material only.']
+      reason: 'Waiting for next eligible interval.',
+      detail: [
+        ['Cooldown note', 'Next eligible moment is staged.'],
+        ['Availability', 'Waiting.'],
+        ['Warning', 'Timer is display material only.']
+      ]
     },
     {
       id: 'blocked',
       label: 'Blocked',
+      tone: 'blocked',
+      marker: 'BL',
       chip: 'Authority blocked',
       reason: 'Required authority path is unavailable.',
-      detail: ['Blocked basis: required authority unavailable.', 'Gaps: no active interval.', 'Manual path: check source-owned path.']
+      detail: [
+        ['Blocked basis', 'Required authority unavailable.'],
+        ['Gaps', 'No active interval.'],
+        ['Manual path', 'Check source-owned path.']
+      ]
     },
     {
       id: 'manual-path',
       label: 'Manual path',
+      tone: 'manual',
+      marker: 'MP',
       chip: 'Use manual route',
       reason: 'Shortcut unavailable; manual path remains visible.',
-      detail: ['Availability note: shortcut unavailable.', 'Manual path: source-owned manual route.', 'Warning: no automatic capture implied.']
+      detail: [
+        ['Availability note', 'Shortcut unavailable.'],
+        ['Manual path', 'Source-owned manual route.'],
+        ['Warning', 'No automatic capture implied.']
+      ]
     }
   ];
 }
 
 function renderAuthorityWindowMaterial(stateId) {
   const materialState = authorityWindowStates().find((entry) => entry.id === stateId) || authorityWindowStates()[0];
-  document.querySelector('#authority-window-ttl-strip').dataset.state = materialState.id;
+  const strip = document.querySelector('#authority-window-ttl-strip');
+  strip.dataset.state = materialState.id;
+  strip.dataset.tone = materialState.tone;
+  document.querySelector('#ttl-light').textContent = materialState.marker;
   document.querySelector('#ttl-state').textContent = materialState.label;
   document.querySelector('#ttl-chip').textContent = materialState.chip;
   document.querySelector('#ttl-reason').textContent = materialState.reason;
   const detail = document.querySelector('#ttl-detail');
   detail.textContent = '';
-  for (const line of materialState.detail) {
-    const row = document.createElement('p');
-    row.textContent = line;
+  for (const [labelText, valueText] of materialState.detail) {
+    const row = document.createElement('div');
+    const label = document.createElement('span');
+    const value = document.createElement('strong');
+    label.textContent = labelText;
+    value.textContent = valueText;
+    row.append(label, value);
     detail.appendChild(row);
+  }
+  const button = document.querySelector('#ttl-detail-toggle');
+  const hasDetail = materialState.detail.length > 0;
+  button.hidden = !hasDetail;
+  if (!hasDetail) {
+    detail.hidden = true;
+    button.setAttribute('aria-expanded', 'false');
   }
 }
 

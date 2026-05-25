@@ -54,18 +54,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M25 | Human correction after M24 | Complete | Accepted requirements for individual reusable Lab display materials and recommended prototype candidates. |
 | M26 | Human direction after M25 | Complete | Accepted individual reusable display material schemas and divided them into material library pages with the ledger as index. |
 | M27 | Human direction after M26 and HS88 | Complete | Accepted SmokeFlash boundary hardening with normal launch isolated from visible workshop controls and split-before-export noted as residual risk. |
-| M28 | Human direction after M27 controls | Active | Opened first Lab-local material prototype for Authority Window TTL Strip using ADR-controlled SmokeFlash workshop path. |
+| M28 | Human direction after M27 controls | Complete | Accepted first Lab-local visible material prototype for Authority Window TTL Strip using ADR-controlled SmokeFlash workshop path. |
 
 ## Current Direction
 
-Active milestone: M28 - Authority Window TTL Strip Prototype
-Last completed milestone: M27 - SmokeFlash Boundary Review And Conditional Harness
+Active milestone: None
+Last completed milestone: M28 - Authority Window TTL Strip Prototype
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS91
-Latest accepted handshake: workspace/OverseerHS90-m27-acceptance.md
+Current sequence: HS92
+Latest accepted handshake: workspace/OverseerHS92-m28-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: workspace/OverseerHS91-m28-authority-window-ttl-strip-runway.md
+Active runway: None
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
@@ -143,6 +143,8 @@ Active milestone handshakes:
 - `workspace/DevHS89-smokeflash-boundary-review.md`
 - `workspace/OverseerHS90-m27-acceptance.md`
 - `workspace/OverseerHS91-m28-authority-window-ttl-strip-runway.md`
+- `workspace/DevHS91-authority-window-ttl-strip-prototype.md`
+- `workspace/OverseerHS92-m28-acceptance.md`
 
 Accepted authority records:
 

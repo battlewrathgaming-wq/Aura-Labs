@@ -131,9 +131,20 @@ function main() {
   assert(main.includes('attention_items'), 'visual smoke should capture attention items');
   assert(main.includes('material_harness_visible'), 'visual smoke should capture workshop material harness visibility');
   assert(main.includes('material_state'), 'visual smoke should capture material state');
+  assert(main.includes('material_reason'), 'visual smoke should capture material reason');
+  assert(main.includes('material-authority-window-ttl-strip-state-${state}.png'), 'visual smoke should capture each material state');
+  assert(main.includes('SELECTED_MATERIAL_STATE_MISMATCH'), 'visual smoke should block material state mismatch');
+  assert(main.includes('MATERIAL_STATE_COPY_MISSING'), 'visual smoke should block missing material state copy');
   assert(app.includes('window.auraWindow.setAlwaysOnTop'), 'renderer should toggle always-on-top through Frame bridge');
   assert(!app.includes('innerHTML'), 'renderer should not use innerHTML in the seed shell');
   assert(app.includes('textContent'), 'renderer should render dynamic service data as textContent');
+  for (const materialState of ['idle', 'active-window', 'captured', 'timeout', 'cooldown', 'blocked', 'manual-path']) {
+    assert(app.includes(`id: '${materialState}'`), `renderer should define material state ${materialState}`);
+  }
+  assert(app.includes("chip: 'TTL 00:03'"), 'renderer should show active-window TTL timing');
+  assert(app.includes("chip: 'Next in 00:05'"), 'renderer should show cooldown timing');
+  assert(app.includes("marker: 'ON'"), 'renderer should include non-color-only active material marker');
+  assert(app.includes('materialState.detail.length > 0'), 'renderer should hide material detail control when no detail exists');
 
   console.log('renderer shell verified');
 }

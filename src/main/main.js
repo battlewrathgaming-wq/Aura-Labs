@@ -100,6 +100,27 @@ async function runVisualSmoke(window) {
   );
   observations.push(narrowBriefing, narrowNeutralSeed);
 
+  window.setSize(960, 640);
+  const materialStates = ['idle', 'active-window', 'captured', 'timeout', 'cooldown', 'blocked', 'manual-path'];
+  for (const state of materialStates) {
+    await selectMaterialState(window, state);
+    observations.push(await captureMaterialState(
+      window,
+      state,
+      'desktop',
+      path.join(smokeDir, `material-authority-window-ttl-strip-state-${state}.png`)
+    ));
+  }
+
+  window.setSize(560, 640);
+  await selectMaterialState(window, 'cooldown');
+  observations.push(await captureMaterialState(
+    window,
+    'cooldown',
+    'narrow',
+    path.join(smokeDir, 'material-authority-window-ttl-strip-state-cooldown-narrow.png')
+  ));
+
   const screenshots = observations.map((observation) => observation.screenshot);
   const blockingFailures = visualSmokeBlockingFailures(observations);
   const smokePassed = blockingFailures.length === 0;
@@ -114,7 +135,8 @@ async function runVisualSmoke(window) {
     families_checked: ['briefing', 'neutral-seed'],
     states_checked: {
       briefing: briefingStates,
-      'neutral-seed': neutralSeedStates
+      'neutral-seed': neutralSeedStates,
+      'mat-authority-window-ttl-strip': materialStates
     },
     modes_checked: briefingStates,
     viewports_checked: ['desktop', 'narrow'],
@@ -223,9 +245,78 @@ async function captureFixture(window, family, state, viewport, outputPath) {
   `);
 }
 
+async function selectMaterialState(window, state) {
+  await window.webContents.executeJavaScript(`
+    (async () => {
+      const stateSelect = document.querySelector('#material-state');
+      if (!stateSelect) return;
+      stateSelect.value = ${JSON.stringify(state)};
+      stateSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      await new Promise((resolve) => setTimeout(resolve, 180));
+    })();
+  `);
+}
+
+async function captureMaterialState(window, state, viewport, outputPath) {
+  const image = await window.webContents.capturePage();
+  fs.writeFileSync(outputPath, image.toPNG());
+  const screenshot = path.basename(outputPath);
+  return window.webContents.executeJavaScript(`
+    (() => {
+      const text = (selector) => document.querySelector(selector)?.textContent?.trim() || '';
+      const overflowing = Array.from(document.querySelectorAll('#material-harness strong, #material-harness button, #material-harness select, #material-harness span'))
+        .filter((node) => node.scrollWidth > node.clientWidth + 1)
+        .map((node) => ({
+          tag: node.tagName.toLowerCase(),
+          id: node.id || null,
+          text: node.textContent.trim().slice(0, 80)
+        }));
+      return {
+        family: 'material',
+        material_id: 'mat-authority-window-ttl-strip',
+        state: ${JSON.stringify(state)},
+        viewport: ${JSON.stringify(viewport)},
+        screenshot: ${JSON.stringify(screenshot)},
+        requested_material_state: ${JSON.stringify(state)},
+        selected_material_state: document.querySelector('#material-state')?.value || null,
+        material_harness_visible: Boolean(document.querySelector('#material-harness') && document.body.dataset.workshop === 'true'),
+        material_state: text('#ttl-state'),
+        material_chip: text('#ttl-chip'),
+        material_reason: text('#ttl-reason'),
+        material_marker: text('#ttl-light'),
+        material_detail_control_visible: Boolean(document.querySelector('#ttl-detail-toggle') && !document.querySelector('#ttl-detail-toggle').hidden),
+        material_detail_rows: document.querySelectorAll('#ttl-detail div').length,
+        overflowing
+      };
+    })();
+  `);
+}
+
 function visualSmokeBlockingFailures(observations) {
   return observations.flatMap((observation) => {
     const failures = [];
+    if (observation.requested_material_state && observation.selected_material_state !== observation.requested_material_state) {
+      failures.push({
+        code: 'SELECTED_MATERIAL_STATE_MISMATCH',
+        screenshot: observation.screenshot,
+        requested_material_state: observation.requested_material_state,
+        selected_material_state: observation.selected_material_state
+      });
+    }
+    if (observation.requested_material_state && observation.material_harness_visible !== true) {
+      failures.push({
+        code: 'MATERIAL_HARNESS_NOT_VISIBLE',
+        screenshot: observation.screenshot,
+        requested_material_state: observation.requested_material_state
+      });
+    }
+    if (observation.requested_material_state && (!observation.material_state || !observation.material_chip || !observation.material_reason)) {
+      failures.push({
+        code: 'MATERIAL_STATE_COPY_MISSING',
+        screenshot: observation.screenshot,
+        requested_material_state: observation.requested_material_state
+      });
+    }
     if (observation.selected_family !== observation.requested_family) {
       failures.push({
         code: 'SELECTED_FAMILY_MISMATCH',
