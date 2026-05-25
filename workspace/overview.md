@@ -56,18 +56,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M26 | Human direction after M25 | Complete | Accepted individual reusable display material schemas and divided them into material library pages with the ledger as index. |
 | M27 | Human direction after M26 and HS88 | Complete | Accepted SmokeFlash boundary hardening with normal launch isolated from visible workshop controls and split-before-export noted as residual risk. |
 | M28 | Human direction after M27 controls | Complete | Accepted first Lab-local visible material prototype for Authority Window TTL Strip using ADR-controlled SmokeFlash workshop path. |
-| M29 | Presentation Head Improvement Rail | Active | HS99 opened a bounded Basis rail polish runway after UI/UX advisory. |
+| M29 | Presentation Head Improvement Rail | Active | Accepted HS99 Basis rail polish; awaiting next Human / Overseer direction. |
 
 ## Current Direction
 
 Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / HS97 - Basis-First Expressive View
+Last completed milestone: M29 / HS99 - Basis Rail Polish
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS99
-Latest accepted handshake: workspace/OverseerHS98-hs97-basis-view-acceptance.md
+Current sequence: HS100
+Latest accepted handshake: workspace/OverseerHS100-hs99-basis-rail-polish-acceptance.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
-Active runway: workspace/OverseerHS99-m29-basis-rail-polish-runway.md
+Active runway: None
 Housekeeping: active root cleaned on 2026-05-24; M13-M17 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories moved to `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
@@ -164,6 +164,8 @@ Active milestone handshakes:
 - `workspace/OverseerHS98-hs97-basis-view-acceptance.md`
 - `workspace/UIUXHS99-hs97-view-polish-advisory.md`
 - `workspace/OverseerHS99-m29-basis-rail-polish-runway.md`
+- `workspace/DevHS99-basis-rail-polish.md`
+- `workspace/OverseerHS100-hs99-basis-rail-polish-acceptance.md`
 
 Accepted authority records:
 
