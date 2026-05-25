@@ -58,6 +58,26 @@ Workshop notes, reference notes, and proposal files do not authorize Dev work. D
 
 The UI development owner may lead display asset documentation shape and inventory productivity under `workspace/display-asset-documentation-owner-contract.md`. This does not make that role the owner of Lab direction, target-project adoption, or Dev runways.
 
+## SmokeFlash Boundary Note
+
+SmokeFlash is Lab workshop tooling. It may stay hidden/gated while Lab is still maturing the renderer, but it must not shape the offered presentation layer.
+
+Do not:
+
+- make normal launch depend on SmokeFlash or workshop state
+- add SmokeFlash fields to a slim envelope or bridge contract
+- add product navigation through SmokeFlash
+- move material harness state into shared renderer data models
+
+Accepted strategy:
+
+1. Build Lab presentation to ready product state.
+2. Keep SmokeFlash as hidden/gated Lab tooling only.
+3. When the presentation surface is worth exporting, split SmokeFlash out.
+4. Attach the clean renderer/head to Atlas, Sense, or other projects through target-owned adapters.
+
+Durable decision: `docs/adr/0001-smokeflash-split-timing.md`.
+
 ## Shared Authority
 
 The shared structure authority lives at:

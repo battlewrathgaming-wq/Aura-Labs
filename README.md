@@ -22,6 +22,8 @@ Start agents at `AGENTS.md`, then `workspace/README.md`. Workshop/skunkworks gui
 
 The core product concern is the post-bridge presenter rig: display mapping, typography, containment, shell verification, and state handling after data has crossed a bridge. Lab fixtures such as `aura.projectBriefing` and Needs Attention are test material, not the product boundary.
 
+SmokeFlash is Lab workshop tooling, not the offered presentation layer. Keep it hidden/gated during Lab-local work and split it out before exporting or seeding the renderer. See `docs/adr/0001-smokeflash-split-timing.md`.
+
 Durable project documentation starts at `docs/index.md`.
 
 ## Verification
