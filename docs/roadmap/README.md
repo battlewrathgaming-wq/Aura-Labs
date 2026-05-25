@@ -56,7 +56,15 @@ Individual material accepted:
 - names minimum verification
 - avoids source-project doctrine drift
 
-Repeat cycle ready:
+Guided repeat cycle ready:
+
+- gathered UI/UX references have been reviewed
+- candidate materials are concrete display ingredients, not product features
+- candidates map to slots/content lanes
+- pending material pages and ledger rows are clearly marked pending
+- no implementation is authorized by the advisory pass
+
+Implementation repeat cycle ready:
 
 - at least two material prototypes are accepted or one is accepted plus a strong second candidate is scoped
 - acceptance criteria are repeatable

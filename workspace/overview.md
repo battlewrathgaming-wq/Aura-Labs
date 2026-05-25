@@ -183,9 +183,10 @@ Completed milestone handshakes:
 
 - Should the next Lab milestone review Bridge State Readout use-case clarity across states?
 - Should Aura Lab park until a target project asks to adapt a presentation pattern?
-- Should the next Lab packet open reduced-motion / presentation resilience, renderer split-readiness review, or another visible presentation feature prototype?
 - Should Atlas and Sense receive project-local protected-term checker adoption prompts?
 - Should Lab refine protected-term discovery output after a few review cycles?
 - Should Sense now perform its local adoption review using accepted M19 as advisory input?
 - Where should the future use-case comparison landing zone live after material bench shape is clearer?
 - Should SmokeFlash split-readiness move forward before export, seeding, or target-project consumption?
+- Which guided M31 material candidates should be accepted into pending material pages after UI/UX review?
+- Should M31 proceed from guided library expansion into Dev prototypes, or stop after catalog growth?
