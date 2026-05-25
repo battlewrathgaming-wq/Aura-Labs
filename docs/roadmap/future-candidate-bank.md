@@ -48,7 +48,7 @@ The H-lane is the current strategic rail for the next Lab phase. The T-lane supp
 | H09 | Presentation Slot Registry | Add a small renderer-local registry for Lab presentation slots, so slot purpose, state, render entry, and verification hints are addressable without source-project meaning. | Accepted next bounded candidate after HS104. |
 | H10 | Lazy-Loaded Visual Slot | Add one deferred visual slot pattern that can load heavier visual treatment only when requested or visible, without changing bridge meaning. | Candidate after H09 proves the registry shape. |
 | H11 | Virtualized List Helper | Add a renderer helper for long readout/list surfaces so dense bridge-fed rows stay fast, contained, and readable. | Candidate after H09/H10 or when list pressure is concrete. |
-| H12 | View-Intent Slot Policy | Define how registered slots respond to Summary / Basis / Details view emphasis while keeping identity and source meaning stable. | Candidate after H09. |
+| H12 | View-Intent Slot Policy | Define how registered slots respond to Summary / Basis / Details view emphasis while keeping identity and source meaning stable. | Accepted next bounded candidate after HS105. |
 | H13 | Detail Hydration | Let compact slots reveal deeper detail rows only when needed, without making the default readout dense. | Candidate after H09/H12. |
 | H14 | Focus / Reveal Controller | Add a renderer-local controller for focus, reveal, and collapse behavior across slot surfaces. | Candidate after H09/H12. |
 | H15 | Row Facets | Define reusable row-side facets such as state, age, basis, gap, warning, and action markers for dense readout rows. | Candidate before or with H11. |

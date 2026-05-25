@@ -7,10 +7,10 @@ Owner: Overseer
 ## Coordination State
 
 Active milestone: M29 - Presentation Head Improvement Rail
-Last completed milestone: M29 / HS102 - Details View Inspection
+Last completed milestone: M29 / HS105 - Presentation Slot Registry
 Current executor: Dev
-Current focus: Presentation slot registry scaffold for the Lab renderer.
-Expected artifact filename: `workspace/DevHS105-presentation-slot-registry.md`
+Current focus: View-intent slot policy for the Lab renderer.
+Expected artifact filename: `workspace/DevHS107-view-intent-slot-policy.md`
 
 ## Current State
 
@@ -23,25 +23,32 @@ Accepted M29 slices:
 - HS97 Basis-First Expressive View.
 - HS99 Basis Rail Polish.
 - HS102 Details View Inspection.
+- HS105 Presentation Slot Registry.
 
-Accepted HS104 direction:
+Accepted HS105 result:
 
-- The previously opened renderer security review is deferred until closer to split/export readiness.
-- Human introduced immediate feature-enrichment scope: presentation slot registry, lazy-loaded visual slot, and virtualized list helper.
-- Human also introduced production-pipeline scope: Lab-only draggable layout board and screenshot comparison index.
-- Overseer accepted the feature-enrichment sequence but split it into bounded slices.
-- The production-pipeline items are parked as support tooling and are not product direction.
+- A renderer-local `presentationSlotRegistry` now exists in `src/renderer/app.js`.
+- The first registered group is `briefingReadoutDetail`.
+- Existing Briefing Readout Detail rows are rendered through the registry.
+- Rows now receive local `data-presentation-slot` and `data-presentation-lane` markers.
+- Visible labels and behavior remained stable.
+- No bridge payload, IPC, preload, service command, target adapter, source-project meaning, dependency, or SmokeFlash/workshop exposure was introduced.
 
-The next executable slice is the presentation slot registry scaffold. This is a local renderer/presentation structure, not a bridge contract and not target-project meaning.
+Accepted HS105 follow-on direction:
+
+- The next feature-enrichment candidates are view-intent slot policy, detail hydration, focus/reveal controller, row facets, virtualized list helper, overflow sentinel, reduced-motion gate, and Lab fixture adapter.
+- These are staged candidates only.
+- The next bounded slice is view-intent slot policy.
 
 ## Source Of Intent
 
 Accepted source of intent:
 
-- Human direction to defer renderer security review until closer to split.
-- Human immediate scope: presentation slot registry, lazy-loaded visual slot, virtualized list helper.
-- Human production-pipeline candidates: Lab-only draggable layout board and screenshot comparison index.
+- Human direction to hammer in the presentation feature set.
 - `workspace/OverseerHS104-immediate-scope-lane-reset.md`
+- `workspace/OverseerHS105-follow-on-feature-candidates.md`
+- `workspace/DevHS105-presentation-slot-registry.md`
+- `workspace/OverseerHS106-hs105-presentation-slot-registry-acceptance.md`
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
 - `docs/roadmap/future-candidate-bank.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
@@ -55,10 +62,8 @@ Read first:
 - `workspace/critical/README.md`
 - `workspace/critical/critical-terms.md`
 - `workspace/critical/critical-assets.md`
-- `workspace/display-materials/README.md`
-- `workspace/display-schema-ledger.md`
-- `docs/roadmap/m29-presentation-head-improvement-rail.md`
-- `docs/roadmap/future-candidate-bank.md`
+- `workspace/OverseerHS105-follow-on-feature-candidates.md`
+- `workspace/OverseerHS106-hs105-presentation-slot-registry-acceptance.md`
 - `src/renderer/index.html`
 - `src/renderer/app.js`
 - `src/renderer/styles.css`
@@ -67,26 +72,26 @@ Read first:
 
 ## Ordered Dev Runway
 
-1. Inspect the current renderer structure and identify where Briefing/readout slots are currently represented or implied.
-2. Add a small renderer-local presentation slot registry scaffold that can describe Lab display slots without importing source-project meaning.
-3. Wire one narrow existing surface to use or reference the registry in a way that proves the shape, preferably around the current Briefing/readout/basis/detail path.
-4. Keep compatibility names, fixture ids, smoke selectors, payload fields, IPC channels, service commands, and visible labels stable unless a tiny local rename is required and covered.
-5. Do not implement the lazy-loaded visual slot or virtualized list helper in this packet; only leave the registry shape compatible with those later slices.
-6. Do not implement the draggable layout board, screenshot comparison index, split, target adapters, or security review in this packet.
-7. Update renderer/local verification expectations if the registry changes renderer-shell assumptions.
-8. Create `workspace/DevHS105-presentation-slot-registry.md`.
+1. Inspect the current `viewIntent` handling and `presentationSlotRegistry` in `src/renderer/app.js`.
+2. Define a small renderer-local policy shape for how registered slots participate in `summary-first`, `basis`, and `details`.
+3. Apply the policy to the existing `briefingReadoutDetail` slot group without changing visible labels or source meaning.
+4. Keep the same surface identity across views; the policy should adjust emphasis/availability/order only where the current UI already supports it.
+5. Add renderer-shell verification for the policy shape and the existing view-intent axis.
+6. Do not implement detail hydration, focus/reveal controller, lazy visual slots, virtualization, row facets, overflow sentinel, reduced-motion gate, fixture adapter, draggable layout board, screenshot comparison index, split, adapters, or security review.
+7. Create `workspace/DevHS107-view-intent-slot-policy.md`.
 
 ## Acceptance Criteria
 
 This slice is acceptable if:
 
-- a fresh Dev can point to a small presentation slot registry in renderer code
-- the registry is Lab-local and presentation-owned, not a bridge/runtime/source-project contract
-- at least one current presentation path uses or validates the registry shape
-- current visible presentation behavior remains stable unless deliberately and narrowly improved
-- no target-project terms, adapters, or source-project doctrine are introduced
-- lazy loading and virtualization remain future work
-- production pipeline tooling remains parked
+- registered slots can declare a small view-intent policy
+- the policy is renderer-local and Lab-owned presentation behavior
+- Summary, Basis, and Details remain the only visible view options
+- the current Briefing/readout/detail path proves the policy shape
+- visible copy remains stable unless a tiny Lab-slim wording adjustment is justified
+- no bridge/runtime/source-project contract is introduced
+- no target-project meaning, adapter, or adoption claim is introduced
+- follow-on features remain parked
 - verification commands and results are recorded in the DevHS
 
 ## Guardrails And Non-Goals
@@ -95,21 +100,25 @@ Allowed:
 
 - renderer-local code changes
 - small verification updates
-- small documentation/handoff updates
-- local presentation terminology that follows Lab slim language
+- small handoff updates
+- Lab slim presentation language
 
 Not allowed:
 
+- bridge payload changes
+- preload/IPC/service command changes
+- source-project semantics
 - target-project adapters
-- source-project meaning changes
-- durable bridge/runtime contracts
-- preload/IPC authority expansion
-- dependency changes
-- normal-launch SmokeFlash/workshop exposure
+- durable key-term promotion for slot ids or lanes
+- detail hydration implementation
+- focus/reveal controller implementation
 - lazy-loaded visual slot implementation
 - virtualized list helper implementation
-- draggable layout board implementation
-- screenshot comparison index implementation
+- row facets implementation
+- overflow sentinel implementation
+- reduced-motion gate implementation
+- Lab fixture adapter implementation
+- production tooling implementation
 - renderer security review
 - live/private/network work
 - destructive or git history operations
@@ -118,10 +127,10 @@ Not allowed:
 
 Stop and return to Human / Overseer if:
 
-- the slot registry requires changing bridge payloads, IPC channels, preload surface, or service commands
-- the registry would force broad renderer refactor beyond the current presentation path
-- source-project terms or target-project semantics become necessary to name the slots
-- SmokeFlash/workshop state must enter normal launch to make progress
+- the view-intent policy requires changing bridge payloads, IPC, preload, service commands, or fixture contracts
+- the policy would force a broad renderer rewrite
+- Summary/Basis/Details would need to become source-project doctrine or durable shared terms
+- the policy requires new visible modes beyond Summary, Basis, and Details
 - verification failures point to Electron/runtime installation rather than this slice
 
 ## Required Verification
@@ -152,8 +161,8 @@ npm.cmd run verify:terminology
 Dev should fill this after work:
 
 - Files changed:
-- Registry shape:
-- Current path using registry:
+- Policy shape:
+- Slot group using policy:
 - Compatibility names intentionally left alone:
 - Commands run:
 - Results:
@@ -164,28 +173,29 @@ Dev should fill this after work:
 Expected output:
 
 ```txt
-workspace/DevHS105-presentation-slot-registry.md
+workspace/DevHS107-view-intent-slot-policy.md
 ```
 
-The handoff must state whether the registry is ready to support a later lazy-loaded visual slot and whether any blocker exists before the virtualized list helper is scoped.
+The handoff must state whether the policy is ready to support detail hydration and a future focus/reveal controller.
 
 ## Advisory Disposition
 
-- Accepted: HS102 Details View Inspection.
-- Accepted: HS104 immediate scope lane reset.
-- Accepted next: presentation slot registry scaffold.
+- Accepted: HS105 Presentation Slot Registry.
+- Accepted next: view-intent slot policy.
 - Deferred: renderer security review until closer to split/export readiness.
-- Parked: lazy-loaded visual slot until registry is proven.
+- Parked: detail hydration until policy is proven.
+- Parked: focus/reveal controller until policy is proven.
+- Parked: lazy-loaded visual slot until registry/policy are proven.
 - Parked: virtualized list helper until registry/list pressure is clearer.
-- Parked: view-intent slot policy, detail hydration, focus/reveal controller, row facets, overflow sentinel, reduced-motion gate, and Lab fixture adapter until HS105 is accepted.
+- Parked: row facets, overflow sentinel, reduced-motion gate, and Lab fixture adapter.
 - Parked: Lab-only draggable layout board and screenshot comparison index as support tooling.
 - Parked: target-project adapters and export/seeding.
 
 ## Residual Risks
 
 - Existing inherited naming tripwires remain.
-- `viewIntent` is local renderer/test state only, not a durable bridge/runtime contract.
-- M29 presentation-head work is proven only on the Briefing family.
+- `viewIntent` remains local renderer/test state only, not a durable bridge/runtime contract.
+- M29 presentation-head work is still proven only on the Briefing family.
+- Slot ids and lanes are local renderer implementation details, not durable key terms.
 - SmokeFlash/material harness code remains in the renderer bundle under ADR 0001 Lab-local allowance.
 - SmokeFlash must still be split before export, seeding, or target-project consumption.
-- Production-pipeline tooling may become necessary if Human/agent UI communication remains costly, but it should be opened as a separate Lab-only support lane.

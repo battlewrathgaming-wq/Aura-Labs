@@ -108,6 +108,12 @@ function main() {
   assert(app.includes('seed.readiness'), 'renderer should request seed readiness through services');
   assert(app.includes('setupWorkshopMode'), 'renderer should gate workshop mode from query params');
   assert(app.includes('setupViewIntentControl'), 'renderer should initialize the view intent control');
+  assert(app.includes('presentationSlotRegistry'), 'renderer should define a local presentation slot registry');
+  assert(app.includes('briefingReadoutDetail'), 'renderer should register Briefing Readout Detail slots');
+  assert(app.includes('lab-presentation'), 'presentation slot registry should be Lab-owned');
+  assert(app.includes('presentationSlots('), 'renderer should resolve registered presentation slots');
+  assert(app.includes('dataset.presentationSlot'), 'renderer should mark rendered slot nodes with slot ids');
+  assert(app.includes('dataset.presentationLane'), 'renderer should mark rendered slot nodes with slot lanes');
   assert(app.includes('renderBasisFocus'), 'renderer should render Basis view focus values');
   assert(app.includes("viewIntent: 'summary-first'"), 'renderer should default view intent to summary-first');
   assert(app.includes("['summary-first', 'basis', 'details']"), 'renderer should define the local view intent axis');

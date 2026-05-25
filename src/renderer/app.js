@@ -11,6 +11,52 @@ const state = {
   viewIntent: 'summary-first'
 };
 
+const presentationSlotRegistry = {
+  briefingReadoutDetail: {
+    owner: 'lab-presentation',
+    surface: 'briefing',
+    region: 'readout-detail',
+    slots: [
+      {
+        id: 'readout-age',
+        label: 'Readout age',
+        lane: 'freshness',
+        value: ({ readoutState }) => readoutState.ageLabel
+      },
+      {
+        id: 'state-summary',
+        label: 'State summary',
+        lane: 'state',
+        value: ({ readoutState }) => readoutState.summary
+      },
+      {
+        id: 'readout-basis',
+        label: 'Readout basis',
+        lane: 'basis',
+        value: ({ readoutState }) => readoutState.basis
+      },
+      {
+        id: 'known-fields',
+        label: 'Known fields',
+        lane: 'coverage',
+        value: ({ briefing, status }) => knownFieldCopy(briefing, status)
+      },
+      {
+        id: 'band-marker',
+        label: 'Band marker',
+        lane: 'warnings',
+        value: ({ readoutState }) => readoutState.marker
+      },
+      {
+        id: 'source-paths',
+        label: 'Source paths',
+        lane: 'coverage',
+        value: ({ briefing }) => sourceCopy(briefing)
+      }
+    ]
+  }
+};
+
 async function boot() {
   await bootFrame();
   setupWorkshopMode();
@@ -369,12 +415,9 @@ function renderSourceDrawer(briefing, readoutState, status) {
 
   const list = document.querySelector('#source-detail-list');
   list.textContent = '';
-  appendSourceDetail(list, 'Readout age', readoutState.ageLabel);
-  appendSourceDetail(list, 'State summary', readoutState.summary);
-  appendSourceDetail(list, 'Readout basis', readoutState.basis);
-  appendSourceDetail(list, 'Known fields', knownFieldCopy(briefing, status));
-  appendSourceDetail(list, 'Band marker', readoutState.marker);
-  appendSourceDetail(list, 'Source paths', sourceCopy(briefing));
+  for (const slot of presentationSlots('briefingReadoutDetail')) {
+    appendSourceDetail(list, slot.label, slot.value({ briefing, readoutState, status }), slot);
+  }
 
   const gaps = document.querySelector('#source-gap-list');
   gaps.textContent = '';
@@ -386,8 +429,18 @@ function renderSourceDrawer(briefing, readoutState, status) {
   }
 }
 
-function appendSourceDetail(list, labelText, valueText) {
+function presentationSlots(registryId) {
+  return presentationSlotRegistry[registryId]?.slots || [];
+}
+
+function appendSourceDetail(list, labelText, valueText, slot = {}) {
   const item = document.createElement('div');
+  if (slot.id) {
+    item.dataset.presentationSlot = slot.id;
+  }
+  if (slot.lane) {
+    item.dataset.presentationLane = slot.lane;
+  }
   const label = document.createElement('span');
   const value = document.createElement('strong');
   label.textContent = labelText;
