@@ -48,3 +48,11 @@
 {"at":"2026-05-26T05:39:57.959Z","type":"snapshot-created","status":"agent-proposal","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","basedOn":"layout-2026-05-26-pane-board-v1","path":"agent-proposals\\layout-2026-05-26-pane-board-v1-smoke-proposal-8.json"}
 {"at":"2026-05-26T05:39:58.023Z","type":"png-exported","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","path":"screenshots\\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-7.png"}
 {"at":"2026-05-26T05:39:58.025Z","type":"board-saved","reason":"pane-board-smoke-restore","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
+{"at":"2026-05-26T06:16:57.597Z","type":"board-saved","reason":"pane-board-smoke-save","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
+{"at":"2026-05-26T06:16:57.601Z","type":"snapshot-created","status":"agent-proposal","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","basedOn":"layout-2026-05-26-pane-board-v1","path":"agent-proposals\\layout-2026-05-26-pane-board-v1-smoke-proposal-9.json"}
+{"at":"2026-05-26T06:16:57.667Z","type":"png-exported","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","path":"screenshots\\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-8.png"}
+{"at":"2026-05-26T06:16:57.669Z","type":"board-saved","reason":"pane-board-smoke-restore","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
+{"at":"2026-05-26T06:26:55.192Z","type":"board-saved","reason":"pane-board-smoke-save","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
+{"at":"2026-05-26T06:26:55.195Z","type":"snapshot-created","status":"agent-proposal","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","basedOn":"layout-2026-05-26-pane-board-v1","path":"agent-proposals\\layout-2026-05-26-pane-board-v1-smoke-proposal-10.json"}
+{"at":"2026-05-26T06:26:55.260Z","type":"png-exported","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","path":"screenshots\\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-9.png"}
+{"at":"2026-05-26T06:26:55.262Z","type":"board-saved","reason":"pane-board-smoke-restore","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}

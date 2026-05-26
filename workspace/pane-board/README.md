@@ -81,6 +81,16 @@ This means the latest board can be overwritten as a working state, while named s
 
 Store pane position as snapped grid integers instead of raw pixels. With an 8px grid, `x: 3` means 24px and `w: 114` means 912px. This keeps diffs readable and lets agents propose layout changes without fragile pixel edits.
 
+Stable board state means the current board can be loaded, normalized, saved, and loaded again without changing the meaning of the sketch. The stable fields are:
+
+- board `id`, `title`, `status`, `viewport`, and `updatedAt`
+- `source.createdBy`, `source.basedOn`, `source.project`, and `source.context`
+- pane `id`, `label`, integer `grid` coordinates, `role`, `importance`, `locked`, `intent`, and `notes`
+- `review.humanIntent`, `review.agentNotes`, and `review.acceptedByHuman`
+- `screenNote`
+
+Pane coordinates are grid-unit integers clamped to the active viewport. Labels, notes, lock state, status, review fields, and `basedOn` must survive reload. `updatedAt` may change when a save intentionally writes the current board, but loading alone should not create a new board artifact.
+
 Human placement is expressive, not precise. Pane records may include intent hints so agents can cleanly interpret rough placement:
 
 ```json

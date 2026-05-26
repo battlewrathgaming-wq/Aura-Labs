@@ -1,17 +1,17 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-05-26
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M38 - Pane Board Capability Stabilization
-Last completed milestone: M37 / HS143 - Pane Board Split Acceptance
-Current executor: Dev
-Current focus: Stabilize Pane Board as a Lab-only spatial communication tool before adding more expressive tooling.
-Expected output: `workspace/DevHS144-pane-board-capability-stabilization.md`
-Expected DevHS filename: `workspace/DevHS144-pane-board-capability-stabilization.md`
+Active milestone: None
+Last completed milestone: M38 / HS145 - Pane Board Capability Acceptance
+Current executor: Human / Overseer
+Current focus: Await Human / Overseer direction after accepting Pane Board capability stabilization.
+Expected output: Human direction or next Overseer runway artifact.
+Expected DevHS filename: None.
 
 ## Current State
 
@@ -80,6 +80,18 @@ Human arranges panes -> board rests on disk -> Human says "grab that state" -> a
 
 The qualitative value matters. Pane Board should help code represent visible intent, shape, hierarchy, pressure, and "that feels right" without turning UI direction into long chat-only instructions.
 
+M38 is accepted.
+
+Pane Board now has a more dependable capability loop:
+
+- current board load normalizes JSON before returning it
+- pane coordinates clamp to the active viewport grid
+- pane IDs stay unique during normalization
+- Human sketch state is not replaced in memory when an agent proposal is created
+- agent proposal snapshots require `basedOn`
+- gated capture remains explicit through user/tool action or smoke
+- `verify:pane-board` checks stable-state fields and proposal separation
+
 ## Source Of Intent
 
 Accepted source of intent:
@@ -118,6 +130,8 @@ Accepted source of intent:
 - `workspace/OverseerHS143-m37-pane-board-split-acceptance.md`
 - `docs/roadmap/m38-pane-board-capability-stabilization.md`
 - `workspace/OverseerHS144-m38-pane-board-capability-stabilization-runway.md`
+- `workspace/DevHS144-pane-board-capability-stabilization.md`
+- `workspace/OverseerHS145-m38-pane-board-capability-acceptance.md`
 - `workspace/pane-board/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -147,6 +161,8 @@ Read first:
 - `workspace/OverseerHS143-m37-pane-board-split-acceptance.md`
 - `docs/roadmap/m38-pane-board-capability-stabilization.md`
 - `workspace/OverseerHS144-m38-pane-board-capability-stabilization-runway.md`
+- `workspace/DevHS144-pane-board-capability-stabilization.md`
+- `workspace/OverseerHS145-m38-pane-board-capability-acceptance.md`
 - `workspace/pane-board/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -154,31 +170,11 @@ Read first:
 
 ## Ordered Dev Runway
 
-Current executor is Dev.
-
-1. Inspect the current Pane Board launch, save/load, proposal, and screenshot paths without changing the product renderer.
-2. Define "stable board state" in the Pane Board docs and verifier scope. Include coordinates, labels, notes, lock state, status, review metadata, `basedOn`, and update timestamps where useful.
-3. Harden save/load so current board state round-trips predictably and remains grid-aligned.
-4. Harden Human sketch versus agent proposal separation so proposals write separately, include `basedOn`, and cannot overwrite Human sketches by default.
-5. Keep PNG capture gated by explicit smoke or user/tool action. Do not add background or free-running capture.
-6. Update `verify:pane-board` so it checks the stable-state and overwrite-boundary expectations.
-7. Create the expected DevHS with files changed, behavior changed, verification run, remaining risks, and any Human feel-test needs.
+No active Dev runway.
 
 ## Acceptance Criteria
 
-M38 is acceptable if:
-
-- Pane Board launches through its Lab-only command.
-- normal presentation launch remains independent of Pane Board state.
-- board state rests at `workspace/pane-board/current-board.json`.
-- save/load preserves pane coordinates as grid-aligned integers.
-- labels, notes, lock state, status, and review fields survive reload.
-- agent proposals are separate files under `workspace/pane-board/agent-proposals/`.
-- agent proposals include `basedOn`.
-- agent proposal paths cannot overwrite Human sketches by default.
-- PNG capture is explicitly triggered, named, and inspectable.
-- `verify:pane-board` checks the stable-state and proposal-boundary expectations.
-- DevHS names any remaining Human feel-test needs.
+No active acceptance criteria while idle.
 
 ## Guardrails And Non-Goals
 
@@ -217,25 +213,7 @@ Stop and return to Human / Overseer direction if a future task requires:
 
 ## Required Verification
 
-Run:
-
-```cmd
-npm.cmd run verify:pane-board
-npm.cmd run verify:all
-npm.cmd run smoke:pane-board
-```
-
-Run normal Electron smoke if shared Electron launch, preload, normal renderer launch, or presentation renderer files changed:
-
-```cmd
-npm.cmd run smoke:electron
-```
-
-Then run from `F:\Projects\Docs\Aura-Project-Orchestration`:
-
-```cmd
-npm.cmd run verify:terminology
-```
+No active verification while idle.
 
 ## Evidence
 
@@ -269,14 +247,15 @@ npm.cmd run verify:terminology
 - HS142 normal Electron smoke passed in the sandbox on the final run. Earlier pre-nested Electron smoke failed inside the sandbox with `UnknownVizError` and passed when rerun through the approved outside-sandbox GUI smoke path. Pane Board smoke passed and produced `.tmp/pane-board-smoke/pane-board-smoke-result.json` with `status: passed`, `snapshot: workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-7.json`, and `png: workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-6.png`.
 - HS143 accepted M37 after Overseer review and verification. The accepted boundary is an in-repo Lab-only tooling split, not a full separate app/package split. Latest Pane Board smoke record references `workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-8.json` and `workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-7.png`.
 - M38 opened by HS144 to stabilize Pane Board's launch, stable-at-rest state, Human sketch protection, agent proposal separation, and gated capture behavior before adding more expressive tooling.
+- DevHS144 completed M38 capability stabilization. Stable board state is now documented, Pane Board load normalizes current-board JSON, pane coordinates clamp to the active viewport grid, pane ids are kept unique during normalization, and snapshot creation no longer replaces the current in-memory Human sketch with an agent proposal.
+- HS144 `verify:pane-board` now checks stable-state fields, grid integer/viewport bounds, label/note/lock/review preservation, proposal `basedOn`, agent proposal folder separation, and no filename overlap with Human sketches.
+- HS144 verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, `npm.cmd run smoke:pane-board`, and orchestration `npm.cmd run verify:terminology`. Normal Electron smoke was not required because shared launch/preload/normal renderer files were not changed.
+- HS144 Pane Board smoke reported `.tmp/pane-board-smoke/pane-board-smoke-result.json` with `status: passed`, `snapshot: workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-9.json`, `png: workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-8.png`, `based_on: layout-2026-05-26-pane-board-v1`, and `pane_count: 5`. After smoke restore, current board remained `status: human-sketch` with `source.basedOn: null`.
+- HS145 accepted M38 after Overseer review and rerun verification. Latest Pane Board smoke record reported `status: passed`, `snapshot: workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-10.json`, `png: workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-9.png`, `based_on: layout-2026-05-26-pane-board-v1`, and `pane_count: 5`. After smoke restore, current board remained `status: human-sketch` with `source.basedOn: null`.
 
 ## Dev Handoff
 
-Dev handoff expected:
-
-```txt
-workspace/DevHS144-pane-board-capability-stabilization.md
-```
+No active Dev handoff required while idle.
 
 ## Advisory Disposition
 
@@ -289,7 +268,7 @@ workspace/DevHS144-pane-board-capability-stabilization.md
 - Accepted: M35 Pane Board Layout Capture.
 - Accepted: M36 Pane Board V1 Prototype.
 - Accepted: M37 Pane Board Split Stabilization.
-- Opened: M38 Pane Board Capability Stabilization.
+- Accepted: M38 Pane Board Capability Stabilization.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.

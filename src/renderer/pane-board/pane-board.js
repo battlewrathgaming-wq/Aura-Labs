@@ -354,7 +354,6 @@ async function grabState() {
   const basedOn = document.querySelector('#snapshot-based-on').value;
   try {
     const result = await window.auraPaneBoard.snapshot({ board: boardState.board, status, title, basedOn });
-    boardState.board = result.board;
     showMessage(`Grabbed ${relativePath(result.path)}.`);
     renderBoard();
   } catch (error) {

@@ -11,14 +11,15 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-M38 Pane Board capability stabilization.
+Post-M38 Pane Board capability pause.
 
-Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 stabilizes Pane Board's capability loop before more expressive tooling work.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop before more expressive tooling work.
 
 ## Near Outcomes
 
 - Review the Instrument Readout Panel visually if Human wants polish.
-- Stabilize Pane Board launch, stable-at-rest state, Human sketch protection, agent proposal separation, and gated capture behavior.
+- Human feel test the current Pane Board capability loop.
+- Decide whether a small Pane Board usability packet, smoke artifact retention policy, or shape-language exploration should come next.
 - Keep Pane Board output advisory and separate from the clean presentation head.
 - Keep Summary / Basis / Details readability stable.
 - Keep accepted material and output pages aligned with prototype observations.
@@ -38,7 +39,7 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 | M35 | Pane Board Layout Capture | Complete | `docs/roadmap/m35-pane-board-layout-capture.md` |
 | M36 | Pane Board V1 Prototype | Complete | `docs/roadmap/m36-pane-board-v1-prototype.md` |
 | M37 | Pane Board Split Stabilization | Complete | `docs/roadmap/m37-pane-board-split-stabilization.md` |
-| M38 | Pane Board Capability Stabilization | Active | `docs/roadmap/m38-pane-board-capability-stabilization.md` |
+| M38 | Pane Board Capability Stabilization | Complete | `docs/roadmap/m38-pane-board-capability-stabilization.md` |
 
 Candidate bank:
 

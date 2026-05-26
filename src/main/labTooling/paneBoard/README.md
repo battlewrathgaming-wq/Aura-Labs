@@ -24,6 +24,12 @@ src/renderer/styles.css
 - PNG export
 - Pane Board smoke result writing
 
+## Stable State
+
+The current board should round-trip as explainable layout-reference JSON. Save/load must preserve board status, source metadata, review metadata, screen note text, pane labels, pane notes, pane lock state, and integer grid coordinates clamped to the active viewport.
+
+Agent proposals are copies written under `workspace/pane-board/agent-proposals/`. They require `basedOn` and use unique filenames. Creating a proposal must not replace the current Human sketch in memory or on disk.
+
 ## Not Owned Here
 
 - presentation materials

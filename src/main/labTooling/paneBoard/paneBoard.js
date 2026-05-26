@@ -146,7 +146,7 @@ function ensurePaneBoardDirs() {
 function readPaneBoard() {
   const paths = ensurePaneBoardDirs();
   if (fs.existsSync(paths.current)) {
-    return JSON.parse(fs.readFileSync(paths.current, 'utf8'));
+    return normalizePaneBoard(JSON.parse(fs.readFileSync(paths.current, 'utf8')));
   }
   const board = defaultPaneBoard();
   writePaneBoard(board, 'create-default');
@@ -323,6 +323,9 @@ function normalizePaneBoard(board) {
   const grid = Number.isInteger(viewport.grid) && viewport.grid > 0 ? viewport.grid : 8;
   const width = viewport.preset === '720x640' ? 720 : 960;
   const height = 640;
+  const maxGridW = Math.floor(width / grid);
+  const maxGridH = Math.floor(height / grid);
+  const seenPaneIds = new Set();
   return {
     id: String(board?.id || layoutId(board?.title || 'pane-board')).slice(0, 96),
     title: String(board?.title || 'Pane Board V1 working sketch').slice(0, 120),
@@ -339,7 +342,9 @@ function normalizePaneBoard(board) {
       project: 'Aura Lab',
       context: String(source.context || 'layout intent sketch').slice(0, 120)
     },
-    panes: Array.isArray(board?.panes) ? board.panes.map((entry, index) => normalizePane(entry, index)) : [],
+    panes: Array.isArray(board?.panes)
+      ? board.panes.map((entry, index) => normalizePane(entry, index, maxGridW, maxGridH, seenPaneIds))
+      : [],
     review: {
       humanIntent: String(board?.review?.humanIntent || '').slice(0, 1000),
       agentNotes: String(board?.review?.agentNotes || '').slice(0, 1000),
@@ -350,19 +355,21 @@ function normalizePaneBoard(board) {
   };
 }
 
-function normalizePane(entry, index) {
+function normalizePane(entry, index, maxGridW = 120, maxGridH = 80, seenPaneIds = new Set()) {
   const grid = entry?.grid || {};
-  const id = slug(entry?.id || entry?.label || `pane-${index + 1}`) || `pane-${index + 1}`;
+  const id = uniquePaneId(slug(entry?.id || entry?.label || `pane-${index + 1}`) || `pane-${index + 1}`, seenPaneIds);
   const role = String(entry?.role || entry?.intent?.role || 'surface').slice(0, 48);
   const importance = String(entry?.importance || entry?.intent?.importance || 'supporting').slice(0, 48);
+  const w = clampInt(grid.w, 4, maxGridW);
+  const h = clampInt(grid.h, 4, maxGridH);
   return {
     id,
     label: String(entry?.label || id).slice(0, 80),
     grid: {
-      x: clampInt(grid.x, 0, 120),
-      y: clampInt(grid.y, 0, 80),
-      w: clampInt(grid.w, 4, 120),
-      h: clampInt(grid.h, 4, 80)
+      x: clampInt(grid.x, 0, maxGridW - w),
+      y: clampInt(grid.y, 0, maxGridH - h),
+      w,
+      h
     },
     role,
     importance,
@@ -374,8 +381,19 @@ function normalizePane(entry, index) {
       relationship: String(entry?.intent?.relationship || '').slice(0, 160),
       notes: String(entry?.intent?.notes || entry?.notes || '').slice(0, 1000)
     },
-    notes: String(entry?.notes || '').slice(0, 1000)
+    notes: String(entry?.notes || entry?.intent?.notes || '').slice(0, 1000)
   };
+}
+
+function uniquePaneId(id, seenPaneIds) {
+  let candidate = id;
+  let index = 2;
+  while (seenPaneIds.has(candidate)) {
+    candidate = `${id}-${index}`;
+    index += 1;
+  }
+  seenPaneIds.add(candidate);
+  return candidate;
 }
 
 function paneBoardStatus(status) {
