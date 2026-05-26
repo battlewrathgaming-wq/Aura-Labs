@@ -3,6 +3,7 @@
 Status: accepted
 Output id: `output-instrument-readout-panel`
 Source advisory: `workspace/complete/milestone-M33/UIUXHS131-composed-display-output-advisory.md`
+Prototype source: `workspace/complete/milestone-M34/DevHS133-instrument-readout-panel-prototype.md`
 
 ## Purpose
 
@@ -171,3 +172,22 @@ Do not begin with multiple panels, table rows, target adapters, export/split wor
 - Electron smoke only if renderer behavior changes
 
 Prototype checks should cover visible state labels, availability reason distinction, warning/gap marker with detail closed, long text containment, long-token wrapping, basis/freshness visibility, detail reachability, narrow containment, reduced-motion compatibility, and normal launch workshop hiding.
+
+## Prototype Evidence
+
+Accepted Lab-local renderer prototype in HS133.
+
+Smoke evidence:
+
+- `.tmp/electron-visual-smoke/output-instrument-readout-panel-state-current.png`
+- `.tmp/electron-visual-smoke/output-instrument-readout-panel-state-updating.png`
+- `.tmp/electron-visual-smoke/output-instrument-readout-panel-state-aged.png`
+- `.tmp/electron-visual-smoke/output-instrument-readout-panel-state-partial.png`
+- `.tmp/electron-visual-smoke/output-instrument-readout-panel-state-unavailable.png`
+- `.tmp/electron-visual-smoke/output-instrument-readout-panel-state-fallback.png`
+- `.tmp/electron-visual-smoke/output-instrument-readout-panel-state-no-data.png`
+- `.tmp/electron-visual-smoke/output-instrument-readout-panel-state-source-owned-placeholder.png`
+- `.tmp/electron-visual-smoke/output-instrument-readout-panel-state-partial-view-summary-first.png`
+- `.tmp/electron-visual-smoke/output-instrument-readout-panel-state-partial-view-basis.png`
+- `.tmp/electron-visual-smoke/output-instrument-readout-panel-state-partial-view-details.png`
+- `.tmp/electron-visual-smoke/output-instrument-readout-panel-state-source-owned-placeholder-narrow.png`

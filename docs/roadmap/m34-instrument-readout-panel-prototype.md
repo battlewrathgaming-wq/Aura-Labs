@@ -1,6 +1,6 @@
 # M34 - Instrument Readout Panel Prototype
 
-Status: Active
+Status: Complete
 
 ## Outcome
 
@@ -50,3 +50,13 @@ M34 is complete when:
 - M33 accepted Instrument Readout Panel
 - ADR 0001
 - ADR 0002
+
+## Closure
+
+Closed accepted in HS134.
+
+Accepted prototype:
+
+- `output-instrument-readout-panel`
+
+The prototype remains Lab-local and workshop-gated. Export, split, target adapters, and bridge/runtime contracts remain parked.

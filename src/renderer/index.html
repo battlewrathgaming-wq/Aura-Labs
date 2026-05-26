@@ -187,6 +187,26 @@
             </div>
             <div class="availability-detail-body" id="availability-detail" hidden></div>
           </div>
+          <div class="instrument-readout-panel material-prototype" id="instrument-readout-panel-output" hidden>
+            <div class="instrument-readout-parent">
+              <div class="instrument-readout-main">
+                <span class="instrument-readout-light" id="instrument-readout-light" aria-hidden="true">CU</span>
+                <div>
+                  <span class="instrument-readout-label" id="instrument-readout-label">Readout</span>
+                  <strong id="instrument-readout-state">CURRENT</strong>
+                </div>
+              </div>
+              <strong class="instrument-readout-value" id="instrument-readout-value">Ready</strong>
+              <div class="instrument-readout-meta" aria-label="Readout basis and freshness">
+                <span id="instrument-readout-age">Last read now</span>
+                <span id="instrument-readout-basis">Current local basis</span>
+                <span id="instrument-readout-marker">No gaps or warnings</span>
+              </div>
+              <p class="instrument-readout-availability" id="instrument-readout-availability">Available from current readout basis.</p>
+              <button type="button" id="instrument-readout-detail-toggle" aria-expanded="false" aria-controls="instrument-readout-detail">Readout Detail</button>
+            </div>
+            <div class="instrument-readout-detail" id="instrument-readout-detail" hidden></div>
+          </div>
         </section>
       </section>
       <section class="panel compact diagnostics secondary-surface" aria-label="Secondary bridge diagnostics">

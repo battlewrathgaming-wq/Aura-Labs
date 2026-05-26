@@ -180,6 +180,45 @@ async function runVisualSmoke(window) {
     path.join(smokeDir, 'material-availability-reason-treatment-state-source-no-scan-narrow.png')
   ));
 
+  const instrumentReadoutStates = ['current', 'updating', 'aged', 'partial', 'unavailable', 'fallback', 'no-data', 'source-owned-placeholder'];
+  await loadMaterialHarness(window, 'output-instrument-readout-panel');
+  window.setSize(960, 640);
+  await selectViewIntent(window, 'summary-first');
+  for (const state of instrumentReadoutStates) {
+    await selectInstrumentReadoutPanelState(window, state);
+    observations.push(await captureInstrumentReadoutPanelState(
+      window,
+      state,
+      'summary-first',
+      'desktop',
+      path.join(smokeDir, `output-instrument-readout-panel-state-${state}.png`)
+    ));
+  }
+
+  const outputViewIntents = ['summary-first', 'basis', 'details'];
+  for (const intent of outputViewIntents) {
+    await selectViewIntent(window, intent);
+    await selectInstrumentReadoutPanelState(window, 'partial');
+    observations.push(await captureInstrumentReadoutPanelState(
+      window,
+      'partial',
+      intent,
+      'desktop',
+      path.join(smokeDir, `output-instrument-readout-panel-state-partial-view-${intent}.png`)
+    ));
+  }
+
+  window.setSize(560, 640);
+  await selectViewIntent(window, 'summary-first');
+  await selectInstrumentReadoutPanelState(window, 'source-owned-placeholder');
+  observations.push(await captureInstrumentReadoutPanelState(
+    window,
+    'source-owned-placeholder',
+    'summary-first',
+    'narrow',
+    path.join(smokeDir, 'output-instrument-readout-panel-state-source-owned-placeholder-narrow.png')
+  ));
+
   const screenshots = observations.map((observation) => observation.screenshot);
   const blockingFailures = visualSmokeBlockingFailures(observations);
   const smokePassed = blockingFailures.length === 0;
@@ -197,10 +236,12 @@ async function runVisualSmoke(window) {
       'neutral-seed': neutralSeedStates,
       'mat-authority-window-ttl-strip': materialStates,
       'mat-long-text-detail-block': longTextStates,
-      'mat-availability-reason-treatment': availabilityStates
+      'mat-availability-reason-treatment': availabilityStates,
+      'output-instrument-readout-panel': instrumentReadoutStates
     },
     view_intents_checked: {
-      briefing: briefingViewIntents
+      briefing: briefingViewIntents,
+      'output-instrument-readout-panel': outputViewIntents
     },
     modes_checked: briefingStates,
     viewports_checked: ['desktop', 'narrow'],
@@ -431,6 +472,22 @@ async function selectAvailabilityMaterialState(window, state) {
   `);
 }
 
+async function selectInstrumentReadoutPanelState(window, state) {
+  await window.webContents.executeJavaScript(`
+    (async () => {
+      const stateSelect = document.querySelector('#material-state');
+      if (!stateSelect) return;
+      stateSelect.value = ${JSON.stringify(state)};
+      stateSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      const detailToggle = document.querySelector('#instrument-readout-detail-toggle');
+      if (detailToggle && detailToggle.getAttribute('aria-expanded') !== 'true') {
+        detailToggle.click();
+      }
+      await new Promise((resolve) => setTimeout(resolve, 180));
+    })();
+  `);
+}
+
 async function captureMaterialState(window, state, viewport, outputPath) {
   const image = await window.webContents.capturePage();
   fs.writeFileSync(outputPath, image.toPNG());
@@ -538,6 +595,49 @@ async function captureAvailabilityMaterialState(window, state, viewport, outputP
   `);
 }
 
+async function captureInstrumentReadoutPanelState(window, state, intent, viewport, outputPath) {
+  const image = await window.webContents.capturePage();
+  fs.writeFileSync(outputPath, image.toPNG());
+  const screenshot = path.basename(outputPath);
+  return window.webContents.executeJavaScript(`
+    (() => {
+      const text = (selector) => document.querySelector(selector)?.textContent?.trim() || '';
+      const overflowing = Array.from(document.querySelectorAll('#instrument-readout-panel-output strong, #instrument-readout-panel-output button, #instrument-readout-panel-output span, #instrument-readout-panel-output p'))
+        .filter((node) => node.scrollWidth > node.clientWidth + 1)
+        .map((node) => ({
+          tag: node.tagName.toLowerCase(),
+          id: node.id || null,
+          text: node.textContent.trim().slice(0, 80)
+        }));
+      return {
+        family: 'output',
+        material_id: 'output-instrument-readout-panel',
+        state: ${JSON.stringify(state)},
+        viewport: ${JSON.stringify(viewport)},
+        screenshot: ${JSON.stringify(screenshot)},
+        requested_material_state: ${JSON.stringify(state)},
+        selected_material_state: document.querySelector('#material-state')?.value || null,
+        requested_view_intent: ${JSON.stringify(intent)},
+        selected_view_intent: document.body.dataset.viewIntent || null,
+        material_harness_visible: Boolean(document.querySelector('#material-harness') && document.body.dataset.workshop === 'true'),
+        material_state: text('#instrument-readout-state'),
+        material_chip: text('#instrument-readout-value'),
+        material_reason: text('#instrument-readout-availability'),
+        material_marker: text('#instrument-readout-light'),
+        output_readout_label: text('#instrument-readout-label'),
+        output_readout_age: text('#instrument-readout-age'),
+        output_readout_basis: text('#instrument-readout-basis'),
+        output_warning_marker: text('#instrument-readout-marker'),
+        output_detail_control_visible: Boolean(document.querySelector('#instrument-readout-detail-toggle') && !document.querySelector('#instrument-readout-detail-toggle').hidden),
+        output_detail_open: Boolean(!document.querySelector('#instrument-readout-detail')?.hidden),
+        output_detail_rows: document.querySelectorAll('#instrument-readout-detail div').length,
+        view_switch_labels: Array.from(document.querySelectorAll('[data-view-intent-option]')).map((node) => node.textContent.trim()),
+        overflowing
+      };
+    })();
+  `);
+}
+
 function visualSmokeBlockingFailures(observations) {
   return observations.flatMap((observation) => {
     const failures = [];
@@ -571,27 +671,42 @@ function visualSmokeBlockingFailures(observations) {
         selected_view_intent: observation.selected_view_intent
       });
     }
-    if (observation.requested_view_intent && !['Summary', 'Basis', 'Details'].every((label) => observation.view_switch_labels?.includes(label))) {
+    if (observation.material_id === 'output-instrument-readout-panel' && (!observation.output_readout_label || !observation.output_readout_age || !observation.output_readout_basis || !observation.output_warning_marker)) {
+      failures.push({
+        code: 'OUTPUT_PANEL_COMPACT_COPY_MISSING',
+        screenshot: observation.screenshot,
+        requested_material_state: observation.requested_material_state
+      });
+    }
+    if (observation.material_id === 'output-instrument-readout-panel' && (!observation.output_detail_control_visible || !observation.output_detail_open || observation.output_detail_rows < 4)) {
+      failures.push({
+        code: 'OUTPUT_PANEL_DETAIL_MISSING',
+        screenshot: observation.screenshot,
+        requested_material_state: observation.requested_material_state,
+        output_detail_rows: observation.output_detail_rows
+      });
+    }
+    if (observation.family !== 'output' && observation.requested_view_intent && !['Summary', 'Basis', 'Details'].every((label) => observation.view_switch_labels?.includes(label))) {
       failures.push({
         code: 'VIEW_INTENT_LABELS_MISSING',
         screenshot: observation.screenshot,
         labels: observation.view_switch_labels || []
       });
     }
-    if (observation.requested_view_intent && (!observation.title || !observation.readout_label || !observation.band_primary_value || !observation.readout_age || !observation.readout_basis || !observation.band_marker || !observation.source_coverage)) {
+    if (observation.family !== 'output' && observation.requested_view_intent && (!observation.title || !observation.readout_label || !observation.band_primary_value || !observation.readout_age || !observation.readout_basis || !observation.band_marker || !observation.source_coverage)) {
       failures.push({
         code: 'VIEW_INTENT_STABLE_COPY_MISSING',
         screenshot: observation.screenshot,
         requested_view_intent: observation.requested_view_intent
       });
     }
-    if (observation.requested_view_intent === 'basis' && (!observation.basis_focus_visible || !observation.basis_focus_basis || !observation.basis_focus_freshness || !observation.basis_focus_coverage || !observation.basis_focus_marker)) {
+    if (observation.family !== 'output' && observation.requested_view_intent === 'basis' && (!observation.basis_focus_visible || !observation.basis_focus_basis || !observation.basis_focus_freshness || !observation.basis_focus_coverage || !observation.basis_focus_marker)) {
       failures.push({
         code: 'BASIS_FOCUS_COPY_MISSING',
         screenshot: observation.screenshot
       });
     }
-    if (observation.requested_view_intent === 'details' && (!observation.source_drawer_visible || !observation.source_drawer_open || observation.diagnostics_secondary !== true)) {
+    if (observation.family !== 'output' && observation.requested_view_intent === 'details' && (!observation.source_drawer_visible || !observation.source_drawer_open || observation.diagnostics_secondary !== true)) {
       failures.push({
         code: 'DETAILS_INSPECTION_PATH_MISSING',
         screenshot: observation.screenshot,

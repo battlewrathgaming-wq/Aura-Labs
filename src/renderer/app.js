@@ -271,6 +271,11 @@ function setViewIntent(intent) {
   for (const button of document.querySelectorAll('[data-view-intent-option]')) {
     button.setAttribute('aria-pressed', button.dataset.viewIntentOption === nextIntent ? 'true' : 'false');
   }
+  const material = materialHarnessDefinition(state.materialHarness);
+  const stateSelect = document.querySelector('#material-state');
+  if (state.workshopMode && material && stateSelect?.value) {
+    material.render(stateSelect.value);
+  }
 }
 
 function setupReducedMotionGate() {
@@ -354,6 +359,7 @@ function setupMaterialHarness() {
   document.querySelector('#ttl-detail-toggle').addEventListener('click', toggleMaterialDetail);
   document.querySelector('#long-text-detail-toggle').addEventListener('click', toggleLongTextDetail);
   document.querySelector('#availability-detail-toggle').addEventListener('click', toggleAvailabilityDetail);
+  document.querySelector('#instrument-readout-detail-toggle').addEventListener('click', toggleInstrumentReadoutDetail);
   material.render(material.states()[0].id);
 }
 
@@ -379,6 +385,13 @@ function materialHarnessDefinition(materialId) {
       elementId: 'availability-reason-treatment',
       states: availabilityReasonTreatmentStates,
       render: renderAvailabilityReasonTreatment
+    },
+    'output-instrument-readout-panel': {
+      id: 'output-instrument-readout-panel',
+      title: 'Instrument Readout Panel',
+      elementId: 'instrument-readout-panel-output',
+      states: instrumentReadoutPanelStates,
+      render: renderInstrumentReadoutPanel
     }
   };
   return definitions[materialId] || null;
@@ -797,6 +810,212 @@ function renderAvailabilityReasonTreatment(stateId) {
 function toggleAvailabilityDetail() {
   const detail = document.querySelector('#availability-detail');
   const button = document.querySelector('#availability-detail-toggle');
+  detail.hidden = !detail.hidden;
+  button.setAttribute('aria-expanded', detail.hidden ? 'false' : 'true');
+}
+
+function instrumentReadoutPanelStates() {
+  return [
+    {
+      id: 'current',
+      label: 'CURRENT',
+      tone: 'current',
+      marker: 'CU',
+      readoutLabel: 'Bridge feed readout',
+      value: '42 active display fields',
+      age: 'Last read now',
+      basis: 'Current local readout basis',
+      warning: 'No gaps or warnings',
+      availability: 'Available from current readout basis.',
+      detail: [
+        ['Basis', 'Current local readout basis.'],
+        ['Availability', 'Available for display.'],
+        ['Freshness', 'Last read now.'],
+        ['Known fields / coverage note', 'Display coverage: primary value, freshness, basis, gaps, and warnings are present.']
+      ]
+    },
+    {
+      id: 'updating',
+      label: 'UPDATING',
+      tone: 'updating',
+      marker: 'UP',
+      readoutLabel: 'Bridge feed readout',
+      value: 'Reading local bridge',
+      age: 'Updating now',
+      basis: 'Awaiting refreshed basis',
+      warning: 'Updating',
+      availability: 'Current display is being refreshed.',
+      detail: [
+        ['Basis', 'Existing panel shell while the current read is pending.'],
+        ['Availability', 'Readout is temporarily updating, not failed.'],
+        ['Freshness', 'Refresh in progress.'],
+        ['Known fields / coverage note', 'Known fields will be re-evaluated when the read completes.']
+      ]
+    },
+    {
+      id: 'aged',
+      label: 'AGED',
+      tone: 'aged',
+      marker: 'AG',
+      readoutLabel: 'Bridge feed readout',
+      value: 'Last successful value shown',
+      age: 'Last successful read 28 min ago',
+      basis: 'Older successful readout basis',
+      warning: '1 warning',
+      availability: 'Showing older readout basis.',
+      detail: [
+        ['Basis', 'Older successful readout basis.'],
+        ['Availability', 'Current basis is aged but still presentable.'],
+        ['Freshness', 'Last successful read 28 min ago.'],
+        ['Warnings', 'Current readout may have changed since this basis was captured.']
+      ]
+    },
+    {
+      id: 'partial',
+      label: 'PARTIAL',
+      tone: 'partial',
+      marker: 'PA',
+      readoutLabel: 'Bridge feed readout',
+      value: '18 of 24 display fields',
+      age: 'Last read 4 min ago',
+      basis: 'Partial local readout basis',
+      warning: '2 gaps / 1 warning',
+      availability: 'Partial readout; available fields remain visible.',
+      detail: [
+        ['Basis', 'Partial local readout basis.'],
+        ['Availability', 'Presentable fields are available; missing fields remain explicit.'],
+        ['Freshness', 'Last read 4 min ago.'],
+        ['Known fields / coverage note', 'Known fields: label, value, readout age, and basis. Coverage gap: secondary detail omitted.'],
+        ['Gaps', 'secondary_readout_context, extended_basis_note'],
+        ['Warnings', 'Gap count remains visible when detail is closed.'],
+        ['Long text example', 'Partial readout detail can include a longer explanation of what is present without turning the compact parent panel into a paragraph-heavy surface.']
+      ]
+    },
+    {
+      id: 'unavailable',
+      label: 'UNAVAILABLE',
+      tone: 'unavailable',
+      marker: 'UN',
+      readoutLabel: 'Bridge feed readout',
+      value: 'Current read unavailable',
+      age: 'Last attempt now',
+      basis: 'Unavailable current read',
+      warning: 'Unavailable',
+      availability: 'Current read cannot be shown.',
+      detail: [
+        ['Basis', 'Unavailable current read.'],
+        ['Availability', 'Unavailable current read is distinct from no data and failed read attempts.'],
+        ['Freshness', 'Last attempt now.'],
+        ['Warnings', 'No current value is presented.']
+      ]
+    },
+    {
+      id: 'fallback',
+      label: 'FALLBACK',
+      tone: 'fallback',
+      marker: 'FB',
+      readoutLabel: 'Bridge feed readout',
+      value: 'Fallback value shown',
+      age: 'Fallback basis from prior read',
+      basis: 'Fallback presentation basis',
+      warning: 'Fallback basis active',
+      availability: 'Showing fallback basis.',
+      detail: [
+        ['Basis', 'Fallback presentation basis.'],
+        ['Availability', 'Fallback is visible and does not pretend to be current.'],
+        ['Freshness', 'Fallback basis from prior read.'],
+        ['Fallback basis', 'Previous display basis held for continuity.'],
+        ['Warnings', 'Fallback basis is marked in the compact parent panel.']
+      ]
+    },
+    {
+      id: 'no-data',
+      label: 'NO DATA',
+      tone: 'no-data',
+      marker: 'ND',
+      readoutLabel: 'Bridge feed readout',
+      value: 'No presentable data',
+      age: 'No data returned',
+      basis: 'No presentation payload available',
+      warning: 'No data',
+      availability: 'No presentable display fields are available.',
+      detail: [
+        ['Basis', 'No presentation payload available.'],
+        ['Availability', 'No data means no presentable display fields, not proof of upstream absence.'],
+        ['Freshness', 'No data returned.'],
+        ['Known fields / coverage note', 'Known fields: none for this display sample.']
+      ]
+    },
+    {
+      id: 'source-owned-placeholder',
+      label: 'PARTIAL',
+      tone: 'source-owned',
+      marker: 'SO',
+      readoutLabel: 'Source-owned placeholder readout',
+      value: 'Source-owned no-scan placeholder',
+      age: 'Last read 6 min ago',
+      basis: 'Source-owned placeholder basis',
+      warning: '1 gap / source-owned placeholder',
+      availability: 'Source-owned no-scan placeholder; owner and layer are qualified.',
+      detail: [
+        ['Basis', 'Source-owned placeholder basis presented by Lab after the bridge.'],
+        ['Availability', 'Source-owned no-scan placeholder remains distinct from unavailable, failed, fallback, and no data.'],
+        ['Freshness', 'Last read 6 min ago.'],
+        ['Known fields / coverage note', 'Known fields: placeholder label and readout age only.'],
+        ['Gaps', 'Primary source-owned value is not replaced by Lab copy.'],
+        ['Warnings', 'Layer-qualified source-owned placeholder.'],
+        ['Source-owned note', 'Owner: source project. Layer shown here: Lab Bridge -> Interface display.'],
+        ['Long text example', 'SOURCE_OWNED_PLACEHOLDER_TOKEN_WITH_A_LONG_UNBROKEN_SEGMENT_FOR_CONTAINMENT_REVIEW_7F3A2C9D0B4E6A8C1F5D2B9E0A4C7F1D']
+      ]
+    }
+  ];
+}
+
+function renderInstrumentReadoutPanel(stateId) {
+  const panelState = instrumentReadoutPanelStates().find((entry) => entry.id === stateId) || instrumentReadoutPanelStates()[0];
+  const panel = document.querySelector('#instrument-readout-panel-output');
+  panel.dataset.state = panelState.id;
+  panel.dataset.tone = panelState.tone;
+  panel.dataset.viewIntent = state.viewIntent;
+  document.querySelector('#instrument-readout-light').textContent = panelState.marker;
+  document.querySelector('#instrument-readout-label').textContent = panelState.readoutLabel;
+  document.querySelector('#instrument-readout-state').textContent = panelState.label;
+  document.querySelector('#instrument-readout-value').textContent = panelState.value;
+  document.querySelector('#instrument-readout-age').textContent = panelState.age;
+  document.querySelector('#instrument-readout-basis').textContent = panelState.basis;
+  document.querySelector('#instrument-readout-marker').textContent = panelState.warning;
+  document.querySelector('#instrument-readout-availability').textContent = panelState.availability;
+
+  const detail = document.querySelector('#instrument-readout-detail');
+  detail.textContent = '';
+  for (const [labelText, valueText] of instrumentReadoutDetailRows(panelState)) {
+    const row = document.createElement('div');
+    const label = document.createElement('span');
+    const value = document.createElement('strong');
+    label.textContent = labelText;
+    value.textContent = valueText;
+    row.append(label, value);
+    detail.appendChild(row);
+  }
+  detail.hidden = true;
+  document.querySelector('#instrument-readout-detail-toggle').setAttribute('aria-expanded', 'false');
+}
+
+function instrumentReadoutDetailRows(panelState) {
+  const viewNote = {
+    'summary-first': 'Summary keeps state, primary value, freshness, basis cue, warning/gap marker, and detail affordance visible.',
+    basis: 'Basis keeps readout basis and freshness visible while the primary value remains present.',
+    details: 'Details keeps the readout label and state visible while rows receive emphasis.'
+  };
+  return [
+    ...panelState.detail,
+    ['View intent', viewNote[state.viewIntent] || viewNote['summary-first']]
+  ];
+}
+
+function toggleInstrumentReadoutDetail() {
+  const detail = document.querySelector('#instrument-readout-detail');
+  const button = document.querySelector('#instrument-readout-detail-toggle');
   detail.hidden = !detail.hidden;
   button.setAttribute('aria-expanded', detail.hidden ? 'false' : 'true');
 }

@@ -61,20 +61,20 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M31 | Display Material Repeat Cycle | Complete | Accepted Long Text Detail Block and Availability Reason Treatment as two non-TTL material prototypes; remaining candidates are parked for later packets. |
 | M32 | Export Boundary Review | Complete | Accepted Engineering review; split/export remains parked and composed display output is recommended first. |
 | M33 | Composed Display Output | Complete | Accepted Instrument Readout Panel as the first combined Lab-local display output reference. |
-| M34 | Instrument Readout Panel Prototype | Active | Dev runway opened for a bounded Lab-local prototype of the accepted composed output. |
+| M34 | Instrument Readout Panel Prototype | Complete | Accepted bounded Lab-local prototype of the Instrument Readout Panel composed output. |
 
 ## Current Direction
 
-Active milestone: M34 - Instrument Readout Panel Prototype
-Last completed milestone: M33 / HS132 - Composed Display Output Acceptance
+Active milestone: None
+Last completed milestone: M34 / HS134 - Instrument Readout Panel Prototype Acceptance
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS133
-Latest accepted handshake: workspace/complete/milestone-M33/OverseerHS132-uiuxhs131-composed-output-acceptance.md
-Latest active runway: workspace/OverseerHS133-m34-instrument-readout-panel-prototype-runway.md
+Current sequence: none
+Latest accepted handshake: workspace/complete/milestone-M34/OverseerHS134-hs133-instrument-readout-panel-acceptance.md
+Latest active runway: none
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
-Housekeeping: active root cleaned on 2026-05-26; M19-M33 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root cleaned on 2026-05-26; M19-M34 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -138,7 +138,7 @@ Active milestone handshakes:
 
 - `workspace/LabRemoteConsumerConformanceHS66.md`
 - `workspace/request_display.md`
-- `workspace/OverseerHS133-m34-instrument-readout-panel-prototype-runway.md`
+- None.
 
 Accepted authority records:
 
@@ -181,6 +181,7 @@ Completed milestone handshakes:
 - `workspace/complete/milestone-M31/`
 - `workspace/complete/milestone-M32/`
 - `workspace/complete/milestone-M33/`
+- `workspace/complete/milestone-M34/`
 
 ### Historical Archives
 
@@ -197,4 +198,4 @@ Completed milestone handshakes:
 - Where should the future use-case comparison landing zone live after material bench shape is clearer?
 - Should SmokeFlash split-readiness move forward before export, seeding, or target-project consumption?
 - Should Source / Basis Coverage Marker or Compact Value Rail become a later prototype?
-- Should the M34 prototype be followed by a composed-output visual review or export/split readiness review?
+- Should the accepted Instrument Readout Panel prototype receive a UI/UX visual review, prototype polish packet, or export/split readiness review?

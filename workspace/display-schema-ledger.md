@@ -86,7 +86,7 @@ Once Lab has built a type of display for Atlas, Sense, or Lab-local use, record 
 
 | Output ID | Output / combined display name | Status | Canonical artifact | Ingredients used | Target / use context | Upstream discussion buckets | Supersedes / followed by | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `output-instrument-readout-panel` | Instrument Readout Panel | accepted | `workspace/display-outputs/instrument-readout-panel.md` | status/state band behavior; `mat-availability-reason-treatment`; `mat-long-text-detail-block`; `schema-warning-gap-edge` | Lab-local product-agnostic composed readout output. | `lab-internal`; `human-relay`; `future-smokeflash` | none yet | Accepted in M33 / HS132 as the first composed output reference; not export, adapter, or bridge contract authority. |
+| `output-instrument-readout-panel` | Instrument Readout Panel | accepted | `workspace/display-outputs/instrument-readout-panel.md` | status/state band behavior; `mat-availability-reason-treatment`; `mat-long-text-detail-block`; `schema-warning-gap-edge` | Lab-local product-agnostic composed readout output. | `lab-internal`; `human-relay`; `future-smokeflash` | none yet | Accepted in M33 / HS132 and prototype-backed in M34 / HS134; not export, adapter, or bridge contract authority. |
 
 ## Parked Handling
 

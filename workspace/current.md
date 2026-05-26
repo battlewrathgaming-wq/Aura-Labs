@@ -1,16 +1,16 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-05-26
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M34 - Instrument Readout Panel Prototype
-Last completed milestone: M33 / HS132 - Composed Display Output Acceptance
-Current executor: Dev
-Current focus: Prototype the accepted Instrument Readout Panel as Lab-local, fixture-fed presentation work.
-Expected artifact filename: `workspace/DevHS133-instrument-readout-panel-prototype.md`
+Active milestone: None
+Last completed milestone: M34 / HS134 - Instrument Readout Panel Prototype Acceptance
+Current executor: Human / Overseer
+Current focus: Await Human / Overseer direction after accepting the Instrument Readout Panel prototype.
+Expected artifact filename: Human direction or next Overseer runway artifact.
 
 ## Current State
 
@@ -34,7 +34,17 @@ M33 accepted the first composed display output:
 
 - `workspace/display-outputs/instrument-readout-panel.md`
 
-M34 is now opened as a bounded Dev prototype for that accepted output. This remains Lab-local work only.
+M34 accepted the Lab-local Instrument Readout Panel prototype.
+
+The prototype remains workshop-gated and support-tooling bounded under ADR 0001. It is not export/seeding, not a target adapter, and not a bridge/runtime contract.
+
+Next possible directions:
+
+- UI/UX visual review of the accepted Instrument Readout Panel prototype
+- small prototype polish if Human has visual notes
+- split/export readiness review if target consumption becomes immediate
+- another material/output only if there is a clear product-facing reason
+- park Lab until target-project feedback arrives
 
 ## Source Of Intent
 
@@ -48,8 +58,10 @@ Accepted source of intent:
 - `workspace/complete/milestone-M32/OverseerHS130-engineeringhs129-export-boundary-acceptance.md`
 - `workspace/complete/milestone-M33/UIUXHS131-composed-display-output-advisory.md`
 - `workspace/complete/milestone-M33/OverseerHS132-uiuxhs131-composed-output-acceptance.md`
+- `workspace/complete/milestone-M34/DevHS133-instrument-readout-panel-prototype.md`
+- `workspace/complete/milestone-M34/OverseerHS134-hs133-instrument-readout-panel-acceptance.md`
 - `workspace/display-outputs/instrument-readout-panel.md`
-- `workspace/OverseerHS133-m34-instrument-readout-panel-prototype-runway.md`
+- `workspace/complete/milestone-M34/OverseerHS133-m34-instrument-readout-panel-prototype-runway.md`
 - `workspace/display-materials/long-text-detail-block.md`
 - `workspace/display-materials/availability-reason-treatment.md`
 - `workspace/display-schema-ledger.md`
@@ -79,37 +91,13 @@ Read first:
 
 ## Ordered Dev Runway
 
-Current executor is Dev.
+No active Dev runway. Current executor is Human / Overseer.
 
-Ordered Dev runway:
-
-1. Inspect the accepted Instrument Readout Panel output and current renderer/workshop/material harness patterns.
-2. Add a Lab-local visible prototype for `output-instrument-readout-panel`.
-3. Include staged panel states for `CURRENT`, `UPDATING`, `AGED`, `PARTIAL`, `UNAVAILABLE`, `FALLBACK`, and `NO DATA`.
-4. Include at least one source-owned placeholder case with explicit owner/layer qualification.
-5. Keep the parent panel compact with state, primary value/absence, age, basis cue, warning/gap marker, and availability reason when needed.
-6. Add one `Readout Detail` reveal with basis, availability, freshness, known fields/coverage note, gaps, warnings, fallback basis, source-owned note, and long text examples where relevant.
-7. Preserve Summary/Basis/Details behavior where practical; do not add a new view mode.
-8. Ensure long text and long unbroken tokens do not overflow.
-9. Ensure narrow viewport containment and reduced-motion compatibility.
-10. Update focused renderer verification and Electron smoke only as needed.
-11. Create `workspace/DevHS133-instrument-readout-panel-prototype.md`.
+No active ordered runway.
 
 ## Acceptance Criteria
 
-This advisory is acceptable if:
-
-- Instrument Readout Panel renders visibly in a Lab-local prototype path
-- all required states are distinct
-- availability reason does not collapse no data, unavailable, failed, fallback, partial, or source-owned placeholders
-- warning/gap marker remains visible with detail closed
-- long text detail content wraps safely
-- basis and freshness remain visible in Summary and Basis view intent
-- detail reveal is keyboard reachable
-- narrow layout has no horizontal overflow
-- reduced-motion compatibility remains intact
-- normal launch remains free of visible workshop controls
-- no export, split, target adapter, source-project meaning, bridge/runtime contract, IPC/preload expansion, or broad renderer refactor is introduced
+No active acceptance criteria.
 
 ## Guardrails And Non-Goals
 
@@ -139,21 +127,7 @@ Stop and return to Human / Overseer direction if a future task requires:
 
 No verification is required for the advisory artifact.
 
-Run:
-
-```powershell
-npm.cmd run verify:renderer-shell
-npm.cmd run verify:vocabulary
-npm.cmd run verify:all
-npm.cmd run smoke:electron
-```
-
-Run shared terminology verification if visible copy or terminology-sensitive docs change:
-
-```powershell
-cd F:\Projects\Docs\Aura-Project-Orchestration
-npm.cmd run verify:terminology
-```
+No active verification required while idle.
 
 ## Evidence
 
@@ -165,21 +139,21 @@ npm.cmd run verify:terminology
 - M33 opened by HS131 as a composed display output advisory.
 - M33 accepted UIUXHS131 in HS132 and closed.
 - M34 opened by HS133 as a bounded Dev prototype for the Instrument Readout Panel.
+- DevHS133 completed the Lab-local `output-instrument-readout-panel` prototype with staged `CURRENT`, `UPDATING`, `AGED`, `PARTIAL`, `UNAVAILABLE`, `FALLBACK`, `NO DATA`, and source-owned placeholder cases.
+- HS133 verification passed: `npm.cmd run verify:renderer-shell`, `npm.cmd run verify:vocabulary`, `npm.cmd run verify:all`, `npm.cmd run smoke:electron`, and orchestration `npm.cmd run verify:terminology`.
+- HS133 Electron smoke reported `.tmp/electron-visual-smoke/visual-smoke-result.json` with `status: passed`, `blocking_failures: []`, output state captures, Summary/Basis/Details output captures, and narrow source-owned placeholder capture.
+- M34 accepted HS133 in HS134 and closed.
 
 ## Dev Handoff
 
-Expected Dev handoff:
-
-```txt
-workspace/DevHS133-instrument-readout-panel-prototype.md
-```
+No active Dev handoff expected.
 
 ## Advisory Disposition
 
 - Accepted: M31 Display Material Repeat Cycle.
 - Accepted: M32 Export Boundary Review.
 - Accepted: M33 Composed Display Output.
-- Opened: M34 Instrument Readout Panel Prototype.
+- Accepted: M34 Instrument Readout Panel Prototype.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.

@@ -105,10 +105,13 @@ function main() {
   assert(app.includes('mat-long-text-detail-block'), 'renderer should support the Long Text Detail Block material id');
   assert(html.includes('availability-reason-treatment'), 'renderer should include the Availability Reason Treatment prototype shell');
   assert(app.includes('mat-availability-reason-treatment'), 'renderer should support the Availability Reason Treatment material id');
+  assert(html.includes('instrument-readout-panel-output'), 'renderer should include the Instrument Readout Panel output shell');
+  assert(app.includes('output-instrument-readout-panel'), 'renderer should support the Instrument Readout Panel output id');
   assert(html.includes('Authority Window TTL Strip'), 'renderer should label the material harness');
   assert(html.includes('ttl-detail-toggle'), 'renderer should include material detail reveal control');
   assert(html.includes('long-text-detail-toggle'), 'renderer should include long text material detail reveal control');
   assert(html.includes('availability-detail-toggle'), 'renderer should include availability material detail reveal control');
+  assert(html.includes('instrument-readout-detail-toggle'), 'renderer should include instrument output detail reveal control');
   assert(html.includes('service-diagnostics'), 'renderer should demote registered services');
   assert(html.includes('data-field="current_executor"'), 'renderer should include current executor field');
   assert(html.includes('service-list'), 'renderer should include service list target');
@@ -183,6 +186,9 @@ function main() {
   assert(app.includes('longTextDetailRow'), 'renderer should render long text detail rows safely as text');
   assert(app.includes('availabilityReasonTreatmentStates'), 'renderer should define staged availability reason material states');
   assert(app.includes('renderAvailabilityReasonTreatment'), 'renderer should render staged availability reason material');
+  assert(app.includes('instrumentReadoutPanelStates'), 'renderer should define staged Instrument Readout Panel states');
+  assert(app.includes('renderInstrumentReadoutPanel'), 'renderer should render the staged Instrument Readout Panel');
+  assert(app.includes('toggleInstrumentReadoutDetail'), 'renderer should support the Instrument Readout Panel detail reveal');
   assert(app.includes('toggleMaterialDetail'), 'renderer should support material detail reveal');
   assert(app.includes('toggleLongTextDetail'), 'renderer should support long text material detail reveal');
   assert(app.includes('toggleAvailabilityDetail'), 'renderer should support availability material detail reveal');
@@ -232,6 +238,12 @@ function main() {
   assert(main.includes('material-availability-reason-treatment-state-${state}.png'), 'visual smoke should capture availability material states');
   assert(main.includes('material-availability-reason-treatment-state-source-no-scan-narrow.png'), 'visual smoke should capture narrow source-owned availability state');
   assert(main.includes('captureAvailabilityMaterialState'), 'visual smoke should inspect availability material containment');
+  assert(main.includes('output-instrument-readout-panel-state-${state}.png'), 'visual smoke should capture instrument readout panel states');
+  assert(main.includes('output-instrument-readout-panel-state-partial-view-${intent}.png'), 'visual smoke should capture instrument readout panel view intents');
+  assert(main.includes('output-instrument-readout-panel-state-source-owned-placeholder-narrow.png'), 'visual smoke should capture narrow source-owned output state');
+  assert(main.includes('captureInstrumentReadoutPanelState'), 'visual smoke should inspect instrument readout panel containment');
+  assert(main.includes('OUTPUT_PANEL_COMPACT_COPY_MISSING'), 'visual smoke should block missing compact output panel copy');
+  assert(main.includes('OUTPUT_PANEL_DETAIL_MISSING'), 'visual smoke should block missing output panel detail reveal');
   assert(main.includes('SELECTED_MATERIAL_STATE_MISMATCH'), 'visual smoke should block material state mismatch');
   assert(main.includes('MATERIAL_STATE_COPY_MISSING'), 'visual smoke should block missing material state copy');
   assert(app.includes('window.auraWindow.setAlwaysOnTop'), 'renderer should toggle always-on-top through Frame bridge');
@@ -259,6 +271,9 @@ function main() {
   assert(styles.includes('.availability-reason-treatment'), 'renderer styles should contain Availability Reason Treatment');
   assert(styles.includes('.availability-marker'), 'availability material should include non-color-only status marker');
   assert(styles.includes('.availability-detail-body'), 'availability material should keep reason details behind reveal');
+  assert(styles.includes('.instrument-readout-panel'), 'renderer styles should contain Instrument Readout Panel output treatment');
+  assert(styles.includes('.instrument-readout-light'), 'instrument output should include non-color-only status marker');
+  assert(styles.includes('.instrument-readout-detail'), 'instrument output should keep detail content behind reveal');
   for (const materialState of ['idle', 'active-window', 'captured', 'timeout', 'cooldown', 'blocked', 'manual-path']) {
     assert(app.includes(`id: '${materialState}'`), `renderer should define material state ${materialState}`);
   }
@@ -268,6 +283,14 @@ function main() {
   for (const materialState of ['no-data', 'unavailable', 'blocked', 'failed', 'fallback', 'aged', 'source-no-scan']) {
     assert(app.includes(`id: '${materialState}'`), `renderer should define availability material state ${materialState}`);
   }
+  for (const outputState of ['current', 'updating', 'aged', 'partial', 'unavailable', 'fallback', 'no-data', 'source-owned-placeholder']) {
+    assert(app.includes(`id: '${outputState}'`), `renderer should define Instrument Readout Panel state ${outputState}`);
+  }
+  for (const outputLabel of ['CURRENT', 'UPDATING', 'AGED', 'PARTIAL', 'UNAVAILABLE', 'FALLBACK', 'NO DATA']) {
+    assert(app.includes(`label: '${outputLabel}'`), `Instrument Readout Panel should include label ${outputLabel}`);
+  }
+  assert(app.includes('Source-owned no-scan placeholder; owner and layer are qualified.'), 'instrument output should include a qualified source-owned placeholder case');
+  assert(app.includes('No data means no presentable display fields, not proof of upstream absence.'), 'instrument output should keep no data distinct from absence proof');
   assert(app.includes("chip: 'TTL 00:03'"), 'renderer should show active-window TTL timing');
   assert(app.includes("chip: 'Next in 00:05'"), 'renderer should show cooldown timing');
   assert(app.includes("marker: 'ON'"), 'renderer should include non-color-only active material marker');
