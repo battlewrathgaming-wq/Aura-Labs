@@ -74,7 +74,7 @@ Last completed milestone: M38 / HS145 - Pane Board Capability Acceptance
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
 Current sequence: None
-Latest accepted handshake: workspace/OverseerHS145-m38-pane-board-capability-acceptance.md
+Latest accepted handshake: workspace/OverseerHS146-pane-board-feel-test-acceptance.md
 Latest active runway: None
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
@@ -158,6 +158,7 @@ Active milestone handshakes:
 - `workspace/OverseerHS144-m38-pane-board-capability-stabilization-runway.md`
 - `workspace/DevHS144-pane-board-capability-stabilization.md`
 - `workspace/OverseerHS145-m38-pane-board-capability-acceptance.md`
+- `workspace/OverseerHS146-pane-board-feel-test-acceptance.md`
 
 Accepted authority records:
 

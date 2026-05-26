@@ -1,7 +1,7 @@
 {
-  "id": "layout-2026-05-26-pane-board-v1",
-  "title": "Pane Board V1 working sketch",
-  "status": "agent-proposal",
+  "id": "layout-2026-05-26-human-demo-spatial-rail-sketch",
+  "title": "Human demo spatial rail sketch",
+  "status": "human-sketch",
   "viewport": {
     "preset": "960x640",
     "width": 960,
@@ -9,10 +9,10 @@
     "grid": 8
   },
   "source": {
-    "createdBy": "agent",
+    "createdBy": "human",
     "basedOn": null,
     "project": "Aura Lab",
-    "context": "layout intent sketch"
+    "context": "layout intent reference"
   },
   "panes": [
     {
@@ -127,5 +127,5 @@
     "acceptedByHuman": false
   },
   "screenNote": "Dev note: this is the on-screen note surface for quick human/agent messages. Positions are spatial intent, not implementation instruction.",
-  "updatedAt": "2026-05-26T06:48:47.155Z"
+  "updatedAt": "2026-05-26T06:43:57.915Z"
 }

@@ -18,8 +18,8 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 ## Near Outcomes
 
 - Review the Instrument Readout Panel visually if Human wants polish.
-- Human feel test the current Pane Board capability loop.
-- Decide whether a small Pane Board usability packet, smoke artifact retention policy, or shape-language exploration should come next.
+- Use the accepted Pane Board feel test to decide whether M39 should focus on collaboration affordances.
+- Consider refresh/redraw, proposal navigation, compare, accept/park/save, and clearer note lanes before broader tooling expansion.
 - Keep Pane Board output advisory and separate from the clean presentation head.
 - Keep Summary / Basis / Details readability stable.
 - Keep accepted material and output pages aligned with prototype observations.
@@ -123,6 +123,13 @@ Pane Board capability stabilization ready:
 - screenshot capture is gated by explicit smoke or user/tool action
 - verification checks stable-state and overwrite-boundary behavior
 - qualitative Human-agent visual communication is preserved without making sketches product specs
+
+Pane Board collaboration affordances ready:
+
+- a real Human sketch and agent proposal exist as references
+- Human confirms the two-way spatial communication model is useful
+- next work stays focused on navigation, comparison, acceptance, parking, and note lanes
+- no product renderer, adapter, code generation, or product-authoritative layout work is implied
 
 ## Parked Work
 

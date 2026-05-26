@@ -92,6 +92,10 @@ Pane Board now has a more dependable capability loop:
 - gated capture remains explicit through user/tool action or smoke
 - `verify:pane-board` checks stable-state fields and proposal separation
 
+The post-M38 Human feel test is accepted as a successful proof of concept.
+
+Pane Board proved the communication model: the Human expressed shape intent without a long prompt chain, the agent inferred the spatial language from the board state, and a separate proposal could be produced for comparison. The test also revealed the natural next collaboration affordance gaps: refresh/redraw, proposal navigation, compare, accept/park/save, and clearer on-board note lanes.
+
 ## Source Of Intent
 
 Accepted source of intent:
@@ -132,6 +136,9 @@ Accepted source of intent:
 - `workspace/OverseerHS144-m38-pane-board-capability-stabilization-runway.md`
 - `workspace/DevHS144-pane-board-capability-stabilization.md`
 - `workspace/OverseerHS145-m38-pane-board-capability-acceptance.md`
+- `workspace/OverseerHS146-pane-board-feel-test-acceptance.md`
+- `workspace/pane-board/human-sketches/layout-2026-05-26-human-demo-spatial-rail-sketch.json`
+- `workspace/pane-board/agent-proposals/layout-2026-05-26-human-demo-spatial-rail-sketch-agent-breathing-room-proposal.json`
 - `workspace/pane-board/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -163,6 +170,7 @@ Read first:
 - `workspace/OverseerHS144-m38-pane-board-capability-stabilization-runway.md`
 - `workspace/DevHS144-pane-board-capability-stabilization.md`
 - `workspace/OverseerHS145-m38-pane-board-capability-acceptance.md`
+- `workspace/OverseerHS146-pane-board-feel-test-acceptance.md`
 - `workspace/pane-board/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -252,6 +260,7 @@ No active verification while idle.
 - HS144 verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, `npm.cmd run smoke:pane-board`, and orchestration `npm.cmd run verify:terminology`. Normal Electron smoke was not required because shared launch/preload/normal renderer files were not changed.
 - HS144 Pane Board smoke reported `.tmp/pane-board-smoke/pane-board-smoke-result.json` with `status: passed`, `snapshot: workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-9.json`, `png: workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-8.png`, `based_on: layout-2026-05-26-pane-board-v1`, and `pane_count: 5`. After smoke restore, current board remained `status: human-sketch` with `source.basedOn: null`.
 - HS145 accepted M38 after Overseer review and rerun verification. Latest Pane Board smoke record reported `status: passed`, `snapshot: workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-10.json`, `png: workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-9.png`, `based_on: layout-2026-05-26-pane-board-v1`, and `pane_count: 5`. After smoke restore, current board remained `status: human-sketch` with `source.basedOn: null`.
+- HS146 accepted the post-M38 Human feel test as a successful proof of concept. It preserved `workspace\pane-board\human-sketches\layout-2026-05-26-human-demo-spatial-rail-sketch.json` and `workspace\pane-board\agent-proposals\layout-2026-05-26-human-demo-spatial-rail-sketch-agent-breathing-room-proposal.json` as examples of the intended Human/agent spatial loop.
 
 ## Dev Handoff
 
@@ -269,6 +278,7 @@ No active Dev handoff required while idle.
 - Accepted: M36 Pane Board V1 Prototype.
 - Accepted: M37 Pane Board Split Stabilization.
 - Accepted: M38 Pane Board Capability Stabilization.
+- Accepted: Post-M38 Pane Board feel test proof of concept.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.
@@ -288,3 +298,4 @@ No active Dev handoff required while idle.
 - SmokeFlash/material harness code remains in the renderer bundle under ADR 0001 Lab-local allowance.
 - SmokeFlash must still be split before export, seeding, or target-project consumption.
 - Pane Board is useful only if it keeps supporting portable display-element formation rather than one-off local layout work.
+- Pane Board feel testing revealed that proposal navigation, compare, accept/park/save, and clearer note lanes are likely needed before heavier usage.

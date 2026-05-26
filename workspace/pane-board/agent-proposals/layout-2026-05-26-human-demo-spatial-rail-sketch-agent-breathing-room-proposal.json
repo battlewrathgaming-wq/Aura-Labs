@@ -1,0 +1,131 @@
+{
+  "id": "layout-2026-05-26-human-demo-spatial-rail-sketch-agent-breathing-room-proposal",
+  "title": "Agent breathing-room proposal from human rail sketch",
+  "status": "agent-proposal",
+  "viewport": {
+    "preset": "960x640",
+    "width": 960,
+    "height": 640,
+    "grid": 8
+  },
+  "source": {
+    "createdBy": "agent",
+    "basedOn": "layout-2026-05-26-human-demo-spatial-rail-sketch",
+    "project": "Aura Lab",
+    "context": "layout intent reference"
+  },
+  "panes": [
+    {
+      "id": "primary-readout",
+      "label": "Primary readout",
+      "grid": {
+        "x": 0,
+        "y": 0,
+        "w": 14,
+        "h": 80
+      },
+      "role": "readout",
+      "importance": "primary",
+      "locked": false,
+      "intent": {
+        "role": "readout",
+        "importance": "primary",
+        "anchor": "left",
+        "relationship": "spine beside open working field",
+        "notes": "Keep the strong full-height left anchor from the Human sketch."
+      },
+      "notes": "Keep the strong full-height left anchor from the Human sketch."
+    },
+    {
+      "id": "detail-drawer",
+      "label": "Detail drawer",
+      "grid": {
+        "x": 22,
+        "y": 65,
+        "w": 82,
+        "h": 15
+      },
+      "role": "detail",
+      "importance": "supporting",
+      "locked": false,
+      "intent": {
+        "role": "detail",
+        "importance": "supporting",
+        "anchor": "bottom",
+        "relationship": "tray below open working field",
+        "notes": "Widen the lower tray so it reads as a deliberate base, while leaving margins around the rails."
+      },
+      "notes": "Widen the lower tray so it reads as a deliberate base, while leaving margins around the rails."
+    },
+    {
+      "id": "notes",
+      "label": "Notes",
+      "grid": {
+        "x": 104,
+        "y": 10,
+        "w": 16,
+        "h": 54
+      },
+      "role": "notes",
+      "importance": "supporting",
+      "locked": false,
+      "intent": {
+        "role": "notes",
+        "importance": "supporting",
+        "anchor": "right",
+        "relationship": "quiet side rail opposite primary spine",
+        "notes": "Give the right rail enough width to feel readable, but keep it secondary."
+      },
+      "notes": "Give the right rail enough width to feel readable, but keep it secondary."
+    },
+    {
+      "id": "primary-readout-copy",
+      "label": "Primary readout copy",
+      "grid": {
+        "x": 52,
+        "y": 7,
+        "w": 30,
+        "h": 12
+      },
+      "role": "readout",
+      "importance": "primary",
+      "locked": false,
+      "intent": {
+        "role": "readout",
+        "importance": "primary",
+        "anchor": "top",
+        "relationship": "paired with compact support block",
+        "notes": "Move the top readout into a clearer top instrument cluster."
+      },
+      "notes": "Move the top readout into a clearer top instrument cluster."
+    },
+    {
+      "id": "pane-5",
+      "label": "Pane 5",
+      "grid": {
+        "x": 22,
+        "y": 7,
+        "w": 26,
+        "h": 12
+      },
+      "role": "surface",
+      "importance": "supporting",
+      "locked": false,
+      "intent": {
+        "role": "surface",
+        "importance": "supporting",
+        "anchor": "top",
+        "relationship": "paired with top readout",
+        "notes": "Keep this as the companion top block; slightly separate it from the left spine."
+      },
+      "notes": "Keep this as the companion top block; slightly separate it from the left spine."
+    }
+  ],
+  "review": {
+    "humanIntent": "Agent proposal preserving the Human rail/tray sketch while making top cluster, side notes, and open working field more legible.",
+    "agentNotes": "This proposal keeps the left spine and bottom tray, widens the notes rail, and leaves a large open center as the calm working field.",
+    "acceptedByHuman": false
+  },
+  "screenNote": "Agent proposal: preserve the rail/tray language, clarify the top instrument cluster, keep the center as breathing room.",
+  "updatedAt": "2026-05-26T06:50:00.000Z"
+}
