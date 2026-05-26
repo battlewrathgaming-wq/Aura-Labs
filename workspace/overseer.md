@@ -88,6 +88,20 @@ Lab owns Bridge -> Interface presentation language for humans. Source projects o
 
 Shared spelling does not imply shared meaning.
 
+## Cooperative Keyword Note
+
+If a key word, protected term, bridge-facing label, adapter label, or presentation phrase is unclear, treat the uncertainty as advisory and cooperative first.
+
+Use this shared working index as a navigation aid:
+
+`F:\Projects\Docs\Aura-Project-Orchestration\terminology\protected-term-working-index.md`
+
+Using or updating a keyword note does not infer ownership, accept shared doctrine, rename source meaning, update protected-word JSON, or authorize Dev work. Lab owns Bridge -> Interface presentation language only after preserving source-project meaning. Atlas and Sense still own their internal and Project -> Bridge meanings.
+
+If the meaning, owner, layer, or preserve/translate decision is unclear, stop and ask the Human or the relevant project Overseer before writing a runway or presenting the term as accepted.
+
+Overseer only: when the Human gives authority, the project Overseer may update the local critical terms or resting-state record so future agents can find the decision from disk. Specialists, Dev, and advisory workers should flag the issue in their handoff instead of updating authority surfaces themselves.
+
 ## Stop And Ask
 
 Stop and ask the Human if:

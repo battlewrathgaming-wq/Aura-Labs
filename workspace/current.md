@@ -1,16 +1,17 @@
 # Current Workspace Packet
 
-Status: Idle
+Status: Active
 Updated: 2026-05-26
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M35 - Pane Board Layout Capture
 Last completed milestone: M34 / HS134 - Instrument Readout Panel Prototype Acceptance
-Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after accepting the Instrument Readout Panel prototype.
-Expected artifact filename: Human direction or next Overseer runway artifact.
+Current executor: Specialist advisory
+Current focus: Define the Lab-only Pane Board as human-led, agent-cooperative layout reference tooling.
+Expected output: `workspace/ToolingHS138-pane-board-layout-capture-advisory.md`
+Expected artifact filename: `workspace/ToolingHS138-pane-board-layout-capture-advisory.md`
 
 ## Current State
 
@@ -46,6 +47,10 @@ Next possible directions:
 - another material/output only if there is a clear product-facing reason
 - park Lab until target-project feedback arrives
 
+Human has opened a tooling direction: Pane Board Layout Capture. This should help bridge the gap between words and spatial intent by letting the Human sketch rough layout zones and letting agents propose alternate layouts.
+
+M35 is advisory only. It should define the tool and cooperation contract before any Dev implementation.
+
 ## Source Of Intent
 
 Accepted source of intent:
@@ -70,6 +75,8 @@ Accepted source of intent:
 - `docs/roadmap/m32-export-boundary-review.md`
 - `docs/roadmap/m33-composed-display-output.md`
 - `docs/roadmap/m34-instrument-readout-panel-prototype.md`
+- `docs/roadmap/m35-pane-board-layout-capture.md`
+- `workspace/OverseerHS138-m35-pane-board-layout-capture-runway.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
 
@@ -85,19 +92,36 @@ Read first:
 - `docs/roadmap/m32-export-boundary-review.md`
 - `docs/roadmap/m33-composed-display-output.md`
 - `docs/roadmap/m34-instrument-readout-panel-prototype.md`
+- `docs/roadmap/m35-pane-board-layout-capture.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
 - `package.json`
 
 ## Ordered Dev Runway
 
-No active Dev runway. Current executor is Human / Overseer.
+No Dev runway. Current executor is Specialist advisory.
 
-No active ordered runway.
+Ordered advisory runway:
+
+1. Review HS138, M35 roadmap, current Lab boundaries, critical terms, and the protected-term working index.
+2. Define Pane Board as Lab-only tooling for advisory spatial layout reference.
+3. Define Human sketch, agent proposal, and accepted layout states.
+4. Define V1 feature scope: viewport presets, neutral panes, drag/resize, 8px snap, JSON save, PNG capture, reset, load proposal.
+5. Define the JSON shape and proposed `workspace/layout-captures/` path model.
+6. Define agent write rules: agents may create proposals but may not overwrite Human sketches without explicit authority.
+7. Create `workspace/ToolingHS138-pane-board-layout-capture-advisory.md`.
 
 ## Acceptance Criteria
 
-No active acceptance criteria.
+This advisory is acceptable if:
+
+- Pane Board is clearly Lab-only tooling
+- Human authority and agent cooperation are both explicit
+- JSON/PNG outputs are advisory spatial layout references only
+- Human sketch, agent proposal, and accepted layout states are separated
+- V1 is small enough for a bounded Dev prototype
+- target-project/product/runtime boundaries are preserved
+- unclear terms are routed through the protected-term advisory model
 
 ## Guardrails And Non-Goals
 
@@ -111,6 +135,8 @@ Standing guardrails:
 - Do not change bridge/runtime contracts without a new explicit milestone.
 - Do not rename Lab or target-project terms.
 - Do not run live/private/network tests.
+- Do not treat Pane Board output as product runtime state.
+- Do not let agents overwrite Human sketches without explicit authority.
 
 ## Stop Conditions
 
@@ -127,7 +153,7 @@ Stop and return to Human / Overseer direction if a future task requires:
 
 No verification is required for the advisory artifact.
 
-No active verification required while idle.
+Do not run Electron smoke; this packet should not change runtime behavior.
 
 ## Evidence
 
@@ -146,10 +172,15 @@ No active verification required while idle.
 - HS135 paused for housekeeping and keyword review after M34.
 - HS136 completed a bounded code/boundary review of the Instrument Readout Panel prototype.
 - HS137 accepted that review; no blockers were found and UI/UX visual polish can proceed if Human opens it.
+- M35 opened by HS138 as a Pane Board tooling advisory.
 
 ## Dev Handoff
 
-No active Dev handoff expected.
+No active Dev handoff expected. The expected artifact is advisory:
+
+```txt
+workspace/ToolingHS138-pane-board-layout-capture-advisory.md
+```
 
 ## Advisory Disposition
 
@@ -159,6 +190,7 @@ No active Dev handoff expected.
 - Accepted: M34 Instrument Readout Panel Prototype.
 - Accepted: HS135 housekeeping and keyword review.
 - Accepted: HS136 Instrument Readout Panel code/boundary review.
+- Opened: M35 Pane Board Layout Capture.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.

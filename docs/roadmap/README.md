@@ -11,15 +11,16 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-Post-M34 composed-output pause.
+M35 Pane Board tooling advisory.
 
-Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. The project is paused for Human / Overseer direction before further polish, split/export review, or target-project consumption.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. Human has opened a Lab tooling direction: Pane Board Layout Capture, a human-led and agent-cooperative way to capture advisory spatial layout references.
 
 ## Near Outcomes
 
 - Review the Instrument Readout Panel visually if Human wants polish.
+- Define Pane Board V1 before implementation.
 - Keep Summary / Basis / Details readability stable.
-- Keep accepted material and output pages aligned with prototype evidence.
+- Keep accepted material and output pages aligned with prototype observations.
 - Keep SmokeFlash as hidden/gated Lab tooling until a renderer split is earned.
 - Defer split/readiness until Human explicitly moves toward export or target consumption.
 
@@ -33,6 +34,7 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 | M32 | Export Boundary Review | Complete | `docs/roadmap/m32-export-boundary-review.md` |
 | M33 | Composed Display Output | Complete | `docs/roadmap/m33-composed-display-output.md` |
 | M34 | Instrument Readout Panel Prototype | Complete | `docs/roadmap/m34-instrument-readout-panel-prototype.md` |
+| M35 | Pane Board Layout Capture | Active | `docs/roadmap/m35-pane-board-layout-capture.md` |
 
 Candidate bank:
 
@@ -93,6 +95,13 @@ Post-prototype polish ready:
 - Human or UI/UX has concrete visual notes
 - the packet stays bounded to presentation polish
 - no split/export/adapter work is implied
+
+Pane Board tooling ready:
+
+- Human sketch, agent proposal, and accepted layout states are distinct
+- JSON/PNG output is an advisory spatial layout reference only
+- V1 is small enough to build
+- no product renderer, target adapter, or bridge/runtime contract is implied
 
 ## Parked Work
 

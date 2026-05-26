@@ -9,7 +9,7 @@ Aura Lab is a light Aura workspace for shaping portable post-bridge display mapp
 
 It should use the inherited Aura Core scaffold lightly while proving whether bridge-shaped data can be rendered into the desired desktop style across real/fixture data, empty/loading states, stale or failed bridge states, partial readout basis, long text, narrow layouts, and clear source/freshness/basis language.
 
-Aura Lab does not primarily own what each Aura product presents. It owns the Lab proving bench for everything past the bridge: display mapping, state grammar, typography, containment, shell verification, and visual smoke evidence.
+Aura Lab does not primarily own what each Aura product presents. It owns the Lab proving bench for everything past the bridge: display mapping, state grammar, typography, containment, shell verification, and visual smoke observations.
 
 Authority clarification: individual projects own internal-to-Bridge mappings. Bridge-to-Interface terminology should be preserved unless there is conflict or Human override; in those cases, Aura Lab owns shared user-facing terminology for the presentation layer.
 
@@ -34,8 +34,8 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M04 | Accepted M03 visual concept pack | Complete | Accepted one-screen Aura Lab visual prototype with typography, containment, and restrained sci-fi surface treatment. |
 | M05 | M04 closure residual risks | Complete | Accepted project-local Electron smoke wrapper and dedicated long-text visual smoke mode. |
 | M06 | UIUXHS27 accepted advisory | Complete | Accepted Engineering feasibility review for fixture-backed presentation families. |
-| M07 | M06 Engineering feasibility | Complete | Accepted UI/UX spec for Briefing plus Neutral Seed fixture-backed presentation family proof. |
-| M08 | M07 UI/UX spec | Complete | Accepted Dev prototype for Briefing plus Neutral Seed family/state proof. |
+| M07 | M06 Engineering feasibility | Complete | Accepted UI/UX spec for Briefing plus Neutral Seed fixture-backed presentation family prototype. |
+| M08 | M07 UI/UX spec | Complete | Accepted Dev prototype for Briefing plus Neutral Seed family/state coverage. |
 | M09 | Human direction after M08 closure | Complete | Accepted packaging classification for Lab-local, Core-neutral candidate, target-adaptable, and do-not-port outputs. |
 | M10 | Post-M09 UI/UX advisory | Complete | Accepted implemented Briefing plus Neutral Seed screenshot review. |
 | M11 | Human terminology correction, Overseer HS41 | Complete | Accepted neutral Presentation State Readout with physical/HUD-like theme and no default tactical/combat wording. |
@@ -62,16 +62,17 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M32 | Export Boundary Review | Complete | Accepted Engineering review; split/export remains parked and composed display output is recommended first. |
 | M33 | Composed Display Output | Complete | Accepted Instrument Readout Panel as the first combined Lab-local display output reference. |
 | M34 | Instrument Readout Panel Prototype | Complete | Accepted bounded Lab-local prototype of the Instrument Readout Panel composed output. |
+| M35 | Pane Board Layout Capture | Active | Advisory tooling milestone opened for human-led, agent-cooperative layout references. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M35 - Pane Board Layout Capture
 Last completed milestone: M34 / HS134 - Instrument Readout Panel Prototype Acceptance
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: none
+Current sequence: HS138
 Latest accepted handshake: workspace/complete/milestone-M34/OverseerHS137-codereviewhs136-acceptance.md
-Latest active runway: none
+Latest active runway: workspace/OverseerHS138-m35-pane-board-layout-capture-runway.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
 Housekeeping: active root cleaned on 2026-05-26; M19-M34 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
@@ -90,6 +91,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/roadmap/m31-display-material-repeat-cycle.md`
 - `docs/roadmap/m33-composed-display-output.md`
 - `docs/roadmap/m34-instrument-readout-panel-prototype.md`
+- `docs/roadmap/m35-pane-board-layout-capture.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/composed-display-output-candidate.md`
 - `docs/roadmap/m32-export-boundary-review.md`
@@ -138,7 +140,7 @@ Active milestone handshakes:
 
 - `workspace/LabRemoteConsumerConformanceHS66.md`
 - `workspace/request_display.md`
-- None.
+- `workspace/OverseerHS138-m35-pane-board-layout-capture-runway.md`
 
 Accepted authority records:
 
@@ -199,3 +201,4 @@ Completed milestone handshakes:
 - Should SmokeFlash split-readiness move forward before export, seeding, or target-project consumption?
 - Should Source / Basis Coverage Marker or Compact Value Rail become a later prototype?
 - Should the accepted Instrument Readout Panel prototype receive a UI/UX visual review, prototype polish packet, or export/split readiness review?
+- Should Pane Board V1 proceed from advisory spec into a bounded Lab-only Dev prototype?
