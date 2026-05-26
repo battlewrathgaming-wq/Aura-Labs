@@ -11,14 +11,14 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-Post-M37 Pane Board split pause.
+M38 Pane Board capability stabilization.
 
-Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 stabilizes Pane Board's capability loop before more expressive tooling work.
 
 ## Near Outcomes
 
 - Review the Instrument Readout Panel visually if Human wants polish.
-- Decide whether the next Pane Board step is portability review, dual-reading review, smoke-output retention policy, or park.
+- Stabilize Pane Board launch, stable-at-rest state, Human sketch protection, agent proposal separation, and gated capture behavior.
 - Keep Pane Board output advisory and separate from the clean presentation head.
 - Keep Summary / Basis / Details readability stable.
 - Keep accepted material and output pages aligned with prototype observations.
@@ -38,6 +38,7 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 | M35 | Pane Board Layout Capture | Complete | `docs/roadmap/m35-pane-board-layout-capture.md` |
 | M36 | Pane Board V1 Prototype | Complete | `docs/roadmap/m36-pane-board-v1-prototype.md` |
 | M37 | Pane Board Split Stabilization | Complete | `docs/roadmap/m37-pane-board-split-stabilization.md` |
+| M38 | Pane Board Capability Stabilization | Active | `docs/roadmap/m38-pane-board-capability-stabilization.md` |
 
 Candidate bank:
 
@@ -113,6 +114,14 @@ Pane Board V1 ready:
 - snapshots can preserve "grab that state" moments
 - Human sketches and agent proposals remain separate
 - clean presentation head remains independent
+
+Pane Board capability stabilization ready:
+
+- Human sketch state rests on disk and reloads predictably
+- agent proposals are separate and reference `basedOn`
+- screenshot capture is gated by explicit smoke or user/tool action
+- verification checks stable-state and overwrite-boundary behavior
+- qualitative Human-agent visual communication is preserved without making sketches product specs
 
 ## Parked Work
 

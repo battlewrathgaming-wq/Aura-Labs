@@ -65,16 +65,17 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M35 | Pane Board Layout Capture | Complete | Accepted Pane Board as Lab-only, human-led, agent-cooperative layout reference tooling. |
 | M36 | Pane Board V1 Prototype | Complete | Accepted first Lab-only Pane Board prototype with stateful-at-rest board, grid-unit panes, snapshots, PNG export, and "grab that state" path. |
 | M37 | Pane Board Split Stabilization | Complete | Accepted in-repo Lab-only tooling split with Pane Board module boundary, gated preload API, source-code firewall READMEs, and prompt firewall. |
+| M38 | Pane Board Capability Stabilization | Active | Stabilize Pane Board launch, stable-at-rest state, Human sketch protection, agent proposal separation, and gated capture behavior. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M38 - Pane Board Capability Stabilization
 Last completed milestone: M37 / HS143 - Pane Board Split Acceptance
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: None
+Current sequence: HS144
 Latest accepted handshake: workspace/OverseerHS143-m37-pane-board-split-acceptance.md
-Latest active runway: None
+Latest active runway: workspace/OverseerHS144-m38-pane-board-capability-stabilization-runway.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
 Housekeeping: active root cleaned on 2026-05-26; M19-M34 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
@@ -96,6 +97,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/roadmap/m35-pane-board-layout-capture.md`
 - `docs/roadmap/m36-pane-board-v1-prototype.md`
 - `docs/roadmap/m37-pane-board-split-stabilization.md`
+- `docs/roadmap/m38-pane-board-capability-stabilization.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/composed-display-output-candidate.md`
 - `docs/roadmap/m32-export-boundary-review.md`
@@ -153,6 +155,7 @@ Active milestone handshakes:
 - `workspace/OverseerHS142-m37-pane-board-split-runway.md`
 - `workspace/DevHS142-pane-board-split-stabilization.md`
 - `workspace/OverseerHS143-m37-pane-board-split-acceptance.md`
+- `workspace/OverseerHS144-m38-pane-board-capability-stabilization-runway.md`
 
 Accepted authority records:
 

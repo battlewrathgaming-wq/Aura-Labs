@@ -1,17 +1,17 @@
 # Current Workspace Packet
 
-Status: Idle
+Status: Active
 Updated: 2026-05-26
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M38 - Pane Board Capability Stabilization
 Last completed milestone: M37 / HS143 - Pane Board Split Acceptance
-Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after accepting the Pane Board tooling split.
-Expected output: Human direction or next Overseer runway artifact.
-Expected DevHS filename: None.
+Current executor: Dev
+Current focus: Stabilize Pane Board as a Lab-only spatial communication tool before adding more expressive tooling.
+Expected output: `workspace/DevHS144-pane-board-capability-stabilization.md`
+Expected DevHS filename: `workspace/DevHS144-pane-board-capability-stabilization.md`
 
 ## Current State
 
@@ -70,6 +70,16 @@ Pane Board is now behind a clearer Lab-only tooling boundary:
 
 This is not a full separate app/package split. It is an accepted stabilization step so future tooling work has a clearer place to live.
 
+M38 is now open to make Pane Board dependable enough to use as a shared Human-agent visual intent surface.
+
+The focus is the capability loop:
+
+```txt
+Human arranges panes -> board rests on disk -> Human says "grab that state" -> agent reads state -> agent writes a separate proposal -> Human compares
+```
+
+The qualitative value matters. Pane Board should help code represent visible intent, shape, hierarchy, pressure, and "that feels right" without turning UI direction into long chat-only instructions.
+
 ## Source Of Intent
 
 Accepted source of intent:
@@ -106,6 +116,8 @@ Accepted source of intent:
 - `workspace/OverseerHS142-m37-pane-board-split-runway.md`
 - `workspace/DevHS142-pane-board-split-stabilization.md`
 - `workspace/OverseerHS143-m37-pane-board-split-acceptance.md`
+- `docs/roadmap/m38-pane-board-capability-stabilization.md`
+- `workspace/OverseerHS144-m38-pane-board-capability-stabilization-runway.md`
 - `workspace/pane-board/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -133,6 +145,8 @@ Read first:
 - `workspace/OverseerHS142-m37-pane-board-split-runway.md`
 - `workspace/DevHS142-pane-board-split-stabilization.md`
 - `workspace/OverseerHS143-m37-pane-board-split-acceptance.md`
+- `docs/roadmap/m38-pane-board-capability-stabilization.md`
+- `workspace/OverseerHS144-m38-pane-board-capability-stabilization-runway.md`
 - `workspace/pane-board/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -140,11 +154,31 @@ Read first:
 
 ## Ordered Dev Runway
 
-No active Dev runway.
+Current executor is Dev.
+
+1. Inspect the current Pane Board launch, save/load, proposal, and screenshot paths without changing the product renderer.
+2. Define "stable board state" in the Pane Board docs and verifier scope. Include coordinates, labels, notes, lock state, status, review metadata, `basedOn`, and update timestamps where useful.
+3. Harden save/load so current board state round-trips predictably and remains grid-aligned.
+4. Harden Human sketch versus agent proposal separation so proposals write separately, include `basedOn`, and cannot overwrite Human sketches by default.
+5. Keep PNG capture gated by explicit smoke or user/tool action. Do not add background or free-running capture.
+6. Update `verify:pane-board` so it checks the stable-state and overwrite-boundary expectations.
+7. Create the expected DevHS with files changed, behavior changed, verification run, remaining risks, and any Human feel-test needs.
 
 ## Acceptance Criteria
 
-No active acceptance criteria while idle.
+M38 is acceptable if:
+
+- Pane Board launches through its Lab-only command.
+- normal presentation launch remains independent of Pane Board state.
+- board state rests at `workspace/pane-board/current-board.json`.
+- save/load preserves pane coordinates as grid-aligned integers.
+- labels, notes, lock state, status, and review fields survive reload.
+- agent proposals are separate files under `workspace/pane-board/agent-proposals/`.
+- agent proposals include `basedOn`.
+- agent proposal paths cannot overwrite Human sketches by default.
+- PNG capture is explicitly triggered, named, and inspectable.
+- `verify:pane-board` checks the stable-state and proposal-boundary expectations.
+- DevHS names any remaining Human feel-test needs.
 
 ## Guardrails And Non-Goals
 
@@ -161,7 +195,9 @@ Standing guardrails:
 - Do not make Pane Board part of the clean presentation head.
 - Do not replace SmokeFlash.
 - Do not add code generation or CSS export.
-- Do not add Pane Board feature expansion or polish beyond split-required fixes.
+- Do not add Pane Board feature expansion or polish beyond M38 stability needs.
+- Do not make screenshots automatic background output.
+- Do not treat coordinates as exact UI specs.
 
 ## Stop Conditions
 
@@ -176,10 +212,30 @@ Stop and return to Human / Overseer direction if a future task requires:
 - broad Electron restructuring
 - clean presentation head dependency on Pane Board state
 - Pane Board smoke breakage caused by the split
+- Human sketch protection requiring a larger storage model decision
+- screenshot capture requiring live/private/desktop-wide capture beyond the Pane Board window
 
 ## Required Verification
 
-No active verification while idle.
+Run:
+
+```cmd
+npm.cmd run verify:pane-board
+npm.cmd run verify:all
+npm.cmd run smoke:pane-board
+```
+
+Run normal Electron smoke if shared Electron launch, preload, normal renderer launch, or presentation renderer files changed:
+
+```cmd
+npm.cmd run smoke:electron
+```
+
+Then run from `F:\Projects\Docs\Aura-Project-Orchestration`:
+
+```cmd
+npm.cmd run verify:terminology
+```
 
 ## Evidence
 
@@ -212,10 +268,15 @@ No active verification while idle.
 - HS142 verification passed after the nested boundary update: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, `npm.cmd run smoke:electron`, `npm.cmd run smoke:pane-board`, and orchestration `npm.cmd run verify:terminology`.
 - HS142 normal Electron smoke passed in the sandbox on the final run. Earlier pre-nested Electron smoke failed inside the sandbox with `UnknownVizError` and passed when rerun through the approved outside-sandbox GUI smoke path. Pane Board smoke passed and produced `.tmp/pane-board-smoke/pane-board-smoke-result.json` with `status: passed`, `snapshot: workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-7.json`, and `png: workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-6.png`.
 - HS143 accepted M37 after Overseer review and verification. The accepted boundary is an in-repo Lab-only tooling split, not a full separate app/package split. Latest Pane Board smoke record references `workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-8.json` and `workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-7.png`.
+- M38 opened by HS144 to stabilize Pane Board's launch, stable-at-rest state, Human sketch protection, agent proposal separation, and gated capture behavior before adding more expressive tooling.
 
 ## Dev Handoff
 
-No active Dev handoff required while idle.
+Dev handoff expected:
+
+```txt
+workspace/DevHS144-pane-board-capability-stabilization.md
+```
 
 ## Advisory Disposition
 
@@ -228,6 +289,7 @@ No active Dev handoff required while idle.
 - Accepted: M35 Pane Board Layout Capture.
 - Accepted: M36 Pane Board V1 Prototype.
 - Accepted: M37 Pane Board Split Stabilization.
+- Opened: M38 Pane Board Capability Stabilization.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.
