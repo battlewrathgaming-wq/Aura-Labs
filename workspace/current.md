@@ -1,17 +1,17 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-05-26
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M39 - Pane Board Ownership And View Clarity
-Last completed milestone: M38 / HS145 - Pane Board Capability Acceptance
-Current executor: Dev
-Current focus: Fix Pane Board ownership and view-state confusion before broader collaboration affordances.
-Expected output: `workspace/DevHS148-pane-board-ownership-view-clarity.md`
-Expected DevHS filename: `workspace/DevHS148-pane-board-ownership-view-clarity.md`
+Active milestone: None
+Last completed milestone: M39 / HS149 - Pane Board Ownership And View Clarity Acceptance
+Current executor: Human / Overseer
+Current focus: Await Human / Overseer direction after accepting Pane Board ownership and view-state clarity.
+Expected output: Human direction or next Overseer runway artifact.
+Expected DevHS filename: None.
 
 ## Current State
 
@@ -100,6 +100,10 @@ The post-M38 bug hunt is accepted.
 
 It found that Pane Board is safe for supervised proof-of-concept use but not yet safe for regular Lab collaboration. The critical issue is ownership/view-state confusion: `current-board.json` can become `status: agent-proposal` with `source.createdBy: agent` and `source.basedOn: null`, and the verifier currently allows that. M39 is opened to fix this barrier before broader collaboration affordances.
 
+M39 is accepted.
+
+Pane Board now blocks no-lineage agent-proposal current-board saves, shows visible ownership/status treatment, supports Refresh from disk, provides a minimal Back to sketch recovery path, and keeps the current board corrected to Human sketch ownership.
+
 ## Source Of Intent
 
 Accepted source of intent:
@@ -144,6 +148,8 @@ Accepted source of intent:
 - `workspace/OverseerHS147-pane-board-bug-hunt-acceptance.md`
 - `docs/roadmap/m39-pane-board-ownership-view-clarity.md`
 - `workspace/OverseerHS148-m39-pane-board-ownership-view-clarity-runway.md`
+- `workspace/DevHS148-pane-board-ownership-view-clarity.md`
+- `workspace/OverseerHS149-m39-pane-board-ownership-view-clarity-acceptance.md`
 - `workspace/pane-board/human-sketches/layout-2026-05-26-human-demo-spatial-rail-sketch.json`
 - `workspace/pane-board/agent-proposals/layout-2026-05-26-human-demo-spatial-rail-sketch-agent-breathing-room-proposal.json`
 - `workspace/pane-board/README.md`
@@ -181,6 +187,8 @@ Read first:
 - `workspace/OverseerHS147-pane-board-bug-hunt-acceptance.md`
 - `docs/roadmap/m39-pane-board-ownership-view-clarity.md`
 - `workspace/OverseerHS148-m39-pane-board-ownership-view-clarity-runway.md`
+- `workspace/DevHS148-pane-board-ownership-view-clarity.md`
+- `workspace/OverseerHS149-m39-pane-board-ownership-view-clarity-acceptance.md`
 - `workspace/pane-board/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -188,28 +196,11 @@ Read first:
 
 ## Ordered Dev Runway
 
-Current executor is Dev.
-
-1. Inspect the current board load/save/status controls and reproduce or reason through the invalid state: `status: agent-proposal`, `source.createdBy: agent`, `source.basedOn: null`.
-2. Update validation/verification so invalid current-board ownership states fail.
-3. Guard the UI so direct status changes to `agent-proposal` require lineage or are prevented with clear behavior.
-4. Add a simple Refresh / Redraw control that reloads board state from disk without relaunching.
-5. Add a visible ownership/status chip or banner so the user can tell whether the visible board is Human sketch, agent proposal, accepted, parked, rejected, or working view.
-6. Add a minimal recovery path back to the Human sketch / current working board after proposal-like state is viewed.
-7. Create the expected DevHS with files changed, behavior changed, verification run, and remaining risks.
+No active Dev runway.
 
 ## Acceptance Criteria
 
-M39 is acceptable if:
-
-- `verify:pane-board` fails for `agent-proposal` current boards that lack `source.basedOn`.
-- UI does not allow creating an agent-proposal current board without lineage.
-- visible UI makes current board ownership/status obvious.
-- user/tool can refresh from disk without relaunching.
-- viewing or loading proposal-like state does not silently overwrite the Human sketch.
-- there is a clear path back to the Human sketch / current working board.
-- existing Pane Board smoke still passes.
-- no product renderer files are changed.
+No active acceptance criteria while idle.
 
 ## Guardrails And Non-Goals
 
@@ -250,25 +241,7 @@ Stop and return to Human / Overseer direction if a future task requires:
 
 ## Required Verification
 
-Run:
-
-```cmd
-npm.cmd run verify:pane-board
-npm.cmd run verify:all
-npm.cmd run smoke:pane-board
-```
-
-Run normal Electron smoke only if shared Electron launch, shared preload, normal renderer launch, or presentation renderer files change:
-
-```cmd
-npm.cmd run smoke:electron
-```
-
-Then run from `F:\Projects\Docs\Aura-Project-Orchestration`:
-
-```cmd
-npm.cmd run verify:terminology
-```
+No active verification while idle.
 
 ## Evidence
 
@@ -310,14 +283,12 @@ npm.cmd run verify:terminology
 - HS146 accepted the post-M38 Human feel test as a successful proof of concept. It preserved `workspace\pane-board\human-sketches\layout-2026-05-26-human-demo-spatial-rail-sketch.json` and `workspace\pane-board\agent-proposals\layout-2026-05-26-human-demo-spatial-rail-sketch-agent-breathing-room-proposal.json` as examples of the intended Human/agent spatial loop.
 - HS147 accepted the post-M38 bug hunt. It found Pane Board is safe for supervised proof-of-concept use but not yet safe for regular Lab collaboration because current/proposal ownership can become ambiguous or invalid.
 - M39 opened by HS148 to fix ownership and view-state clarity before broader collaboration affordances.
+- DevHS148 completed M39 ownership/view clarity. Current-board saves now reject no-lineage `agent-proposal` state, the UI guards direct agent-proposal selection without lineage, ownership/status is visible, Refresh reloads from disk, and Back to sketch restores Human sketch ownership.
+- HS149 accepted M39 after Overseer review and rerun verification. Latest Pane Board smoke record reported `status: passed`, `snapshot: workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-12.json`, `png: workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-11.png`, `based_on: layout-2026-05-26-pane-board-v1`, and `pane_count: 5`.
 
 ## Dev Handoff
 
-Dev handoff expected:
-
-```txt
-workspace/DevHS148-pane-board-ownership-view-clarity.md
-```
+No active Dev handoff required while idle.
 
 ## Advisory Disposition
 
@@ -333,7 +304,7 @@ workspace/DevHS148-pane-board-ownership-view-clarity.md
 - Accepted: M38 Pane Board Capability Stabilization.
 - Accepted: Post-M38 Pane Board feel test proof of concept.
 - Accepted: Post-M38 Pane Board bug hunt.
-- Opened: M39 Pane Board Ownership And View Clarity.
+- Accepted: M39 Pane Board Ownership And View Clarity.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.
@@ -355,3 +326,4 @@ workspace/DevHS148-pane-board-ownership-view-clarity.md
 - Pane Board is useful only if it keeps supporting portable display-element formation rather than one-off local layout work.
 - Pane Board feel testing revealed that proposal navigation, compare, accept/park/save, and clearer note lanes are likely needed before heavier usage.
 - Pane Board bug hunt found current/proposal ownership ambiguity. M39 should resolve that before broader collaboration features.
+- M39 provides minimal recovery, not full saved-state navigation. Proposal navigation, compare, accept/park/reject, and note lanes remain future collaboration-affordance work.

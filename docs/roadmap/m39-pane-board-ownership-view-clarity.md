@@ -1,6 +1,6 @@
 # M39 - Pane Board Ownership And View Clarity
 
-Status: Active
+Status: Complete
 
 ## Outcome
 

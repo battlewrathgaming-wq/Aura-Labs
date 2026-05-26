@@ -45,8 +45,17 @@ function wireControls() {
     setViewport(event.target.value);
   });
   document.querySelector('#board-status').addEventListener('change', (event) => {
+    const previousStatus = boardState.board.status || 'human-sketch';
+    if (event.target.value === 'agent-proposal' && !boardState.board.source?.basedOn) {
+      event.target.value = previousStatus;
+      showMessage('Use Grab state with Based on to create an agent proposal.');
+      return;
+    }
     boardState.board.status = event.target.value;
-    boardState.board.source.createdBy = event.target.value === 'agent-proposal' ? 'agent' : boardState.board.source.createdBy || 'human';
+    boardState.board.source.createdBy = event.target.value === 'agent-proposal' ? 'agent' : 'human';
+    if (event.target.value !== 'agent-proposal') {
+      boardState.board.source.basedOn = null;
+    }
     scheduleSave('status-edited');
     renderMeta();
   });
@@ -64,6 +73,8 @@ function wireControls() {
   document.querySelector('#lock-pane').addEventListener('click', toggleSelectedPaneLock);
   document.querySelector('#grab-state').addEventListener('click', grabState);
   document.querySelector('#export-png').addEventListener('click', exportPng);
+  document.querySelector('#refresh-board').addEventListener('click', refreshBoard);
+  document.querySelector('#return-sketch').addEventListener('click', returnToSketch);
 }
 
 function setViewport(preset) {
@@ -163,6 +174,28 @@ function renderMeta() {
     chip.textContent = value;
     meta.appendChild(chip);
   }
+  renderOwnershipBanner();
+}
+
+function renderOwnershipBanner() {
+  const banner = document.querySelector('#ownership-banner');
+  const board = boardState.board;
+  const owner = board.source?.createdBy === 'agent' ? 'agent' : 'human';
+  const basedOn = board.source?.basedOn ? ` / based on ${board.source.basedOn}` : '';
+  banner.dataset.status = board.status || 'human-sketch';
+  banner.textContent = `${statusLabel(board.status)} / ${owner}${basedOn}`;
+}
+
+function statusLabel(status) {
+  const labels = {
+    'human-sketch': 'Human sketch',
+    'agent-proposal': 'Agent proposal',
+    'human-accepted': 'Accepted',
+    superseded: 'Superseded',
+    parked: 'Parked',
+    rejected: 'Rejected'
+  };
+  return labels[status] || 'Working view';
 }
 
 function selectPane(id) {
@@ -340,9 +373,14 @@ function deletePane() {
 async function scheduleSave(reason) {
   clearTimeout(boardState.saveTimer);
   boardState.saveTimer = setTimeout(async () => {
-    boardState.board = await window.auraPaneBoard.save(boardState.board, reason);
-    showMessage('Saved current board.');
-    renderMeta();
+    try {
+      boardState.board = await window.auraPaneBoard.save(boardState.board, reason);
+      showMessage('Saved current board.');
+      renderBoard();
+    } catch (error) {
+      showMessage(error.message);
+      renderBoard();
+    }
   }, 120);
 }
 
@@ -351,7 +389,9 @@ async function grabState() {
   boardState.board = await window.auraPaneBoard.save(boardState.board, 'before-snapshot');
   const status = document.querySelector('#snapshot-status').value;
   const title = document.querySelector('#snapshot-title').value || boardState.board.title;
-  const basedOn = document.querySelector('#snapshot-based-on').value;
+  const basedOnInput = document.querySelector('#snapshot-based-on');
+  const basedOn = basedOnInput.value || (status === 'agent-proposal' ? boardState.board.id : '');
+  basedOnInput.value = basedOn;
   try {
     const result = await window.auraPaneBoard.snapshot({ board: boardState.board, status, title, basedOn });
     showMessage(`Grabbed ${relativePath(result.path)}.`);
@@ -366,6 +406,29 @@ async function exportPng() {
   boardState.board = await window.auraPaneBoard.save(boardState.board, 'before-png-export');
   const result = await window.auraPaneBoard.exportPng({ board: boardState.board, title: boardState.board.title });
   showMessage(`PNG saved ${relativePath(result.path)}.`);
+}
+
+async function refreshBoard() {
+  clearTimeout(boardState.saveTimer);
+  boardState.board = await window.auraPaneBoard.load();
+  boardState.selectedId = boardState.board.panes[0]?.id || null;
+  renderBoard();
+  showMessage('Refreshed from disk.');
+}
+
+async function returnToSketch() {
+  clearTimeout(boardState.saveTimer);
+  boardState.board.status = 'human-sketch';
+  boardState.board.source = {
+    ...(boardState.board.source || {}),
+    createdBy: 'human',
+    basedOn: null,
+    project: 'Aura Lab',
+    context: 'layout intent sketch'
+  };
+  boardState.board = await window.auraPaneBoard.save(boardState.board, 'return-to-human-sketch');
+  renderBoard();
+  showMessage('Returned current board to Human sketch.');
 }
 
 function clampPanesToBoard() {

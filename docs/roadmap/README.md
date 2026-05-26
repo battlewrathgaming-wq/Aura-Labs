@@ -11,15 +11,15 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-M39 Pane Board ownership and view clarity.
+Post-M39 Pane Board ownership clarity pause.
 
-Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 is fixing ownership and view-state clarity before broader collaboration affordances.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 accepted ownership and view-state clarity fixes before broader collaboration affordances.
 
 ## Near Outcomes
 
 - Review the Instrument Readout Panel visually if Human wants polish.
-- Fix Pane Board current/proposal ownership ambiguity.
-- Add minimal refresh/redraw, status visibility, and return-to-sketch behavior before broader collaboration work.
+- Human feel test the M39 ownership/status banner, Refresh, and Back to sketch behavior.
+- Decide whether M40 should open collaboration affordances: proposal navigation, compare, accept/park/reject, and note lanes.
 - Keep Pane Board output advisory and separate from the clean presentation head.
 - Keep Summary / Basis / Details readability stable.
 - Keep accepted material and output pages aligned with prototype observations.
@@ -40,7 +40,7 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 | M36 | Pane Board V1 Prototype | Complete | `docs/roadmap/m36-pane-board-v1-prototype.md` |
 | M37 | Pane Board Split Stabilization | Complete | `docs/roadmap/m37-pane-board-split-stabilization.md` |
 | M38 | Pane Board Capability Stabilization | Complete | `docs/roadmap/m38-pane-board-capability-stabilization.md` |
-| M39 | Pane Board Ownership And View Clarity | Active | `docs/roadmap/m39-pane-board-ownership-view-clarity.md` |
+| M39 | Pane Board Ownership And View Clarity | Complete | `docs/roadmap/m39-pane-board-ownership-view-clarity.md` |
 
 Candidate bank:
 

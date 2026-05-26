@@ -29,6 +29,7 @@ function main() {
   assert(paneBoardMain.includes('aura:pane-board:export-png'), 'Pane Board module should expose PNG export IPC');
   assert(paneBoardMain.includes('board-events.ndjson'), 'Pane Board module should append an event log');
   assert(paneBoardMain.includes('Agent proposals must include basedOn.'), 'agent proposals should require basedOn');
+  assert(paneBoardMain.includes('Current board cannot be an agent proposal without basedOn.'), 'current-board agent proposals should require basedOn');
   assert(paneBoardMain.includes('capturePage'), 'Pane Board module should export PNG through Electron capturePage');
   assert(paneBoardMain.includes('pane-board-smoke-result.json'), 'Pane Board smoke should write a result artifact');
   assert(paneBoardMain.includes('return normalizePaneBoard(JSON.parse'), 'Pane Board load should normalize current-board state');
@@ -48,7 +49,13 @@ function main() {
   assert(html.includes('board-canvas'), 'Pane Board should include a visible canvas');
   assert(html.includes('960 x 640'), 'Pane Board should expose the 960x640 preset');
   assert(html.includes('720 x 640'), 'Pane Board should expose the 720x640 preset');
+  assert(html.includes('Layout Intent Board'), 'Pane Board should use the Layout Intent Board tool surface label');
+  assert(html.includes('Aura Lab / Pane Board'), 'Pane Board should use compact in-window identity');
+  assert(html.includes('<title>Aura Lab Pane Board</title>'), 'Pane Board should use Aura Lab Pane Board document identity');
   assert(html.includes('grab-state'), 'Pane Board should include a grab state action');
+  assert(html.includes('refresh-board'), 'Pane Board should include a refresh action');
+  assert(html.includes('return-sketch'), 'Pane Board should include a path back to the Human sketch');
+  assert(html.includes('ownership-banner'), 'Pane Board should include a visible ownership/status banner');
   assert(html.includes('snapshot-based-on'), 'Pane Board should include basedOn input for proposals');
   assert(html.includes('screen-note-text'), 'Pane Board should include an on-screen note surface');
   assert(app.includes('Pointer Events') || app.includes('pointerdown'), 'Pane Board should use pointer events for drag/resize');
@@ -57,10 +64,14 @@ function main() {
   assert(app.includes('auraPaneBoard.save'), 'Pane Board should save the current board');
   assert(app.includes('auraPaneBoard.snapshot'), 'Pane Board should snapshot current board');
   assert(app.includes('auraPaneBoard.exportPng'), 'Pane Board should export PNG');
+  assert(app.includes('Use Grab state with Based on to create an agent proposal.'), 'Pane Board should guard direct agent-proposal state changes');
+  assert(app.includes('auraPaneBoard.load'), 'Pane Board should refresh from disk');
+  assert(app.includes('return-to-human-sketch'), 'Pane Board should support recovery back to a Human sketch state');
   assert(!app.includes('boardState.board = result.board'), 'snapshot creation should not replace the current board with a proposal');
   assert(app.includes('screen-note-edited'), 'Pane Board should persist on-screen note edits');
   assert(!app.includes('innerHTML'), 'Pane Board renderer should avoid innerHTML');
   assert(styles.includes('.board-canvas'), 'Pane Board styles should render the board canvas');
+  assert(styles.includes('.ownership-banner'), 'Pane Board styles should render ownership/status clarity');
   assert(styles.includes('.screen-note'), 'Pane Board styles should render the screen note surface');
   assert(styles.includes('8px 8px'), 'Pane Board styles should show the 8px grid');
   assert(styles.includes('.resize-handle'), 'Pane Board styles should include resize handle treatment');
@@ -70,6 +81,10 @@ function main() {
   assert(['human-sketch', 'agent-proposal', 'human-accepted', 'superseded', 'parked', 'rejected'].includes(current.status), 'current board should use an accepted board status');
   assert(current.source && current.source.project === 'Aura Lab', 'current board should keep source metadata');
   assert(Object.prototype.hasOwnProperty.call(current.source, 'basedOn'), 'current board source should include basedOn');
+  if (current.status === 'agent-proposal') {
+    assert(current.source.createdBy === 'agent', 'current-board agent proposal should be agent-authored');
+    assert(typeof current.source.basedOn === 'string' && current.source.basedOn.length > 0, 'current-board agent proposal should include basedOn');
+  }
   assert(current.review && typeof current.review.humanIntent === 'string', 'current board should preserve review humanIntent');
   assert(typeof current.review.agentNotes === 'string', 'current board should preserve review agentNotes');
   assert(typeof current.review.acceptedByHuman === 'boolean', 'current board should preserve review acceptedByHuman');

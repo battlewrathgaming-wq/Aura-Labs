@@ -1,6 +1,5 @@
 const path = require('node:path');
 const fs = require('node:fs');
-const { APP_NAME } = require('../../../constants');
 const { createFrameWindow } = require('../../../modules/Frame');
 
 const PANE_BOARD_ROOT = path.join(process.cwd(), 'workspace', 'pane-board');
@@ -19,7 +18,7 @@ function createPaneBoardWindow({ app, preload, setMainWindow, waitForLoad, delay
     height: 640,
     minWidth: 720,
     minHeight: 640,
-    title: `${APP_NAME} Pane Board`,
+    title: 'Aura Lab Pane Board',
     preload,
     backgroundColor: '#101416',
     defaultAlwaysOnTop: false
@@ -156,6 +155,7 @@ function readPaneBoard() {
 function writePaneBoard(board, reason = 'save') {
   const paths = ensurePaneBoardDirs();
   const cleanBoard = normalizePaneBoard(board);
+  validatePaneBoardOwnership(cleanBoard);
   fs.writeFileSync(paths.current, `${JSON.stringify(cleanBoard, null, 2)}\n`, 'utf8');
   appendPaneBoardEvent({
     type: 'board-saved',
@@ -204,6 +204,21 @@ function snapshotPaneBoard({ board, status, title, basedOn } = {}) {
     board: snapshot,
     path: targetPath
   };
+}
+
+function validatePaneBoardOwnership(board) {
+  if (board?.status === 'agent-proposal') {
+    if (board.source?.createdBy !== 'agent') {
+      const error = new Error('Agent proposal boards must be agent-authored.');
+      error.code = 'PANE_BOARD_AGENT_AUTHOR_REQUIRED';
+      throw error;
+    }
+    if (typeof board.source?.basedOn !== 'string' || board.source.basedOn.length === 0) {
+      const error = new Error('Current board cannot be an agent proposal without basedOn.');
+      error.code = 'PANE_BOARD_CURRENT_BASED_ON_REQUIRED';
+      throw error;
+    }
+  }
 }
 
 async function exportPaneBoardPng(window, { board, title } = {}) {

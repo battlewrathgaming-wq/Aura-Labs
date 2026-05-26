@@ -44,6 +44,10 @@
           <button type="button" id="duplicate-pane">Duplicate</button>
           <button type="button" id="delete-pane">Delete</button>
         </div>
+        <div class="button-row board-actions">
+          <button type="button" id="refresh-board">Refresh</button>
+          <button type="button" id="return-sketch">Back to sketch</button>
+        </div>
         <section class="pane-editor" aria-label="Selected pane">
           <label for="pane-label">Label</label>
           <input id="pane-label">
@@ -83,6 +87,7 @@
         <output id="board-message" aria-live="polite"></output>
       </aside>
       <section class="board-region" aria-label="Pane board">
+        <div class="ownership-banner" id="ownership-banner"></div>
         <div class="board-meta" id="board-meta"></div>
         <section class="screen-note" aria-label="Screen note">
           <label for="screen-note-text">Screen note</label>

@@ -168,6 +168,10 @@ textarea:focus {
   grid-template-columns: 1fr 70px;
 }
 
+.board-actions {
+  grid-template-columns: 1fr 1fr;
+}
+
 #board-message {
   min-height: 32px;
   color: var(--accent);
@@ -178,7 +182,7 @@ textarea:focus {
 
 .board-region {
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-rows: auto auto auto minmax(0, 1fr);
   min-width: 0;
   overflow: hidden;
   padding: 16px;
@@ -186,6 +190,32 @@ textarea:focus {
     linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px) 0 0 / 72px 72px,
     linear-gradient(0deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px) 0 0 / 72px 72px,
     linear-gradient(135deg, #101416 0%, #151b1d 100%);
+}
+
+.ownership-banner {
+  display: block;
+  min-height: 34px;
+  margin: 0 0 8px;
+  border: 1px solid var(--line-hot);
+  border-radius: 7px;
+  padding: 8px 10px;
+  background: rgba(117, 213, 199, 0.08);
+  color: var(--fg);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.ownership-banner[data-status="agent-proposal"] {
+  border-color: rgba(215, 193, 111, 0.58);
+  background: rgba(215, 193, 111, 0.1);
+  color: var(--accent-2);
+}
+
+.ownership-banner[data-status="rejected"] {
+  border-color: rgba(239, 119, 108, 0.5);
+  background: rgba(239, 119, 108, 0.08);
 }
 
 .board-meta {
