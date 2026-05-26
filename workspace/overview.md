@@ -75,7 +75,7 @@ Last completed milestone: M39 / HS149 - Pane Board Ownership And View Clarity Ac
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
 Current sequence: None
-Latest accepted handshake: workspace/OverseerHS149-m39-pane-board-ownership-view-clarity-acceptance.md
+Latest accepted handshake: workspace/OverseerHS150-pane-board-step-controls-snapshot.md
 Latest active runway: None
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
@@ -165,6 +165,7 @@ Active milestone handshakes:
 - `workspace/OverseerHS148-m39-pane-board-ownership-view-clarity-runway.md`
 - `workspace/DevHS148-pane-board-ownership-view-clarity.md`
 - `workspace/OverseerHS149-m39-pane-board-ownership-view-clarity-acceptance.md`
+- `workspace/OverseerHS150-pane-board-step-controls-snapshot.md`
 
 Accepted authority records:
 

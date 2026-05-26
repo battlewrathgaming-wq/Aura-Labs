@@ -1,7 +1,7 @@
 {
-  "id": "layout-2026-05-26-pane-board-v1",
-  "title": "Pane Board V1 working sketch",
-  "status": "human-sketch",
+  "id": "layout-2026-05-26-pane-board-v1-smoke-proposal",
+  "title": "Pane Board V1 smoke proposal",
+  "status": "agent-proposal",
   "viewport": {
     "preset": "960x640",
     "width": 960,
@@ -9,18 +9,18 @@
     "grid": 8
   },
   "source": {
-    "createdBy": "human",
-    "basedOn": null,
+    "createdBy": "agent",
+    "basedOn": "layout-2026-05-26-pane-board-v1",
     "project": "Aura Lab",
-    "context": "layout intent sketch"
+    "context": "layout intent reference"
   },
   "panes": [
     {
       "id": "primary-readout",
       "label": "Primary readout",
       "grid": {
-        "x": 0,
-        "y": 0,
+        "x": 1,
+        "y": 1,
         "w": 10,
         "h": 43
       },
@@ -127,5 +127,5 @@
     "acceptedByHuman": false
   },
   "screenNote": "Labs step test: Detail drawer nudged 4 grid cells upward while keeping the tray shape.",
-  "updatedAt": "2026-05-26T20:28:11.747Z"
+  "updatedAt": "2026-05-26T20:28:11.675Z"
 }

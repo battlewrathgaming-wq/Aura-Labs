@@ -164,6 +164,43 @@ textarea:focus {
   gap: 8px;
 }
 
+.nudge-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 34px);
+  grid-template-rows: repeat(3, 30px);
+  justify-content: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.nudge-pane {
+  min-width: 34px;
+  min-height: 30px;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.nudge-pane[data-dy="-1"] {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.nudge-pane[data-dx="-1"] {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.nudge-pane[data-dx="1"] {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.nudge-pane[data-dy="1"] {
+  grid-column: 2;
+  grid-row: 3;
+}
+
 .snapshot-panel .button-row {
   grid-template-columns: 1fr 70px;
 }

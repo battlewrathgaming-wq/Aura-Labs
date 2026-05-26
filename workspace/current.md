@@ -150,6 +150,9 @@ Accepted source of intent:
 - `workspace/OverseerHS148-m39-pane-board-ownership-view-clarity-runway.md`
 - `workspace/DevHS148-pane-board-ownership-view-clarity.md`
 - `workspace/OverseerHS149-m39-pane-board-ownership-view-clarity-acceptance.md`
+- `workspace/OverseerHS150-pane-board-step-controls-snapshot.md`
+- `workspace/pane-board/concepts/presentation-mechanics-and-human-read.md`
+- `workspace/pane-board/concepts/surface-parts-capture-workflow.md`
 - `workspace/pane-board/human-sketches/layout-2026-05-26-human-demo-spatial-rail-sketch.json`
 - `workspace/pane-board/agent-proposals/layout-2026-05-26-human-demo-spatial-rail-sketch-agent-breathing-room-proposal.json`
 - `workspace/pane-board/README.md`
@@ -189,6 +192,7 @@ Read first:
 - `workspace/OverseerHS148-m39-pane-board-ownership-view-clarity-runway.md`
 - `workspace/DevHS148-pane-board-ownership-view-clarity.md`
 - `workspace/OverseerHS149-m39-pane-board-ownership-view-clarity-acceptance.md`
+- `workspace/OverseerHS150-pane-board-step-controls-snapshot.md`
 - `workspace/pane-board/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -285,6 +289,7 @@ No active verification while idle.
 - M39 opened by HS148 to fix ownership and view-state clarity before broader collaboration affordances.
 - DevHS148 completed M39 ownership/view clarity. Current-board saves now reject no-lineage `agent-proposal` state, the UI guards direct agent-proposal selection without lineage, ownership/status is visible, Refresh reloads from disk, and Back to sketch restores Human sketch ownership.
 - HS149 accepted M39 after Overseer review and rerun verification. Latest Pane Board smoke record reported `status: passed`, `snapshot: workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-12.json`, `png: workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-11.png`, `based_on: layout-2026-05-26-pane-board-v1`, and `pane_count: 5`.
+- HS150 accepted a post-M39 Pane Board step-controls snapshot. It added small selected-pane nudge controls, preserved current board state from the hands-on pass, and preserved two Lab sandpit concept notes under `workspace\pane-board\concepts\`. Verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, `npm.cmd run smoke:pane-board`, and orchestration `npm.cmd run verify:terminology`.
 
 ## Dev Handoff
 
@@ -305,6 +310,7 @@ No active Dev handoff required while idle.
 - Accepted: Post-M38 Pane Board feel test proof of concept.
 - Accepted: Post-M38 Pane Board bug hunt.
 - Accepted: M39 Pane Board Ownership And View Clarity.
+- Accepted: Post-M39 Pane Board step-controls snapshot.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.

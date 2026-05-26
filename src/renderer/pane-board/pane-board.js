@@ -71,6 +71,9 @@ function wireControls() {
     document.querySelector(selector).addEventListener('input', updateSelectedPaneFromEditor);
   }
   document.querySelector('#lock-pane').addEventListener('click', toggleSelectedPaneLock);
+  for (const button of document.querySelectorAll('.nudge-pane')) {
+    button.addEventListener('click', () => nudgeSelectedPane(Number(button.dataset.dx), Number(button.dataset.dy)));
+  }
   document.querySelector('#grab-state').addEventListener('click', grabState);
   document.querySelector('#export-png').addEventListener('click', exportPng);
   document.querySelector('#refresh-board').addEventListener('click', refreshBoard);
@@ -145,6 +148,9 @@ function renderEditor() {
   const disabled = !pane;
   for (const selector of ['#pane-label', '#pane-role', '#pane-importance', '#pane-anchor', '#pane-relationship', '#pane-notes', '#lock-pane', '#duplicate-pane', '#delete-pane']) {
     document.querySelector(selector).disabled = disabled;
+  }
+  for (const button of document.querySelectorAll('.nudge-pane')) {
+    button.disabled = disabled || pane?.locked === true;
   }
   if (!pane) {
     return;
@@ -316,6 +322,19 @@ function toggleSelectedPaneLock() {
   pane.locked = !pane.locked;
   scheduleSave(pane.locked ? 'pane-locked' : 'pane-unlocked');
   renderBoard();
+}
+
+function nudgeSelectedPane(dx, dy) {
+  const pane = selectedPane();
+  if (!pane || pane.locked) {
+    return;
+  }
+  pane.grid.x += dx;
+  pane.grid.y += dy;
+  clampPane(pane);
+  positionPaneNode(pane);
+  renderEditor();
+  scheduleSave('pane-nudged');
 }
 
 function addPane() {

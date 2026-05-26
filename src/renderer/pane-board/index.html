@@ -66,6 +66,12 @@
           <label for="pane-notes">Notes</label>
           <textarea id="pane-notes" rows="5"></textarea>
           <button type="button" id="lock-pane">Lock</button>
+          <div class="nudge-pad" aria-label="Nudge selected pane">
+            <button class="nudge-pane" type="button" data-dx="0" data-dy="-1" title="Nudge up" aria-label="Nudge selected pane up">↑</button>
+            <button class="nudge-pane" type="button" data-dx="-1" data-dy="0" title="Nudge left" aria-label="Nudge selected pane left">←</button>
+            <button class="nudge-pane" type="button" data-dx="1" data-dy="0" title="Nudge right" aria-label="Nudge selected pane right">→</button>
+            <button class="nudge-pane" type="button" data-dx="0" data-dy="1" title="Nudge down" aria-label="Nudge selected pane down">↓</button>
+          </div>
         </section>
         <section class="snapshot-panel" aria-label="Snapshot">
           <label for="snapshot-status">Grab as</label>
