@@ -1,6 +1,6 @@
 # M37 - Pane Board Split Stabilization
 
-Status: Active
+Status: Complete
 
 ## Outcome
 
@@ -66,4 +66,3 @@ Required:
 - `npm.cmd run smoke:electron`
 - `npm.cmd run smoke:pane-board`
 - `npm.cmd run verify:terminology` from `F:\Projects\Docs\Aura-Project-Orchestration`
-

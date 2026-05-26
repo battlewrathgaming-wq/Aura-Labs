@@ -64,17 +64,17 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M34 | Instrument Readout Panel Prototype | Complete | Accepted bounded Lab-local prototype of the Instrument Readout Panel composed output. |
 | M35 | Pane Board Layout Capture | Complete | Accepted Pane Board as Lab-only, human-led, agent-cooperative layout reference tooling. |
 | M36 | Pane Board V1 Prototype | Complete | Accepted first Lab-only Pane Board prototype with stateful-at-rest board, grid-unit panes, snapshots, PNG export, and "grab that state" path. |
-| M37 | Pane Board Split Stabilization | Active | Split and stabilize Pane Board as Lab-only tooling so the portable presentation offer stays clean. |
+| M37 | Pane Board Split Stabilization | Complete | Accepted in-repo Lab-only tooling split with Pane Board module boundary, gated preload API, source-code firewall READMEs, and prompt firewall. |
 
 ## Current Direction
 
-Active milestone: M37 - Pane Board Split Stabilization
-Last completed milestone: M36 / HS141 - Pane Board V1 Prototype Acceptance
+Active milestone: None
+Last completed milestone: M37 / HS143 - Pane Board Split Acceptance
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS142
-Latest accepted handshake: workspace/OverseerHS141-m36-pane-board-v1-acceptance.md
-Latest active runway: workspace/OverseerHS142-m37-pane-board-split-runway.md
+Current sequence: None
+Latest accepted handshake: workspace/OverseerHS143-m37-pane-board-split-acceptance.md
+Latest active runway: None
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
 Housekeeping: active root cleaned on 2026-05-26; M19-M34 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
@@ -151,6 +151,8 @@ Active milestone handshakes:
 - `workspace/DevHS140-pane-board-v1-prototype.md`
 - `workspace/OverseerHS141-m36-pane-board-v1-acceptance.md`
 - `workspace/OverseerHS142-m37-pane-board-split-runway.md`
+- `workspace/DevHS142-pane-board-split-stabilization.md`
+- `workspace/OverseerHS143-m37-pane-board-split-acceptance.md`
 
 Accepted authority records:
 

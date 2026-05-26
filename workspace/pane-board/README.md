@@ -33,6 +33,20 @@ Saved pane JSON is layout reference material only. It is not product runtime sta
 
 A layout may become product CSS only after Human/Lab Overseer acceptance and a separate `workspace/current.md` Dev runway.
 
+## M37 Boundary Note
+
+The portable presentation offer is the clean renderer and presentation material work that can later be reviewed for target-owned adoption.
+
+Pane Board is Lab-only tooling. Its renderer, IPC handlers, preload API, persistence, snapshots, event log, and smoke path belong to the layout conversation tool, not the portable presentation offer. Normal launch must not depend on Pane Board state or persistence, and the clean presentation head must not import Pane Board renderer code. The shared preload exposes `auraPaneBoard` only when the explicit Pane Board launch flag is active.
+
+Source-code boundary pointers:
+
+- `src/main/labTooling/README.md`
+- `src/main/labTooling/paneBoard/README.md`
+- `src/main/labTooling/paneBoard/paneBoard.js`
+- `src/renderer/pane-board/README.md`
+- `src/renderer/pane-board/`
+
 ## Core Workflow
 
 Use the board as a cooperative, reversible design loop:

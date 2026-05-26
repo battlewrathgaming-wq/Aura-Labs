@@ -36,3 +36,15 @@
 {"at":"2026-05-26T04:31:12.481Z","type":"snapshot-created","status":"agent-proposal","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","basedOn":"layout-2026-05-26-pane-board-v1","path":"agent-proposals\\layout-2026-05-26-pane-board-v1-smoke-proposal-5.json"}
 {"at":"2026-05-26T04:31:12.553Z","type":"png-exported","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","path":"screenshots\\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-4.png"}
 {"at":"2026-05-26T04:31:12.555Z","type":"board-saved","reason":"pane-board-smoke-restore","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
+{"at":"2026-05-26T05:18:28.982Z","type":"board-saved","reason":"pane-board-smoke-save","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
+{"at":"2026-05-26T05:18:28.985Z","type":"snapshot-created","status":"agent-proposal","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","basedOn":"layout-2026-05-26-pane-board-v1","path":"agent-proposals\\layout-2026-05-26-pane-board-v1-smoke-proposal-6.json"}
+{"at":"2026-05-26T05:18:29.047Z","type":"png-exported","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","path":"screenshots\\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-5.png"}
+{"at":"2026-05-26T05:18:29.049Z","type":"board-saved","reason":"pane-board-smoke-restore","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
+{"at":"2026-05-26T05:36:46.050Z","type":"board-saved","reason":"pane-board-smoke-save","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
+{"at":"2026-05-26T05:36:46.053Z","type":"snapshot-created","status":"agent-proposal","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","basedOn":"layout-2026-05-26-pane-board-v1","path":"agent-proposals\\layout-2026-05-26-pane-board-v1-smoke-proposal-7.json"}
+{"at":"2026-05-26T05:36:46.119Z","type":"png-exported","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","path":"screenshots\\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-6.png"}
+{"at":"2026-05-26T05:36:46.121Z","type":"board-saved","reason":"pane-board-smoke-restore","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
+{"at":"2026-05-26T05:39:57.955Z","type":"board-saved","reason":"pane-board-smoke-save","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
+{"at":"2026-05-26T05:39:57.959Z","type":"snapshot-created","status":"agent-proposal","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","basedOn":"layout-2026-05-26-pane-board-v1","path":"agent-proposals\\layout-2026-05-26-pane-board-v1-smoke-proposal-8.json"}
+{"at":"2026-05-26T05:39:58.023Z","type":"png-exported","boardId":"layout-2026-05-26-pane-board-v1-smoke-proposal","path":"screenshots\\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-7.png"}
+{"at":"2026-05-26T05:39:58.025Z","type":"board-saved","reason":"pane-board-smoke-restore","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}

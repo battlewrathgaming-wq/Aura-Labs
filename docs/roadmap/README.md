@@ -11,14 +11,14 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-M37 Pane Board split stabilization.
+Post-M37 Pane Board split pause.
 
-Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 is splitting and stabilizing Pane Board as Lab-only tooling so future tooling does not become removal work for the presentation offer.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer.
 
 ## Near Outcomes
 
 - Review the Instrument Readout Panel visually if Human wants polish.
-- Split and stabilize Pane Board before feature expansion.
+- Decide whether the next Pane Board step is portability review, dual-reading review, smoke-output retention policy, or park.
 - Keep Pane Board output advisory and separate from the clean presentation head.
 - Keep Summary / Basis / Details readability stable.
 - Keep accepted material and output pages aligned with prototype observations.
@@ -37,7 +37,7 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 | M34 | Instrument Readout Panel Prototype | Complete | `docs/roadmap/m34-instrument-readout-panel-prototype.md` |
 | M35 | Pane Board Layout Capture | Complete | `docs/roadmap/m35-pane-board-layout-capture.md` |
 | M36 | Pane Board V1 Prototype | Complete | `docs/roadmap/m36-pane-board-v1-prototype.md` |
-| M37 | Pane Board Split Stabilization | Active | `docs/roadmap/m37-pane-board-split-stabilization.md` |
+| M37 | Pane Board Split Stabilization | Complete | `docs/roadmap/m37-pane-board-split-stabilization.md` |
 
 Candidate bank:
 

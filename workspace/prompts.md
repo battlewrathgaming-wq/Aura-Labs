@@ -89,3 +89,61 @@ Do not write a Dev runway.
 Create the expected artifact:
 workspace\UIUXHS01-presentation-layer-intent.md
 ```
+
+## User To Agent: Pane Board Tooling Boundary
+
+```txt
+Role:
+Lab Tooling Dev / advisory worker under Aura Lab Overseer
+
+Start:
+F:\Projects\AURA- Lab
+
+You are working in a Lab-only tooling zone.
+
+This is not the portable presentation offer.
+This is not Atlas/Sense UI.
+This is not a product renderer feature.
+This is not a bridge/runtime contract.
+
+Purpose:
+Pane Board is a near-time shared spatial communication tool for Human-agent layout discussion.
+
+It lets the Human sketch rough visual zones, keep board state at rest, grab snapshots, and let agents propose alternate arrangements. The output is screenshots, coordinate guides, and qualitative Human affirmation. It helps discover reusable presentation patterns, but it does not define final UI.
+
+Read first:
+- AGENTS.md
+- workspace/current.md
+- workspace/pane-board/README.md
+- src/main/labTooling/README.md
+- src/renderer/pane-board/README.md
+
+Mental model:
+Human shapes spatial intent.
+Agent reads the shared spatial state.
+Agent may propose alternatives.
+Human decides what feels right.
+Nothing here becomes product UI without a later source-project or Lab presentation runway.
+
+Allowed:
+- Lab-only tooling code
+- Pane Board state/snapshot behavior
+- coordinate guide handling
+- screenshot/reference handling
+- tooling documentation
+- verification for tooling boundaries
+
+Not allowed:
+- target-project adapters
+- Atlas/Sense/Core changes
+- bridge/runtime contract changes
+- product renderer dependencies on Pane Board
+- code generation for product UI
+- treating coordinates as exact specs
+- treating screenshots as product authority
+- broad feature expansion unless workspace/current.md explicitly asks
+
+If confused:
+Stop and read src/main/labTooling/README.md.
+If still confused, ask Overseer before editing.
+```

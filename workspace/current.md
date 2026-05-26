@@ -1,17 +1,17 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-05-26
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M37 - Pane Board Split Stabilization
-Last completed milestone: M36 / HS141 - Pane Board V1 Prototype Acceptance
-Current executor: Dev
-Current focus: Split and stabilize Pane Board as Lab-only tooling so future tooling work does not become removal work for the portable presentation offer.
-Expected output: `workspace/DevHS142-pane-board-split-stabilization.md`
-Expected DevHS filename: `workspace/DevHS142-pane-board-split-stabilization.md`
+Active milestone: None
+Last completed milestone: M37 / HS143 - Pane Board Split Acceptance
+Current executor: Human / Overseer
+Current focus: Await Human / Overseer direction after accepting the Pane Board tooling split.
+Expected output: Human direction or next Overseer runway artifact.
+Expected DevHS filename: None.
 
 ## Current State
 
@@ -59,7 +59,16 @@ move panes -> current board rests on disk -> grab that state -> compare variants
 
 The biggest follow-on concern is portability. Pane Board should help Lab form reusable presentation elements and layout references that can travel through project-owned adoption, not one-off local screens or hidden product doctrine.
 
-Human has authorized splitting Pane Board now, then stabilizing it in a sprint. The goal is not feature expansion. The goal is to protect the presentation offer by moving Lab-only tooling behind a clearer boundary before it grows.
+M37 accepted the first in-repo Pane Board split.
+
+Pane Board is now behind a clearer Lab-only tooling boundary:
+
+- main-process Pane Board behavior lives under `src/main/labTooling/paneBoard/`
+- normal launch lazy-loads Pane Board only when `AURA_LAB_PANE_BOARD=1`
+- the shared preload exposes `auraPaneBoard` only in Pane Board mode
+- boundary READMEs and the local prompt firewall point agents away from treating Pane Board as the portable presentation offer
+
+This is not a full separate app/package split. It is an accepted stabilization step so future tooling work has a clearer place to live.
 
 ## Source Of Intent
 
@@ -95,6 +104,8 @@ Accepted source of intent:
 - `workspace/DevHS140-pane-board-v1-prototype.md`
 - `workspace/OverseerHS141-m36-pane-board-v1-acceptance.md`
 - `workspace/OverseerHS142-m37-pane-board-split-runway.md`
+- `workspace/DevHS142-pane-board-split-stabilization.md`
+- `workspace/OverseerHS143-m37-pane-board-split-acceptance.md`
 - `workspace/pane-board/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -120,6 +131,8 @@ Read first:
 - `workspace/DevHS140-pane-board-v1-prototype.md`
 - `workspace/OverseerHS141-m36-pane-board-v1-acceptance.md`
 - `workspace/OverseerHS142-m37-pane-board-split-runway.md`
+- `workspace/DevHS142-pane-board-split-stabilization.md`
+- `workspace/OverseerHS143-m37-pane-board-split-acceptance.md`
 - `workspace/pane-board/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -127,28 +140,11 @@ Read first:
 
 ## Ordered Dev Runway
 
-Current executor is Dev.
-
-1. Read M36 acceptance, M37 roadmap, current packet, Pane Board README, and ADR 0001 / ADR 0002.
-2. Inspect the current Pane Board implementation and identify which code is Lab-only tooling versus presentation-offer code.
-3. Move or extract Pane Board main-process helpers into a clearer Lab-only module/folder boundary without broad Electron restructuring.
-4. Keep `npm.cmd run pane-board`, `npm.cmd run smoke:pane-board`, and `npm.cmd run verify:pane-board` working.
-5. Ensure normal launch does not require Pane Board state, Pane Board renderer files, or Pane Board persistence.
-6. Add or update a short boundary note documenting what is portable presentation offer and what is Lab-only tooling.
-7. Do not add new Pane Board features except tiny changes required by the split.
+No active Dev runway.
 
 ## Acceptance Criteria
 
-M37 is acceptable if:
-
-- normal presentation launch still works without Pane Board state
-- Pane Board launch still works through an explicit Lab-only command
-- Pane Board persistence/snapshot/PNG behavior remains intact
-- Pane Board implementation has a clearer module or folder boundary
-- the clean presentation head does not import Pane Board renderer code
-- verification passes for both normal presentation and Pane Board paths
-- documentation names what is portable and what is Lab-only tooling
-- no new presentation feature work is introduced
+No active acceptance criteria while idle.
 
 ## Guardrails And Non-Goals
 
@@ -183,19 +179,7 @@ Stop and return to Human / Overseer direction if a future task requires:
 
 ## Required Verification
 
-Run:
-
-```cmd
-npm.cmd run verify:all
-npm.cmd run smoke:electron
-npm.cmd run smoke:pane-board
-```
-
-Then run from `F:\Projects\Docs\Aura-Project-Orchestration`:
-
-```cmd
-npm.cmd run verify:terminology
-```
+No active verification while idle.
 
 ## Evidence
 
@@ -223,14 +207,15 @@ npm.cmd run verify:terminology
 - HS140 Human feel notes: good proof of concept; local launch feels too table/editor-like; future work should split/stabilize into a calmer Etch A Sketch-like Lab-only sketchbench before it gains product gravity.
 - HS141 accepted M36 after Overseer reran verification and smoke. Portability is the key follow-on concern: Pane Board-derived elements must remain reusable presentation references, not one-off local screens.
 - M37 opened by HS142 to split and stabilize Pane Board as Lab-only tooling before further feature work.
+- DevHS142 completed an in-repo Lab-only tooling split for Pane Board. Main-process Pane Board window, IPC, persistence, snapshot, PNG export, and smoke helpers now live under `src/main/labTooling/paneBoard/paneBoard.js`; normal launch lazy-loads that module only when `AURA_LAB_PANE_BOARD=1`.
+- HS142 also gated the shared preload's `auraPaneBoard` API behind `AURA_LAB_PANE_BOARD=1`, updated `workspace/pane-board/README.md` with the portable-presentation-offer vs Lab-only-tooling boundary note, and left the clean presentation renderer files unchanged.
+- HS142 verification passed after the nested boundary update: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, `npm.cmd run smoke:electron`, `npm.cmd run smoke:pane-board`, and orchestration `npm.cmd run verify:terminology`.
+- HS142 normal Electron smoke passed in the sandbox on the final run. Earlier pre-nested Electron smoke failed inside the sandbox with `UnknownVizError` and passed when rerun through the approved outside-sandbox GUI smoke path. Pane Board smoke passed and produced `.tmp/pane-board-smoke/pane-board-smoke-result.json` with `status: passed`, `snapshot: workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-7.json`, and `png: workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-6.png`.
+- HS143 accepted M37 after Overseer review and verification. The accepted boundary is an in-repo Lab-only tooling split, not a full separate app/package split. Latest Pane Board smoke record references `workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-8.json` and `workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-7.png`.
 
 ## Dev Handoff
 
-Dev must create:
-
-```txt
-workspace/DevHS142-pane-board-split-stabilization.md
-```
+No active Dev handoff required while idle.
 
 ## Advisory Disposition
 
@@ -242,7 +227,7 @@ workspace/DevHS142-pane-board-split-stabilization.md
 - Accepted: HS136 Instrument Readout Panel code/boundary review.
 - Accepted: M35 Pane Board Layout Capture.
 - Accepted: M36 Pane Board V1 Prototype.
-- Opened: M37 Pane Board Split Stabilization.
+- Accepted: M37 Pane Board Split Stabilization.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.
