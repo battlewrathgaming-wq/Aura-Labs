@@ -16,6 +16,10 @@ Initial local index populated from the expanded coordination list. Treat this as
 | `workspace/overview.md` | Project overview | Defines Lab as post-bridge display mapping and presentation tooling. | Primary local orientation for Lab boundary. |
 | `workspace/critical/critical-terms.md` | Critical terms | Holds local Lab vocabulary rules and cross-project cautions. | Read before copy, labels, bridge-fed presentation, or source terminology work. |
 | `workspace/critical/lab-vocabulary-instruction-packets.md` | Candidate packets | Stages M13a/M13b/M13c vocabulary inventory, replacement, and guardrail work. | Candidate only until adopted into `workspace/current.md`. |
+| `workspace/display-materials/` | Material library | Holds accepted and pending reusable display ingredients. | Material pages are not target-project adoption records or bridge contracts. |
+| `workspace/display-outputs/` | Output library | Holds accepted composed display outputs. | Output pages are reusable Lab references, not Dev runways or target adapters. |
+| `workspace/display-outputs/instrument-readout-panel.md` | Accepted composed output | Stable reference for the first composed Lab display output and its prototype evidence. | Treat as Lab-local presentation output; split/export/adoption still require new packets. |
+| `workspace/display-schema-ledger.md` | Display catalog/index | Tracks material and output status without duplicating schema bodies. | Do not treat as a hidden backlog or target-project completion tracker. |
 | `docs/statements/post-bridge-presentation-boundary.md` | Durable boundary statement | Defines Lab's post-bridge presentation authority and non-ownership of source projects. | Strongest durable Lab boundary. |
 | `docs/current-state/m11-presentation-state-readout-current-state.md` | Accepted current state | Records Bridge State Readout, neutral labels, Source Detail, and secondary diagnostics. | Current implementation truth for readout terminology. |
 | `workspace/complete/milestone-M12/` | Milestone closure | Records accepted Bridge State Readout naming alignment. | Use as trace for current name and no behavior/doctrine change. |
@@ -36,12 +40,13 @@ Initial local index populated from the expanded coordination list. Treat this as
 | `Bridge State Readout` and neutral state labels | Accepted Lab presentation vocabulary. | Lab Overseer / Human |
 | Renderer state mapping in `src/renderer/app.js` | Active Bridge -> Interface translation logic. | Lab Overseer / Human |
 | `Source Detail`, readout basis/age/source coverage surfaces | Meaning-sensitive source/freshness/basis presentation. | Lab Overseer / Human |
+| `Instrument Readout Panel` and `output-instrument-readout-panel` | Accepted composed-output surface and Lab-local prototype id. | Lab Overseer / Human |
 | `family` and `state` axes in `src/services/serviceRegistry.js` | Accepted fixture/presentation separation. | Lab Overseer / Human |
 | Vocabulary and renderer verification scripts | Guard against drift in visible labels and source ownership. | Lab Overseer / Human |
 | Preload/service/window bridge names | Used by renderer and tests. | Lab Overseer / Human |
 
 ## Open Questions
 
-- Which additional expanded Lab assets should be promoted here after M13a?
-- Should `Source Detail` remain accepted, or should a future UI/UX review consider `Readout Detail`?
+- Which accepted outputs after Instrument Readout Panel should become critical assets?
+- Should remaining `Source Detail` surfaces move toward `Readout Detail` where source/provenance inspection is not the point?
 - Should `Registered Services` remain visible as-is, or become a softer secondary label such as `Service Diagnostics`?

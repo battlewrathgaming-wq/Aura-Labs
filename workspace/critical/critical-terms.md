@@ -73,11 +73,14 @@ Avoid as Lab-owned defaults unless source-owned and contextualized:
 | Term | Meaning | Notes |
 | --- | --- | --- |
 | `Bridge State Readout` | Lab-owned feature/readout name. | Do not treat as upstream bridge schema. |
+| `Instrument Readout Panel` | Accepted Lab composed display output for one post-bridge readout. | Lab-local output reference; not target doctrine, adapter, or bridge/runtime contract. |
+| `output-instrument-readout-panel` | Lab-local prototype/output id for the Instrument Readout Panel. | Prototype/workshop id only; not a shared payload field or source enum. |
 | `Readout` | Human-facing display surface or rendered state. | Preferred over report/snapshot for Lab defaults. |
 | `Readout status` | Lab display status. | Display-scoped, not shared state enum. |
 | `Readout basis` | What the display is based on. | Preferred over trust/certainty/proof language. |
 | `Readout age` | Freshness/age of the display basis. | Display-scoped. |
 | `Source Detail` | Detail surface for read basis, gaps, warnings, and timing. | Accepted for now, but watch source-authority implication. |
+| `Readout Detail` | Detail affordance used by the Instrument Readout Panel for basis, availability, freshness, gaps, warnings, and long text. | Preferred where the surface is a Lab readout rather than a source/provenance surface. |
 | `Source coverage` | Display coverage/basis explanation. | Should not imply source of truth. |
 | `Known fields` | Fields present in the readout. | Not schema doctrine. |
 | `Gaps` | Missing/incomplete display basis. | Not proof of source absence. |
@@ -94,6 +97,8 @@ Avoid as Lab-owned defaults unless source-owned and contextualized:
 | `watch` / `watcher` / `listening` | Atlas/Sense by context | Watch / Log Watcher / Pulling / Listening | Active checks, local log watching, and clipboard authority differ. | Avoid generic Lab defaults. |
 | `current` / `fresh` / `recent` / `stale` / `aged` | All projects by context | readout age / recent context / current system / AGED | Freshness models are project-specific. | Treat as a freshness cluster, not shared enum. |
 | `blocked` | Sense/Atlas/Lab by context | Live IO blocked / action blocked / unavailable | Authority block, operational block, and unavailable differ. | Preserve exact cause. |
+| `no scan` | Sense/source project by context | source-owned no-scan placeholder / no presentable display fields | Can imply a source-project lane state. | Use only when source-owned and layer-qualified. |
+| `fallback` | Lab/source project by context | fallback basis / previous readout basis | Can masquerade as current if labels are weak. | Always name fallback basis and do not imply current truth. |
 | `sample` | Sense/Lab by context | scoped sample / fixture sample slot | Provider sample can be mistaken for complete coverage. | Keep scoped/capped/partial visible. |
 | `Gateway` / `gate` | Sense/Atlas/Lab by context | Gateway / Live IO gate / bridge boundary | UI marker, backend authority gate, and transport boundary differ. | Keep project/layer qualifier. |
 | `seed` / `Core` | Lab/Core by context | Lab-local fixture/scaffold wording | Can imply Core doctrine or ownership. | Avoid Lab default copy unless explicitly Lab-local. |
@@ -101,8 +106,8 @@ Avoid as Lab-owned defaults unless source-owned and contextualized:
 
 ## Open Questions
 
-- Should Lab keep `Source Detail`, or move toward a lower-authority label such as `Readout Detail`?
+- Should older `Source Detail` surfaces move toward lower-authority `Readout Detail` where provenance/source inspection is not the point?
 - Which Atlas terms are preserve-exact in Lab presentation beyond the current caution list?
 - Which Sense terms are preserve-exact in Lab presentation beyond the current caution list?
 - Should Lab add a copy registry or keyword check for product-agnostic default vocabulary?
-- Should `FALLBACK` be fully exercised in Lab fixtures/smoke before it is treated as stable presentation grammar?
+- Should `FALLBACK` graduate from exercised Lab presentation state to a broader output pattern only after more target feedback?

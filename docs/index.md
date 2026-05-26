@@ -75,10 +75,15 @@ Start here:
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
 - `docs/roadmap/m30-presentation-resilience-gate.md`
 - `docs/roadmap/m31-display-material-repeat-cycle.md`
+- `docs/roadmap/m32-export-boundary-review.md`
+- `docs/roadmap/m33-composed-display-output.md`
+- `docs/roadmap/m34-instrument-readout-panel-prototype.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/composed-display-output-candidate.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
+- `workspace/display-outputs/README.md`
+- `workspace/display-outputs/instrument-readout-panel.md`
 - `docs/statements/post-bridge-presentation-boundary.md`
 - `docs/current-state/m04-visual-prototype-current-state.md`
 - `docs/current-state/m11-presentation-state-readout-current-state.md`

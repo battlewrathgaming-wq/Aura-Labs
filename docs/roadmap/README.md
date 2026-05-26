@@ -1,7 +1,7 @@
 # Aura Lab Roadmap
 
 Status: Active durable roadmap scaffold
-Last reviewed: 2026-05-25
+Last reviewed: 2026-05-26
 
 ## Purpose
 
@@ -11,15 +11,15 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-Display Material Repeat Cycle.
+Post-M34 composed-output pause.
 
-Aura Lab has closed M29 and M30. It is now using the accepted material library to produce a small repeatable batch of visible display materials without turning support tooling into the product.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. The project is paused for Human / Overseer direction before further polish, split/export review, or target-project consumption.
 
 ## Near Outcomes
 
-- Keep presentation test coverage aligned with renderer capabilities.
-- Preserve Summary / Basis / Details readability as new slices are added.
-- Prove that accepted material pages can become visible prototypes through repeatable bounded packets.
+- Review the Instrument Readout Panel visually if Human wants polish.
+- Keep Summary / Basis / Details readability stable.
+- Keep accepted material and output pages aligned with prototype evidence.
 - Keep SmokeFlash as hidden/gated Lab tooling until a renderer split is earned.
 - Defer split/readiness until Human explicitly moves toward export or target consumption.
 
@@ -29,8 +29,10 @@ Aura Lab has closed M29 and M30. It is now using the accepted material library t
 | --- | --- | --- | --- |
 | M29 | Presentation Head Improvement Rail | Complete | `docs/roadmap/m29-presentation-head-improvement-rail.md` |
 | M30 | Presentation Resilience Gate | Complete | `docs/roadmap/m30-presentation-resilience-gate.md` |
-| M31 | Display Material Repeat Cycle | Active | `docs/roadmap/m31-display-material-repeat-cycle.md` |
-| M32 | Export Boundary Review | Candidate | `docs/roadmap/m32-export-boundary-review.md` |
+| M31 | Display Material Repeat Cycle | Complete | `docs/roadmap/m31-display-material-repeat-cycle.md` |
+| M32 | Export Boundary Review | Complete | `docs/roadmap/m32-export-boundary-review.md` |
+| M33 | Composed Display Output | Complete | `docs/roadmap/m33-composed-display-output.md` |
+| M34 | Instrument Readout Panel Prototype | Complete | `docs/roadmap/m34-instrument-readout-panel-prototype.md` |
 
 Candidate bank:
 
@@ -85,6 +87,13 @@ Export review ready:
 - target projects have their own adapter/adoption path
 - Lab can describe what travels as presentation structure and what stays Lab-local
 
+Post-prototype polish ready:
+
+- accepted output has a visible prototype
+- Human or UI/UX has concrete visual notes
+- the packet stays bounded to presentation polish
+- no split/export/adapter work is implied
+
 ## Parked Work
 
 - target-project adapters
@@ -94,6 +103,7 @@ Export review ready:
 - broad visual-smoke matrices
 - Core ownership claims
 - export/seeding until the export boundary is reviewed
+- target consumption until SmokeFlash split/readiness is explicitly opened
 
 ## Roadmap Use
 
