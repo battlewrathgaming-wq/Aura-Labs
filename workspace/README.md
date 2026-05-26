@@ -41,6 +41,7 @@ Sense has already validated the model by adapting the instrument grammar without
 - `workspace/complete/` stores batch-archived milestone handshakes.
 - `workspace/workshop/` stores skunkworks/display-idea notes that are not executable until promoted through `workspace/current.md`.
 - `workspace/reference/` stores reference and material-bench inputs. It is inspiration and test material, not a task queue.
+- `workspace/pane-board/` stores Layout Intent Board guidance, Human sketches, agent proposals, accepted layout references, and screenshots. It is a spatial discussion surface, not product runtime state or Dev authorization.
 
 ## Display Element Contract
 
