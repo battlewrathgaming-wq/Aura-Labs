@@ -11,15 +11,15 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-M36 Pane Board V1 prototype.
+Post-M36 Pane Board proof pause.
 
-Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 should boot-launch the first Lab-only prototype.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype.
 
 ## Near Outcomes
 
 - Review the Instrument Readout Panel visually if Human wants polish.
-- Build Pane Board V1 as a separate Lab-only tool.
-- Prove stateful-at-rest current board plus snapshots.
+- Decide whether Pane Board needs a Human manual feel check, small polish, split/stabilization review, or parking.
+- Keep Pane Board output advisory and separate from the clean presentation head.
 - Keep Summary / Basis / Details readability stable.
 - Keep accepted material and output pages aligned with prototype observations.
 - Keep SmokeFlash as hidden/gated Lab tooling until a renderer split is earned.
@@ -36,7 +36,7 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 | M33 | Composed Display Output | Complete | `docs/roadmap/m33-composed-display-output.md` |
 | M34 | Instrument Readout Panel Prototype | Complete | `docs/roadmap/m34-instrument-readout-panel-prototype.md` |
 | M35 | Pane Board Layout Capture | Complete | `docs/roadmap/m35-pane-board-layout-capture.md` |
-| M36 | Pane Board V1 Prototype | Active | `docs/roadmap/m36-pane-board-v1-prototype.md` |
+| M36 | Pane Board V1 Prototype | Complete | `docs/roadmap/m36-pane-board-v1-prototype.md` |
 
 Candidate bank:
 

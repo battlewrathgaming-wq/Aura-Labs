@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aura Lab Pane Board</title>
+    <link rel="stylesheet" href="./pane-board.css">
+  </head>
+  <body>
+    <header class="frame-chrome">
+      <div class="frame-drag-region">
+        <span>Aura Lab / Pane Board</span>
+      </div>
+      <nav class="frame-controls" aria-label="Window controls">
+        <button class="frame-button" type="button" id="pin-window" title="Toggle always on top" aria-label="Toggle always on top">Pin</button>
+        <button class="frame-button" type="button" id="minimize-window" title="Minimize" aria-label="Minimize">_</button>
+        <button class="frame-button danger" type="button" id="close-window" title="Close" aria-label="Close">X</button>
+      </nav>
+    </header>
+    <main class="pane-board-shell">
+      <aside class="tool-rail" aria-label="Pane Board controls">
+        <div class="title-group">
+          <p class="eyebrow">Layout Intent Board</p>
+          <input id="board-title" aria-label="Board title" value="Pane Board V1 working sketch">
+        </div>
+        <div class="control-grid">
+          <label for="viewport-preset">Viewport</label>
+          <select id="viewport-preset">
+            <option value="960x640">960 x 640</option>
+            <option value="720x640">720 x 640</option>
+          </select>
+          <label for="board-status">State</label>
+          <select id="board-status">
+            <option value="human-sketch">human-sketch</option>
+            <option value="agent-proposal">agent-proposal</option>
+            <option value="human-accepted">human-accepted</option>
+            <option value="superseded">superseded</option>
+            <option value="parked">parked</option>
+            <option value="rejected">rejected</option>
+          </select>
+        </div>
+        <div class="button-row">
+          <button type="button" id="add-pane">Add</button>
+          <button type="button" id="duplicate-pane">Duplicate</button>
+          <button type="button" id="delete-pane">Delete</button>
+        </div>
+        <section class="pane-editor" aria-label="Selected pane">
+          <label for="pane-label">Label</label>
+          <input id="pane-label">
+          <label for="pane-role">Role</label>
+          <input id="pane-role">
+          <label for="pane-importance">Importance</label>
+          <select id="pane-importance">
+            <option value="primary">primary</option>
+            <option value="supporting">supporting</option>
+            <option value="quiet">quiet</option>
+          </select>
+          <label for="pane-anchor">Anchor</label>
+          <input id="pane-anchor">
+          <label for="pane-relationship">Relationship</label>
+          <input id="pane-relationship">
+          <label for="pane-notes">Notes</label>
+          <textarea id="pane-notes" rows="5"></textarea>
+          <button type="button" id="lock-pane">Lock</button>
+        </section>
+        <section class="snapshot-panel" aria-label="Snapshot">
+          <label for="snapshot-status">Grab as</label>
+          <select id="snapshot-status">
+            <option value="human-sketch">human-sketch</option>
+            <option value="agent-proposal">agent-proposal</option>
+            <option value="human-accepted">human-accepted</option>
+            <option value="parked">parked</option>
+          </select>
+          <label for="snapshot-title">Snapshot title</label>
+          <input id="snapshot-title">
+          <label for="snapshot-based-on">Based on</label>
+          <input id="snapshot-based-on">
+          <div class="button-row">
+            <button type="button" id="grab-state">Grab state</button>
+            <button type="button" id="export-png">PNG</button>
+          </div>
+        </section>
+        <output id="board-message" aria-live="polite"></output>
+      </aside>
+      <section class="board-region" aria-label="Pane board">
+        <div class="board-meta" id="board-meta"></div>
+        <section class="screen-note" aria-label="Screen note">
+          <label for="screen-note-text">Screen note</label>
+          <textarea id="screen-note-text" rows="3"></textarea>
+        </section>
+        <div class="board-canvas-wrap">
+          <div class="board-canvas" id="board-canvas" aria-label="Layout canvas"></div>
+        </div>
+      </section>
+    </main>
+    <script src="./pane-board.js"></script>
+  </body>
+</html>

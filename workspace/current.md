@@ -1,17 +1,16 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-05-26
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M36 - Pane Board V1 Prototype
-Last completed milestone: M35 / HS139 - Pane Board Layout Capture Advisory Acceptance
-Current executor: Dev
-Current focus: Build the first Lab-only Pane Board prototype with stateful-at-rest layout references and a "grab that state" snapshot path.
-Expected output: `workspace/DevHS140-pane-board-v1-prototype.md`
-Expected DevHS filename: `workspace/DevHS140-pane-board-v1-prototype.md`
+Active milestone: None
+Last completed milestone: M36 / HS141 - Pane Board V1 Prototype Acceptance
+Current executor: Human / Overseer
+Current focus: Await Human / Overseer direction after accepting the Pane Board V1 prototype.
+Expected output: Human direction or next Overseer runway artifact.
 
 ## Current State
 
@@ -51,11 +50,13 @@ Human opened a tooling direction: Pane Board Layout Capture. This should help br
 
 M35 accepted Pane Board as a Lab-only spatial conversation tool. It is human-led, not Human-dictated: Human sketches are the strongest signal of intent, but agents may propose alternatives, flag pressure, and suggest simplifications.
 
-M36 should boot-launch the first bounded prototype. The prototype should prove the communication loop, not a broad design platform:
+M36 accepted the first bounded prototype. The prototype proves the communication loop, not a broad design platform:
 
 ```txt
 move panes -> current board rests on disk -> grab that state -> compare variants
 ```
+
+The biggest follow-on concern is portability. Pane Board should help Lab form reusable presentation elements and layout references that can travel through project-owned adoption, not one-off local screens or hidden product doctrine.
 
 ## Source Of Intent
 
@@ -87,6 +88,8 @@ Accepted source of intent:
 - `workspace/ToolingHS138-pane-board-layout-capture-advisory.md`
 - `workspace/OverseerHS139-m35-pane-board-advisory-acceptance.md`
 - `workspace/OverseerHS140-m36-pane-board-v1-runway.md`
+- `workspace/DevHS140-pane-board-v1-prototype.md`
+- `workspace/OverseerHS141-m36-pane-board-v1-acceptance.md`
 - `workspace/pane-board/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -108,6 +111,8 @@ Read first:
 - `workspace/ToolingHS138-pane-board-layout-capture-advisory.md`
 - `workspace/OverseerHS139-m35-pane-board-advisory-acceptance.md`
 - `workspace/OverseerHS140-m36-pane-board-v1-runway.md`
+- `workspace/DevHS140-pane-board-v1-prototype.md`
+- `workspace/OverseerHS141-m36-pane-board-v1-acceptance.md`
 - `workspace/pane-board/README.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -115,30 +120,13 @@ Read first:
 
 ## Ordered Dev Runway
 
-Current executor is Dev.
+No active Dev runway. Current executor is Human / Overseer.
 
-1. Read the required sources, especially the M35 acceptance, Pane Board README, and M36 roadmap.
-2. Inspect the existing Electron/main/preload/renderer structure and choose the smallest Lab-only launch path that does not pollute the clean presentation head.
-3. Implement a Pane Board V1 surface with `960x640` and `720x640` presets, visible neutral panes, add/duplicate/delete, label/notes editing, lock/unlock, drag/resize, and 8px snap.
-4. Persist the latest visible board to `workspace/pane-board/current-board.json` using grid-unit integers for pane `x`, `y`, `w`, and `h`.
-5. Add a lightweight append-only event log at `workspace/pane-board/board-events.ndjson` for meaningful changes.
-6. Add a "grab that state" path that snapshots the current board into the correct Pane Board folder without overwriting Human sketches; agent proposals must include `basedOn`.
-7. Add PNG export if feasible inside the bounded slice; if it is not feasible, document the blocker and leave screenshot export as the only permitted follow-up.
+No active ordered runway.
 
 ## Acceptance Criteria
 
-M36 is acceptable if:
-
-- the tool can launch without changing the clean presentation head
-- panes can be moved and resized
-- pane position rests as snapped grid integers
-- `workspace/pane-board/current-board.json` updates with the latest visible board state
-- snapshots can be created without overwriting Human sketches
-- agent proposals must reference `basedOn`
-- a "grab that state" path exists as a button, command, or documented prototype action
-- screenshots can be exported or the stop condition clearly explains why not
-- verification names the exact commands run
-- no product renderer, target adapter, bridge/runtime contract, live data, or export work is introduced
+No active acceptance criteria.
 
 ## Guardrails And Non-Goals
 
@@ -171,19 +159,7 @@ Stop and return to Human / Overseer direction if a future task requires:
 
 ## Required Verification
 
-Run:
-
-```cmd
-npm.cmd run verify:all
-```
-
-Run Electron smoke if renderer/Electron behavior changes:
-
-```cmd
-npm.cmd run smoke:electron
-```
-
-If Dev adds a Pane Board-specific verifier, run it explicitly and include it in the handoff.
+No active verification required while idle.
 
 ## Evidence
 
@@ -205,16 +181,15 @@ If Dev adds a Pane Board-specific verifier, run it explicitly and include it in 
 - M35 opened by HS138 as a Pane Board tooling advisory.
 - HS138 created the accepted Pane Board advisory and `workspace/pane-board/` scaffold.
 - HS139 accepted M35 and opened M36 for a bounded Lab-only Pane Board V1 prototype.
+- DevHS140 completed the first Lab-only Pane Board V1 prototype as a separate `AURA_LAB_PANE_BOARD=1` Electron sidecar path with current-board persistence, append-only event log, snapshot/grab-state behavior, PNG export, and an on-screen note surface.
+- HS140 verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, `npm.cmd run smoke:electron`, `npm.cmd run smoke:pane-board`, and orchestration `npm.cmd run verify:terminology`.
+- HS140 Pane Board smoke reported `.tmp/pane-board-smoke/pane-board-smoke-result.json` with `status: passed`, `based_on: layout-2026-05-26-pane-board-v1`, generated agent proposal, and generated PNG. The sandboxed run hit GUI capture errors before the approved outside-sandbox rerun passed.
+- HS140 Human feel notes: good proof of concept; local launch feels too table/editor-like; future work should split/stabilize into a calmer Etch A Sketch-like Lab-only sketchbench before it gains product gravity.
+- HS141 accepted M36 after Overseer reran verification and smoke. Portability is the key follow-on concern: Pane Board-derived elements must remain reusable presentation references, not one-off local screens.
 
 ## Dev Handoff
 
-Dev must create:
-
-```txt
-workspace/DevHS140-pane-board-v1-prototype.md
-```
-
-Include files changed, launch path chosen, whether the clean presentation head was untouched, saved `current-board.json` shape, event log behavior, snapshot behavior, screenshot behavior or blocker, verification commands and results, and remaining risks.
+No active Dev handoff expected.
 
 ## Advisory Disposition
 
@@ -225,7 +200,7 @@ Include files changed, launch path chosen, whether the clean presentation head w
 - Accepted: HS135 housekeeping and keyword review.
 - Accepted: HS136 Instrument Readout Panel code/boundary review.
 - Accepted: M35 Pane Board Layout Capture.
-- Opened: M36 Pane Board V1 Prototype.
+- Accepted: M36 Pane Board V1 Prototype.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.
@@ -244,3 +219,4 @@ Include files changed, launch path chosen, whether the clean presentation head w
 - Absence terms such as blocked, degraded, and no scan may be source-owned by context and must remain qualified.
 - SmokeFlash/material harness code remains in the renderer bundle under ADR 0001 Lab-local allowance.
 - SmokeFlash must still be split before export, seeding, or target-project consumption.
+- Pane Board is useful only if it keeps supporting portable display-element formation rather than one-off local layout work.

@@ -1,0 +1,130 @@
+{
+  "id": "layout-2026-05-26-pane-board-v1-smoke-proposal",
+  "title": "Pane Board V1 smoke proposal",
+  "status": "agent-proposal",
+  "viewport": {
+    "preset": "960x640",
+    "width": 960,
+    "height": 640,
+    "grid": 8
+  },
+  "source": {
+    "createdBy": "agent",
+    "basedOn": "layout-2026-05-26-pane-board-v1",
+    "project": "Aura Lab",
+    "context": "layout intent reference"
+  },
+  "panes": [
+    {
+      "id": "primary-readout",
+      "label": "Primary readout",
+      "grid": {
+        "x": 4,
+        "y": 16,
+        "w": 68,
+        "h": 30
+      },
+      "role": "readout",
+      "importance": "primary",
+      "locked": false,
+      "intent": {
+        "role": "readout",
+        "importance": "primary",
+        "anchor": "left",
+        "relationship": "beside notes",
+        "notes": "Main shape under discussion."
+      },
+      "notes": "Main shape under discussion."
+    },
+    {
+      "id": "detail-drawer",
+      "label": "Detail drawer",
+      "grid": {
+        "x": 3,
+        "y": 49,
+        "w": 68,
+        "h": 24
+      },
+      "role": "detail",
+      "importance": "supporting",
+      "locked": false,
+      "intent": {
+        "role": "detail",
+        "importance": "supporting",
+        "anchor": "bottom-left",
+        "relationship": "below primary readout",
+        "notes": "Longer explanation and comparison space."
+      },
+      "notes": "Longer explanation and comparison space."
+    },
+    {
+      "id": "notes",
+      "label": "Notes",
+      "grid": {
+        "x": 75,
+        "y": 15,
+        "w": 42,
+        "h": 58
+      },
+      "role": "notes",
+      "importance": "supporting",
+      "locked": false,
+      "intent": {
+        "role": "notes",
+        "importance": "supporting",
+        "anchor": "right",
+        "relationship": "beside primary readout",
+        "notes": "Soft intent, questions, and alternate relationship notes."
+      },
+      "notes": "Soft intent, questions, and alternate relationship notes."
+    },
+    {
+      "id": "primary-readout-copy",
+      "label": "Primary readout copy",
+      "grid": {
+        "x": 5,
+        "y": 17,
+        "w": 68,
+        "h": 30
+      },
+      "role": "readout",
+      "importance": "primary",
+      "locked": false,
+      "intent": {
+        "role": "readout",
+        "importance": "primary",
+        "anchor": "left",
+        "relationship": "beside notes",
+        "notes": "Main shape under discussion."
+      },
+      "notes": "Main shape under discussion."
+    },
+    {
+      "id": "pane-5",
+      "label": "Pane 5",
+      "grid": {
+        "x": 11,
+        "y": 11,
+        "w": 28,
+        "h": 14
+      },
+      "role": "surface",
+      "importance": "supporting",
+      "locked": true,
+      "intent": {
+        "role": "surface",
+        "importance": "supporting",
+        "anchor": "",
+        "relationship": "",
+        "notes": "This is amazing."
+      },
+      "notes": "This is amazing."
+    }
+  ],
+  "review": {
+    "humanIntent": "Use this board to describe spatial intent without turning it into product UI.",
+    "agentNotes": "",
+    "acceptedByHuman": false
+  },
+  "updatedAt": "2026-05-26T04:16:08.219Z"
+}

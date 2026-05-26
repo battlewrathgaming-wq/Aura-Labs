@@ -15,3 +15,10 @@ contextBridge.exposeInMainWorld('auraWindow', {
   minimize: () => ipcRenderer.invoke('aura:window:minimize'),
   close: () => ipcRenderer.invoke('aura:window:close')
 });
+
+contextBridge.exposeInMainWorld('auraPaneBoard', {
+  load: () => ipcRenderer.invoke('aura:pane-board:load'),
+  save: (board, reason = 'save') => ipcRenderer.invoke('aura:pane-board:save', { board, reason }),
+  snapshot: (request) => ipcRenderer.invoke('aura:pane-board:snapshot', request),
+  exportPng: (request = {}) => ipcRenderer.invoke('aura:pane-board:export-png', request)
+});

@@ -7,7 +7,8 @@ const checks = [
   ['verify:http', ['node', 'scripts/verify-http-client.js']],
   ['verify:sde-source', ['node', 'scripts/verify-sde-source-bundle.js']],
   ['verify:frame', ['node', 'scripts/verify-frame-module.js']],
-  ['verify:renderer-shell', ['node', 'scripts/verify-renderer-shell.js']]
+  ['verify:renderer-shell', ['node', 'scripts/verify-renderer-shell.js']],
+  ['verify:pane-board', ['node', 'scripts/verify-pane-board.js']]
 ];
 
 for (const [label, command] of checks) {

@@ -1,0 +1,109 @@
+{
+  "id": "layout-2026-05-26-pane-board-v1-smoke-proposal",
+  "title": "Pane Board V1 smoke proposal",
+  "status": "agent-proposal",
+  "viewport": {
+    "preset": "960x640",
+    "width": 960,
+    "height": 640,
+    "grid": 8
+  },
+  "source": {
+    "createdBy": "agent",
+    "basedOn": "layout-2026-05-26-pane-board-v1",
+    "project": "Aura Lab",
+    "context": "layout intent reference"
+  },
+  "panes": [
+    {
+      "id": "status-band",
+      "label": "Status band",
+      "grid": {
+        "x": 4,
+        "y": 4,
+        "w": 114,
+        "h": 9
+      },
+      "role": "summary",
+      "importance": "primary",
+      "locked": false,
+      "intent": {
+        "role": "summary",
+        "importance": "primary",
+        "anchor": "top",
+        "relationship": "above primary readout",
+        "notes": "Glanceable first-read state."
+      },
+      "notes": "Glanceable first-read state."
+    },
+    {
+      "id": "primary-readout",
+      "label": "Primary readout",
+      "grid": {
+        "x": 3,
+        "y": 15,
+        "w": 68,
+        "h": 30
+      },
+      "role": "readout",
+      "importance": "primary",
+      "locked": false,
+      "intent": {
+        "role": "readout",
+        "importance": "primary",
+        "anchor": "left",
+        "relationship": "beside notes",
+        "notes": "Main shape under discussion."
+      },
+      "notes": "Main shape under discussion."
+    },
+    {
+      "id": "detail-drawer",
+      "label": "Detail drawer",
+      "grid": {
+        "x": 3,
+        "y": 49,
+        "w": 68,
+        "h": 24
+      },
+      "role": "detail",
+      "importance": "supporting",
+      "locked": false,
+      "intent": {
+        "role": "detail",
+        "importance": "supporting",
+        "anchor": "bottom-left",
+        "relationship": "below primary readout",
+        "notes": "Longer explanation and comparison space."
+      },
+      "notes": "Longer explanation and comparison space."
+    },
+    {
+      "id": "notes",
+      "label": "Notes",
+      "grid": {
+        "x": 75,
+        "y": 15,
+        "w": 42,
+        "h": 58
+      },
+      "role": "notes",
+      "importance": "supporting",
+      "locked": false,
+      "intent": {
+        "role": "notes",
+        "importance": "supporting",
+        "anchor": "right",
+        "relationship": "beside primary readout",
+        "notes": "Soft intent, questions, and alternate relationship notes."
+      },
+      "notes": "Soft intent, questions, and alternate relationship notes."
+    }
+  ],
+  "review": {
+    "humanIntent": "Use this board to describe spatial intent without turning it into product UI.",
+    "agentNotes": "",
+    "acceptedByHuman": false
+  },
+  "updatedAt": "2026-05-26T04:10:45.458Z"
+}

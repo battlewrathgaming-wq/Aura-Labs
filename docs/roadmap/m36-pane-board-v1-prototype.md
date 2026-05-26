@@ -1,6 +1,6 @@
 # M36 - Pane Board V1 Prototype
 
-Status: Active
+Status: Complete
 
 ## Outcome
 
@@ -97,4 +97,3 @@ If renderer/Electron code changes:
 - `npm.cmd run smoke:electron`
 
 If a separate Pane Board verification script is added, include it in `verify:all` or name it explicitly in the Dev handoff.
-
