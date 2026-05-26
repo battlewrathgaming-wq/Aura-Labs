@@ -66,16 +66,17 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M36 | Pane Board V1 Prototype | Complete | Accepted first Lab-only Pane Board prototype with stateful-at-rest board, grid-unit panes, snapshots, PNG export, and "grab that state" path. |
 | M37 | Pane Board Split Stabilization | Complete | Accepted in-repo Lab-only tooling split with Pane Board module boundary, gated preload API, source-code firewall READMEs, and prompt firewall. |
 | M38 | Pane Board Capability Stabilization | Complete | Accepted stable Pane Board capability loop with normalized board load, Human sketch protection, separate agent proposals, gated capture, and verifier coverage. |
+| M39 | Pane Board Ownership And View Clarity | Active | Fix current/proposal ownership ambiguity, visible status clarity, refresh/redraw, and return-to-sketch behavior before broader collaboration affordances. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M39 - Pane Board Ownership And View Clarity
 Last completed milestone: M38 / HS145 - Pane Board Capability Acceptance
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: None
+Current sequence: HS148
 Latest accepted handshake: workspace/OverseerHS146-pane-board-feel-test-acceptance.md
-Latest active runway: None
+Latest active runway: workspace/OverseerHS148-m39-pane-board-ownership-view-clarity-runway.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
 Housekeeping: active root cleaned on 2026-05-26; M19-M34 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
@@ -98,6 +99,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/roadmap/m36-pane-board-v1-prototype.md`
 - `docs/roadmap/m37-pane-board-split-stabilization.md`
 - `docs/roadmap/m38-pane-board-capability-stabilization.md`
+- `docs/roadmap/m39-pane-board-ownership-view-clarity.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/composed-display-output-candidate.md`
 - `docs/roadmap/m32-export-boundary-review.md`
@@ -159,6 +161,8 @@ Active milestone handshakes:
 - `workspace/DevHS144-pane-board-capability-stabilization.md`
 - `workspace/OverseerHS145-m38-pane-board-capability-acceptance.md`
 - `workspace/OverseerHS146-pane-board-feel-test-acceptance.md`
+- `workspace/OverseerHS147-pane-board-bug-hunt-acceptance.md`
+- `workspace/OverseerHS148-m39-pane-board-ownership-view-clarity-runway.md`
 
 Accepted authority records:
 
