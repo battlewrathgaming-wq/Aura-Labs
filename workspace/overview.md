@@ -62,17 +62,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M32 | Export Boundary Review | Complete | Accepted Engineering review; split/export remains parked and composed display output is recommended first. |
 | M33 | Composed Display Output | Complete | Accepted Instrument Readout Panel as the first combined Lab-local display output reference. |
 | M34 | Instrument Readout Panel Prototype | Complete | Accepted bounded Lab-local prototype of the Instrument Readout Panel composed output. |
-| M35 | Pane Board Layout Capture | Active | Advisory tooling milestone opened for human-led, agent-cooperative layout references. |
+| M35 | Pane Board Layout Capture | Complete | Accepted Pane Board as Lab-only, human-led, agent-cooperative layout reference tooling. |
+| M36 | Pane Board V1 Prototype | Active | Boot-launch first Lab-only Pane Board prototype with stateful-at-rest board, grid-unit panes, snapshots, and "grab that state" path. |
 
 ## Current Direction
 
-Active milestone: M35 - Pane Board Layout Capture
-Last completed milestone: M34 / HS134 - Instrument Readout Panel Prototype Acceptance
+Active milestone: M36 - Pane Board V1 Prototype
+Last completed milestone: M35 / HS139 - Pane Board Layout Capture Advisory Acceptance
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
-Current sequence: HS138
-Latest accepted handshake: workspace/complete/milestone-M34/OverseerHS137-codereviewhs136-acceptance.md
-Latest active runway: workspace/OverseerHS138-m35-pane-board-layout-capture-runway.md
+Current sequence: HS140
+Latest accepted handshake: workspace/OverseerHS139-m35-pane-board-advisory-acceptance.md
+Latest active runway: workspace/OverseerHS140-m36-pane-board-v1-runway.md
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
 Housekeeping: active root cleaned on 2026-05-26; M19-M34 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
@@ -92,6 +93,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/roadmap/m33-composed-display-output.md`
 - `docs/roadmap/m34-instrument-readout-panel-prototype.md`
 - `docs/roadmap/m35-pane-board-layout-capture.md`
+- `docs/roadmap/m36-pane-board-v1-prototype.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/composed-display-output-candidate.md`
 - `docs/roadmap/m32-export-boundary-review.md`
@@ -141,6 +143,9 @@ Active milestone handshakes:
 - `workspace/LabRemoteConsumerConformanceHS66.md`
 - `workspace/request_display.md`
 - `workspace/OverseerHS138-m35-pane-board-layout-capture-runway.md`
+- `workspace/ToolingHS138-pane-board-layout-capture-advisory.md`
+- `workspace/OverseerHS139-m35-pane-board-advisory-acceptance.md`
+- `workspace/OverseerHS140-m36-pane-board-v1-runway.md`
 
 Accepted authority records:
 
@@ -201,4 +206,4 @@ Completed milestone handshakes:
 - Should SmokeFlash split-readiness move forward before export, seeding, or target-project consumption?
 - Should Source / Basis Coverage Marker or Compact Value Rail become a later prototype?
 - Should the accepted Instrument Readout Panel prototype receive a UI/UX visual review, prototype polish packet, or export/split readiness review?
-- Should Pane Board V1 proceed from advisory spec into a bounded Lab-only Dev prototype?
+- After M36, should Pane Board receive a Human manual feel check, screenshot polish, or stay as minimal tooling?

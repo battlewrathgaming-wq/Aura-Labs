@@ -11,14 +11,15 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-M35 Pane Board tooling advisory.
+M36 Pane Board V1 prototype.
 
-Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. Human has opened a Lab tooling direction: Pane Board Layout Capture, a human-led and agent-cooperative way to capture advisory spatial layout references.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 should boot-launch the first Lab-only prototype.
 
 ## Near Outcomes
 
 - Review the Instrument Readout Panel visually if Human wants polish.
-- Define Pane Board V1 before implementation.
+- Build Pane Board V1 as a separate Lab-only tool.
+- Prove stateful-at-rest current board plus snapshots.
 - Keep Summary / Basis / Details readability stable.
 - Keep accepted material and output pages aligned with prototype observations.
 - Keep SmokeFlash as hidden/gated Lab tooling until a renderer split is earned.
@@ -34,7 +35,8 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 | M32 | Export Boundary Review | Complete | `docs/roadmap/m32-export-boundary-review.md` |
 | M33 | Composed Display Output | Complete | `docs/roadmap/m33-composed-display-output.md` |
 | M34 | Instrument Readout Panel Prototype | Complete | `docs/roadmap/m34-instrument-readout-panel-prototype.md` |
-| M35 | Pane Board Layout Capture | Active | `docs/roadmap/m35-pane-board-layout-capture.md` |
+| M35 | Pane Board Layout Capture | Complete | `docs/roadmap/m35-pane-board-layout-capture.md` |
+| M36 | Pane Board V1 Prototype | Active | `docs/roadmap/m36-pane-board-v1-prototype.md` |
 
 Candidate bank:
 
@@ -102,6 +104,14 @@ Pane Board tooling ready:
 - JSON/PNG output is an advisory spatial layout reference only
 - V1 is small enough to build
 - no product renderer, target adapter, or bridge/runtime contract is implied
+
+Pane Board V1 ready:
+
+- latest visible board rests at `workspace/pane-board/current-board.json`
+- pane positions persist as grid-unit integers
+- snapshots can preserve "grab that state" moments
+- Human sketches and agent proposals remain separate
+- clean presentation head remains independent
 
 ## Parked Work
 

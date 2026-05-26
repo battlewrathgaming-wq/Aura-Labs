@@ -47,6 +47,63 @@ Human sketch
 
 Human discussion decides fitness, taste, and flow. Files preserve resting state, accepted references, inactive proposals, or action-ready decisions only.
 
+## Stateful At Rest
+
+Pane Board should feel casual while the disk remains explainable.
+
+The active board should always rest at:
+
+```text
+workspace/pane-board/current-board.json
+```
+
+Meaningful turns should append to:
+
+```text
+workspace/pane-board/board-events.ndjson
+```
+
+This means the latest board can be overwritten as a working state, while named snapshots preserve moments worth keeping.
+
+Store pane position as snapped grid integers instead of raw pixels. With an 8px grid, `x: 3` means 24px and `w: 114` means 912px. This keeps diffs readable and lets agents propose layout changes without fragile pixel edits.
+
+Human placement is expressive, not precise. Pane records may include intent hints so agents can cleanly interpret rough placement:
+
+```json
+{
+  "id": "status-band",
+  "label": "Status band",
+  "grid": { "x": 3, "y": 3, "w": 114, "h": 9 },
+  "intent": {
+    "role": "summary",
+    "importance": "primary",
+    "anchor": "top",
+    "relationship": "above primary readout",
+    "notes": "Should be glanceable, not huge."
+  }
+}
+```
+
+## Grab That State
+
+The Human phrase "grab that state" means:
+
+- read the current board
+- assign a snapshot ID/title
+- copy it into the right resting folder
+- optionally export a PNG
+- record the event in the board log
+- treat it as a named reference, not a final build instruction
+
+Useful intent phrases:
+
+- "grab that state" -> snapshot current board as `human-sketch`
+- "keep both" -> preserve multiple useful variants
+- "make a proposal" -> agent forks from a current board or snapshot into `agent-proposal`
+- "accept this" -> copy or fork into `human-accepted`
+- "park this" -> mark as `parked`
+- "compare these" -> produce a short comparison note
+
 ## Board States
 
 Use states that make authorship and authority clear:
