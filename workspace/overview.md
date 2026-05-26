@@ -70,7 +70,7 @@ Last completed milestone: M34 / HS134 - Instrument Readout Panel Prototype Accep
 Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
 Current packet: `workspace/current.md`
 Current sequence: none
-Latest accepted handshake: workspace/complete/milestone-M34/OverseerHS134-hs133-instrument-readout-panel-acceptance.md
+Latest accepted handshake: workspace/complete/milestone-M34/OverseerHS137-codereviewhs136-acceptance.md
 Latest active runway: none
 Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md

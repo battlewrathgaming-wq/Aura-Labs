@@ -144,6 +144,8 @@ No active verification required while idle.
 - HS133 Electron smoke reported `.tmp/electron-visual-smoke/visual-smoke-result.json` with `status: passed`, `blocking_failures: []`, output state captures, Summary/Basis/Details output captures, and narrow source-owned placeholder capture.
 - M34 accepted HS133 in HS134 and closed.
 - HS135 paused for housekeeping and keyword review after M34.
+- HS136 completed a bounded code/boundary review of the Instrument Readout Panel prototype.
+- HS137 accepted that review; no blockers were found and UI/UX visual polish can proceed if Human opens it.
 
 ## Dev Handoff
 
@@ -156,6 +158,7 @@ No active Dev handoff expected.
 - Accepted: M33 Composed Display Output.
 - Accepted: M34 Instrument Readout Panel Prototype.
 - Accepted: HS135 housekeeping and keyword review.
+- Accepted: HS136 Instrument Readout Panel code/boundary review.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.
