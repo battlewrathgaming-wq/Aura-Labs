@@ -1,0 +1,131 @@
+﻿{
+    "id":  "layout-2026-05-26-sense-passive-telemetry-subject-plus-texture-v1",
+    "title":  "Sense Passive Telemetry subject plus texture V1",
+    "status":  "human-sketch",
+    "viewport":  {
+                     "preset":  "960x640",
+                     "width":  960,
+                     "height":  640,
+                     "grid":  8
+                 },
+    "source":  {
+                   "createdBy":  "human",
+                   "basedOn":  null,
+                   "project":  "Aura Lab",
+                   "context":  "layout intent sketch"
+               },
+    "panes":  [
+                  {
+                      "id":  "pane-5",
+                      "label":  "#1",
+                      "grid":  {
+                                   "x":  44,
+                                   "y":  16,
+                                   "w":  52,
+                                   "h":  21
+                               },
+                      "role":  "surface",
+                      "importance":  "primary",
+                      "locked":  false,
+                      "intent":  {
+                                     "role":  "surface",
+                                     "importance":  "primary",
+                                     "anchor":  "",
+                                     "relationship":  "",
+                                     "notes":  ""
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "sense-ref-02",
+                      "label":  "#02",
+                      "grid":  {
+                                   "x":  45,
+                                   "y":  17,
+                                   "w":  50,
+                                   "h":  8
+                               },
+                      "role":  "surface",
+                      "importance":  "primary",
+                      "locked":  false,
+                      "intent":  {
+                                     "role":  "surface",
+                                     "importance":  "primary",
+                                     "anchor":  "left",
+                                     "relationship":  "first active item inside #01",
+                                     "notes":  ""
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "sense-ref-05",
+                      "label":  "#05",
+                      "grid":  {
+                                   "x":  48,
+                                   "y":  26,
+                                   "w":  16,
+                                   "h":  10
+                               },
+                      "role":  "surface",
+                      "importance":  "supporting",
+                      "locked":  false,
+                      "intent":  {
+                                     "role":  "surface",
+                                     "importance":  "supporting",
+                                     "anchor":  "center",
+                                     "relationship":  "activity texture group start",
+                                     "notes":  ""
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "sense-ref-06",
+                      "label":  "#06",
+                      "grid":  {
+                                   "x":  76,
+                                   "y":  26,
+                                   "w":  16,
+                                   "h":  10
+                               },
+                      "role":  "surface",
+                      "importance":  "supporting",
+                      "locked":  false,
+                      "intent":  {
+                                     "role":  "surface",
+                                     "importance":  "supporting",
+                                     "anchor":  "center",
+                                     "relationship":  "activity texture group middle",
+                                     "notes":  ""
+                                 },
+                      "notes":  ""
+                  },
+                  {
+                      "id":  "sense-ref-07",
+                      "label":  "#07",
+                      "grid":  {
+                                   "x":  65,
+                                   "y":  29,
+                                   "w":  10,
+                                   "h":  7
+                               },
+                      "role":  "surface",
+                      "importance":  "quiet",
+                      "locked":  false,
+                      "intent":  {
+                                     "role":  "surface",
+                                     "importance":  "quiet",
+                                     "anchor":  "right",
+                                     "relationship":  "activity texture group end; quieter than #05 and #06",
+                                     "notes":  ""
+                                 },
+                      "notes":  ""
+                  }
+              ],
+    "review":  {
+                   "humanIntent":  "Use this board to describe spatial intent without turning it into product UI.",
+                   "agentNotes":  "",
+                   "acceptedByHuman":  false
+               },
+    "screenNote":  "Trimmed shape note: #01 is documented context, not a visible box in this pass. #02 acts as the wider subject parent. #05/#06 sit below as compact activity texture. #07 sits smaller/quieter between them as derived support. This tests subject-plus-texture rather than a flat row.",
+    "updatedAt":  "2026-05-26T21:50:00.000Z"
+}

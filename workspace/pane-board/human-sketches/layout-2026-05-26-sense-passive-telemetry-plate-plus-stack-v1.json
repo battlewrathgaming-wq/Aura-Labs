@@ -1,6 +1,6 @@
 {
-  "id": "layout-2026-05-26-pane-board-v1",
-  "title": "Pane Board V1 working sketch",
+  "id": "layout-2026-05-26-sense-passive-telemetry-plate-plus-stack-v1",
+  "title": "Sense Passive Telemetry plate-plus-stack V1",
   "status": "human-sketch",
   "viewport": {
     "preset": "960x640",
@@ -12,7 +12,7 @@
     "createdBy": "human",
     "basedOn": null,
     "project": "Aura Lab",
-    "context": "layout intent sketch"
+    "context": "Shape See relationship sketch using Sense-owned #NN handles"
   },
   "panes": [
     {
@@ -30,8 +30,8 @@
       "intent": {
         "role": "surface",
         "importance": "primary",
-        "anchor": "",
-        "relationship": "",
+        "anchor": "wrap",
+        "relationship": "context envelope wraps settled plate-plus-stack read",
         "notes": ""
       },
       "notes": ""
@@ -52,7 +52,7 @@
         "role": "surface",
         "importance": "primary",
         "anchor": "left",
-        "relationship": "first active item inside #01",
+        "relationship": "long shallow subject plate; parents activity texture",
         "notes": ""
       },
       "notes": ""
@@ -72,8 +72,8 @@
       "intent": {
         "role": "surface",
         "importance": "supporting",
-        "anchor": "center",
-        "relationship": "activity texture group start",
+        "anchor": "right",
+        "relationship": "upper compact activity value",
         "notes": ""
       },
       "notes": ""
@@ -93,8 +93,8 @@
       "intent": {
         "role": "surface",
         "importance": "supporting",
-        "anchor": "center",
-        "relationship": "activity texture group middle",
+        "anchor": "right",
+        "relationship": "lower compact activity value",
         "notes": ""
       },
       "notes": ""
@@ -114,18 +114,18 @@
       "intent": {
         "role": "surface",
         "importance": "quiet",
-        "anchor": "right",
-        "relationship": "activity texture group end; quieter than #05 and #06",
+        "anchor": "between",
+        "relationship": "quiet derived support between activity values",
         "notes": ""
       },
       "notes": ""
     }
   ],
   "review": {
-    "humanIntent": "Use this board to describe spatial intent without turning it into product UI.",
-    "agentNotes": "",
+    "humanIntent": "Preferred shape: subject plate plus compact activity stack with quiet derived support.",
+    "agentNotes": "Advisory relationship sketch only. Uses Sense-owned #NN handles; no source meaning adoption.",
     "acceptedByHuman": false
   },
-  "screenNote": "Alternate pattern C: plate-plus-stack. #02 is a long shallow subject plate. #05/#07/#06 stay as a compact right-side stack. #1 trims around the actual read instead of the empty vertical mass.",
-  "updatedAt": "2026-05-26T22:10:00.000Z"
+  "screenNote": "Pattern evidence: plate-plus-stack with detail affordance. #02 is a long shallow subject plate; #05/#06 are compact activity values; #07 is smaller/quieter between them; #1 wraps the settled read. Relationship shape only, not production layout.",
+  "updatedAt": "2026-05-26T22:08:00.000Z"
 }

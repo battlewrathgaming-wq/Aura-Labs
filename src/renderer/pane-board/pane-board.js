@@ -124,8 +124,6 @@ function renderPane(pane) {
   node.style.height = `${pane.grid.h * GRID}px`;
   node.tabIndex = 0;
 
-  const role = document.createElement('span');
-  role.textContent = `${pane.role || pane.intent?.role || 'surface'} / ${pane.importance || pane.intent?.importance || 'supporting'}`;
   const label = document.createElement('strong');
   label.textContent = pane.label || pane.id;
   const notes = document.createElement('p');
@@ -136,7 +134,7 @@ function renderPane(pane) {
   handle.className = 'resize-handle';
   handle.setAttribute('aria-hidden', 'true');
 
-  node.append(role, label, notes, meta, handle);
+  node.append(label, notes, meta, handle);
   node.addEventListener('pointerdown', (event) => startPointer(event, pane, event.target === handle ? 'resize' : 'move'));
   node.addEventListener('focus', () => selectPane(pane.id));
   node.addEventListener('click', () => selectPane(pane.id));

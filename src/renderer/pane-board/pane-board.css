@@ -321,7 +321,7 @@ textarea:focus {
 .pane-node {
   position: absolute;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
   min-width: 32px;
   min-height: 32px;
   border: 1px solid rgba(117, 213, 199, 0.34);
@@ -348,7 +348,6 @@ textarea:focus {
 }
 
 .pane-node strong,
-.pane-node span,
 .pane-node small,
 .pane-node p {
   min-width: 0;
@@ -356,15 +355,10 @@ textarea:focus {
 }
 
 .pane-node strong {
-  font-size: 0.86rem;
+  display: grid;
+  place-items: start;
+  font-size: 1.2rem;
   line-height: 1.2;
-}
-
-.pane-node span {
-  color: var(--accent);
-  font-size: 0.64rem;
-  font-weight: 800;
-  text-transform: uppercase;
 }
 
 .pane-node p {
