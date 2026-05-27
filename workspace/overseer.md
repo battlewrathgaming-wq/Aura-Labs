@@ -88,6 +88,34 @@ Lab owns Bridge -> Interface presentation language for humans. Source projects o
 
 Shared spelling does not imply shared meaning.
 
+## Presentation Candidate Versus Lab Tooling
+
+Before writing a runway, identify which side of Lab the work touches.
+
+Presentation candidate work is anything that may become part of the clean portable presentation offer. Treat it as strict:
+
+- bounded materials or composed outputs
+- explicit states and slots
+- clear source, basis, freshness, availability, gaps, and warning behavior
+- no hidden tooling dependency
+- no target-project meaning
+- no surprise runtime weight
+- verification before promotion
+
+Lab tooling work is how Lab discovers, sketches, pressures, or reviews possible presentation form. It may be more playful and exploratory:
+
+- Pane Board
+- sketch and shape tools
+- CSS helpers
+- material explorers
+- screenshot/contact sheets
+- form generators
+- "load ingredients and get forms out" experiments
+
+Tooling still needs boundaries. Keep it Lab-local, clearly separate from the clean presentation head, and do not let it become product navigation, a bridge contract, source-project doctrine, target adapter work, or hidden Dev authorization.
+
+ADRs may record posture, boundaries, and north-star decisions. They do not authorize Dev work by themselves. Only `workspace/current.md` opens executable Dev work.
+
 ## Cooperative Keyword Note
 
 If a key word, protected term, bridge-facing label, adapter label, or presentation phrase is unclear, treat the uncertainty as advisory and cooperative first.
