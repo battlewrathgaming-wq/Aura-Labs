@@ -119,6 +119,57 @@ It can carry mechanical notes, but those notes should usually live in:
 
 Pane Board should avoid turning backend fields or technical states directly into first-read UI blocks unless Project UX has interpreted them as meaningful display parts.
 
+## Material Boundary Read
+
+Shapes and positions alone do not always tell the full story.
+
+Lab may use literal visual material, including generic PNG backing, color, contrast, texture, opacity, shadow, and occlusion, to help a Human and agents see why a spatial relationship works.
+
+This is imagination paint:
+
+```txt
+plain geometry
+-> material-enriched sketch
+-> notice what makes it read
+-> strip the material back out or make it optional
+-> preserve the portable relationship
+```
+
+The PNG or material is not representative of the data. It is not target-project style, bridge meaning, state meaning, source truth, or adopted UI. It is a temporary surface quality that helps reveal:
+
+- what recedes
+- what advances
+- what acts as a backing plane
+- what feels like the active foreground
+- what belongs together
+- why a simple arrangement pops
+
+Lab can own this scouting tool because Lab owns the proving bench. Lab does not own the target project's final face.
+
+Cross-project adoption should preserve the relationship, not the material:
+
+```txt
+Lab shows: this relationship works.
+Source project decides: this fits our surface.
+Source project rebuilds it in its own language.
+```
+
+Useful portable output:
+
+- lower plane reads as backing/container
+- upper plate reads as active foreground
+- contrast separates anchor from support
+- occlusion or shadow carries hierarchy
+- material is optional or replaceable
+- state meaning remains text, structure, and source-project semantics supported
+
+Working rule:
+
+```txt
+Material can explain shape relationship.
+Material must not become the only carrier of data state or product meaning.
+```
+
 ## Working Rule
 
 Use mechanical language to protect behavior.

@@ -125,6 +125,7 @@ Post-M40 low-credit pause state:
 - `workspace/surface-discovery-schema.md` is available as a light intake schema for future UI/UX surface discovery across projects. It separates primary boundary, anchor, support, and readout states without authorizing implementation or Lab ownership of source meaning.
 - `workspace/internal-inventory-launch-schema.md` is available as an agnostic map for project-local assets, launch points, safe inspection, write boundaries, state-at-rest, and drift traps.
 - `workspace/UIUXHS154-png-backed-surface-materials-advisory.md` is accepted as Lab-local visual-material advisory input. The recommended `png-panel-plate-readout-muted` prototype candidate is parked until Human opens a bounded implementation packet.
+- `workspace/pane-board/concepts/presentation-mechanics-and-human-read.md` now records Material Boundary Read: PNG/material treatment may be used as imagination paint to reveal surface relationships, but target projects rebuild final materials in their own language.
 
 Likely next discussion choices:
 
@@ -203,6 +204,7 @@ Accepted source of intent:
 - `workspace/internal-inventory-launch-schema.md`
 - `workspace/UIUXHS154-png-backed-surface-materials-advisory.md`
 - `workspace/OverseerHS155-uiuxhs154-png-backed-materials-acceptance.md`
+- `workspace/pane-board/concepts/presentation-mechanics-and-human-read.md`
 
 Read first:
 
@@ -256,6 +258,7 @@ Read first:
 - `workspace/internal-inventory-launch-schema.md`
 - `workspace/UIUXHS154-png-backed-surface-materials-advisory.md`
 - `workspace/OverseerHS155-uiuxhs154-png-backed-materials-acceptance.md`
+- `workspace/pane-board/concepts/presentation-mechanics-and-human-read.md`
 - `package.json`
 
 ## Ordered Dev Runway
@@ -364,6 +367,7 @@ No active verification while idle.
 - Added `workspace/surface-discovery-schema.md` as an advisory intake schema for future surface discovery passes.
 - Added `workspace/internal-inventory-launch-schema.md` as an agnostic internal inventory and launch-point schema.
 - HS155 accepted `workspace/UIUXHS154-png-backed-surface-materials-advisory.md` as advisory input only. No Dev runway was opened.
+- Recorded Material Boundary Read in `workspace/pane-board/concepts/presentation-mechanics-and-human-read.md` as Shape See training posture.
 
 ## Dev Handoff
 
@@ -418,3 +422,4 @@ No active Dev handoff required while idle.
 - Automation can contaminate role context if run inside the wrong thread; ADR 0004 should be read before any future heartbeat or scheduled helper.
 - Wayfinder is promising but currently only a scaffold; do not infer runtime or workflow authority from its folders.
 - PNG-backed surface materials may reduce readability or imply style ownership if treated as more than optional Lab-local visual material.
+- Material-enriched sketches can be mistaken for adopted product styling; preserve them as imagination paint unless Human/source project explicitly accepts more.
