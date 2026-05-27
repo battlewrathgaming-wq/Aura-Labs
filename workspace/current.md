@@ -123,6 +123,7 @@ Post-M40 low-credit pause state:
 - Aura Wayfinder has scaffold folders and README boundaries only: no runtime, no launch flag, no active packet.
 - The latest dirty Pane Board files appear to be current Shape See session state and reusable insight, not unrelated code work.
 - `workspace/surface-discovery-schema.md` is available as a light intake schema for future UI/UX surface discovery across projects. It separates primary boundary, anchor, support, and readout states without authorizing implementation or Lab ownership of source meaning.
+- `workspace/internal-inventory-launch-schema.md` is available as an agnostic map for project-local assets, launch points, safe inspection, write boundaries, state-at-rest, and drift traps.
 
 Likely next discussion choices:
 
@@ -198,6 +199,7 @@ Accepted source of intent:
 - `workspace/wayfinder/README.md`
 - `workspace/OverseerHS153-stale-context-restart-snapshot.md`
 - `workspace/surface-discovery-schema.md`
+- `workspace/internal-inventory-launch-schema.md`
 
 Read first:
 
@@ -248,6 +250,7 @@ Read first:
 - `workspace/wayfinder/README.md`
 - `workspace/OverseerHS153-stale-context-restart-snapshot.md`
 - `workspace/surface-discovery-schema.md`
+- `workspace/internal-inventory-launch-schema.md`
 - `package.json`
 
 ## Ordered Dev Runway
@@ -354,6 +357,7 @@ No active verification while idle.
 - Aura Wayfinder scaffold was added as Lab-only orientation tooling boundaries only. No runtime code or launch flag exists.
 - HS153 recorded a low-credit restart snapshot to preserve current state, dirty Pane Board files, Wayfinder direction, and automation lessons before context can go stale.
 - Added `workspace/surface-discovery-schema.md` as an advisory intake schema for future surface discovery passes.
+- Added `workspace/internal-inventory-launch-schema.md` as an agnostic internal inventory and launch-point schema.
 
 ## Dev Handoff
 
