@@ -33,6 +33,7 @@ Sense has already validated the model by adapting the instrument grammar without
 
 ## Core Files
 
+- `HUMAN.md` is a context refresher for Human communication style. It is not project authority and does not authorize work.
 - `workspace/overview.md` is the project map and durable record index.
 - `workspace/current.md` is the only active executable work packet.
 - `workspace/overseer.md` is the Overseer guide for milestone/runway shaping and acceptance criteria.
@@ -121,3 +122,24 @@ If a key word, protected term, bridge-facing label, adapter label, or presentati
 This does not infer ownership, accept shared doctrine, rename Lab or source-project meaning, update protected-word JSON, or authorize Dev work. If the owner, layer, or preserve/translate decision is unclear, stop and ask the Human or project Overseer.
 
 Overseer only: when the Human gives authority, the project Overseer may update `workspace/critical/` or another accepted local resting-state record. Specialists, Dev, and advisory workers should flag the issue in handoff instead of updating authority surfaces themselves.
+
+## Shared Checkpoint Lookup
+
+If a term, workflow, authority boundary, specialist artifact, shared offer, or cross-project concern cannot be resolved from this project root, consult:
+
+`F:\Projects\Docs\Aura-Project-Orchestration\shared-checkpoints\README.md`
+
+Use shared checkpoints as navigation only. They may point, compare, question, and suggest; they do not override Lab `AGENTS.md`, `workspace/current.md`, `workspace/critical/`, accepted handoffs, or durable docs.
+
+After lookup, return to this project root before acting. Dev should consult shared checkpoints only when the active packet or a stop condition requires it.
+
+Lab-specific cautions:
+
+- Pane Board is Lab-only Shape See/tooling, not product runtime.
+- Wayfinder is scaffold/orientation material, not active workflow authority.
+- SmokeFlash is Lab-local hidden/gated tooling, not offered presentation layer.
+- Display materials and composed outputs are Lab presentation candidates, not target adoption.
+- PNG/material cues are imagination paint, not product style or data meaning.
+- Lab Bridge -> Interface language is Lab-owned only after preserving source meaning.
+- Atlas/Sense emitted terms are source-owned, not Lab defaults.
+- Target adapters are owned by target projects, not Lab.
