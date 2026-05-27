@@ -135,6 +135,31 @@ workspace/pane-board/materials/
 
 Existing boards do not need material metadata. Clearing a material leaves the pane as a plain shape again.
 
+## Generated Image Hygiene
+
+After any Shape See or material session, decide whether generated PNGs are reference material or disposable session dust.
+
+If a PNG is reference material:
+
+- keep it under `workspace/pane-board/materials/` or `workspace/pane-board/screenshots/`
+- give it a descriptive, product-agnostic name
+- add a short note that records purpose, source or generation context, what it demonstrates, and what it must not imply
+- ensure board JSON references only accepted local materials under `materials/`
+
+If a PNG is disposable:
+
+- delete generated PNGs and transient screenshots/captures
+- restore `current-board.json` and `board-events.ndjson` if they were touched only by smoke or test output
+
+Before handoff, run:
+
+```text
+npm.cmd run verify:pane-board
+git status --short
+```
+
+End with a clean tree or an intentionally staged/dirty tree whose purpose is named.
+
 ## Grab That State
 
 The Human phrase "grab that state" means:
