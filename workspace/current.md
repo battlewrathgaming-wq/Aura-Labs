@@ -122,6 +122,7 @@ Post-M40 low-credit pause state:
 - The Pane Board Labs heartbeat is paused and should not be treated as an active workflow.
 - Aura Wayfinder has scaffold folders and README boundaries only: no runtime, no launch flag, no active packet.
 - The latest dirty Pane Board files appear to be current Shape See session state and reusable insight, not unrelated code work.
+- `workspace/surface-discovery-schema.md` is available as a light intake schema for future UI/UX surface discovery across projects. It separates primary boundary, anchor, support, and readout states without authorizing implementation or Lab ownership of source meaning.
 
 Likely next discussion choices:
 
@@ -196,6 +197,7 @@ Accepted source of intent:
 - `src/renderer/wayfinder/README.md`
 - `workspace/wayfinder/README.md`
 - `workspace/OverseerHS153-stale-context-restart-snapshot.md`
+- `workspace/surface-discovery-schema.md`
 
 Read first:
 
@@ -245,6 +247,7 @@ Read first:
 - `src/renderer/wayfinder/README.md`
 - `workspace/wayfinder/README.md`
 - `workspace/OverseerHS153-stale-context-restart-snapshot.md`
+- `workspace/surface-discovery-schema.md`
 - `package.json`
 
 ## Ordered Dev Runway
@@ -350,6 +353,7 @@ No active verification while idle.
 - ADR 0004 accepted automation role/context boundaries after the Pane Board heartbeat experiment showed role/thread contamination risk.
 - Aura Wayfinder scaffold was added as Lab-only orientation tooling boundaries only. No runtime code or launch flag exists.
 - HS153 recorded a low-credit restart snapshot to preserve current state, dirty Pane Board files, Wayfinder direction, and automation lessons before context can go stale.
+- Added `workspace/surface-discovery-schema.md` as an advisory intake schema for future surface discovery passes.
 
 ## Dev Handoff
 
