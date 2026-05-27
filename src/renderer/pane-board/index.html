@@ -90,14 +90,45 @@
             <button type="button" id="export-png">PNG</button>
           </div>
         </section>
+        <section class="capture-panel" aria-label="Resting capture">
+          <label for="capture-title">Capture name</label>
+          <input id="capture-title">
+          <label for="capture-source-artifact">Source artifact</label>
+          <input id="capture-source-artifact">
+          <label for="capture-human-signal">Human signal</label>
+          <textarea id="capture-human-signal" rows="3"></textarea>
+          <label class="check-row" for="capture-include-screenshot">
+            <input id="capture-include-screenshot" type="checkbox" checked>
+            <span>Include PNG</span>
+          </label>
+          <button type="button" id="capture-board">Capture resting state</button>
+        </section>
         <output id="board-message" aria-live="polite"></output>
       </aside>
       <section class="board-region" aria-label="Pane board">
         <div class="ownership-banner" id="ownership-banner"></div>
         <div class="board-meta" id="board-meta"></div>
+        <section class="collaboration-panel" aria-label="Board-local collaboration notes">
+          <div class="note-lane">
+            <label for="board-human-note">Human note</label>
+            <textarea id="board-human-note" rows="3"></textarea>
+          </div>
+          <div class="note-lane">
+            <label for="board-labs-note">Labs note</label>
+            <textarea id="board-labs-note" rows="3"></textarea>
+          </div>
+          <div class="command-inbox">
+            <label for="board-command-input">Board guidance</label>
+            <div class="command-entry">
+              <input id="board-command-input">
+              <button type="button" id="add-board-command">Add</button>
+            </div>
+            <ol id="board-command-list"></ol>
+          </div>
+        </section>
         <section class="screen-note" aria-label="Screen note">
-          <label for="screen-note-text">Screen note</label>
-          <textarea id="screen-note-text" rows="3"></textarea>
+          <label for="screen-note-text">Surface note</label>
+          <textarea id="screen-note-text" rows="2"></textarea>
         </section>
         <div class="board-canvas-wrap">
           <div class="board-canvas" id="board-canvas" aria-label="Layout canvas"></div>

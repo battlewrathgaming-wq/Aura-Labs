@@ -3,7 +3,10 @@ const boardState = {
   board: null,
   selectedId: null,
   drag: null,
-  saveTimer: null
+  saveTimer: null,
+  dirty: false,
+  lastRevision: null,
+  revisionTimer: null
 };
 
 boot().catch((error) => showMessage(error.message));
@@ -12,8 +15,10 @@ async function boot() {
   await bootFrame();
   wireControls();
   boardState.board = await window.auraPaneBoard.load();
+  boardState.lastRevision = await window.auraPaneBoard.revision();
   boardState.selectedId = boardState.board.panes[0]?.id || null;
   renderBoard();
+  startRevisionWatch();
 }
 
 async function bootFrame() {
@@ -64,6 +69,17 @@ function wireControls() {
     boardState.board.review.agentNotes = event.target.value;
     scheduleSave('screen-note-edited');
   });
+  document.querySelector('#board-human-note').addEventListener('input', (event) => {
+    ensureCollaboration();
+    boardState.board.collaboration.notes.human = event.target.value;
+    scheduleSave('human-note-edited');
+  });
+  document.querySelector('#board-labs-note').addEventListener('input', (event) => {
+    ensureCollaboration();
+    boardState.board.collaboration.notes.labs = event.target.value;
+    scheduleSave('labs-note-edited');
+  });
+  document.querySelector('#add-board-command').addEventListener('click', addBoardCommand);
   document.querySelector('#add-pane').addEventListener('click', addPane);
   document.querySelector('#duplicate-pane').addEventListener('click', duplicatePane);
   document.querySelector('#delete-pane').addEventListener('click', deletePane);
@@ -78,6 +94,7 @@ function wireControls() {
   document.querySelector('#export-png').addEventListener('click', exportPng);
   document.querySelector('#refresh-board').addEventListener('click', refreshBoard);
   document.querySelector('#return-sketch').addEventListener('click', returnToSketch);
+  document.querySelector('#capture-board').addEventListener('click', captureBoard);
 }
 
 function setViewport(preset) {
@@ -100,6 +117,9 @@ function renderBoard() {
   document.querySelector('#viewport-preset').value = boardState.board.viewport?.preset || '960x640';
   document.querySelector('#board-status').value = boardState.board.status || 'human-sketch';
   document.querySelector('#screen-note-text').value = boardState.board.screenNote || boardState.board.review?.agentNotes || '';
+  ensureCollaboration();
+  document.querySelector('#board-human-note').value = boardState.board.collaboration.notes.human || '';
+  document.querySelector('#board-labs-note').value = boardState.board.collaboration.notes.labs || '';
 
   const canvas = document.querySelector('#board-canvas');
   canvas.style.width = `${boardState.board.viewport.width}px`;
@@ -110,6 +130,7 @@ function renderBoard() {
   }
   renderEditor();
   renderMeta();
+  renderCommands();
 }
 
 function renderPane(pane) {
@@ -179,6 +200,17 @@ function renderMeta() {
     meta.appendChild(chip);
   }
   renderOwnershipBanner();
+}
+
+function renderCommands() {
+  ensureCollaboration();
+  const list = document.querySelector('#board-command-list');
+  list.textContent = '';
+  for (const command of boardState.board.collaboration.commands) {
+    const item = document.createElement('li');
+    item.textContent = `${command.text} / ${command.scope}`;
+    list.appendChild(item);
+  }
 }
 
 function renderOwnershipBanner() {
@@ -389,9 +421,13 @@ function deletePane() {
 
 async function scheduleSave(reason) {
   clearTimeout(boardState.saveTimer);
+  boardState.dirty = true;
   boardState.saveTimer = setTimeout(async () => {
+    boardState.saveTimer = null;
     try {
       boardState.board = await window.auraPaneBoard.save(boardState.board, reason);
+      boardState.lastRevision = await window.auraPaneBoard.revision();
+      boardState.dirty = false;
       showMessage('Saved current board.');
       renderBoard();
     } catch (error) {
@@ -403,7 +439,10 @@ async function scheduleSave(reason) {
 
 async function grabState() {
   clearTimeout(boardState.saveTimer);
+  boardState.saveTimer = null;
   boardState.board = await window.auraPaneBoard.save(boardState.board, 'before-snapshot');
+  boardState.lastRevision = await window.auraPaneBoard.revision();
+  boardState.dirty = false;
   const status = document.querySelector('#snapshot-status').value;
   const title = document.querySelector('#snapshot-title').value || boardState.board.title;
   const basedOnInput = document.querySelector('#snapshot-based-on');
@@ -420,21 +459,28 @@ async function grabState() {
 
 async function exportPng() {
   clearTimeout(boardState.saveTimer);
+  boardState.saveTimer = null;
   boardState.board = await window.auraPaneBoard.save(boardState.board, 'before-png-export');
+  boardState.lastRevision = await window.auraPaneBoard.revision();
+  boardState.dirty = false;
   const result = await window.auraPaneBoard.exportPng({ board: boardState.board, title: boardState.board.title });
   showMessage(`PNG saved ${relativePath(result.path)}.`);
 }
 
-async function refreshBoard() {
+async function refreshBoard(message = 'Refreshed from disk.') {
   clearTimeout(boardState.saveTimer);
+  boardState.saveTimer = null;
   boardState.board = await window.auraPaneBoard.load();
+  boardState.lastRevision = await window.auraPaneBoard.revision();
+  boardState.dirty = false;
   boardState.selectedId = boardState.board.panes[0]?.id || null;
   renderBoard();
-  showMessage('Refreshed from disk.');
+  showMessage(message);
 }
 
 async function returnToSketch() {
   clearTimeout(boardState.saveTimer);
+  boardState.saveTimer = null;
   boardState.board.status = 'human-sketch';
   boardState.board.source = {
     ...(boardState.board.source || {}),
@@ -444,8 +490,77 @@ async function returnToSketch() {
     context: 'layout intent sketch'
   };
   boardState.board = await window.auraPaneBoard.save(boardState.board, 'return-to-human-sketch');
+  boardState.lastRevision = await window.auraPaneBoard.revision();
+  boardState.dirty = false;
   renderBoard();
   showMessage('Returned current board to Human sketch.');
+}
+
+function addBoardCommand() {
+  const input = document.querySelector('#board-command-input');
+  const text = input.value.trim();
+  if (!text) {
+    showMessage('Add board-local guidance first.');
+    return;
+  }
+  ensureCollaboration();
+  boardState.board.collaboration.commands.push({
+    id: `board-guidance-${Date.now()}`,
+    text,
+    createdBy: 'human',
+    scope: 'board-only',
+    status: 'open',
+    createdAt: new Date().toISOString()
+  });
+  boardState.board.collaboration.commands = boardState.board.collaboration.commands.slice(-24);
+  input.value = '';
+  scheduleSave('board-guidance-added');
+  renderCommands();
+}
+
+async function captureBoard() {
+  clearTimeout(boardState.saveTimer);
+  boardState.saveTimer = null;
+  boardState.board = await window.auraPaneBoard.save(boardState.board, 'before-resting-capture');
+  boardState.lastRevision = await window.auraPaneBoard.revision();
+  boardState.dirty = false;
+  const result = await window.auraPaneBoard.capture({
+    board: boardState.board,
+    title: document.querySelector('#capture-title').value || boardState.board.title,
+    sourceArtifact: document.querySelector('#capture-source-artifact').value,
+    humanSignal: document.querySelector('#capture-human-signal').value,
+    includeScreenshot: document.querySelector('#capture-include-screenshot').checked
+  });
+  showMessage(`Captured ${relativePath(result.path)}.`);
+}
+
+function startRevisionWatch() {
+  clearInterval(boardState.revisionTimer);
+  boardState.revisionTimer = setInterval(async () => {
+    if (boardState.dirty || boardState.saveTimer) {
+      return;
+    }
+    const revision = await window.auraPaneBoard.revision();
+    if (hasRevisionChanged(revision, boardState.lastRevision)) {
+      await refreshBoard('Redrew from disk change.');
+    }
+  }, 1800);
+}
+
+function hasRevisionChanged(nextRevision, previousRevision) {
+  return nextRevision?.exists === true
+    && previousRevision?.exists === true
+    && (nextRevision.mtimeMs !== previousRevision.mtimeMs || nextRevision.size !== previousRevision.size);
+}
+
+function ensureCollaboration() {
+  boardState.board.collaboration = boardState.board.collaboration || {};
+  boardState.board.collaboration.notes = boardState.board.collaboration.notes || {};
+  boardState.board.collaboration.notes.human = boardState.board.collaboration.notes.human || '';
+  boardState.board.collaboration.notes.labs = boardState.board.collaboration.notes.labs || '';
+  boardState.board.collaboration.commands = Array.isArray(boardState.board.collaboration.commands)
+    ? boardState.board.collaboration.commands
+    : [];
 }
 
 function clampPanesToBoard() {

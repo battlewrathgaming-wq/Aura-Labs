@@ -256,3 +256,9 @@
 {"at":"2026-05-26T21:43:48.714Z","type":"board-saved","reason":"pane-moved","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
 {"at":"2026-05-26T21:43:52.673Z","type":"board-saved","reason":"pane-moved","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
 {"at":"2026-05-26T21:45:07.059Z","type":"board-saved","reason":"pane-moved","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
+{"at":"2026-05-27T03:29:53.380Z","type":"board-saved","reason":"pane-board-smoke-save","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}
+{"at":"2026-05-27T03:29:53.382Z","type":"snapshot-created","status":"agent-proposal","boardId":"layout-2026-05-27-pane-board-v1-smoke-proposal","basedOn":"layout-2026-05-26-pane-board-v1","path":"agent-proposals\\layout-2026-05-27-pane-board-v1-smoke-proposal.json"}
+{"at":"2026-05-27T03:29:53.447Z","type":"png-exported","boardId":"layout-2026-05-27-pane-board-v1-smoke-proposal","path":"screenshots\\layout-2026-05-27-pane-board-v1-smoke-proposal-pane-board-smoke.png"}
+{"at":"2026-05-27T03:29:53.500Z","type":"png-exported","boardId":"layout-2026-05-26-pane-board-v1","path":"screenshots\\layout-2026-05-26-pane-board-v1-pane-board-v1-smoke-resting-capture-capture.png"}
+{"at":"2026-05-27T03:29:53.502Z","type":"capture-created","boardId":"layout-2026-05-26-pane-board-v1","captureId":"layout-2026-05-27-pane-board-v1-smoke-resting-capture","path":"captures\\layout-2026-05-27-pane-board-v1-smoke-resting-capture.json","screenshot":"screenshots\\layout-2026-05-26-pane-board-v1-pane-board-v1-smoke-resting-capture-capture.png"}
+{"at":"2026-05-27T03:29:53.503Z","type":"board-saved","reason":"pane-board-smoke-restore","boardId":"layout-2026-05-26-pane-board-v1","paneCount":5,"status":"human-sketch"}

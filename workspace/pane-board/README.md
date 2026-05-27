@@ -87,6 +87,7 @@ Stable board state means the current board can be loaded, normalized, saved, and
 - `source.createdBy`, `source.basedOn`, `source.project`, and `source.context`
 - pane `id`, `label`, integer `grid` coordinates, `role`, `importance`, `locked`, `intent`, and `notes`
 - `review.humanIntent`, `review.agentNotes`, and `review.acceptedByHuman`
+- `collaboration.notes.human`, `collaboration.notes.labs`, and `collaboration.commands`
 - `screenNote`
 
 Pane coordinates are grid-unit integers clamped to the active viewport. Labels, notes, lock state, status, review fields, and `basedOn` must survive reload. `updatedAt` may change when a save intentionally writes the current board, but loading alone should not create a new board artifact.
@@ -301,6 +302,7 @@ workspace/pane-board/
   agent-proposals/
   accepted-layouts/
   screenshots/
+  captures/
 ```
 
 ## Later Prototype Acceptance Criteria

@@ -60,9 +60,11 @@ function createPaneBoardWindow({ app, preload, setMainWindow, waitForLoad, delay
 
 function registerPaneBoardHandlers(ipcMain, getWindow) {
   ipcMain.handle('aura:pane-board:load', () => readPaneBoard());
+  ipcMain.handle('aura:pane-board:revision', () => paneBoardRevision());
   ipcMain.handle('aura:pane-board:save', (_event, request = {}) => writePaneBoard(request.board, request.reason));
   ipcMain.handle('aura:pane-board:snapshot', (_event, request = {}) => snapshotPaneBoard(request));
   ipcMain.handle('aura:pane-board:export-png', (_event, request = {}) => exportPaneBoardPng(getWindow(), request));
+  ipcMain.handle('aura:pane-board:capture', (_event, request = {}) => capturePaneBoard(getWindow(), request));
 }
 
 async function runPaneBoardSmoke({ app, window, waitForLoad, delay }) {
@@ -100,6 +102,13 @@ async function runPaneBoardSmoke({ app, window, waitForLoad, delay }) {
     });
   `);
   const png = await exportPaneBoardPng(window, { board: snapshot.board, title: 'pane-board-smoke' });
+  const capture = await capturePaneBoard(window, {
+    board: saved,
+    title: 'Pane Board V1 smoke resting capture',
+    sourceArtifact: 'pane-board-smoke',
+    humanSignal: 'Smoke capture checks board-local resting state.',
+    includeScreenshot: true
+  });
   writePaneBoard(board, 'pane-board-smoke-restore');
   const result = {
     status: 'passed',
@@ -108,6 +117,8 @@ async function runPaneBoardSmoke({ app, window, waitForLoad, delay }) {
     current_board: path.relative(process.cwd(), paneBoardPaths().current),
     snapshot: path.relative(process.cwd(), snapshot.path),
     png: path.relative(process.cwd(), png.path),
+    capture: path.relative(process.cwd(), capture.path),
+    capture_screenshot: capture.capture.screenshot,
     board_id: snapshot.board.id,
     based_on: snapshot.board.source.basedOn,
     pane_count: snapshot.board.panes.length
@@ -130,16 +141,36 @@ function paneBoardPaths() {
     human: path.join(PANE_BOARD_ROOT, 'human-sketches'),
     agent: path.join(PANE_BOARD_ROOT, 'agent-proposals'),
     accepted: path.join(PANE_BOARD_ROOT, 'accepted-layouts'),
+    captures: path.join(PANE_BOARD_ROOT, 'captures'),
     screenshots: path.join(PANE_BOARD_ROOT, 'screenshots')
   };
 }
 
 function ensurePaneBoardDirs() {
   const paths = paneBoardPaths();
-  for (const dir of [paths.root, paths.human, paths.agent, paths.accepted, paths.screenshots]) {
+  for (const dir of [paths.root, paths.human, paths.agent, paths.accepted, paths.captures, paths.screenshots]) {
     fs.mkdirSync(dir, { recursive: true });
   }
   return paths;
+}
+
+function paneBoardRevision() {
+  const paths = ensurePaneBoardDirs();
+  if (!fs.existsSync(paths.current)) {
+    return {
+      exists: false,
+      path: path.relative(process.cwd(), paths.current),
+      mtimeMs: 0,
+      size: 0
+    };
+  }
+  const stat = fs.statSync(paths.current);
+  return {
+    exists: true,
+    path: path.relative(process.cwd(), paths.current),
+    mtimeMs: stat.mtimeMs,
+    size: stat.size
+  };
 }
 
 function readPaneBoard() {
@@ -241,6 +272,47 @@ async function exportPaneBoardPng(window, { board, title } = {}) {
   };
 }
 
+async function capturePaneBoard(window, { board, title, sourceArtifact, humanSignal, includeScreenshot } = {}) {
+  const paths = ensurePaneBoardDirs();
+  const cleanBoard = normalizePaneBoard(board || readPaneBoard());
+  validatePaneBoardOwnership(cleanBoard);
+  const captureTitle = String(title || cleanBoard.title || 'Pane Board resting capture').slice(0, 120);
+  const capture = {
+    id: layoutId(captureTitle),
+    title: captureTitle,
+    kind: 'pane-board-resting-capture',
+    createdAt: new Date().toISOString(),
+    source: {
+      boardId: cleanBoard.id,
+      boardStatus: cleanBoard.status,
+      createdBy: cleanBoard.source?.createdBy || 'human',
+      basedOn: cleanBoard.source?.basedOn || null,
+      sourceArtifact: String(sourceArtifact || '').slice(0, 260),
+      humanSignal: String(humanSignal || '').slice(0, 500),
+      scope: 'board-local layout guidance'
+    },
+    board: cleanBoard,
+    screenshot: null
+  };
+  if (includeScreenshot === true) {
+    const png = await exportPaneBoardPng(window, { board: cleanBoard, title: `${captureTitle}-capture` });
+    capture.screenshot = path.relative(PANE_BOARD_ROOT, png.path);
+  }
+  const targetPath = uniqueLayoutPath(paths.captures, capture.id);
+  fs.writeFileSync(targetPath, `${JSON.stringify(capture, null, 2)}\n`, 'utf8');
+  appendPaneBoardEvent({
+    type: 'capture-created',
+    boardId: cleanBoard.id,
+    captureId: capture.id,
+    path: path.relative(PANE_BOARD_ROOT, targetPath),
+    screenshot: capture.screenshot
+  });
+  return {
+    capture,
+    path: targetPath
+  };
+}
+
 function appendPaneBoardEvent(event) {
   const paths = ensurePaneBoardDirs();
   const entry = {
@@ -308,6 +380,13 @@ function defaultPaneBoard() {
       agentNotes: '',
       acceptedByHuman: false
     },
+    collaboration: {
+      notes: {
+        human: '',
+        labs: ''
+      },
+      commands: []
+    },
     screenNote: 'Dev note: this board is a cooperative spatial sketch surface. Treat positions as intent, not instruction.',
     updatedAt: new Date().toISOString()
   };
@@ -365,8 +444,36 @@ function normalizePaneBoard(board) {
       agentNotes: String(board?.review?.agentNotes || '').slice(0, 1000),
       acceptedByHuman: board?.review?.acceptedByHuman === true
     },
+    collaboration: normalizeCollaboration(board?.collaboration),
     screenNote: String(board?.screenNote || board?.review?.agentNotes || '').slice(0, 1000),
     updatedAt: new Date().toISOString()
+  };
+}
+
+function normalizeCollaboration(collaboration = {}) {
+  const notes = collaboration.notes || {};
+  return {
+    notes: {
+      human: String(notes.human || '').slice(0, 1200),
+      labs: String(notes.labs || '').slice(0, 1200)
+    },
+    commands: Array.isArray(collaboration.commands)
+      ? collaboration.commands.slice(-24).map((command, index) => normalizeBoardCommand(command, index))
+      : []
+  };
+}
+
+function normalizeBoardCommand(command, index) {
+  const text = String(command?.text || '').slice(0, 220);
+  return {
+    id: String(command?.id || `board-guidance-${index + 1}`).slice(0, 80),
+    text,
+    createdBy: command?.createdBy === 'labs' ? 'labs' : 'human',
+    scope: 'board-only',
+    status: command?.status === 'done' ? 'done' : command?.status === 'parked' ? 'parked' : 'open',
+    createdAt: typeof command?.createdAt === 'string' && !Number.isNaN(Date.parse(command.createdAt))
+      ? command.createdAt
+      : new Date().toISOString()
   };
 }
 

@@ -1,17 +1,17 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-05-27
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M40 - Pane Board Collaboration Loop
-Last completed milestone: M39 / HS149 - Pane Board Ownership And View Clarity Acceptance
-Current executor: Dev
-Current focus: Improve Pane Board as a Lab-only Human/Labs Shape See collaboration surface.
-Expected output: `workspace/DevHS151-pane-board-collaboration-loop.md`
-Expected DevHS filename: `workspace/DevHS151-pane-board-collaboration-loop.md`
+Active milestone: None
+Last completed milestone: M40 / HS152 - Pane Board Collaboration Loop Acceptance
+Current executor: Human / Overseer
+Current focus: Await Human / Overseer direction after accepting the Pane Board collaboration loop.
+Expected output: Human direction or next Overseer runway artifact.
+Expected DevHS filename: None.
 
 ## Current State
 
@@ -104,15 +104,17 @@ M39 is accepted.
 
 Pane Board now blocks no-lineage agent-proposal current-board saves, shows visible ownership/status treatment, supports Refresh from disk, provides a minimal Back to sketch recovery path, and keeps the current board corrected to Human sketch ownership.
 
-M40 is open.
+M40 is accepted.
 
-The next bounded tooling push is the Pane Board collaboration loop:
+The accepted bounded tooling push was the Pane Board collaboration loop:
 
 ```txt
 Human changes board -> board redraws -> notes/commands sit on the board -> capture creates a named resting record
 ```
 
-This is Lab-only tooling work. It must make the sandpit easier for Human and Labs to use without expanding the portable presentation offer, source-project adoption, target adapters, generated UI, or bridge/runtime contracts.
+This is Lab-only tooling work. It makes the sandpit easier for Human and Labs to use without expanding the portable presentation offer, source-project adoption, target adapters, generated UI, or bridge/runtime contracts.
+
+Overseer acceptance also corrected one small redraw-loop edge case in `src/renderer/pane-board/pane-board.js`: immediate-save actions now clear the pending save marker and refresh revision/dirty state so the auto-redraw loop does not stay paused after actions such as Grab state, PNG export, Back to sketch, or resting capture.
 
 ## Source Of Intent
 
@@ -172,6 +174,8 @@ Accepted source of intent:
 - `workspace/overseer.md`
 - `docs/roadmap/m40-pane-board-collaboration-loop.md`
 - `workspace/OverseerHS151-m40-pane-board-collaboration-loop-runway.md`
+- `workspace/DevHS151-pane-board-collaboration-loop.md`
+- `workspace/OverseerHS152-m40-pane-board-collaboration-loop-acceptance.md`
 
 Read first:
 
@@ -214,29 +218,17 @@ Read first:
 - `workspace/overseer.md`
 - `docs/roadmap/m40-pane-board-collaboration-loop.md`
 - `workspace/OverseerHS151-m40-pane-board-collaboration-loop-runway.md`
+- `workspace/DevHS151-pane-board-collaboration-loop.md`
+- `workspace/OverseerHS152-m40-pane-board-collaboration-loop-acceptance.md`
 - `package.json`
 
 ## Ordered Dev Runway
 
-1. Reload the current Pane Board implementation and document any pre-existing local dirty files before editing.
-2. Add a low-friction redraw path for current-board changes. Prefer auto-redraw/revision checking if stable; otherwise implement an explicit redraw button/path and explain why.
-3. Add board-native Human and Labs note lanes that are visibly separate and persist in board state without overwriting each other.
-4. Add a board-local command inbox for short spatial instructions. It must read as board guidance only, not Dev authorization or product authority.
-5. Add a capture helper that can save a named resting record with current board JSON, optional screenshot when already supported, source artifact, and Human signal. It must not overwrite Human sketches or agent proposals unexpectedly.
-6. Update Pane Board verification for new state fields, note/command persistence, ownership boundaries, and capture behavior.
-7. Create `workspace/DevHS151-pane-board-collaboration-loop.md` with files changed, behavior added, verification results, remaining risks, and any Human/Overseer decisions needed.
+No active Dev runway.
 
 ## Acceptance Criteria
 
-- Human can change or load board state and get an updated visible board without stale confusion.
-- Human notes and Labs notes are separate, visible, and persisted.
-- Board commands are persisted as board-local guidance and are not treated as executable project instructions.
-- Capture produces a reviewable named state or record and preserves ownership/provenance.
-- Existing Human sketch protection and agent proposal separation remain intact.
-- Pane Board remains Lab-only tooling.
-- Clean presentation renderer/head has no dependency on Pane Board collaboration fields.
-- No source-project terms, bridge contracts, adapters, generated UI, or product renderer behavior are introduced.
-- Verification and Pane Board smoke pass.
+No active acceptance criteria while idle.
 
 ## Guardrails And Non-Goals
 
@@ -255,8 +247,7 @@ Standing guardrails:
 - Do not add code generation or CSS export.
 - Do not make screenshots automatic background output.
 - Do not treat coordinates as exact UI specs.
-- Keep M40 bounded to the collaboration loop: redraw, Human/Labs notes, board command inbox, and capture helper.
-- Do not add layer controls, material controls, pattern metadata, compare workbench, intent lamps, or full accept/park/reject workflow in this slice.
+- Do not add layer controls, material controls, pattern metadata, compare workbench, intent lamps, or full accept/park/reject workflow without a new packet.
 - Do not create source adapters, extraction automation, generated UI, target-project styling, bridge/runtime contracts, or product renderer dependencies.
 
 ## Stop Conditions
@@ -281,25 +272,7 @@ Stop and return to Human / Overseer direction if a future task requires:
 
 ## Required Verification
 
-Run:
-
-```powershell
-npm.cmd run verify:pane-board
-npm.cmd run verify:all
-npm.cmd run smoke:pane-board
-```
-
-Then from `F:\Projects\Docs\Aura-Project-Orchestration` run:
-
-```powershell
-npm.cmd run verify:terminology
-```
-
-Run normal Electron smoke only if shared launch, preload, normal renderer, or clean presentation-head behavior changes:
-
-```powershell
-npm.cmd run smoke:electron
-```
+No active verification while idle.
 
 ## Evidence
 
@@ -345,20 +318,14 @@ npm.cmd run smoke:electron
 - HS149 accepted M39 after Overseer review and rerun verification. Latest Pane Board smoke record reported `status: passed`, `snapshot: workspace\pane-board\agent-proposals\layout-2026-05-26-pane-board-v1-smoke-proposal-12.json`, `png: workspace\pane-board\screenshots\layout-2026-05-26-pane-board-v1-smoke-proposal-pane-board-smoke-11.png`, `based_on: layout-2026-05-26-pane-board-v1`, and `pane_count: 5`.
 - HS150 accepted a post-M39 Pane Board step-controls snapshot. It added small selected-pane nudge controls, preserved current board state from the hands-on pass, and preserved two Lab sandpit concept notes under `workspace\pane-board\concepts\`. Verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, `npm.cmd run smoke:pane-board`, and orchestration `npm.cmd run verify:terminology`.
 - HS151 opened M40 as a bounded Dev runway for the Pane Board collaboration loop: low-friction redraw, Human/Labs note lanes, board-local command inbox, and capture helper. This is Lab-only tooling and does not expand the portable presentation offer.
+- DevHS151 completed the M40 collaboration loop implementation. Pre-existing dirty files before editing: none. Pane Board now has gated current-board revision checking for auto-redraw, separate Human and Labs note lanes, a board-only guidance inbox, and a resting capture helper that writes named capture JSON plus optional PNG without overwriting Human sketches or agent proposals.
+- HS151 verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, `npm.cmd run smoke:pane-board`, `npm.cmd run verify:pane-board` after smoke, `npm.cmd run smoke:electron`, and orchestration `npm.cmd run verify:terminology`. Normal Electron smoke was run because the gated Pane Board preload API changed.
+- HS151 Pane Board smoke reported `.tmp/pane-board-smoke/pane-board-smoke-result.json` with `status: passed`, `snapshot: workspace\pane-board\agent-proposals\layout-2026-05-27-pane-board-v1-smoke-proposal.json`, `png: workspace\pane-board\screenshots\layout-2026-05-27-pane-board-v1-smoke-proposal-pane-board-smoke.png`, `capture: workspace\pane-board\captures\layout-2026-05-27-pane-board-v1-smoke-resting-capture.json`, `capture_screenshot: screenshots\layout-2026-05-26-pane-board-v1-pane-board-v1-smoke-resting-capture-capture.png`, `based_on: layout-2026-05-26-pane-board-v1`, and `pane_count: 5`.
+- HS152 accepted M40 after Overseer review and rerun verification. Overseer made one small assurance correction so immediate-save actions clear pending save markers and keep redraw checks live. Verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, `npm.cmd run smoke:pane-board`, `npm.cmd run smoke:electron`, and orchestration `npm.cmd run verify:terminology`.
 
 ## Dev Handoff
 
-Dev should create `workspace/DevHS151-pane-board-collaboration-loop.md` and include:
-
-- pre-existing dirty files observed before editing
-- files changed
-- how redraw works
-- how Human/Labs notes are stored and separated
-- how board commands are stored and bounded
-- how capture works and what paths it produces
-- verification commands and results
-- whether normal Electron smoke was required
-- remaining risks or parked follow-ups
+No active Dev handoff required while idle.
 
 ## Advisory Disposition
 
@@ -377,6 +344,7 @@ Dev should create `workspace/DevHS151-pane-board-collaboration-loop.md` and incl
 - Accepted: M39 Pane Board Ownership And View Clarity.
 - Accepted: Post-M39 Pane Board step-controls snapshot.
 - Accepted into M40: Pane Board collaboration loop.
+- Accepted: M40 Pane Board Collaboration Loop.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.

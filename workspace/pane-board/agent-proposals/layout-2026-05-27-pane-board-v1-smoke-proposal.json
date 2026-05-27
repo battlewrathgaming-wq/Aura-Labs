@@ -1,7 +1,7 @@
 {
-  "id": "layout-2026-05-26-pane-board-v1",
-  "title": "Pane Board V1 smoke sketch",
-  "status": "human-sketch",
+  "id": "layout-2026-05-27-pane-board-v1-smoke-proposal",
+  "title": "Pane Board V1 smoke proposal",
+  "status": "agent-proposal",
   "viewport": {
     "preset": "960x640",
     "width": 960,
@@ -9,10 +9,10 @@
     "grid": 8
   },
   "source": {
-    "createdBy": "human",
+    "createdBy": "agent",
     "basedOn": "layout-2026-05-26-pane-board-v1",
     "project": "Aura Lab",
-    "context": "layout intent sketch"
+    "context": "layout intent reference"
   },
   "panes": [
     {
@@ -134,5 +134,5 @@
     "commands": []
   },
   "screenNote": "Alternate pattern C: plate-plus-stack. #02 is a long shallow subject plate. #05/#07/#06 stay as a compact right-side stack. #1 trims around the actual read instead of the empty vertical mass.",
-  "updatedAt": "2026-05-27T03:40:39.175Z"
+  "updatedAt": "2026-05-27T03:29:53.381Z"
 }

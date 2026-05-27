@@ -24,13 +24,16 @@ function main() {
   assert(!main.includes('board-events.ndjson'), 'normal main process body should not own Pane Board persistence details');
   assert(paneBoardMain.includes("renderer', 'pane-board', 'index.html'"), 'Pane Board module should load a separate renderer entry');
   assert(paneBoardMain.includes('aura:pane-board:load'), 'Pane Board module should expose load IPC');
+  assert(paneBoardMain.includes('aura:pane-board:revision'), 'Pane Board module should expose revision IPC');
   assert(paneBoardMain.includes('aura:pane-board:save'), 'Pane Board module should expose save IPC');
   assert(paneBoardMain.includes('aura:pane-board:snapshot'), 'Pane Board module should expose snapshot IPC');
   assert(paneBoardMain.includes('aura:pane-board:export-png'), 'Pane Board module should expose PNG export IPC');
+  assert(paneBoardMain.includes('aura:pane-board:capture'), 'Pane Board module should expose resting capture IPC');
   assert(paneBoardMain.includes('board-events.ndjson'), 'Pane Board module should append an event log');
   assert(paneBoardMain.includes('Agent proposals must include basedOn.'), 'agent proposals should require basedOn');
   assert(paneBoardMain.includes('Current board cannot be an agent proposal without basedOn.'), 'current-board agent proposals should require basedOn');
   assert(paneBoardMain.includes('capturePage'), 'Pane Board module should export PNG through Electron capturePage');
+  assert(paneBoardMain.includes('pane-board-resting-capture'), 'Pane Board module should create bounded resting capture records');
   assert(paneBoardMain.includes('pane-board-smoke-result.json'), 'Pane Board smoke should write a result artifact');
   assert(paneBoardMain.includes('return normalizePaneBoard(JSON.parse'), 'Pane Board load should normalize current-board state');
   assert(paneBoardMain.includes('maxGridW') && paneBoardMain.includes('maxGridH'), 'Pane Board normalization should clamp panes to the active viewport grid');
@@ -45,6 +48,8 @@ function main() {
   assert(paneBoardRendererReadme.includes('This renderer is not the portable presentation offer'), 'Pane Board renderer README should mark renderer as Lab-only tooling');
   assert(preload.includes("process.env.AURA_LAB_PANE_BOARD === '1'"), 'preload should gate the Pane Board API behind the Pane Board launch flag');
   assert(preload.includes('auraPaneBoard'), 'preload should expose a narrow Pane Board API for Pane Board mode');
+  assert(preload.includes('revision:'), 'Pane Board preload API should expose revision checks only in Pane Board mode');
+  assert(preload.includes('capture:'), 'Pane Board preload API should expose capture only in Pane Board mode');
   assert(preload.includes('ipcRenderer.invoke'), 'Pane Board API should stay behind IPC');
   assert(html.includes('board-canvas'), 'Pane Board should include a visible canvas');
   assert(html.includes('960 x 640'), 'Pane Board should expose the 960x640 preset');
@@ -58,12 +63,20 @@ function main() {
   assert(html.includes('ownership-banner'), 'Pane Board should include a visible ownership/status banner');
   assert(html.includes('snapshot-based-on'), 'Pane Board should include basedOn input for proposals');
   assert(html.includes('screen-note-text'), 'Pane Board should include an on-screen note surface');
+  assert(html.includes('board-human-note'), 'Pane Board should include a Human note lane');
+  assert(html.includes('board-labs-note'), 'Pane Board should include a Labs note lane');
+  assert(html.includes('board-command-input'), 'Pane Board should include a board-local guidance input');
+  assert(html.includes('capture-board'), 'Pane Board should include a resting capture helper');
   assert(app.includes('Pointer Events') || app.includes('pointerdown'), 'Pane Board should use pointer events for drag/resize');
   assert(app.includes('resize-handle'), 'Pane Board should include resize behavior');
   assert(app.includes('GRID = 8'), 'Pane Board should use an 8px snap grid');
   assert(app.includes('auraPaneBoard.save'), 'Pane Board should save the current board');
   assert(app.includes('auraPaneBoard.snapshot'), 'Pane Board should snapshot current board');
   assert(app.includes('auraPaneBoard.exportPng'), 'Pane Board should export PNG');
+  assert(app.includes('auraPaneBoard.revision'), 'Pane Board should check current-board revision');
+  assert(app.includes('Redrew from disk change.'), 'Pane Board should auto-redraw from disk changes');
+  assert(app.includes('board-guidance-added'), 'Pane Board should persist board-local guidance commands');
+  assert(app.includes('before-resting-capture'), 'Pane Board should save before resting capture');
   assert(app.includes('Use Grab state with Based on to create an agent proposal.'), 'Pane Board should guard direct agent-proposal state changes');
   assert(app.includes('auraPaneBoard.load'), 'Pane Board should refresh from disk');
   assert(app.includes('return-to-human-sketch'), 'Pane Board should support recovery back to a Human sketch state');
@@ -72,6 +85,9 @@ function main() {
   assert(!app.includes('innerHTML'), 'Pane Board renderer should avoid innerHTML');
   assert(styles.includes('.board-canvas'), 'Pane Board styles should render the board canvas');
   assert(styles.includes('.ownership-banner'), 'Pane Board styles should render ownership/status clarity');
+  assert(styles.includes('.collaboration-panel'), 'Pane Board styles should render collaboration lanes');
+  assert(styles.includes('.command-inbox'), 'Pane Board styles should render command inbox');
+  assert(styles.includes('.capture-panel'), 'Pane Board styles should render resting capture controls');
   assert(styles.includes('.screen-note'), 'Pane Board styles should render the screen note surface');
   assert(styles.includes('8px 8px'), 'Pane Board styles should show the 8px grid');
   assert(styles.includes('.resize-handle'), 'Pane Board styles should include resize handle treatment');
@@ -88,6 +104,15 @@ function main() {
   assert(current.review && typeof current.review.humanIntent === 'string', 'current board should preserve review humanIntent');
   assert(typeof current.review.agentNotes === 'string', 'current board should preserve review agentNotes');
   assert(typeof current.review.acceptedByHuman === 'boolean', 'current board should preserve review acceptedByHuman');
+  assert(current.collaboration && current.collaboration.notes, 'current board should include collaboration notes');
+  assert(typeof current.collaboration.notes.human === 'string', 'current board should preserve Human notes');
+  assert(typeof current.collaboration.notes.labs === 'string', 'current board should preserve Labs notes');
+  assert(Array.isArray(current.collaboration.commands), 'current board should preserve board-local commands');
+  for (const command of current.collaboration.commands) {
+    assert(typeof command.text === 'string' && command.text.length > 0, `board command ${command.id} should include text`);
+    assert(command.scope === 'board-only', `board command ${command.id} should stay board-local`);
+    assert(['human', 'labs'].includes(command.createdBy), `board command ${command.id} should keep a bounded author`);
+  }
   assert(typeof current.screenNote === 'string', 'current board should include screen note text');
   assert(typeof current.updatedAt === 'string' && !Number.isNaN(Date.parse(current.updatedAt)), 'current board should include a parseable updatedAt');
   const maxGridW = Math.floor(current.viewport.width / current.viewport.grid);
@@ -107,6 +132,7 @@ function main() {
     assert(pane.intent && typeof pane.intent.notes === 'string', `pane ${pane.id} should preserve intent notes`);
   }
   verifyAgentProposalBoundary(root);
+  verifyCaptureBoundary(root);
 
   console.log('Pane Board verified');
 }
@@ -130,6 +156,25 @@ function verifyAgentProposalBoundary(root) {
     : [];
   for (const filename of humanSketches) {
     assert(!proposalNames.has(filename), `agent proposal should not share a filename with human sketch ${filename}`);
+  }
+}
+
+function verifyCaptureBoundary(root) {
+  const captureDir = path.join(root, 'workspace', 'pane-board', 'captures');
+  if (!fs.existsSync(captureDir)) {
+    return;
+  }
+  const captures = fs.readdirSync(captureDir).filter((entry) => entry.endsWith('.json'));
+  for (const filename of captures) {
+    const capture = JSON.parse(read(path.join(captureDir, filename)));
+    assert(capture.kind === 'pane-board-resting-capture', `capture ${filename} should identify resting capture kind`);
+    assert(capture.source?.scope === 'board-local layout guidance', `capture ${filename} should stay board-local`);
+    assert(capture.source && Object.prototype.hasOwnProperty.call(capture.source, 'sourceArtifact'), `capture ${filename} should preserve source artifact field`);
+    assert(capture.source && Object.prototype.hasOwnProperty.call(capture.source, 'humanSignal'), `capture ${filename} should preserve Human signal field`);
+    assert(capture.board && Array.isArray(capture.board.panes), `capture ${filename} should include board JSON`);
+    if (capture.board.status === 'agent-proposal') {
+      assert(typeof capture.board.source?.basedOn === 'string' && capture.board.source.basedOn.length > 0, `capture ${filename} should preserve agent proposal lineage`);
+    }
   }
 }
 

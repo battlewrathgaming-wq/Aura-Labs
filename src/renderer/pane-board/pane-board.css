@@ -97,6 +97,7 @@ body {
 .title-group,
 .pane-editor,
 .snapshot-panel,
+.capture-panel,
 .control-grid {
   display: grid;
   gap: 8px;
@@ -219,7 +220,7 @@ textarea:focus {
 
 .board-region {
   display: grid;
-  grid-template-rows: auto auto auto minmax(0, 1fr);
+  grid-template-rows: auto auto auto auto minmax(0, 1fr);
   min-width: 0;
   overflow: hidden;
   padding: 16px;
@@ -227,6 +228,62 @@ textarea:focus {
     linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px) 0 0 / 72px 72px,
     linear-gradient(0deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px) 0 0 / 72px 72px,
     linear-gradient(135deg, #101416 0%, #151b1d 100%);
+}
+
+.collaboration-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(220px, 0.8fr);
+  gap: 10px;
+  min-width: 0;
+  margin: 0 0 10px;
+}
+
+.note-lane,
+.command-inbox,
+.capture-panel {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 9px 10px;
+  background: rgba(21, 28, 31, 0.78);
+}
+
+.note-lane textarea,
+.command-inbox input,
+.capture-panel input,
+.capture-panel textarea {
+  background: rgba(10, 16, 18, 0.72);
+}
+
+.command-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 58px;
+  gap: 6px;
+}
+
+#board-command-list {
+  display: grid;
+  gap: 5px;
+  max-height: 96px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.32;
+  overflow: auto;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: none;
+}
+
+.check-row input {
+  min-height: 0;
 }
 
 .ownership-banner {
@@ -401,5 +458,9 @@ textarea:focus {
     max-height: 260px;
     border-right: 0;
     border-bottom: 1px solid var(--line);
+  }
+
+  .collaboration-panel {
+    grid-template-columns: 1fr;
   }
 }
