@@ -124,6 +124,7 @@ Post-M40 low-credit pause state:
 - The latest dirty Pane Board files appear to be current Shape See session state and reusable insight, not unrelated code work.
 - `workspace/surface-discovery-schema.md` is available as a light intake schema for future UI/UX surface discovery across projects. It separates primary boundary, anchor, support, and readout states without authorizing implementation or Lab ownership of source meaning.
 - `workspace/internal-inventory-launch-schema.md` is available as an agnostic map for project-local assets, launch points, safe inspection, write boundaries, state-at-rest, and drift traps.
+- `workspace/UIUXHS154-png-backed-surface-materials-advisory.md` is accepted as Lab-local visual-material advisory input. The recommended `png-panel-plate-readout-muted` prototype candidate is parked until Human opens a bounded implementation packet.
 
 Likely next discussion choices:
 
@@ -200,6 +201,8 @@ Accepted source of intent:
 - `workspace/OverseerHS153-stale-context-restart-snapshot.md`
 - `workspace/surface-discovery-schema.md`
 - `workspace/internal-inventory-launch-schema.md`
+- `workspace/UIUXHS154-png-backed-surface-materials-advisory.md`
+- `workspace/OverseerHS155-uiuxhs154-png-backed-materials-acceptance.md`
 
 Read first:
 
@@ -251,6 +254,8 @@ Read first:
 - `workspace/OverseerHS153-stale-context-restart-snapshot.md`
 - `workspace/surface-discovery-schema.md`
 - `workspace/internal-inventory-launch-schema.md`
+- `workspace/UIUXHS154-png-backed-surface-materials-advisory.md`
+- `workspace/OverseerHS155-uiuxhs154-png-backed-materials-acceptance.md`
 - `package.json`
 
 ## Ordered Dev Runway
@@ -358,6 +363,7 @@ No active verification while idle.
 - HS153 recorded a low-credit restart snapshot to preserve current state, dirty Pane Board files, Wayfinder direction, and automation lessons before context can go stale.
 - Added `workspace/surface-discovery-schema.md` as an advisory intake schema for future surface discovery passes.
 - Added `workspace/internal-inventory-launch-schema.md` as an agnostic internal inventory and launch-point schema.
+- HS155 accepted `workspace/UIUXHS154-png-backed-surface-materials-advisory.md` as advisory input only. No Dev runway was opened.
 
 ## Dev Handoff
 
@@ -382,6 +388,7 @@ No active Dev handoff required while idle.
 - Accepted into M40: Pane Board collaboration loop.
 - Accepted: M40 Pane Board Collaboration Loop.
 - Accepted: ADR 0004 Automation Role And Context Boundaries.
+- Accepted: UIUXHS154 PNG-backed surface materials advisory.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.
@@ -395,6 +402,7 @@ No active Dev handoff required while idle.
 - Parked for M40: layer controls, material controls, pattern metadata, compare workbench, and full accept/park/reject workflow.
 - Parked: Wayfinder runtime until Human opens a bounded packet.
 - Parked: role-specific automations in active Overseer thread under ADR 0004.
+- Parked: `png-panel-plate-readout-muted` implementation until Human opens a bounded packet.
 
 ## Residual Risks
 
@@ -409,3 +417,4 @@ No active Dev handoff required while idle.
 - M39 provides minimal recovery, not full saved-state navigation. Proposal navigation, compare, accept/park/reject, and note lanes remain future collaboration-affordance work.
 - Automation can contaminate role context if run inside the wrong thread; ADR 0004 should be read before any future heartbeat or scheduled helper.
 - Wayfinder is promising but currently only a scaffold; do not infer runtime or workflow authority from its folders.
+- PNG-backed surface materials may reduce readability or imply style ownership if treated as more than optional Lab-local visual material.
