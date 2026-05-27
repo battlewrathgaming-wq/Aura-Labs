@@ -116,6 +116,21 @@ This is Lab-only tooling work. It makes the sandpit easier for Human and Labs to
 
 Overseer acceptance also corrected one small redraw-loop edge case in `src/renderer/pane-board/pane-board.js`: immediate-save actions now clear the pending save marker and refresh revision/dirty state so the auto-redraw loop does not stay paused after actions such as Grab state, PNG export, Back to sketch, or resting capture.
 
+Post-M40 low-credit pause state:
+
+- ADR 0004 now records automation role/context boundaries after the Pane Board heartbeat experiment.
+- The Pane Board Labs heartbeat is paused and should not be treated as an active workflow.
+- Aura Wayfinder has scaffold folders and README boundaries only: no runtime, no launch flag, no active packet.
+- The latest dirty Pane Board files appear to be current Shape See session state and reusable insight, not unrelated code work.
+
+Likely next discussion choices:
+
+- Wayfinder V1 scoping
+- Pane Board feel/tuning from the current board state
+- presentation material/faces discussion
+- Atlas/Sense presentation-pressure intake
+- park Lab until credits refresh
+
 ## Source Of Intent
 
 Accepted source of intent:
@@ -176,6 +191,11 @@ Accepted source of intent:
 - `workspace/OverseerHS151-m40-pane-board-collaboration-loop-runway.md`
 - `workspace/DevHS151-pane-board-collaboration-loop.md`
 - `workspace/OverseerHS152-m40-pane-board-collaboration-loop-acceptance.md`
+- `docs/adr/0004-automation-role-and-context-boundaries.md`
+- `src/main/labTooling/wayfinder/README.md`
+- `src/renderer/wayfinder/README.md`
+- `workspace/wayfinder/README.md`
+- `workspace/OverseerHS153-stale-context-restart-snapshot.md`
 
 Read first:
 
@@ -220,6 +240,11 @@ Read first:
 - `workspace/OverseerHS151-m40-pane-board-collaboration-loop-runway.md`
 - `workspace/DevHS151-pane-board-collaboration-loop.md`
 - `workspace/OverseerHS152-m40-pane-board-collaboration-loop-acceptance.md`
+- `docs/adr/0004-automation-role-and-context-boundaries.md`
+- `src/main/labTooling/wayfinder/README.md`
+- `src/renderer/wayfinder/README.md`
+- `workspace/wayfinder/README.md`
+- `workspace/OverseerHS153-stale-context-restart-snapshot.md`
 - `package.json`
 
 ## Ordered Dev Runway
@@ -322,6 +347,9 @@ No active verification while idle.
 - HS151 verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, `npm.cmd run smoke:pane-board`, `npm.cmd run verify:pane-board` after smoke, `npm.cmd run smoke:electron`, and orchestration `npm.cmd run verify:terminology`. Normal Electron smoke was run because the gated Pane Board preload API changed.
 - HS151 Pane Board smoke reported `.tmp/pane-board-smoke/pane-board-smoke-result.json` with `status: passed`, `snapshot: workspace\pane-board\agent-proposals\layout-2026-05-27-pane-board-v1-smoke-proposal.json`, `png: workspace\pane-board\screenshots\layout-2026-05-27-pane-board-v1-smoke-proposal-pane-board-smoke.png`, `capture: workspace\pane-board\captures\layout-2026-05-27-pane-board-v1-smoke-resting-capture.json`, `capture_screenshot: screenshots\layout-2026-05-26-pane-board-v1-pane-board-v1-smoke-resting-capture-capture.png`, `based_on: layout-2026-05-26-pane-board-v1`, and `pane_count: 5`.
 - HS152 accepted M40 after Overseer review and rerun verification. Overseer made one small assurance correction so immediate-save actions clear pending save markers and keep redraw checks live. Verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, `npm.cmd run smoke:pane-board`, `npm.cmd run smoke:electron`, and orchestration `npm.cmd run verify:terminology`.
+- ADR 0004 accepted automation role/context boundaries after the Pane Board heartbeat experiment showed role/thread contamination risk.
+- Aura Wayfinder scaffold was added as Lab-only orientation tooling boundaries only. No runtime code or launch flag exists.
+- HS153 recorded a low-credit restart snapshot to preserve current state, dirty Pane Board files, Wayfinder direction, and automation lessons before context can go stale.
 
 ## Dev Handoff
 
@@ -345,6 +373,7 @@ No active Dev handoff required while idle.
 - Accepted: Post-M39 Pane Board step-controls snapshot.
 - Accepted into M40: Pane Board collaboration loop.
 - Accepted: M40 Pane Board Collaboration Loop.
+- Accepted: ADR 0004 Automation Role And Context Boundaries.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.
@@ -356,6 +385,8 @@ No active Dev handoff required while idle.
 - Deferred: SmokeFlash split until export/seeding/target consumption under ADR 0001.
 - Parked: target-project adapters and export/seeding under ADR 0002.
 - Parked for M40: layer controls, material controls, pattern metadata, compare workbench, and full accept/park/reject workflow.
+- Parked: Wayfinder runtime until Human opens a bounded packet.
+- Parked: role-specific automations in active Overseer thread under ADR 0004.
 
 ## Residual Risks
 
@@ -368,3 +399,5 @@ No active Dev handoff required while idle.
 - Pane Board feel testing revealed that proposal navigation, compare, accept/park/save, and clearer note lanes are likely needed before heavier usage.
 - Pane Board bug hunt found current/proposal ownership ambiguity. M39 should resolve that before broader collaboration features.
 - M39 provides minimal recovery, not full saved-state navigation. Proposal navigation, compare, accept/park/reject, and note lanes remain future collaboration-affordance work.
+- Automation can contaminate role context if run inside the wrong thread; ADR 0004 should be read before any future heartbeat or scheduled helper.
+- Wayfinder is promising but currently only a scaffold; do not infer runtime or workflow authority from its folders.

@@ -19,10 +19,10 @@
       "id": "pane-5",
       "label": "#1",
       "grid": {
-        "x": 29,
-        "y": 16,
-        "w": 74,
-        "h": 21
+        "x": 96,
+        "y": 10,
+        "w": 20,
+        "h": 67
       },
       "role": "surface",
       "importance": "primary",
@@ -40,10 +40,10 @@
       "id": "sense-ref-02",
       "label": "#02",
       "grid": {
-        "x": 30,
-        "y": 17,
-        "w": 50,
-        "h": 12
+        "x": 98,
+        "y": 12,
+        "w": 17,
+        "h": 10
       },
       "role": "surface",
       "importance": "primary",
@@ -61,10 +61,10 @@
       "id": "sense-ref-05",
       "label": "#05",
       "grid": {
-        "x": 83,
-        "y": 17,
-        "w": 16,
-        "h": 7
+        "x": 98,
+        "y": 33,
+        "w": 17,
+        "h": 8
       },
       "role": "surface",
       "importance": "supporting",
@@ -82,9 +82,9 @@
       "id": "sense-ref-06",
       "label": "#06",
       "grid": {
-        "x": 83,
-        "y": 27,
-        "w": 16,
+        "x": 98,
+        "y": 24,
+        "w": 17,
         "h": 7
       },
       "role": "surface",
@@ -103,10 +103,10 @@
       "id": "sense-ref-07",
       "label": "#07",
       "grid": {
-        "x": 87,
-        "y": 24,
-        "w": 8,
-        "h": 4
+        "x": 99,
+        "y": 15,
+        "w": 15,
+        "h": 5
       },
       "role": "surface",
       "importance": "quiet",
@@ -119,6 +119,48 @@
         "notes": ""
       },
       "notes": ""
+    },
+    {
+      "id": "pane-6",
+      "label": "#--",
+      "grid": {
+        "x": 107,
+        "y": 44,
+        "w": 8,
+        "h": 28
+      },
+      "role": "surface",
+      "importance": "supporting",
+      "locked": false,
+      "intent": {
+        "role": "surface",
+        "importance": "supporting",
+        "anchor": "",
+        "relationship": "right lower expansion/detail reserve",
+        "notes": ""
+      },
+      "notes": ""
+    },
+    {
+      "id": "pane-7",
+      "label": "#--",
+      "grid": {
+        "x": 98,
+        "y": 44,
+        "w": 8,
+        "h": 28
+      },
+      "role": "surface",
+      "importance": "supporting",
+      "locked": false,
+      "intent": {
+        "role": "surface",
+        "importance": "supporting",
+        "anchor": "",
+        "relationship": "left lower expansion/detail reserve",
+        "notes": ""
+      },
+      "notes": ""
     }
   ],
   "review": {
@@ -128,11 +170,11 @@
   },
   "collaboration": {
     "notes": {
-      "human": "",
-      "labs": ""
+      "human": "Cab you try trimming on the sides, and making expansion space below?",
+      "labs": "Labs assembly pass: detected #02 as a same-width plate and moved the #02/#07 pair onto the #1 tower rather than replacing the tower. #02 now sits as the top child plate, #07 stays inside it as the quiet child cue, #06/#05 stack below, and the two #-- panes remain the lower body. I widened #1 slightly to relieve the right/bottom clipping."
     },
     "commands": []
   },
-  "screenNote": "Alternate pattern C: plate-plus-stack. #02 is a long shallow subject plate. #05/#07/#06 stay as a compact right-side stack. #1 trims around the actual read instead of the empty vertical mass.",
-  "updatedAt": "2026-05-27T03:40:39.175Z"
+  "screenNote": "Assembly pass: matching plate #02 moved with child #07 onto #1 tower; #06/#05 stack below; lower #-- panes remain body/detail material. Relationship shape only; Sense meaning remains in the #NN source index.",
+  "updatedAt": "2026-05-27T06:42:00.000Z"
 }

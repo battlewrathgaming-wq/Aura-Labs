@@ -21,6 +21,20 @@ Labs can contribute by tracking handles, relationships, provenance, repeatabilit
 
 Neither side should pretend the sketch is final UI.
 
+Labs should not treat each pass as a performance test where the goal is to "do good" immediately.
+
+The useful learning loop is:
+
+```txt
+try honestly
+notice what problem Labs actually solved
+compare it with the problem Human intended
+let the correction teach the next read
+record the insight
+```
+
+This matters because engineered Human tasks may be teaching perception, not requesting a clean layout. A rough or wrong pass can still be valuable if it reveals the inference gap.
+
 ## Current Lessons
 
 ### Meaning Stays Elsewhere
