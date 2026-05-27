@@ -65,6 +65,22 @@
           <input id="pane-relationship">
           <label for="pane-notes">Notes</label>
           <textarea id="pane-notes" rows="5"></textarea>
+          <fieldset class="material-editor">
+            <legend>Material cue</legend>
+            <label for="pane-material-path">PNG path</label>
+            <input id="pane-material-path" placeholder="materials/example-panel-plate.png">
+            <label for="pane-material-fit">Fit</label>
+            <select id="pane-material-fit">
+              <option value="cover">cover</option>
+              <option value="contain">contain</option>
+              <option value="tile">tile</option>
+            </select>
+            <label for="pane-material-opacity">Opacity</label>
+            <input id="pane-material-opacity" type="number" min="0.05" max="1" step="0.05" value="0.35">
+            <label for="pane-material-role">Role</label>
+            <input id="pane-material-role" value="imagination-paint">
+            <button type="button" id="clear-pane-material">Clear material</button>
+          </fieldset>
           <button type="button" id="lock-pane">Lock</button>
           <div class="nudge-pad" aria-label="Nudge selected pane">
             <button class="nudge-pane" type="button" data-dx="0" data-dy="-1" title="Nudge up" aria-label="Nudge selected pane up">↑</button>

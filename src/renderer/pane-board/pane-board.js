@@ -83,9 +83,10 @@ function wireControls() {
   document.querySelector('#add-pane').addEventListener('click', addPane);
   document.querySelector('#duplicate-pane').addEventListener('click', duplicatePane);
   document.querySelector('#delete-pane').addEventListener('click', deletePane);
-  for (const selector of ['#pane-label', '#pane-role', '#pane-importance', '#pane-anchor', '#pane-relationship', '#pane-notes']) {
+  for (const selector of ['#pane-label', '#pane-role', '#pane-importance', '#pane-anchor', '#pane-relationship', '#pane-notes', '#pane-material-path', '#pane-material-fit', '#pane-material-opacity', '#pane-material-role']) {
     document.querySelector(selector).addEventListener('input', updateSelectedPaneFromEditor);
   }
+  document.querySelector('#clear-pane-material').addEventListener('click', clearSelectedPaneMaterial);
   document.querySelector('#lock-pane').addEventListener('click', toggleSelectedPaneLock);
   for (const button of document.querySelectorAll('.nudge-pane')) {
     button.addEventListener('click', () => nudgeSelectedPane(Number(button.dataset.dx), Number(button.dataset.dy)));
@@ -145,6 +146,16 @@ function renderPane(pane) {
   node.style.height = `${pane.grid.h * GRID}px`;
   node.tabIndex = 0;
 
+  const material = paneMaterial(pane);
+  if (material) {
+    const materialNode = document.createElement('span');
+    materialNode.className = `pane-material pane-material-${material.fit}`;
+    materialNode.style.opacity = material.opacity;
+    materialNode.style.backgroundImage = `url("${materialUrl(material.path)}")`;
+    materialNode.setAttribute('aria-hidden', 'true');
+    node.appendChild(materialNode);
+  }
+
   const label = document.createElement('strong');
   label.textContent = pane.label || pane.id;
   const notes = document.createElement('p');
@@ -165,7 +176,7 @@ function renderPane(pane) {
 function renderEditor() {
   const pane = selectedPane();
   const disabled = !pane;
-  for (const selector of ['#pane-label', '#pane-role', '#pane-importance', '#pane-anchor', '#pane-relationship', '#pane-notes', '#lock-pane', '#duplicate-pane', '#delete-pane']) {
+  for (const selector of ['#pane-label', '#pane-role', '#pane-importance', '#pane-anchor', '#pane-relationship', '#pane-notes', '#pane-material-path', '#pane-material-fit', '#pane-material-opacity', '#pane-material-role', '#clear-pane-material', '#lock-pane', '#duplicate-pane', '#delete-pane']) {
     document.querySelector(selector).disabled = disabled;
   }
   for (const button of document.querySelectorAll('.nudge-pane')) {
@@ -180,6 +191,11 @@ function renderEditor() {
   document.querySelector('#pane-anchor').value = pane.intent?.anchor || '';
   document.querySelector('#pane-relationship').value = pane.intent?.relationship || '';
   document.querySelector('#pane-notes').value = pane.notes || pane.intent?.notes || '';
+  const material = paneMaterial(pane);
+  document.querySelector('#pane-material-path').value = material?.path || '';
+  document.querySelector('#pane-material-fit').value = material?.fit || 'cover';
+  document.querySelector('#pane-material-opacity').value = material?.opacity ?? 0.35;
+  document.querySelector('#pane-material-role').value = material?.role || 'imagination-paint';
   document.querySelector('#lock-pane').textContent = pane.locked ? 'Unlock' : 'Lock';
 }
 
@@ -242,6 +258,64 @@ function selectPane(id) {
 
 function selectedPane() {
   return boardState.board?.panes.find((pane) => pane.id === boardState.selectedId) || null;
+}
+
+function paneMaterial(pane) {
+  if (!pane?.material || pane.material.type !== 'image') {
+    return null;
+  }
+  const materialPath = normalizeMaterialPath(pane.material.path);
+  if (!materialPath) {
+    return null;
+  }
+  return {
+    type: 'image',
+    path: materialPath,
+    fit: ['contain', 'cover', 'tile'].includes(pane.material.fit) ? pane.material.fit : 'cover',
+    opacity: clampNumber(pane.material.opacity, 0.05, 1, 0.35),
+    role: String(pane.material.role || 'imagination-paint').slice(0, 80)
+  };
+}
+
+function materialFromEditor() {
+  const materialPath = normalizeMaterialPath(document.querySelector('#pane-material-path').value);
+  if (!materialPath) {
+    return null;
+  }
+  return {
+    type: 'image',
+    path: materialPath,
+    fit: document.querySelector('#pane-material-fit').value,
+    opacity: clampNumber(document.querySelector('#pane-material-opacity').value, 0.05, 1, 0.35),
+    role: document.querySelector('#pane-material-role').value || 'imagination-paint'
+  };
+}
+
+function normalizeMaterialPath(value) {
+  const raw = String(value || '').replace(/\\/g, '/').trim();
+  if (!raw || raw.includes('\0') || raw.includes(':') || raw.startsWith('/') || raw.startsWith('..')) {
+    return null;
+  }
+  const parts = raw.split('/');
+  if (parts[0] !== 'materials' || parts.some((part) => !part || part === '.' || part === '..')) {
+    return null;
+  }
+  if (!/\.png$/i.test(raw)) {
+    return null;
+  }
+  return raw.slice(0, 220);
+}
+
+function materialUrl(materialPath) {
+  return `../../../workspace/pane-board/${materialPath.split('/').map(encodeURIComponent).join('/')}`;
+}
+
+function clampNumber(value, min, max, fallback) {
+  const number = Number.parseFloat(value);
+  if (!Number.isFinite(number)) {
+    return fallback;
+  }
+  return Math.max(min, Math.min(max, number));
 }
 
 function startPointer(event, pane, mode) {
@@ -310,9 +384,20 @@ function updateSelectedPaneFromEditor() {
     notes: document.querySelector('#pane-notes').value
   };
   pane.notes = document.querySelector('#pane-notes').value;
+  pane.material = materialFromEditor();
   scheduleSave('pane-edited');
   renderCanvas();
   renderMeta();
+}
+
+function clearSelectedPaneMaterial() {
+  const pane = selectedPane();
+  if (!pane) {
+    return;
+  }
+  pane.material = null;
+  scheduleSave('pane-material-cleared');
+  renderBoard();
 }
 
 function renderCanvas() {

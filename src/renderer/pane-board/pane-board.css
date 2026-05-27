@@ -104,6 +104,24 @@ body {
   min-width: 0;
 }
 
+.material-editor {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  margin: 0;
+  border: 1px solid rgba(117, 213, 199, 0.18);
+  border-radius: 7px;
+  padding: 8px;
+}
+
+.material-editor legend {
+  padding: 0 4px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 .eyebrow {
   margin: 0;
   color: var(--accent-2);
@@ -407,8 +425,11 @@ textarea:focus {
 .pane-node strong,
 .pane-node small,
 .pane-node p {
+  position: relative;
+  z-index: 1;
   min-width: 0;
   overflow-wrap: anywhere;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.88);
 }
 
 .pane-node strong {
@@ -432,10 +453,34 @@ textarea:focus {
   font-weight: 800;
 }
 
+.pane-material {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-position: center;
+  pointer-events: none;
+}
+
+.pane-material-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.pane-material-contain {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.pane-material-tile {
+  background-size: auto;
+  background-repeat: repeat;
+}
+
 .resize-handle {
   position: absolute;
   right: 0;
   bottom: 0;
+  z-index: 2;
   width: 18px;
   height: 18px;
   border-top: 1px solid var(--line-hot);

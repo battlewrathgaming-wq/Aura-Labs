@@ -142,13 +142,14 @@ function paneBoardPaths() {
     agent: path.join(PANE_BOARD_ROOT, 'agent-proposals'),
     accepted: path.join(PANE_BOARD_ROOT, 'accepted-layouts'),
     captures: path.join(PANE_BOARD_ROOT, 'captures'),
-    screenshots: path.join(PANE_BOARD_ROOT, 'screenshots')
+    screenshots: path.join(PANE_BOARD_ROOT, 'screenshots'),
+    materials: path.join(PANE_BOARD_ROOT, 'materials')
   };
 }
 
 function ensurePaneBoardDirs() {
   const paths = paneBoardPaths();
-  for (const dir of [paths.root, paths.human, paths.agent, paths.accepted, paths.captures, paths.screenshots]) {
+  for (const dir of [paths.root, paths.human, paths.agent, paths.accepted, paths.captures, paths.screenshots, paths.materials]) {
     fs.mkdirSync(dir, { recursive: true });
   }
   return paths;
@@ -484,7 +485,7 @@ function normalizePane(entry, index, maxGridW = 120, maxGridH = 80, seenPaneIds 
   const importance = String(entry?.importance || entry?.intent?.importance || 'supporting').slice(0, 48);
   const w = clampInt(grid.w, 4, maxGridW);
   const h = clampInt(grid.h, 4, maxGridH);
-  return {
+  const pane = {
     id,
     label: String(entry?.label || id).slice(0, 80),
     grid: {
@@ -505,6 +506,44 @@ function normalizePane(entry, index, maxGridW = 120, maxGridH = 80, seenPaneIds 
     },
     notes: String(entry?.notes || entry?.intent?.notes || '').slice(0, 1000)
   };
+  const material = normalizePaneMaterial(entry?.material);
+  if (material) {
+    pane.material = material;
+  }
+  return pane;
+}
+
+function normalizePaneMaterial(material) {
+  if (!material || material.type !== 'image') {
+    return null;
+  }
+  const normalizedPath = normalizeMaterialPath(material.path);
+  if (!normalizedPath) {
+    return null;
+  }
+  const fit = ['contain', 'cover', 'tile'].includes(material.fit) ? material.fit : 'cover';
+  return {
+    type: 'image',
+    path: normalizedPath,
+    fit,
+    opacity: clampNumber(material.opacity, 0.05, 1, 0.35),
+    role: String(material.role || 'imagination-paint').slice(0, 80)
+  };
+}
+
+function normalizeMaterialPath(value) {
+  const raw = String(value || '').replace(/\\/g, '/').trim();
+  if (!raw || raw.includes('\0') || raw.includes(':') || raw.startsWith('/') || raw.startsWith('..')) {
+    return null;
+  }
+  const normalized = path.posix.normalize(raw);
+  if (normalized !== raw || normalized.includes('../') || !normalized.startsWith('materials/')) {
+    return null;
+  }
+  if (!/\.png$/i.test(normalized)) {
+    return null;
+  }
+  return normalized.slice(0, 220);
 }
 
 function uniquePaneId(id, seenPaneIds) {
@@ -539,6 +578,14 @@ function clampInt(value, min, max) {
   const number = Number.parseInt(value, 10);
   if (!Number.isFinite(number)) {
     return min;
+  }
+  return Math.max(min, Math.min(max, number));
+}
+
+function clampNumber(value, min, max, fallback) {
+  const number = Number.parseFloat(value);
+  if (!Number.isFinite(number)) {
+    return fallback;
   }
   return Math.max(min, Math.min(max, number));
 }

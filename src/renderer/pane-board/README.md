@@ -13,6 +13,7 @@ Pane Board is a near-time shared spatial communication tool for Human-agent layo
 - visual relationship sketchbench
 - coordinate-guide producer
 - screenshot/reference producer
+- optional local PNG material-cue renderer
 
 ## What This Renderer Is Not
 
@@ -39,6 +40,8 @@ The useful product-facing result is not this renderer. The useful result is the 
 - qualitative Human affirmation
 
 Exact coordinates, board event history, Pane Board state names, smoke artifacts, and local sketches do not travel as product authority.
+
+Local PNG material cues are also non-authoritative. They are Shape See imagination paint for discussing surface feel and visual relationships, not source data, target styling, or product adoption.
 
 ## Direction
 

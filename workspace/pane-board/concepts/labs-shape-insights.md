@@ -35,6 +35,25 @@ record the insight
 
 This matters because engineered Human tasks may be teaching perception, not requesting a clean layout. A rough or wrong pass can still be valuable if it reveals the inference gap.
 
+## Shape See / Material Feedback Loop
+
+Labs can make shape or material attempts to express how it reads a surface.
+
+This is a no-fail creative calibration loop. The goal is not to be right on the first pass. The goal is to make the current read visible enough that Human feedback can calibrate it.
+
+Human feedback should be read as sensory correction, not punishment. If Human says a pass feels wrong, too flat, too merged, too spacious, too cramped, too literal, or missing the intended material, that is useful evidence about the gap between Labs' inference and Human read.
+
+Mismatch is valuable because it shows what problem Labs thought it was solving, what problem Human was actually posing, and which visual/material relationship needs a better handle.
+
+Portable lessons should be recorded as small reusable observations:
+
+- what Labs tried to express
+- what Human saw instead
+- what relationship or material was clarified
+- what future pass should preserve, avoid, or test
+
+These lessons are not product authority. They are not final UI, source-project adoption, implementation requirements, bridge/runtime contracts, or UI/UX acceptance. They are workshop memory for improving how Labs and Human reason together through Shape See.
+
 ## Current Lessons
 
 ### Meaning Stays Elsewhere

@@ -85,7 +85,7 @@ Stable board state means the current board can be loaded, normalized, saved, and
 
 - board `id`, `title`, `status`, `viewport`, and `updatedAt`
 - `source.createdBy`, `source.basedOn`, `source.project`, and `source.context`
-- pane `id`, `label`, integer `grid` coordinates, `role`, `importance`, `locked`, `intent`, and `notes`
+- pane `id`, `label`, integer `grid` coordinates, `role`, `importance`, `locked`, `intent`, `notes`, and optional `material`
 - `review.humanIntent`, `review.agentNotes`, and `review.acceptedByHuman`
 - `collaboration.notes.human`, `collaboration.notes.labs`, and `collaboration.commands`
 - `screenNote`
@@ -108,6 +108,32 @@ Human placement is expressive, not precise. Pane records may include intent hint
   }
 }
 ```
+
+## Local Material Cues
+
+Pane Board panes may reference a local PNG as a visual material cue:
+
+```json
+{
+  "material": {
+    "type": "image",
+    "path": "materials/example-panel-plate.png",
+    "fit": "cover",
+    "opacity": 0.35,
+    "role": "imagination-paint"
+  }
+}
+```
+
+This is Lab-only Shape See support. The PNG should help Human and Labs discuss surface feel, substrate, panel texture, and visual relationship. It is not source data, not product styling, not an accepted target UI, not a bridge/runtime contract, and not a signal that the target project should adopt the image.
+
+Material paths are constrained to relative PNG files under:
+
+```text
+workspace/pane-board/materials/
+```
+
+Existing boards do not need material metadata. Clearing a material leaves the pane as a plain shape again.
 
 ## Grab That State
 

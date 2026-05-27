@@ -9,6 +9,8 @@ function main() {
   const labToolingReadme = read(path.join(root, 'src', 'main', 'labTooling', 'README.md'));
   const paneBoardMainReadme = read(path.join(root, 'src', 'main', 'labTooling', 'paneBoard', 'README.md'));
   const paneBoardRendererReadme = read(path.join(root, 'src', 'renderer', 'pane-board', 'README.md'));
+  const paneBoardReadme = read(path.join(root, 'workspace', 'pane-board', 'README.md'));
+  const paneBoardMaterialsReadme = read(path.join(root, 'workspace', 'pane-board', 'materials', 'README.md'));
   const preload = read(path.join(root, 'src', 'main', 'preload.js'));
   const html = read(path.join(root, 'src', 'renderer', 'pane-board', 'index.html'));
   const app = read(path.join(root, 'src', 'renderer', 'pane-board', 'pane-board.js'));
@@ -38,6 +40,10 @@ function main() {
   assert(paneBoardMain.includes('return normalizePaneBoard(JSON.parse'), 'Pane Board load should normalize current-board state');
   assert(paneBoardMain.includes('maxGridW') && paneBoardMain.includes('maxGridH'), 'Pane Board normalization should clamp panes to the active viewport grid');
   assert(paneBoardMain.includes('uniquePaneId'), 'Pane Board normalization should keep pane ids unique');
+  assert(paneBoardMain.includes("materials: path.join(PANE_BOARD_ROOT, 'materials')"), 'Pane Board should keep material files under the board-local materials folder');
+  assert(paneBoardMain.includes('normalizePaneMaterial'), 'Pane Board normalization should preserve bounded pane material metadata');
+  assert(paneBoardMain.includes("normalized.startsWith('materials/')"), 'Pane Board should constrain material paths to the materials folder');
+  assert(paneBoardMain.includes("/\\.png$/i"), 'Pane Board should constrain material references to PNG files');
   assert(paneBoardMain.includes('uniqueLayoutPath(targetDir, snapshot.id)'), 'Pane Board snapshots should use unique layout paths');
   assert(packageJson.includes('"smoke:pane-board"'), 'package should expose Pane Board smoke');
   assert(smokeScript.includes('AURA_LAB_PANE_BOARD'), 'Pane Board smoke should set explicit Pane Board flag');
@@ -67,6 +73,8 @@ function main() {
   assert(html.includes('board-labs-note'), 'Pane Board should include a Labs note lane');
   assert(html.includes('board-command-input'), 'Pane Board should include a board-local guidance input');
   assert(html.includes('capture-board'), 'Pane Board should include a resting capture helper');
+  assert(html.includes('pane-material-path'), 'Pane Board should include a selected-pane material path control');
+  assert(html.includes('clear-pane-material'), 'Pane Board should include a selected-pane material clear action');
   assert(app.includes('Pointer Events') || app.includes('pointerdown'), 'Pane Board should use pointer events for drag/resize');
   assert(app.includes('resize-handle'), 'Pane Board should include resize behavior');
   assert(app.includes('GRID = 8'), 'Pane Board should use an 8px snap grid');
@@ -80,6 +88,8 @@ function main() {
   assert(app.includes('Use Grab state with Based on to create an agent proposal.'), 'Pane Board should guard direct agent-proposal state changes');
   assert(app.includes('auraPaneBoard.load'), 'Pane Board should refresh from disk');
   assert(app.includes('return-to-human-sketch'), 'Pane Board should support recovery back to a Human sketch state');
+  assert(app.includes('paneMaterial'), 'Pane Board renderer should handle optional pane material metadata');
+  assert(app.includes('materials') && app.includes('.png'), 'Pane Board renderer should constrain material paths to local PNGs');
   assert(!app.includes('boardState.board = result.board'), 'snapshot creation should not replace the current board with a proposal');
   assert(app.includes('screen-note-edited'), 'Pane Board should persist on-screen note edits');
   assert(!app.includes('innerHTML'), 'Pane Board renderer should avoid innerHTML');
@@ -89,8 +99,11 @@ function main() {
   assert(styles.includes('.command-inbox'), 'Pane Board styles should render command inbox');
   assert(styles.includes('.capture-panel'), 'Pane Board styles should render resting capture controls');
   assert(styles.includes('.screen-note'), 'Pane Board styles should render the screen note surface');
+  assert(styles.includes('.pane-material'), 'Pane Board styles should render pane material cues behind labels');
   assert(styles.includes('8px 8px'), 'Pane Board styles should show the 8px grid');
   assert(styles.includes('.resize-handle'), 'Pane Board styles should include resize handle treatment');
+  assert(paneBoardReadme.includes('Local Material Cues'), 'Pane Board README should document local material cue boundaries');
+  assert(paneBoardMaterialsReadme.includes('imagination paint'), 'Pane Board materials folder should document advisory-only local PNG use');
   assert(current.viewport.grid === 8, 'current board should store grid size 8');
   assert(['960x640', '720x640'].includes(current.viewport.preset), 'current board should use an accepted viewport preset');
   assert(Array.isArray(current.panes) && current.panes.length > 0, 'current board should include panes');
@@ -130,11 +143,25 @@ function main() {
     assert(typeof pane.notes === 'string', `pane ${pane.id} should preserve notes`);
     assert(typeof pane.locked === 'boolean', `pane ${pane.id} should preserve lock state`);
     assert(pane.intent && typeof pane.intent.notes === 'string', `pane ${pane.id} should preserve intent notes`);
+    if (pane.material != null) {
+      verifyPaneMaterial(pane.material, pane.id);
+    }
   }
   verifyAgentProposalBoundary(root);
   verifyCaptureBoundary(root);
 
   console.log('Pane Board verified');
+}
+
+function verifyPaneMaterial(material, paneId) {
+  assert(material.type === 'image', `pane ${paneId} material should be an image cue`);
+  assert(typeof material.path === 'string' && material.path.startsWith('materials/'), `pane ${paneId} material should stay under materials/`);
+  assert(!path.isAbsolute(material.path), `pane ${paneId} material should use a relative path`);
+  assert(!material.path.includes('..'), `pane ${paneId} material should not traverse outside materials/`);
+  assert(/\.png$/i.test(material.path), `pane ${paneId} material should reference a PNG`);
+  assert(['cover', 'contain', 'tile'].includes(material.fit), `pane ${paneId} material should use an accepted fit`);
+  assert(typeof material.opacity === 'number' && material.opacity >= 0.05 && material.opacity <= 1, `pane ${paneId} material should keep bounded opacity`);
+  assert(typeof material.role === 'string' && material.role.length > 0, `pane ${paneId} material should include a role note`);
 }
 
 function verifyAgentProposalBoundary(root) {
