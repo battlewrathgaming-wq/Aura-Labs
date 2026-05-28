@@ -135,6 +135,33 @@ Use the screen note to record current questions, shape intent, or why a sketch m
 
 Do not turn every thought into a pane.
 
+### Lead With Cooperative Visual Audit
+
+Before interpreting a mismatch, describe the whole visible read and ask Human intent.
+
+Useful pattern:
+
+```txt
+I see [whole arrangement].
+[Specific part] reads [tension].
+Was that intentional, or should we adjust it?
+```
+
+This keeps Labs from turning a simple spatial issue into an unnecessary theory.
+
+Treat Human placement as intentional, but not infallible. The point is not to correct the Human or defend the agent. The point is to observe objectively, surface possible read mismatches, and solve together.
+
+If the pieces are not enough to know, say so. "I do not know yet" is a stabilizer in Shape See, not a failure state.
+
+Discussion should lead into action, but through a cooperative audit first:
+
+```txt
+describe the whole
+name the visible tension
+ask whether it is intentional
+then adjust, capture requirement, or park the lesson
+```
+
 ## Suggested Record For A Useful Sketch
 
 When a sketch seems useful, preserve:

@@ -32,6 +32,8 @@ Suggested statuses:
 | ID | Status | Area | Symptom | Evidence | Suspected layer | Next action |
 | --- | --- | --- | --- | --- | --- | --- |
 | BUG-001 | observed | Pane Board smoke / capture | Intermittent `UnknownVizError` during `npm.cmd run smoke:pane-board`; clean rerun can pass after cleanup or outside-sandbox launch. | HS152 noted a sandbox `UnknownVizError`; HS158 first Pane Board smoke attempt failed with `UnknownVizError`, then a clean rerun passed. | Electron window capture / smoke harness timing / runtime capture fragility. | Open a bounded smoke reliability review only if it repeats, blocks acceptance, or obscures whether Pane Board itself is stable. |
+| BUG-002 | observed | Pane Board ownership / lineage | `current-board.json` can rest as `status: human-sketch` with `source.createdBy: human` while `source.basedOn` points to the same board id. | 2026-05-28 Shape See session current board has `id: layout-2026-05-26-pane-board-v1` and `source.basedOn: layout-2026-05-26-pane-board-v1`. | Stable-state normalization / saved board provenance. | Review in the next Pane Board stabilization packet. Likely rule: Human sketches should use `basedOn: null`; agent proposals and derived accepted layouts carry lineage. |
+| BUG-003 | observed | Pane Board event log | Editing the Human note can append one event per keystroke, making `board-events.ndjson` noisy. | 2026-05-28 event log contains nine `human-note-edited` saves within roughly three seconds. | Note save debounce / event coalescing. | Consider debounce or coalesced note events when Pane Board collaboration polish resumes. Not urgent while event log is only support evidence. |
 
 ## Entry Template
 

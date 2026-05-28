@@ -61,10 +61,10 @@
       "id": "sense-ref-05",
       "label": "#05",
       "grid": {
-        "x": 98,
-        "y": 33,
-        "w": 17,
-        "h": 8
+        "x": 41,
+        "y": 37,
+        "w": 6,
+        "h": 5
       },
       "role": "surface",
       "importance": "supporting",
@@ -124,8 +124,8 @@
       "id": "pane-6",
       "label": "#--",
       "grid": {
-        "x": 107,
-        "y": 44,
+        "x": 47,
+        "y": 19,
         "w": 8,
         "h": 28
       },
@@ -145,8 +145,8 @@
       "id": "pane-7",
       "label": "#--",
       "grid": {
-        "x": 98,
-        "y": 44,
+        "x": 33,
+        "y": 19,
         "w": 8,
         "h": 28
       },
@@ -170,11 +170,11 @@
   },
   "collaboration": {
     "notes": {
-      "human": "Cab you try trimming on the sides, and making expansion space below?",
-      "labs": "Labs assembly pass: detected #02 as a same-width plate and moved the #02/#07 pair onto the #1 tower rather than replacing the tower. #02 now sits as the top child plate, #07 stays inside it as the quiet child cue, #06/#05 stack below, and the two #-- panes remain the lower body. I widened #1 slightly to relieve the right/bottom clipping."
+      "human": "Hey Labs",
+      "labs": "Labs touch test: I moved pane-6 beside pane-7 to make two H uprights. Human has the crossbar."
     },
     "commands": []
   },
   "screenNote": "Assembly pass: matching plate #02 moved with child #07 onto #1 tower; #06/#05 stack below; lower #-- panes remain body/detail material. Relationship shape only; Sense meaning remains in the #NN source index.",
-  "updatedAt": "2026-05-27T06:42:00.000Z"
+  "updatedAt": "2026-05-28T03:07:33.491Z"
 }
