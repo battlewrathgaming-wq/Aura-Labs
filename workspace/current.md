@@ -128,6 +128,7 @@ Post-M40 low-credit pause state:
 - `workspace/pane-board/concepts/presentation-mechanics-and-human-read.md` now records Material Boundary Read: PNG/material treatment may be used as imagination paint to reveal surface relationships, but target projects rebuild final materials in their own language.
 - HS156 accepted the Pane Board local PNG material cue prototype as Lab-only tooling. This lets panes reference bounded local `materials/*.png` cues as imagination paint while keeping source meaning, target styling, and product adoption out of scope. A real PNG-in-pane visual proof remains a future hands-on check.
 - HS158 accepted the Pane Board orientation and at-rest capture slice from DevHS157. Pane Board now has a quiet saved/resting chip, compact last-change line, changed-pane edge glow, reduced-motion handling, stable capture mode, and richer resting capture metadata. Live visual review remains a future hands-on check.
+- `workspace/bug-catchment.md` is available as a non-executable observation list for recurring defects or harness fragility. It is not a backlog and does not authorize Dev work. It is seeded with `BUG-001` for the intermittent Pane Board smoke/capture `UnknownVizError`.
 
 Likely next discussion choices:
 
@@ -211,6 +212,7 @@ Accepted source of intent:
 - `workspace/pane-board/materials/README.md`
 - `workspace/DevHS157-pane-board-orientation-and-at-rest-capture.md`
 - `workspace/OverseerHS158-pane-board-orientation-acceptance.md`
+- `workspace/bug-catchment.md`
 
 Read first:
 
@@ -380,6 +382,7 @@ No active verification while idle.
 - Recorded Material Boundary Read in `workspace/pane-board/concepts/presentation-mechanics-and-human-read.md` as Shape See training posture.
 - HS156 accepted the Pane Board local PNG material cue prototype. Verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, and `npm.cmd run smoke:pane-board`. A real PNG-in-pane visual proof remains pending.
 - HS158 accepted the Pane Board orientation and at-rest capture slice. Verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, and `npm.cmd run smoke:pane-board` after a rerun; the first smoke attempt failed with `UnknownVizError` and the clean rerun passed outside the sandbox. Smoke artifacts were cleaned afterward.
+- Added `workspace/bug-catchment.md` as an observation list rather than a backlog. `BUG-001` records intermittent Pane Board smoke/capture `UnknownVizError` as a known harness fragility signal.
 
 ## Dev Handoff
 
@@ -441,3 +444,4 @@ No active Dev handoff required while idle.
 - Material-enriched sketches can be mistaken for adopted product styling; preserve them as imagination paint unless Human/source project explicitly accepts more.
 - Pane Board PNG material cue path is smoke-safe but not yet visually proven with a real inserted PNG asset.
 - Pane Board orientation cues and stable capture mode are smoke-safe but not yet manually inspected in a live Shape See session.
+- `BUG-001` in `workspace/bug-catchment.md` records intermittent Pane Board smoke/capture `UnknownVizError`; it should become active only if it repeats, blocks acceptance, or obscures app stability.
