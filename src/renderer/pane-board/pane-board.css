@@ -104,6 +104,32 @@ body {
   min-width: 0;
 }
 
+.orientation-rail {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.save-chip {
+  justify-self: start;
+  border: 1px solid rgba(117, 213, 199, 0.3);
+  border-radius: 6px;
+  padding: 5px 8px;
+  background: rgba(117, 213, 199, 0.08);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.last-change {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
 .material-editor {
   display: grid;
   gap: 6px;
@@ -416,6 +442,25 @@ textarea:focus {
   box-shadow: inset 0 0 0 1px rgba(117, 213, 199, 0.26);
 }
 
+.pane-node[data-changed="true"] {
+  border-color: rgba(117, 213, 199, 0.92);
+  box-shadow:
+    inset 0 0 0 1px rgba(117, 213, 199, 0.5),
+    0 0 0 2px rgba(117, 213, 199, 0.12),
+    0 0 18px rgba(117, 213, 199, 0.18);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+body[data-capture-stable="true"] .orientation-rail {
+  visibility: hidden;
+}
+
+body[data-capture-stable="true"] .pane-node[data-selected="true"],
+body[data-capture-stable="true"] .pane-node[data-changed="true"] {
+  border-color: rgba(117, 213, 199, 0.34);
+  box-shadow: none;
+}
+
 .pane-node[data-locked="true"] {
   border-style: dashed;
   color: var(--muted);
@@ -507,5 +552,11 @@ textarea:focus {
 
   .collaboration-panel {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pane-node[data-changed="true"] {
+    transition: none;
   }
 }

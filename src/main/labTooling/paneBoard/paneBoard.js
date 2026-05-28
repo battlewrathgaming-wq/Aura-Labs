@@ -285,9 +285,13 @@ async function capturePaneBoard(window, { board, title, sourceArtifact, humanSig
     createdAt: new Date().toISOString(),
     source: {
       boardId: cleanBoard.id,
+      boardTitle: cleanBoard.title,
       boardStatus: cleanBoard.status,
       createdBy: cleanBoard.source?.createdBy || 'human',
       basedOn: cleanBoard.source?.basedOn || null,
+      boardUpdatedAt: cleanBoard.updatedAt,
+      viewport: cleanBoard.viewport?.preset || '',
+      paneCount: cleanBoard.panes.length,
       sourceArtifact: String(sourceArtifact || '').slice(0, 260),
       humanSignal: String(humanSignal || '').slice(0, 500),
       scope: 'board-local layout guidance'

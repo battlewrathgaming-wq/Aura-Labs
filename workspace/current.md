@@ -127,6 +127,7 @@ Post-M40 low-credit pause state:
 - `workspace/UIUXHS154-png-backed-surface-materials-advisory.md` is accepted as Lab-local visual-material advisory input. The recommended `png-panel-plate-readout-muted` prototype candidate is parked until Human opens a bounded implementation packet.
 - `workspace/pane-board/concepts/presentation-mechanics-and-human-read.md` now records Material Boundary Read: PNG/material treatment may be used as imagination paint to reveal surface relationships, but target projects rebuild final materials in their own language.
 - HS156 accepted the Pane Board local PNG material cue prototype as Lab-only tooling. This lets panes reference bounded local `materials/*.png` cues as imagination paint while keeping source meaning, target styling, and product adoption out of scope. A real PNG-in-pane visual proof remains a future hands-on check.
+- HS158 accepted the Pane Board orientation and at-rest capture slice from DevHS157. Pane Board now has a quiet saved/resting chip, compact last-change line, changed-pane edge glow, reduced-motion handling, stable capture mode, and richer resting capture metadata. Live visual review remains a future hands-on check.
 
 Likely next discussion choices:
 
@@ -208,6 +209,8 @@ Accepted source of intent:
 - `workspace/pane-board/concepts/presentation-mechanics-and-human-read.md`
 - `workspace/OverseerHS156-pane-board-png-material-cue-acceptance.md`
 - `workspace/pane-board/materials/README.md`
+- `workspace/DevHS157-pane-board-orientation-and-at-rest-capture.md`
+- `workspace/OverseerHS158-pane-board-orientation-acceptance.md`
 
 Read first:
 
@@ -264,6 +267,8 @@ Read first:
 - `workspace/pane-board/concepts/presentation-mechanics-and-human-read.md`
 - `workspace/OverseerHS156-pane-board-png-material-cue-acceptance.md`
 - `workspace/pane-board/materials/README.md`
+- `workspace/DevHS157-pane-board-orientation-and-at-rest-capture.md`
+- `workspace/OverseerHS158-pane-board-orientation-acceptance.md`
 - `package.json`
 
 ## Ordered Dev Runway
@@ -374,6 +379,7 @@ No active verification while idle.
 - HS155 accepted `workspace/UIUXHS154-png-backed-surface-materials-advisory.md` as advisory input only. No Dev runway was opened.
 - Recorded Material Boundary Read in `workspace/pane-board/concepts/presentation-mechanics-and-human-read.md` as Shape See training posture.
 - HS156 accepted the Pane Board local PNG material cue prototype. Verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, and `npm.cmd run smoke:pane-board`. A real PNG-in-pane visual proof remains pending.
+- HS158 accepted the Pane Board orientation and at-rest capture slice. Verification passed: `npm.cmd run verify:pane-board`, `npm.cmd run verify:all`, and `npm.cmd run smoke:pane-board` after a rerun; the first smoke attempt failed with `UnknownVizError` and the clean rerun passed outside the sandbox. Smoke artifacts were cleaned afterward.
 
 ## Dev Handoff
 
@@ -400,6 +406,7 @@ No active Dev handoff required while idle.
 - Accepted: ADR 0004 Automation Role And Context Boundaries.
 - Accepted: UIUXHS154 PNG-backed surface materials advisory.
 - Accepted: HS156 Pane Board local PNG material cue prototype.
+- Accepted: HS158 Pane Board orientation and at-rest capture slice.
 - Accepted: Long Text Detail Block prototype.
 - Accepted: Availability Reason Treatment prototype.
 - Deferred: Source / Basis Coverage Marker prototype.
@@ -415,6 +422,7 @@ No active Dev handoff required while idle.
 - Parked: role-specific automations in active Overseer thread under ADR 0004.
 - Parked: `png-panel-plate-readout-muted` implementation until Human opens a bounded packet.
 - Parked: real PNG-in-pane hands-on visual proof until a Human/Labs Shape See pass.
+- Parked: live visual review of Pane Board orientation cues and stable capture behavior until a Human/Labs Shape See pass.
 
 ## Residual Risks
 
@@ -432,3 +440,4 @@ No active Dev handoff required while idle.
 - PNG-backed surface materials may reduce readability or imply style ownership if treated as more than optional Lab-local visual material.
 - Material-enriched sketches can be mistaken for adopted product styling; preserve them as imagination paint unless Human/source project explicitly accepts more.
 - Pane Board PNG material cue path is smoke-safe but not yet visually proven with a real inserted PNG asset.
+- Pane Board orientation cues and stable capture mode are smoke-safe but not yet manually inspected in a live Shape See session.

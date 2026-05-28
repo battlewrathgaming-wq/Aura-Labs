@@ -36,6 +36,9 @@ function main() {
   assert(paneBoardMain.includes('Current board cannot be an agent proposal without basedOn.'), 'current-board agent proposals should require basedOn');
   assert(paneBoardMain.includes('capturePage'), 'Pane Board module should export PNG through Electron capturePage');
   assert(paneBoardMain.includes('pane-board-resting-capture'), 'Pane Board module should create bounded resting capture records');
+  assert(paneBoardMain.includes('boardTitle: cleanBoard.title'), 'Pane Board capture should identify captured board title');
+  assert(paneBoardMain.includes('boardUpdatedAt: cleanBoard.updatedAt'), 'Pane Board capture should identify captured board timestamp');
+  assert(paneBoardMain.includes('paneCount: cleanBoard.panes.length'), 'Pane Board capture should identify captured pane count');
   assert(paneBoardMain.includes('pane-board-smoke-result.json'), 'Pane Board smoke should write a result artifact');
   assert(paneBoardMain.includes('return normalizePaneBoard(JSON.parse'), 'Pane Board load should normalize current-board state');
   assert(paneBoardMain.includes('maxGridW') && paneBoardMain.includes('maxGridH'), 'Pane Board normalization should clamp panes to the active viewport grid');
@@ -75,6 +78,8 @@ function main() {
   assert(html.includes('capture-board'), 'Pane Board should include a resting capture helper');
   assert(html.includes('pane-material-path'), 'Pane Board should include a selected-pane material path control');
   assert(html.includes('clear-pane-material'), 'Pane Board should include a selected-pane material clear action');
+  assert(html.includes('save-status'), 'Pane Board should include a saved/resting status chip');
+  assert(html.includes('last-change'), 'Pane Board should include a compact last-change line');
   assert(app.includes('Pointer Events') || app.includes('pointerdown'), 'Pane Board should use pointer events for drag/resize');
   assert(app.includes('resize-handle'), 'Pane Board should include resize behavior');
   assert(app.includes('GRID = 8'), 'Pane Board should use an 8px snap grid');
@@ -90,6 +95,10 @@ function main() {
   assert(app.includes('return-to-human-sketch'), 'Pane Board should support recovery back to a Human sketch state');
   assert(app.includes('paneMaterial'), 'Pane Board renderer should handle optional pane material metadata');
   assert(app.includes('materials') && app.includes('.png'), 'Pane Board renderer should constrain material paths to local PNGs');
+  assert(app.includes('setLastChange'), 'Pane Board renderer should keep a local last-change orientation line');
+  assert(app.includes('flashChangedPane'), 'Pane Board renderer should mark changed panes without moving them');
+  assert(app.includes('setStableCaptureMode'), 'Pane Board renderer should hide transient orientation cues during capture/export');
+  assert(app.includes('Saved ') && app.includes('Saving...') && app.includes('Changed'), 'Pane Board renderer should expose save/rest state labels');
   assert(!app.includes('boardState.board = result.board'), 'snapshot creation should not replace the current board with a proposal');
   assert(app.includes('screen-note-edited'), 'Pane Board should persist on-screen note edits');
   assert(!app.includes('innerHTML'), 'Pane Board renderer should avoid innerHTML');
@@ -100,6 +109,11 @@ function main() {
   assert(styles.includes('.capture-panel'), 'Pane Board styles should render resting capture controls');
   assert(styles.includes('.screen-note'), 'Pane Board styles should render the screen note surface');
   assert(styles.includes('.pane-material'), 'Pane Board styles should render pane material cues behind labels');
+  assert(styles.includes('.save-chip'), 'Pane Board styles should render the saved/resting chip');
+  assert(styles.includes('.last-change'), 'Pane Board styles should render the last-change line');
+  assert(styles.includes('[data-changed="true"]'), 'Pane Board styles should render changed-pane edge cues');
+  assert(styles.includes('prefers-reduced-motion'), 'Pane Board changed-pane cue should respect reduced motion');
+  assert(styles.includes('data-capture-stable'), 'Pane Board styles should hide live-only cues during stable capture');
   assert(styles.includes('8px 8px'), 'Pane Board styles should show the 8px grid');
   assert(styles.includes('.resize-handle'), 'Pane Board styles should include resize handle treatment');
   assert(paneBoardReadme.includes('Local Material Cues'), 'Pane Board README should document local material cue boundaries');
@@ -196,6 +210,14 @@ function verifyCaptureBoundary(root) {
     const capture = JSON.parse(read(path.join(captureDir, filename)));
     assert(capture.kind === 'pane-board-resting-capture', `capture ${filename} should identify resting capture kind`);
     assert(capture.source?.scope === 'board-local layout guidance', `capture ${filename} should stay board-local`);
+    assert(typeof capture.source.boardId === 'string' && capture.source.boardId.length > 0, `capture ${filename} should identify captured board id`);
+    assert(['human-sketch', 'agent-proposal', 'human-accepted', 'superseded', 'parked', 'rejected'].includes(capture.source.boardStatus), `capture ${filename} should identify captured board status`);
+    if (Object.prototype.hasOwnProperty.call(capture.source, 'boardTitle')) {
+      assert(typeof capture.source.boardTitle === 'string' && capture.source.boardTitle.length > 0, `capture ${filename} should identify captured board title`);
+      assert(typeof capture.source.boardUpdatedAt === 'string' && !Number.isNaN(Date.parse(capture.source.boardUpdatedAt)), `capture ${filename} should preserve captured board timestamp`);
+      assert(['960x640', '720x640'].includes(capture.source.viewport), `capture ${filename} should preserve captured viewport`);
+      assert(Number.isInteger(capture.source.paneCount) && capture.source.paneCount >= 0, `capture ${filename} should preserve captured pane count`);
+    }
     assert(capture.source && Object.prototype.hasOwnProperty.call(capture.source, 'sourceArtifact'), `capture ${filename} should preserve source artifact field`);
     assert(capture.source && Object.prototype.hasOwnProperty.call(capture.source, 'humanSignal'), `capture ${filename} should preserve Human signal field`);
     assert(capture.board && Array.isArray(capture.board.panes), `capture ${filename} should include board JSON`);
