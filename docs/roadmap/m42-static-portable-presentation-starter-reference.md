@@ -85,10 +85,14 @@ Manual/browser inspection is useful but not required unless Human explicitly ask
 
 Closed accepted in HS164.
 
+Manual visual review accepted in HS165.
+
 Accepted output:
 
 - `portable-presentation-starter/`
 - `scripts/verify-static-starter.js`
 - `workspace/DevHS163-static-portable-presentation-starter-reference.md`
 
-No browser/screenshot visual acceptance is claimed. A manual static starter visual review remains the recommended next optional check.
+Human manual visual review confirmed that the static starter renders, the selector works for the current and source-owned placeholder examples, Readout Detail expands, source-owned placeholder qualification is visible, and no visible React/Electron/tooling bleed appears.
+
+No automated browser/screenshot visual acceptance is claimed. Deferred polish includes spacing, detail density, source-owned placeholder wording, and stronger Aura visual character.

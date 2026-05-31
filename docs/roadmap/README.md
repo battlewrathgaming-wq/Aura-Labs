@@ -1,7 +1,7 @@
 # Aura Lab Roadmap
 
 Status: Active durable roadmap scaffold
-Last reviewed: 2026-05-26
+Last reviewed: 2026-05-31
 
 ## Purpose
 
@@ -11,20 +11,20 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-Post-M42 static starter reference acceptance. Lab has the first Lab-local framework-neutral static starter reference. Visual review remains parked before React example, target relay, or polish work.
+Post-M42 static starter reference acceptance and manual visual review. Lab has the first Lab-local framework-neutral static starter reference, and the Human visual pass accepted it as a clean baseline with polish deferred.
 
 Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 accepted ownership and view-state clarity fixes before broader collaboration affordances. M40 accepted a bounded Pane Board collaboration loop. M41 accepted the portable presentation starter-kit contents specification before implementation. M42 accepted the first static starter reference.
 
 ## Near Outcomes
 
-- Review the static starter visually before React example or target relay work.
+- Keep the static starter baseline available for future target relay/adoption review, optional React example, or bounded visual polish.
 - Keep the first starter implementation Lab-local and framework-neutral.
-- Keep React optional and deferred until the static reference is accepted.
+- Keep React optional and deferred until the Human explicitly chooses that lane.
 - Keep Pane Board output advisory and separate from the clean presentation head.
 - Keep Summary / Basis / Details readability stable.
 - Keep accepted material and output pages aligned with prototype observations.
 - Keep SmokeFlash as hidden/gated Lab tooling until a renderer split is earned.
-- Defer renderer extraction, split/readiness execution, and React scaffold implementation until the static starter reference is accepted or Human explicitly changes course.
+- Defer renderer extraction, split/readiness execution, and React scaffold implementation until Human explicitly chooses one of those lanes.
 
 ## Candidate Milestones
 

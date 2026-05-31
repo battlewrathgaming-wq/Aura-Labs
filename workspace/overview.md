@@ -1,7 +1,7 @@
 # Aura Lab Workspace Overview
 
 Status: Active
-Last reviewed: 2026-05-26
+Last reviewed: 2026-05-31
 
 ## Vision Statement
 
@@ -67,19 +67,22 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M37 | Pane Board Split Stabilization | Complete | Accepted in-repo Lab-only tooling split with Pane Board module boundary, gated preload API, source-code firewall READMEs, and prompt firewall. |
 | M38 | Pane Board Capability Stabilization | Complete | Accepted stable Pane Board capability loop with normalized board load, Human sketch protection, separate agent proposals, gated capture, and verifier coverage. |
 | M39 | Pane Board Ownership And View Clarity | Complete | Accepted current/proposal ownership validation, visible status clarity, refresh/redraw, and Back to sketch recovery before broader collaboration affordances. |
+| M40 | Pane Board Collaboration Loop | Complete | Accepted a bounded Pane Board collaboration loop and kept future collaboration affordances Lab-tooling-only. |
+| M41 | Portable Presentation Starter Kit Contents | Complete | Accepted the portable presentation starter-kit content spec, including boundaries for example fields, target ownership, and source-owned placeholders. |
+| M42 | Static Portable Presentation Starter Reference | Complete | Accepted the framework-neutral static starter reference and Human manual visual review as baseline-fit with polish deferred. |
 
 ## Current Direction
 
 Active milestone: None
-Last completed milestone: M39 / HS149 - Pane Board Ownership And View Clarity Acceptance
-Roadmap source: Human direction after M20 and `workspace/display-asset-documentation-owner-contract.md`
+Last completed milestone: M42 / HS164 - Static Portable Presentation Starter Reference Acceptance
+Latest accepted review: workspace/OverseerHS165-static-starter-visual-review.md
+Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
 Current sequence: None
-Latest accepted handshake: workspace/OverseerHS150-pane-board-step-controls-snapshot.md
+Latest accepted handshake: workspace/OverseerHS165-static-starter-visual-review.md
 Latest active runway: None
-Latest scope proposal: workspace/complete/milestone-M17/OverseerHS60-protected-term-guardrail-scope.md
 Active runway: workspace/current.md
-Housekeeping: active root cleaned on 2026-05-26; M19-M34 handoffs moved to `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root refreshed on 2026-05-31 after M42 visual review; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -100,11 +103,16 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/roadmap/m37-pane-board-split-stabilization.md`
 - `docs/roadmap/m38-pane-board-capability-stabilization.md`
 - `docs/roadmap/m39-pane-board-ownership-view-clarity.md`
+- `docs/roadmap/m40-pane-board-collaboration-loop.md`
+- `docs/roadmap/m41-portable-presentation-seed-kit-contents.md`
+- `docs/roadmap/m42-static-portable-presentation-starter-reference.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/composed-display-output-candidate.md`
 - `docs/roadmap/m32-export-boundary-review.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
+- `docs/adr/0003-shared-visual-thinking-surfaces.md`
+- `docs/adr/0004-automation-role-and-context-boundaries.md`
 - `docs/statements/post-bridge-presentation-boundary.md`
 - `docs/current-state/m00-boot-current-state.md`
 - `docs/current-state/m01-project-state-briefing-current-state.md`
@@ -132,6 +140,8 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 - `package.json`
 - `scripts/verify-all.js`
+- `scripts/verify-static-starter.js`
+- `portable-presentation-starter/README.md`
 
 ### Critical Vocabulary References
 
@@ -166,6 +176,16 @@ Active milestone handshakes:
 - `workspace/DevHS148-pane-board-ownership-view-clarity.md`
 - `workspace/OverseerHS149-m39-pane-board-ownership-view-clarity-acceptance.md`
 - `workspace/OverseerHS150-pane-board-step-controls-snapshot.md`
+- `workspace/OverseerHS151-m40-pane-board-collaboration-loop-runway.md`
+- `workspace/OverseerHS152-m40-pane-board-collaboration-loop-acceptance.md`
+- `workspace/OverseerHS160-hs159-seed-readiness-acceptance.md`
+- `workspace/StarterKitSpecHS160-portable-presentation-contents.md`
+- `workspace/OverseerHS161-m41-starter-kit-spec-acceptance.md`
+- `workspace/OverseerHS162-sense-starter-kit-caution-ack.md`
+- `workspace/OverseerHS163-m42-static-starter-reference-runway.md`
+- `workspace/DevHS163-static-portable-presentation-starter-reference.md`
+- `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
+- `workspace/OverseerHS165-static-starter-visual-review.md`
 
 Accepted authority records:
 
@@ -217,14 +237,8 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Should the next Lab milestone review Bridge State Readout use-case clarity across states?
-- Should Aura Lab park until a target project asks to adapt a presentation pattern?
-- Should Atlas and Sense receive project-local protected-term checker adoption prompts?
-- Should Lab refine protected-term discovery output after a few review cycles?
-- Should Sense now perform its local adoption review using accepted M19 as advisory input?
-- Where should the future use-case comparison landing zone live after material bench shape is clearer?
-- Should SmokeFlash split-readiness move forward before export, seeding, or target-project consumption?
-- Should Source / Basis Coverage Marker or Compact Value Rail become a later prototype?
-- Should the accepted Instrument Readout Panel prototype receive a UI/UX visual review, prototype polish packet, or export/split readiness review?
-- After M36, should Lab define a light portability review for Pane Board-derived elements before more tooling polish?
-- Should Pane Board receive a Human manual feel check, screenshot polish, or stay as minimal tooling?
+- Should Lab next open a target relay/adoption review for the static starter, or wait for Sense/Atlas adapter feedback?
+- Should Lab open an optional React example scaffold, or keep the starter framework-neutral until a target asks for React-shaped support?
+- Should the static starter receive bounded visual polish for spacing, detail density, source-owned placeholder wording, and stronger Aura visual character?
+- Should renderer extraction/export, SmokeFlash split execution, and security review wait until a target-project adapter trial creates concrete pressure?
+- Should Pane Board collaboration affordances remain parked while the presentation starter stabilizes?
