@@ -44,6 +44,8 @@ React remains optional and deferred until the static reference is accepted.
 
 Sense may continue adapter work locally. Lab does not need Sense details until both sides have useful boundary artifacts to compare.
 
+Sense reviewed the Lab starter-kit language as downstream adapter pressure input and returned "usable with cautions." Lab accepted the cautions in `workspace/OverseerHS162-sense-starter-kit-caution-ack.md`.
+
 ## Source Of Intent
 
 Accepted source of intent:
@@ -53,6 +55,7 @@ Accepted source of intent:
 - `workspace/OverseerHS160-hs159-seed-readiness-acceptance.md`
 - `workspace/StarterKitSpecHS160-portable-presentation-contents.md`
 - `workspace/OverseerHS161-m41-starter-kit-spec-acceptance.md`
+- `workspace/OverseerHS162-sense-starter-kit-caution-ack.md`
 - `docs/roadmap/m41-portable-presentation-seed-kit-contents.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -73,6 +76,7 @@ Read first:
 - `docs/roadmap/m41-portable-presentation-seed-kit-contents.md`
 - `workspace/StarterKitSpecHS160-portable-presentation-contents.md`
 - `workspace/OverseerHS161-m41-starter-kit-spec-acceptance.md`
+- `workspace/OverseerHS162-sense-starter-kit-caution-ack.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
 - `package.json`
@@ -121,6 +125,7 @@ No active verification while idle.
 - HS160 accepted HS159 and opened M41.
 - HS160 produced `workspace/StarterKitSpecHS160-portable-presentation-contents.md`.
 - HS161 accepted the starter-kit contents specification and closed M41.
+- HS162 accepted Sense downstream adapter-pressure feedback as usable with cautions.
 
 ## Handoff
 
@@ -130,6 +135,7 @@ No active handoff while idle.
 
 - Accepted: HS159 Portable Presentation Starter Kit Readiness Advisory.
 - Accepted and closed: M41 Portable Presentation Starter Kit Contents.
+- Accepted: Sense starter-kit caution feedback.
 - Recommended next: Static Portable Presentation Starter Reference.
 - Deferred: renderer extraction.
 - Deferred: SmokeFlash/material-harness split execution.
@@ -142,4 +148,5 @@ No active handoff while idle.
 - `workspace/overview.md` is stale around recent Pane Board and M41 state and should be refreshed during a later housekeeping pass.
 - Current Lab renderer remains unsuitable for direct export until SmokeFlash/workshop coupling is split.
 - Starter input examples may be mistaken for bridge contracts unless future implementation keeps the M41 boundaries visible.
+- Sense specifically cautioned that Lab `state`, `availability`, `NO DATA`, and `UNAVAILABLE` must remain display examples, not Sense bridge/runtime enums or states.
 - React may become too heavy if treated as canonical instead of optional example scaffold.
