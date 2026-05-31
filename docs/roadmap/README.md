@@ -11,13 +11,13 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-Post-M41 portable presentation starter-kit contents acceptance. Lab has opened M42 to build the first Lab-local static starter reference, not React-first work or renderer export.
+Post-M42 static starter reference acceptance. Lab has the first Lab-local framework-neutral static starter reference. Visual review remains parked before React example, target relay, or polish work.
 
-Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 accepted ownership and view-state clarity fixes before broader collaboration affordances. M40 accepted a bounded Pane Board collaboration loop. M41 accepted the portable presentation starter-kit contents specification before implementation. M42 is now open for the first static starter reference.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 accepted ownership and view-state clarity fixes before broader collaboration affordances. M40 accepted a bounded Pane Board collaboration loop. M41 accepted the portable presentation starter-kit contents specification before implementation. M42 accepted the first static starter reference.
 
 ## Near Outcomes
 
-- Build the bounded static portable presentation starter reference.
+- Review the static starter visually before React example or target relay work.
 - Keep the first starter implementation Lab-local and framework-neutral.
 - Keep React optional and deferred until the static reference is accepted.
 - Keep Pane Board output advisory and separate from the clean presentation head.
@@ -43,7 +43,7 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 | M39 | Pane Board Ownership And View Clarity | Complete | `docs/roadmap/m39-pane-board-ownership-view-clarity.md` |
 | M40 | Pane Board Collaboration Loop | Complete | `docs/roadmap/m40-pane-board-collaboration-loop.md` |
 | M41 | Portable Presentation Starter Kit Contents | Complete | `docs/roadmap/m41-portable-presentation-seed-kit-contents.md` |
-| M42 | Static Portable Presentation Starter Reference | Active | `docs/roadmap/m42-static-portable-presentation-starter-reference.md` |
+| M42 | Static Portable Presentation Starter Reference | Complete | `docs/roadmap/m42-static-portable-presentation-starter-reference.md` |
 
 Candidate bank:
 

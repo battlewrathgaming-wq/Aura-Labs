@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Instrument Readout Panel Static Reference</title>
+    <link rel="stylesheet" href="./instrument-readout-panel.css">
+  </head>
+  <body>
+    <main class="starter-shell">
+      <section class="starter-head" aria-labelledby="page-title">
+        <p class="eyebrow">Portable presentation starter</p>
+        <h1 id="page-title">Instrument Readout Panel</h1>
+        <p class="boundary-note">
+          Neutral display example input only. These fields and labels are not bridge contracts,
+          runtime contracts, target enums, or source-project states.
+        </p>
+      </section>
+
+      <section class="selector-band" aria-label="Display example state selector">
+        <label for="readout-select">Display example state</label>
+        <select id="readout-select"></select>
+      </section>
+
+      <section id="readout-root" aria-live="polite"></section>
+    </main>
+
+    <script src="./instrument-readout-panel.js"></script>
+  </body>
+</html>
+

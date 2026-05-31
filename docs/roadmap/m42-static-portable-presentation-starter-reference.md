@@ -1,6 +1,6 @@
 # M42 - Static Portable Presentation Starter Reference
 
-Status: Active candidate
+Status: Complete
 Owner: Aura Lab Overseer
 
 ## Purpose
@@ -80,3 +80,15 @@ Manual/browser inspection is useful but not required unless Human explicitly ask
 - `workspace/display-materials/availability-reason-treatment.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
+
+## Closure
+
+Closed accepted in HS164.
+
+Accepted output:
+
+- `portable-presentation-starter/`
+- `scripts/verify-static-starter.js`
+- `workspace/DevHS163-static-portable-presentation-starter-reference.md`
+
+No browser/screenshot visual acceptance is claimed. A manual static starter visual review remains the recommended next optional check.

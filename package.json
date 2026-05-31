@@ -14,6 +14,7 @@
     "verify:http": "node scripts/verify-http-client.js",
     "verify:sde-source": "node scripts/verify-sde-source-bundle.js",
     "verify:frame": "node scripts/verify-frame-module.js",
+    "verify:static-starter": "node scripts/verify-static-starter.js",
     "verify:renderer-shell": "node scripts/verify-renderer-shell.js",
     "verify:pane-board": "node scripts/verify-pane-board.js",
     "pane-board": "powershell -ExecutionPolicy Bypass -Command \"$env:AURA_LAB_PANE_BOARD='1'; npm.cmd start\"",

@@ -1,38 +1,46 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-05-31
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M42 - Static Portable Presentation Starter Reference
-Last completed milestone: M41 / HS161 - Portable Presentation Starter Kit Contents Acceptance
-Current executor: Dev
-Current focus: Build the first Lab-local static presentation starter reference from the accepted M41 specification.
-Expected output: Static starter reference files plus Dev handoff.
-Expected DevHS filename: `workspace/DevHS163-static-portable-presentation-starter-reference.md`
+Active milestone: None
+Last completed milestone: M42 / HS164 - Static Portable Presentation Starter Reference Acceptance
+Current executor: Human / Overseer
+Current focus: Await Human / Overseer direction after accepting the static starter reference.
+Expected output: Human direction or next Overseer runway artifact.
+Expected DevHS filename: None.
 
 ## Current State
 
-M41 is accepted and closed.
+M42 is accepted and closed.
 
-Accepted artifact:
+Accepted output:
 
-- `workspace/StarterKitSpecHS160-portable-presentation-contents.md`
+- `portable-presentation-starter/`
+- `scripts/verify-static-starter.js`
+- `workspace/DevHS163-static-portable-presentation-starter-reference.md`
+- `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
 
-Accepted direction:
+The static starter reference is a Lab-local, framework-neutral proof:
 
 ```txt
-portable presentation starter contents
--> Lab-local static reference
--> review
--> optional React example later
+neutral display example input -> Instrument Readout Panel -> Readout Detail reveal
 ```
 
-Sense reviewed the Lab starter-kit language as downstream adapter pressure input and returned "usable with cautions." Lab accepted the cautions in `workspace/OverseerHS162-sense-starter-kit-caution-ack.md`.
+It stays separate from the current renderer and excludes React, target adapters, Electron/preload/IPC, SmokeFlash, Pane Board, Wayfinder, and the Lab service registry.
 
-M42 should now create the smallest static reference that proves the starter concept without moving into React, target adapters, renderer export, or SmokeFlash split execution.
+No screenshot or browser visual acceptance is claimed. Dev reported blocked local inspection and the Human observed blank local window behavior during review. Treat visual inspection as parked manual review.
+
+Recommended next options:
+
+- manual/static visual review of `portable-presentation-starter/examples/static/index.html`
+- target relay/adoption review after visual review
+- optional React example scaffold after static reference acceptance and visual review
+- static starter polish if visual review finds issues
+- park Lab until Sense/Atlas adapter work produces useful feedback
 
 ## Source Of Intent
 
@@ -43,13 +51,11 @@ Accepted source of intent:
 - `workspace/OverseerHS161-m41-starter-kit-spec-acceptance.md`
 - `workspace/OverseerHS162-sense-starter-kit-caution-ack.md`
 - `workspace/OverseerHS163-m42-static-starter-reference-runway.md`
+- `workspace/DevHS163-static-portable-presentation-starter-reference.md`
+- `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
 - `docs/roadmap/m42-static-portable-presentation-starter-reference.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
-- `workspace/display-outputs/instrument-readout-panel.md`
-- `workspace/display-materials/long-text-detail-block.md`
-- `workspace/display-materials/availability-reason-treatment.md`
-- `workspace/display-schema-ledger.md`
 
 Read first:
 
@@ -61,83 +67,38 @@ Read first:
 - `workspace/critical/critical-terms.md`
 - `workspace/critical/critical-assets.md`
 - `docs/roadmap/m42-static-portable-presentation-starter-reference.md`
-- `workspace/StarterKitSpecHS160-portable-presentation-contents.md`
-- `workspace/OverseerHS161-m41-starter-kit-spec-acceptance.md`
-- `workspace/OverseerHS162-sense-starter-kit-caution-ack.md`
-- `docs/adr/0001-smokeflash-split-timing.md`
-- `docs/adr/0002-target-owned-presentation-adapters.md`
-- `workspace/display-outputs/instrument-readout-panel.md`
-- `workspace/display-materials/long-text-detail-block.md`
-- `workspace/display-materials/availability-reason-treatment.md`
+- `workspace/DevHS163-static-portable-presentation-starter-reference.md`
+- `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
+- `portable-presentation-starter/README.md`
 - `package.json`
 
-## Ordered Dev Runway
+## Ordered Runway
 
-1. Choose a Lab-local static starter location that is separate from the current renderer. Prefer a clearly named folder such as `portable-presentation-starter/` unless existing project structure suggests a better place.
-2. Create a README for the static starter that states:
-   - purpose and scope
-   - example input is display-example input only, not a bridge/runtime contract
-   - target projects own adapters and adoption
-   - Sense caution boundaries from HS162
-   - React is deferred
-3. Create neutral example data for one Instrument Readout Panel family:
-   - one selected panel at a time
-   - multiple display example states from data
-   - basis, age/freshness, availability, coverage, gaps, warnings, detail rows
-   - `sourceOwned` or equivalent qualification when source-owned placeholder terms appear
-4. Create static HTML/CSS/JS that renders the Instrument Readout Panel from the example data:
-   - state marker/chip/light with non-color-only marker
-   - primary value or absence state
-   - readout age/freshness
-   - readout basis
-   - gaps/warnings marker
-   - availability reason line when needed
-   - one Readout Detail reveal
-   - narrow-friendly layout and long-token wrapping
-   - reduced-motion handling if any motion is used
-5. Add a small verification check if useful to prove the static files exist and do not reference excluded Lab tooling. Include it in `verify:all` only if it is straightforward and local.
-6. Run required verification.
-7. Create the expected DevHS with:
-   - files changed
-   - how to inspect the static reference
-   - verification commands/results
-   - exclusions intentionally preserved
-   - any remaining risks or next recommendations
+No active runway.
 
 ## Acceptance Criteria
 
-The Dev output is acceptable if:
-
-- the static reference exists separately from the current renderer
-- it can be opened as plain HTML or otherwise inspected without Electron
-- it renders one Instrument Readout Panel from neutral example data
-- the example data clearly states it is display-example input, not a bridge/runtime contract
-- `state`, `availability`, `NO DATA`, and `UNAVAILABLE` are documented as display example fields/labels, not target enums or states
-- Sense-owned placeholders such as `blocked`, `no-scan`, and `degraded` are qualified if they appear
-- the reference does not include SmokeFlash, Pane Board, Wayfinder, Electron/preload, Lab service registry, target adapters, or source-project semantics
-- React remains deferred
-- verification passes
+No active acceptance criteria while idle.
 
 ## Guardrails And Non-Goals
 
-- Do not create a React scaffold.
+- Do not implement code without a new current packet.
+- Do not claim screenshot/browser visual acceptance until a visual review is actually completed.
+- Do not open React scaffold work before static visual review unless Human explicitly changes course.
 - Do not export/seed the current renderer.
-- Do not copy the current renderer wholesale.
-- Do not execute SmokeFlash split work.
-- Do not edit Atlas or Sense.
-- Do not create target adapters.
+- Do not create target adapters from Lab.
 - Do not create bridge/runtime contracts.
-- Do not promote Lab fixture schemas as target contracts.
-- Do not include Pane Board, SmokeFlash, Wayfinder, Electron/preload, Lab service registry, or workshop controls in the portable starter.
+- Do not promote Lab example input as target contracts.
 - Preserve Lab slim/product-agnostic language.
 - Preserve target-project authority over internal meaning, state semantics, adapters, and adoption.
 
 ## Stop Conditions
 
-Stop and return to Human / Overseer direction if the work requires:
+Stop and return to Human / Overseer direction if a future task requires:
 
+- implementation without a new current packet
 - React package creation
-- renderer extraction from current app code
+- renderer extraction/export
 - SmokeFlash split execution
 - security review execution
 - target-project files or adapter decisions
@@ -148,33 +109,26 @@ Stop and return to Human / Overseer direction if the work requires:
 
 ## Required Verification
 
-Run:
-
-```txt
-npm.cmd run verify:all
-```
-
-Run from `F:\Projects\Docs\Aura-Project-Orchestration`:
-
-```txt
-npm.cmd run verify:terminology
-```
-
-If a new static-reference verifier is added, include it in the DevHS and preferably in `verify:all`.
+No active verification while idle.
 
 ## Evidence
 
-Pending Dev work.
+- HS163 opened M42.
+- DevHS163 completed the static starter reference.
+- Overseer tightened `scripts/verify-static-starter.js`.
+- HS164 accepted M42.
+- Verification passed: `npm.cmd run verify:static-starter`, `npm.cmd run verify:all`, and orchestration `npm.cmd run verify:terminology`.
 
-## Dev Handoff
+## Handoff
 
-Pending `workspace/DevHS163-static-portable-presentation-starter-reference.md`.
+No active handoff while idle.
 
 ## Advisory Disposition
 
 - Accepted and closed: M41 Portable Presentation Starter Kit Contents.
 - Accepted: Sense starter-kit caution feedback.
-- Opened: M42 Static Portable Presentation Starter Reference.
+- Accepted and closed: M42 Static Portable Presentation Starter Reference.
+- Parked: manual/static visual review.
 - Deferred: React scaffold implementation.
 - Deferred: renderer extraction/export.
 - Deferred: SmokeFlash/material-harness split execution.
@@ -184,5 +138,6 @@ Pending `workspace/DevHS163-static-portable-presentation-starter-reference.md`.
 ## Residual Risks
 
 - `workspace/overview.md` remains stale around recent Pane Board and M41/M42 state and should be refreshed during a later housekeeping pass.
-- Starter input examples may be mistaken for bridge contracts unless the static reference keeps the M41/HS162 boundaries visible.
+- No browser/screenshot visual acceptance has been completed for the static starter reference.
+- Starter input examples may be mistaken for bridge contracts if future relay omits the M41/HS162 boundaries.
 - React may become too heavy if treated as canonical instead of optional example scaffold.

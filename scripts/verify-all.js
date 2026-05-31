@@ -8,7 +8,8 @@ const checks = [
   ['verify:sde-source', ['node', 'scripts/verify-sde-source-bundle.js']],
   ['verify:frame', ['node', 'scripts/verify-frame-module.js']],
   ['verify:renderer-shell', ['node', 'scripts/verify-renderer-shell.js']],
-  ['verify:pane-board', ['node', 'scripts/verify-pane-board.js']]
+  ['verify:pane-board', ['node', 'scripts/verify-pane-board.js']],
+  ['verify:static-starter', ['node', 'scripts/verify-static-starter.js']]
 ];
 
 for (const [label, command] of checks) {
