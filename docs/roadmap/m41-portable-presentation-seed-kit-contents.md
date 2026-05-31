@@ -1,6 +1,6 @@
 # M41 - Portable Presentation Starter Kit Contents
 
-Status: Active candidate
+Status: Complete
 Owner: Aura Lab Overseer
 
 ## Purpose
@@ -74,3 +74,13 @@ For the M41 advisory/spec packet:
 - `workspace/display-materials/long-text-detail-block.md`
 - `workspace/display-materials/availability-reason-treatment.md`
 - `workspace/display-schema-ledger.md`
+
+## Closure
+
+Closed accepted in HS161.
+
+Accepted artifact:
+
+- `workspace/StarterKitSpecHS160-portable-presentation-contents.md`
+
+Next recommended step: a bounded Lab-local static reference for the portable presentation starter. React scaffold, renderer export, SmokeFlash split execution, and target adapters remain deferred.

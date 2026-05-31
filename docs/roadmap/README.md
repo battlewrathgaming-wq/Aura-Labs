@@ -11,20 +11,20 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-Post-M40 Pane Board collaboration loop acceptance. Lab is now shaping the portable presentation starter-kit contents before any renderer extraction, SmokeFlash split, React scaffold, or target-project adapter work.
+Post-M41 portable presentation starter-kit contents acceptance. Lab has defined what must be solved before implementation. The next likely step is a Lab-local static starter reference, not React-first work or renderer export.
 
-Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 accepted ownership and view-state clarity fixes before broader collaboration affordances. M40 accepted a bounded Pane Board collaboration loop. M41 is now focused on defining the portable presentation starter-kit contents before implementation.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 accepted ownership and view-state clarity fixes before broader collaboration affordances. M40 accepted a bounded Pane Board collaboration loop. M41 accepted the portable presentation starter-kit contents specification before implementation.
 
 ## Near Outcomes
 
-- Define the portable presentation starter-kit contents.
-- Decide the smallest neutral display input example shape.
-- Identify the static reference target before optional React scaffold work.
+- Decide whether to open a bounded static portable presentation starter reference.
+- Keep the first starter implementation Lab-local.
+- Keep React optional and deferred until the static reference is accepted.
 - Keep Pane Board output advisory and separate from the clean presentation head.
 - Keep Summary / Basis / Details readability stable.
 - Keep accepted material and output pages aligned with prototype observations.
 - Keep SmokeFlash as hidden/gated Lab tooling until a renderer split is earned.
-- Defer renderer extraction, split/readiness execution, and React scaffold implementation until the starter contents are accepted.
+- Defer renderer extraction, split/readiness execution, and React scaffold implementation until the static starter reference is accepted or Human explicitly changes course.
 
 ## Candidate Milestones
 
@@ -42,7 +42,7 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 | M38 | Pane Board Capability Stabilization | Complete | `docs/roadmap/m38-pane-board-capability-stabilization.md` |
 | M39 | Pane Board Ownership And View Clarity | Complete | `docs/roadmap/m39-pane-board-ownership-view-clarity.md` |
 | M40 | Pane Board Collaboration Loop | Complete | `docs/roadmap/m40-pane-board-collaboration-loop.md` |
-| M41 | Portable Presentation Starter Kit Contents | Active | `docs/roadmap/m41-portable-presentation-seed-kit-contents.md` |
+| M41 | Portable Presentation Starter Kit Contents | Complete | `docs/roadmap/m41-portable-presentation-seed-kit-contents.md` |
 
 Candidate bank:
 
