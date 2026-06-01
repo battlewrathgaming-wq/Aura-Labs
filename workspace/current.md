@@ -1,19 +1,21 @@
 # Current Workspace Packet
 
-Status: Idle
+Status: Active
 Updated: 2026-06-01
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M44 - Static Starter Safety Floor Corrections
 Last completed milestone: M43 / HS166 - Presentation Head Handoff Standard
-Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after accepting the presentation head handoff standard.
-Expected output: Human direction or next Overseer runway artifact.
-Expected DevHS filename: None.
+Current executor: Dev
+Current focus: Apply the HS167 small docs/verifier fix so the static starter carries the M43 safety floor directly.
+Expected output: `workspace/DevHS168-static-starter-safety-floor-corrections.md`
+Expected DevHS filename: `workspace/DevHS168-static-starter-safety-floor-corrections.md`
 
 ## Current State
+
+M44 is open for a tiny Dev correction packet.
 
 M43 is accepted and closed.
 
@@ -27,6 +29,9 @@ Accepted output:
 - `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
 - `workspace/OverseerHS165-static-starter-visual-review.md`
 - `workspace/OverseerHS166-m43-presentation-head-handoff-standard.md`
+- `workspace/SecEngHS167-static-starter-safety-floor-review.md`
+- `workspace/OverseerHS168-m44-static-starter-safety-floor-corrections-runway.md`
+- `docs/roadmap/m44-static-starter-safety-floor-corrections.md`
 - `docs/roadmap/m43-presentation-head-handoff-standard.md`
 - `docs/statements/presentation-head-handoff-standard.md`
 
@@ -44,10 +49,17 @@ No automated browser, screenshot, or Electron smoke visual acceptance is claimed
 
 The M43 handoff standard defines the lightweight polish floor and safety floor Lab should use before deciding what head package is fit to offer.
 
-Recommended next options:
+SecEngHS167 reviewed the static starter and returned:
+
+```txt
+ready after small docs/verifier fix
+```
+
+No blocker was found. M44 exists only to apply that small README and static-verifier correction.
+
+After M44 closes, recommended next options:
 
 - target relay/adoption review using the M43 handoff standard
-- lightweight safety review against the M43 safety floor
 - optional React example scaffold after static reference acceptance and visual review
 - static starter polish if Human wants to tune baseline spacing, source-owned placeholder wording, detail density, or visual character
 - park Lab until Sense/Atlas adapter work produces useful feedback
@@ -65,6 +77,9 @@ Accepted source of intent:
 - `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
 - `workspace/OverseerHS165-static-starter-visual-review.md`
 - `workspace/OverseerHS166-m43-presentation-head-handoff-standard.md`
+- `workspace/SecEngHS167-static-starter-safety-floor-review.md`
+- `workspace/OverseerHS168-m44-static-starter-safety-floor-corrections-runway.md`
+- `docs/roadmap/m44-static-starter-safety-floor-corrections.md`
 - `docs/roadmap/m43-presentation-head-handoff-standard.md`
 - `docs/statements/presentation-head-handoff-standard.md`
 - `docs/roadmap/m42-static-portable-presentation-starter-reference.md`
@@ -85,6 +100,9 @@ Read first:
 - `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
 - `workspace/OverseerHS165-static-starter-visual-review.md`
 - `workspace/OverseerHS166-m43-presentation-head-handoff-standard.md`
+- `workspace/SecEngHS167-static-starter-safety-floor-review.md`
+- `workspace/OverseerHS168-m44-static-starter-safety-floor-corrections-runway.md`
+- `docs/roadmap/m44-static-starter-safety-floor-corrections.md`
 - `docs/roadmap/m43-presentation-head-handoff-standard.md`
 - `docs/statements/presentation-head-handoff-standard.md`
 - `portable-presentation-starter/README.md`
@@ -92,15 +110,41 @@ Read first:
 
 ## Ordered Runway
 
-No active runway.
+1. Read `workspace/SecEngHS167-static-starter-safety-floor-review.md`.
+2. Update `portable-presentation-starter/README.md` with the exact safety-floor language requested by HS167:
+   - display-only
+   - the HS167/M43 safety-boundary phrase
+   - adoption does not imply Lab sample data, example meanings, state enums, roadmap, tooling, or future upgrade path
+3. Update `scripts/verify-static-starter.js` so it checks the README language and rejects obvious unsafe static-starter patterns:
+   - `innerHTML`
+   - `outerHTML`
+   - `insertAdjacentHTML`
+   - `document.write`
+   - `eval`
+   - `new Function`
+   - remote `http://` or `https://` URLs/scripts/assets
+   - clipboard APIs
+   - storage APIs
+   - write-file terms
+   - screenshot/capture terms
+   - live-provider-ish terms
+4. Preserve or explicitly document the safe allowance for the existing local JSON fetch:
+   - `fetch('./example-readouts.json', ...)`
+5. Create `workspace/DevHS168-static-starter-safety-floor-corrections.md`.
+6. Run required verification.
 
 ## Acceptance Criteria
 
-No active acceptance criteria while idle.
+- README directly carries the M43 safety floor language named above.
+- Verifier enforces the new README phrases.
+- Verifier rejects the unsafe static-starter patterns named above.
+- Static starter behavior is not broadened.
+- No React, target adapter, renderer export, Electron/preload/IPC, SmokeFlash, Pane Board, Wayfinder, service registry, live/network/private work, or target-project change is introduced.
+- Required verification passes.
 
 ## Guardrails And Non-Goals
 
-- Do not implement code without a new current packet.
+- Implement only this current packet.
 - Do not claim automated screenshot/browser visual acceptance unless that evidence is actually produced.
 - Do not open React scaffold work unless Human explicitly chooses that lane.
 - Do not export/seed the current renderer.
@@ -114,7 +158,7 @@ No active acceptance criteria while idle.
 
 Stop and return to Human / Overseer direction if a future task requires:
 
-- implementation without a new current packet
+- changes outside the README/verifier/DevHS scope
 - React package creation
 - renderer extraction/export
 - SmokeFlash split execution
@@ -124,10 +168,13 @@ Stop and return to Human / Overseer direction if a future task requires:
 - source-project terminology decisions
 - changing accepted material/output semantics
 - live/private/network work
+- changing the starter behavior beyond safety-floor documentation/verifier checks
 
 ## Required Verification
 
-No active verification while idle.
+- `npm.cmd run verify:static-starter`
+- `npm.cmd run verify:all`
+- `npm.cmd run verify:terminology` from `F:\Projects\Docs\Aura-Project-Orchestration`
 
 ## Evidence
 
@@ -137,13 +184,15 @@ No active verification while idle.
 - HS164 accepted M42.
 - HS165 accepted Human manual visual review of the static starter.
 - HS166 accepted M43 presentation head handoff standard.
+- HS167 completed expert safety-floor review with verdict: ready after small docs/verifier fix.
+- HS168 opened M44 for the small correction packet.
 - Verification passed during M42 acceptance: `npm.cmd run verify:static-starter`, `npm.cmd run verify:all`, and orchestration `npm.cmd run verify:terminology`.
 - Housekeeping verification after HS165 passed: `npm.cmd run verify:all` and orchestration `npm.cmd run verify:terminology` with existing warning-only terminology tripwires.
 - M43 documentation verification passed: `npm.cmd run verify:all` and orchestration `npm.cmd run verify:terminology` with existing warning-only terminology tripwires.
 
 ## Handoff
 
-No active handoff while idle.
+Dev should create `workspace/DevHS168-static-starter-safety-floor-corrections.md`.
 
 ## Advisory Disposition
 
@@ -152,6 +201,7 @@ No active handoff while idle.
 - Accepted and closed: M42 Static Portable Presentation Starter Reference.
 - Accepted: manual/static visual review.
 - Accepted and closed: M43 Presentation Head Handoff Standard.
+- Accepted advisory input: SecEngHS167 safety-floor review.
 - Deferred: React scaffold implementation.
 - Deferred: renderer extraction/export.
 - Deferred: SmokeFlash/material-harness split execution.
@@ -163,4 +213,5 @@ No active handoff while idle.
 - Automated browser/screenshot visual acceptance has not been completed for the static starter reference.
 - The static starter is baseline-fit but visually plain; spacing, detail density, and source-owned placeholder treatment are deferred polish.
 - Starter input examples may be mistaken for bridge contracts if future relay omits the M41/HS162 boundaries.
+- Static starter is not ready for clean target relay until the HS167 README/verifier cautions are addressed or explicitly waived.
 - React may become too heavy if treated as canonical instead of optional example scaffold.

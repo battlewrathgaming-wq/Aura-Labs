@@ -71,19 +71,20 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M41 | Portable Presentation Starter Kit Contents | Complete | Accepted the portable presentation starter-kit content spec, including boundaries for example fields, target ownership, and source-owned placeholders. |
 | M42 | Static Portable Presentation Starter Reference | Complete | Accepted the framework-neutral static starter reference and Human manual visual review as baseline-fit with polish deferred. |
 | M43 | Presentation Head Handoff Standard | Complete | Accepted the lightweight polish floor and safety floor for deciding when a presentation head is fit to offer. |
+| M44 | Static Starter Safety Floor Corrections | Active | Applies the small HS167 README/verifier cautions before target relay. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M44 - Static Starter Safety Floor Corrections
 Last completed milestone: M43 / HS166 - Presentation Head Handoff Standard
-Latest accepted review: workspace/OverseerHS166-m43-presentation-head-handoff-standard.md
+Latest accepted review: workspace/SecEngHS167-static-starter-safety-floor-review.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
 Current sequence: None
-Latest accepted handshake: workspace/OverseerHS166-m43-presentation-head-handoff-standard.md
-Latest active runway: None
+Latest accepted handshake: workspace/SecEngHS167-static-starter-safety-floor-review.md
+Latest active runway: workspace/OverseerHS168-m44-static-starter-safety-floor-corrections-runway.md
 Active runway: workspace/current.md
-Housekeeping: active root refreshed on 2026-06-01 after M43 handoff standard; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root refreshed on 2026-06-01 after opening M44; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -108,6 +109,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/roadmap/m41-portable-presentation-seed-kit-contents.md`
 - `docs/roadmap/m42-static-portable-presentation-starter-reference.md`
 - `docs/roadmap/m43-presentation-head-handoff-standard.md`
+- `docs/roadmap/m44-static-starter-safety-floor-corrections.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/composed-display-output-candidate.md`
 - `docs/roadmap/m32-export-boundary-review.md`
@@ -191,6 +193,8 @@ Active milestone handshakes:
 - `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
 - `workspace/OverseerHS165-static-starter-visual-review.md`
 - `workspace/OverseerHS166-m43-presentation-head-handoff-standard.md`
+- `workspace/SecEngHS167-static-starter-safety-floor-review.md`
+- `workspace/OverseerHS168-m44-static-starter-safety-floor-corrections-runway.md`
 
 Accepted authority records:
 
@@ -242,9 +246,9 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Should Lab next open a target relay/adoption review using the M43 handoff standard, or wait for Sense/Atlas adapter feedback?
+- After M44 closes, should Lab open a target relay/adoption review using the M43 handoff standard, or wait for Sense/Atlas adapter feedback?
 - Should Lab open an optional React example scaffold, or keep the starter framework-neutral until a target asks for React-shaped support?
 - Should the static starter receive bounded visual polish for spacing, detail density, source-owned placeholder wording, and stronger Aura visual character?
-- Should the static starter receive a lightweight safety review against the M43 safety floor before any target handoff?
+- After M44 closes, is any deeper security review needed before target relay, or is the M43/HS167 floor enough?
 - Should renderer extraction/export, SmokeFlash split execution, and deeper security review wait until a target-project adapter trial creates concrete pressure?
 - Should Pane Board collaboration affordances remain parked while the presentation starter stabilizes?
