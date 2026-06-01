@@ -6,7 +6,7 @@ Owner: Aura Lab Overseer
 
 ## Purpose
 
-Track Lab display-schema ingredients and combined outputs as they move from pending to accepted, parked, or superseded.
+Track Lab display-schema ingredients, combined outputs, and accepted glass assets as they move from pending to accepted, parked, or superseded.
 
 This ledger exists so Lab can iterate through reusable display ingredients and combined display outputs without duplicating work or turning upstream relay into a callback system.
 
@@ -25,6 +25,7 @@ Source projects track their own acceptance, completion, and implementation state
 
 - Add ingredient rows for individual reusable snippets/materials.
 - Add output rows for combined display references that can be reused statefully.
+- Add glass rows for composed presentation surfaces that are target-trial candidates.
 - Use the canonical artifact path; do not copy the schema body into this ledger.
 - Mark status as `pending`, `accepted`, `parked`, `superseded`, or `rejected`.
 - Keep delivery notes as upstream discussion buckets only.
@@ -91,6 +92,16 @@ Once Lab has built a type of display for Atlas, Sense, or Lab-local use, record 
 | Output ID | Output / combined display name | Status | Canonical artifact | Ingredients used | Target / use context | Upstream discussion buckets | Supersedes / followed by | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `output-instrument-readout-panel` | Instrument Readout Panel | accepted | `workspace/display-outputs/instrument-readout-panel.md` | status/state band behavior; `mat-availability-reason-treatment`; `mat-long-text-detail-block`; `schema-warning-gap-edge` | Lab-local product-agnostic composed readout output. | `lab-internal`; `human-relay`; `future-smokeflash` | none yet | Accepted in M33 / HS132 and prototype-backed in M34 / HS134; not export, adapter, or bridge contract authority. |
+
+## Glass Asset References
+
+Glass assets are composed presentation surfaces that may be inspected or trialed by target projects through target-owned mappers.
+
+They are not target adoption records, bridge contracts, package specs, or adapters.
+
+| Glass ID | Glass asset name | Status | Canonical artifact | Based on | Target / use context | Upstream discussion buckets | Supersedes / followed by | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `glass-instrument-readout-panel` | Instrument Readout Panel Glass | accepted | `workspace/display-outputs/instrument-readout-panel-glass.md` | `output-instrument-readout-panel`; `portable-presentation-starter/`; M47 glass definition | Display-only framework-neutral glass for target-owned mapper trials. | `lab-internal`; `human-relay`; `sense-discussion`; `atlas-discussion` | follows `output-instrument-readout-panel` | Accepted in M47 / HS174 as Lab's current glass definition; not package/export spec or target adapter. |
 
 ## Parked Handling
 

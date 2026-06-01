@@ -212,6 +212,8 @@ Active milestone handshakes:
 - `workspace/OverseerHS173-m47-presentation-glass-value-definition-runway.md`
 - `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
 - `workspace/OverseerHS174-m47-presentation-glass-value-definition-acceptance.md`
+- `workspace/display-assets.md`
+- `workspace/display-outputs/instrument-readout-panel-glass.md`
 
 Accepted authority records:
 

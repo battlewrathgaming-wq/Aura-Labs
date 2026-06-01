@@ -25,6 +25,13 @@ Targets translate themselves; Lab makes the window worth looking through.
 
 Lab's current presentation glass is defined as a display-only, framework-neutral Instrument Readout Panel head that renders prepared readout input into a calm, bounded surface with basis, freshness, availability, gaps, warnings, detail reveal, source-owned label qualification, absence/unavailable distinction, and narrow/text-containment behavior.
 
+Library framing added:
+
+- `workspace/display-assets.md` frames the shelves.
+- `workspace/display-materials/` holds reusable ingredients.
+- `workspace/display-outputs/` holds composed outputs and accepted glass assets.
+- `workspace/display-schema-ledger.md` remains the catalog/index, not a backlog.
+
 M46, M45, M44, M43, and M42 remain accepted and closed.
 
 The static starter now has:
@@ -58,6 +65,8 @@ Accepted output:
 - `workspace/OverseerHS173-m47-presentation-glass-value-definition-runway.md`
 - `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
 - `workspace/OverseerHS174-m47-presentation-glass-value-definition-acceptance.md`
+- `workspace/display-assets.md`
+- `workspace/display-outputs/instrument-readout-panel-glass.md`
 - `docs/roadmap/m47-presentation-glass-value-definition.md`
 - `docs/roadmap/m46-static-starter-absence-relay-polish.md`
 - `docs/roadmap/m45-static-starter-presentation-pressure-polish.md`
