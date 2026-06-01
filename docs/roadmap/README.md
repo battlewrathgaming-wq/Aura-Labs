@@ -11,13 +11,13 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-M45 static starter presentation-pressure polish is active. Lab has the first Lab-local framework-neutral static starter reference, and the Human visual pass accepted it as a clean baseline with polish deferred. Lab now has a lightweight polish floor and safety floor for deciding when a head is fit to offer; M45 translates Sense relay pressure into bounded UI/UX polish guidance before Dev.
+M46 static starter absence and relay polish is active. Lab has the first Lab-local framework-neutral static starter reference, and the Human visual pass accepted it as a clean baseline with polish deferred. Lab now has a lightweight polish floor and safety floor for deciding when a head is fit to offer; M45 translated Sense relay pressure into bounded UI/UX polish guidance, and M46 implements the small static polish packet before wider target relay.
 
-Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 accepted ownership and view-state clarity fixes before broader collaboration affordances. M40 accepted a bounded Pane Board collaboration loop. M41 accepted the portable presentation starter-kit contents specification before implementation. M42 accepted the first static starter reference. M43 accepted the polish and safety floor for presentation head handoff. M44 accepted the small safety-floor docs/verifier corrections recommended by SecEngHS167. M45 is shaping presentation polish from Sense relay pressure.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 accepted ownership and view-state clarity fixes before broader collaboration affordances. M40 accepted a bounded Pane Board collaboration loop. M41 accepted the portable presentation starter-kit contents specification before implementation. M42 accepted the first static starter reference. M43 accepted the polish and safety floor for presentation head handoff. M44 accepted the small safety-floor docs/verifier corrections recommended by SecEngHS167. M45 accepted UI/UX presentation polish from Sense relay pressure. M46 implements that bounded polish in the static starter.
 
 ## Near Outcomes
 
-- Keep the static starter baseline available for future target relay/adoption review, optional React example, or bounded visual polish.
+- Keep the static starter baseline available for future target relay/adoption review, optional React example, or bounded visual polish after M46 closes.
 - Use the M43 handoff standard before asking what ships.
 - Keep the first starter implementation Lab-local and framework-neutral.
 - Keep React optional and deferred until the Human explicitly chooses that lane.
@@ -47,7 +47,8 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 | M42 | Static Portable Presentation Starter Reference | Complete | `docs/roadmap/m42-static-portable-presentation-starter-reference.md` |
 | M43 | Presentation Head Handoff Standard | Complete | `docs/roadmap/m43-presentation-head-handoff-standard.md` |
 | M44 | Static Starter Safety Floor Corrections | Complete | `docs/roadmap/m44-static-starter-safety-floor-corrections.md` |
-| M45 | Static Starter Presentation Pressure Polish | Active | `docs/roadmap/m45-static-starter-presentation-pressure-polish.md` |
+| M45 | Static Starter Presentation Pressure Polish | Complete | `docs/roadmap/m45-static-starter-presentation-pressure-polish.md` |
+| M46 | Static Starter Absence And Relay Polish | Active | `docs/roadmap/m46-static-starter-absence-relay-polish.md` |
 
 Candidate bank:
 
