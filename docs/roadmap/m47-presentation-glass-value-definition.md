@@ -1,6 +1,6 @@
 # M47 - Presentation Glass Value Definition
 
-Status: Active
+Status: Complete
 Owner: Aura Lab Overseer
 
 ## Purpose
@@ -84,3 +84,15 @@ No browser, screenshot, Electron, live, private, network, or target-project test
 - `docs/adr/0002-target-owned-presentation-adapters.md`
 - `portable-presentation-starter/README.md`
 - `portable-presentation-starter/examples/static/`
+
+## Closure
+
+Accepted output:
+
+- `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
+
+Disposition:
+
+- M47 accepted the presentation glass value definition.
+- Lab's current glass is defined as a display-only, framework-neutral Instrument Readout Panel head and safety language, not a mapper, adapter, shell, package format, or target product face.
+- Next recommended sequence is Human/Overseer visual review, then target relay using the M43 handoff standard if the visual review passes.

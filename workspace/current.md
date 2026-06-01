@@ -1,23 +1,31 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-06-01
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M47 - Presentation Glass Value Definition
-Last completed milestone: M46 / HS172 - Static Starter Absence And Relay Polish Acceptance
-Current executor: UI/UX advisor / Engineering advisor / presentation specialist
-Current focus: Define what Lab's current presentation glass is before opening packaging or target-relay work.
-Expected output: `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
+Active milestone: None
+Last completed milestone: M47 / HS174 - Presentation Glass Value Definition Acceptance
+Current executor: Human / Overseer
+Current focus: Await Human / Overseer direction after accepting the presentation glass value definition.
+Expected output: Human direction or next Overseer runway artifact.
 Expected DevHS filename: None.
 
 ## Current State
 
-M47 is open as a broad advisory/spec runway.
+M47 is accepted and closed.
 
-M46 is accepted and closed.
+Accepted glass definition:
+
+```txt
+Targets translate themselves; Lab makes the window worth looking through.
+```
+
+Lab's current presentation glass is defined as a display-only, framework-neutral Instrument Readout Panel head that renders prepared readout input into a calm, bounded surface with basis, freshness, availability, gaps, warnings, detail reveal, source-owned label qualification, absence/unavailable distinction, and narrow/text-containment behavior.
+
+M46, M45, M44, M43, and M42 remain accepted and closed.
 
 The static starter now has:
 
@@ -27,16 +35,6 @@ The static starter now has:
 - compact inspection treatment where `Coverage` / `Known fields` can move behind `Readout Detail`
 - a no-selector `inspect-head.html` inspection shape
 - verifier checks for these safety distinctions
-
-M45, M44, M43, and M42 remain accepted and closed.
-
-Current guiding lesson:
-
-```txt
-Targets translate themselves; Lab makes the window worth looking through.
-```
-
-The next question is not package format yet. It is what the glass actually is: what Lab improved beyond the inherited/base Electron presentation layer, what travels as reusable presentation utility, what remains Lab demo scaffolding, and what target projects must provide themselves.
 
 Accepted output:
 
@@ -58,6 +56,8 @@ Accepted output:
 - `workspace/DevHS171-static-starter-absence-relay-polish.md`
 - `workspace/OverseerHS172-m46-static-starter-absence-relay-polish-acceptance.md`
 - `workspace/OverseerHS173-m47-presentation-glass-value-definition-runway.md`
+- `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
+- `workspace/OverseerHS174-m47-presentation-glass-value-definition-acceptance.md`
 - `docs/roadmap/m47-presentation-glass-value-definition.md`
 - `docs/roadmap/m46-static-starter-absence-relay-polish.md`
 - `docs/roadmap/m45-static-starter-presentation-pressure-polish.md`
@@ -75,7 +75,7 @@ It stays separate from the current renderer and excludes React, target adapters,
 
 Manual visual review is accepted in HS165 from Human-opened page inspection and screenshots.
 
-M46 did not produce browser or screenshot proof. Human/Overseer visual review of `index.html` and `inspect-head.html` remains useful before wider target relay, but M47 may proceed as definition work.
+M46 did not produce browser or screenshot proof. Human/Overseer visual review of `index.html` and `inspect-head.html` remains the next useful gate before wider target relay.
 
 ## Source Of Intent
 
@@ -103,13 +103,15 @@ Accepted source of intent:
 - `workspace/DevHS171-static-starter-absence-relay-polish.md`
 - `workspace/OverseerHS172-m46-static-starter-absence-relay-polish-acceptance.md`
 - `workspace/OverseerHS173-m47-presentation-glass-value-definition-runway.md`
+- `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
+- `workspace/OverseerHS174-m47-presentation-glass-value-definition-acceptance.md`
 - `docs/roadmap/m47-presentation-glass-value-definition.md`
 - `docs/roadmap/m46-static-starter-absence-relay-polish.md`
 - `docs/roadmap/m43-presentation-head-handoff-standard.md`
 - `docs/statements/presentation-head-handoff-standard.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
 
-Read first:
+Read first for the next presentation-head decision:
 
 - `AGENTS.md`
 - `HUMAN.md`
@@ -118,96 +120,56 @@ Read first:
 - `workspace/critical/README.md`
 - `workspace/critical/critical-terms.md`
 - `workspace/critical/critical-assets.md`
-- `workspace/OverseerHS173-m47-presentation-glass-value-definition-runway.md`
+- `workspace/OverseerHS174-m47-presentation-glass-value-definition-acceptance.md`
+- `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
 - `workspace/OverseerHS172-m46-static-starter-absence-relay-polish-acceptance.md`
-- `workspace/DevHS171-static-starter-absence-relay-polish.md`
-- `workspace/UIUXHS170-static-starter-presentation-pressure-polish.md`
 - `docs/roadmap/m47-presentation-glass-value-definition.md`
-- `docs/roadmap/m46-static-starter-absence-relay-polish.md`
 - `docs/statements/presentation-head-handoff-standard.md`
 - `docs/statements/lab-presentation-head-posture.md`
-- `docs/statements/post-bridge-presentation-boundary.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
 - `portable-presentation-starter/README.md`
 - `package.json`
 
 ## Ordered Runway
 
-Create:
+None.
 
-```txt
-workspace/GlassDefinitionHS173-presentation-glass-value-definition.md
-```
+## Recommended Next Choices
 
-The artifact should answer:
-
-```txt
-What is Lab's current presentation glass, what did it improve over a base presentation layer, and what should target projects receive or provide themselves?
-```
-
-Use `workspace/OverseerHS173-m47-presentation-glass-value-definition-runway.md` as the detailed task outline.
-
-## Acceptance Criteria
-
-- Artifact states the request it answered.
-- Artifact lists files reviewed.
-- Artifact defines "presentation glass" in Lab-owned terms.
-- Artifact compares Lab glass to the inherited/base Electron presentation layer without making the base layer the owner.
-- Artifact identifies reusable presentation improvements Lab has produced.
-- Artifact identifies current files/surfaces that embody those improvements.
-- Artifact separates reusable glass from Lab demo scaffolding.
-- Artifact states what target projects must provide themselves.
-- Artifact states what Lab must not imply or force.
-- Artifact identifies likely future bundle/package questions.
-- Artifact says what is ready for Sense/Atlas trial and what remains unknown.
-- Artifact recommends whether the next step should be packaging spec, visual review, target relay, or park.
-- No implementation is performed.
+1. Human/Overseer visual review of the static starter `index.html` and `inspect-head.html`.
+2. Target relay/adoption review using the M43 handoff standard, after visual review.
+3. Package-shape specification only if Human wants to relay files immediately or a target reports a concrete missing shape.
+4. Optional React example scaffold if the Human explicitly chooses that lane.
+5. Park Lab until Sense/Atlas adapter work produces useful feedback.
 
 ## Guardrails And Non-Goals
 
-- Advisory/spec only.
-- Do not implement code.
 - Do not edit target projects.
-- Do not create target adapters or mappers.
-- Do not create a React scaffold.
-- Do not change current Lab renderer files.
-- Do not touch Electron/preload/IPC.
-- Do not touch SmokeFlash, Pane Board, Wayfinder, or service registry.
+- Do not create target adapters from Lab.
+- Do not open React scaffold work unless Human explicitly chooses that lane.
+- Do not export/seed the current renderer.
 - Do not create bridge/runtime contracts.
-- Do not turn Lab example states into target state labels.
-- Do not make Core the owner of Lab's presentation glass.
-- Do not claim target adoption or target fitness.
-- Do not claim browser/screenshot visual acceptance unless actually produced.
-
-## Stop Conditions
-
-Stop and return to Human / Overseer direction if the task requires:
-
-- implementation
-- package/export creation
-- target-project files
-- target adapter decisions
-- bridge/runtime contract decisions
-- source-project terminology decisions
-- React package creation
-- live/private/network work
+- Do not promote Lab example input as target contracts.
+- Preserve Lab slim/product-agnostic language.
+- Preserve target-project authority over internal meaning, state semantics, adapters, and adoption.
 
 ## Required Verification
 
-No live/browser verification required for the advisory artifact.
+No active packet.
 
-Overseer may run after receipt:
+Latest Overseer verification should include:
 
 - `npm.cmd run verify:all`
 - `npm.cmd run verify:terminology` from `F:\Projects\Docs\Aura-Project-Orchestration`
 
 ## Handoff
 
-Expected advisory handoff: `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`.
+No active handoff expected.
 
 ## Residual Risks
 
 - M46 did not include browser/screenshot visual proof.
 - The static starter should receive Human/Overseer visual review before wider target relay.
+- The glass definition is not yet a package/export specification.
 - Starter input examples may be mistaken for bridge contracts if future relay omits the M41/HS162/M43 boundaries.
 - React may become too heavy if treated as canonical instead of optional example scaffold.
