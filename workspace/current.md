@@ -1,21 +1,23 @@
 # Current Workspace Packet
 
 Status: Idle
-Updated: 2026-05-31
+Updated: 2026-06-01
 Owner: Overseer
 
 ## Coordination State
 
 Active milestone: None
-Last completed milestone: M42 / HS164 - Static Portable Presentation Starter Reference Acceptance
+Last completed milestone: M43 / HS166 - Presentation Head Handoff Standard
 Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after accepting and visually reviewing the static starter reference.
+Current focus: Await Human / Overseer direction after accepting the presentation head handoff standard.
 Expected output: Human direction or next Overseer runway artifact.
 Expected DevHS filename: None.
 
 ## Current State
 
-M42 is accepted, closed, and manually visually reviewed.
+M43 is accepted and closed.
+
+M42 remains accepted, closed, and manually visually reviewed.
 
 Accepted output:
 
@@ -24,6 +26,9 @@ Accepted output:
 - `workspace/DevHS163-static-portable-presentation-starter-reference.md`
 - `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
 - `workspace/OverseerHS165-static-starter-visual-review.md`
+- `workspace/OverseerHS166-m43-presentation-head-handoff-standard.md`
+- `docs/roadmap/m43-presentation-head-handoff-standard.md`
+- `docs/statements/presentation-head-handoff-standard.md`
 
 The static starter reference is a Lab-local, framework-neutral proof:
 
@@ -37,9 +42,12 @@ Manual visual review is accepted in HS165 from Human-opened page inspection and 
 
 No automated browser, screenshot, or Electron smoke visual acceptance is claimed. Dev reported blocked local inspection and the Human observed blank local window behavior during review; treat that as an environment/tooling caveat, not a blocker for the manual static visual baseline.
 
+The M43 handoff standard defines the lightweight polish floor and safety floor Lab should use before deciding what head package is fit to offer.
+
 Recommended next options:
 
-- target relay/adoption review after visual review
+- target relay/adoption review using the M43 handoff standard
+- lightweight safety review against the M43 safety floor
 - optional React example scaffold after static reference acceptance and visual review
 - static starter polish if Human wants to tune baseline spacing, source-owned placeholder wording, detail density, or visual character
 - park Lab until Sense/Atlas adapter work produces useful feedback
@@ -56,6 +64,9 @@ Accepted source of intent:
 - `workspace/DevHS163-static-portable-presentation-starter-reference.md`
 - `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
 - `workspace/OverseerHS165-static-starter-visual-review.md`
+- `workspace/OverseerHS166-m43-presentation-head-handoff-standard.md`
+- `docs/roadmap/m43-presentation-head-handoff-standard.md`
+- `docs/statements/presentation-head-handoff-standard.md`
 - `docs/roadmap/m42-static-portable-presentation-starter-reference.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -73,6 +84,9 @@ Read first:
 - `workspace/DevHS163-static-portable-presentation-starter-reference.md`
 - `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
 - `workspace/OverseerHS165-static-starter-visual-review.md`
+- `workspace/OverseerHS166-m43-presentation-head-handoff-standard.md`
+- `docs/roadmap/m43-presentation-head-handoff-standard.md`
+- `docs/statements/presentation-head-handoff-standard.md`
 - `portable-presentation-starter/README.md`
 - `package.json`
 
@@ -122,8 +136,10 @@ No active verification while idle.
 - Overseer tightened `scripts/verify-static-starter.js`.
 - HS164 accepted M42.
 - HS165 accepted Human manual visual review of the static starter.
+- HS166 accepted M43 presentation head handoff standard.
 - Verification passed during M42 acceptance: `npm.cmd run verify:static-starter`, `npm.cmd run verify:all`, and orchestration `npm.cmd run verify:terminology`.
 - Housekeeping verification after HS165 passed: `npm.cmd run verify:all` and orchestration `npm.cmd run verify:terminology` with existing warning-only terminology tripwires.
+- M43 documentation verification passed: `npm.cmd run verify:all` and orchestration `npm.cmd run verify:terminology` with existing warning-only terminology tripwires.
 
 ## Handoff
 
@@ -135,6 +151,7 @@ No active handoff while idle.
 - Accepted: Sense starter-kit caution feedback.
 - Accepted and closed: M42 Static Portable Presentation Starter Reference.
 - Accepted: manual/static visual review.
+- Accepted and closed: M43 Presentation Head Handoff Standard.
 - Deferred: React scaffold implementation.
 - Deferred: renderer extraction/export.
 - Deferred: SmokeFlash/material-harness split execution.

@@ -1,7 +1,7 @@
 # Aura Lab Roadmap
 
 Status: Active durable roadmap scaffold
-Last reviewed: 2026-05-31
+Last reviewed: 2026-06-01
 
 ## Purpose
 
@@ -11,13 +11,14 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-Post-M42 static starter reference acceptance and manual visual review. Lab has the first Lab-local framework-neutral static starter reference, and the Human visual pass accepted it as a clean baseline with polish deferred.
+Post-M43 presentation head handoff standard. Lab has the first Lab-local framework-neutral static starter reference, and the Human visual pass accepted it as a clean baseline with polish deferred. Lab now has a lightweight polish floor and safety floor for deciding when a head is fit to offer.
 
-Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 accepted ownership and view-state clarity fixes before broader collaboration affordances. M40 accepted a bounded Pane Board collaboration loop. M41 accepted the portable presentation starter-kit contents specification before implementation. M42 accepted the first static starter reference.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 accepted ownership and view-state clarity fixes before broader collaboration affordances. M40 accepted a bounded Pane Board collaboration loop. M41 accepted the portable presentation starter-kit contents specification before implementation. M42 accepted the first static starter reference. M43 accepted the polish and safety floor for presentation head handoff.
 
 ## Near Outcomes
 
 - Keep the static starter baseline available for future target relay/adoption review, optional React example, or bounded visual polish.
+- Use the M43 handoff standard before asking what ships.
 - Keep the first starter implementation Lab-local and framework-neutral.
 - Keep React optional and deferred until the Human explicitly chooses that lane.
 - Keep Pane Board output advisory and separate from the clean presentation head.
@@ -44,6 +45,7 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 | M40 | Pane Board Collaboration Loop | Complete | `docs/roadmap/m40-pane-board-collaboration-loop.md` |
 | M41 | Portable Presentation Starter Kit Contents | Complete | `docs/roadmap/m41-portable-presentation-seed-kit-contents.md` |
 | M42 | Static Portable Presentation Starter Reference | Complete | `docs/roadmap/m42-static-portable-presentation-starter-reference.md` |
+| M43 | Presentation Head Handoff Standard | Complete | `docs/roadmap/m43-presentation-head-handoff-standard.md` |
 
 Candidate bank:
 

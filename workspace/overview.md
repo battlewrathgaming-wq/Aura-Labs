@@ -1,7 +1,7 @@
 # Aura Lab Workspace Overview
 
 Status: Active
-Last reviewed: 2026-05-31
+Last reviewed: 2026-06-01
 
 ## Vision Statement
 
@@ -70,19 +70,20 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M40 | Pane Board Collaboration Loop | Complete | Accepted a bounded Pane Board collaboration loop and kept future collaboration affordances Lab-tooling-only. |
 | M41 | Portable Presentation Starter Kit Contents | Complete | Accepted the portable presentation starter-kit content spec, including boundaries for example fields, target ownership, and source-owned placeholders. |
 | M42 | Static Portable Presentation Starter Reference | Complete | Accepted the framework-neutral static starter reference and Human manual visual review as baseline-fit with polish deferred. |
+| M43 | Presentation Head Handoff Standard | Complete | Accepted the lightweight polish floor and safety floor for deciding when a presentation head is fit to offer. |
 
 ## Current Direction
 
 Active milestone: None
-Last completed milestone: M42 / HS164 - Static Portable Presentation Starter Reference Acceptance
-Latest accepted review: workspace/OverseerHS165-static-starter-visual-review.md
+Last completed milestone: M43 / HS166 - Presentation Head Handoff Standard
+Latest accepted review: workspace/OverseerHS166-m43-presentation-head-handoff-standard.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
 Current sequence: None
-Latest accepted handshake: workspace/OverseerHS165-static-starter-visual-review.md
+Latest accepted handshake: workspace/OverseerHS166-m43-presentation-head-handoff-standard.md
 Latest active runway: None
 Active runway: workspace/current.md
-Housekeeping: active root refreshed on 2026-05-31 after M42 visual review; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root refreshed on 2026-06-01 after M43 handoff standard; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -106,6 +107,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/roadmap/m40-pane-board-collaboration-loop.md`
 - `docs/roadmap/m41-portable-presentation-seed-kit-contents.md`
 - `docs/roadmap/m42-static-portable-presentation-starter-reference.md`
+- `docs/roadmap/m43-presentation-head-handoff-standard.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/composed-display-output-candidate.md`
 - `docs/roadmap/m32-export-boundary-review.md`
@@ -115,6 +117,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/adr/0004-automation-role-and-context-boundaries.md`
 - `docs/statements/post-bridge-presentation-boundary.md`
 - `docs/statements/lab-presentation-head-posture.md`
+- `docs/statements/presentation-head-handoff-standard.md`
 - `docs/current-state/m00-boot-current-state.md`
 - `docs/current-state/m01-project-state-briefing-current-state.md`
 - `docs/current-state/m04-visual-prototype-current-state.md`
@@ -187,6 +190,7 @@ Active milestone handshakes:
 - `workspace/DevHS163-static-portable-presentation-starter-reference.md`
 - `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
 - `workspace/OverseerHS165-static-starter-visual-review.md`
+- `workspace/OverseerHS166-m43-presentation-head-handoff-standard.md`
 
 Accepted authority records:
 
@@ -238,8 +242,9 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Should Lab next open a target relay/adoption review for the static starter, or wait for Sense/Atlas adapter feedback?
+- Should Lab next open a target relay/adoption review using the M43 handoff standard, or wait for Sense/Atlas adapter feedback?
 - Should Lab open an optional React example scaffold, or keep the starter framework-neutral until a target asks for React-shaped support?
 - Should the static starter receive bounded visual polish for spacing, detail density, source-owned placeholder wording, and stronger Aura visual character?
-- Should renderer extraction/export, SmokeFlash split execution, and security review wait until a target-project adapter trial creates concrete pressure?
+- Should the static starter receive a lightweight safety review against the M43 safety floor before any target handoff?
+- Should renderer extraction/export, SmokeFlash split execution, and deeper security review wait until a target-project adapter trial creates concrete pressure?
 - Should Pane Board collaboration affordances remain parked while the presentation starter stabilizes?
