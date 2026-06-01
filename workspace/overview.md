@@ -74,19 +74,20 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M44 | Static Starter Safety Floor Corrections | Complete | Accepted the small HS167 README/verifier cautions before target relay. |
 | M45 | Static Starter Presentation Pressure Polish | Complete | Accepted UI/UX guidance translating Sense relay pressure into a bounded static starter polish packet. |
 | M46 | Static Starter Absence And Relay Polish | Complete | Accepted bounded static starter polish for absence, unavailable, source-owned labels, compact detail, and relay scaffolding clarity. |
+| M47 | Presentation Glass Value Definition | Active | Defines the reusable presentation value Lab has produced beyond the inherited/base Electron layer before packaging or target relay. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M47 - Presentation Glass Value Definition
 Last completed milestone: M46 / HS172 - Static Starter Absence And Relay Polish Acceptance
 Latest accepted review: workspace/OverseerHS172-m46-static-starter-absence-relay-polish-acceptance.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
 Current sequence: None
 Latest accepted handshake: workspace/OverseerHS172-m46-static-starter-absence-relay-polish-acceptance.md
-Latest active runway: None
+Latest active runway: workspace/OverseerHS173-m47-presentation-glass-value-definition-runway.md
 Active runway: workspace/current.md
-Housekeeping: active root refreshed on 2026-06-01 after accepting M46; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root refreshed on 2026-06-01 after opening M47; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -114,6 +115,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/roadmap/m44-static-starter-safety-floor-corrections.md`
 - `docs/roadmap/m45-static-starter-presentation-pressure-polish.md`
 - `docs/roadmap/m46-static-starter-absence-relay-polish.md`
+- `docs/roadmap/m47-presentation-glass-value-definition.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/composed-display-output-candidate.md`
 - `docs/roadmap/m32-export-boundary-review.md`
@@ -207,6 +209,7 @@ Active milestone handshakes:
 - `workspace/OverseerHS171-m46-static-starter-absence-relay-polish-runway.md`
 - `workspace/DevHS171-static-starter-absence-relay-polish.md`
 - `workspace/OverseerHS172-m46-static-starter-absence-relay-polish-acceptance.md`
+- `workspace/OverseerHS173-m47-presentation-glass-value-definition-runway.md`
 
 Accepted authority records:
 
@@ -258,7 +261,7 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Should Lab first run Human/Overseer visual review of `index.html` and `inspect-head.html`, then open target relay/adoption review using the M43 handoff standard?
+- After M47 defines the glass, should Lab open package-shape spec, Human/Overseer visual review, target relay/adoption review, or park?
 - Should Lab open an optional React example scaffold, or keep the starter framework-neutral until a target asks for React-shaped support?
 - Should the static starter receive additional visual polish for spacing, detail density, and stronger Aura visual character after the absence/unavailable polish lands?
 - Is any deeper security review needed before target relay, or is the M43/HS167 floor enough?
