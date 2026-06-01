@@ -55,6 +55,8 @@ A target project may take a head when it is useful enough to try, not when it is
 
 The target owns the adapter and the broadcast. Lab owns the reference head and the exploration bench.
 
+A target project adopting a Lab head does not adopt Lab's sample data, example meanings, state enums, roadmap, tooling, or future upgrade path.
+
 ## Footnote
 
 We make better windows.
