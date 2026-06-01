@@ -73,20 +73,20 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M43 | Presentation Head Handoff Standard | Complete | Accepted the lightweight polish floor and safety floor for deciding when a presentation head is fit to offer. |
 | M44 | Static Starter Safety Floor Corrections | Complete | Accepted the small HS167 README/verifier cautions before target relay. |
 | M45 | Static Starter Presentation Pressure Polish | Complete | Accepted UI/UX guidance translating Sense relay pressure into a bounded static starter polish packet. |
-| M46 | Static Starter Absence And Relay Polish | Active | Implements the bounded static starter polish for absence, unavailable, source-owned labels, compact detail, and relay scaffolding clarity. |
+| M46 | Static Starter Absence And Relay Polish | Complete | Accepted bounded static starter polish for absence, unavailable, source-owned labels, compact detail, and relay scaffolding clarity. |
 
 ## Current Direction
 
-Active milestone: M46 - Static Starter Absence And Relay Polish
-Last completed milestone: M45 / HS171 - Static Starter Presentation Pressure Polish Acceptance
-Latest accepted review: workspace/UIUXHS170-static-starter-presentation-pressure-polish.md
+Active milestone: None
+Last completed milestone: M46 / HS172 - Static Starter Absence And Relay Polish Acceptance
+Latest accepted review: workspace/OverseerHS172-m46-static-starter-absence-relay-polish-acceptance.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
 Current sequence: None
-Latest accepted handshake: workspace/OverseerHS171-m46-static-starter-absence-relay-polish-runway.md
-Latest active runway: workspace/OverseerHS171-m46-static-starter-absence-relay-polish-runway.md
+Latest accepted handshake: workspace/OverseerHS172-m46-static-starter-absence-relay-polish-acceptance.md
+Latest active runway: None
 Active runway: workspace/current.md
-Housekeeping: active root refreshed on 2026-06-01 after opening M46; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root refreshed on 2026-06-01 after accepting M46; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -205,6 +205,8 @@ Active milestone handshakes:
 - `workspace/OverseerHS170-m45-static-starter-presentation-pressure-polish-runway.md`
 - `workspace/UIUXHS170-static-starter-presentation-pressure-polish.md`
 - `workspace/OverseerHS171-m46-static-starter-absence-relay-polish-runway.md`
+- `workspace/DevHS171-static-starter-absence-relay-polish.md`
+- `workspace/OverseerHS172-m46-static-starter-absence-relay-polish-acceptance.md`
 
 Accepted authority records:
 
@@ -256,7 +258,7 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- After M46 closes, should Lab open a target relay/adoption review using the M43 handoff standard, or wait for more target feedback?
+- Should Lab first run Human/Overseer visual review of `index.html` and `inspect-head.html`, then open target relay/adoption review using the M43 handoff standard?
 - Should Lab open an optional React example scaffold, or keep the starter framework-neutral until a target asks for React-shaped support?
 - Should the static starter receive additional visual polish for spacing, detail density, and stronger Aura visual character after the absence/unavailable polish lands?
 - Is any deeper security review needed before target relay, or is the M43/HS167 floor enough?

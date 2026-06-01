@@ -9,6 +9,7 @@ const staticRoot = path.join(starterRoot, 'examples', 'static');
 const requiredFiles = [
   path.join(starterRoot, 'README.md'),
   path.join(staticRoot, 'index.html'),
+  path.join(staticRoot, 'inspect-head.html'),
   path.join(staticRoot, 'instrument-readout-panel.css'),
   path.join(staticRoot, 'instrument-readout-panel.js'),
   path.join(staticRoot, 'example-readouts.json')
@@ -53,6 +54,7 @@ function main() {
 
   const readme = read(path.join(starterRoot, 'README.md'));
   const html = read(path.join(staticRoot, 'index.html'));
+  const inspectHtml = read(path.join(staticRoot, 'inspect-head.html'));
   const css = read(path.join(staticRoot, 'instrument-readout-panel.css'));
   const js = read(path.join(staticRoot, 'instrument-readout-panel.js'));
   const jsonText = read(path.join(staticRoot, 'example-readouts.json'));
@@ -71,8 +73,9 @@ function main() {
   ], 'README', failures);
 
   requireIncludes(html, ['Instrument Readout Panel', 'readout-root', 'not bridge contracts'], 'HTML', failures);
-  requireIncludes(css, ['overflow-wrap: anywhere', '@media (max-width: 640px)', 'prefers-reduced-motion'], 'CSS', failures);
-  requireIncludes(js, ['Readout Detail', 'aria-expanded', 'example-readouts.json', 'sourceOwned'], 'JS', failures);
+  requireIncludes(inspectHtml, ['Head inspection', 'data-readout-id="source-degraded"', 'removes the Lab state selector'], 'inspection HTML', failures);
+  requireIncludes(css, ['overflow-wrap: anywhere', '@media (max-width: 640px)', 'prefers-reduced-motion', 'state-no-data', 'state-unavailable'], 'CSS', failures);
+  requireIncludes(js, ['Readout Detail', 'aria-expanded', 'example-readouts.json', 'sourceOwned', 'coverageInDetailOnly', 'source-owned-inline'], 'JS', failures);
 
   if (!Array.isArray(data.readouts) || data.readouts.length < requiredLabels.length) {
     failures.push('example-readouts.json: expected multiple display example states');
@@ -83,20 +86,9 @@ function main() {
     if (!labels.has(label)) failures.push(`example-readouts.json: missing display label ${label}`);
   }
 
-  const sourceOwned = (data.readouts || []).find((readout) => readout.sourceOwned);
-  if (!sourceOwned) {
-    failures.push('example-readouts.json: expected a sourceOwned qualification example');
-  } else {
-    const sourceOwnedText = JSON.stringify(sourceOwned.sourceOwned);
-    for (const term of ['blocked', 'no-scan', 'degraded']) {
-      if (!sourceOwnedText.includes(term)) {
-        failures.push(`example-readouts.json: sourceOwned example missing ${term}`);
-      }
-    }
-    requireIncludes(sourceOwnedText, ['owner', 'layer', 'Lab does not define'], 'sourceOwned', failures);
-  }
+  verifyPolishExamples(data, failures);
 
-  const implementationText = [html, css, js, jsonText].join('\n');
+  const implementationText = [html, inspectHtml, css, js, jsonText].join('\n');
   for (const [label, pattern] of excludedPatterns) {
     if (pattern.test(implementationText)) {
       failures.push(`Starter static reference appears to include excluded ${label}`);
@@ -127,6 +119,61 @@ function read(file) {
 
 function relative(file) {
   return path.relative(root, file);
+}
+
+function verifyPolishExamples(data, failures) {
+  const readouts = data.readouts || [];
+  const byId = new Map(readouts.map((readout) => [readout.id, readout]));
+
+  requireReadout(byId, 'no-data', failures);
+  requireReadout(byId, 'unavailable', failures);
+  requireReadout(byId, 'source-no-observation', failures);
+  requireReadout(byId, 'source-blocked', failures);
+  requireReadout(byId, 'source-degraded', failures);
+
+  const noData = byId.get('no-data');
+  const unavailable = byId.get('unavailable');
+  if (noData && unavailable) {
+    if (noData.absenceLabel === unavailable.absenceLabel) {
+      failures.push('example-readouts.json: NO DATA and UNAVAILABLE absence labels must be distinct');
+    }
+    if (!String(noData.availability.reason).startsWith('No presentable fields:')) {
+      failures.push('example-readouts.json: no-data must use reason-first generic display absence copy');
+    }
+    if (!String(unavailable.availability.reason).startsWith('Current read unavailable:')) {
+      failures.push('example-readouts.json: unavailable must use reason-first unavailable current-read copy');
+    }
+  }
+
+  const sourceText = JSON.stringify(readouts.filter((readout) => readout.sourceOwned));
+  for (const term of ['no observation', 'no-scan', 'blocked', 'degraded']) {
+    if (!sourceText.includes(term)) {
+      failures.push(`example-readouts.json: sourceOwned examples missing ${term}`);
+    }
+  }
+  requireIncludes(sourceText, ['owner', 'layer', 'Lab does not define'], 'sourceOwned', failures);
+
+  const sourceBlocked = byId.get('source-blocked');
+  if (sourceBlocked && sourceBlocked.state.label !== 'UNAVAILABLE') {
+    failures.push('example-readouts.json: source-blocked should keep Lab display label UNAVAILABLE');
+  }
+
+  const sourceDegraded = byId.get('source-degraded');
+  if (sourceDegraded) {
+    if (sourceDegraded.state.label !== 'PARTIAL') {
+      failures.push('example-readouts.json: source-degraded must not make degraded a Lab state label');
+    }
+    if (!sourceDegraded.displayPolicy || sourceDegraded.displayPolicy.coverageInDetailOnly !== true) {
+      failures.push('example-readouts.json: source-degraded must move Coverage / Known fields behind Readout Detail');
+    }
+    if (sourceDegraded.primaryValue !== sourceDegraded.sourceOwned.visibleLabel) {
+      failures.push('example-readouts.json: source-degraded must show source-owned label primary or near-primary');
+    }
+  }
+}
+
+function requireReadout(byId, id, failures) {
+  if (!byId.has(id)) failures.push(`example-readouts.json: missing required polish example ${id}`);
 }
 
 function enforceLocalFetchOnly(text, failures) {

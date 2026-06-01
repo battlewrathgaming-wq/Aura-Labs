@@ -69,7 +69,15 @@ Open:
 portable-presentation-starter/examples/static/index.html
 ```
 
-The page loads the JSON example data when the browser allows local file fetches. It also includes an identical fallback data copy in JavaScript so plain file opening still renders in browsers that block `file://` JSON reads.
+The selector page is Lab demo scaffolding for reviewing multiple display example states. The travelling head is the Instrument Readout Panel surface, CSS/JS text-rendering pattern, example-data boundary, README safety language, and replaceable styling tokens. Target projects own local adapter mapping, source meaning, product copy, and adoption timing.
+
+For a no-selector inspection shape, open:
+
+```txt
+portable-presentation-starter/examples/static/inspect-head.html
+```
+
+The pages load the JSON example data when the browser allows local file fetches. JavaScript also includes fallback example data so plain file opening still renders in browsers that block `file://` JSON reads.
 
 ## Source References
 

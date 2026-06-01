@@ -2,7 +2,7 @@
   const fallbackData = {
     meta: {
       boundary:
-        'Display example input only. This fallback mirrors example-readouts.json and is not a bridge contract, runtime contract, target payload requirement, target enum set, or source-project state model.'
+        'Display example input only. This fallback mirrors the static examples enough to inspect the head when local JSON fetches are blocked.'
     },
     readouts: [
       {
@@ -11,7 +11,7 @@
         state: { id: 'current', label: 'CURRENT', marker: 'OK' },
         primaryValue: '7 display fields ready',
         ageLabel: 'Last read 42s ago',
-        basis: 'Based on the most recent neutral display example input.',
+        basis: 'Most recent neutral display example input.',
         availability: { status: 'available', reason: 'Current display fields are available.' },
         coverage: {
           summary: 'Known fields: label, value, state, age, basis, coverage, warnings, gaps.',
@@ -38,11 +38,8 @@
         state: { id: 'updating', label: 'UPDATING', marker: '...' },
         primaryValue: 'Reading display fields',
         ageLabel: 'Read in progress',
-        basis: 'Based on an in-progress display refresh.',
-        availability: {
-          status: 'pending',
-          reason: 'New display input is being read; previous visible fields remain secondary.'
-        },
+        basis: 'In-progress display refresh.',
+        availability: { status: 'pending', reason: 'New display input is being read; previous visible fields remain secondary.' },
         coverage: { summary: 'Coverage is pending until the read completes.', knownFields: ['label', 'state', 'ageLabel'] },
         gaps: ['Primary value may change after the read completes.'],
         warnings: [],
@@ -61,7 +58,7 @@
         state: { id: 'aged', label: 'AGED', marker: 'AGE' },
         primaryValue: '7 display fields from prior read',
         ageLabel: 'Last read 48m ago',
-        basis: 'Based on the last successful neutral display example input.',
+        basis: 'Last successful neutral display example input.',
         availability: { status: 'aged', reason: 'Current input is not newer than the visible readout.' },
         coverage: {
           summary: 'Known fields came from the prior successful display read.',
@@ -84,7 +81,7 @@
         state: { id: 'partial', label: 'PARTIAL', marker: 'PART' },
         primaryValue: '4 of 7 display fields ready',
         ageLabel: 'Last read 3m ago',
-        basis: 'Based on neutral display example input with some omitted fields.',
+        basis: 'Neutral display example input with some omitted fields.',
         availability: { status: 'limited', reason: 'Available fields are shown; missing fields remain visible as gaps.' },
         coverage: { summary: 'Known fields: label, state, age, basis.', knownFields: ['label', 'state', 'ageLabel', 'basis'] },
         gaps: ['Primary detail text is incomplete.', 'Coverage list is shorter than expected.'],
@@ -104,17 +101,20 @@
         label: 'Local Readout Availability',
         state: { id: 'unavailable', label: 'UNAVAILABLE', marker: 'UNAV' },
         primaryValue: '',
-        absenceLabel: 'No current value',
+        absenceLabel: 'Current read unavailable',
         ageLabel: 'Last attempt now',
-        basis: 'No current display input was available.',
-        availability: { status: 'unavailable', reason: 'The current read could not provide presentable display fields.' },
-        coverage: { summary: 'No current display fields are available.', knownFields: [] },
+        basis: 'A current display value cannot be provided for a named availability reason.',
+        availability: {
+          status: 'unavailable',
+          reason: 'Current read unavailable: the attempt did not provide presentable display fields.'
+        },
+        coverage: { summary: 'No current display fields are available from this attempt.', knownFields: [] },
         gaps: ['Current value is unavailable.', 'Coverage cannot be shown for this read.'],
-        warnings: ['Unavailable is a display label here, not a source-project state.'],
+        warnings: ['UNAVAILABLE is a display label here, not a source-project state.'],
         detail: {
-          summary: 'Unavailable readout avoids showing a fake primary value.',
+          summary: 'Unavailable readout names the current attempt and avoids showing a fake value.',
           rows: [
-            { label: 'Availability', value: 'The current read could not provide presentable display fields.' },
+            { label: 'Availability', value: 'Current read unavailable: the attempt did not provide presentable display fields.' },
             { label: 'Freshness', value: 'Last attempt now.' },
             { label: 'Boundary', value: 'UNAVAILABLE is a Lab display example label, not a target enum or source state.' }
           ]
@@ -126,7 +126,7 @@
         state: { id: 'fallback', label: 'FALLBACK', marker: 'FB' },
         primaryValue: 'Prior display value',
         ageLabel: 'Fallback read 2h ago',
-        basis: 'Based on a previous neutral display example input because the current read is unavailable.',
+        basis: 'Previous neutral display example input because the current read is unavailable.',
         fallbackBasis: 'Previous successful display read.',
         availability: { status: 'fallback', reason: 'Showing fallback basis; this is not presented as current.' },
         coverage: {
@@ -151,15 +151,18 @@
         primaryValue: '',
         absenceLabel: 'No presentable fields',
         ageLabel: 'Last read 12s ago',
-        basis: 'Neutral display example input returned no presentable fields.',
-        availability: { status: 'no-data', reason: 'No presentable display fields were returned.' },
+        basis: 'Display input returned no presentable fields.',
+        availability: {
+          status: 'display-absence',
+          reason: 'No presentable fields: display input returned nothing the panel can show.'
+        },
         coverage: { summary: 'No known fields are present in this display example.', knownFields: [] },
-        gaps: ['No value, detail, or coverage fields are present.'],
-        warnings: ['NO DATA is not proof of upstream absence.'],
+        gaps: ['No primary value, detail value, or coverage fields are present.'],
+        warnings: ['NO DATA is display absence only, not proof of upstream absence.'],
         detail: {
-          summary: 'No-data readout avoids overstating source meaning.',
+          summary: 'Reason-first generic display absence.',
           rows: [
-            { label: 'Availability', value: 'No presentable display fields were returned.' },
+            { label: 'Availability', value: 'No presentable fields: display input returned nothing the panel can show.' },
             { label: 'Freshness', value: 'Last read 12s ago.' },
             {
               label: 'Boundary',
@@ -169,45 +172,123 @@
         }
       },
       {
-        id: 'source-owned-placeholder',
-        label: 'Local Readout Availability',
-        state: { id: 'source-owned-placeholder', label: 'UNAVAILABLE', marker: 'SRC' },
+        id: 'source-no-observation',
+        label: 'Source-Owned Observation Placeholder',
+        state: { id: 'source-no-observation', label: 'NO DATA', marker: 'SRC' },
         primaryValue: '',
-        absenceLabel: 'Source-owned placeholder',
+        absenceLabel: 'No observation',
         ageLabel: 'Last read 1m ago',
-        basis: 'Display example includes qualified source-owned placeholders.',
+        basis: 'Qualified source-owned no-observation placeholder.',
         availability: {
-          status: 'source-owned-placeholder',
-          reason: 'Source-owned placeholders are shown only with owner/layer qualification.'
+          status: 'source-owned-absence',
+          reason: 'No observation: source-owned placeholder shown with owner/layer qualification.'
         },
         coverage: {
-          summary: 'Placeholder examples: blocked, no-scan, degraded.',
+          summary: 'Source-owned placeholder and qualification are present.',
           knownFields: ['sourceOwned', 'availability', 'detail']
         },
-        gaps: ['No target adapter meaning is inferred by Lab.'],
-        warnings: ['Do not map Lab NO DATA over source-owned blocked, no-scan, or degraded placeholders.'],
+        gaps: ['Lab does not infer whether an upstream event exists.'],
+        warnings: ['Do not map Lab NO DATA over source-owned no observation or no-scan placeholders.'],
         sourceOwned: {
           owner: 'Sense example placeholder',
           layer: 'source-owned display input example',
-          terms: ['blocked', 'no-scan', 'degraded'],
+          terms: ['no observation', 'no-scan'],
+          visibleLabel: 'No observation',
           qualification:
-            'These words are present only as source-owned placeholders. Lab does not define their source-project meaning.'
+            'No observation and no-scan are present only as source-owned placeholders. Lab does not define their source-project meaning.'
         },
         detail: {
-          summary: 'Qualified source-owned placeholder example.',
+          summary: 'Source-owned no-observation placeholder with visible qualification.',
           rows: [
-            { label: 'Source-owned terms', value: 'blocked, no-scan, degraded.' },
+            { label: 'Source-owned label', value: 'No observation.' },
             { label: 'Owner/layer', value: 'Sense example placeholder; source-owned display input example.' },
             {
               label: 'Qualification',
               value:
-                'These words are present only as source-owned placeholders. Lab does not define their source-project meaning.'
+                'No observation and no-scan are present only as source-owned placeholders. Lab does not define their source-project meaning.'
             },
             {
               label: 'Boundary',
               value:
                 'This example does not create a Sense bridge contract, runtime contract, target adapter, or source state mapping.'
             }
+          ]
+        }
+      },
+      {
+        id: 'source-blocked',
+        label: 'Source-Owned Availability Placeholder',
+        state: { id: 'source-blocked', label: 'UNAVAILABLE', marker: 'BLOCK' },
+        primaryValue: '',
+        absenceLabel: 'Source-owned blocked',
+        ageLabel: 'Last attempt now',
+        basis: 'Qualified source-owned blocked placeholder.',
+        availability: {
+          status: 'source-owned-unavailable',
+          reason: 'Source-owned blocked: an owner/layer-qualified placeholder explains why no current value is shown.'
+        },
+        coverage: {
+          summary: 'Blocked placeholder, availability reason, and qualification are present.',
+          knownFields: ['sourceOwned', 'availability', 'detail']
+        },
+        gaps: ['Current display value is unavailable under the qualified source-owned placeholder.'],
+        warnings: ['Blocked is source-owned here; it is not a Lab state or generic no-data label.'],
+        sourceOwned: {
+          owner: 'Sense example placeholder',
+          layer: 'source-owned display input example',
+          terms: ['blocked'],
+          visibleLabel: 'Source-owned blocked',
+          qualification: 'Blocked is present only as a source-owned placeholder. Lab does not define its source-project meaning.'
+        },
+        detail: {
+          summary: 'Source-owned blocked placeholder kept distinct from generic NO DATA.',
+          rows: [
+            { label: 'Source-owned label', value: 'Source-owned blocked.' },
+            { label: 'Owner/layer', value: 'Sense example placeholder; source-owned display input example.' },
+            {
+              label: 'Qualification',
+              value: 'Blocked is present only as a source-owned placeholder. Lab does not define its source-project meaning.'
+            },
+            { label: 'Boundary', value: 'This example does not normalize blocked into a Lab state or target enum.' }
+          ]
+        }
+      },
+      {
+        id: 'source-degraded',
+        label: 'Source-Owned Limited Read',
+        state: { id: 'source-degraded', label: 'PARTIAL', marker: 'DEG' },
+        primaryValue: 'Degraded source read',
+        ageLabel: 'Last read 4m ago',
+        basis: 'Qualified source-owned degraded placeholder with presentable fields.',
+        availability: {
+          status: 'source-owned-limited',
+          reason: 'Degraded source read: some fields remain presentable while gaps stay visible.'
+        },
+        coverage: {
+          summary: 'Coverage is intentionally available in Readout Detail for this compact example.',
+          knownFields: ['sourceOwned', 'primaryValue', 'ageLabel', 'basis', 'warnings']
+        },
+        displayPolicy: { compactMeta: true, coverageInDetailOnly: true },
+        gaps: ['Some fields are withheld from the compact surface.', 'Coverage / Known fields are behind Readout Detail.'],
+        warnings: ['Degraded is source-owned here; PARTIAL remains the Lab display label.'],
+        sourceOwned: {
+          owner: 'Sense example placeholder',
+          layer: 'source-owned display input example',
+          terms: ['degraded'],
+          visibleLabel: 'Degraded source read',
+          qualification: 'Degraded is present only as a source-owned placeholder. Lab does not define its source-project meaning.'
+        },
+        detail: {
+          summary: 'Compact inspection example: coverage moves behind Readout Detail.',
+          rows: [
+            { label: 'Source-owned label', value: 'Degraded source read.' },
+            { label: 'Owner/layer', value: 'Sense example placeholder; source-owned display input example.' },
+            { label: 'Coverage', value: 'Known fields are available here instead of the main panel meta lane.' },
+            {
+              label: 'Qualification',
+              value: 'Degraded is present only as a source-owned placeholder. Lab does not define its source-project meaning.'
+            },
+            { label: 'Boundary', value: 'This example keeps degraded source-owned and does not make it a Lab state.' }
           ]
         }
       }
@@ -222,11 +303,14 @@
     unavailable: 'state-unavailable',
     fallback: 'state-fallback',
     'no-data': 'state-no-data',
-    'source-owned-placeholder': 'state-source-owned-placeholder'
+    'source-no-observation': 'state-source-owned-absence',
+    'source-blocked': 'state-source-owned-unavailable',
+    'source-degraded': 'state-source-owned-limited'
   };
 
   const root = document.getElementById('readout-root');
   const select = document.getElementById('readout-select');
+  const selectedReadoutId = document.body.dataset.readoutId || null;
   let readouts = fallbackData.readouts;
 
   init();
@@ -244,12 +328,17 @@
       // Plain file opening may block JSON fetches; fallback data keeps the reference inspectable.
     }
 
-    fillSelector();
-    render(readouts[0]);
-    select.addEventListener('change', () => {
-      const next = readouts.find((readout) => readout.id === select.value) || readouts[0];
-      render(next);
-    });
+    if (select) {
+      fillSelector();
+      select.addEventListener('change', () => {
+        const next = readouts.find((readout) => readout.id === select.value) || readouts[0];
+        render(next);
+      });
+    }
+
+    const selected = readouts.find((readout) => readout.id === selectedReadoutId) || readouts[0];
+    if (select) select.value = selected.id;
+    render(selected);
   }
 
   function fillSelector() {
@@ -279,20 +368,31 @@
     top.append(labelWrap, chip);
 
     const body = el('div', 'readout-body');
-    const primary = withText(
-      el('p', `primary-value ${readout.primaryValue ? '' : 'absent'}`),
-      readout.primaryValue || readout.absenceLabel || readout.state.label
+    const primaryStack = el('div', 'primary-stack');
+    primaryStack.append(
+      withText(
+        el('p', `primary-value ${readout.primaryValue ? '' : 'absent'}`),
+        readout.primaryValue || readout.absenceLabel || readout.state.label
+      )
     );
+    if (readout.sourceOwned) {
+      primaryStack.append(
+        withText(
+          el('p', 'source-owned-inline'),
+          `Source-owned placeholder - ${readout.sourceOwned.owner}; ${readout.sourceOwned.layer}`
+        )
+      );
+    }
+
     const meta = el('div', 'meta-grid');
-    meta.append(
-      row('Age', readout.ageLabel, 'meta'),
-      row('Basis', readout.basis, 'meta'),
-      row('Coverage', readout.coverage.summary, 'meta')
-    );
+    meta.append(row('Age', readout.ageLabel, 'meta'), row('Basis', readout.basis, 'meta'));
+    if (!readout.displayPolicy || !readout.displayPolicy.coverageInDetailOnly) {
+      meta.append(row('Coverage', readout.coverage.summary, 'meta'));
+    }
     if (readout.fallbackBasis) {
       meta.append(row('Fallback', readout.fallbackBasis, 'meta'));
     }
-    body.append(primary, meta);
+    body.append(primaryStack, meta);
 
     const availability = withText(
       el('p', 'availability-line'),
@@ -342,6 +442,7 @@
     const rows = [
       row('Availability', readout.availability.reason, 'detail'),
       row('Freshness', readout.ageLabel, 'detail'),
+      row('Coverage', readout.coverage.summary, 'detail'),
       row('Known fields', readout.coverage.knownFields.length ? readout.coverage.knownFields.join(', ') : 'None shown', 'detail')
     ];
 
@@ -378,4 +479,3 @@
     return document.createTextNode(value);
   }
 })();
-

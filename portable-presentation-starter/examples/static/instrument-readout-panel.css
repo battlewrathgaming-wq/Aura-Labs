@@ -10,9 +10,10 @@
   --starter-updating: #486fa8;
   --starter-aged: #8a6a22;
   --starter-partial: #8a5f2e;
-  --starter-unavailable: #777b80;
+  --starter-unavailable: #5e6570;
   --starter-fallback: #6e5fa8;
   --starter-no-data: #6f7472;
+  --starter-source: #75612a;
   --starter-warning: #9a4d24;
   --starter-gap: #7b5b20;
   --starter-radius: 8px;
@@ -94,6 +95,7 @@ h1 {
 .readout-panel {
   overflow: hidden;
   border: 1px solid var(--starter-line);
+  border-left: 6px solid var(--state-tone, var(--starter-line));
   border-radius: var(--starter-radius);
   background: var(--starter-surface);
   box-shadow: 0 14px 34px rgba(30, 42, 36, 0.08);
@@ -160,6 +162,10 @@ h1 {
   padding: 18px;
 }
 
+.primary-stack {
+  min-width: 0;
+}
+
 .primary-value {
   margin: 0;
   font-size: 1.75rem;
@@ -170,6 +176,20 @@ h1 {
 
 .primary-value.absent {
   color: var(--starter-muted);
+}
+
+.source-owned-inline {
+  display: inline-flex;
+  max-width: 100%;
+  margin: 8px 0 0;
+  padding: 5px 8px;
+  border: 1px solid var(--starter-soft-line);
+  border-radius: 999px;
+  background: #fbfaf5;
+  color: var(--starter-muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .meta-grid {
@@ -305,7 +325,7 @@ h1 {
 }
 
 .state-unavailable,
-.state-source-owned-placeholder {
+.state-source-owned-unavailable {
   --state-tone: var(--starter-unavailable);
 }
 
@@ -315,6 +335,24 @@ h1 {
 
 .state-no-data {
   --state-tone: var(--starter-no-data);
+  background: linear-gradient(90deg, rgba(111, 116, 114, 0.06), #fff 28%);
+}
+
+.state-unavailable {
+  background: linear-gradient(90deg, rgba(94, 101, 112, 0.1), #fff 32%);
+}
+
+.state-source-owned-absence,
+.state-source-owned-limited {
+  --state-tone: var(--starter-source);
+}
+
+.state-source-owned-absence {
+  background: linear-gradient(90deg, rgba(117, 97, 42, 0.06), #fff 30%);
+}
+
+.state-source-owned-limited {
+  background: linear-gradient(90deg, rgba(138, 95, 46, 0.08), #fff 30%);
 }
 
 @media (max-width: 640px) {
@@ -358,4 +396,3 @@ h1 {
     animation-duration: 0.001ms !important;
   }
 }
-

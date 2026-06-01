@@ -1,6 +1,6 @@
 # M46 - Static Starter Absence And Relay Polish
 
-Status: Active
+Status: Complete
 Owner: Aura Lab Overseer
 
 ## Purpose
@@ -86,3 +86,16 @@ Browser or screenshot evidence is optional only if the Dev packet explicitly pro
 - `docs/statements/lab-presentation-head-posture.md`
 - `portable-presentation-starter/README.md`
 - `portable-presentation-starter/examples/static/`
+
+## Closure
+
+Accepted output:
+
+- `workspace/DevHS171-static-starter-absence-relay-polish.md`
+
+Disposition:
+
+- M46 accepted the bounded static starter polish.
+- The static starter now distinguishes generic display absence from unavailable current read.
+- The static starter includes qualified source-owned examples and a no-selector inspection page.
+- Browser/screenshot evidence was not produced; Human/Overseer visual review remains the next useful gate before wider target relay.
