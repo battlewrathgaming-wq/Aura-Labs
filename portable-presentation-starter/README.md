@@ -79,6 +79,16 @@ portable-presentation-starter/examples/static/inspect-head.html
 
 The pages load the JSON example data when the browser allows local file fetches. JavaScript also includes fallback example data so plain file opening still renders in browsers that block `file://` JSON reads.
 
+## Local Trial Packages
+
+Sense trial bundle:
+
+```txt
+portable-presentation-starter/packages/sense-trial-glass/
+```
+
+This package is display-only and local. It does not create a Sense mapper, Sense adoption, package manager publication, bridge/runtime contract, or target product claim.
+
 ## Source References
 
 - `workspace/display-outputs/instrument-readout-panel.md`

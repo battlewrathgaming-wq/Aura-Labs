@@ -76,20 +76,20 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M46 | Static Starter Absence And Relay Polish | Complete | Accepted bounded static starter polish for absence, unavailable, source-owned labels, compact detail, and relay scaffolding clarity. |
 | M47 | Presentation Glass Value Definition | Complete | Accepted the reusable presentation value Lab has produced beyond the inherited/base Electron layer before packaging or target relay. |
 | M48 | Display Selection Shelf | Complete | Accepted concise target-readable menu from accepted Lab materials and glass assets so targets can choose features. |
-| M49 | Sense Trial Glass Package | Active | Packages selected Lab glass/materials for a local Sense trial without owning Sense mapper, source meaning, runtime behavior, or adoption. |
+| M49 | Sense Trial Glass Package | Complete | Accepted local static package of selected Lab glass/materials for a Sense trial without owning Sense mapper, source meaning, runtime behavior, or adoption. |
 
 ## Current Direction
 
-Active milestone: M49 - Sense Trial Glass Package
-Last completed milestone: M48 / HS176 - Display Selection Shelf Acceptance
-Latest accepted review: workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md
+Active milestone: None
+Last completed milestone: M49 / HS178 - Sense Trial Glass Package Acceptance
+Latest accepted review: workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
 Current sequence: None
-Latest accepted handshake: workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md
-Latest active runway: workspace/OverseerHS177-m49-sense-trial-glass-package-runway.md
+Latest accepted handshake: workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md
+Latest active runway: None
 Active runway: workspace/current.md
-Housekeeping: active root refreshed on 2026-06-01 after opening M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root refreshed on 2026-06-01 after accepting M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -223,6 +223,8 @@ Active milestone handshakes:
 - `workspace/DevHS175-display-selection-shelf.md`
 - `workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md`
 - `workspace/OverseerHS177-m49-sense-trial-glass-package-runway.md`
+- `workspace/DevHS177-sense-trial-glass-package.md`
+- `workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md`
 
 Accepted authority records:
 
@@ -274,7 +276,7 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- Should Lab relay the selection shelf to Sense, run visual review, open package-shape spec, or park?
+- Should Lab relay the Sense trial glass package, open package-shape spec if Sense needs it, or park?
 - Should Lab open an optional React example scaffold, or keep the starter framework-neutral until a target asks for React-shaped support?
 - Should the static starter receive additional visual polish for spacing, detail density, and stronger Aura visual character after the absence/unavailable polish lands?
 - Is any deeper security review needed before target relay, or is the M43/HS167 floor enough?

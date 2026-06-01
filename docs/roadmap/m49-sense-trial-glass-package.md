@@ -1,6 +1,6 @@
 # M49 - Sense Trial Glass Package
 
-Status: Active
+Status: Complete
 Owner: Aura Lab Overseer
 
 ## Purpose
@@ -96,3 +96,16 @@ No browser, screenshot, Electron, live, private, network, or target-project test
 - `portable-presentation-starter/`
 - `docs/statements/presentation-head-handoff-standard.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
+
+## Closure
+
+Accepted by `workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md`.
+
+Accepted outputs:
+
+- `portable-presentation-starter/packages/sense-trial-glass/`
+- `portable-presentation-starter/README.md`
+- `scripts/verify-static-starter.js`
+- `workspace/DevHS177-sense-trial-glass-package.md`
+
+M49 produced the local static Sense trial glass package and preserved Sense-owned mapper/source/runtime/adoption boundaries.

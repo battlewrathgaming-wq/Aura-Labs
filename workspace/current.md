@@ -1,21 +1,21 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-06-01
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M49 - Sense Trial Glass Package
-Last completed milestone: M48 / HS176 - Display Selection Shelf Acceptance
-Current executor: Dev
-Current focus: Package the selected Lab glass/materials for a local Sense trial without creating target adapter meaning.
-Expected output: `workspace/DevHS177-sense-trial-glass-package.md`
-Expected DevHS filename: `workspace/DevHS177-sense-trial-glass-package.md`
+Active milestone: None
+Last completed milestone: M49 / HS178 - Sense Trial Glass Package Acceptance
+Current executor: Human / Overseer
+Current focus: Await Human / Overseer direction after accepting the Sense trial glass package.
+Expected output: Human direction or next Overseer runway artifact.
+Expected DevHS filename: None
 
 ## Current State
 
-M49 is open as a narrow Dev packaging/documentation packet.
+M49 is accepted and closed.
 
 M48 is accepted and closed.
 
@@ -27,21 +27,15 @@ Targets translate themselves; Lab makes the window worth looking through.
 
 Lab's current presentation glass is defined as a display-only, framework-neutral Instrument Readout Panel head that renders prepared readout input into a calm, bounded surface with basis, freshness, availability, gaps, warnings, detail reveal, source-owned label qualification, absence/unavailable distinction, and narrow/text-containment behavior.
 
-Sense selected:
+M49 packaged the selected goodies as a small local static bundle for Sense trial.
 
-- Instrument Readout Panel Glass
-- Availability Reason Treatment
-- Long Text Detail Block
-- Warning / Gap Edge
-- maybe Expandable Status Card
-
-Sense ask:
+Resting Sense relay package:
 
 ```txt
-Can Lab package the glass for a local Sense trial, with these materials in mind?
+portable-presentation-starter/packages/sense-trial-glass/
 ```
 
-M49 should package the selected goodies as a small local static bundle. This is not Sense adoption, a Sense mapper, a target adapter, or a runtime integration.
+The package is not Sense adoption, a Sense mapper, a target adapter, a runtime integration, or a product-fitness claim.
 
 Library framing:
 
@@ -53,12 +47,13 @@ Library framing:
 
 M48 created a concise selection shelf so target projects can choose desired features without Lab owning their mapper, source meaning, runtime behavior, or adoption.
 
-M48, M47, M46, M45, M44, M43, and M42 remain accepted and closed.
+M49, M48, M47, M46, M45, M44, M43, and M42 remain accepted and closed.
 
 Accepted output:
 
 - `portable-presentation-starter/`
 - `portable-presentation-starter/examples/static/inspect-head.html`
+- `portable-presentation-starter/packages/sense-trial-glass/`
 - `scripts/verify-static-starter.js`
 - `workspace/DevHS163-static-portable-presentation-starter-reference.md`
 - `workspace/OverseerHS164-m42-static-starter-reference-acceptance.md`
@@ -84,6 +79,8 @@ Accepted output:
 - `workspace/DevHS175-display-selection-shelf.md`
 - `workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md`
 - `workspace/OverseerHS177-m49-sense-trial-glass-package-runway.md`
+- `workspace/DevHS177-sense-trial-glass-package.md`
+- `workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md`
 - `docs/roadmap/m49-sense-trial-glass-package.md`
 - `docs/roadmap/m48-display-selection-shelf.md`
 - `docs/roadmap/m47-presentation-glass-value-definition.md`
@@ -100,11 +97,12 @@ Accepted source of intent:
 - Human direction on 2026-06-01: create the selection shelf to unblock Sense and close Lab/Sense cross-talk.
 - Human direction: targets should do their own mapper; Lab provides the glass.
 - Human direction on 2026-06-01: Sense selected the goodies; Lab should package the glass for a local Sense trial.
+- `portable-presentation-starter/packages/sense-trial-glass/`
 - `workspace/display-selection-shelf.md`
 - `workspace/display-assets.md`
 - `workspace/display-outputs/instrument-readout-panel-glass.md`
 - `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
-- `workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md`
+- `workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md`
 - `docs/roadmap/m49-sense-trial-glass-package.md`
 - `docs/statements/presentation-head-handoff-standard.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
@@ -118,7 +116,6 @@ Read first:
 - `workspace/critical/README.md`
 - `workspace/critical/critical-terms.md`
 - `workspace/critical/critical-assets.md`
-- `workspace/OverseerHS177-m49-sense-trial-glass-package-runway.md`
 - `workspace/display-selection-shelf.md`
 - `workspace/display-assets.md`
 - `workspace/display-materials/README.md`
@@ -130,46 +127,42 @@ Read first:
 - `docs/statements/presentation-head-handoff-standard.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
 - `portable-presentation-starter/README.md`
+- `portable-presentation-starter/packages/sense-trial-glass/README.md`
 - `scripts/verify-static-starter.js`
 - `package.json`
 
 ## Ordered Runway
 
-Dev should create:
+No active runway.
 
-```txt
-portable-presentation-starter/packages/sense-trial-glass/
-workspace/DevHS177-sense-trial-glass-package.md
-```
+Current resting handoff:
 
-Use `workspace/OverseerHS177-m49-sense-trial-glass-package-runway.md` as the detailed task outline.
+- `portable-presentation-starter/packages/sense-trial-glass/`
 
 ## Acceptance Criteria
 
-- `portable-presentation-starter/packages/sense-trial-glass/` exists.
-- It contains the minimum static files needed for local inspection.
-- It includes a README or manifest naming included files.
-- It names the selected Sense trial materials.
-- It states Sense owns mapper, source meaning, runtime behavior, copy, review, and adoption.
-- It states Lab sample/example data is not Sense data.
-- It states Lab display labels are not Sense state enums.
-- It does not require Electron, IPC, preload, service registry, SmokeFlash, Pane Board, Wayfinder, or target project files.
-- Verification passes.
+The next packet should define its own acceptance criteria.
+
+Recommended next choices:
+
+1. Relay `portable-presentation-starter/packages/sense-trial-glass/` to Sense as the accepted local trial bundle.
+2. Let Sense inspect/copy/adapt/park the package in-house.
+3. Open a package/export specification only if Sense names a concrete missing package shape.
+4. Park Lab.
 
 ## Guardrails And Non-Goals
 
 - Do not edit target projects.
 - Do not create target adapters or mappers.
-- Do not create broad package/export infrastructure beyond the local static Sense trial package.
-- Do not create a React scaffold.
-- Do not change current Lab renderer files.
-- Do not touch Electron/preload/IPC.
-- Do not touch SmokeFlash, Pane Board, Wayfinder, or service registry.
+- Do not create broad package/export infrastructure unless a new packet explicitly opens that lane.
+- Do not create a React scaffold unless a new packet explicitly opens that lane.
+- Do not change current Lab renderer files without a new runway.
+- Do not touch Electron/preload/IPC without a new runway.
+- Do not touch SmokeFlash, Pane Board, Wayfinder, or service registry without a new runway.
 - Do not create bridge/runtime contracts.
-- Do not invent new material/glass capabilities.
+- Do not invent new material/glass capabilities from the package alone.
 - Do not turn Lab example states into target state labels.
 - Do not claim target adoption or target fitness.
-- Keep the package as a local trial bundle, not a product promise.
 
 ## Stop Conditions
 
@@ -187,20 +180,14 @@ Stop and return to Human / Overseer direction if the task requires:
 
 ## Required Verification
 
-Run:
-
-- `npm.cmd run verify:static-starter`
-- `npm.cmd run verify:all`
-- `npm.cmd run verify:terminology` from `F:\Projects\Docs\Aura-Project-Orchestration`
-
-No browser, screenshot, Electron, live, private, network, or target-project testing is required unless visible static behavior changes enough to require visual proof.
+No active verification required while idle.
 
 ## Handoff
 
-Expected Dev handoff: `workspace/DevHS177-sense-trial-glass-package.md`.
+Latest accepted handoff: `workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md`.
 
 ## Residual Risks
 
-- M46 did not include browser/screenshot visual proof.
-- The package should not become a target adapter or adoption record.
-- Starter input examples may be mistaken for bridge contracts if future relay omits the M41/HS162/M43 boundaries.
+- No browser/screenshot visual proof was claimed for M49.
+- Sense must still perform Sense-local mapping, review, and adoption decisions.
+- If Sense needs reusable package mechanics, open a separate package/export specification instead of expanding the trial bundle.

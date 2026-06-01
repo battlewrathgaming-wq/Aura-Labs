@@ -5,6 +5,7 @@ const { projectRoot } = require('../src/util/tempPaths');
 const root = projectRoot();
 const starterRoot = path.join(root, 'portable-presentation-starter');
 const staticRoot = path.join(starterRoot, 'examples', 'static');
+const sensePackageRoot = path.join(starterRoot, 'packages', 'sense-trial-glass');
 
 const requiredFiles = [
   path.join(starterRoot, 'README.md'),
@@ -12,7 +13,14 @@ const requiredFiles = [
   path.join(staticRoot, 'inspect-head.html'),
   path.join(staticRoot, 'instrument-readout-panel.css'),
   path.join(staticRoot, 'instrument-readout-panel.js'),
-  path.join(staticRoot, 'example-readouts.json')
+  path.join(staticRoot, 'example-readouts.json'),
+  path.join(sensePackageRoot, 'README.md'),
+  path.join(sensePackageRoot, 'MANIFEST.md'),
+  path.join(sensePackageRoot, 'index.html'),
+  path.join(sensePackageRoot, 'inspect-head.html'),
+  path.join(sensePackageRoot, 'instrument-readout-panel.css'),
+  path.join(sensePackageRoot, 'instrument-readout-panel.js'),
+  path.join(sensePackageRoot, 'example-readouts.json')
 ];
 
 const excludedPatterns = [
@@ -58,6 +66,13 @@ function main() {
   const css = read(path.join(staticRoot, 'instrument-readout-panel.css'));
   const js = read(path.join(staticRoot, 'instrument-readout-panel.js'));
   const jsonText = read(path.join(staticRoot, 'example-readouts.json'));
+  const senseReadme = read(path.join(sensePackageRoot, 'README.md'));
+  const senseManifest = read(path.join(sensePackageRoot, 'MANIFEST.md'));
+  const senseHtml = read(path.join(sensePackageRoot, 'index.html'));
+  const senseInspectHtml = read(path.join(sensePackageRoot, 'inspect-head.html'));
+  const senseCss = read(path.join(sensePackageRoot, 'instrument-readout-panel.css'));
+  const senseJs = read(path.join(sensePackageRoot, 'instrument-readout-panel.js'));
+  const senseJsonText = read(path.join(sensePackageRoot, 'example-readouts.json'));
   const data = JSON.parse(jsonText);
 
   requireIncludes(readme, [
@@ -76,6 +91,7 @@ function main() {
   requireIncludes(inspectHtml, ['Head inspection', 'data-readout-id="source-degraded"', 'removes the Lab state selector'], 'inspection HTML', failures);
   requireIncludes(css, ['overflow-wrap: anywhere', '@media (max-width: 640px)', 'prefers-reduced-motion', 'state-no-data', 'state-unavailable'], 'CSS', failures);
   requireIncludes(js, ['Readout Detail', 'aria-expanded', 'example-readouts.json', 'sourceOwned', 'coverageInDetailOnly', 'source-owned-inline'], 'JS', failures);
+  verifySensePackage({ senseReadme, senseManifest, senseHtml, senseInspectHtml, senseCss, senseJs, senseJsonText }, failures);
 
   if (!Array.isArray(data.readouts) || data.readouts.length < requiredLabels.length) {
     failures.push('example-readouts.json: expected multiple display example states');
@@ -88,7 +104,7 @@ function main() {
 
   verifyPolishExamples(data, failures);
 
-  const implementationText = [html, inspectHtml, css, js, jsonText].join('\n');
+  const implementationText = [html, inspectHtml, css, js, jsonText, senseHtml, senseInspectHtml, senseCss, senseJs, senseJsonText].join('\n');
   for (const [label, pattern] of excludedPatterns) {
     if (pattern.test(implementationText)) {
       failures.push(`Starter static reference appears to include excluded ${label}`);
@@ -102,6 +118,7 @@ function main() {
   }
 
   enforceLocalFetchOnly(js, failures);
+  enforceLocalFetchOnly(senseJs, failures);
 
   if (failures.length > 0) fail(failures);
   console.log('static starter verified');
@@ -174,6 +191,40 @@ function verifyPolishExamples(data, failures) {
 
 function requireReadout(byId, id, failures) {
   if (!byId.has(id)) failures.push(`example-readouts.json: missing required polish example ${id}`);
+}
+
+function verifySensePackage(packageFiles, failures) {
+  const { senseReadme, senseManifest, senseHtml, senseInspectHtml, senseCss, senseJs, senseJsonText } = packageFiles;
+  requireIncludes(senseReadme, [
+    'This package is a Lab presentation bundle for local Sense trial.',
+    'It is display-only.',
+    'Sense owns mapper behavior, source meaning, runtime behavior, product copy, review, and adoption.',
+    'Lab example data is not Sense data.',
+    'Lab display labels are not Sense state enums.',
+    'Availability Reason Treatment',
+    'Long Text Detail Block',
+    'Warning / Gap Edge',
+    'Expandable Status Card'
+  ], 'Sense package README', failures);
+
+  requireIncludes(senseManifest, [
+    'Instrument Readout Panel Glass',
+    'Availability Reason Treatment',
+    'Long Text Detail Block',
+    'Warning / Gap Edge',
+    'Lab example data is not Sense data',
+    'Lab display labels are not Sense state enums'
+  ], 'Sense package manifest', failures);
+
+  if (!senseHtml.includes('readout-root') || !senseInspectHtml.includes('readout-root')) {
+    failures.push('Sense package HTML: expected static readout roots');
+  }
+  if (!senseCss.includes('state-no-data') || !senseJs.includes('example-readouts.json')) {
+    failures.push('Sense package static files: expected copied glass CSS/JS behavior');
+  }
+  if (!senseJsonText.includes('source-no-observation') || !senseJsonText.includes('source-degraded')) {
+    failures.push('Sense package example data: expected selected source-owned trial examples');
+  }
 }
 
 function enforceLocalFetchOnly(text, failures) {
