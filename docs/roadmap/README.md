@@ -1,6 +1,6 @@
 # Aura Lab Roadmap
 
-Status: Idle durable roadmap scaffold
+Status: Active durable roadmap scaffold
 Last reviewed: 2026-06-01
 
 ## Purpose
@@ -11,13 +11,14 @@ Use it to prevent single tasks from becoming whole milestones by accident. A roa
 
 ## Current Phase
 
-Lab is idle after M48. Lab has the first Lab-local framework-neutral static starter reference, and the Human visual pass accepted it as a clean baseline. Lab now has a lightweight polish floor and safety floor for deciding when a head is fit to offer; M45 translated Sense relay pressure into bounded UI/UX polish guidance, M46 implemented the small static polish packet before wider target relay, M47 defined what the current glass is before packaging, and M48 turned the accepted shelves into a target-readable selection menu.
+M49 Sense trial glass package is active. Lab has the first Lab-local framework-neutral static starter reference, and the Human visual pass accepted it as a clean baseline. Lab now has a lightweight polish floor and safety floor for deciding when a head is fit to offer; M45 translated Sense relay pressure into bounded UI/UX polish guidance, M46 implemented the small static polish packet before wider target relay, M47 defined what the current glass is before packaging, and M48 turned the accepted shelves into a target-readable selection menu.
 
-Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 accepted ownership and view-state clarity fixes before broader collaboration affordances. M40 accepted a bounded Pane Board collaboration loop. M41 accepted the portable presentation starter-kit contents specification before implementation. M42 accepted the first static starter reference. M43 accepted the polish and safety floor for presentation head handoff. M44 accepted the small safety-floor docs/verifier corrections recommended by SecEngHS167. M45 accepted UI/UX presentation polish from Sense relay pressure. M46 accepted that bounded polish in the static starter. M47 accepted the reusable presentation value definition beyond the inherited/base Electron layer. M48 accepted a concise selection shelf so targets can choose features without Lab owning their mapper.
+Aura Lab has accepted the Instrument Readout Panel as the first composed display output and accepted a Lab-local visible prototype. M35 accepted Pane Board as human-led, agent-cooperative layout-reference tooling. M36 accepted the first Lab-only Pane Board prototype. M37 accepted the first in-repo Pane Board split so future tooling work does not become removal work for the presentation offer. M38 accepted the stable Pane Board capability loop. M39 accepted ownership and view-state clarity fixes before broader collaboration affordances. M40 accepted a bounded Pane Board collaboration loop. M41 accepted the portable presentation starter-kit contents specification before implementation. M42 accepted the first static starter reference. M43 accepted the polish and safety floor for presentation head handoff. M44 accepted the small safety-floor docs/verifier corrections recommended by SecEngHS167. M45 accepted UI/UX presentation polish from Sense relay pressure. M46 accepted that bounded polish in the static starter. M47 accepted the reusable presentation value definition beyond the inherited/base Electron layer. M48 accepted a concise selection shelf so targets can choose features without Lab owning their mapper. M49 packages the selected glass/materials for a local Sense trial without owning Sense mapper, source meaning, runtime behavior, or adoption.
 
 ## Near Outcomes
 
 - Use `workspace/display-selection-shelf.md` as the target-readable selection shelf from accepted materials/glass.
+- Package selected glass/materials for a local Sense trial.
 - Preserve the accepted glass definition before packaging or target relay.
 - Human/Overseer visual review of `index.html` and `inspect-head.html` remains useful before wider target relay.
 - Keep the static starter baseline available for future target relay/adoption review, optional React example, or bounded visual polish.
@@ -54,6 +55,7 @@ Aura Lab has accepted the Instrument Readout Panel as the first composed display
 | M46 | Static Starter Absence And Relay Polish | Complete | `docs/roadmap/m46-static-starter-absence-relay-polish.md` |
 | M47 | Presentation Glass Value Definition | Complete | `docs/roadmap/m47-presentation-glass-value-definition.md` |
 | M48 | Display Selection Shelf | Complete | `docs/roadmap/m48-display-selection-shelf.md` |
+| M49 | Sense Trial Glass Package | Active | `docs/roadmap/m49-sense-trial-glass-package.md` |
 
 Candidate bank:
 

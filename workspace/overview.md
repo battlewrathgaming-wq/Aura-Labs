@@ -76,19 +76,20 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M46 | Static Starter Absence And Relay Polish | Complete | Accepted bounded static starter polish for absence, unavailable, source-owned labels, compact detail, and relay scaffolding clarity. |
 | M47 | Presentation Glass Value Definition | Complete | Accepted the reusable presentation value Lab has produced beyond the inherited/base Electron layer before packaging or target relay. |
 | M48 | Display Selection Shelf | Complete | Accepted concise target-readable menu from accepted Lab materials and glass assets so targets can choose features. |
+| M49 | Sense Trial Glass Package | Active | Packages selected Lab glass/materials for a local Sense trial without owning Sense mapper, source meaning, runtime behavior, or adoption. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M49 - Sense Trial Glass Package
 Last completed milestone: M48 / HS176 - Display Selection Shelf Acceptance
 Latest accepted review: workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
 Current sequence: None
 Latest accepted handshake: workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md
-Latest active runway: None
+Latest active runway: workspace/OverseerHS177-m49-sense-trial-glass-package-runway.md
 Active runway: workspace/current.md
-Housekeeping: active root refreshed on 2026-06-01 after accepting M48; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root refreshed on 2026-06-01 after opening M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -118,6 +119,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/roadmap/m46-static-starter-absence-relay-polish.md`
 - `docs/roadmap/m47-presentation-glass-value-definition.md`
 - `docs/roadmap/m48-display-selection-shelf.md`
+- `docs/roadmap/m49-sense-trial-glass-package.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/composed-display-output-candidate.md`
 - `docs/roadmap/m32-export-boundary-review.md`
@@ -220,6 +222,7 @@ Active milestone handshakes:
 - `workspace/display-selection-shelf.md`
 - `workspace/DevHS175-display-selection-shelf.md`
 - `workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md`
+- `workspace/OverseerHS177-m49-sense-trial-glass-package-runway.md`
 
 Accepted authority records:
 
