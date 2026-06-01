@@ -1,6 +1,6 @@
 # M44 - Static Starter Safety Floor Corrections
 
-Status: Active
+Status: Complete
 Owner: Aura Lab Overseer
 
 ## Purpose
@@ -71,3 +71,15 @@ Do not claim automated browser/screenshot evidence unless a future packet explic
 - `docs/roadmap/m43-presentation-head-handoff-standard.md`
 - `portable-presentation-starter/README.md`
 - `scripts/verify-static-starter.js`
+
+## Closure
+
+Closed accepted in HS169.
+
+Accepted output:
+
+- `portable-presentation-starter/README.md`
+- `scripts/verify-static-starter.js`
+- `workspace/DevHS168-static-starter-safety-floor-corrections.md`
+
+The static starter now carries the M43 safety floor directly and the verifier rejects the low-cost unsafe patterns identified by SecEngHS167.

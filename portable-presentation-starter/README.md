@@ -42,6 +42,14 @@ The fields `state`, `availability`, `NO DATA`, and `UNAVAILABLE` are used here a
 
 Source-owned placeholder terms such as `blocked`, `no-scan`, and `degraded` appear only as qualified examples. The `sourceOwned` block names the owner/layer context so the panel can display the term without making Lab the owner of its meaning.
 
+## Safety Floor
+
+This starter is display-only and is not a trust boundary.
+
+Incoming display fields should be treated as untrusted display input. The static reference renders text as text and does not require privileged runtime access, preload, IPC, filesystem, clipboard, screenshot, live provider, or network dependency.
+
+Adopting the Lab head does not adopt Lab sample data, example meanings, state enums, roadmap, tooling, or future upgrade path.
+
 ## Sense Cautions Preserved
 
 This starter keeps the HS162 cautions visible:
@@ -70,4 +78,3 @@ The page loads the JSON example data when the browser allows local file fetches.
 - `workspace/display-materials/availability-reason-treatment.md`
 - `docs/adr/0001-smokeflash-split-timing.md`
 - `docs/adr/0002-target-owned-presentation-adapters.md`
-

@@ -24,7 +24,24 @@ const excludedPatterns = [
   ['target adapter implementation', /\badapter implementation\b/i]
 ];
 
+const unsafeImplementationPatterns = [
+  ['HTML injection API innerHTML', /\binnerHTML\b/],
+  ['HTML injection API outerHTML', /\bouterHTML\b/],
+  ['HTML injection API insertAdjacentHTML', /\binsertAdjacentHTML\b/],
+  ['HTML injection API document.write', /\bdocument\.write\b/],
+  ['dynamic execution eval', /\beval\s*\(/],
+  ['dynamic execution new Function', /\bnew\s+Function\b/],
+  ['remote URL', /\bhttps?:\/\//i],
+  ['remote script or asset element', /<(?:script|link|img)[^>]+\b(?:src|href)\s*=\s*["']https?:\/\//i],
+  ['clipboard API', /\bclipboard\b|\bClipboardItem\b|\bexecCommand\s*\(\s*['"]copy['"]/i],
+  ['storage API', /\blocalStorage\b|\bsessionStorage\b|\bindexedDB\b|\bcaches\b|\bcookie\b/i],
+  ['write-file term', /\bwriteFile\b|\bcreateWriteStream\b|\bFileSystemWritableFileStream\b|\bshowSaveFilePicker\b|\bsaveAs\b/i],
+  ['screenshot/capture term', /\bscreenshot\b|\bcapture\b|\bgetDisplayMedia\b|\bcaptureStream\b|\btoDataURL\b/i],
+  ['live-provider-ish term', /\bWebSocket\b|\bEventSource\b|\bXMLHttpRequest\b|\bsendBeacon\b|\blive provider\b|\bprovider call\b/i]
+];
+
 const requiredLabels = ['CURRENT', 'UPDATING', 'AGED', 'PARTIAL', 'UNAVAILABLE', 'FALLBACK', 'NO DATA'];
+const allowedFetchCall = "fetch('./example-readouts.json', { cache: 'no-store' })";
 
 function main() {
   const failures = [];
@@ -47,7 +64,10 @@ function main() {
     'not a Sense bridge or runtime contract',
     'React scaffold',
     'target-project adapters',
-    'source-owned placeholder'
+    'source-owned placeholder',
+    'display-only',
+    'not a trust boundary',
+    'Adopting the Lab head does not adopt Lab sample data, example meanings, state enums, roadmap, tooling, or future upgrade path'
   ], 'README', failures);
 
   requireIncludes(html, ['Instrument Readout Panel', 'readout-root', 'not bridge contracts'], 'HTML', failures);
@@ -83,6 +103,14 @@ function main() {
     }
   }
 
+  for (const [label, pattern] of unsafeImplementationPatterns) {
+    if (pattern.test(implementationText)) {
+      failures.push(`Starter static reference contains unsafe implementation pattern: ${label}`);
+    }
+  }
+
+  enforceLocalFetchOnly(js, failures);
+
   if (failures.length > 0) fail(failures);
   console.log('static starter verified');
 }
@@ -99,6 +127,19 @@ function read(file) {
 
 function relative(file) {
   return path.relative(root, file);
+}
+
+function enforceLocalFetchOnly(text, failures) {
+  const fetchMatches = text.match(/\bfetch\s*\([^)]*\)/g) || [];
+  for (const match of fetchMatches) {
+    if (match !== allowedFetchCall) {
+      failures.push(`Starter static reference uses a fetch other than the allowed local JSON fetch: ${match}`);
+    }
+  }
+
+  if (!fetchMatches.includes(allowedFetchCall)) {
+    failures.push(`Starter static reference is missing the documented local JSON fetch allowance: ${allowedFetchCall}`);
+  }
 }
 
 function fail(failures) {
