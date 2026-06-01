@@ -1,19 +1,21 @@
 # Current Workspace Packet
 
-Status: Idle
+Status: Active
 Updated: 2026-06-01
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M45 - Static Starter Presentation Pressure Polish
 Last completed milestone: M44 / HS169 - Static Starter Safety Floor Acceptance
-Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after accepting the static starter safety-floor corrections.
-Expected output: Human direction or next Overseer runway artifact.
+Current executor: UI/UX advisor
+Current focus: Translate Sense relay pressure into a bounded static starter polish specification before any Dev packet.
+Expected output: `workspace/UIUXHS170-static-starter-presentation-pressure-polish.md`
 Expected DevHS filename: None.
 
 ## Current State
+
+M45 is open as a UI/UX advisory/spec runway.
 
 M44 is accepted and closed.
 
@@ -33,6 +35,9 @@ Accepted output:
 - `workspace/OverseerHS168-m44-static-starter-safety-floor-corrections-runway.md`
 - `workspace/DevHS168-static-starter-safety-floor-corrections.md`
 - `workspace/OverseerHS169-m44-static-starter-safety-floor-acceptance.md`
+- `workspace/HS168-sense-relay-lab-static-starter-head-presentation-pressure-extract.md`
+- `workspace/OverseerHS170-m45-static-starter-presentation-pressure-polish-runway.md`
+- `docs/roadmap/m45-static-starter-presentation-pressure-polish.md`
 - `docs/roadmap/m44-static-starter-safety-floor-corrections.md`
 - `docs/roadmap/m43-presentation-head-handoff-standard.md`
 - `docs/statements/presentation-head-handoff-standard.md`
@@ -53,13 +58,17 @@ The M43 handoff standard defines the lightweight polish floor and safety floor L
 
 SecEngHS167 reviewed the static starter and returned `ready after small docs/verifier fix`. M44 applied and accepted that fix.
 
-The static starter now carries the M43 safety floor directly in its README and verifier. It is ready for target relay/adoption review as a recoverable trial package if the Human chooses that lane.
+The static starter now carries the M43 safety floor directly in its README and verifier.
 
-After M44 closes, recommended next options:
+Sense relay pressure extract is accepted as Lab-facing presentation pressure, not Sense adoption or implementation authority.
+
+M45 should define whether the head needs small polish/example refinements before wider target relay.
+
+After M45 closes, recommended next options:
 
 - target relay/adoption review using the M43 handoff standard
 - optional React example scaffold after static reference acceptance and visual review
-- static starter polish if Human wants to tune baseline spacing, source-owned placeholder wording, detail density, or visual character
+- static starter Dev polish if UI/UX recommends a bounded implementation packet
 - park Lab until Sense/Atlas adapter work produces useful feedback
 
 ## Source Of Intent
@@ -79,6 +88,9 @@ Accepted source of intent:
 - `workspace/OverseerHS168-m44-static-starter-safety-floor-corrections-runway.md`
 - `workspace/DevHS168-static-starter-safety-floor-corrections.md`
 - `workspace/OverseerHS169-m44-static-starter-safety-floor-acceptance.md`
+- `workspace/HS168-sense-relay-lab-static-starter-head-presentation-pressure-extract.md`
+- `workspace/OverseerHS170-m45-static-starter-presentation-pressure-polish-runway.md`
+- `docs/roadmap/m45-static-starter-presentation-pressure-polish.md`
 - `docs/roadmap/m44-static-starter-safety-floor-corrections.md`
 - `docs/roadmap/m43-presentation-head-handoff-standard.md`
 - `docs/statements/presentation-head-handoff-standard.md`
@@ -104,6 +116,9 @@ Read first:
 - `workspace/OverseerHS168-m44-static-starter-safety-floor-corrections-runway.md`
 - `workspace/DevHS168-static-starter-safety-floor-corrections.md`
 - `workspace/OverseerHS169-m44-static-starter-safety-floor-acceptance.md`
+- `workspace/HS168-sense-relay-lab-static-starter-head-presentation-pressure-extract.md`
+- `workspace/OverseerHS170-m45-static-starter-presentation-pressure-polish-runway.md`
+- `docs/roadmap/m45-static-starter-presentation-pressure-polish.md`
 - `docs/roadmap/m44-static-starter-safety-floor-corrections.md`
 - `docs/roadmap/m43-presentation-head-handoff-standard.md`
 - `docs/statements/presentation-head-handoff-standard.md`
@@ -112,15 +127,33 @@ Read first:
 
 ## Ordered Runway
 
-No active runway.
+UI/UX advisor should create:
+
+```txt
+workspace/UIUXHS170-static-starter-presentation-pressure-polish.md
+```
+
+The artifact must answer:
+
+```txt
+What bounded polish, examples, or inspection-shape changes should Lab make before wider target relay, based on the Sense presentation pressure extract?
+```
+
+Use `workspace/OverseerHS170-m45-static-starter-presentation-pressure-polish-runway.md` as the detailed task outline.
 
 ## Acceptance Criteria
 
-No active acceptance criteria while idle.
+- UI/UX artifact states what request it answered.
+- UI/UX artifact separates Lab-facing presentation pressure from Sense authority.
+- UI/UX artifact defines required-before-relay, optional, and parked polish.
+- UI/UX artifact gives concrete example/copy/visual guidance for absence, unavailable, source-owned label pass-through, and `Coverage` / `Known fields` density.
+- UI/UX artifact says whether React remains parked.
+- UI/UX artifact recommends whether Dev should implement now, wait, split, or do nothing.
+- No implementation is performed.
 
 ## Guardrails And Non-Goals
 
-- Do not implement code without a new current packet.
+- Do not implement code in this UI/UX packet.
 - Do not claim automated screenshot/browser visual acceptance unless that evidence is actually produced.
 - Do not open React scaffold work unless Human explicitly chooses that lane.
 - Do not export/seed the current renderer.
@@ -134,7 +167,7 @@ No active acceptance criteria while idle.
 
 Stop and return to Human / Overseer direction if a future task requires:
 
-- implementation without a new current packet
+- implementation
 - React package creation
 - renderer extraction/export
 - SmokeFlash split execution
@@ -147,7 +180,12 @@ Stop and return to Human / Overseer direction if a future task requires:
 
 ## Required Verification
 
-No active verification while idle.
+No live/browser verification required for the UI/UX artifact.
+
+Overseer may run after receipt:
+
+- `npm.cmd run verify:all`
+- `npm.cmd run verify:terminology` from `F:\Projects\Docs\Aura-Project-Orchestration`
 
 ## Evidence
 
@@ -161,6 +199,8 @@ No active verification while idle.
 - HS168 opened M44 for the small correction packet.
 - DevHS168 completed the static starter safety-floor corrections.
 - HS169 accepted M44.
+- HS168 Sense relay pressure extract landed as Lab-facing presentation pressure.
+- HS170 opened M45 for UI/UX polish specification.
 - Verification passed during M42 acceptance: `npm.cmd run verify:static-starter`, `npm.cmd run verify:all`, and orchestration `npm.cmd run verify:terminology`.
 - Housekeeping verification after HS165 passed: `npm.cmd run verify:all` and orchestration `npm.cmd run verify:terminology` with existing warning-only terminology tripwires.
 - M43 documentation verification passed: `npm.cmd run verify:all` and orchestration `npm.cmd run verify:terminology` with existing warning-only terminology tripwires.
@@ -168,7 +208,7 @@ No active verification while idle.
 
 ## Handoff
 
-No active handoff while idle.
+Expected UI/UX handoff: `workspace/UIUXHS170-static-starter-presentation-pressure-polish.md`.
 
 ## Advisory Disposition
 
@@ -179,6 +219,7 @@ No active handoff while idle.
 - Accepted and closed: M43 Presentation Head Handoff Standard.
 - Accepted advisory input: SecEngHS167 safety-floor review.
 - Accepted and closed: M44 Static Starter Safety Floor Corrections.
+- Accepted advisory input: HS168 Sense relay presentation pressure extract.
 - Deferred: React scaffold implementation.
 - Deferred: renderer extraction/export.
 - Deferred: SmokeFlash/material-harness split execution.
