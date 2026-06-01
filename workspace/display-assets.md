@@ -131,7 +131,15 @@ Lab should not answer:
 
 | Glass asset | Status | Page |
 | --- | --- | --- |
-| Instrument Readout Panel | accepted | `workspace/display-outputs/instrument-readout-panel.md` |
+| Instrument Readout Panel Glass | accepted | `workspace/display-outputs/instrument-readout-panel-glass.md` |
+
+## Selection Shelf
+
+For target-readable feature selection, use:
+
+```txt
+workspace/display-selection-shelf.md
+```
 
 ## Current Accepted Materials
 

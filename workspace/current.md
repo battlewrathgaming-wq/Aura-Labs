@@ -1,21 +1,21 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-06-01
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M48 - Display Selection Shelf
-Last completed milestone: M47 / HS174 - Presentation Glass Value Definition Acceptance
-Current executor: Dev
-Current focus: Create a target-readable selection menu from accepted Lab materials and glass assets.
-Expected output: `workspace/DevHS175-display-selection-shelf.md`
-Expected DevHS filename: `workspace/DevHS175-display-selection-shelf.md`
+Active milestone: None
+Last completed milestone: M48 / HS176 - Display Selection Shelf Acceptance
+Current executor: Human / Overseer
+Current focus: Await Human / Overseer direction after accepting the display selection shelf.
+Expected output: Human direction or next Overseer runway artifact.
+Expected DevHS filename: None
 
 ## Current State
 
-M48 is open as a narrow Dev documentation/inventory packet.
+M48 is accepted and closed.
 
 M47 is accepted and closed.
 
@@ -34,7 +34,7 @@ Library framing:
 - `workspace/display-outputs/` holds composed outputs and accepted glass assets.
 - `workspace/display-schema-ledger.md` remains the catalog/index, not a backlog.
 
-M48 should create a concise selection shelf so Sense can choose desired features without Lab/Sense cross-talk.
+M48 created a concise selection shelf so target projects can choose desired features without Lab owning their mapper, source meaning, runtime behavior, or adoption.
 
 M46, M45, M44, M43, and M42 remain accepted and closed.
 
@@ -63,6 +63,9 @@ Accepted output:
 - `workspace/display-assets.md`
 - `workspace/display-outputs/instrument-readout-panel-glass.md`
 - `workspace/OverseerHS175-m48-display-selection-shelf-runway.md`
+- `workspace/display-selection-shelf.md`
+- `workspace/DevHS175-display-selection-shelf.md`
+- `workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md`
 - `docs/roadmap/m48-display-selection-shelf.md`
 - `docs/roadmap/m47-presentation-glass-value-definition.md`
 - `docs/roadmap/m46-static-starter-absence-relay-polish.md`
@@ -108,33 +111,22 @@ Read first:
 
 ## Ordered Runway
 
-Dev should create:
+No active runway.
 
-```txt
-workspace/display-selection-shelf.md
-workspace/DevHS175-display-selection-shelf.md
-```
+Current resting handoff:
 
-Use `workspace/OverseerHS175-m48-display-selection-shelf-runway.md` as the detailed task outline.
-
-The selection shelf should let a target project answer:
-
-```txt
-Which features do you want from this selection?
-```
+- `workspace/display-selection-shelf.md`
 
 ## Acceptance Criteria
 
-- `workspace/display-selection-shelf.md` exists.
-- It lists accepted glass assets with clear feature offers.
-- It lists accepted material features with clear feature offers.
-- It separates accepted items from pending/parked items.
-- It points to canonical Lab pages/files.
-- It states target responsibilities.
-- It states what Lab must not imply.
-- It includes a Sense-friendly selection prompt.
-- It does not authorize adapters, package/export, target adoption, or Dev work in target projects.
-- Verification passes.
+The next packet should define its own acceptance criteria.
+
+Recommended next choices:
+
+1. Relay `workspace/display-selection-shelf.md` to Sense for feature selection.
+2. Run a small Human/Overseer visual read of the static starter pages if desired.
+3. Open package-shape specification only if a target names a concrete missing shape.
+4. Park Lab.
 
 ## Guardrails And Non-Goals
 
@@ -166,16 +158,11 @@ Stop and return to Human / Overseer direction if the task requires:
 
 ## Required Verification
 
-Run:
-
-- `npm.cmd run verify:all`
-- `npm.cmd run verify:terminology` from `F:\Projects\Docs\Aura-Project-Orchestration`
-
-No browser, screenshot, Electron, live, private, network, or target-project testing is required.
+No active verification required while idle.
 
 ## Handoff
 
-Expected Dev handoff: `workspace/DevHS175-display-selection-shelf.md`.
+Latest accepted handoff: `workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md`.
 
 ## Residual Risks
 

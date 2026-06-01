@@ -75,20 +75,20 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M45 | Static Starter Presentation Pressure Polish | Complete | Accepted UI/UX guidance translating Sense relay pressure into a bounded static starter polish packet. |
 | M46 | Static Starter Absence And Relay Polish | Complete | Accepted bounded static starter polish for absence, unavailable, source-owned labels, compact detail, and relay scaffolding clarity. |
 | M47 | Presentation Glass Value Definition | Complete | Accepted the reusable presentation value Lab has produced beyond the inherited/base Electron layer before packaging or target relay. |
-| M48 | Display Selection Shelf | Active | Creates a concise target-readable menu from accepted Lab materials and glass assets so targets can choose features. |
+| M48 | Display Selection Shelf | Complete | Accepted concise target-readable menu from accepted Lab materials and glass assets so targets can choose features. |
 
 ## Current Direction
 
-Active milestone: M48 - Display Selection Shelf
-Last completed milestone: M47 / HS174 - Presentation Glass Value Definition Acceptance
-Latest accepted review: workspace/OverseerHS174-m47-presentation-glass-value-definition-acceptance.md
+Active milestone: None
+Last completed milestone: M48 / HS176 - Display Selection Shelf Acceptance
+Latest accepted review: workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
 Current sequence: None
-Latest accepted handshake: workspace/OverseerHS174-m47-presentation-glass-value-definition-acceptance.md
-Latest active runway: workspace/OverseerHS175-m48-display-selection-shelf-runway.md
+Latest accepted handshake: workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md
+Latest active runway: None
 Active runway: workspace/current.md
-Housekeeping: active root refreshed on 2026-06-01 after opening M48; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root refreshed on 2026-06-01 after accepting M48; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -217,6 +217,9 @@ Active milestone handshakes:
 - `workspace/display-assets.md`
 - `workspace/display-outputs/instrument-readout-panel-glass.md`
 - `workspace/OverseerHS175-m48-display-selection-shelf-runway.md`
+- `workspace/display-selection-shelf.md`
+- `workspace/DevHS175-display-selection-shelf.md`
+- `workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md`
 
 Accepted authority records:
 
@@ -268,7 +271,7 @@ Completed milestone handshakes:
 
 ## Open Questions
 
-- After M48, should Lab relay the selection shelf to Sense, run visual review, open package-shape spec, or park?
+- Should Lab relay the selection shelf to Sense, run visual review, open package-shape spec, or park?
 - Should Lab open an optional React example scaffold, or keep the starter framework-neutral until a target asks for React-shaped support?
 - Should the static starter receive additional visual polish for spacing, detail density, and stronger Aura visual character after the absence/unavailable polish lands?
 - Is any deeper security review needed before target relay, or is the M43/HS167 floor enough?

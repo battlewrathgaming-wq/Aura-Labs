@@ -1,6 +1,6 @@
 # M48 - Display Selection Shelf
 
-Status: Active
+Status: Complete
 Owner: Aura Lab Overseer
 
 ## Purpose
@@ -76,3 +76,15 @@ No browser, screenshot, Electron, live, private, network, or target-project test
 - `workspace/display-outputs/instrument-readout-panel-glass.md`
 - `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
 - `docs/statements/presentation-head-handoff-standard.md`
+
+## Closure
+
+Accepted by `workspace/OverseerHS176-m48-display-selection-shelf-acceptance.md`.
+
+Accepted outputs:
+
+- `workspace/display-selection-shelf.md`
+- `workspace/display-assets.md`
+- `workspace/DevHS175-display-selection-shelf.md`
+
+M48 produced the target-readable selection shelf and preserved the target-owned mapper/adoption boundary.
