@@ -114,6 +114,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/adr/0003-shared-visual-thinking-surfaces.md`
 - `docs/adr/0004-automation-role-and-context-boundaries.md`
 - `docs/statements/post-bridge-presentation-boundary.md`
+- `docs/statements/lab-presentation-head-posture.md`
 - `docs/current-state/m00-boot-current-state.md`
 - `docs/current-state/m01-project-state-briefing-current-state.md`
 - `docs/current-state/m04-visual-prototype-current-state.md`
