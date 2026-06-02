@@ -1,19 +1,21 @@
 # Current Workspace Packet
 
-Status: Idle
-Updated: 2026-06-01
+Status: Active
+Updated: 2026-06-02
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M50 - Glass Primitive React Readiness Map
 Last completed milestone: M49 / HS178 - Sense Trial Glass Package Acceptance
-Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after accepting the Sense trial glass package.
-Expected output: Human direction or next Overseer runway artifact.
+Current executor: UI/UX advisor or presentation specialist
+Current focus: Scope how accepted Lab glass primitives should become a future warm-start presentation shelf without implementing code or hardening target project panes.
+Expected output: `workspace/UIUXHS180-glass-primitive-react-readiness-map.md`
 Expected DevHS filename: None
 
 ## Current State
+
+M50 is active as an advisory runway.
 
 M49 is accepted and closed.
 
@@ -138,22 +140,79 @@ Read first:
 
 ## Ordered Runway
 
-No active runway.
+Read:
 
-Current resting handoff:
+- `AGENTS.md`
+- `HUMAN.md`
+- `workspace/current.md`
+- `workspace/overview.md`
+- `workspace/critical/README.md`
+- `workspace/critical/critical-terms.md`
+- `workspace/critical/critical-assets.md`
+- `workspace/glass-inventory-spine.md`
+- `workspace/display-assets.md`
+- `workspace/display-selection-shelf.md`
+- `workspace/display-materials/README.md`
+- `workspace/display-outputs/README.md`
+- `workspace/display-outputs/instrument-readout-panel-glass.md`
+- `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
+- `workspace/OverseerHS180-m50-glass-primitive-react-readiness-map-runway.md`
+- `docs/roadmap/m50-glass-primitive-react-readiness-map.md`
+- `docs/statements/presentation-head-handoff-standard.md`
+- `docs/adr/0002-target-owned-presentation-adapters.md`
+- `portable-presentation-starter/README.md`
+- `portable-presentation-starter/packages/sense-trial-glass/README.md`
 
-- `portable-presentation-starter/packages/sense-trial-glass/`
+Task:
+
+Create:
+
+```txt
+workspace/UIUXHS180-glass-primitive-react-readiness-map.md
+```
+
+Purpose:
+
+Map the accepted glass primitive spine into a future-ready shelf plan so Lab can later provide launch materials without owning target panes, source meaning, adapters, runtime behavior, or adoption.
+
+The map should help answer:
+
+- which primitives should be CSS/tokens
+- which primitives might later merit thin React wrappers
+- which compositions should stay examples only
+- what target projects must compose and authorize themselves
+- what the smallest useful future primitive starter should contain
+
+Required output:
+
+- files reviewed
+- current state understanding
+- primitive readiness table
+- React warm-start boundary
+- props/input philosophy
+- CSS/token strategy
+- example composition policy
+- Atlas/Sense use-context differences, context-only
+- first starter contents recommendation
+- exclusions
+- risks
+- suggested first Dev packet if accepted
+- acceptance criteria for a later primitive starter
+- parked items
 
 ## Acceptance Criteria
 
-The next packet should define its own acceptance criteria.
+M50 is ready for Overseer review when:
 
-Recommended next choices:
-
-1. Relay `portable-presentation-starter/packages/sense-trial-glass/` to Sense as the accepted local trial bundle.
-2. Let Sense inspect/copy/adapt/park the package in-house.
-3. Open a package/export specification only if Sense names a concrete missing package shape.
-4. Park Lab.
+- `workspace/UIUXHS180-glass-primitive-react-readiness-map.md` exists.
+- Every primitive in `workspace/glass-inventory-spine.md` is mapped.
+- Each primitive is classified as CSS/token-only, React-wrapper candidate, example-only, or project-composed.
+- The artifact names what Lab can provide without owning source meaning.
+- The artifact names what targets must compose or authorize themselves.
+- The artifact identifies the smallest useful later starter set.
+- React is framed as an optional warm-start shape, not a canonical target contract.
+- Atlas/Sense references remain context-only and do not define product surfaces.
+- The output includes a suggested first Dev packet only as a recommendation, not authorization.
 
 ## Guardrails And Non-Goals
 
@@ -168,6 +227,9 @@ Recommended next choices:
 - Do not invent new material/glass capabilities from the package alone.
 - Do not turn Lab example states into target state labels.
 - Do not claim target adoption or target fitness.
+- Do not implement React components in this packet.
+- Do not make React canonical for all Lab glass.
+- Do not define final Atlas/Sense panes, modules, or layouts.
 
 ## Stop Conditions
 
@@ -185,11 +247,16 @@ Stop and return to Human / Overseer direction if the task requires:
 
 ## Required Verification
 
-No active verification required while idle.
+After state updates:
+
+- `npm.cmd run verify:all`
+- `npm.cmd run verify:terminology` from `F:\Projects\Docs\Aura-Project-Orchestration`
 
 ## Handoff
 
 Latest accepted handoff: `workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md`.
+
+Active runway: `workspace/OverseerHS180-m50-glass-primitive-react-readiness-map-runway.md`.
 
 ## Residual Risks
 
