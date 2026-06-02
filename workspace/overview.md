@@ -78,18 +78,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M48 | Display Selection Shelf | Complete | Accepted concise target-readable menu from accepted Lab materials and glass assets so targets can choose features. |
 | M49 | Sense Trial Glass Package | Complete | Accepted local static package of selected Lab glass/materials for a Sense trial without owning Sense mapper, source meaning, runtime behavior, or adoption. |
 | M50 | Glass Primitive React Readiness Map | Complete | Accepted advisory map for turning the accepted glass primitive spine into future warm-start presentation shelf guidance without implementing React or target panes. |
-| M51 | Glass Primitive CSS Starter | Active | Bounded Dev runway to create the first CSS/token primitive starter before any React wrappers. |
+| M51 | Glass Primitive CSS Starter | Complete | Accepted the first CSS/token primitive starter before any React wrappers. |
 
 ## Current Direction
 
-Active milestone: M51 - Glass Primitive CSS Starter
-Last completed milestone: M50 / HS181 - Glass Primitive React Readiness Map Acceptance
-Latest accepted review: workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md
+Active milestone: None
+Last completed milestone: M51 / HS183 - Glass Primitive CSS Starter Acceptance
+Latest accepted review: workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
-Current sequence: HS182
-Latest accepted handshake: workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md
-Latest active runway: workspace/OverseerHS182-m51-glass-primitive-css-starter-runway.md
+Current sequence: None
+Latest accepted handshake: workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md
+Latest active runway: None
 Active runway: workspace/current.md
 Housekeeping: active root refreshed on 2026-06-01 after accepting M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
@@ -235,6 +235,8 @@ Active milestone handshakes:
 - `workspace/UIUXHS180-glass-primitive-react-readiness-map.md`
 - `workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md`
 - `workspace/OverseerHS182-m51-glass-primitive-css-starter-runway.md`
+- `workspace/DevHS182-glass-primitive-css-starter.md`
+- `workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md`
 
 Accepted authority records:
 

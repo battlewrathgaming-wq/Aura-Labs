@@ -1,6 +1,6 @@
 # M51 - Glass Primitive CSS Starter
 
-Status: Active
+Status: Complete
 Owner: Overseer
 
 ## Purpose
@@ -116,3 +116,17 @@ npm.cmd run verify:terminology
 ```
 
 No Electron smoke is required unless Dev changes visible runtime renderer behavior. Primitive example HTML can remain static/local.
+
+## Acceptance
+
+Accepted by:
+
+```txt
+workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md
+```
+
+Accepted output:
+
+```txt
+portable-presentation-starter/primitives/
+```

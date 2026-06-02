@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Primitive Row Drawer Example</title>
+    <link rel="stylesheet" href="../glass-primitives.css">
+  </head>
+  <body class="glass-example-page">
+    <main class="glass-example-shell">
+      <section class="glass-segment">
+        <p class="glass-label">Display example only</p>
+        <h1 class="glass-title">Primitive row and drawer assembly</h1>
+        <p class="glass-copy">
+          This row demonstrates structure only. Sorting, actions, source meaning, mapper behavior,
+          runtime behavior, and adoption remain target-owned.
+        </p>
+      </section>
+
+      <article class="glass-material glass-boundary glass-state-unavailable glass-size-wide">
+        <div class="glass-row">
+          <div class="glass-marker glass-marker-unavailable" aria-label="Display marker UNAVAILABLE">
+            <span class="glass-marker-dot">U</span>
+            <span>UNAVAILABLE</span>
+          </div>
+          <div>
+            <p class="glass-label">Row</p>
+            <h2 class="glass-title">Neutral row item</h2>
+            <p class="glass-copy">Reason: current display value is unavailable for inspection.</p>
+          </div>
+          <span class="glass-source-owned-note">Owner/layer qualified</span>
+        </div>
+
+        <details class="glass-drawer glass-seam">
+          <summary>Readout Detail</summary>
+          <div class="glass-drawer-body">
+            <p class="glass-copy">Basis: prepared display example input.</p>
+            <p class="glass-copy">Known fields: row label, display marker, reason, detail rows.</p>
+            <p class="glass-copy">Boundary: UNAVAILABLE is a Lab display label here, not a target state enum.</p>
+          </div>
+        </details>
+      </article>
+    </main>
+  </body>
+</html>

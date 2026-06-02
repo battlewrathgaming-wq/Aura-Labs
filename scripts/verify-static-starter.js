@@ -6,6 +6,8 @@ const root = projectRoot();
 const starterRoot = path.join(root, 'portable-presentation-starter');
 const staticRoot = path.join(starterRoot, 'examples', 'static');
 const sensePackageRoot = path.join(starterRoot, 'packages', 'sense-trial-glass');
+const primitivesRoot = path.join(starterRoot, 'primitives');
+const primitivesExamplesRoot = path.join(primitivesRoot, 'examples');
 
 const requiredFiles = [
   path.join(starterRoot, 'README.md'),
@@ -20,7 +22,12 @@ const requiredFiles = [
   path.join(sensePackageRoot, 'inspect-head.html'),
   path.join(sensePackageRoot, 'instrument-readout-panel.css'),
   path.join(sensePackageRoot, 'instrument-readout-panel.js'),
-  path.join(sensePackageRoot, 'example-readouts.json')
+  path.join(sensePackageRoot, 'example-readouts.json'),
+  path.join(primitivesRoot, 'README.md'),
+  path.join(primitivesRoot, 'glass-tokens.css'),
+  path.join(primitivesRoot, 'glass-primitives.css'),
+  path.join(primitivesExamplesRoot, 'primitive-readout.html'),
+  path.join(primitivesExamplesRoot, 'primitive-row-drawer.html')
 ];
 
 const excludedPatterns = [
@@ -73,6 +80,11 @@ function main() {
   const senseCss = read(path.join(sensePackageRoot, 'instrument-readout-panel.css'));
   const senseJs = read(path.join(sensePackageRoot, 'instrument-readout-panel.js'));
   const senseJsonText = read(path.join(sensePackageRoot, 'example-readouts.json'));
+  const primitiveReadme = read(path.join(primitivesRoot, 'README.md'));
+  const primitiveTokens = read(path.join(primitivesRoot, 'glass-tokens.css'));
+  const primitiveCss = read(path.join(primitivesRoot, 'glass-primitives.css'));
+  const primitiveReadoutHtml = read(path.join(primitivesExamplesRoot, 'primitive-readout.html'));
+  const primitiveRowHtml = read(path.join(primitivesExamplesRoot, 'primitive-row-drawer.html'));
   const data = JSON.parse(jsonText);
 
   requireIncludes(readme, [
@@ -92,6 +104,7 @@ function main() {
   requireIncludes(css, ['overflow-wrap: anywhere', '@media (max-width: 640px)', 'prefers-reduced-motion', 'state-no-data', 'state-unavailable'], 'CSS', failures);
   requireIncludes(js, ['Readout Detail', 'aria-expanded', 'example-readouts.json', 'sourceOwned', 'coverageInDetailOnly', 'source-owned-inline'], 'JS', failures);
   verifySensePackage({ senseReadme, senseManifest, senseHtml, senseInspectHtml, senseCss, senseJs, senseJsonText }, failures);
+  verifyPrimitiveStarter({ primitiveReadme, primitiveTokens, primitiveCss, primitiveReadoutHtml, primitiveRowHtml }, failures);
 
   if (!Array.isArray(data.readouts) || data.readouts.length < requiredLabels.length) {
     failures.push('example-readouts.json: expected multiple display example states');
@@ -104,7 +117,22 @@ function main() {
 
   verifyPolishExamples(data, failures);
 
-  const implementationText = [html, inspectHtml, css, js, jsonText, senseHtml, senseInspectHtml, senseCss, senseJs, senseJsonText].join('\n');
+  const implementationText = [
+    html,
+    inspectHtml,
+    css,
+    js,
+    jsonText,
+    senseHtml,
+    senseInspectHtml,
+    senseCss,
+    senseJs,
+    senseJsonText,
+    primitiveTokens,
+    primitiveCss,
+    primitiveReadoutHtml,
+    primitiveRowHtml
+  ].join('\n');
   for (const [label, pattern] of excludedPatterns) {
     if (pattern.test(implementationText)) {
       failures.push(`Starter static reference appears to include excluded ${label}`);
@@ -224,6 +252,77 @@ function verifySensePackage(packageFiles, failures) {
   }
   if (!senseJsonText.includes('source-no-observation') || !senseJsonText.includes('source-degraded')) {
     failures.push('Sense package example data: expected selected source-owned trial examples');
+  }
+}
+
+function verifyPrimitiveStarter(primitiveFiles, failures) {
+  const { primitiveReadme, primitiveTokens, primitiveCss, primitiveReadoutHtml, primitiveRowHtml } = primitiveFiles;
+
+  requireIncludes(primitiveReadme, [
+    'workspace/glass-inventory-spine.md',
+    'CSS/tokens first; optional thin React wrappers later.',
+    'Lab provides composable visual primitives.',
+    'Projects assemble and authorize product surfaces.',
+    'display material',
+    'display boundary',
+    'display seam',
+    'display segment',
+    'display readout',
+    'display marker',
+    'display drawer',
+    'display row',
+    'display sizing',
+    'safe display motion / reduced-motion',
+    'These are Bridge -> Interface / presentation vocabulary only.',
+    'They do not define target source meaning, target state enums, adapter constants, runtime behavior, product surfaces, or adoption requirements.',
+    'Target projects own',
+    'State labels such as `CURRENT`, `PARTIAL`, and `UNAVAILABLE` are Lab display labels only.'
+  ], 'primitive README', failures);
+
+  requireIncludes(primitiveTokens, [
+    '--glass-surface',
+    '--glass-ink',
+    '--glass-line',
+    '--glass-current',
+    '--glass-no-data',
+    '--glass-space-',
+    '--glass-motion-duration',
+    'prefers-reduced-motion'
+  ], 'primitive tokens', failures);
+
+  requireIncludes(primitiveCss, [
+    '.glass-material',
+    '.glass-boundary',
+    '.glass-seam',
+    '.glass-segment',
+    '.glass-readout',
+    '.glass-marker',
+    '.glass-drawer',
+    '.glass-row',
+    '.glass-size-compact',
+    '.glass-motion-soft',
+    'overflow-wrap: anywhere',
+    'prefers-reduced-motion'
+  ], 'primitive CSS', failures);
+
+  requireIncludes(primitiveReadoutHtml, [
+    'Display example only',
+    'not target enums or source states',
+    'Source-owned placeholder - example owner / display layer',
+    'Readout Detail',
+    'primitive-readout-token'
+  ], 'primitive readout example', failures);
+
+  requireIncludes(primitiveRowHtml, [
+    'Display example only',
+    'UNAVAILABLE is a Lab display label here, not a target state enum',
+    'Readout Detail',
+    'Owner/layer qualified'
+  ], 'primitive row example', failures);
+
+  const primitiveImplementation = [primitiveTokens, primitiveCss, primitiveReadoutHtml, primitiveRowHtml].join('\n');
+  if (/\bReact\b|jsx|tsx|react-dom/i.test(primitiveImplementation)) {
+    failures.push('primitive starter implementation must not include React or JSX');
   }
 }
 

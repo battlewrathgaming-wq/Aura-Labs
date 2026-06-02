@@ -89,6 +89,16 @@ portable-presentation-starter/packages/sense-trial-glass/
 
 This package is display-only and local. It does not create a Sense mapper, Sense adoption, package manager publication, bridge/runtime contract, or target product claim.
 
+## Primitive Starter
+
+CSS/token primitive shelf:
+
+```txt
+portable-presentation-starter/primitives/
+```
+
+This shelf provides meaning-light CSS primitives before any framework wrappers. It does not create React components, target panes, target adapters, or bridge/runtime contracts.
+
 ## Source References
 
 - `workspace/display-outputs/instrument-readout-panel.md`

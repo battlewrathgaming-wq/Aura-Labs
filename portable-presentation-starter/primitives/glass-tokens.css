@@ -1,0 +1,61 @@
+:root {
+  color-scheme: light;
+
+  --glass-surface: #ffffff;
+  --glass-surface-muted: #f6f8f5;
+  --glass-surface-inset: #eef3ef;
+  --glass-surface-raised: #fbfcfa;
+  --glass-ink: #17201d;
+  --glass-muted: #60706a;
+  --glass-dim: #83918c;
+  --glass-line: #c9d5ce;
+  --glass-soft-line: #e4eae5;
+  --glass-edge: #8aa097;
+  --glass-shadow: 0 14px 34px rgba(28, 39, 34, 0.08);
+
+  --glass-current: #247060;
+  --glass-updating: #486fa8;
+  --glass-aged: #8a6a22;
+  --glass-partial: #8a5f2e;
+  --glass-unavailable: #5e6570;
+  --glass-fallback: #6e5fa8;
+  --glass-no-data: #6f7472;
+  --glass-source-owned: #75612a;
+  --glass-warning: #9a4d24;
+  --glass-gap: #7b5b20;
+
+  --glass-space-1: 4px;
+  --glass-space-2: 8px;
+  --glass-space-3: 12px;
+  --glass-space-4: 16px;
+  --glass-space-5: 20px;
+  --glass-space-6: 24px;
+
+  --glass-radius-small: 4px;
+  --glass-radius-panel: 8px;
+  --glass-radius-pill: 999px;
+
+  --glass-font: "Segoe UI", Arial, sans-serif;
+  --glass-font-label: 0.78rem;
+  --glass-font-body: 0.95rem;
+  --glass-font-value: 1.55rem;
+  --glass-line-height: 1.45;
+
+  --glass-density-compact: 8px;
+  --glass-density-standard: 12px;
+  --glass-density-expanded: 18px;
+  --glass-min-readable: 280px;
+  --glass-measure-compact: 34rem;
+  --glass-measure-wide: 60rem;
+
+  --glass-motion-duration: 160ms;
+  --glass-motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --glass-motion-duration: 0.001ms;
+    --glass-motion-ease: linear;
+  }
+}
+
