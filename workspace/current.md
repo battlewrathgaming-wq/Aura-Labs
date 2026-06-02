@@ -43,6 +43,7 @@ Library framing:
 - `workspace/display-materials/` holds reusable ingredients.
 - `workspace/display-outputs/` holds composed outputs and accepted glass assets.
 - `workspace/display-selection-shelf.md` is the target-readable selection menu.
+- `workspace/glass-inventory-spine.md` is the accepted advisory primitive framework for future glass inventory reasoning.
 - `workspace/display-schema-ledger.md` remains the catalog/index, not a backlog.
 
 M48 created a concise selection shelf so target projects can choose desired features without Lab owning their mapper, source meaning, runtime behavior, or adoption.
@@ -81,6 +82,8 @@ Accepted output:
 - `workspace/OverseerHS177-m49-sense-trial-glass-package-runway.md`
 - `workspace/DevHS177-sense-trial-glass-package.md`
 - `workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md`
+- `workspace/glass-inventory-spine.md`
+- `workspace/OverseerHS179-glass-inventory-spine-disposition.md`
 - `docs/roadmap/m49-sense-trial-glass-package.md`
 - `docs/roadmap/m48-display-selection-shelf.md`
 - `docs/roadmap/m47-presentation-glass-value-definition.md`
@@ -99,6 +102,7 @@ Accepted source of intent:
 - Human direction on 2026-06-01: Sense selected the goodies; Lab should package the glass for a local Sense trial.
 - `portable-presentation-starter/packages/sense-trial-glass/`
 - `workspace/display-selection-shelf.md`
+- `workspace/glass-inventory-spine.md`
 - `workspace/display-assets.md`
 - `workspace/display-outputs/instrument-readout-panel-glass.md`
 - `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
@@ -117,6 +121,7 @@ Read first:
 - `workspace/critical/critical-terms.md`
 - `workspace/critical/critical-assets.md`
 - `workspace/display-selection-shelf.md`
+- `workspace/glass-inventory-spine.md`
 - `workspace/display-assets.md`
 - `workspace/display-materials/README.md`
 - `workspace/display-outputs/README.md`

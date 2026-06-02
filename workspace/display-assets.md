@@ -70,6 +70,18 @@ Glass pages should explain:
 - verification minimum
 - risks / parked notes
 
+### Glass Inventory Spine
+
+File:
+
+```txt
+workspace/glass-inventory-spine.md
+```
+
+The spine is an advisory primitive framework for future glass inventory work. It names the meaning-light building blocks Lab can provide, such as material, boundary, seam, segment, readout, marker, row, drawer, grid/topology, motion/attention, and sizing.
+
+It is not an accepted component set, React pane contract, target adapter, product UI, or Dev runway. Use it to reason from the same primitive vocabulary before a future packet decides which primitives to define, prototype, or offer.
+
 ## Catalog
 
 Use:

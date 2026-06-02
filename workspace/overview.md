@@ -225,6 +225,8 @@ Active milestone handshakes:
 - `workspace/OverseerHS177-m49-sense-trial-glass-package-runway.md`
 - `workspace/DevHS177-sense-trial-glass-package.md`
 - `workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md`
+- `workspace/glass-inventory-spine.md`
+- `workspace/OverseerHS179-glass-inventory-spine-disposition.md`
 
 Accepted authority records:
 
