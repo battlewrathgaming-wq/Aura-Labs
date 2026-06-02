@@ -77,18 +77,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M47 | Presentation Glass Value Definition | Complete | Accepted the reusable presentation value Lab has produced beyond the inherited/base Electron layer before packaging or target relay. |
 | M48 | Display Selection Shelf | Complete | Accepted concise target-readable menu from accepted Lab materials and glass assets so targets can choose features. |
 | M49 | Sense Trial Glass Package | Complete | Accepted local static package of selected Lab glass/materials for a Sense trial without owning Sense mapper, source meaning, runtime behavior, or adoption. |
-| M50 | Glass Primitive React Readiness Map | Active | Advisory map for turning the accepted glass primitive spine into future warm-start presentation shelf guidance without implementing React or target panes. |
+| M50 | Glass Primitive React Readiness Map | Complete | Accepted advisory map for turning the accepted glass primitive spine into future warm-start presentation shelf guidance without implementing React or target panes. |
 
 ## Current Direction
 
-Active milestone: M50 - Glass Primitive React Readiness Map
-Last completed milestone: M49 / HS178 - Sense Trial Glass Package Acceptance
-Latest accepted review: workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md
+Active milestone: None
+Last completed milestone: M50 / HS181 - Glass Primitive React Readiness Map Acceptance
+Latest accepted review: workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
-Current sequence: HS180
-Latest accepted handshake: workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md
-Latest active runway: workspace/OverseerHS180-m50-glass-primitive-react-readiness-map-runway.md
+Current sequence: None
+Latest accepted handshake: workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md
+Latest active runway: None
 Active runway: workspace/current.md
 Housekeeping: active root refreshed on 2026-06-01 after accepting M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
@@ -230,6 +230,8 @@ Active milestone handshakes:
 - `workspace/glass-inventory-spine.md`
 - `workspace/OverseerHS179-glass-inventory-spine-disposition.md`
 - `workspace/OverseerHS180-m50-glass-primitive-react-readiness-map-runway.md`
+- `workspace/UIUXHS180-glass-primitive-react-readiness-map.md`
+- `workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md`
 
 Accepted authority records:
 

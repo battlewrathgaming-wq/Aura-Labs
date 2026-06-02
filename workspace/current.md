@@ -1,21 +1,21 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-06-02
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M50 - Glass Primitive React Readiness Map
-Last completed milestone: M49 / HS178 - Sense Trial Glass Package Acceptance
-Current executor: UI/UX advisor or presentation specialist
-Current focus: Scope how accepted Lab glass primitives should become a future warm-start presentation shelf without implementing code or hardening target project panes.
-Expected output: `workspace/UIUXHS180-glass-primitive-react-readiness-map.md`
+Active milestone: None
+Last completed milestone: M50 / HS181 - Glass Primitive React Readiness Map Acceptance
+Current executor: Human / Overseer
+Current focus: Await Human / Overseer direction after accepting the glass primitive React readiness map.
+Expected output: Human direction or next Overseer runway artifact.
 Expected DevHS filename: None
 
 ## Current State
 
-M50 is active as an advisory runway.
+M50 is accepted and closed.
 
 M49 is accepted and closed.
 
@@ -30,6 +30,8 @@ Targets translate themselves; Lab makes the window worth looking through.
 Lab's current presentation glass is defined as a display-only, framework-neutral Instrument Readout Panel head that renders prepared readout input into a calm, bounded surface with basis, freshness, availability, gaps, warnings, detail reveal, source-owned label qualification, absence/unavailable distinction, and narrow/text-containment behavior.
 
 M49 packaged the selected goodies as a small local static bundle for Sense trial.
+
+M50 accepted a readiness map for turning the glass inventory spine into a future warm-start presentation shelf. The accepted direction is CSS/tokens first, optional thin React wrappers later, and target projects remain responsible for composing and authorizing product surfaces.
 
 Resting Sense relay package:
 
@@ -51,6 +53,7 @@ Library framing:
 M48 created a concise selection shelf so target projects can choose desired features without Lab owning their mapper, source meaning, runtime behavior, or adoption.
 
 M49, M48, M47, M46, M45, M44, M43, and M42 remain accepted and closed.
+M50 is also accepted and closed.
 
 Accepted output:
 
@@ -86,6 +89,10 @@ Accepted output:
 - `workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md`
 - `workspace/glass-inventory-spine.md`
 - `workspace/OverseerHS179-glass-inventory-spine-disposition.md`
+- `workspace/UIUXHS180-glass-primitive-react-readiness-map.md`
+- `workspace/OverseerHS180-m50-glass-primitive-react-readiness-map-runway.md`
+- `workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md`
+- `docs/roadmap/m50-glass-primitive-react-readiness-map.md`
 - `docs/roadmap/m49-sense-trial-glass-package.md`
 - `docs/roadmap/m48-display-selection-shelf.md`
 - `docs/roadmap/m47-presentation-glass-value-definition.md`
@@ -105,6 +112,8 @@ Accepted source of intent:
 - `portable-presentation-starter/packages/sense-trial-glass/`
 - `workspace/display-selection-shelf.md`
 - `workspace/glass-inventory-spine.md`
+- `workspace/UIUXHS180-glass-primitive-react-readiness-map.md`
+- `workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md`
 - `workspace/display-assets.md`
 - `workspace/display-outputs/instrument-readout-panel-glass.md`
 - `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
@@ -140,79 +149,18 @@ Read first:
 
 ## Ordered Runway
 
-Read:
-
-- `AGENTS.md`
-- `HUMAN.md`
-- `workspace/current.md`
-- `workspace/overview.md`
-- `workspace/critical/README.md`
-- `workspace/critical/critical-terms.md`
-- `workspace/critical/critical-assets.md`
-- `workspace/glass-inventory-spine.md`
-- `workspace/display-assets.md`
-- `workspace/display-selection-shelf.md`
-- `workspace/display-materials/README.md`
-- `workspace/display-outputs/README.md`
-- `workspace/display-outputs/instrument-readout-panel-glass.md`
-- `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
-- `workspace/OverseerHS180-m50-glass-primitive-react-readiness-map-runway.md`
-- `docs/roadmap/m50-glass-primitive-react-readiness-map.md`
-- `docs/statements/presentation-head-handoff-standard.md`
-- `docs/adr/0002-target-owned-presentation-adapters.md`
-- `portable-presentation-starter/README.md`
-- `portable-presentation-starter/packages/sense-trial-glass/README.md`
-
-Task:
-
-Create:
-
-```txt
-workspace/UIUXHS180-glass-primitive-react-readiness-map.md
-```
-
-Purpose:
-
-Map the accepted glass primitive spine into a future-ready shelf plan so Lab can later provide launch materials without owning target panes, source meaning, adapters, runtime behavior, or adoption.
-
-The map should help answer:
-
-- which primitives should be CSS/tokens
-- which primitives might later merit thin React wrappers
-- which compositions should stay examples only
-- what target projects must compose and authorize themselves
-- what the smallest useful future primitive starter should contain
-
-Required output:
-
-- files reviewed
-- current state understanding
-- primitive readiness table
-- React warm-start boundary
-- props/input philosophy
-- CSS/token strategy
-- example composition policy
-- Atlas/Sense use-context differences, context-only
-- first starter contents recommendation
-- exclusions
-- risks
-- suggested first Dev packet if accepted
-- acceptance criteria for a later primitive starter
-- parked items
+No active runway.
 
 ## Acceptance Criteria
 
-M50 is ready for Overseer review when:
+The next packet should define its own acceptance criteria.
 
-- `workspace/UIUXHS180-glass-primitive-react-readiness-map.md` exists.
-- Every primitive in `workspace/glass-inventory-spine.md` is mapped.
-- Each primitive is classified as CSS/token-only, React-wrapper candidate, example-only, or project-composed.
-- The artifact names what Lab can provide without owning source meaning.
-- The artifact names what targets must compose or authorize themselves.
-- The artifact identifies the smallest useful later starter set.
-- React is framed as an optional warm-start shape, not a canonical target contract.
-- Atlas/Sense references remain context-only and do not define product surfaces.
-- The output includes a suggested first Dev packet only as a recommendation, not authorization.
+Recommended next choices:
+
+1. Open M51 - Glass Primitive CSS Starter.
+2. Park Lab while Sense/Atlas continue local adapter or surface work.
+3. Ask UI/UX for a visual polish pass on the primitive starter before Dev.
+4. Open React wrapper planning only after CSS/tokens are accepted.
 
 ## Guardrails And Non-Goals
 
@@ -230,6 +178,7 @@ M50 is ready for Overseer review when:
 - Do not implement React components in this packet.
 - Do not make React canonical for all Lab glass.
 - Do not define final Atlas/Sense panes, modules, or layouts.
+- Do not open React wrappers before a CSS/token primitive base is accepted unless Human explicitly chooses that lane.
 
 ## Stop Conditions
 
@@ -247,19 +196,17 @@ Stop and return to Human / Overseer direction if the task requires:
 
 ## Required Verification
 
-After state updates:
-
-- `npm.cmd run verify:all`
-- `npm.cmd run verify:terminology` from `F:\Projects\Docs\Aura-Project-Orchestration`
+No active verification required while idle.
 
 ## Handoff
 
-Latest accepted handoff: `workspace/OverseerHS178-m49-sense-trial-glass-package-acceptance.md`.
+Latest accepted handoff: `workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md`.
 
-Active runway: `workspace/OverseerHS180-m50-glass-primitive-react-readiness-map-runway.md`.
+Active runway: None.
 
 ## Residual Risks
 
 - No browser/screenshot visual proof was claimed for M49.
 - Sense must still perform Sense-local mapping, review, and adoption decisions.
 - If Sense needs reusable package mechanics, open a separate package/export specification instead of expanding the trial bundle.
+- M51 should stay CSS/token-first unless Human explicitly chooses React implementation.

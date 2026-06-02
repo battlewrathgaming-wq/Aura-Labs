@@ -1,6 +1,6 @@
 # M50 - Glass Primitive React Readiness Map
 
-Status: Active
+Status: Complete
 Owner: Overseer
 
 ## Purpose
@@ -117,3 +117,17 @@ npm.cmd run verify:terminology
 ```
 
 No Electron smoke or browser screenshot is required unless implementation starts, which this milestone does not authorize.
+
+## Acceptance
+
+Accepted by:
+
+```txt
+workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md
+```
+
+Accepted recommendation:
+
+```txt
+CSS/tokens first; optional thin React wrappers later.
+```
