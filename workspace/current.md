@@ -1,19 +1,21 @@
 # Current Workspace Packet
 
-Status: Idle
+Status: Active
 Updated: 2026-06-02
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M51 - Glass Primitive CSS Starter
 Last completed milestone: M50 / HS181 - Glass Primitive React Readiness Map Acceptance
-Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after accepting the glass primitive React readiness map.
-Expected output: Human direction or next Overseer runway artifact.
-Expected DevHS filename: None
+Current executor: Dev
+Current focus: Build a small Lab-local CSS/token primitive starter from the accepted glass inventory spine without creating React components or target panes.
+Expected output: `workspace/DevHS182-glass-primitive-css-starter.md`
+Expected DevHS filename: `workspace/DevHS182-glass-primitive-css-starter.md`
 
 ## Current State
+
+M51 is active as a bounded Dev runway.
 
 M50 is accepted and closed.
 
@@ -32,6 +34,8 @@ Lab's current presentation glass is defined as a display-only, framework-neutral
 M49 packaged the selected goodies as a small local static bundle for Sense trial.
 
 M50 accepted a readiness map for turning the glass inventory spine into a future warm-start presentation shelf. The accepted direction is CSS/tokens first, optional thin React wrappers later, and target projects remain responsible for composing and authorizing product surfaces.
+
+M51 should implement the first CSS/token primitive shelf under `portable-presentation-starter/primitives/`.
 
 Resting Sense relay package:
 
@@ -92,6 +96,8 @@ Accepted output:
 - `workspace/UIUXHS180-glass-primitive-react-readiness-map.md`
 - `workspace/OverseerHS180-m50-glass-primitive-react-readiness-map-runway.md`
 - `workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md`
+- `workspace/OverseerHS182-m51-glass-primitive-css-starter-runway.md`
+- `docs/roadmap/m51-glass-primitive-css-starter.md`
 - `docs/roadmap/m50-glass-primitive-react-readiness-map.md`
 - `docs/roadmap/m49-sense-trial-glass-package.md`
 - `docs/roadmap/m48-display-selection-shelf.md`
@@ -114,6 +120,7 @@ Accepted source of intent:
 - `workspace/glass-inventory-spine.md`
 - `workspace/UIUXHS180-glass-primitive-react-readiness-map.md`
 - `workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md`
+- `workspace/OverseerHS182-m51-glass-primitive-css-starter-runway.md`
 - `workspace/display-assets.md`
 - `workspace/display-outputs/instrument-readout-panel-glass.md`
 - `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
@@ -149,18 +156,79 @@ Read first:
 
 ## Ordered Runway
 
-No active runway.
+Read first:
+
+- `AGENTS.md`
+- `HUMAN.md`
+- `workspace/current.md`
+- `workspace/overview.md`
+- `workspace/glass-inventory-spine.md`
+- `workspace/UIUXHS180-glass-primitive-react-readiness-map.md`
+- `workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md`
+- `workspace/OverseerHS182-m51-glass-primitive-css-starter-runway.md`
+- `workspace/display-assets.md`
+- `workspace/display-selection-shelf.md`
+- `workspace/display-outputs/instrument-readout-panel-glass.md`
+- `docs/roadmap/m51-glass-primitive-css-starter.md`
+- `docs/statements/presentation-head-handoff-standard.md`
+- `docs/adr/0002-target-owned-presentation-adapters.md`
+- `portable-presentation-starter/README.md`
+- `scripts/verify-static-starter.js`
+- `package.json`
+
+Task:
+
+Create a Lab-local primitive starter under:
+
+```txt
+portable-presentation-starter/primitives/
+```
+
+Suggested files:
+
+- `README.md`
+- `glass-tokens.css`
+- `glass-primitives.css`
+- `examples/primitive-readout.html`
+- optional `examples/primitive-row-drawer.html`
+
+Update verification so the primitive starter is checked as part of the normal verification path.
+
+Required primitive support:
+
+- material
+- boundary
+- seam
+- segment
+- readout
+- marker
+- drawer
+- sizing
+- safe motion / reduced-motion
+
+Expected handoff:
+
+```txt
+workspace/DevHS182-glass-primitive-css-starter.md
+```
 
 ## Acceptance Criteria
 
-The next packet should define its own acceptance criteria.
+M51 is ready for Overseer review when:
 
-Recommended next choices:
-
-1. Open M51 - Glass Primitive CSS Starter.
-2. Park Lab while Sense/Atlas continue local adapter or surface work.
-3. Ask UI/UX for a visual polish pass on the primitive starter before Dev.
-4. Open React wrapper planning only after CSS/tokens are accepted.
+- `portable-presentation-starter/primitives/` exists.
+- The primitive starter maps back to `workspace/glass-inventory-spine.md`.
+- CSS/tokens exist before any framework wrappers.
+- The starter includes material, boundary, seam, segment, readout, marker, drawer, sizing, and safe-motion primitives.
+- Examples are neutral and clearly non-contractual.
+- Source-owned labels are qualified if shown.
+- State labels are display labels only, not target enums.
+- Text containment and narrow behavior are represented.
+- Reduced-motion behavior exists for any motion class.
+- Target projects are told they own mapper, meaning, runtime, product copy, and adoption.
+- No target project files are touched.
+- No target adapters, bridge/runtime contracts, or React components are created.
+- Verification passes.
 
 ## Guardrails And Non-Goals
 
@@ -179,6 +247,8 @@ Recommended next choices:
 - Do not make React canonical for all Lab glass.
 - Do not define final Atlas/Sense panes, modules, or layouts.
 - Do not open React wrappers before a CSS/token primitive base is accepted unless Human explicitly chooses that lane.
+- Do not use remote assets, network calls, local storage, clipboard, screenshot, filesystem, or privileged runtime APIs in the primitive examples.
+- Do not use color, glow, material, or motion as the only carrier of meaning.
 
 ## Stop Conditions
 
@@ -196,13 +266,14 @@ Stop and return to Human / Overseer direction if the task requires:
 
 ## Required Verification
 
-No active verification required while idle.
+- `npm.cmd run verify:all`
+- `npm.cmd run verify:terminology` from `F:\Projects\Docs\Aura-Project-Orchestration`
 
 ## Handoff
 
 Latest accepted handoff: `workspace/OverseerHS181-m50-glass-primitive-react-readiness-map-acceptance.md`.
 
-Active runway: None.
+Active runway: `workspace/OverseerHS182-m51-glass-primitive-css-starter-runway.md`.
 
 ## Residual Risks
 
