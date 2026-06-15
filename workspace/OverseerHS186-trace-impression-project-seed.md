@@ -109,6 +109,18 @@ workspace/trace-impression/
   history/
 ```
 
+Preferred project-local output shape:
+
+```txt
+workspace/trace-impression/
+  current/
+    project-local-operational-map.md
+    run-log.md
+  history/
+    YYYY-MM/
+      YYYY-MM-DD-trace-subject.md
+```
+
 The bundle should be project-agnostic and receive project meaning from `workspace/trace-impression/context.md`.
 
 Invocation commands:
@@ -134,6 +146,16 @@ context.md defines how Trace Impression behaves locally.
 ```
 
 First run creates a baseline. Do not assign maturity from a single impression.
+
+Cleanup rule:
+
+```txt
+Default replacement prevents audit sediment.
+Selective history preserves retraceability.
+A kept snapshot must say why it was kept.
+```
+
+The current map shows where the project is now. `current/run-log.md` records how the trace moved. `history/` keeps only snapshots that explain change, risk, growth, or possible regression.
 
 ## Two-Pass Shape
 
@@ -194,3 +216,4 @@ That packet should define:
 - local `workspace/trace-impression/context.md` shape
 - `\` local-map and `|` human-sync command behavior
 - first-run baseline and growth-indicator rules
+- current/run-log/history cleanup and retraceability behavior

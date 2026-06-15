@@ -305,6 +305,18 @@ workspace/trace-impression/
   history/
 ```
 
+Preferred project-local output shape:
+
+```txt
+workspace/trace-impression/
+  current/
+    project-local-operational-map.md
+    run-log.md
+  history/
+    YYYY-MM/
+      YYYY-MM-DD-trace-subject.md
+```
+
 The distributed bundle should stay project-agnostic. It should get project meaning from `workspace/trace-impression/context.md`.
 
 That context file should define:
@@ -459,6 +471,60 @@ Stop and ask if:
 - map would require target-project meaning decisions
 - output would imply verification for layers not inspected
 - generated files would exceed the expected local output paths
+
+## Cleanup And Retraceability
+
+Trace Impression should leave a trail, not a sediment layer.
+
+Working shape:
+
+```txt
+current map = where we are now
+run-log = how we got here
+history = only the snapshots worth preserving
+human map = living synthesis of what the journey revealed
+```
+
+Default behavior:
+
+```txt
+Replace the current Project-Local Operational Map.
+Record the run in current/run-log.md.
+Keep history only when it explains change, risk, or growth.
+```
+
+Keep a historical snapshot when:
+
+- a major milestone changes the seam
+- a significant refactor changes the pipeline
+- a drift, knot, or broken end was discovered
+- Human or Overseer explicitly says to keep it
+- it supports a Central Human Orientation Map growth indicator
+- it may help explain a future regression
+
+Do not keep a historical snapshot just because a run happened.
+
+Useful run-log row shape:
+
+```txt
+Date | Mode | Basis | Output | Replaced | History Kept | Why Kept | Notes
+```
+
+History statuses may include:
+
+- `superseded`
+- `kept-for-drift`
+- `kept-for-milestone`
+- `kept-for-regression`
+- `parked`
+
+Durable rules:
+
+```txt
+Default replacement prevents audit sediment.
+Selective history preserves retraceability.
+A kept snapshot must say why it was kept.
+```
 
 ## Replacement Rule
 
