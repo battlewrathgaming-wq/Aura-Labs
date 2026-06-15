@@ -84,18 +84,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M54 | Trace Impression Lab Context Minimum | Complete | Accepted the minimum Lab-local context requirements before the first primitive seam pilot. |
 | M55 | Trace Impression Lab Context Fill | Complete | Filled minimum Lab-local Trace Impression context for the first presentation head bridge/import pilot. |
 | M56 | Trace Impression Output Templates | Complete | Accepted project-local and Human orientation templates with the accepted seam-card and resolution-labeled output shapes before any pilot. |
-| M57 | Trace Impression First Local Seam Pilot | Active | Run the first `\` local seam trace against the Lab presentation head bridge/import boundary, producing only the local operational map and run log. |
+| M57 | Trace Impression First Local Seam Pilot | Complete | Accepted the first `\` local seam trace against the Lab presentation head bridge/import boundary, producing the local operational map and run log. |
 
 ## Current Direction
 
-Active milestone: M57 / Trace Impression First Local Seam Pilot
-Last completed milestone: M56 / Trace Impression Output Templates
-Latest accepted review: workspace/trace-impression/templates/project-local-operational-map.md and workspace/trace-impression/templates/central-human-orientation-map.md
+Active milestone: None
+Last completed milestone: M57 / Trace Impression First Local Seam Pilot
+Latest accepted review: workspace/trace-impression/current/project-local-operational-map.md and workspace/trace-impression/current/run-log.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
-Current sequence: Trace Impression first local seam pilot
-Latest accepted handshake: workspace/trace-impression/templates/project-local-operational-map.md and workspace/trace-impression/templates/central-human-orientation-map.md
-Latest active runway: M57 / Trace Impression First Local Seam Pilot
+Current sequence: None
+Latest accepted handshake: workspace/trace-impression/current/project-local-operational-map.md and workspace/trace-impression/current/run-log.md
+Latest active runway: None
 Active runway: workspace/current.md
 Housekeeping: active root refreshed on 2026-06-01 after accepting M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
