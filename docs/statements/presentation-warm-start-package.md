@@ -20,10 +20,17 @@ Lab provides composable display primitives.
 Projects assemble and authorize product surfaces.
 ```
 
+Concept capsule:
+
+```txt
+docs/statements/presentation-glass-concept-capsule.md
+```
+
 ## Current Warm Start Contents
 
 Primary landing paths:
 
+- `docs/statements/presentation-glass-concept-capsule.md`
 - `portable-presentation-starter/`
 - `portable-presentation-starter/primitives/`
 - `portable-presentation-starter/packages/sense-trial-glass/`

@@ -104,6 +104,7 @@ This shelf provides meaning-light CSS primitives before any framework wrappers. 
 For future pickup, read:
 
 ```txt
+docs/statements/presentation-glass-concept-capsule.md
 docs/statements/presentation-warm-start-package.md
 ```
 

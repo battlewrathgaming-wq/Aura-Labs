@@ -26,6 +26,7 @@ This is the box on the shelf for future pickup. It does not create new implement
 ## Files Created Or Updated
 
 - `docs/statements/presentation-warm-start-package.md`
+- `docs/statements/presentation-glass-concept-capsule.md`
 - `docs/roadmap/m52-presentation-warm-start-package.md`
 - `workspace/OverseerHS184-presentation-thread-warm-start-package.md`
 - `portable-presentation-starter/README.md`
@@ -44,6 +45,7 @@ The current presentation warm start consists of:
 - `workspace/display-assets.md`
 - `workspace/glass-inventory-spine.md`
 - `docs/statements/presentation-warm-start-package.md`
+- `docs/statements/presentation-glass-concept-capsule.md`
 
 ## Acceptance Notes
 

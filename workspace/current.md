@@ -45,6 +45,12 @@ M52 packaged the current presentation thread into a warm-start reference:
 docs/statements/presentation-warm-start-package.md
 ```
 
+Concept capsule:
+
+```txt
+docs/statements/presentation-glass-concept-capsule.md
+```
+
 Accepted primitive wording:
 
 ```txt
@@ -129,6 +135,7 @@ Accepted output:
 - `workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md`
 - `portable-presentation-starter/primitives/`
 - `docs/statements/presentation-warm-start-package.md`
+- `docs/statements/presentation-glass-concept-capsule.md`
 - `docs/roadmap/m52-presentation-warm-start-package.md`
 - `workspace/OverseerHS184-presentation-thread-warm-start-package.md`
 - `docs/roadmap/m51-glass-primitive-css-starter.md`
@@ -159,6 +166,7 @@ Accepted source of intent:
 - `workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md`
 - `portable-presentation-starter/primitives/`
 - `docs/statements/presentation-warm-start-package.md`
+- `docs/statements/presentation-glass-concept-capsule.md`
 - `workspace/OverseerHS184-presentation-thread-warm-start-package.md`
 - `workspace/display-assets.md`
 - `workspace/display-outputs/instrument-readout-panel-glass.md`

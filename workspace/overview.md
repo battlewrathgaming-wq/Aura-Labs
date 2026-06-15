@@ -137,6 +137,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/statements/lab-presentation-head-posture.md`
 - `docs/statements/presentation-head-handoff-standard.md`
 - `docs/statements/presentation-warm-start-package.md`
+- `docs/statements/presentation-glass-concept-capsule.md`
 - `docs/current-state/m00-boot-current-state.md`
 - `docs/current-state/m01-project-state-briefing-current-state.md`
 - `docs/current-state/m04-visual-prototype-current-state.md`
