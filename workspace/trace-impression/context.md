@@ -41,6 +41,18 @@ TODO:
 
 TODO: Name files, folders, APIs, logs, clipboard paths, env vars, tokens, or operator-local paths that require care.
 
+## Citation / Proof Expectations
+
+Default citation shape:
+
+```txt
+file path | symbol/section | observed fact | supports claim because
+```
+
+Project-specific proof expectations:
+
+- TODO
+
 ## Usual Verification Commands
 
 TODO:

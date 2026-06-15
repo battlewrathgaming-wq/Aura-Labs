@@ -78,6 +78,43 @@ context.md defines local Trace Impression behavior.
 overview.md defines the surrounding terrain.
 ```
 
+## Citation Standard
+
+Every supported claim needs a citation in this shape:
+
+```txt
+file path | symbol/section | observed fact | supports claim because
+```
+
+Use stable provenance labels:
+
+- `code-observed`
+- `doc-stated`
+- `accepted-state`
+- `human-context`
+- `inferred`
+- `not-found`
+- `not-mapped`
+
+Do not present `inferred`, `not-found`, or `not-mapped` as verified.
+
+If tests, runtime calls, bridge files, or target-specific paths were not inspected, the map must not imply verification for those layers.
+
+## Failure Output
+
+If local-map mode cannot produce a usable map, write a small blocked note instead of forcing a weak map.
+
+Blocked note shape:
+
+```txt
+why map stopped
+what was safe to read
+what proof was missing
+next safe ask
+```
+
+Do not update the Central Human Orientation Map from a blocked local run.
+
 ## Templates
 
 - `templates/project-local-operational-map.md`

@@ -21,11 +21,29 @@ context.md defines local Trace Impression behavior.
 overview.md defines the surrounding terrain.
 ```
 
+## Citation Standard Used
+
+Every supported claim should cite:
+
+```txt
+file path | symbol/section | observed fact | supports claim because
+```
+
+Allowed provenance labels:
+
+- `code-observed`
+- `doc-stated`
+- `accepted-state`
+- `human-context`
+- `inferred`
+- `not-found`
+- `not-mapped`
+
 ## Source Path
 
-| Step | Layer | File | Symbol / Section | Evidence |
-| --- | --- | --- | --- | --- |
-| TODO | TODO | TODO | TODO | TODO |
+| Step | Layer | File | Symbol / Section | Observed Fact | Supports Claim Because |
+| --- | --- | --- | --- | --- | --- |
+| TODO | TODO | TODO | TODO | TODO | TODO |
 
 ## Ownership And Boundary Markers
 
@@ -35,9 +53,9 @@ overview.md defines the surrounding terrain.
 
 ## Current Supported Claims
 
-| Claim | Provenance | Evidence | Confidence |
+| Claim | Provenance | Citation | Confidence |
 | --- | --- | --- | --- |
-| TODO | code-observed / doc-stated / accepted-state / human-context / inferred | TODO | TODO |
+| TODO | code-observed / doc-stated / accepted-state / human-context / inferred | file path \| symbol/section \| observed fact \| supports claim because | TODO |
 
 ## Not Proven
 
@@ -62,4 +80,15 @@ overview.md defines the surrounding terrain.
 ## Next Questions
 
 - TODO
+
+## Blocked Output
+
+Use this section only if the map could not be produced safely.
+
+| Field | Note |
+| --- | --- |
+| Why map stopped | TODO |
+| What was safe to read | TODO |
+| What proof was missing | TODO |
+| Next safe ask | TODO |
 
