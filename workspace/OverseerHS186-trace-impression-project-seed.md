@@ -109,6 +109,18 @@ workspace/trace-impression/
   history/
 ```
 
+Lab scaffold created at:
+
+```txt
+workspace/trace-impression/
+```
+
+Portable Overseer snippet:
+
+```txt
+workspace/trace-impression/templates/overseer-snippet.md
+```
+
 Preferred project-local output shape:
 
 ```txt
@@ -122,6 +134,12 @@ workspace/trace-impression/
 ```
 
 The bundle should be project-agnostic and receive project meaning from `workspace/trace-impression/context.md`.
+
+Support snippet for future local Overseer guides:
+
+```txt
+docs/statements/trace-impression-overseer-snippet.md
+```
 
 Invocation commands:
 
@@ -217,3 +235,4 @@ That packet should define:
 - `\` local-map and `|` human-sync command behavior
 - first-run baseline and growth-indicator rules
 - current/run-log/history cleanup and retraceability behavior
+- portable scaffold files under `workspace/trace-impression/`

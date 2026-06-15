@@ -305,6 +305,18 @@ workspace/trace-impression/
   history/
 ```
 
+Lab scaffold location:
+
+```txt
+workspace/trace-impression/
+```
+
+The scaffold includes a portable Overseer snippet at:
+
+```txt
+workspace/trace-impression/templates/overseer-snippet.md
+```
+
 Preferred project-local output shape:
 
 ```txt
@@ -318,6 +330,12 @@ workspace/trace-impression/
 ```
 
 The distributed bundle should stay project-agnostic. It should get project meaning from `workspace/trace-impression/context.md`.
+
+Optional Overseer guide snippet:
+
+```txt
+docs/statements/trace-impression-overseer-snippet.md
+```
 
 That context file should define:
 
