@@ -129,6 +129,12 @@ Use this file when asking another project Overseer or specialist for constructiv
 workspace/trace-impression/advisory-review-intake.md
 ```
 
+Sense advisory disposition:
+
+```txt
+workspace/trace-impression/sense-advisory-disposition.md
+```
+
 ## Cleanup
 
 Default replacement prevents audit sediment.
