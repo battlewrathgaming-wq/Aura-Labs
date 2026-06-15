@@ -47,6 +47,26 @@ TODO:
 
 - `npm.cmd run verify:all`
 
+## Rerun / Investigation Policy
+
+Default:
+
+```txt
+Use the current Project-Local Operational Map as baseline.
+Rerun only for material source/focus change, stale or disputed map, material source gap, Human/Overseer refresh request, or Human sync basis.
+```
+
+Project-specific rerun triggers:
+
+- TODO
+
+Investigation mode:
+
+```txt
+Allowed only when the active packet explicitly needs repeated focused traces.
+Human map sync waits for a meaningful landing.
+```
+
 ## Output Paths
 
 Project-Local Operational Map:
@@ -74,4 +94,3 @@ TODO: Human / Overseer / named local role.
 ## Must Never Infer
 
 TODO: Claims the map must not make without explicit source/project authority.
-
