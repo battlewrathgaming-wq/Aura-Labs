@@ -46,6 +46,30 @@ Maps reduce incidental audit.
 Audits deliberately refresh maps.
 ```
 
+## Audience Synthesis
+
+The audience split is the defining feature.
+
+Overseer output should be a claimable seam card:
+
+```txt
+Can I responsibly talk about this seam now?
+If yes, give the evidence.
+If no, name the missing proof.
+```
+
+Human output should be a domain map/dashboard:
+
+```txt
+Pipeline | Enters From | Becomes | Shown As | Owner | Live/Private Risk | Boundary Pressure | Confidence | Next Question
+```
+
+These are not "technical vs simple" versions of the same output. They are different instruments.
+
+The Overseer card helps work move safely.
+
+The Human map helps vision stay coherent.
+
 ## Two-Pass Shape
 
 Pass 1:
@@ -100,4 +124,4 @@ That packet should define:
 - required source citation format
 - `not proven from source` handling
 - first prototype trace subject
-
+- provenance labels such as code-observed, doc-stated, accepted-state, human-context, inferred, not found, and not mapped

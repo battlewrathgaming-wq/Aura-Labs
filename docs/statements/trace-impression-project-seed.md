@@ -72,6 +72,28 @@ Outputs:
 
 The Overseer Map is automatically bounded by recent milestone and overview context. It should not try to become a full project map.
 
+The primary Overseer unit is a claimable seam card:
+
+```txt
+Can I responsibly talk about this seam now?
+If yes, give the evidence.
+If no, name the missing proof.
+```
+
+A claimable seam card should include:
+
+- seam summary
+- reviewed date, repo commit, milestone/current links
+- compact source path
+- ownership and boundary markers
+- current supported claims
+- not proven items
+- drift sensors
+- verification surface
+- small diagram or path sketch
+
+It should be evidence-heavy, scoped, and uncertainty-aware. It should not try to become a whole-project essay.
+
 ### Pass 2: Human Map
 
 Purpose: give the Human a wider project impression after the agent has enough footing.
@@ -94,6 +116,32 @@ Outputs:
 - unresolved questions for Human or project Overseer
 
 The Human Map is allowed to be wider than the Overseer Map because the Human's role includes vision, drift detection, and project coherence. Its Domain View is still an impression map, not exhaustive source coverage.
+
+The Human Map should show living pipes and boundary pressure in a comparative form.
+
+A useful Human row shape is:
+
+```txt
+Pipeline | Enters From | Becomes | Shown As | Owner | Live/Private Risk | Boundary Pressure | Confidence | Next Question
+```
+
+The Human Map should also preserve a boundary-bleed view:
+
+- meaning bleed
+- authority bleed
+- privacy bleed
+- interpretation bleed
+- product bleed
+
+Its confidence layer should distinguish:
+
+- verified from code
+- verified from docs/current
+- accepted by Human/Overseer
+- inferred from conversation
+- unknown / needs trace
+
+The Human Map should not hide uncertainty to feel cleaner. It should help the Human see whether the project shape still matches the intended vision.
 
 ## Map Sizes
 
@@ -197,6 +245,10 @@ not audit pile
 
 Every map should distinguish:
 
+- code-observed
+- doc-stated
+- accepted-state
+- human-context
 - source-cited
 - inferred
 - not found
@@ -205,6 +257,8 @@ Every map should distinguish:
 - requires owning-project review
 
 Silence must not imply coverage.
+
+If a map did not inspect tests, runtime calls, bridge files, or target-specific paths, it must not imply verification for those layers.
 
 ## Future Tooling Shape
 
@@ -235,6 +289,31 @@ The agent still synthesizes:
 - Human-readable impression
 - owning-project validation questions
 
+## Overload Controls
+
+Trace Impression should stay boring and stable.
+
+Use:
+
+- one primary seam or domain focus at a time
+- stable headings
+- stable table shapes
+- source/provenance labels on claims
+- explicit missing links
+- top findings only, with the rest parked
+- diff mode later, once current maps exist
+
+Do not auto-open work.
+
+The utility may suggest:
+
+- needs trace
+- needs review
+- candidate boundary drift
+- missing proof
+
+It must not create tasks, rewrite `workspace/current.md`, or treat generated maps as accepted truth.
+
 ## Non-Goals
 
 Trace Impression must not become:
@@ -249,4 +328,3 @@ Trace Impression must not become:
 - a reason to read less source when source proof is needed
 
 If the map is disputed, stale, or too impressionistic, run a bounded source trace.
-
