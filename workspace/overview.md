@@ -82,18 +82,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M52 | Presentation Warm Start Package | Complete | Packaged the accepted presentation thread into a durable warm-start reference for future pickup. |
 | M53 | Trace Impression Pilot Frame | Complete | Accepted the pilot acceptance bar, local seam trace shape, Human orientation sync shape, agent/skill-use needs, and first Lab-local pilot candidate before any implementation. |
 | M54 | Trace Impression Lab Context Minimum | Complete | Accepted the minimum Lab-local context requirements before the first primitive seam pilot. |
-| M55 | Trace Impression Lab Context Fill | Active | Fill minimum Lab-local Trace Impression context for the first presentation head bridge/import pilot. |
+| M55 | Trace Impression Lab Context Fill | Complete | Filled minimum Lab-local Trace Impression context for the first presentation head bridge/import pilot. |
 
 ## Current Direction
 
-Active milestone: M55 / Trace Impression Lab Context Fill
-Last completed milestone: M54 / HS188 - Trace Impression Lab Context Minimum
-Latest accepted review: workspace/TraceImpressionContextMinimumHS188-lab-context-minimum.md
+Active milestone: None
+Last completed milestone: M55 / Trace Impression Lab Context Fill
+Latest accepted review: workspace/trace-impression/context.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
-Current sequence: M55 Trace Impression Lab context fill
-Latest accepted handshake: workspace/TraceImpressionContextMinimumHS188-lab-context-minimum.md
-Latest active runway: M55 Trace Impression Lab Context Fill
+Current sequence: None
+Latest accepted handshake: workspace/trace-impression/context.md
+Latest active runway: None
 Active runway: workspace/current.md
 Housekeeping: active root refreshed on 2026-06-01 after accepting M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md

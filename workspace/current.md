@@ -1,21 +1,33 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-06-15
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M55 / Trace Impression Lab Context Fill
-Last completed milestone: M54 / HS188 - Trace Impression Lab Context Minimum
+Active milestone: None
+Last completed milestone: M55 / Trace Impression Lab Context Fill
 Current executor: Human / Overseer
-Current focus: Fill the minimum Lab-local Trace Impression context needed for the first presentation head bridge/import pilot.
-Expected output: Updated `workspace/trace-impression/context.md`
+Current focus: Await Human / Overseer direction after accepting the minimum Lab-local Trace Impression context fill.
+Expected output: Human direction or next Overseer runway artifact.
 Expected DevHS filename: None
 
 ## Current State
 
-M55 is active as a non-Dev context-fill packet.
+M55 is accepted and closed.
+
+Accepted M55 output:
+
+```txt
+workspace/trace-impression/context.md
+```
+
+Accepted M55 state:
+
+```txt
+Minimum Lab-local pilot context is filled for the Lab presentation head bridge/import boundary.
+```
 
 M54 is accepted and closed.
 
@@ -280,64 +292,18 @@ Read first:
 
 ## Ordered Runway
 
-Update only:
-
-```txt
-workspace/trace-impression/context.md
-```
-
-Use `workspace/TraceImpressionContextMinimumHS188-lab-context-minimum.md` as the accepted source.
-
-Fill minimum context for the first pilot seam:
-
-```txt
-Lab presentation head bridge/import boundary
-```
-
-The fill should include:
-
-- Lab project purpose
-- pilot domain
-- pilot seam
-- project-owned terms relevant to the pilot
-- source folders to prefer
-- folders to avoid or treat carefully
-- live/private boundaries
-- citation/proof expectations
-- usual verification command
-- output paths
-- local validation owner
-- must-never-infer rules
-
-Keep full Lab domain catalog, central Human map path, conflicting-context tests, runner behavior, target-project deployment, and Atlas/Sense/Core local context details parked or explicitly scoped for later.
-
-Do not run Trace Impression.
-
-Do not update templates.
-
-Do not create runner code.
-
-Do not edit target projects.
+No active runway.
 
 ## Acceptance Criteria
 
-This packet is accepted when:
-
-- `workspace/trace-impression/context.md` has no TODO in fields required for the first pilot.
-- It clearly says it is minimum pilot context, not complete Lab context.
-- It keeps scope limited to the Lab presentation head bridge/import boundary.
-- Parked fields remain explicitly parked.
-- It preserves the `\` / `|` distinction and does not claim project authority.
-- No pilot, template update, runner code, or target-project edit is performed.
-- `npm.cmd run verify:all` passes.
+The next packet should define its own acceptance criteria.
 
 Recommended next choices:
 
-1. Complete M55 context fill.
-2. Open a small template/spec update packet for Trace Impression outputs.
-3. If clean, run a first Lab-local pilot against the presentation head bridge/import boundary.
-4. If useful, decide whether a runner/skill bundle is justified.
-5. Keep Atlas out of the loop until usefulness is demonstrated.
+1. Open a small template/spec update packet for Trace Impression outputs.
+2. If clean, run a first Lab-local pilot against the presentation head bridge/import boundary.
+3. If useful, decide whether a runner/skill bundle is justified.
+4. Keep Atlas out of the loop until usefulness is demonstrated.
 
 ## Guardrails And Non-Goals
 
@@ -379,16 +345,13 @@ Stop and return to Human / Overseer direction if the task requires:
 
 ## Required Verification
 
-Docs-only verification for this packet:
-
-- `git diff -- workspace/trace-impression/context.md workspace/current.md workspace/overview.md`
-- `npm.cmd run verify:all`
+No active verification required while idle.
 
 ## Handoff
 
-Latest accepted handoff: `workspace/TraceImpressionContextMinimumHS188-lab-context-minimum.md`.
+Latest accepted handoff: `workspace/trace-impression/context.md`.
 
-Active runway: M55 Trace Impression Lab Context Fill.
+Active runway: None.
 
 ## Residual Risks
 
