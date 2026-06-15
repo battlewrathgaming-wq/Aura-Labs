@@ -63,6 +63,25 @@ The model applies to presentation glass and future Lab-built utilities such as a
 A Lab utility travels as a consumable version, not as a continuing Lab-owned service.
 ```
 
+Trace Impression project seed:
+
+```txt
+docs/statements/trace-impression-project-seed.md
+```
+
+Accepted seed lines:
+
+```txt
+Orient with maps.
+Prove with traces.
+Refresh with audits.
+```
+
+```txt
+Maps reduce incidental audit.
+Audits deliberately refresh maps.
+```
+
 Accepted primitive wording:
 
 ```txt
@@ -149,9 +168,11 @@ Accepted output:
 - `docs/statements/presentation-warm-start-package.md`
 - `docs/statements/presentation-glass-concept-capsule.md`
 - `docs/statements/lab-utility-consumable-model.md`
+- `docs/statements/trace-impression-project-seed.md`
 - `docs/roadmap/m52-presentation-warm-start-package.md`
 - `workspace/OverseerHS184-presentation-thread-warm-start-package.md`
 - `workspace/OverseerHS185-lab-utility-consumable-model.md`
+- `workspace/OverseerHS186-trace-impression-project-seed.md`
 - `docs/roadmap/m51-glass-primitive-css-starter.md`
 - `docs/roadmap/m50-glass-primitive-react-readiness-map.md`
 - `docs/roadmap/m49-sense-trial-glass-package.md`
@@ -182,8 +203,10 @@ Accepted source of intent:
 - `docs/statements/presentation-warm-start-package.md`
 - `docs/statements/presentation-glass-concept-capsule.md`
 - `docs/statements/lab-utility-consumable-model.md`
+- `docs/statements/trace-impression-project-seed.md`
 - `workspace/OverseerHS184-presentation-thread-warm-start-package.md`
 - `workspace/OverseerHS185-lab-utility-consumable-model.md`
+- `workspace/OverseerHS186-trace-impression-project-seed.md`
 - `workspace/display-assets.md`
 - `workspace/display-outputs/instrument-readout-panel-glass.md`
 - `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
@@ -232,6 +255,7 @@ Recommended next choices:
 3. Open a narrow future polish packet only if primitive examples reveal visible layout/readability issues.
 4. Keep React wrapper work parked until CSS primitives are visually accepted.
 5. Open a future trace/source-map workbench concept/spec only if Human chooses the tooling lane.
+6. Open a Trace Impression output-shape planning packet only if Human chooses to continue the mapping lane.
 
 ## Guardrails And Non-Goals
 
@@ -273,7 +297,7 @@ No active verification required while idle.
 
 ## Handoff
 
-Latest accepted handoff: `workspace/OverseerHS185-lab-utility-consumable-model.md`.
+Latest accepted handoff: `workspace/OverseerHS186-trace-impression-project-seed.md`.
 
 Active runway: None.
 
