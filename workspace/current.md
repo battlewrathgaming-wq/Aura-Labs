@@ -1,19 +1,98 @@
 # Current Workspace Packet
 
-Status: Idle
+Status: Active
 Updated: 2026-06-15
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M56 / Trace Impression Output Templates
 Last completed milestone: M55 / Trace Impression Lab Context Fill
-Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after accepting the minimum Lab-local Trace Impression context fill.
-Expected output: Human direction or next Overseer runway artifact.
+Current executor: Dev
+Current focus: Update the Trace Impression output templates so the first local seam trace has a clear, useful landing shape.
+Expected output: Updated Trace Impression templates.
 Expected DevHS filename: None
 
 ## Current State
+
+M56 is active.
+
+Intent:
+
+```txt
+Update the Trace Impression templates before any pilot run. The project-local template should make the seam card the first useful unit for Overseers. The central Human orientation template should make resolution and basis visible so broad orientation does not become accidental authority.
+```
+
+Expected edits:
+
+```txt
+workspace/trace-impression/templates/project-local-operational-map.md
+workspace/trace-impression/templates/central-human-orientation-map.md
+```
+
+Required project-local template shape:
+
+```txt
+- authority label
+- freshness / generated-from metadata
+- current seam question
+- "can I responsibly talk about this seam now?" card
+- supported claims
+- missing proof
+- inferred or not-proven steps
+- compact source path
+- boundary pressure
+- verification surface
+- next safe asks
+- run-log entry
+```
+
+Required Human orientation template shape:
+
+```txt
+- authority label
+- freshness / generated-from metadata
+- current project impression
+- domain view
+- pipeline spine
+- seam lens
+- basis mix
+- boundary pressure
+- growth marks
+- fog cleared / fog exposed
+- unresolved questions
+- project-local checks needed
+- resolution labels for cited seam facts, domain orientation, non-local scaffolds, inferred items, not-mapped areas, and not-inspected areas
+```
+
+Command split to preserve:
+
+```txt
+\ = local seam trace. Narrow, cited, project-local, and no central Human map write.
+| = Human orientation sync. Broader, resolution-labeled, and still unable to promote conversation, non-local material, or inferred structure into project truth.
+```
+
+Boundaries:
+
+```txt
+- Do not run a Trace Impression pilot.
+- Do not create runner code, automation, skills, or scripts.
+- Do not edit source files, target projects, central Human maps, or shared orchestration files.
+- Do not generate trace outputs from the templates yet.
+- Do not strengthen certainty beyond cited source support.
+```
+
+Acceptance:
+
+```txt
+- Both templates clearly identify authority, basis, freshness, and confidence ceiling.
+- The project-local template makes a seam card usable as the first Overseer-facing trace result.
+- The Human orientation template is broad enough for Human steering but visibly resolution-labeled and non-authoritative.
+- The command split remains clear.
+- npm.cmd run verify:all passes.
+```
+
+## Recent Completed State
 
 M55 is accepted and closed.
 

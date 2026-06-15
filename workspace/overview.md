@@ -83,17 +83,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M53 | Trace Impression Pilot Frame | Complete | Accepted the pilot acceptance bar, local seam trace shape, Human orientation sync shape, agent/skill-use needs, and first Lab-local pilot candidate before any implementation. |
 | M54 | Trace Impression Lab Context Minimum | Complete | Accepted the minimum Lab-local context requirements before the first primitive seam pilot. |
 | M55 | Trace Impression Lab Context Fill | Complete | Filled minimum Lab-local Trace Impression context for the first presentation head bridge/import pilot. |
+| M56 | Trace Impression Output Templates | Active | Update project-local and Human orientation templates with the accepted seam-card and resolution-labeled output shapes before any pilot. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M56 / Trace Impression Output Templates
 Last completed milestone: M55 / Trace Impression Lab Context Fill
 Latest accepted review: workspace/trace-impression/context.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
-Current sequence: None
+Current sequence: Trace Impression output template update
 Latest accepted handshake: workspace/trace-impression/context.md
-Latest active runway: None
+Latest active runway: M56 / Trace Impression Output Templates
 Active runway: workspace/current.md
 Housekeeping: active root refreshed on 2026-06-01 after accepting M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
