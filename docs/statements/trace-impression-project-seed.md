@@ -226,6 +226,66 @@ The Human Map may accumulate small orientation marks:
 
 These are orientation marks, not task statuses or implementation authority.
 
+## Output Landing Model
+
+Trace Impression should use two stable output homes.
+
+### Project-Local Operational Map
+
+The tool runs local to the source project and writes an operational map inside that project.
+
+Purpose:
+
+- Overseer orientation
+- runway shaping
+- review support
+- current/recent milestone recovery
+- source-cited discussion near `workspace/current.md`
+
+Suggested local shape:
+
+```txt
+workspace/trace-impression/current-overseer-map.md
+workspace/trace-impression/history/
+```
+
+The Project-Local Operational Map is the current work-facing map. It can be replaced as focus shifts.
+
+It acts like a navigation lamp, but `navigation lamp` is explanatory shorthand, not durable terminology.
+
+### Central Human Orientation Map
+
+The Human-facing map should live in central deep-knowledge synthesis rather than inside active project folders.
+
+Purpose:
+
+- Human vision support
+- cross-project inspection
+- project growth tracking
+- drift and boundary-pressure detection
+- big-picture recovery for future Overseers
+
+Suggested central shape:
+
+```txt
+F:\Projects\Docs\Aura-Project-Orchestration\deep-knowledge\synthesis\trace-impression\human-maps\AURA-Sense.md
+F:\Projects\Docs\Aura-Project-Orchestration\deep-knowledge\synthesis\trace-impression\human-maps\AURA-Atlas.md
+F:\Projects\Docs\Aura-Project-Orchestration\deep-knowledge\synthesis\trace-impression\human-maps\AURA-Lab.md
+```
+
+The Central Human Orientation Map is for vision and recovery, not project-local authority.
+
+It acts like a growth map, but `growth map` is explanatory shorthand, not durable terminology.
+
+Core rule:
+
+```txt
+Project-local maps steer work.
+Central human maps support vision and recovery.
+Source citations support trust.
+Owning projects decide meaning.
+```
+
 ## Replacement Rule
 
 Use one current trace per trace subject.

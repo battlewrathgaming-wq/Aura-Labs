@@ -70,6 +70,28 @@ The Overseer card helps work move safely.
 
 The Human map helps vision stay coherent.
 
+## Output Landing Model
+
+Accepted durable terms:
+
+- Project-Local Operational Map
+- Central Human Orientation Map
+
+Core rule:
+
+```txt
+Project-local maps steer work.
+Central human maps support vision and recovery.
+Source citations support trust.
+Owning projects decide meaning.
+```
+
+The Project-Local Operational Map should live inside the source project and support current Overseer orientation.
+
+The Central Human Orientation Map should live in Orchestration deep-knowledge synthesis and support cross-project Human inspection and recovery.
+
+Metaphors such as navigation lamp or growth map are explanatory only. They should not become contract terms.
+
 ## Two-Pass Shape
 
 Pass 1:
@@ -125,3 +147,4 @@ That packet should define:
 - `not proven from source` handling
 - first prototype trace subject
 - provenance labels such as code-observed, doc-stated, accepted-state, human-context, inferred, not found, and not mapped
+- Project-Local Operational Map and Central Human Orientation Map landing paths
