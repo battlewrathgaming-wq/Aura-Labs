@@ -1,19 +1,21 @@
 # Current Workspace Packet
 
-Status: Idle
+Status: Active
 Updated: 2026-06-15
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M55 / Trace Impression Lab Context Fill
 Last completed milestone: M54 / HS188 - Trace Impression Lab Context Minimum
 Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after accepting the Trace Impression Lab context minimum.
-Expected output: Human direction or next Overseer runway artifact.
+Current focus: Fill the minimum Lab-local Trace Impression context needed for the first presentation head bridge/import pilot.
+Expected output: Updated `workspace/trace-impression/context.md`
 Expected DevHS filename: None
 
 ## Current State
+
+M55 is active as a non-Dev context-fill packet.
 
 M54 is accepted and closed.
 
@@ -278,15 +280,60 @@ Read first:
 
 ## Ordered Runway
 
-No active runway.
+Update only:
+
+```txt
+workspace/trace-impression/context.md
+```
+
+Use `workspace/TraceImpressionContextMinimumHS188-lab-context-minimum.md` as the accepted source.
+
+Fill minimum context for the first pilot seam:
+
+```txt
+Lab presentation head bridge/import boundary
+```
+
+The fill should include:
+
+- Lab project purpose
+- pilot domain
+- pilot seam
+- project-owned terms relevant to the pilot
+- source folders to prefer
+- folders to avoid or treat carefully
+- live/private boundaries
+- citation/proof expectations
+- usual verification command
+- output paths
+- local validation owner
+- must-never-infer rules
+
+Keep full Lab domain catalog, central Human map path, conflicting-context tests, runner behavior, target-project deployment, and Atlas/Sense/Core local context details parked or explicitly scoped for later.
+
+Do not run Trace Impression.
+
+Do not update templates.
+
+Do not create runner code.
+
+Do not edit target projects.
 
 ## Acceptance Criteria
 
-The next packet should define its own acceptance criteria.
+This packet is accepted when:
+
+- `workspace/trace-impression/context.md` has no TODO in fields required for the first pilot.
+- It clearly says it is minimum pilot context, not complete Lab context.
+- It keeps scope limited to the Lab presentation head bridge/import boundary.
+- Parked fields remain explicitly parked.
+- It preserves the `\` / `|` distinction and does not claim project authority.
+- No pilot, template update, runner code, or target-project edit is performed.
+- `npm.cmd run verify:all` passes.
 
 Recommended next choices:
 
-1. Open a small context-fill packet for `workspace/trace-impression/context.md`.
+1. Complete M55 context fill.
 2. Open a small template/spec update packet for Trace Impression outputs.
 3. If clean, run a first Lab-local pilot against the presentation head bridge/import boundary.
 4. If useful, decide whether a runner/skill bundle is justified.
@@ -332,13 +379,16 @@ Stop and return to Human / Overseer direction if the task requires:
 
 ## Required Verification
 
-No active verification required while idle.
+Docs-only verification for this packet:
+
+- `git diff -- workspace/trace-impression/context.md workspace/current.md workspace/overview.md`
+- `npm.cmd run verify:all`
 
 ## Handoff
 
 Latest accepted handoff: `workspace/TraceImpressionContextMinimumHS188-lab-context-minimum.md`.
 
-Active runway: None.
+Active runway: M55 Trace Impression Lab Context Fill.
 
 ## Residual Risks
 
