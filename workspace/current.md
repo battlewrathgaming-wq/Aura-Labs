@@ -1,21 +1,41 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-06-15
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M53 / Trace Impression Pilot Frame
-Last completed milestone: M52 / HS184 - Presentation Warm Start Package
+Active milestone: None
+Last completed milestone: M53 / HS187 - Trace Impression Pilot Frame
 Current executor: Human / Overseer
-Current focus: Define the Trace Impression pilot frame before any implementation, runner, or target-project deployment.
-Expected output: `workspace/TraceImpressionPilotFrameHS187-trace-impression-pilot-frame.md`
+Current focus: Await Human / Overseer direction after accepting the Trace Impression pilot frame.
+Expected output: Human direction or next Overseer runway artifact.
 Expected DevHS filename: None
 
 ## Current State
 
-M53 is active as a non-Dev shaping packet.
+M53 is accepted and closed.
+
+Accepted M53 output:
+
+```txt
+workspace/TraceImpressionPilotFrameHS187-trace-impression-pilot-frame.md
+```
+
+Accepted M53 framing:
+
+```txt
+\ = local seam trace
+| = Human orientation sync
+The map's authority comes from accuracy of display, not decision power.
+```
+
+Accepted M53 success bar:
+
+```txt
+My job just got easier.
+```
 
 M52 is accepted and closed.
 
@@ -244,56 +264,19 @@ Read first:
 
 ## Ordered Runway
 
-Create `workspace/TraceImpressionPilotFrameHS187-trace-impression-pilot-frame.md`.
-
-The artifact should define:
-
-1. Pilot purpose and success bar.
-   - Translate "My job just got easier" into observable checks.
-   - Keep the value practical, not architectural-finality driven.
-2. `\` local seam trace output shape.
-   - Narrow, project-local, source-cited, resistant to chat/vision drift.
-   - Include sections for cited path, basis mix, confidence ceiling, freshness, inferred/not-proven gaps, stop conditions, and next safe asks.
-3. `|` Human orientation sync output shape.
-   - Broader Human dashboard/orientation view.
-   - May use current local operational map, project-local code/doc citations, and configured non-local orientation scaffolds.
-   - Must preserve basis labels, avoid certainty promotion, and avoid treating Human vision, Lab material, Orchestration material, advisory input, or inferred structure as proof of project-local runtime behavior or accepted meaning.
-4. Skill / agent-use review.
-   - Define what an agent needs preloaded or locally bundled to perform Trace Impression without a broad context hunt.
-   - Note what belongs in `workspace/trace-impression/context.md`.
-   - Note what should remain project-local and not become Lab-owned service behavior.
-5. First pilot candidate.
-   - Candidate: Lab presentation head bridge/import boundary.
-   - Treat as step 2/3, not the current execution.
-   - Scope what it would test and what it must not claim.
-6. Stop conditions and non-goals.
-   - No code edits.
-   - No runner.
-   - No target-project edits.
-   - No Atlas/Sense deployment.
-   - No live/private/network work.
-   - No Dev runway.
+No active runway.
 
 ## Acceptance Criteria
 
-This packet is accepted when:
-
-- `workspace/TraceImpressionPilotFrameHS187-trace-impression-pilot-frame.md` exists.
-- It defines the acceptance bar for a useful Trace Impression pilot.
-- It clearly separates `\` local seam trace from `|` Human orientation sync.
-- It includes output-shape expectations for both modes.
-- It reviews agent/skill-use needs before implementation.
-- It names the presentation head bridge/import boundary as the first candidate pilot without executing it.
-- It keeps Atlas/Sense deployment, runner code, source edits, target adapters, and implementation out of scope.
-- It leaves enough clarity for a later Dev/spec packet to update templates or run a pilot without inventing the workflow under pressure.
+The next packet should define its own acceptance criteria.
 
 Recommended next choices:
 
-1. Complete M53 pilot frame.
-2. If accepted, open a small template/spec update packet for Trace Impression outputs.
-3. If clean, run a first Lab-local pilot against the presentation head bridge/import boundary.
-4. If useful, decide whether a runner/skill bundle is justified.
-5. Keep Atlas out of the loop until usefulness is demonstrated.
+1. Open a small template/spec update packet for Trace Impression outputs.
+2. If clean, run a first Lab-local pilot against the presentation head bridge/import boundary.
+3. If useful, decide whether a runner/skill bundle is justified.
+4. Keep Atlas out of the loop until usefulness is demonstrated.
+5. Park Lab while target projects continue local adapter/system work.
 
 ## Guardrails And Non-Goals
 
@@ -334,16 +317,13 @@ Stop and return to Human / Overseer direction if the task requires:
 
 ## Required Verification
 
-Docs-only verification for this packet:
-
-- `git diff -- workspace/current.md workspace/TraceImpressionPilotFrameHS187-trace-impression-pilot-frame.md`
-- `npm.cmd run verify:all`
+No active verification required while idle.
 
 ## Handoff
 
-Latest accepted handoff: `workspace/OverseerHS186-trace-impression-project-seed.md`.
+Latest accepted handoff: `workspace/TraceImpressionPilotFrameHS187-trace-impression-pilot-frame.md`.
 
-Active runway: M53 Trace Impression Pilot Frame.
+Active runway: None.
 
 ## Residual Risks
 

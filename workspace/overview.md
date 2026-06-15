@@ -80,18 +80,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M50 | Glass Primitive React Readiness Map | Complete | Accepted advisory map for turning the accepted glass primitive spine into future warm-start presentation shelf guidance without implementing React or target panes. |
 | M51 | Glass Primitive CSS Starter | Complete | Accepted the first CSS/token primitive starter before any React wrappers. |
 | M52 | Presentation Warm Start Package | Complete | Packaged the accepted presentation thread into a durable warm-start reference for future pickup. |
-| M53 | Trace Impression Pilot Frame | Active | Define the pilot acceptance bar, local seam trace shape, Human orientation sync shape, agent/skill-use needs, and first Lab-local pilot candidate before any implementation. |
+| M53 | Trace Impression Pilot Frame | Complete | Accepted the pilot acceptance bar, local seam trace shape, Human orientation sync shape, agent/skill-use needs, and first Lab-local pilot candidate before any implementation. |
 
 ## Current Direction
 
-Active milestone: M53 / Trace Impression Pilot Frame
-Last completed milestone: M52 / HS184 - Presentation Warm Start Package
-Latest accepted review: workspace/OverseerHS186-trace-impression-project-seed.md
+Active milestone: None
+Last completed milestone: M53 / HS187 - Trace Impression Pilot Frame
+Latest accepted review: workspace/TraceImpressionPilotFrameHS187-trace-impression-pilot-frame.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
-Current sequence: M53 Trace Impression pilot frame
-Latest accepted handshake: workspace/OverseerHS186-trace-impression-project-seed.md
-Latest active runway: M53 Trace Impression Pilot Frame
+Current sequence: None
+Latest accepted handshake: workspace/TraceImpressionPilotFrameHS187-trace-impression-pilot-frame.md
+Latest active runway: None
 Active runway: workspace/current.md
 Housekeeping: active root refreshed on 2026-06-01 after accepting M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
@@ -247,6 +247,7 @@ Active milestone handshakes:
 - `workspace/OverseerHS184-presentation-thread-warm-start-package.md`
 - `workspace/OverseerHS185-lab-utility-consumable-model.md`
 - `workspace/OverseerHS186-trace-impression-project-seed.md`
+- `workspace/TraceImpressionPilotFrameHS187-trace-impression-pilot-frame.md`
 
 Accepted authority records:
 
