@@ -1,19 +1,21 @@
 # Current Workspace Packet
 
-Status: Idle
+Status: Active
 Updated: 2026-06-15
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M54 / Trace Impression Lab Context Minimum
 Last completed milestone: M53 / HS187 - Trace Impression Pilot Frame
 Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after accepting the Trace Impression pilot frame.
-Expected output: Human direction or next Overseer runway artifact.
+Current focus: Define the minimum Lab-local Trace Impression context needed before the first primitive seam pilot.
+Expected output: `workspace/TraceImpressionContextMinimumHS188-lab-context-minimum.md`
 Expected DevHS filename: None
 
 ## Current State
+
+M54 is active as a non-Dev shaping packet.
 
 M53 is accepted and closed.
 
@@ -264,19 +266,44 @@ Read first:
 
 ## Ordered Runway
 
-No active runway.
+Create `workspace/TraceImpressionContextMinimumHS188-lab-context-minimum.md`.
+
+The artifact should define:
+
+1. Why `workspace/trace-impression/context.md` is currently too empty for safe local use.
+2. The minimum context needed before a first `\` pilot against the Lab presentation head bridge/import boundary.
+3. Which context fields can be filled from accepted Lab state now.
+4. Which fields should remain explicitly parked or TODO until a real pilot needs them.
+5. Whether the context should be filled before the first pilot, or whether a missing-context blocked run should be tested first.
+6. A small recommended next packet.
+
+Do not fill `workspace/trace-impression/context.md` in this packet unless the artifact concludes that immediate fill is the safer next action and keeps the fill minimal.
+
+Do not run Trace Impression.
+
+Do not update templates.
+
+Do not create a runner.
 
 ## Acceptance Criteria
 
-The next packet should define its own acceptance criteria.
+This packet is accepted when:
+
+- `workspace/TraceImpressionContextMinimumHS188-lab-context-minimum.md` exists.
+- It identifies the minimum Lab-local context needed for the first primitive seam pilot.
+- It keeps scope limited to the Lab presentation head bridge/import boundary.
+- It distinguishes fill-now context from parked/future context.
+- It recommends whether to fill context before pilot or deliberately test missing-context blocked behavior first.
+- It does not run a pilot, update templates, create runner code, or edit target projects.
 
 Recommended next choices:
 
-1. Open a small template/spec update packet for Trace Impression outputs.
-2. If clean, run a first Lab-local pilot against the presentation head bridge/import boundary.
-3. If useful, decide whether a runner/skill bundle is justified.
-4. Keep Atlas out of the loop until usefulness is demonstrated.
-5. Park Lab while target projects continue local adapter/system work.
+1. Complete M54 Lab context minimum.
+2. Open a small context-fill packet or missing-context blocked-run test, depending on M54 recommendation.
+3. Open a small template/spec update packet for Trace Impression outputs.
+4. If clean, run a first Lab-local pilot against the presentation head bridge/import boundary.
+5. If useful, decide whether a runner/skill bundle is justified.
+6. Keep Atlas out of the loop until usefulness is demonstrated.
 
 ## Guardrails And Non-Goals
 
@@ -294,6 +321,7 @@ Recommended next choices:
 - Do not implement React components in this packet.
 - Do not implement Trace Impression runner code in this packet.
 - Do not run a Trace Impression pilot in this packet.
+- Do not update Trace Impression output templates in this packet.
 - Do not deploy Trace Impression into Atlas, Sense, Core, or Orchestration in this packet.
 - Do not make React canonical for all Lab glass.
 - Do not define final Atlas/Sense panes, modules, or layouts.
@@ -317,13 +345,16 @@ Stop and return to Human / Overseer direction if the task requires:
 
 ## Required Verification
 
-No active verification required while idle.
+Docs-only verification for this packet:
+
+- `git diff -- workspace/current.md workspace/overview.md workspace/TraceImpressionContextMinimumHS188-lab-context-minimum.md`
+- `npm.cmd run verify:all`
 
 ## Handoff
 
 Latest accepted handoff: `workspace/TraceImpressionPilotFrameHS187-trace-impression-pilot-frame.md`.
 
-Active runway: None.
+Active runway: M54 Trace Impression Lab Context Minimum.
 
 ## Residual Risks
 

@@ -81,17 +81,18 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M51 | Glass Primitive CSS Starter | Complete | Accepted the first CSS/token primitive starter before any React wrappers. |
 | M52 | Presentation Warm Start Package | Complete | Packaged the accepted presentation thread into a durable warm-start reference for future pickup. |
 | M53 | Trace Impression Pilot Frame | Complete | Accepted the pilot acceptance bar, local seam trace shape, Human orientation sync shape, agent/skill-use needs, and first Lab-local pilot candidate before any implementation. |
+| M54 | Trace Impression Lab Context Minimum | Active | Define the minimum Lab-local Trace Impression context needed before the first primitive seam pilot. |
 
 ## Current Direction
 
-Active milestone: None
+Active milestone: M54 / Trace Impression Lab Context Minimum
 Last completed milestone: M53 / HS187 - Trace Impression Pilot Frame
 Latest accepted review: workspace/TraceImpressionPilotFrameHS187-trace-impression-pilot-frame.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
-Current sequence: None
+Current sequence: M54 Trace Impression Lab context minimum
 Latest accepted handshake: workspace/TraceImpressionPilotFrameHS187-trace-impression-pilot-frame.md
-Latest active runway: None
+Latest active runway: M54 Trace Impression Lab Context Minimum
 Active runway: workspace/current.md
 Housekeeping: active root refreshed on 2026-06-01 after accepting M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
