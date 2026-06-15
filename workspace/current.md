@@ -1,106 +1,44 @@
 # Current Workspace Packet
 
-Status: Active
+Status: Idle
 Updated: 2026-06-15
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: M56 / Trace Impression Output Templates
-Last completed milestone: M55 / Trace Impression Lab Context Fill
-Current executor: Dev
-Current focus: Update the Trace Impression output templates so the first local seam trace has a clear, useful landing shape.
-Expected output: Updated Trace Impression templates.
+Active milestone: None
+Last completed milestone: M56 / Trace Impression Output Templates
+Current executor: Human / Overseer
+Current focus: Await Human / Overseer direction after accepting the Trace Impression output templates.
+Expected output: Human direction or next Overseer runway artifact.
 Expected DevHS filename: None
 
 ## Current State
 
-M56 is active.
+M56 is accepted and closed.
 
-Intent:
-
-```txt
-Update the Trace Impression templates before any pilot run. The project-local template should make the seam card the first useful unit for Overseers. The central Human orientation template should make resolution and basis visible so broad orientation does not become accidental authority.
-```
-
-Expected edits:
+Accepted M56 outputs:
 
 ```txt
 workspace/trace-impression/templates/project-local-operational-map.md
 workspace/trace-impression/templates/central-human-orientation-map.md
 ```
 
-Required project-local template shape:
+Accepted M56 state:
 
 ```txt
-- authority label
-- freshness / generated-from metadata
-- current seam question
-- "can I responsibly talk about this seam now?" card
-- supported claims
-- missing proof
-- inferred or not-proven steps
-- compact source path
-- boundary pressure
-- verification surface
-- next safe asks
-- run-log entry
+\ is Overseer-first and uses a local seam card as the first useful trace unit.
+| can remain a plain structured Markdown Human orientation report for now.
+Both template shapes preserve basis, freshness, confidence ceiling, visible gaps, and per-seam boundary mapping.
+No pilot was run and no generated trace outputs were created.
 ```
 
-Required Human orientation template shape:
+Verification:
 
 ```txt
-- authority label
-- freshness / generated-from metadata
-- current project impression
-- domain view
-- pipeline spine
-- seam lens
-- basis mix
-- boundary pressure
-- growth marks
-- fog cleared / fog exposed
-- unresolved questions
-- project-local checks needed
-- resolution labels for cited seam facts, domain orientation, non-local scaffolds, inferred items, not-mapped areas, and not-inspected areas
-```
-
-Command split to preserve:
-
-```txt
-\ = local seam trace. Narrow, cited, project-local, and no central Human map write.
-| = Human orientation sync. Broader, resolution-labeled, and still unable to promote conversation, non-local material, or inferred structure into project truth.
-```
-
-Human clarification:
-
-```txt
-\ is primarily anchored around Overseer use.
-| can be a plain structured Markdown report for now.
-Substance comes before presentation polish.
-The output set should preserve:
-- a full view with visible gaps
-- a per-seam view with boundary mapping
-```
-
-Boundaries:
-
-```txt
-- Do not run a Trace Impression pilot.
-- Do not create runner code, automation, skills, or scripts.
-- Do not edit source files, target projects, central Human maps, or shared orchestration files.
-- Do not generate trace outputs from the templates yet.
-- Do not strengthen certainty beyond cited source support.
-```
-
-Acceptance:
-
-```txt
-- Both templates clearly identify authority, basis, freshness, and confidence ceiling.
-- The project-local template makes a seam card usable as the first Overseer-facing trace result.
-- The Human orientation template is broad enough for Human steering but visibly resolution-labeled and non-authoritative.
-- The command split remains clear.
-- npm.cmd run verify:all passes.
+npm.cmd run verify:all
+Result: passed.
+Protected-term discovery reported the existing warning-only Lab candidates; no failures.
 ```
 
 ## Recent Completed State
