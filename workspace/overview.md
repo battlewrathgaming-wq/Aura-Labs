@@ -85,11 +85,11 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 
 Active milestone: None
 Last completed milestone: M52 / HS184 - Presentation Warm Start Package
-Latest accepted review: workspace/OverseerHS184-presentation-thread-warm-start-package.md
+Latest accepted review: workspace/OverseerHS185-lab-utility-consumable-model.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
 Current sequence: None
-Latest accepted handshake: workspace/OverseerHS184-presentation-thread-warm-start-package.md
+Latest accepted handshake: workspace/OverseerHS185-lab-utility-consumable-model.md
 Latest active runway: None
 Active runway: workspace/current.md
 Housekeeping: active root refreshed on 2026-06-01 after accepting M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
@@ -138,6 +138,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/statements/presentation-head-handoff-standard.md`
 - `docs/statements/presentation-warm-start-package.md`
 - `docs/statements/presentation-glass-concept-capsule.md`
+- `docs/statements/lab-utility-consumable-model.md`
 - `docs/current-state/m00-boot-current-state.md`
 - `docs/current-state/m01-project-state-briefing-current-state.md`
 - `docs/current-state/m04-visual-prototype-current-state.md`
@@ -242,6 +243,7 @@ Active milestone handshakes:
 - `workspace/DevHS182-glass-primitive-css-starter.md`
 - `workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md`
 - `workspace/OverseerHS184-presentation-thread-warm-start-package.md`
+- `workspace/OverseerHS185-lab-utility-consumable-model.md`
 
 Accepted authority records:
 

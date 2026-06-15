@@ -9,7 +9,7 @@ Owner: Overseer
 Active milestone: None
 Last completed milestone: M52 / HS184 - Presentation Warm Start Package
 Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after packaging the presentation thread as a warm-start reference.
+Current focus: Await Human / Overseer direction after accepting the Lab utility consumable model and packaging the presentation thread as a warm-start reference.
 Expected output: Human direction or next Overseer runway artifact.
 Expected DevHS filename: None
 
@@ -49,6 +49,18 @@ Concept capsule:
 
 ```txt
 docs/statements/presentation-glass-concept-capsule.md
+```
+
+Accepted Lab utility consumable model:
+
+```txt
+docs/statements/lab-utility-consumable-model.md
+```
+
+The model applies to presentation glass and future Lab-built utilities such as a trace/source-map workbench:
+
+```txt
+A Lab utility travels as a consumable version, not as a continuing Lab-owned service.
 ```
 
 Accepted primitive wording:
@@ -136,8 +148,10 @@ Accepted output:
 - `portable-presentation-starter/primitives/`
 - `docs/statements/presentation-warm-start-package.md`
 - `docs/statements/presentation-glass-concept-capsule.md`
+- `docs/statements/lab-utility-consumable-model.md`
 - `docs/roadmap/m52-presentation-warm-start-package.md`
 - `workspace/OverseerHS184-presentation-thread-warm-start-package.md`
+- `workspace/OverseerHS185-lab-utility-consumable-model.md`
 - `docs/roadmap/m51-glass-primitive-css-starter.md`
 - `docs/roadmap/m50-glass-primitive-react-readiness-map.md`
 - `docs/roadmap/m49-sense-trial-glass-package.md`
@@ -167,7 +181,9 @@ Accepted source of intent:
 - `portable-presentation-starter/primitives/`
 - `docs/statements/presentation-warm-start-package.md`
 - `docs/statements/presentation-glass-concept-capsule.md`
+- `docs/statements/lab-utility-consumable-model.md`
 - `workspace/OverseerHS184-presentation-thread-warm-start-package.md`
+- `workspace/OverseerHS185-lab-utility-consumable-model.md`
 - `workspace/display-assets.md`
 - `workspace/display-outputs/instrument-readout-panel-glass.md`
 - `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
@@ -215,6 +231,7 @@ Recommended next choices:
 2. Park Lab while target projects inspect or continue local adapter work.
 3. Open a narrow future polish packet only if primitive examples reveal visible layout/readability issues.
 4. Keep React wrapper work parked until CSS primitives are visually accepted.
+5. Open a future trace/source-map workbench concept/spec only if Human chooses the tooling lane.
 
 ## Guardrails And Non-Goals
 
@@ -256,7 +273,7 @@ No active verification required while idle.
 
 ## Handoff
 
-Latest accepted handoff: `workspace/OverseerHS184-presentation-thread-warm-start-package.md`.
+Latest accepted handoff: `workspace/OverseerHS185-lab-utility-consumable-model.md`.
 
 Active runway: None.
 
