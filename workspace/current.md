@@ -42,6 +42,8 @@ Accepted M57 map state:
 - Source-cited claims can be made about the static starter, package contents, local verifier expectations, and accepted boundary documentation.
 - Target adapter correctness, target adoption, Electron/runtime security posture, visual/manual browser inspection, and package/export readiness remain explicitly unproven.
 - `|` Human orientation sync remains parked until the local map has been reviewed or a broader orientation pass is explicitly opened.
+- Post-review cleanup changed the Trace Impression reading order to response -> selected seam -> boundary mapping -> full view with visible gaps -> open edge -> evidence appendix.
+- Task-like "next ask" language was replaced with map-boundary "open edge" language.
 ```
 
 Verification:

@@ -17,4 +17,4 @@ Updated: 2026-06-15
 | Replaces | None; first baseline |
 | Confidence ceiling | `source-cited` for static starter/package/verifier/boundary docs only |
 | Main gap | Target adapter import/correctness and runtime/visual/security behavior were not proven |
-| Next safe ask | Target-local adapter consumption check after target has the package in hand |
+| Open edge | Target-local adapter consumption and correctness are not proven by this map |

@@ -10,6 +10,42 @@ Based on local map: TODO
 Generated from: TODO
 Replaces: TODO
 
+## Current Project Impression
+
+TODO: One short Human-readable paragraph describing the current project impression and what this map helps the Human see.
+
+## Full View With Visible Gaps
+
+| Area | Current Read | Gap / Unknown | Basis | Resolution |
+| --- | --- | --- | --- | --- |
+| Product / purpose | TODO | TODO | TODO | TODO |
+| Main pipelines | TODO | TODO | TODO | TODO |
+| Source boundaries | TODO | TODO | TODO | TODO |
+| State / storage | TODO | TODO | TODO | TODO |
+| Presentation / output | TODO | TODO | TODO | TODO |
+| Verification | TODO | TODO | TODO | TODO |
+| Deferred / parked terrain | TODO | TODO | TODO | TODO |
+
+## Pipeline / Domain View
+
+TODO: Human-readable shape of the domain. Keep this broad enough for steering, but label basis and uncertainty.
+
+| Pipeline | Enters From | Becomes | Shown / Used As | Owner | Boundary Pressure | Gap | Resolution |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| TODO | TODO | TODO | TODO | TODO | TODO | TODO | TODO |
+
+## Per-Seam Boundary Mapping
+
+| Seam | Current Question | Owner / Layer | Supported Claim | Gap / Unknown | Must Not Claim | Open Edge | Resolution |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| TODO | TODO | TODO | TODO | TODO | TODO | TODO | TODO |
+
+## Open Edges
+
+This map stops before proving:
+
+- TODO
+
 ## Authority Label
 
 This map is a Human-facing orientation display. It helps the Human see project shape, gaps, seams, and boundary pressure. It is not project authority, source meaning, architecture approval, Dev authorization, target adoption, or a replacement for project-local review.
@@ -62,41 +98,9 @@ Highest allowed certainty for this map: TODO
 
 This map may broaden resolution for Human steering, but it must not promote conversation, non-local material, or inferred structure into project truth.
 
-## Current Project Impression
-
-TODO: One short Human-readable paragraph describing the current project impression and what this map helps the Human see.
-
-## Full View With Visible Gaps
-
-| Area | Current Read | Gap / Unknown | Basis | Resolution |
-| --- | --- | --- | --- | --- |
-| Product / purpose | TODO | TODO | TODO | TODO |
-| Main pipelines | TODO | TODO | TODO | TODO |
-| Source boundaries | TODO | TODO | TODO | TODO |
-| State / storage | TODO | TODO | TODO | TODO |
-| Presentation / output | TODO | TODO | TODO | TODO |
-| Verification | TODO | TODO | TODO | TODO |
-| Deferred / parked terrain | TODO | TODO | TODO | TODO |
-
-## Domain View
-
-TODO: Human-readable shape of the domain. Keep this broad enough for steering, but label basis and uncertainty.
-
-## Pipeline Spine
-
-| Pipeline | Enters From | Becomes | Shown / Used As | Owner | Boundary Pressure | Gap | Resolution |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| TODO | TODO | TODO | TODO | TODO | TODO | TODO | TODO |
-
-## Per-Seam View With Boundary Mapping
-
-| Seam | Current Question | Owner / Layer | Supported Claim | Gap / Unknown | Must Not Claim | Next Local Check | Resolution |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| TODO | TODO | TODO | TODO | TODO | TODO | TODO | TODO |
-
 ## Boundary Pressure
 
-| Pressure | Signal | Evidence / Basis | Current Read | Suggested Human Attention |
+| Pressure | Signal | Evidence / Basis | Current Read | Open Edge |
 | --- | --- | --- | --- | --- |
 | meaning pressure | TODO | TODO | TODO | TODO |
 | authority pressure | TODO | TODO | TODO | TODO |
@@ -124,12 +128,6 @@ First run should use baseline / unknown. Do not assign maturity from a single im
 
 - TODO
 
-## Project-Local Checks Needed
-
-| Check | Why It Matters | Suggested Owner | Timing |
-| --- | --- | --- | --- |
-| TODO | TODO | TODO | TODO |
-
-## Human Questions
+## Evidence / Basis Notes
 
 - TODO

@@ -14,7 +14,56 @@ Replaces: TODO
 
 This map is a project-local source impression for Overseer orientation. It is not product authority, architecture approval, target adoption, Dev authorization, or accepted project meaning.
 
-## Freshness
+## Response To Current Question
+
+Question:
+
+```txt
+TODO: State the bounded seam question from `workspace/current.md`.
+```
+
+Answer: TODO (`yes` / `yes, with gaps` / `not yet`)
+
+Why:
+
+- TODO
+
+## Selected Seam
+
+| Field | Value |
+| --- | --- |
+| Seam | TODO |
+| Location | TODO |
+| Local owner / layer | TODO |
+| What this map can describe | TODO |
+| What this map must not describe | TODO |
+
+## Boundary Mapping
+
+| Boundary | Owner / Layer | Evidence | Allowed Claim | Must Not Claim |
+| --- | --- | --- | --- | --- |
+| TODO | TODO | TODO | TODO | TODO |
+
+## Full View With Visible Gaps
+
+Use this as compact local orientation around the selected seam, not as permission to widen the trace.
+
+| Area | What Is Visible | Gap / Unknown | Basis |
+| --- | --- | --- | --- |
+| Entry point | TODO | TODO | TODO |
+| Transformation | TODO | TODO | TODO |
+| Storage / state | TODO | TODO | TODO |
+| Rendering / display | TODO | TODO | TODO |
+| Logging / diagnostics | TODO | TODO | TODO |
+| Verification | TODO | TODO | TODO |
+
+## Open Edge
+
+This map stops before proving:
+
+- TODO
+
+## Freshness / Basis / Confidence
 
 | Field | Value |
 | --- | --- |
@@ -24,8 +73,17 @@ This map is a project-local source impression for Overseer orientation. It is no
 | Context file used | TODO |
 | Overview file used | TODO |
 | Previous map replaced | TODO |
+| Confidence ceiling | TODO |
 
-## Basis Mix
+Use the lowest applicable confidence ceiling:
+
+- `source-cited`: directly supported by cited source or accepted local docs.
+- `doc-stated`: stated by local docs but not source-traced in this pass.
+- `inferred`: likely shape from source/doc relation, not directly proven.
+- `not-proven`: claim cannot be made from the inspected material.
+- `not-inspected`: outside this pass.
+
+Basis mix:
 
 | Basis | Used? | Notes |
 | --- | --- | --- |
@@ -37,37 +95,7 @@ This map is a project-local source impression for Overseer orientation. It is no
 | Inference | TODO | Must stay labeled and confidence-limited. |
 | Not found / not inspected | TODO | Must stay visible. |
 
-## Confidence Ceiling
-
-Highest allowed certainty for this map: TODO
-
-Use the lowest applicable ceiling:
-
-- `source-cited`: directly supported by cited source or accepted local docs.
-- `doc-stated`: stated by local docs but not source-traced in this pass.
-- `inferred`: likely shape from source/doc relation, not directly proven.
-- `not-proven`: claim cannot be made from the inspected material.
-- `not-inspected`: outside this pass.
-
-## Current Seam Question
-
-TODO: State the bounded seam question from `workspace/current.md`.
-
-Example:
-
-```txt
-Can I responsibly explain how the presentation head receives prepared readout input and where the target-owned adapter boundary begins?
-```
-
-## Seam Card
-
-### Can I Responsibly Talk About This Seam Now?
-
-Answer: TODO (`yes` / `yes, with gaps` / `not yet`)
-
-Why:
-
-- TODO
+## Evidence Appendix
 
 ### Supported Claims
 
@@ -77,7 +105,7 @@ Why:
 
 ### Missing Proof
 
-| Missing proof | Why it matters | Next proof needed |
+| Missing proof | Why it matters | Proof that would close it |
 | --- | --- | --- |
 | TODO | TODO | TODO |
 
@@ -87,23 +115,13 @@ Why:
 | --- | --- | --- | --- |
 | TODO | `inferred` / `not-proven` / `not-inspected` | TODO | TODO |
 
-### Next Safe Ask
-
-TODO: One bounded next question or action that would reduce uncertainty without widening the trace unnecessarily.
-
-## Compact Source Path
+### Compact Source Path
 
 | Step | Layer | File | Symbol / Section | Observed Fact | Supports Claim Because |
 | --- | --- | --- | --- | --- | --- |
 | 1 | TODO | TODO | TODO | TODO | TODO |
 
-## Per-Seam Boundary Mapping
-
-| Boundary | Owner / Layer | Evidence | Allowed Claim | Must Not Claim |
-| --- | --- | --- | --- | --- |
-| TODO | TODO | TODO | TODO | TODO |
-
-## Boundary Pressure
+### Boundary Pressure
 
 | Pressure | Signal | Source / Basis | Current Read | Risk If Ignored |
 | --- | --- | --- | --- | --- |
@@ -112,30 +130,13 @@ TODO: One bounded next question or action that would reduce uncertainty without 
 | data-flow pressure | TODO | TODO | TODO | TODO |
 | verification pressure | TODO | TODO | TODO | TODO |
 
-## Verification Surface
+### Verification Surface
 
 | Command / Fixture / Test | What It Proves | What It Does Not Prove | Gap |
 | --- | --- | --- | --- |
 | TODO | TODO | TODO | TODO |
 
-## Full View With Visible Gaps
-
-Use this as a compact local orientation slice, not as a replacement for the seam card.
-
-| Area | What Is Visible | Gap / Unknown | Basis |
-| --- | --- | --- | --- |
-| Entry point | TODO | TODO | TODO |
-| Transformation | TODO | TODO | TODO |
-| Storage / state | TODO | TODO | TODO |
-| Rendering / display | TODO | TODO | TODO |
-| Logging / diagnostics | TODO | TODO | TODO |
-| Verification | TODO | TODO | TODO |
-
-## Not Mapped
-
-- TODO
-
-## Next Questions
+### Not Mapped
 
 - TODO
 
@@ -148,7 +149,7 @@ Use this as a compact local orientation slice, not as a replacement for the seam
 | Outcome | TODO |
 | Replaced map | TODO |
 | History copy | TODO |
-| Next safe ask | TODO |
+| Open edge | TODO |
 
 ## Blocked Output
 
@@ -159,4 +160,4 @@ Use this section only if the map could not be produced safely.
 | Why map stopped | TODO |
 | What was safe to read | TODO |
 | What proof was missing | TODO |
-| Next safe ask | TODO |
+| Open edge | TODO |

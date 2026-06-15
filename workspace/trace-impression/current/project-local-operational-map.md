@@ -14,7 +14,70 @@ Replaces: none; first local seam trace baseline
 
 This map is a project-local source impression for Overseer orientation. It is not product authority, architecture approval, target adoption, Dev authorization, or accepted project meaning.
 
-## Freshness
+## Response To Current Question
+
+Question:
+
+```txt
+Can a local seam trace produce a useful claimable seam card for the Lab presentation head bridge/import boundary?
+```
+
+Answer: yes, with gaps
+
+Why:
+
+- The static starter and Sense trial package expose a clear display-only head boundary: HTML roots load local CSS/JS and example JSON, while docs explicitly exclude target adapters, bridge/runtime contracts, Electron, preload, IPC, and source-project mappings.
+- The JS renderer shows how prepared readout input becomes DOM text, state classes, detail rows, source-owned qualification, and gap/warning markers.
+- The verifier checks the starter files, safety exclusions, required labels, source-owned examples, local JSON fetch allowance, primitive CSS shelf, and package boundary text.
+- The unresolved gap is the live target handoff: this trace proves local static head/package shape, not target adapter correctness, runtime security approval, or actual target adoption.
+
+## Selected Seam
+
+| Field | Value |
+| --- | --- |
+| Seam | Lab presentation head bridge/import boundary |
+| Location | `portable-presentation-starter/`, especially `examples/static/` and `packages/sense-trial-glass/` |
+| Local owner / layer | Aura Lab / Bridge -> Interface presentation |
+| What this map can describe | Static starter shape, display input handling, local package boundary, verifier expectations, and accepted Lab/target ownership docs. |
+| What this map must not describe | Target adapter correctness, target source meaning, target adoption, Electron/runtime security posture, live rendering, or package/export readiness. |
+
+## Boundary Mapping
+
+| Boundary | Owner / Layer | Evidence | Allowed Claim | Must Not Claim |
+| --- | --- | --- | --- | --- |
+| Display input example -> Instrument Readout Panel | Lab / Bridge -> Interface presentation | `portable-presentation-starter/README.md`; `instrument-readout-panel.js`; `example-readouts.json` | Lab has a static display head that renders prepared readout-like display input into a panel with basis, age, availability, gaps, warnings, detail, and source-owned qualification. | Lab has defined a bridge schema, runtime contract, target payload, or target enum set. |
+| Selector page -> travelling head | Lab / demo scaffolding vs offered surface | `index.html`; `inspect-head.html`; README Inspect section | Selector page is review scaffolding; no-selector page is a cleaner head inspection shape. | Selector behavior is part of target product navigation. |
+| Example states -> target states | Lab display example vocabulary | `example-readouts.json` meta; README Example Input Boundary | `CURRENT`, `NO DATA`, `UNAVAILABLE`, and `PARTIAL` are Lab display example labels in this package. | These are Sense/Atlas/Core source states or adapter constants. |
+| Source-owned placeholders -> display qualification | Source project meaning preserved through display input | `example-readouts.json` sourceOwned blocks; README Sense Cautions Preserved | Lab can display source-owned placeholders with owner/layer qualification. | Lab owns `blocked`, `no-scan`, `degraded`, `no observation`, or their source semantics. |
+| Lab package -> target adapter | Target project adapter layer | ADR 0002; Sense package manifest | Lab provides display bundle/materials; target owns mapper, source meaning, runtime behavior, copy, review, and adoption. | Lab owns target adapter implementation or target acceptance. |
+| Static starter verification -> runtime assurance | Lab verification surface | `scripts/verify-static-starter.js`; `scripts/verify-all.js` | Verification checks expected static files, unsafe patterns, local fetch allowance, labels, source-owned examples, package docs, and primitive docs. | Verification proves visual quality, target adapter correctness, browser behavior, or runtime security approval. |
+| SmokeFlash/workshop -> travelling package | Lab tooling boundary | ADR 0001; `scripts/verify-static-starter.js` excluded patterns | The static starter verifier guards against SmokeFlash/Paneboard/Wayfinder terms in implementation text inspected by the static starter check. | All future renderer exports are automatically split or safe. |
+
+## Full View With Visible Gaps
+
+Use this as a compact local orientation slice, not as a replacement for the selected seam.
+
+| Area | What Is Visible | Gap / Unknown | Basis |
+| --- | --- | --- | --- |
+| Entry point | Static starter has selector and no-selector HTML roots under `examples/static/`; Sense package mirrors the static files. | No target project import inspected. | `index.html`, `inspect-head.html`, `MANIFEST.md`. |
+| Transformation | JS reads example readouts and renders DOM text into an Instrument Readout Panel with state chip, details, gaps, warnings, and source-owned notes. | No adapter transforms real target bridge output into this shape in this trace. | `instrument-readout-panel.js`, `example-readouts.json`. |
+| Storage / state | No persistent storage found in starter implementation; verifier rejects storage API terms in implementation text. | Browser runtime behavior not executed in this trace. | `scripts/verify-static-starter.js` unsafe patterns. |
+| Rendering / display | CSS defines panel, state tones, containment, narrow behavior, and reduced-motion. | No screenshot/manual visual inspection claimed. | `instrument-readout-panel.css`. |
+| Logging / diagnostics | No logging/diagnostics lane found in static starter files inspected. | Not a runtime diagnostics trace. | `not-found` in inspected starter files. |
+| Verification | `verify:all` includes `verify:static-starter`; static verifier checks package boundaries and safety floor. | Visual, runtime, target, and security hardening remain separate. | `scripts/verify-all.js`, `scripts/verify-static-starter.js`. |
+
+## Open Edge
+
+This map stops before proving:
+
+- target-local adapter consumption or correctness
+- target adoption
+- Electron/runtime security posture
+- visual/manual browser inspection
+- package/export readiness
+- full Lab domain shape outside this seam
+
+## Freshness / Basis / Confidence
 
 | Field | Value |
 | --- | --- |
@@ -24,8 +87,9 @@ This map is a project-local source impression for Overseer orientation. It is no
 | Context file used | `workspace/trace-impression/context.md` |
 | Overview file used | `workspace/overview.md` |
 | Previous map replaced | None; first baseline |
+| Confidence ceiling | `source-cited` for static starter/package/verifier/boundary docs only |
 
-## Basis Mix
+Basis mix:
 
 | Basis | Used? | Notes |
 | --- | --- | --- |
@@ -37,28 +101,9 @@ This map is a project-local source impression for Overseer orientation. It is no
 | Inference | Yes | Limited to naming the adapter handoff as the boundary implied by docs and package shape. |
 | Not found / not inspected | Yes | Runtime execution, target adapter correctness, Electron behavior, and target-project code were not inspected. |
 
-## Confidence Ceiling
-
-Highest allowed certainty for this map: `source-cited`
-
 The map can make source-cited claims about the static starter, package contents, local verifier expectations, and accepted boundary documentation. It cannot make verified claims about target adapters, target adoption, Electron runtime behavior, or live rendering beyond inspected source and verification evidence.
 
-## Current Seam Question
-
-Can a local seam trace produce a useful claimable seam card for the Lab presentation head bridge/import boundary?
-
-## Seam Card
-
-### Can I Responsibly Talk About This Seam Now?
-
-Answer: yes, with gaps
-
-Why:
-
-- The static starter and Sense trial package expose a clear display-only head boundary: HTML roots load local CSS/JS and example JSON, while docs explicitly exclude target adapters, bridge/runtime contracts, Electron, preload, IPC, and source-project mappings.
-- The JS renderer shows how prepared readout input becomes DOM text, state classes, detail rows, source-owned qualification, and gap/warning markers.
-- The verifier checks the starter files, safety exclusions, required labels, source-owned examples, local JSON fetch allowance, primitive CSS shelf, and package boundary text.
-- The unresolved gap is the live target handoff: this trace proves local static head/package shape, not target adapter correctness, runtime security approval, or actual target adoption.
+## Evidence Appendix
 
 ### Supported Claims
 
@@ -82,7 +127,7 @@ Why:
 
 ### Missing Proof
 
-| Missing proof | Why it matters | Next proof needed |
+| Missing proof | Why it matters | Proof that would close it |
 | --- | --- | --- |
 | Actual target adapter imports the package and maps target-owned data correctly. | This seam stops at Lab's local static package; target adapter correctness belongs to the target project. | A target-local trace or target Dev acceptance after importing the package. |
 | Browser/manual visual inspection of the generated static page. | Source and verifier prove file shape and safety checks, not visual fit in a real viewport. | Human or visual smoke/manual screenshot review for the static page if presentation fit is in scope. |
@@ -100,10 +145,6 @@ Why:
 | The static starter is safe as a runtime trust boundary. | `not-proven` | README says it is display-only and not a trust boundary; verifier checks unsafe static patterns but not runtime hardening. | Dedicated security review and runtime threat model. |
 | Pane Board, Wayfinder, SmokeFlash, or service registry are absent from the source package because they are absent from package files. | `not-proven` | The verifier inspects implementation text for excluded patterns, but this trace did not prove all possible transitive runtime contexts. | A packaging manifest plus dependency/import graph if exporting a runtime bundle. |
 
-### Next Safe Ask
-
-Run the first target-local comparison only after the target project has the package in hand: ask, "Does the target adapter consume the Lab glass as display input without turning Lab example states, sample data, or source-owned placeholders into target meaning?"
-
 ## Compact Source Path
 
 | Step | Layer | File | Symbol / Section | Observed Fact | Supports Claim Because |
@@ -120,18 +161,6 @@ Run the first target-local comparison only after the target project has the pack
 | 10 | Verification | `scripts/verify-static-starter.js` and `scripts/verify-all.js` | required files / checks array | Checks static starter contents and includes static starter in full verification. | Shows what automated verification can and cannot prove. |
 | 11 | Accepted boundary | `docs/adr/0002-target-owned-presentation-adapters.md` | Decision / Adapter Boundary | Target projects own adapters from bridge output to Lab head. | Anchors adapter ownership. |
 | 12 | Accepted concept | `docs/statements/presentation-glass-concept-capsule.md` | Core Idea / Ownership Split | Lab owns display primitives and examples; targets own source meaning, mapper, runtime, copy, composition, and acceptance. | Anchors meaning ownership. |
-
-## Per-Seam Boundary Mapping
-
-| Boundary | Owner / Layer | Evidence | Allowed Claim | Must Not Claim |
-| --- | --- | --- | --- | --- |
-| Display input example -> Instrument Readout Panel | Lab / Bridge -> Interface presentation | `portable-presentation-starter/README.md`; `instrument-readout-panel.js`; `example-readouts.json` | Lab has a static display head that renders prepared readout-like display input into a panel with basis, age, availability, gaps, warnings, detail, and source-owned qualification. | Lab has defined a bridge schema, runtime contract, target payload, or target enum set. |
-| Selector page -> travelling head | Lab / demo scaffolding vs offered surface | `index.html`; `inspect-head.html`; README Inspect section | Selector page is review scaffolding; no-selector page is a cleaner head inspection shape. | Selector behavior is part of target product navigation. |
-| Example states -> target states | Lab display example vocabulary | `example-readouts.json` meta; README Example Input Boundary | `CURRENT`, `NO DATA`, `UNAVAILABLE`, and `PARTIAL` are Lab display example labels in this package. | These are Sense/Atlas/Core source states or adapter constants. |
-| Source-owned placeholders -> display qualification | Source project meaning preserved through display input | `example-readouts.json` sourceOwned blocks; README Sense Cautions Preserved | Lab can display source-owned placeholders with owner/layer qualification. | Lab owns `blocked`, `no-scan`, `degraded`, `no observation`, or their source semantics. |
-| Lab package -> target adapter | Target project adapter layer | ADR 0002; Sense package manifest | Lab provides display bundle/materials; target owns mapper, source meaning, runtime behavior, copy, review, and adoption. | Lab owns target adapter implementation or target acceptance. |
-| Static starter verification -> runtime assurance | Lab verification surface | `scripts/verify-static-starter.js`; `scripts/verify-all.js` | Verification checks expected static files, unsafe patterns, local fetch allowance, labels, source-owned examples, package docs, and primitive docs. | Verification proves visual quality, target adapter correctness, browser behavior, or runtime security approval. |
-| SmokeFlash/workshop -> travelling package | Lab tooling boundary | ADR 0001; `scripts/verify-static-starter.js` excluded patterns | The static starter verifier guards against SmokeFlash/Paneboard/Wayfinder terms in implementation text inspected by the static starter check. | All future renderer exports are automatically split or safe. |
 
 ## Boundary Pressure
 
@@ -151,19 +180,6 @@ Run the first target-local comparison only after the target project has the pack
 | `portable-presentation-starter/examples/static/example-readouts.json` | Provides display example states used by the static head. | Does not prove target payload shape or source-project state. | Target must map its own data. |
 | `portable-presentation-starter/examples/static/inspect-head.html` | Provides a no-selector inspection page for the head surface. | Does not prove the page was opened or visually reviewed in this pilot. | Manual/visual review remains separate. |
 
-## Full View With Visible Gaps
-
-Use this as a compact local orientation slice, not as a replacement for the seam card.
-
-| Area | What Is Visible | Gap / Unknown | Basis |
-| --- | --- | --- | --- |
-| Entry point | Static starter has selector and no-selector HTML roots under `examples/static/`; Sense package mirrors the static files. | No target project import inspected. | `index.html`, `inspect-head.html`, `MANIFEST.md`. |
-| Transformation | JS reads example readouts and renders DOM text into an Instrument Readout Panel with state chip, details, gaps, warnings, and source-owned notes. | No adapter transforms real target bridge output into this shape in this trace. | `instrument-readout-panel.js`, `example-readouts.json`. |
-| Storage / state | No persistent storage found in starter implementation; verifier rejects storage API terms in implementation text. | Browser runtime behavior not executed in this trace. | `scripts/verify-static-starter.js` unsafe patterns. |
-| Rendering / display | CSS defines panel, state tones, containment, narrow behavior, and reduced-motion. | No screenshot/manual visual inspection claimed. | `instrument-readout-panel.css`. |
-| Logging / diagnostics | No logging/diagnostics lane found in static starter files inspected. | Not a runtime diagnostics trace. | `not-found` in inspected starter files. |
-| Verification | `verify:all` includes `verify:static-starter`; static verifier checks package boundaries and safety floor. | Visual, runtime, target, and security hardening remain separate. | `scripts/verify-all.js`, `scripts/verify-static-starter.js`. |
-
 ## Not Mapped
 
 - Target project source code and adapters.
@@ -174,12 +190,6 @@ Use this as a compact local orientation slice, not as a replacement for the seam
 - Package manager publication or universal export shape.
 - Full Lab domain/pipeline map outside this presentation starter seam.
 
-## Next Questions
-
-- Does the first local seam card make the Overseer's job easier enough to justify running a target-local seam trace later?
-- Should the next trace inspect a target-owned adapter import after Sense confirms its local trial shape?
-- Should a later Human orientation sync use this map as the first high-resolution seam fact and broaden into the full presentation domain?
-
 ## Run Log Entry
 
 | Field | Note |
@@ -189,7 +199,7 @@ Use this as a compact local orientation slice, not as a replacement for the seam
 | Outcome | yes, with gaps |
 | Replaced map | None; first baseline |
 | History copy | Not created; first current map only |
-| Next safe ask | Target-local adapter consumption check after target has the package in hand. |
+| Open edge | Target-local adapter consumption and correctness are not proven by this map. |
 
 ## Blocked Output
 
@@ -200,4 +210,4 @@ This map was produced. No blocked-output stop was hit.
 | Why map stopped | Not applicable |
 | What was safe to read | Lab-local starter, package, verifier, ADR, statement, context, and current packet files |
 | What proof was missing | Target adapter import, visual runtime inspection, Electron/runtime security approval, package publication |
-| Next safe ask | Target-local adapter consumption check after target has the package in hand |
+| Open edge | Target-local adapter consumption and correctness are not proven by this map |
