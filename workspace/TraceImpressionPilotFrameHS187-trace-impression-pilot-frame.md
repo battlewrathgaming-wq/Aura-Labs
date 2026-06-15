@@ -59,28 +59,58 @@ The pilot should not answer every architecture question.
 
 The pilot should not prove Trace Impression is ready for Atlas, Sense, Core, or Orchestration.
 
-## Success Bar
+## Success Bar By Audience
 
-A pilot is successful if the reviewer can honestly say:
+A pilot is successful if each audience can use the output faster than they could reconstruct the same shape manually.
+
+The plain acceptance bar remains: `My job just got easier.`
+
+### Overseer Success
+
+For Overseer use, the core unit is a claimable seam card.
+
+The local seam trace should answer:
 
 ```txt
-My job just got easier.
+Can I responsibly talk about this seam now?
+If yes, what evidence supports that?
+If no, what proof is missing?
 ```
 
 Observable checks:
 
-- The local seam map identifies the current seam in the first screen.
-- The source path is compact enough to inspect without a broad reread.
-- Every supported claim has a citation or an explicit basis label.
-- Inferred, not-found, not-mapped, and not-inspected items are visible.
-- Missing links are treated as findings, not hidden as absence.
-- The next safe ask is clearer after reading the map.
-- The map does not create Dev work by itself.
-- The Human orientation view helps boundary steering without becoming a steering authority.
+- The seam card names the current seam in the first screen.
+- The card gives a compact source path, not a broad project essay.
+- The card distinguishes supported claims from inferred or not-proven claims.
+- Every supported claim has a citation or explicit basis label.
+- Missing links, not-found items, not-mapped areas, and not-inspected layers are visible.
+- The next safe ask is clearer after reading the card.
+- The card helps shape or reject a next packet without creating Dev work by itself.
+
+### Human Success
+
+For Human use, the core unit is a resolution-labeled orientation map.
+
+The Human orientation sync should answer:
+
+```txt
+What is the wider project shape right now?
+Which parts are high-resolution source-cited facts?
+Which parts are lower-resolution orientation, non-local context, inferred, not mapped, or not inspected?
+```
+
+Observable checks:
+
+- The map shows enough project shape to support boundary steering and drift detection.
+- The map marks resolution and basis, rather than flattening all material into equal certainty.
+- High-resolution seam facts remain visibly separate from lower-resolution domain orientation.
+- Non-local scaffolds, advisory input, Human context, and inferred structure stay labeled.
+- The map helps the Human see what to ask next without becoming project authority.
 
 Failure checks:
 
-- The output reads like a broad project essay.
+- The local output reads like a broad project essay instead of a seam card.
+- The Human output reads like authority instead of a resolution-labeled orientation display.
 - It hides uncertainty to feel complete.
 - It repeats existing docs without improving orientation.
 - It requires more context load than the audit it was meant to replace.
@@ -167,7 +197,7 @@ Recommended local seam map sections:
 Title
 Authority Label
 Freshness
-Current Seam
+Seam Card
 Basis Mix
 Confidence Ceiling
 Compact Source Path
@@ -179,6 +209,19 @@ Verification Surface
 Stop Conditions Hit
 Next Safe Asks
 Run Log Entry
+```
+
+Seam Card minimum shape:
+
+```txt
+Seam Name
+Current Question
+Can I Responsibly Talk About This Seam Now?
+Supported Claims
+Missing Proof
+Inferred Steps
+Verification Surface
+Next Safe Ask
 ```
 
 Minimum useful table:
