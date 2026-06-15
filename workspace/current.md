@@ -72,6 +72,17 @@ Command split to preserve:
 | = Human orientation sync. Broader, resolution-labeled, and still unable to promote conversation, non-local material, or inferred structure into project truth.
 ```
 
+Human clarification:
+
+```txt
+\ is primarily anchored around Overseer use.
+| can be a plain structured Markdown report for now.
+Substance comes before presentation polish.
+The output set should preserve:
+- a full view with visible gaps
+- a per-seam view with boundary mapping
+```
+
 Boundaries:
 
 ```txt
