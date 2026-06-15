@@ -1,19 +1,21 @@
 # Current Workspace Packet
 
 Status: Idle
-Updated: 2026-06-02
+Updated: 2026-06-15
 Owner: Overseer
 
 ## Coordination State
 
 Active milestone: None
-Last completed milestone: M51 / HS183 - Glass Primitive CSS Starter Acceptance
+Last completed milestone: M52 / HS184 - Presentation Warm Start Package
 Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after accepting the first CSS/token primitive starter.
+Current focus: Await Human / Overseer direction after packaging the presentation thread as a warm-start reference.
 Expected output: Human direction or next Overseer runway artifact.
 Expected DevHS filename: None
 
 ## Current State
+
+M52 is accepted and closed.
 
 M51 is accepted and closed.
 
@@ -36,6 +38,12 @@ M49 packaged the selected goodies as a small local static bundle for Sense trial
 M50 accepted a readiness map for turning the glass inventory spine into a future warm-start presentation shelf. The accepted direction is CSS/tokens first, optional thin React wrappers later, and target projects remain responsible for composing and authorizing product surfaces.
 
 M51 implemented the first CSS/token primitive shelf under `portable-presentation-starter/primitives/`.
+
+M52 packaged the current presentation thread into a warm-start reference:
+
+```txt
+docs/statements/presentation-warm-start-package.md
+```
 
 Accepted primitive wording:
 
@@ -77,6 +85,7 @@ M48 created a concise selection shelf so target projects can choose desired feat
 M49, M48, M47, M46, M45, M44, M43, and M42 remain accepted and closed.
 M50 is also accepted and closed.
 M51 is also accepted and closed.
+M52 is also accepted and closed.
 
 Accepted output:
 
@@ -119,6 +128,9 @@ Accepted output:
 - `workspace/DevHS182-glass-primitive-css-starter.md`
 - `workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md`
 - `portable-presentation-starter/primitives/`
+- `docs/statements/presentation-warm-start-package.md`
+- `docs/roadmap/m52-presentation-warm-start-package.md`
+- `workspace/OverseerHS184-presentation-thread-warm-start-package.md`
 - `docs/roadmap/m51-glass-primitive-css-starter.md`
 - `docs/roadmap/m50-glass-primitive-react-readiness-map.md`
 - `docs/roadmap/m49-sense-trial-glass-package.md`
@@ -146,6 +158,8 @@ Accepted source of intent:
 - `workspace/DevHS182-glass-primitive-css-starter.md`
 - `workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md`
 - `portable-presentation-starter/primitives/`
+- `docs/statements/presentation-warm-start-package.md`
+- `workspace/OverseerHS184-presentation-thread-warm-start-package.md`
 - `workspace/display-assets.md`
 - `workspace/display-outputs/instrument-readout-panel-glass.md`
 - `workspace/GlassDefinitionHS173-presentation-glass-value-definition.md`
@@ -191,7 +205,7 @@ Recommended next choices:
 
 1. Open a visual/UX review of the primitive examples.
 2. Park Lab while target projects inspect or continue local adapter work.
-3. Open a narrow M52 polish packet only if primitive examples reveal visible layout/readability issues.
+3. Open a narrow future polish packet only if primitive examples reveal visible layout/readability issues.
 4. Keep React wrapper work parked until CSS primitives are visually accepted.
 
 ## Guardrails And Non-Goals
@@ -234,7 +248,7 @@ No active verification required while idle.
 
 ## Handoff
 
-Latest accepted handoff: `workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md`.
+Latest accepted handoff: `workspace/OverseerHS184-presentation-thread-warm-start-package.md`.
 
 Active runway: None.
 
@@ -244,3 +258,4 @@ Active runway: None.
 - Sense must still perform Sense-local mapping, review, and adoption decisions.
 - If Sense needs reusable package mechanics, open a separate package/export specification instead of expanding the trial bundle.
 - React wrapper work should remain parked until CSS primitives are visually accepted.
+- Presentation warm start is boxed in `docs/statements/presentation-warm-start-package.md`.

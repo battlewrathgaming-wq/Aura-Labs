@@ -1,7 +1,7 @@
 # Aura Lab Workspace Overview
 
 Status: Active
-Last reviewed: 2026-06-02
+Last reviewed: 2026-06-15
 
 ## Vision Statement
 
@@ -79,16 +79,17 @@ Authority clarification: individual projects own internal-to-Bridge mappings. Br
 | M49 | Sense Trial Glass Package | Complete | Accepted local static package of selected Lab glass/materials for a Sense trial without owning Sense mapper, source meaning, runtime behavior, or adoption. |
 | M50 | Glass Primitive React Readiness Map | Complete | Accepted advisory map for turning the accepted glass primitive spine into future warm-start presentation shelf guidance without implementing React or target panes. |
 | M51 | Glass Primitive CSS Starter | Complete | Accepted the first CSS/token primitive starter before any React wrappers. |
+| M52 | Presentation Warm Start Package | Complete | Packaged the accepted presentation thread into a durable warm-start reference for future pickup. |
 
 ## Current Direction
 
 Active milestone: None
-Last completed milestone: M51 / HS183 - Glass Primitive CSS Starter Acceptance
-Latest accepted review: workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md
+Last completed milestone: M52 / HS184 - Presentation Warm Start Package
+Latest accepted review: workspace/OverseerHS184-presentation-thread-warm-start-package.md
 Roadmap source: `docs/roadmap/README.md`
 Current packet: `workspace/current.md`
 Current sequence: None
-Latest accepted handshake: workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md
+Latest accepted handshake: workspace/OverseerHS184-presentation-thread-warm-start-package.md
 Latest active runway: None
 Active runway: workspace/current.md
 Housekeeping: active root refreshed on 2026-06-01 after accepting M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
@@ -124,6 +125,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/roadmap/m49-sense-trial-glass-package.md`
 - `docs/roadmap/m50-glass-primitive-react-readiness-map.md`
 - `docs/roadmap/m51-glass-primitive-css-starter.md`
+- `docs/roadmap/m52-presentation-warm-start-package.md`
 - `docs/roadmap/display-material-repeat-cycle-candidate.md`
 - `docs/roadmap/composed-display-output-candidate.md`
 - `docs/roadmap/m32-export-boundary-review.md`
@@ -134,6 +136,7 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 - `docs/statements/post-bridge-presentation-boundary.md`
 - `docs/statements/lab-presentation-head-posture.md`
 - `docs/statements/presentation-head-handoff-standard.md`
+- `docs/statements/presentation-warm-start-package.md`
 - `docs/current-state/m00-boot-current-state.md`
 - `docs/current-state/m01-project-state-briefing-current-state.md`
 - `docs/current-state/m04-visual-prototype-current-state.md`
@@ -237,6 +240,7 @@ Active milestone handshakes:
 - `workspace/OverseerHS182-m51-glass-primitive-css-starter-runway.md`
 - `workspace/DevHS182-glass-primitive-css-starter.md`
 - `workspace/OverseerHS183-m51-glass-primitive-css-starter-acceptance.md`
+- `workspace/OverseerHS184-presentation-thread-warm-start-package.md`
 
 Accepted authority records:
 

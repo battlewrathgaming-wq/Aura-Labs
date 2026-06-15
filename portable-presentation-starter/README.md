@@ -99,6 +99,23 @@ portable-presentation-starter/primitives/
 
 This shelf provides meaning-light CSS primitives before any framework wrappers. It does not create React components, target panes, target adapters, or bridge/runtime contracts.
 
+## Warm Start Path
+
+For future pickup, read:
+
+```txt
+docs/statements/presentation-warm-start-package.md
+```
+
+Use the starter in this order:
+
+1. Start with CSS tokens and display primitives in `primitives/`.
+2. Pick accepted display features from `workspace/display-selection-shelf.md`.
+3. Compose locally inside the target project.
+4. Let the target project own mapper, source meaning, runtime behavior, product copy, review, and adoption.
+
+React wrappers remain parked until the CSS/display primitives are visually accepted.
+
 ## Source References
 
 - `workspace/display-outputs/instrument-readout-panel.md`
