@@ -92,10 +92,40 @@ Trace Impression commands should be described as context-exposure controls.
 Shared intent:
 
 ```txt
-Trace Impression commands narrow the agent's input surface so Human discussion, preference, metaphor, future vision, and exploratory chat do not alter stateful observations.
+Trace Impression commands define what kind of context may influence the output.
 ```
 
-This should be held for the next command wording pass.
+Command split:
+
+```txt
+\ = local seam trace
+Narrow. Project-local. Source-cited. Resistant to chat and vision drift.
+
+| = Human orientation sync
+Broader. Still basis-labeled. Helps the Human see the current shape of the project without turning that view into authority.
+```
+
+Shared command wording:
+
+```txt
+\ protects project-local stateful observations from Human discussion, preference,
+metaphor, future vision, and exploratory chat.
+
+| may support broader Human orientation. It may use the current local operational
+map, project-local source/code/doc citations, and configured non-local orientation
+scaffolds.
+
+| may broaden resolution for Human boundary steering, but it must preserve basis
+labels, avoid certainty promotion, and never treat Human vision, Lab material,
+Orchestration material, advisory input, or inferred structure as proof of
+project-local runtime behavior or accepted meaning.
+```
+
+Core distinction:
+
+```txt
+The map's authority comes from accuracy of display, not decision power.
+```
 
 ## Project-Local - Sense Context Only
 
@@ -193,6 +223,3 @@ Before a first pilot, update the shared templates with:
 2. basis mix
 3. confidence ceiling
 4. freshness markers
-
-Then pause for the command wording discussion around `\` and `|`.
-
