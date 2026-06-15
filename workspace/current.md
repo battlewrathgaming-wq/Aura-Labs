@@ -44,6 +44,7 @@ Accepted M57 map state:
 - `|` Human orientation sync remains parked until the local map has been reviewed or a broader orientation pass is explicitly opened.
 - Post-review cleanup changed the Trace Impression reading order to response -> selected seam -> boundary mapping -> full view with visible gaps -> open edge -> evidence appendix.
 - Task-like "next ask" language was replaced with map-boundary "open edge" language.
+- Warm-start seed parked at `workspace/trace-impression/warm-start-seeds.md` for a possible future `M58 / Static Starter Import Boundary Verifier`.
 ```
 
 Verification:
