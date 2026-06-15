@@ -1,19 +1,112 @@
 # Current Workspace Packet
 
-Status: Idle
+Status: Active
 Updated: 2026-06-15
 Owner: Overseer
 
 ## Coordination State
 
-Active milestone: None
+Active milestone: M57 / Trace Impression First Local Seam Pilot
 Last completed milestone: M56 / Trace Impression Output Templates
-Current executor: Human / Overseer
-Current focus: Await Human / Overseer direction after accepting the Trace Impression output templates.
-Expected output: Human direction or next Overseer runway artifact.
+Current executor: Specialist / Trace Impression worker
+Current focus: Run the first `\` local seam trace against the Lab presentation head bridge/import boundary.
+Expected output: Project-local operational map and run log.
 Expected DevHS filename: None
 
 ## Current State
+
+M57 is active.
+
+Intent:
+
+```txt
+Use the accepted Trace Impression context and project-local operational map template to perform the first primitive local seam trace. The goal is to test whether `\` can produce a useful, claimable Overseer seam card for the Lab presentation head bridge/import boundary.
+```
+
+Read:
+
+```txt
+AGENTS.md
+HUMAN.md
+workspace/current.md
+workspace/overview.md
+workspace/trace-impression/context.md
+workspace/trace-impression/templates/project-local-operational-map.md
+portable-presentation-starter/
+package.json
+scripts/verify-static-starter.js
+scripts/verify-all.js
+```
+
+Inspect as needed:
+
+```txt
+portable-presentation-starter/index.html
+portable-presentation-starter/inspect-head.html
+portable-presentation-starter/starter.js
+portable-presentation-starter/primitives/
+scripts/
+docs/statements/
+docs/adr/
+workspace/PresentationWarmStartPackageHS177-presentation-thread-package.md
+```
+
+Expected outputs:
+
+```txt
+workspace/trace-impression/current/project-local-operational-map.md
+workspace/trace-impression/current/run-log.md
+```
+
+Pilot question:
+
+```txt
+Can a local seam trace produce a useful claimable seam card for the Lab presentation head bridge/import boundary?
+```
+
+Required output behavior:
+
+```txt
+- Use the accepted project-local operational map template.
+- Keep `\` Overseer-first.
+- Include a seam card answer: yes / yes, with gaps / not yet.
+- Cite supported claims using the required citation shape.
+- Mark inferred, not-proven, not-mapped, and not-inspected items clearly.
+- Include compact source path, per-seam boundary mapping, visible gaps, verification surface, and next safe ask.
+- Update or create the local run log.
+```
+
+Boundaries:
+
+```txt
+- Do not edit source code.
+- Do not run `|` Human orientation sync.
+- Do not create or update a central Human orientation map.
+- Do not inspect target-project folders.
+- Do not claim target adoption, target adapter correctness, runtime security approval, or Electron behavior beyond cited source/verification evidence.
+- Do not create scripts, automation, skills, or runners.
+- Do not create a Dev runway.
+```
+
+Verification:
+
+```txt
+npm.cmd run verify:all
+```
+
+Acceptance:
+
+```txt
+- The local operational map exists at workspace/trace-impression/current/project-local-operational-map.md.
+- The run log exists at workspace/trace-impression/current/run-log.md.
+- The map answers the pilot question with a useful seam card.
+- The map shows full-view gaps and per-seam boundary mapping.
+- Claims are cited or explicitly labeled as inferred / not-proven / not-mapped / not-inspected.
+- No central Human map or source changes are created.
+- npm.cmd run verify:all passes.
+```
+
+## Recent Completed State
 
 M56 is accepted and closed.
 
