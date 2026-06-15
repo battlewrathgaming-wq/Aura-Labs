@@ -121,6 +121,14 @@ Do not update the Central Human Orientation Map from a blocked local run.
 - `templates/central-human-orientation-map.md`
 - `templates/overseer-snippet.md`
 
+## Advisory Review
+
+Use this file when asking another project Overseer or specialist for constructive input:
+
+```txt
+workspace/trace-impression/advisory-review-intake.md
+```
+
 ## Cleanup
 
 Default replacement prevents audit sediment.
