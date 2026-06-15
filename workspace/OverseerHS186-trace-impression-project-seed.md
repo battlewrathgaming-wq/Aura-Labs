@@ -92,6 +92,49 @@ The Central Human Orientation Map should live in Orchestration deep-knowledge sy
 
 Metaphors such as navigation lamp or growth map are explanatory only. They should not become contract terms.
 
+## Deployment Behavior
+
+Trace Impression should deploy as a project-local workflow bundle.
+
+Suggested local bundle:
+
+```txt
+workspace/trace-impression/
+  README.md
+  context.md
+  templates/
+    project-local-operational-map.md
+    central-human-orientation-map.md
+  current-overseer-map.md
+  history/
+```
+
+The bundle should be project-agnostic and receive project meaning from `workspace/trace-impression/context.md`.
+
+Invocation commands:
+
+```txt
+\
+```
+
+Local-map mode. Project-local only. Updates Project-Local Operational Map. No central write.
+
+```txt
+|
+```
+
+Human-sync mode. Requires a current Project-Local Operational Map and may update Central Human Orientation Map from cited/local basis only.
+
+Source priority:
+
+```txt
+current.md defines the seam of interest.
+overview.md defines the surrounding terrain.
+context.md defines how Trace Impression behaves locally.
+```
+
+First run creates a baseline. Do not assign maturity from a single impression.
+
 ## Two-Pass Shape
 
 Pass 1:
@@ -148,3 +191,6 @@ That packet should define:
 - first prototype trace subject
 - provenance labels such as code-observed, doc-stated, accepted-state, human-context, inferred, not found, and not mapped
 - Project-Local Operational Map and Central Human Orientation Map landing paths
+- local `workspace/trace-impression/context.md` shape
+- `\` local-map and `|` human-sync command behavior
+- first-run baseline and growth-indicator rules

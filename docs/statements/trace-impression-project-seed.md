@@ -286,6 +286,180 @@ Source citations support trust.
 Owning projects decide meaning.
 ```
 
+## Deployment Behavior
+
+Trace Impression should be deployed as a project-local workflow bundle, not as a standing cross-project worker.
+
+The shared workflow may be developed in Lab, but rollout should place enough instructions and templates inside each consuming project that an agent can run from the project root without first finding a remote maze.
+
+Suggested project-local bundle:
+
+```txt
+workspace/trace-impression/
+  README.md
+  context.md
+  templates/
+    project-local-operational-map.md
+    central-human-orientation-map.md
+  current-overseer-map.md
+  history/
+```
+
+The distributed bundle should stay project-agnostic. It should get project meaning from `workspace/trace-impression/context.md`.
+
+That context file should define:
+
+- project purpose in one paragraph
+- main domains and pipelines
+- project-owned terms
+- source folders to prefer
+- folders to avoid
+- live/private boundaries
+- usual verification commands
+- current local output path
+- central Human map target path
+- local validation owner
+- what must never be inferred
+
+## Invocation Commands
+
+Trace Impression commands are factual orientation commands, not fuzzy discussion.
+
+They should work only after local initialization or local documentation exists. If command meaning is unclear, the agent should stop and ask.
+
+Accepted command pair:
+
+```txt
+\
+```
+
+Trace Impression local-map mode.
+
+- project-local only
+- update Project-Local Operational Map
+- no central Human map write
+- no source edits
+- no Dev runway
+- no project authority change
+
+```txt
+|
+```
+
+Trace Impression human-sync mode.
+
+- requires a current Project-Local Operational Map
+- may update Central Human Orientation Map from cited/local-map basis only
+- no source edits
+- no project authority change
+- no strong growth indicators from a first run
+
+Core command rule:
+
+```txt
+\ is factual local orientation.
+| is explicit cross-boundary Human map sync.
+Neither is fuzzy discussion.
+```
+
+## Source Priority
+
+For local-map mode, the seam of interest is defined by project documents, not conversational guessing.
+
+Priority order:
+
+1. `workspace/current.md`
+   - active milestone
+   - current focus
+   - expected output
+   - stop conditions
+   - recent accepted handoff if named
+   - explicit seam or focus if present
+2. `workspace/trace-impression/context.md`
+   - project-specific trace settings
+   - domains and pipelines
+   - source folders
+   - boundaries
+3. `workspace/overview.md`
+   - general scoping
+   - milestone/domain background
+   - surrounding terrain, not primary focus
+4. Recent accepted handoffs
+   - only when referenced by `current.md` or needed to understand the current focus
+
+Working rule:
+
+```txt
+current.md defines the seam of interest.
+overview.md defines the surrounding terrain.
+context.md defines how Trace Impression behaves locally.
+```
+
+## Run Modes
+
+### Local Mode
+
+Default mode.
+
+- reads local workflow
+- reads local context
+- traces local source
+- writes local Project-Local Operational Map
+- does not write to Orchestration
+
+### Human Map Sync Mode
+
+Explicit mode.
+
+- requires current Project-Local Operational Map
+- requires configured central path
+- writes or updates Central Human Orientation Map
+- records the local map basis
+- updates gap/growth indicators only when evidence has enough basis
+- does not alter source-project meaning
+
+No central Human map update should happen without a current project-local operational map as basis.
+
+## First Run And Growth Indicators
+
+First run creates a baseline.
+
+It should not claim:
+
+- stable
+- resolved
+- recurring knot
+- maturity
+
+Growth indicators should be earned from repeated local maps, accepted milestones, or deliberate review.
+
+Examples:
+
+- `stable`: same shape across multiple maps or accepted state
+- `recurring knot`: appears in more than one run or accepted handoff
+- `drift?`: current shape conflicts with accepted direction or Human intent
+- `resolved`: previous knot now has source-cited closure
+
+Guardrail:
+
+```txt
+Do not assign maturity from a single impression.
+```
+
+## Deployment Stop Conditions
+
+Stop and ask if:
+
+- command meaning is unclear or not locally documented
+- project context file is missing
+- source path is too broad
+- central sync is requested without a current local operational map
+- central path is not configured
+- private/live boundary appears and scope did not authorize handling it
+- map would require target-project meaning decisions
+- output would imply verification for layers not inspected
+- generated files would exceed the expected local output paths
+
 ## Replacement Rule
 
 Use one current trace per trace subject.
