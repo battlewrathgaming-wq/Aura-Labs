@@ -126,9 +126,9 @@ The first pilot must not use:
 - target-project runtime
 - remote assets
 - provider/API calls
-- Electron runtime behavior unless source or verification evidence was inspected
+- Electron runtime behavior unless source or verification basis was inspected
 
-Do not claim runtime security approval, manual validation, browser inspection, or Electron behavior unless the run explicitly inspected evidence for that layer.
+Do not claim runtime security approval, manual validation, browser inspection, or Electron behavior unless the run explicitly inspected source basis for that layer.
 
 ## Citation / Proof Expectations
 
@@ -174,9 +174,13 @@ Run additional verification only when a current packet explicitly asks for it.
 Default:
 
 ```txt
-Use the current Project-Local Operational Map as baseline.
+Use the current Project-Local Operational Map as discussion and replacement baseline, not as first proof source.
 Rerun only for material source/focus change, stale or disputed map, material source gap, Human/Overseer refresh request, or Human sync basis.
 ```
+
+For a new `\` run, inspect current source/body for the requested seam before reading existing Trace Impression outputs as comparison or replacement context.
+
+Existing maps and frames may show what changed, what gaps recur, or what history should be preserved. They must not provide primary source basis for new claims.
 
 Project-specific rerun triggers for this pilot:
 
@@ -208,7 +212,7 @@ Run log:
 workspace/trace-impression/current/run-log.md
 ```
 
-Central Human Orientation Map:
+Project Human Orientation Frame:
 
 ```txt
 Parked for this pilot.
@@ -216,7 +220,15 @@ Parked for this pilot.
 
 Reason:
 
-The first useful proof should be local seam-card behavior. Human map sync should wait until a local map has enough basis.
+The first useful proof should be local seam-card behavior. Human orientation sync should wait until a local map has enough basis.
+
+Default external deep-knowledge landing shape for `|` after deployment:
+
+```txt
+F:\Projects\Docs\Aura-Project-Orchestration\deep-knowledge\<ProjectName>\trace-impression\
+```
+
+Older Human orientation frames belong under that project's `history/` folder.
 
 ## Local Validation Owner
 
@@ -226,7 +238,7 @@ Validation owner:
 Human / Lab Overseer
 ```
 
-Dev, specialists, and future tooling may provide evidence, but they do not accept Trace Impression output as project authority.
+Dev, specialists, and future tooling may provide source basis, but they do not accept Trace Impression output as project authority.
 
 ## Must Never Infer
 
@@ -237,7 +249,7 @@ Do not infer:
 - source-project meaning
 - target-project state labels
 - runtime security approval
-- Electron behavior beyond cited source or verification evidence
+- Electron behavior beyond cited source or verification basis
 - Atlas/Sense/Core compatibility
 - package/export readiness beyond cited files
 - Human vision as accepted project state
@@ -252,7 +264,7 @@ Do not infer:
 - project-local only
 - source-cited
 - produces or updates the local operational map
-- no central Human map write
+- no project Human orientation frame write
 - no source edits
 - no Dev runway
 - no project authority change
@@ -263,6 +275,9 @@ Do not infer:
 - requires enough local basis
 - must preserve basis labels
 - must not promote certainty
+- shows project structure, pipeline movement, current focus, cohesion/drift markers, visible gaps, and basis labels
+- treats maps as orientation frames: current frame supports steering; older frames support comparison and recovery
+- separates project/source movement from interpretation or map-framing movement
 - parked for this first pilot until a useful local map exists
 
 Core distinction:

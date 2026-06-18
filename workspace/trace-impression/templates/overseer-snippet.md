@@ -9,6 +9,8 @@ Copy and adapt this into a project `workspace/overseer.md` when Trace Impression
 
 Trace Impression is a source-cited orientation map for the current seam or pipeline. It helps reduce repeated audit work by keeping one current project-local map and a small run log.
 
+Trace Impression detects pressure, maps cited source basis, and exposes gaps. It does not own the work it reveals.
+
 Use it when:
 
 - `workspace/current.md` names a seam, pipeline, or code/data path that needs orientation
@@ -27,7 +29,7 @@ Do not use it as:
 Commands, when locally initialized:
 
 - `\` refreshes the Project-Local Operational Map only
-- `|` syncs the Central Human Orientation Map only from a current local map
+- `|` syncs the Project Human Orientation Frame only from a current local map
 
 Read order:
 
@@ -44,11 +46,11 @@ Audit trail:
 
 Human orientation:
 
-- central Human map lives outside the project in Orchestration deep-knowledge synthesis.
-- it supports Human vision and recovery, not project authority.
+- project Human orientation frames live outside the project in that project's deep-knowledge `trace-impression/` silo.
+- older frames live in that silo's `history/` folder.
+- frames support Human steering, comparison, and recovery, not project authority.
 
 Core rule:
 
-Project-local maps steer work. Central Human maps support vision and recovery. Source citations support trust. Owning projects decide meaning.
+Project-local maps steer work. Project Human orientation frames support steering, comparison, and recovery. Source citations support confidence. Owning projects decide meaning and own any work the map helps discover.
 ```
-

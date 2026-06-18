@@ -14,22 +14,15 @@ Replaces: TODO
 
 This map is a project-local source impression for Overseer orientation. It is not product authority, architecture approval, target adoption, Dev authorization, or accepted project meaning.
 
-Naming discipline:
-
-```txt
-Use `Shape:` for future-facing, inferred, projected, or unaccepted unit labels.
-`Shape:` labels are review handles only, not accepted source terms, schema names, enums, or Dev-ready object names.
-```
-
 ## Response To Current Question
 
 Question:
 
 ```txt
-TODO: State the bounded seam question from `workspace/current.md`.
+TODO: State the bounded seam question from `workspace/current.md` or explicit Atlas Overseer instruction.
 ```
 
-Answer: TODO (`yes` / `yes, with gaps` / `not yet`)
+Answer: TODO (`yes` / `yes, with gaps` / `not yet` / `blocked`)
 
 Why:
 
@@ -42,7 +35,6 @@ Why:
 | Seam | TODO |
 | Location | TODO |
 | Local owner / layer | TODO |
-| Unaccepted shapes / review handles | TODO: Use `Shape:` labels only where needed. |
 | What this map can describe | TODO |
 | What this map must not describe | TODO |
 
@@ -51,6 +43,26 @@ Why:
 | Boundary | Owner / Layer | Source Basis | Allowed Claim | Must Not Claim |
 | --- | --- | --- | --- | --- |
 | TODO | TODO | TODO | TODO | TODO |
+
+## Source Code Inspection Body
+
+Use this section to name the files, folders, scripts, and local code paths directly inspected for the current focus.
+
+| Body Part | Direct Source Path | Role In Current Focus | What Was Inspected | What Was Not Inspected | Basis | Resolution |
+| --- | --- | --- | --- | --- | --- | --- |
+| entry point | TODO | TODO | TODO | TODO | TODO | TODO |
+| transformation / queue | TODO | TODO | TODO | TODO | TODO | TODO |
+| storage / state | TODO | TODO | TODO | TODO | TODO | TODO |
+| display / preview | TODO | TODO | TODO | TODO | TODO | TODO |
+| verification / support script | TODO | TODO | TODO | TODO | TODO | TODO |
+
+## Supporting Context
+
+Use this section for docs, accepted statements, or handoffs that explain the inspected source body but are not themselves the source-code body.
+
+| Context Item | Path | Why It Is Included | What It Must Not Be Mistaken For | Basis | Resolution |
+| --- | --- | --- | --- | --- | --- |
+| TODO | TODO | TODO | TODO | TODO | TODO |
 
 ## Full View With Visible Gaps
 
@@ -87,6 +99,7 @@ Use the lowest applicable confidence ceiling:
 
 - `source-cited`: directly supported by cited source or accepted local docs.
 - `doc-stated`: stated by local docs but not source-traced in this pass.
+- `accepted-state`: stated by current accepted project state.
 - `inferred`: likely shape from source/doc relation, not directly proven.
 - `not-proven`: claim cannot be made from the inspected material.
 - `not-inspected`: outside this pass.
@@ -135,7 +148,6 @@ Basis mix:
 | --- | --- | --- | --- | --- |
 | meaning pressure | TODO | TODO | TODO | TODO |
 | authority pressure | TODO | TODO | TODO | TODO |
-| naming pressure | TODO: unaccepted or projected units should be labeled `Shape:` | TODO | TODO | TODO |
 | data-flow pressure | TODO | TODO | TODO | TODO |
 | verification pressure | TODO | TODO | TODO | TODO |
 

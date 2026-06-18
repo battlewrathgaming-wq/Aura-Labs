@@ -43,7 +43,7 @@ Why:
 
 ## Boundary Mapping
 
-| Boundary | Owner / Layer | Evidence | Allowed Claim | Must Not Claim |
+| Boundary | Owner / Layer | Source Basis | Allowed Claim | Must Not Claim |
 | --- | --- | --- | --- | --- |
 | Display input example -> Instrument Readout Panel | Lab / Bridge -> Interface presentation | `portable-presentation-starter/README.md`; `instrument-readout-panel.js`; `example-readouts.json` | Lab has a static display head that renders prepared readout-like display input into a panel with basis, age, availability, gaps, warnings, detail, and source-owned qualification. | Lab has defined a bridge schema, runtime contract, target payload, or target enum set. |
 | Selector page -> travelling head | Lab / demo scaffolding vs offered surface | `index.html`; `inspect-head.html`; README Inspect section | Selector page is review scaffolding; no-selector page is a cleaner head inspection shape. | Selector behavior is part of target product navigation. |
@@ -101,9 +101,9 @@ Basis mix:
 | Inference | Yes | Limited to naming the adapter handoff as the boundary implied by docs and package shape. |
 | Not found / not inspected | Yes | Runtime execution, target adapter correctness, Electron behavior, and target-project code were not inspected. |
 
-The map can make source-cited claims about the static starter, package contents, local verifier expectations, and accepted boundary documentation. It cannot make verified claims about target adapters, target adoption, Electron runtime behavior, or live rendering beyond inspected source and verification evidence.
+The map can make source-cited claims about the static starter, package contents, local verifier expectations, and accepted boundary documentation. It cannot make verified claims about target adapters, target adoption, Electron runtime behavior, or live rendering beyond inspected source and verification basis.
 
-## Evidence Appendix
+## Source Basis Appendix
 
 ### Supported Claims
 
@@ -125,9 +125,9 @@ The map can make source-cited claims about the static starter, package contents,
 | If a renderer/head is promoted, SmokeFlash/workshop tooling must be split before export/seeding; the static starter itself does not include SmokeFlash according to the verifier inputs inspected here. | `accepted-state` | `docs/adr/0001-smokeflash-split-timing.md | Decision and Split Triggers; scripts/verify-static-starter.js | ADR requires split before promotion; verifier excludes SmokeFlash in starter implementation text | supports a tooling boundary claim for the static starter but not a full renderer export claim` | `source-cited` |
 | Lab glass is an offered presentation window; targets decide what is seen through it. | `accepted-state` | `docs/statements/presentation-glass-concept-capsule.md | Core Idea and Ownership Split | states glass is a prepared window and target projects provide source meaning/mapper/runtime/final composition | supports the high-level seam framing because it names Lab-side versus target-side roles` | `source-cited` |
 
-### Missing Proof
+### Missing Basis
 
-| Missing proof | Why it matters | Proof that would close it |
+| Missing basis | Why it matters | Source basis that would close it |
 | --- | --- | --- |
 | Actual target adapter imports the package and maps target-owned data correctly. | This seam stops at Lab's local static package; target adapter correctness belongs to the target project. | A target-local trace or target Dev acceptance after importing the package. |
 | Browser/manual visual inspection of the generated static page. | Source and verifier prove file shape and safety checks, not visual fit in a real viewport. | Human or visual smoke/manual screenshot review for the static page if presentation fit is in scope. |
@@ -137,7 +137,7 @@ The map can make source-cited claims about the static starter, package contents,
 
 ### Inferred Or Not-Proven Steps
 
-| Step | Label | Reason | What would prove or disprove it |
+| Step | Label | Reason | What source basis would prove or disprove it |
 | --- | --- | --- | --- |
 | Target project copies or imports `packages/sense-trial-glass/` and adapts locally. | `inferred` | The manifest and README frame it as a local Sense trial package, but no target repo was inspected. | A target-local commit, adapter, or acceptance note. |
 | The same glass shape could serve non-Sense targets with local composition. | `inferred` | The primitive and concept docs are project-agnostic, but no other target import was inspected. | A second target trial or accepted target request. |
@@ -183,7 +183,7 @@ The map can make source-cited claims about the static starter, package contents,
 ## Not Mapped
 
 - Target project source code and adapters.
-- Central Human orientation map (`|`) output.
+- Project Human Orientation Frame (`|`) output.
 - Full Lab renderer, Electron runtime, preload, IPC, or service registry paths.
 - Pane Board, Wayfinder, SmokeFlash, and workshop tooling.
 - Browser/manual screenshot behavior.
