@@ -1,7 +1,7 @@
 # Aura Lab Workspace Overview
 
 Status: Active
-Last reviewed: 2026-06-15
+Last reviewed: 2026-06-18
 
 ## Vision Statement
 
@@ -97,7 +97,7 @@ Current sequence: None
 Latest accepted handshake: workspace/trace-impression/current/project-local-operational-map.md and workspace/trace-impression/current/run-log.md
 Latest active runway: None
 Active runway: workspace/current.md
-Housekeeping: active root refreshed on 2026-06-01 after accepting M49; M19-M34 handoffs remain in `workspace/complete/`, Atlas/Sense relay advisories remain in `workspace/archive/cross-project-relay/`.
+Housekeeping: active root refreshed on 2026-06-18 with Lab development shelves, subject decision trails, durable project brief/boundaries, and filing inventory. No physical HS file moves are authorized yet.
 Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 ## Durable Record Index
@@ -106,6 +106,8 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 
 - `docs/index.md`
 - `docs/README.md`
+- `docs/product-brief.md`
+- `docs/boundaries.md`
 - `docs/roadmap/README.md`
 - `docs/roadmap/future-candidate-bank.md`
 - `docs/roadmap/m29-presentation-head-improvement-rail.md`
@@ -159,6 +161,23 @@ Remote consumer conformance: workspace/LabRemoteConsumerConformanceHS66.md
 ### References
 
 - `workspace/reference/README.md`
+
+### Lab Development Shelves
+
+- `lab-development/README.md`
+- `lab-development/filing-inventory-2026-06-18.md`
+- `lab-development/readiness-checkpoint-2026-06-18.md`
+- `lab-development/trace-impression/README.md`
+- `lab-development/presentation-glass/README.md`
+- `lab-development/pane-board/README.md`
+
+### Decision Trails
+
+- `workspace/decision-trail/README.md`
+- `workspace/decision-trail/trace-impression.md`
+- `workspace/decision-trail/presentation-glass.md`
+- `workspace/decision-trail/pane-board.md`
+- `workspace/decision-trail/cross-cutting.md`
 
 ### Shared Coordination Authority
 

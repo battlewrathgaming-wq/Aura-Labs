@@ -1,7 +1,7 @@
 # Current Workspace Packet
 
 Status: Idle
-Updated: 2026-06-15
+Updated: 2026-06-18
 Owner: Overseer
 
 ## Coordination State
@@ -9,8 +9,8 @@ Owner: Overseer
 Active milestone: None
 Last completed milestone: M57 / Trace Impression First Local Seam Pilot
 Current executor: Human / Overseer
-Current focus: Await Human / Overseer review after accepting the first Trace Impression local seam pilot.
-Expected output: Human direction or next Overseer runway artifact.
+Current focus: Housekeeping/readiness after Trace Impression settling and Lab shelf creation.
+Expected output: Human/Overseer decision on what to stage next: Lab shelf docs, Trace Impression settling outputs, or a later packaging runway.
 Expected DevHS filename: None
 
 ## Current State
@@ -22,6 +22,29 @@ Accepted M57 outputs:
 ```txt
 workspace/trace-impression/current/project-local-operational-map.md
 workspace/trace-impression/current/run-log.md
+```
+
+Post-M57 settling outputs awaiting Human review:
+
+```txt
+workspace/trace-impression/current/project-human-orientation-frame.md
+workspace/trace-impression/portable-shipping-and-memory-surfaces.md
+workspace/trace-impression/assurance-test-ledger.md
+workspace/trace-impression/overseer-quality-indicators.md
+workspace/trace-impression/fresh_agent_bootup_artefact.md
+workspace/trace-impression/warm-start.md
+workspace/trace-impression/test-fixtures/
+```
+
+Lab shelf/readiness outputs awaiting review:
+
+```txt
+docs/product-brief.md
+docs/boundaries.md
+workspace/decision-trail/
+lab-development/
+lab-development/filing-inventory-2026-06-18.md
+lab-development/readiness-checkpoint-2026-06-18.md
 ```
 
 Accepted M57 result:
@@ -41,10 +64,23 @@ Accepted M57 map state:
 ```txt
 - Source-cited claims can be made about the static starter, package contents, local verifier expectations, and accepted boundary documentation.
 - Target adapter correctness, target adoption, Electron/runtime security posture, visual/manual browser inspection, and package/export readiness remain explicitly unproven.
-- `|` Human orientation sync remains parked until the local map has been reviewed or a broader orientation pass is explicitly opened.
-- Post-review cleanup changed the Trace Impression reading order to response -> selected seam -> boundary mapping -> full view with visible gaps -> open edge -> evidence appendix.
+- First `|` Human orientation sync has been run against the presentation head.
+- The external Human-facing copy landed at `F:\Projects\Docs\Aura-Project-Orchestration\deep-knowledge\Aura-Lab\trace-impression\current-human-orientation-frame.md`.
+- Trace Impression now has a portable shipping/memory-surface guide and a simple assurance test ledger for Overseer walkthroughs.
+- Trace Impression warm start is parked at `workspace/trace-impression/warm-start.md`.
+- Negative dry-run checks showed limited/gap-labeled behavior with sparse context and resistance to unsupported target-adoption phrasing.
+- Post-review cleanup changed the Trace Impression reading order to response -> selected seam -> boundary mapping -> full view with visible gaps -> open edge -> source basis appendix.
 - Task-like "next ask" language was replaced with map-boundary "open edge" language.
 - Warm-start seed parked at `workspace/trace-impression/warm-start-seeds.md` for a possible future `M58 / Static Starter Import Boundary Verifier`.
+- Lab development shelves and decision trails now separate Trace Impression, Presentation Glass, and Pane Board records.
+- Pane Board is recorded as Lab-only internal tooling by default; saved/captured board outputs are reference shadows, not product payload.
+```
+
+Post-M57 settling / housekeeping status:
+
+```txt
+The first `|` Human orientation frame and negative dry-run checks are useful proof artifacts, but they are awaiting Human review before being treated as accepted portable workflow state.
+The filing inventory and readiness checkpoint are useful housekeeping artifacts, but no physical HS file moves are authorized yet.
 ```
 
 Verification:
@@ -63,7 +99,7 @@ Accepted M56 outputs:
 
 ```txt
 workspace/trace-impression/templates/project-local-operational-map.md
-workspace/trace-impression/templates/central-human-orientation-map.md
+workspace/trace-impression/templates/project-human-orientation-frame.md
 ```
 
 Accepted M56 state:
